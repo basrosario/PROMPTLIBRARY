@@ -46,7 +46,7 @@ html, body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
-    overflow-x: hidden;
+    overflow: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -265,7 +265,7 @@ p { margin-bottom: 15px; }
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .profile-mode {
