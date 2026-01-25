@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![This Website Was](https://img.shields.io/badge/This_Website_Was-FF6600?style=for-the-badge) ![Created](https://img.shields.io/badge/CREATED-D71920?style=for-the-badge) ![With](https://img.shields.io/badge/WITH-4CAF50?style=for-the-badge) ![UD](https://img.shields.io/badge/UD-2196F3?style=for-the-badge) ![In](https://img.shields.io/badge/IN-FFD700?style=for-the-badge) ![Mind](https://img.shields.io/badge/MIND-9C27B0?style=for-the-badge)
+![This Website Was](https://img.shields.io/badge/This_Website_Was-FF6600?style=for-the-badge)![Created](https://img.shields.io/badge/CREATED-D71920?style=for-the-badge)![With](https://img.shields.io/badge/WITH-4CAF50?style=for-the-badge)![UD](https://img.shields.io/badge/UD-2196F3?style=for-the-badge)![In](https://img.shields.io/badge/IN-FFD700?style=for-the-badge)![Mind](https://img.shields.io/badge/MIND-9C27B0?style=for-the-badge)
 
 ![Security Grade](https://img.shields.io/badge/Security-A+_100%25-success?style=for-the-badge&labelColor=2196F3)
 ![Performance](https://img.shields.io/badge/Performance-100%25-success?style=for-the-badge&labelColor=2196F3)
