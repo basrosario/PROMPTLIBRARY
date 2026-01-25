@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+
+    <title>GitHub Insights - Basiliso Rosario</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="brand-area">
+            &lt; /BASILISO<span class="text-red">ROSARIO &gt;</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-scroller">
+            <div class="nav-header">Site Navigation</div>
+
+            <a href="../index.html" class="nav-item">Home / Profile</a>
+
+            <div class="nav-accordion">
+                <div class="nav-accordion-header">
+                    Security
+                    <img src="../Icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
+                </div>
+                <div class="nav-accordion-content">
+                    <a href="../Security/security.html" class="nav-item">Security Posture</a>
+                    <a href="../Security/site-use-policy.html" class="nav-item">Terms of Use Policy</a>
+                </div>
+            </div>
+
+            <a href="../library.html" class="nav-item">Prompt Library</a>
+
+            <div class="nav-accordion">
+                <div class="nav-accordion-header active">
+                    GitHub
+                    <img src="../Icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
+                </div>
+                <div class="nav-accordion-content active">
+                    <a href="#" class="nav-item active">GitHub Insights</a>
+                </div>
+            </div>
+
+            <div class="nav-header">Connect</div>
+            <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer" class="nav-item">
+                <img src="../Icons/SVG/linkedin.svg" alt="" class="local-icon icon-white"> LinkedIn
+            </a>
+            <a href="mailto:bas.rosario@gmail.com" class="nav-item">
+                <img src="../Icons/SVG/email.svg" alt="" class="local-icon icon-white"> Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <div class="content-scroll">
+            <div class="container security-container">
+
+                <h1 class="sec-main-title">GitHub <span class="text-red">Insights</span></h1>
+                <div class="sec-meta">
+                    <span><strong>Repository:</strong> PROMPTLIBRARY</span>
+                    <span><strong>Platform:</strong> <span class="text-green">GitHub</span></span>
+                    <span><strong>Deployment:</strong> <span class="text-green">Auto-Deploy via Hostinger</span></span>
+                </div>
+
+                <p class="lead">This page showcases the development workflow, code architecture, and CI/CD pipeline used to build and deploy this website. Each section demonstrates real code samples and explains why specific design decisions were made to achieve maintainability, performance, and security.</p>
+
+                <div class="achievement-banner">
+                    <div class="achievement-icon">🚀</div>
+                    <div class="achievement-text">
+                        <h2>Fully Automated Deployment Pipeline</h2>
+                        <p>Push to GitHub and changes automatically deploy to production within seconds. No manual uploads, no FTP, just seamless CI/CD integration.</p>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="sec-section">
+                    <h3>Development Workflow Overview</h3>
+                    <p>The project follows a modern development workflow that emphasizes version control, automated deployment, and code quality. Below are real screenshots from the development environment showing how the codebase is structured and deployed.</p>
+                </div>
+
+                <div class="test-results-section">
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/GITHUBREADME.png" alt="GitHub README with Badges">
+                        </div>
+                        <div class="test-info">
+                            <h4>Professional README Documentation</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">The GitHub repository landing page with colorful status badges and comprehensive documentation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>Visual Status Indicators:</strong> Badges provide at-a-glance project health metrics.<br><br>
+                                        <strong>Structured Navigation:</strong> Table of contents allows quick access to any section.<br><br>
+                                        <strong>Professional Presentation:</strong> Well-formatted README establishes credibility and makes the project accessible to other developers.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Key Features:</td>
+                                    <td class="value">
+                                        Multi-color UD badges<br>
+                                        Security A+ badge<br>
+                                        Performance 100% badge<br>
+                                        Complete roadmap documentation
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/GITHUBHOSTPearing.png" alt="GitHub to Hostinger Auto-Deployment">
+                        </div>
+                        <div class="test-info">
+                            <h4>CI/CD: GitHub to Hostinger Auto-Deployment</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">The complete deployment pipeline from GitHub repository to Hostinger hosting with auto-deployment enabled.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>SSH Key Authentication:</strong> Secure connection between GitHub and Hostinger using deploy keys.<br><br>
+                                        <strong>Branch-Based Deployment:</strong> Only the main branch triggers production deployments, protecting against accidental pushes.<br><br>
+                                        <strong>Zero-Downtime Updates:</strong> Files are pulled and updated atomically, ensuring visitors never see a broken state.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Workflow:</td>
+                                    <td class="value">
+                                        1. Developer pushes to GitHub<br>
+                                        2. Hostinger receives webhook<br>
+                                        3. Auto-pull from repository<br>
+                                        4. Live site updated instantly
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/SecurityHTMLcode.png" alt="Security HTML Code Structure">
+                        </div>
+                        <div class="test-info">
+                            <h4>Security-First HTML Architecture</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">The HTML head section of security.html with inline Content Security Policy meta tags.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>Meta CSP Fallback:</strong> Even if server headers fail, the browser enforces security via meta tags.<br><br>
+                                        <strong>Strict Referrer Policy:</strong> Prevents sensitive URL data from leaking to external sites.<br><br>
+                                        <strong>Semantic HTML:</strong> Proper document structure with lang attribute for accessibility and SEO.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Security Headers:</td>
+                                    <td class="value">
+                                        default-src 'none'<br>
+                                        script-src 'self'<br>
+                                        style-src 'self'<br>
+                                        img-src 'self' data:
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/appjssample.png" alt="JavaScript Mobile Navigation Code">
+                        </div>
+                        <div class="test-info">
+                            <h4>Vanilla JavaScript: Mobile Navigation</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">The app.js file containing the mobile navigation toggle functionality with event listeners and DOM manipulation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>No Framework Dependencies:</strong> Pure vanilla JavaScript means zero external dependencies and faster load times.<br><br>
+                                        <strong>Event Delegation:</strong> Efficient event handling with proper propagation control using stopPropagation().<br><br>
+                                        <strong>Dynamic Element Creation:</strong> Backdrop overlay is created programmatically only when needed, reducing initial DOM size.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Key Patterns:</td>
+                                    <td class="value">
+                                        DOMContentLoaded listener<br>
+                                        querySelector for DOM access<br>
+                                        classList.add/remove for state<br>
+                                        insertBefore for DOM insertion
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/profileimage7.1kb.png" alt="Optimized Profile Image">
+                        </div>
+                        <div class="test-info">
+                            <h4>Performance: Image Optimization</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">VS Code displaying the optimized profile image (me2.png) that was compressed from 4.4MB to just 7.1KB - a 99.8% reduction.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>Aggressive Compression:</strong> Using modern compression tools to reduce file size without visible quality loss.<br><br>
+                                        <strong>Appropriate Dimensions:</strong> Image sized to actual display dimensions, not oversized originals.<br><br>
+                                        <strong>Performance Impact:</strong> Smaller images mean faster page loads, better Core Web Vitals, and reduced bandwidth costs.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Results:</td>
+                                    <td class="value">
+                                        Original: 4.4 MB<br>
+                                        Optimized: 7.1 KB<br>
+                                        Savings: 99.8%<br>
+                                        LCP Impact: Sub-700ms
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="test-row">
+                        <div class="test-image">
+                            <img src="../GitHub Insights/ProjectGuidlinesREADME.png" alt="Project Guidelines README">
+                        </div>
+                        <div class="test-info">
+                            <h4>AI-Assisted Development: Claude Code Integration</h4>
+                            <table class="test-table">
+                                <tr>
+                                    <td class="label">What It Shows:</td>
+                                    <td class="value">VS Code with copilot-instructions.md file containing project guidelines for AI coding assistants like Claude Code.</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Why It Works:</td>
+                                    <td class="value">
+                                        <strong>Context Preservation:</strong> AI assistants understand project conventions and naming patterns from the guidelines file.<br><br>
+                                        <strong>Consistent Code Quality:</strong> Guidelines ensure AI-generated code matches existing patterns and styles.<br><br>
+                                        <strong>Accelerated Development:</strong> Clear instructions reduce back-and-forth, making AI assistance more effective.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Guidelines Include:</td>
+                                    <td class="value">
+                                        Screenshot naming conventions<br>
+                                        Testing site references<br>
+                                        File structure requirements<br>
+                                        Code style preferences
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sec-section">
+                    <h3>Code Architecture Highlights</h3>
+                    <div class="rationale-grid">
+                        <div class="rationale-item">
+                            <strong>Zero External Dependencies</strong>
+                            <p>No jQuery, no Bootstrap, no React. All functionality is built with vanilla HTML, CSS, and JavaScript for maximum performance and control.</p>
+                        </div>
+                        <div class="rationale-item">
+                            <strong>Self-Hosted Assets</strong>
+                            <p>Fonts, icons, and images are all hosted locally. No CDN dependencies mean no third-party tracking and guaranteed availability.</p>
+                        </div>
+                        <div class="rationale-item">
+                            <strong>Mobile-First Design</strong>
+                            <p>CSS written for mobile devices first, then enhanced for larger screens. This ensures optimal experience on all devices.</p>
+                        </div>
+                        <div class="rationale-item">
+                            <strong>Semantic HTML Structure</strong>
+                            <p>Proper heading hierarchy, ARIA labels, and meaningful element choices improve accessibility and SEO rankings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec-section">
+                    <h3>View on GitHub</h3>
+                    <p>Explore the complete source code, commit history, and documentation on GitHub:</p>
+                    <div class="sec-card">
+                        <div class="sec-card-header">
+                            <img src="../Icons/SVG/github.svg" class="local-icon icon-red" alt=""> <b>PROMPTLIBRARY Repository</b>
+                        </div>
+                        <p><a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="text-red">github.com/basrosario/PROMPTLIBRARY</a></p>
+                        <br>
+                        <ul class="sec-list">
+                            <li><span class="text-green">✔</span> Full source code available</li>
+                            <li><span class="text-green">✔</span> Complete commit history</li>
+                            <li><span class="text-green">✔</span> Comprehensive README documentation</li>
+                            <li><span class="text-green">✔</span> MIT License for learning and reference</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>
