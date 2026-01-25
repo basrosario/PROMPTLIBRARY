@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![Website Designed with UD in Mind](https://img.shields.io/badge/Website-Designed_with_UD_in_Mind-D71920?style=for-the-badge)
+
 ![Security Grade](https://img.shields.io/badge/Security-A+_100%25-success?style=for-the-badge)
 ![Performance](https://img.shields.io/badge/Performance-100%25-success?style=for-the-badge)
 ![Structure](https://img.shields.io/badge/Structure-100%25-success?style=for-the-badge)
