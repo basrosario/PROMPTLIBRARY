@@ -160,28 +160,28 @@
 
                     <div class="level-header">
                         <span class="level-badge cell-accent text-white">ReAct Application</span>
-                        <span class="level-title">Calendar Conflict Resolution</span>
-                        <span class="level-desc">Interactive Troubleshooting</span>
+                        <span class="level-title">Executive Travel Disruption</span>
+                        <span class="level-desc">Interactive Problem Solving</span>
                     </div>
 
                     <div class="example-block">
                         <div class="example-header">
-                            <span>Double-Booking Crisis Resolution</span>
+                            <span>Flight Cancellation Recovery</span>
                             <span class="method-badge">ReAct</span>
                             <button class="btn-copy">Copy</button>
                         </div>
                         <div class="example-content">
                             <div class="prompt-text"><span class="key">[Role]</span> You are a Senior Executive Assistant using the ReAct framework.<br>
-<span class="key">[Goal]</span> Your goal is to solve the user's scheduling conflict by simulating a troubleshooting loop.<br>
-<span class="key">[Tools]</span> You have access to: [CalendarCheck], [EmailHistory], [ContactLookup]<br>
+<span class="key">[Goal]</span> Your goal is to recover the CEO's travel itinerary after a flight cancellation by systematically gathering information before proposing solutions.<br>
+<span class="key">[Tools]</span> You have access to: [FlightStatus], [CalendarView], [HotelBooking], [ContactDirectory]<br>
 <span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
-<span class="key">[Scenario]</span> The CEO is double-booked on Thursday at 2 PM. Slot 1 is a quarterly board meeting (scheduled 3 months ago). Slot 2 is an urgent investor call that the VP of Finance just added this morning. Both stakeholders consider their meeting critical.</div>
+<span class="key">[Scenario]</span> It is 6:15 AM on Tuesday. The CEO's 8:00 AM flight from Chicago O'Hare to New York LaGuardia (AA 1247) was just cancelled due to mechanical issues. She has a 1:00 PM contract signing with Meridian Partners at their Manhattan office, followed by a 4:00 PM board dinner at The Capital Grille. The contract signing cannot be virtual—Meridian's General Counsel requires wet signatures. The CEO is currently at the Hyatt Regency O'Hare.</div>
                         </div>
                     </div>
 
                     <div class="method-explanation">
                         <strong>Why this works:</strong><br>
-                        Without ReAct, you might immediately cancel one meeting based on assumptions. By using the interactive loop, you gather real context (investor timeline, board agenda flexibility) before proposing a solution. This prevents diplomatic disasters and demonstrates strategic thinking to your executive.
+                        A rushed response might book the first available flight without checking connection times, or suggest a virtual meeting that violates Meridian's legal requirements. ReAct forces you to verify actual flight availability, calculate realistic arrival times with ground transport, and confirm stakeholder constraints before committing to a solution that affects a multi-million dollar contract signing.
                     </div>
                 </div>
 
@@ -200,28 +200,28 @@
 
                     <div class="level-header">
                         <span class="level-badge cell-accent text-white">ReAct Application</span>
-                        <span class="level-title">Build Failure Troubleshooting</span>
+                        <span class="level-title">Production API Degradation</span>
                         <span class="level-desc">Interactive Troubleshooting</span>
                     </div>
 
                     <div class="example-block">
                         <div class="example-header">
-                            <span>CI/CD Pipeline Debugging</span>
+                            <span>Response Time Spike Investigation</span>
                             <span class="method-badge">ReAct</span>
                             <button class="btn-copy">Copy</button>
                         </div>
                         <div class="example-content">
-                            <div class="prompt-text"><span class="key">[Role]</span> You are a Senior DevOps Engineer using the ReAct framework.<br>
-<span class="key">[Goal]</span> Your goal is to solve the user's build failure by simulating a troubleshooting loop.<br>
-<span class="key">[Tools]</span> You have access to: [BuildLogs], [GitHistory], [DependencyCheck]<br>
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Senior Backend Engineer using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to diagnose the root cause of API performance degradation by systematically gathering evidence before making changes.<br>
+<span class="key">[Tools]</span> You have access to: [APM_Dashboard], [DatabaseMetrics], [RecentDeployments], [ErrorLogs]<br>
 <span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
-<span class="key">[Scenario]</span> The CI/CD pipeline started failing after a feature branch was merged to main this morning. The build worked fine on the feature branch yesterday. Developers are blocked from deploying.</div>
+<span class="key">[Scenario]</span> The /api/v2/orders endpoint p95 response time spiked from 180ms to 2,400ms starting at 10:47 AM today. The Customer Success team is reporting that enterprise clients on the Premium tier are experiencing checkout timeouts. No deployments were made this morning. The database team says PostgreSQL CPU looks normal. There are 847 open support tickets tagged "checkout-slow" in Zendesk.</div>
                         </div>
                     </div>
 
                     <div class="method-explanation">
                         <strong>Why this works:</strong><br>
-                        Instead of immediately rolling back the merge or guessing at the problem, ReAct forces you to systematically investigate. You gather actual error logs, then trace the root cause through git history. This prevents wasted time on incorrect assumptions and helps you document the issue for future prevention.
+                        The instinct is to immediately scale up servers or restart services. ReAct forces you to first verify the actual bottleneck—is it the application, database queries, external API calls, or network? By checking APM traces and correlating with the exact timestamp, you might discover that a third-party payment processor started timing out, not your own infrastructure. This prevents costly over-provisioning and identifies the true root cause.
                     </div>
                 </div>
 
@@ -240,28 +240,28 @@
 
                     <div class="level-header">
                         <span class="level-badge cell-accent text-white">ReAct Application</span>
-                        <span class="level-title">Incident Root Cause Analysis</span>
-                        <span class="level-desc">Interactive Troubleshooting</span>
+                        <span class="level-title">Vendor Contract Renewal Decision</span>
+                        <span class="level-desc">Interactive Analysis</span>
                     </div>
 
                     <div class="example-block">
                         <div class="example-header">
-                            <span>Production Outage Post-Mortem</span>
+                            <span>SaaS Platform Evaluation</span>
                             <span class="method-badge">ReAct</span>
                             <button class="btn-copy">Copy</button>
                         </div>
                         <div class="example-content">
                             <div class="prompt-text"><span class="key">[Role]</span> You are an IT Operations Manager using the ReAct framework.<br>
-<span class="key">[Goal]</span> Your goal is to conduct a thorough post-mortem analysis by simulating an investigative loop.<br>
-<span class="key">[Tools]</span> You have access to: [IncidentTimeline], [ChangeHistory], [TeamInterview]<br>
+<span class="key">[Goal]</span> Your goal is to make a data-driven recommendation on whether to renew, renegotiate, or replace a critical vendor contract by systematically gathering evidence.<br>
+<span class="key">[Tools]</span> You have access to: [UsageAnalytics], [SupportTicketHistory], [FinanceRecords], [StakeholderSurvey]<br>
 <span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
-<span class="key">[Scenario]</span> The customer-facing portal went down for 45 minutes yesterday at 3:15 PM. Users reported "500 Internal Server Error." The service was restored at 4:00 PM, but you need to understand what happened to prevent future occurrences and report to leadership.</div>
+<span class="key">[Scenario]</span> The 3-year contract with Atlassian (Jira/Confluence) expires in 90 days. Procurement is requesting a renewal decision by Friday. The vendor is proposing a 22% price increase ($180K to $220K annually) citing "enhanced AI features." Meanwhile, the Engineering Director mentioned teams are frustrated with Jira's performance, and two department heads have asked about switching to Linear or Monday.com. You need to present a recommendation to the CTO with supporting data.</div>
                         </div>
                     </div>
 
                     <div class="method-explanation">
                         <strong>Why this works:</strong><br>
-                        A traditional post-mortem might jump to conclusions or assign blame prematurely. ReAct forces you to methodically gather evidence (timeline, changes, interviews) before forming conclusions. This leads to accurate root cause identification and actionable prevention steps that you can confidently present to leadership.
+                        The instinct is to either accept the renewal to avoid disruption or reject it based on vocal complaints. ReAct forces you to gather actual usage metrics (are we using all 500 licenses?), support ticket trends (are complaints increasing or isolated?), and stakeholder input (what features do teams actually need?) before committing to a $660K three-year decision. This prevents both unnecessary spending and disruptive migrations based on incomplete information.
                     </div>
                 </div>
 
@@ -280,28 +280,28 @@
 
                     <div class="level-header">
                         <span class="level-badge cell-accent text-white">ReAct Application</span>
-                        <span class="level-title">Printer Network Troubleshooting</span>
+                        <span class="level-title">Conference Room AV Failure</span>
                         <span class="level-desc">Interactive Troubleshooting</span>
                     </div>
 
                     <div class="example-block">
                         <div class="example-header">
-                            <span>Multi-User Printer Offline Issue</span>
+                            <span>Executive Presentation Emergency</span>
                             <span class="method-badge">ReAct</span>
                             <button class="btn-copy">Copy</button>
                         </div>
                         <div class="example-content">
-                            <div class="prompt-text"><span class="key">[Role]</span> You are a Tier 2 Infrastructure Support Technician using the ReAct framework.<br>
-<span class="key">[Goal]</span> Your goal is to solve the user's printer connectivity issue by simulating a troubleshooting loop.<br>
-<span class="key">[Tools]</span> You have access to: [PingTest], [PrintQueueCheck], [NetworkDiagnostics]<br>
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Tier 2 Site Support Technician using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to restore conference room functionality before a critical meeting by systematically diagnosing the issue.<br>
+<span class="key">[Tools]</span> You have access to: [RoomControlPanel], [NetworkStatus], [DeviceInventory], [CablingDiagram]<br>
 <span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
-<span class="key">[Scenario]</span> Five users from the Finance department have reported that the color laser printer (PR-FIN-02) shows as "offline" in their print dialog. The tickets started coming in at 9:00 AM this morning. No one can print to this device.</div>
+<span class="key">[Scenario]</span> It is 8:47 AM. The CFO's assistant just called in a P1 ticket: the main boardroom (BR-EXEC-01) display shows "No Signal" and the Zoom Room touch panel is unresponsive. The quarterly earnings call with analysts starts at 9:30 AM. The room was working fine for a 4:00 PM meeting yesterday. Facilities confirmed no overnight maintenance. The CFO is presenting slides from her laptop and needs to share her screen with 50+ remote analysts joining via Zoom.</div>
                         </div>
                     </div>
 
                     <div class="method-explanation">
                         <strong>Why this works:</strong><br>
-                        Instead of immediately walking to the printer room or asking users to restart their computers (common first instincts), ReAct guides you to systematically test network connectivity first. This saves physical trips and identifies whether the issue is at the device, network, or user level. You gather evidence before taking action, reducing Mean Time to Resolution (MTTR).
+                        The instinct is to immediately swap cables or reboot everything—but with 43 minutes until a public earnings call, random troubleshooting wastes critical time. ReAct forces you to first identify what changed (was it the display, the Zoom Room PC, the HDMI matrix, or network?) by checking each component systematically. You might discover the Zoom Room PC rebooted overnight for updates and failed to reconnect to WiFi—a 2-minute fix versus replacing hardware that isn't broken.
                     </div>
                 </div>
 
