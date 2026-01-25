@@ -1,4 +1,4 @@
-# PROMPTLIBRARY - Prompt Engineering Library - </OpenBas>
+# PROMPTLIBRARY - Prompt Engineering Library - </ OpenBas >
 
 <div align="center">
 
