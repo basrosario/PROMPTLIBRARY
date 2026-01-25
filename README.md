@@ -459,8 +459,8 @@ Added 1-year cache headers for static assets (see Phase 4).
 
 1. **Least Privilege** - Only minimum required browser capabilities permitted
 2. **Defense in Depth** - Multiple overlapping security controls
-3. **No Third-Party Scripts** - Zero external dependencies
-4. **No Data Collection** - No cookies, analytics, or tracking
+3. **Predictability** - Explicit configuration and deterministic behavior
+4. **Visibility** - Security posture openly documented and verifiable
 
 ---
 
