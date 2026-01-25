@@ -397,4 +397,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in').forEach(el => {
         fadeObserver.observe(el);
     });
+
+    // ==========================================
+    // ANIMATED COUNTERS
+    // ==========================================
+    function animateCounter(element) {
+        const target = parseInt(element.dataset.target, 10);
+        const duration = 1500; // 1.5 seconds
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Ease out cubic
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(easeOut * target);
+
+            element.textContent = current;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+    }
+
+    // Intersection Observer for counters
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    // Observe all counter elements
+    document.querySelectorAll('.counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
 });
