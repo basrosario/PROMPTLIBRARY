@@ -112,6 +112,7 @@ The website showcases professional work, provides educational resources related 
 - **CSS3** - Modern responsive design with flexbox/grid layouts
 - **Vanilla JavaScript** - No frameworks, pure DOM manipulation
 - **SVG Icons** - Scalable, self-hosted vector graphics
+- **SVG Fonts** - Scalable, self-hosted vector fonts
 
 ### Hosting & Infrastructure
 
