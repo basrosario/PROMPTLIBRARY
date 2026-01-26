@@ -2757,9 +2757,28 @@ p { margin-bottom: 15px; }
     text-align: center;
 }
 
+.citation-note a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.citation-note a:hover {
+    color: var(--brand-red);
+    text-decoration: underline;
+}
+
 [data-theme="dark"] .citation-note {
     color: var(--text-muted);
     border-top-color: var(--border-dark);
+}
+
+[data-theme="dark"] .citation-note a {
+    color: #FF6B6B;
+}
+
+[data-theme="dark"] .citation-note a:hover {
+    color: #FF8585;
 }
 
 /* Performance Timeline */
