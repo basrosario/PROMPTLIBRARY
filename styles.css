@@ -2579,7 +2579,7 @@ p { margin-bottom: 15px; }
     border-radius: 15px;
     position: relative;
     width: 0;
-    animation: barGrow 1.5s ease-out forwards;
+    animation: barGrow 2.5s ease-out forwards;
     background: linear-gradient(90deg, #c0392b, #e74c3c); /* Default red gradient */
 }
 
@@ -2652,7 +2652,7 @@ p { margin-bottom: 15px; }
     stroke-linecap: round;
     stroke-dasharray: 314;
     stroke-dashoffset: 314;
-    animation: circleProgress 2s ease-out forwards;
+    animation: circleProgress 3s ease-out forwards;
 }
 
 .circular-progress .progress.red { stroke: var(--accent); }
@@ -2706,7 +2706,7 @@ p { margin-bottom: 15px; }
     font-weight: 700;
     color: #FFFFFF;
     transition: flex 1s ease-out;
-    animation: segmentGrow 1.5s ease-out forwards;
+    animation: segmentGrow 2.5s ease-out forwards;
 }
 
 .stacked-segment.html { background: #E44D26; }
