@@ -915,6 +915,42 @@ p { margin-bottom: 15px; }
     line-height: 1.5;
 }
 
+/* Disclaimer Banner - Template Notice */
+.disclaimer-banner {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    border: 2px solid var(--border-color);
+    border-left: 4px solid #D71920;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.disclaimer-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.disclaimer-icon .local-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.disclaimer-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.disclaimer-text strong {
+    color: #D71920;
+}
+
 /* Security Test Results - Table Layout */
 .test-results-section {
     margin: 20px 0;
@@ -1521,6 +1557,14 @@ p { margin-bottom: 15px; }
 
     .achievement-text h2 {
         font-size: 1.4rem;
+    }
+
+    .disclaimer-banner {
+        padding: 12px 15px;
+    }
+
+    .disclaimer-text {
+        font-size: 0.85rem;
     }
 
     .security-container {
