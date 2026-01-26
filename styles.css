@@ -2591,13 +2591,13 @@ p { margin-bottom: 15px; }
 .bar-fill.svg { background: linear-gradient(90deg, #555555, #666666); }
 .bar-fill.config { background: linear-gradient(90deg, #777777, #888888); }
 
-/* Chart color classes */
-.bar-fill.green { background: linear-gradient(90deg, #27ae60, #2ecc71); }
-.bar-fill.blue { background: linear-gradient(90deg, #2980b9, #3498db); }
-.bar-fill.purple { background: linear-gradient(90deg, #8e44ad, #9b59b6); }
-.bar-fill.orange { background: linear-gradient(90deg, #d35400, #e67e22); }
+/* Chart color classes - Black, Red, Grey, White palette */
+.bar-fill.green { background: linear-gradient(90deg, #333333, #444444); }
+.bar-fill.blue { background: linear-gradient(90deg, #555555, #666666); }
+.bar-fill.purple { background: linear-gradient(90deg, #666666, #777777); }
+.bar-fill.orange { background: linear-gradient(90deg, #888888, #999999); }
 .bar-fill.red { background: linear-gradient(90deg, #c0392b, #e74c3c); }
-.bar-fill.teal { background: linear-gradient(90deg, #16a085, #1abc9c); }
+.bar-fill.teal { background: linear-gradient(90deg, #444444, #555555); }
 
 .bar-fill::after {
     content: attr(data-value);
@@ -2657,9 +2657,9 @@ p { margin-bottom: 15px; }
 }
 
 .circular-progress .progress.red { stroke: var(--accent); }
-.circular-progress .progress.green { stroke: #4CAF50; }
-.circular-progress .progress.blue { stroke: #2196F3; }
-.circular-progress .progress.purple { stroke: #9C27B0; }
+.circular-progress .progress.green { stroke: #555555; }
+.circular-progress .progress.blue { stroke: #777777; }
+.circular-progress .progress.purple { stroke: #999999; }
 
 @keyframes circleProgress {
     from { stroke-dashoffset: 314; }
@@ -2711,10 +2711,10 @@ p { margin-bottom: 15px; }
     animation: segmentGrow 2.5s ease-out forwards;
 }
 
-.stacked-segment.html { background: #E44D26; }
-.stacked-segment.css { background: #563D7C; }
-.stacked-segment.js { background: #F7DF1E; color: #000000; }
-.stacked-segment.other { background: #6E7681; }
+.stacked-segment.html { background: #333333; }
+.stacked-segment.css { background: #555555; }
+.stacked-segment.js { background: #888888; color: #000000; }
+.stacked-segment.other { background: #AAAAAA; }
 
 @keyframes segmentGrow {
     from { flex: 0; }

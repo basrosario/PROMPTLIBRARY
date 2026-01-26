@@ -56,6 +56,7 @@ Instead of teaching people to fear AI or catch AI use, we focus on:
   - [Education Hub](#education-hub)
   - [Business Sectors](#business-sectors)
   - [Service Industries](#service-industries)
+  - [Enterprise Programs](#enterprise-programs)
 - [Core Features](#-core-features)
 - [Quick Start](#quick-start)
 - [Implementation Roadmap](#implementation-roadmap)
@@ -122,6 +123,19 @@ Practical AI prompts for service professionals:
 | **Creative Services** | Photographers, designers, videographers |
 | **Trades** | Electricians, plumbers, contractors |
 | **Hospitality** | Restaurants, caterers, event planners |
+
+---
+
+### Enterprise Programs
+
+Comprehensive AI adoption programs for organizations:
+
+| Program | Focus |
+|---------|-------|
+| **Program Overview** | Structured approach to enterprise AI deployment |
+| **Workshops & Training** | Hands-on sessions for teams at all levels |
+| **Implementation Guide** | Step-by-step rollout methodology |
+| **AI Governance** | Policies, ethics, and responsible AI frameworks |
 
 ---
 
@@ -647,6 +661,9 @@ PROMPTLIBRARY/
 │   ├── trades.html             # Electricians, plumbers
 │   └── hospitality.html        # Restaurants, caterers
 │
+├── enterprise/                 # Enterprise AI Programs
+│   └── index.html              # Program overview, workshops, implementation, governance
+│
 └── .github/
     └── copilot-instructions.md # AI assistant context
 ```
@@ -698,19 +715,27 @@ The primary accent color is `#D71920` (red). To change it:
 
 ## License
 
-This project is released under the **MIT License**.
+This project is released under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.
 
-**You MAY:**
+**You MAY (for personal, non-commercial use):**
 - Use this code as a template for your own portfolio
 - Modify and customize the design and functionality
 - Learn from the security implementation
 - Reference the prompt engineering structure
+- Share with others (with attribution)
 
 **You MUST:**
+- **Provide attribution** to Basiliso Rosario with a link to the source
 - Replace all personal information (name, photo, bio, contact info)
 - Replace or customize prompt engineering examples
-- Update the domain and hosting information
-- Customize the branding and color scheme
+- Indicate if changes were made to the original content
+
+**You MAY NOT (without written permission):**
+- Use for commercial purposes
+- Use in paid training materials or courses
+- Remove or obscure attribution notices
+
+For commercial licensing inquiries, contact: bas.rosario@gmail.com
 
 See [LICENSE](LICENSE) for full details.
 
