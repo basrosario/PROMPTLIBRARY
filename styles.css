@@ -2733,6 +2733,22 @@ p { margin-bottom: 15px; }
 .legend-dot.js { background: #666666; }
 .legend-dot.other { background: #777777; }
 
+/* Citation Notes for Statistics */
+.citation-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+[data-theme="dark"] .citation-note {
+    color: var(--text-muted);
+    border-top-color: var(--border-dark);
+}
+
 /* Performance Timeline */
 .timeline-chart {
     position: relative;
