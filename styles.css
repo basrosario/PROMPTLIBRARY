@@ -454,8 +454,8 @@ p { margin-bottom: 15px; }
 }
 
 .btn-icon-circle img {
-    transition: transform 0.3s ease, color 0.3s ease;
-    color: #FFFFFF;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0);
 }
 
 .btn-primary:hover .btn-icon-circle {
@@ -464,7 +464,7 @@ p { margin-bottom: 15px; }
 
 .btn-primary:hover .btn-icon-circle img {
     transform: rotate(35deg);
-    color: #000000;
+    filter: brightness(0);
 }
 
 /* =========================================
