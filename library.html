@@ -56,6 +56,14 @@
             <div class="nav-item" data-tab="clinical">Clinical Operations</div>
             <div class="nav-item" data-tab="pv">Pharmacovigilance</div>
 
+            <div class="nav-header">Corporate Functions</div>
+            <div class="nav-item" data-tab="compliance">Compliance & Legal</div>
+            <div class="nav-item" data-tab="supply">Supply Chain</div>
+            <div class="nav-item" data-tab="hr">Human Resources</div>
+            <div class="nav-item" data-tab="finance">Finance & Planning</div>
+            <div class="nav-item" data-tab="training">Training & Development</div>
+            <div class="nav-item" data-tab="ehs">Environmental Health & Safety</div>
+
             <div class="nav-header">AI & Innovation</div>
             <div class="nav-item" data-tab="brainstorming">Brainstorming</div>
             <div class="nav-item" data-tab="lateral">"Out of the Box" Lateral Thinking</div>
@@ -509,6 +517,246 @@
                     <div class="method-explanation">
                         <strong>Why this works:</strong><br>
                         The instinct is to immediately start the 15-day expedited reporting clock and scramble to fill in gaps. ReAct forces you to first verify the seriousness criteria, check if unblinding is required per protocol, review whether cardiac events are expected based on the mechanism of action, and calculate exact regulatory deadlines before acting. This prevents unnecessary unblinding while ensuring compliant, timely reporting.
+                    </div>
+                </div>
+
+                <div id="compliance" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/lock.svg" class="local-icon icon-red" alt="Compliance"> Compliance & Legal Affairs
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Policy Interpretation</span><span class="level-desc">Focus: Clarity (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Policy Clarification Response</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> An employee from the Commercial team submitted a question to the Compliance inbox asking whether they can accept a dinner invitation from a healthcare professional who is also a paid consultant for our company. Our policy on interactions with HCPs has specific provisions about meals, but the consultant relationship adds complexity.<br><span class="key">[Role]</span> Compliance Specialist responsible for policy guidance.<br><span class="key">[Instruction]</span> Draft a response that interprets the applicable policies and provides clear guidance.<br><span class="key">[Style]</span> Formal compliance advisory—clear, factual, and appropriately cautious.<br><span class="key">[Parameters]</span> Reference the specific policy sections that apply. Provide a clear yes/no/conditional answer. Include any documentation or approval requirements. Keep under 200 words.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Investigation Documentation</span><span class="level-desc">Focus: Objectivity (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Investigation Summary Report</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The Compliance team completed an investigation into an anonymous hotline report alleging that a sales representative provided unapproved promotional materials to a healthcare provider. The investigation included interviews with the representative, their manager, and the HCP. Document review included email records and the materials in question. The investigation found that the representative shared an internal training deck that contained off-label information, which was a policy violation but appeared unintentional.<br><span class="key">[Role]</span> Compliance Investigator responsible for case documentation.<br><span class="key">[Instruction]</span> Write the investigation summary section for the case file.<br><span class="key">[Style]</span> Legal/compliance investigation format—objective, chronological, and evidence-based.<br><span class="key">[Parameters]</span> Structure as: (1) Allegation Summary, (2) Investigation Methodology, (3) Findings of Fact, (4) Policy Analysis, (5) Conclusion. Do not include recommendations in this section. Use neutral language—"the investigation found" rather than accusatory statements.<br><span class="key">[Example]</span> Allegation Summary: On [date], the Compliance Hotline received an anonymous report alleging that...</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Risk Assessment</span><span class="level-desc">Focus: Strategic Analysis (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Compliance Risk Assessment</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The company is expanding commercial operations into a new region with a different regulatory environment and higher corruption risk according to international indices. The local business development team is eager to move quickly and has proposed using a third-party distributor with strong government relationships. Compliance has been asked to assess the risks and provide recommendations for proceeding safely.<br><span class="key">[Objective]</span> Provide a comprehensive risk assessment that enables informed decision-making while protecting the company from FCPA/anti-bribery exposure.<br><span class="key">[Style]</span> Executive risk assessment memo.<br><span class="key">[Tone]</span> Analytical, balanced, and constructive. Identify risks without being obstructionist—focus on mitigation rather than simple rejection.<br><span class="key">[Audience]</span> General Counsel, Chief Compliance Officer, and VP of Business Development.<br><span class="key">[Response]</span> A risk assessment including: (1) Regional Risk Profile, (2) Third-Party Due Diligence Requirements, (3) Specific Red Flags to Investigate, (4) Recommended Contractual Protections, (5) Ongoing Monitoring Framework, (6) Go/No-Go Criteria.</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Conflict of Interest Review</span>
+                        <span class="level-desc">Interactive Assessment</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>COI Disclosure Analysis</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Compliance Officer using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to assess a conflict of interest disclosure and determine appropriate mitigation measures by systematically gathering information.<br>
+<span class="key">[Tools]</span> You have access to: [COI_Policy], [EmployeeRecord], [VendorDatabase], [OrganizationalChart], [ApprovalWorkflow]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> A senior director in the Procurement department disclosed that their spouse recently accepted a position at a company that is one of our major contract manufacturing organizations (CMO). The director currently has signature authority for contracts with this CMO and participated in the last contract renewal negotiation. The next contract review is scheduled in 4 months.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to immediately recuse the employee from all interactions with the CMO. ReAct forces you to first assess the actual scope of the conflict (what decisions does this person influence?), review the CMO relationship terms, check if there are alternative approvers, and design a mitigation plan that protects the company while being proportionate to the actual risk. This prevents both under-protection and unnecessarily disrupting business operations.
+                    </div>
+                </div>
+
+                <div id="supply" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/layers.svg" class="local-icon icon-red" alt="Supply"> Supply Chain & Procurement
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Vendor Communication</span><span class="level-desc">Focus: Professionalism (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Supplier Performance Notice</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> One of our key raw material suppliers has had 3 late deliveries in the past quarter, causing production scheduling disruptions. Per our supplier quality agreement, we are required to issue a formal notice after repeated performance issues. We want to maintain the relationship but need to communicate the seriousness of the situation.<br><span class="key">[Role]</span> Procurement Manager responsible for supplier relationship management.<br><span class="key">[Instruction]</span> Draft a formal performance notice letter to the supplier.<br><span class="key">[Style]</span> Professional business correspondence—firm but constructive.<br><span class="key">[Parameters]</span> Reference the specific contract clause regarding delivery performance. List the 3 incidents with dates. Request a corrective action plan within 15 business days. Do not threaten contract termination in this first notice. Keep under 200 words.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Contract Summary</span><span class="level-desc">Focus: Key Terms (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Vendor Agreement Summary</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> We are preparing for a contract review meeting with internal stakeholders (Quality, Finance, Operations) regarding our agreement with a critical packaging supplier. The full contract is 45 pages with multiple amendments. Stakeholders need a concise summary of the key commercial and operational terms before the meeting.<br><span class="key">[Role]</span> Senior Procurement Specialist responsible for contract administration.<br><span class="key">[Instruction]</span> Create an executive summary of the key contract terms for stakeholder review.<br><span class="key">[Style]</span> Business summary format—clear, organized, and focused on actionable terms.<br><span class="key">[Parameters]</span> Format as sections covering: (1) Pricing & Payment Terms, (2) Volume Commitments, (3) Quality Requirements, (4) Delivery Terms, (5) Term & Termination, (6) Key Risks/Concerns. Flag any terms that expire or require action in the next 6 months.<br><span class="key">[Example]</span> Pricing & Payment Terms:<br>• Base price: $X per unit with annual escalator tied to PPI<br>• Payment: Net 45 from invoice date<br>• Volume discount: 5% rebate if annual volume exceeds X units</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Supply Risk Mitigation</span><span class="level-desc">Focus: Strategic Planning (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Supply Continuity Plan</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> A critical active pharmaceutical ingredient (API) for one of our top-selling products is single-sourced from a manufacturer in a region experiencing geopolitical instability. Recent events have disrupted shipping routes and increased lead times from 8 weeks to 14 weeks. We have 6 months of safety stock, but leadership is concerned about long-term supply continuity. Qualifying an alternative supplier would take 18-24 months due to regulatory requirements.<br><span class="key">[Objective]</span> Develop a supply continuity plan that addresses both immediate risk mitigation and long-term resilience.<br><span class="key">[Style]</span> Strategic supply chain planning document.<br><span class="key">[Tone]</span> Analytical, action-oriented, and realistic about constraints (regulatory timelines, cost implications).<br><span class="key">[Audience]</span> VP Supply Chain, VP Quality, CFO, and SVP Operations.<br><span class="key">[Response]</span> A continuity plan including: (1) Current State Assessment, (2) Immediate Actions (0-6 months), (3) Medium-Term Actions (6-18 months), (4) Long-Term Resilience Strategy, (5) Investment Requirements, (6) Risk Scenarios with Response Protocols.</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Supplier Qualification Decision</span>
+                        <span class="level-desc">Interactive Evaluation</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>New Vendor Assessment</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Procurement Manager using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to evaluate a potential new supplier and make a qualification recommendation by systematically gathering information from multiple sources.<br>
+<span class="key">[Tools]</span> You have access to: [SupplierQuestionnaire], [FinancialDatabase], [QualityAuditReports], [ReferenceCheck], [ComplianceScreening]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> Operations has requested qualification of a new secondary supplier for a critical excipient. The proposed supplier is 20% less expensive than our current primary supplier and claims to have capacity for our volume requirements. However, they are a relatively new company (established 5 years ago) and have never supplied to a pharmaceutical company before. The qualification audit is scheduled for next month.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to focus primarily on the cost savings and capacity claims. ReAct forces you to first verify financial stability (can they survive if we become a major customer?), check regulatory compliance history, assess their quality systems maturity for pharma requirements, and gather references from their current customers. This prevents qualifying a supplier who may fail or require extensive remediation.
+                    </div>
+                </div>
+
+                <div id="hr" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/user-tie.svg" class="local-icon icon-red" alt="HR"> Human Resources
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Employee Communication</span><span class="level-desc">Focus: Clarity (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Benefits Change Announcement</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> Starting next quarter, the company is changing health insurance providers. The new plan has comparable coverage but different network providers and a new enrollment portal. Employees need to re-enroll during open enrollment next month, or they will be defaulted to the base plan. This affects all 500+ employees and their dependents.<br><span class="key">[Role]</span> HR Benefits Specialist responsible for employee communications.<br><span class="key">[Instruction]</span> Draft an initial announcement email about the health insurance transition.<br><span class="key">[Style]</span> Clear, reassuring, and action-oriented—employees are often anxious about benefits changes.<br><span class="key">[Parameters]</span> Include: what is changing, what is staying the same, key action required (re-enrollment), deadline, and where to get help. Keep under 200 words. Do not include detailed plan comparisons—reference the attached summary instead.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Performance Documentation</span><span class="level-desc">Focus: Objectivity (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Performance Improvement Plan</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> A manager has requested HR support in documenting a Performance Improvement Plan (PIP) for an employee who has consistently missed project deadlines and received multiple verbal warnings over the past 6 months. The employee is otherwise technically skilled and has been with the company for 3 years. The manager wants to give the employee a genuine opportunity to improve while documenting appropriately.<br><span class="key">[Role]</span> HR Business Partner responsible for performance management documentation.<br><span class="key">[Instruction]</span> Draft the Performance Improvement Plan document.<br><span class="key">[Style]</span> Formal HR documentation—objective, specific, and legally defensible.<br><span class="key">[Parameters]</span> Structure as: (1) Performance Concern Summary (specific examples, not generalizations), (2) Expected Performance Standards, (3) Improvement Actions with Measurable Goals, (4) Support/Resources Provided, (5) Timeline (typically 30-60 days), (6) Consequences of Not Meeting Expectations. Use neutral language focused on behaviors, not personality.<br><span class="key">[Example]</span> Performance Concern: On [date], the Q3 financial report was submitted 5 business days after the established deadline of [date]. This was the third deadline miss in the current quarter...</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Organizational Change</span><span class="level-desc">Focus: Change Management (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Restructuring Communication Plan</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The company is consolidating two departments (Field Operations and Technical Support) into a single Customer Success organization. This will result in a new reporting structure, some role changes, and unfortunately, elimination of 8 positions due to redundancy. The affected employees have been identified but not yet notified. The merger is intended to improve customer experience and operational efficiency.<br><span class="key">[Objective]</span> Develop a comprehensive communication plan that manages the organizational change while treating affected employees with dignity.<br><span class="key">[Style]</span> Change management communication strategy.<br><span class="key">[Tone]</span> Empathetic but honest. Acknowledge the difficulty while explaining the business rationale.<br><span class="key">[Audience]</span> HR Leadership, Legal, and the executives who will deliver the communications.<br><span class="key">[Response]</span> A communication plan including: (1) Stakeholder Matrix (who needs to know what, when), (2) Day-of Communication Sequence, (3) Scripts for Individual Notifications (affected vs. retained employees), (4) FAQ Document for Managers, (5) Follow-up Communications Timeline, (6) Key Messages and Off-Limits Topics.</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Workplace Investigation</span>
+                        <span class="level-desc">Interactive Assessment</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>Employee Relations Case</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are an HR Business Partner using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to assess an employee relations complaint and determine appropriate next steps by systematically gathering information.<br>
+<span class="key">[Tools]</span> You have access to: [EmployeeFile], [PolicyManual], [PriorComplaints], [OrganizationalChart], [WitnessInterviewGuide]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> An employee has submitted a formal complaint alleging that their manager creates a hostile work environment through frequent public criticism and unreasonable workload expectations. The employee states this has been ongoing for 4 months and is affecting their mental health. The manager is a high performer who was recently promoted. Two other team members have informally mentioned similar concerns to their peers.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to immediately interview the manager and make a quick assessment. ReAct forces you to first review the manager's prior complaints history, check if the employee has documented specific incidents, understand the team dynamics and workload metrics, and plan a proper investigation sequence. This ensures a thorough, fair process that protects both the complainant and the company.
+                    </div>
+                </div>
+
+                <div id="finance" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/chart-bar.svg" class="local-icon icon-red" alt="Finance"> Finance & Planning
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Variance Analysis</span><span class="level-desc">Focus: Explanation (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Budget Variance Commentary</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The monthly close shows that the R&D department is 15% over budget for the quarter, primarily driven by higher-than-planned external consulting costs. The department head has explained that this was due to accelerating a critical Phase 2 study timeline. Finance needs to provide variance commentary for the executive report.<br><span class="key">[Role]</span> Financial Analyst responsible for R&D cost center reporting.<br><span class="key">[Instruction]</span> Write the variance commentary for the R&D budget section of the monthly finance report.<br><span class="key">[Style]</span> Finance reporting format—factual, quantified, and forward-looking.<br><span class="key">[Parameters]</span> Include: (1) Variance amount in dollars and percentage, (2) Root cause explanation, (3) Whether this is a timing variance or a true over-run, (4) Outlook for remainder of year. Keep under 100 words.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Financial Modeling</span><span class="level-desc">Focus: Assumptions Documentation (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Forecast Assumptions Summary</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> We are preparing the annual operating plan for next fiscal year. The CFO has requested that all forecast assumptions be clearly documented and defensible. Our Commercial team has submitted revenue projections for Product-A that show 25% growth, which is higher than historical trends. We need to document the assumptions supporting this projection.<br><span class="key">[Role]</span> Senior Financial Analyst responsible for planning and forecasting.<br><span class="key">[Instruction]</span> Create an assumptions documentation summary for the Product-A revenue forecast.<br><span class="key">[Style]</span> Financial planning documentation—structured, auditable, and conservative where appropriate.<br><span class="key">[Parameters]</span> Format as a table with columns: Assumption, Value, Source/Rationale, Risk Level (Low/Medium/High), Sensitivity. Include both upside and downside scenarios.<br><span class="key">[Example]</span> | Assumption | Value | Source/Rationale | Risk | Sensitivity |<br>|------------|-------|------------------|------|-------------|<br>| Market growth rate | 8% | Industry analyst report | Low | +/- 2% = $X revenue impact |</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Investment Analysis</span><span class="level-desc">Focus: Decision Support (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Capital Investment Business Case</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> Operations has requested $5M in capital expenditure for a new packaging line that would increase capacity by 40% and reduce per-unit costs by 12%. The current line is at 85% capacity and demand forecasts suggest we will exceed capacity in 18 months. However, the company is also evaluating a potential acquisition that may provide alternative capacity. The investment committee meets in 2 weeks.<br><span class="key">[Objective]</span> Prepare a comprehensive business case that enables the investment committee to make an informed capital allocation decision.<br><span class="key">[Style]</span> Investment committee presentation format.<br><span class="key">[Tone]</span> Analytical, balanced, and transparent about uncertainties.<br><span class="key">[Audience]</span> CFO, CEO, and Board Investment Committee.<br><span class="key">[Response]</span> A business case including: (1) Investment Summary, (2) Strategic Rationale, (3) Financial Analysis (NPV, IRR, Payback), (4) Key Assumptions and Sensitivities, (5) Risk Factors (including acquisition scenario), (6) Alternatives Considered, (7) Recommendation with Conditions.</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Financial Close Investigation</span>
+                        <span class="level-desc">Interactive Analysis</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>Unexpected Variance Investigation</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Finance Manager using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to investigate an unexpected variance identified during month-end close and determine the appropriate accounting treatment.<br>
+<span class="key">[Tools]</span> You have access to: [GeneralLedger], [SubledgerDetail], [JournalEntryLog], [PriorPeriodClose], [AccountingPolicy]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> During the month-end close process, you identified a $450,000 favorable variance in the Cost of Goods Sold account that cannot be explained by volume or price changes. The variance appeared in the third week of the month. The Operations team says nothing unusual happened, and the purchasing team reports no significant price changes. The external auditors have flagged this for investigation.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to accept a favorable variance at face value or make a quick adjustment. ReAct forces you to first trace the variance to specific transactions, compare to prior period patterns, verify that inventory and accruals are properly stated, and determine if this is a true economic gain or an accounting error. This prevents misstatements that could require later restatement.
+                    </div>
+                </div>
+
+                <div id="training" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/bullseye.svg" class="local-icon icon-red" alt="Training"> Training & Development
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Training Communication</span><span class="level-desc">Focus: Engagement (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Mandatory Training Reminder</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> Annual compliance training is due in 2 weeks, and 40% of employees have not yet completed it. This is a regulatory requirement and late completion can result in audit findings. Previous reminder emails have been ignored by many employees. We need a more effective communication approach.<br><span class="key">[Role]</span> Training Coordinator responsible for compliance training administration.<br><span class="key">[Instruction]</span> Draft a reminder email that motivates completion without being threatening.<br><span class="key">[Style]</span> Firm but friendly—acknowledge that employees are busy while emphasizing the importance and deadline.<br><span class="key">[Parameters]</span> Include: specific deadline, how long the training takes, link to access, and consequences of non-completion (stated factually, not threateningly). Keep under 150 words. Avoid compliance jargon that causes email fatigue.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Competency Assessment</span><span class="level-desc">Focus: Measurement (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Training Effectiveness Evaluation</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> We recently completed a new product training program for the sales team (50 participants over 3 sessions). The training included classroom instruction, role-playing exercises, and a written assessment. We need to evaluate whether the training was effective and identify any gaps that require reinforcement.<br><span class="key">[Role]</span> Learning & Development Specialist responsible for training evaluation.<br><span class="key">[Instruction]</span> Create a training effectiveness summary report based on the Kirkpatrick model.<br><span class="key">[Style]</span> L&D reporting format—data-driven, actionable, and focused on continuous improvement.<br><span class="key">[Parameters]</span> Structure using Kirkpatrick's 4 levels: (1) Reaction (participant satisfaction), (2) Learning (assessment scores), (3) Behavior (observed application), (4) Results (business impact). Include specific metrics and recommendations for each level.<br><span class="key">[Example]</span> Level 1 - Reaction:<br>• Average satisfaction score: 4.2/5.0<br>• 85% rated the training as "relevant to my job"<br>• Improvement opportunity: Participants requested more hands-on practice time</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Curriculum Design</span><span class="level-desc">Focus: Strategic Planning (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Training Curriculum Proposal</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The company is implementing a new enterprise system that will change how 80% of employees do their daily work. The system go-live is in 6 months. Leadership has asked Training & Development to propose a comprehensive training curriculum that ensures all users are proficient by go-live. Budget is limited, so we need to prioritize high-impact training while leveraging self-service options where possible.<br><span class="key">[Objective]</span> Propose a training curriculum strategy that maximizes user adoption within budget and timeline constraints.<br><span class="key">[Style]</span> Strategic curriculum design proposal.<br><span class="key">[Tone]</span> Practical, resource-conscious, and focused on outcomes rather than training hours.<br><span class="key">[Audience]</span> Project Steering Committee (IT, Operations, HR, and Finance leadership).<br><span class="key">[Response]</span> A curriculum proposal including: (1) Training Needs Analysis by Role, (2) Delivery Strategy (instructor-led vs. self-paced vs. on-the-job), (3) Timeline with Milestones, (4) Resource Requirements (trainers, materials, systems), (5) Budget Breakdown, (6) Success Metrics, (7) Risk Mitigation (what if go-live is accelerated?).</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Training Gap Analysis</span>
+                        <span class="level-desc">Interactive Assessment</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>Competency Gap Investigation</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are a Training Manager using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to identify the root cause of a performance gap and determine whether training is the appropriate solution.<br>
+<span class="key">[Tools]</span> You have access to: [TrainingRecords], [PerformanceMetrics], [JobDescriptions], [ProcessDocumentation], [ManagerFeedback]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> The Quality department has reported that error rates in batch documentation have increased 40% over the past quarter. They have requested "refresher training" for production operators as an immediate corrective action. The operators completed their initial GMP training 6 months ago, and all passed the assessment. Three new SOPs were introduced last month.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to immediately schedule the requested training. ReAct forces you to first verify whether this is actually a training problem (did operators ever know this?) or a systems/process problem (did something change that training didn't cover?). By checking the timeline of the new SOPs and correlating with the error spike, you might discover the solution is updating job aids, not retraining. This prevents wasting training resources on non-training problems.
+                    </div>
+                </div>
+
+                <div id="ehs" class="tab-content">
+                    <h2>
+                        <img src="Icons/SVG/shield.svg" class="local-icon icon-red" alt="EHS"> Environmental Health & Safety
+                    </h2>
+                    <div class="level-header"><span class="level-badge">Level 1: Entry</span><span class="level-title">Incident Reporting</span><span class="level-desc">Focus: Accuracy (CRISP)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Near-Miss Report</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> An operator in the packaging area reported a near-miss incident: a pallet of finished goods began to tip while being moved by forklift, but the operator was able to stabilize it before it fell. No one was injured and no product was damaged, but if the pallet had fallen, it could have struck a nearby worker. The incident occurred during shift change when the area was particularly crowded.<br><span class="key">[Role]</span> EHS Coordinator responsible for incident documentation.<br><span class="key">[Instruction]</span> Document the near-miss incident for the EHS reporting system.<br><span class="key">[Style]</span> Safety incident report format—factual, specific, and focused on prevention.<br><span class="key">[Parameters]</span> Include: date/time/location, description of what happened, potential consequences if the incident had not been controlled, immediate actions taken, and preliminary contributing factors. Do not assign blame. Keep factual.</div></div></div>
+
+                    <div class="level-header"><span class="level-badge">Level 2: Intermediate</span><span class="level-title">Safety Procedure</span><span class="level-desc">Focus: Compliance (CRISPE)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Job Hazard Analysis</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The maintenance team is planning to perform preventive maintenance on a high-voltage electrical panel next week. This task requires lockout/tagout procedures and involves working in a confined space adjacent to the panel. A Job Hazard Analysis (JHA) is required before the work can proceed.<br><span class="key">[Role]</span> EHS Specialist responsible for job hazard assessments.<br><span class="key">[Instruction]</span> Create a Job Hazard Analysis document for this maintenance task.<br><span class="key">[Style]</span> OSHA-compliant JHA format—systematic, comprehensive, and focused on hazard controls.<br><span class="key">[Parameters]</span> Format as a table with columns: Task Step, Potential Hazard, Risk Level (H/M/L), Control Measures, Responsible Party. Include all applicable hazard categories: electrical, confined space, ergonomic, chemical, and fall hazards.<br><span class="key">[Example]</span> | Task Step | Hazard | Risk | Control | Responsible |<br>|-----------|--------|------|---------|-------------|<br>| De-energize panel | Electrical shock | H | LOTO procedure, voltage verification | Electrician |</div></div></div>
+
+                    <div class="level-header"><span class="level-badge cell-accent text-white">Level 3: Advanced</span><span class="level-title">Safety Program Strategy</span><span class="level-desc">Focus: Culture Change (COSTAR)</span></div>
+                    <div class="example-block"><div class="example-header"><span>Safety Improvement Initiative</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> The site's recordable incident rate has increased 20% year-over-year, driven primarily by ergonomic injuries in the manufacturing area. Analysis shows that most injuries occur during manual material handling tasks. Previous "stretch break" programs had poor participation. Leadership is committed to improving safety but skeptical of programs that impact productivity.<br><span class="key">[Objective]</span> Develop a comprehensive safety improvement proposal that addresses the root causes of ergonomic injuries while maintaining operational efficiency.<br><span class="key">[Style]</span> Safety program proposal with business case elements.<br><span class="key">[Tone]</span> Data-driven, practical, and sensitive to operational concerns.<br><span class="key">[Audience]</span> Site Leadership Team (Plant Manager, VP Operations, VP HR, EHS Director).<br><span class="key">[Response]</span> A proposal including: (1) Current State Analysis with incident data, (2) Root Cause Assessment, (3) Proposed Interventions (engineering controls, administrative controls, PPE), (4) Implementation Timeline, (5) Resource Requirements, (6) Expected Outcomes (injury reduction targets), (7) ROI Analysis (workers' comp savings, productivity gains).</div></div></div>
+
+                    <div class="level-header">
+                        <span class="level-badge cell-accent text-white">ReAct Application</span>
+                        <span class="level-title">Incident Investigation</span>
+                        <span class="level-desc">Interactive Root Cause</span>
+                    </div>
+
+                    <div class="example-block">
+                        <div class="example-header">
+                            <span>Safety Incident Root Cause</span>
+                            <span class="method-badge">ReAct</span>
+                            <button class="btn-copy">Copy</button>
+                        </div>
+                        <div class="example-content">
+                            <div class="prompt-text"><span class="key">[Role]</span> You are an EHS Manager using the ReAct framework.<br>
+<span class="key">[Goal]</span> Your goal is to investigate a workplace injury to identify root causes and recommend corrective actions that prevent recurrence.<br>
+<span class="key">[Tools]</span> You have access to: [IncidentReport], [WitnessStatements], [EquipmentLogs], [TrainingRecords], [SafetyProcedures], [PriorIncidentHistory]<br>
+<span class="key">[Format]</span> Thought → Action → [STOP for Observation] → Repeat<br>
+<span class="key">[Scenario]</span> A lab technician sustained a chemical splash to the forearm yesterday while transferring a corrosive solution between containers. The technician was wearing a lab coat but not the required chemical-resistant gloves. Initial reports suggest the technician was rushing to complete the task before a meeting. The injured area was a walkway where another employee bumped into the technician during the transfer.</div>
+                        </div>
+                    </div>
+
+                    <div class="method-explanation">
+                        <strong>Why this works:</strong><br>
+                        The instinct is to focus on the immediate cause (no gloves) and require refresher training. ReAct forces you to investigate the systemic factors: Why was the technician rushing? Why was the transfer happening in a walkway? Why were gloves not being enforced? You might discover that the real root cause is inadequate workspace design or schedule pressure, not a training gap. This leads to controls that actually prevent recurrence.
                     </div>
                 </div>
 
