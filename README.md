@@ -1,4 +1,4 @@
-<div align="center">< / OpenBas > # PROMPTLIBRARY - <br> AI Engineering Prompting Library</div>
+<div align="center"><h1>< / OpenBas > # PROMPTLIBRARY - <br> AI Engineering Prompting Library</h1></div>
 
 <div align="center">
 
