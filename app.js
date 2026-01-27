@@ -1147,21 +1147,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         getBasePath() {
-            // Determine base path based on current page directory depth
-            const path = window.location.pathname;
+            // Determine base path based on current page location
+            // Works for both web servers and local file:// access
+            const path = window.location.pathname.toLowerCase();
 
-            // Count how many directory levels deep we are
-            // Remove leading slash, split by /, filter out empty strings and filenames
-            const segments = path.split('/').filter(s => s && !s.includes('.html') && !s.includes('.htm'));
+            // Check for known subdirectories and their depth
+            // Level 2 deep (e.g., /education/games/)
+            if (path.includes('/education/games/') ||
+                path.includes('/education/data/')) {
+                return '../../';
+            }
 
-            // For nested directories like /education/games/, we need ../../
-            // For single level like /education/, we need ../
-            // For root, we need nothing
-            if (segments.length >= 2) {
-                return '../'.repeat(segments.length);
-            } else if (segments.length === 1) {
+            // Level 1 deep (e.g., /education/, /business/, /services/, /pages/, /enterprise/)
+            if (path.includes('/education/') ||
+                path.includes('/business/') ||
+                path.includes('/services/') ||
+                path.includes('/pages/') ||
+                path.includes('/enterprise/')) {
                 return '../';
             }
+
+            // Root level
             return '';
         }
 
