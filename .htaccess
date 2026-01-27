@@ -6,7 +6,7 @@
     # 1. Strict Content Security Policy (CSP)
     # Blocks everything by default. Only allows 'self' (your own server).
     # No inline styles, no inline scripts, no external fonts/images.
-    Header set Content-Security-Policy "default-src 'none'; base-uri 'none'; frame-ancestors 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';"
+    Header set Content-Security-Policy "default-src 'none'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';"
 
     # 2. X-Frame-Options
     # Prevents your site from being embedded in iframes on other sites (Stops Clickjacking).
