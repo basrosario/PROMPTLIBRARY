@@ -1174,16 +1174,24 @@ document.addEventListener('DOMContentLoaded', () => {
         async loadIndex() {
             try {
                 const basePath = this.getBasePath();
-                const response = await fetch(`${basePath}search-index.json`);
+                const indexUrl = `${basePath}search-index.json`;
+                console.log('[Search] Loading index from:', indexUrl);
+                console.log('[Search] Current path:', window.location.pathname);
+                console.log('[Search] Base path calculated:', basePath);
+
+                const response = await fetch(indexUrl);
                 if (response.ok) {
                     const data = await response.json();
                     this.index = data.entries;
+                    console.log('[Search] Index loaded successfully:', this.index.length, 'entries');
                 } else {
-                    console.warn('Search index not found');
+                    console.error('[Search] Index fetch failed:', response.status, response.statusText);
+                    console.error('[Search] Attempted URL:', indexUrl);
                     this.index = [];
                 }
             } catch (error) {
-                console.warn('Failed to load search index:', error);
+                console.error('[Search] Failed to load search index:', error);
+                console.error('[Search] Attempted URL:', `${this.getBasePath()}search-index.json`);
                 this.index = [];
             }
         }
