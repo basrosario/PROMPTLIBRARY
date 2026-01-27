@@ -5331,3 +5331,226 @@ p { margin-bottom: 15px; }
         font-size: 1.5rem;
     }
 }
+
+/* =========================================
+   AI TOOL FINDER WIZARD
+   ========================================= */
+.tool-finder-wizard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.wizard-progress {
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.wizard-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 33%;
+}
+
+.wizard-progress-bar[data-step="1"] { width: 33%; }
+.wizard-progress-bar[data-step="2"] { width: 66%; }
+.wizard-progress-bar[data-step="3"] { width: 100%; }
+.wizard-progress-bar[data-step="result"] { width: 100%; }
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.wizard-question {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.wizard-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.wizard-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.wizard-option:hover {
+    border-color: var(--accent);
+    background: rgba(230, 57, 70, 0.05);
+    transform: translateY(-2px);
+}
+
+.wizard-option:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.wizard-option .local-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.wizard-back,
+.wizard-restart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.wizard-back:hover,
+.wizard-restart:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.wizard-recommendation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.recommendation-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.recommendation-card.primary {
+    border-left-color: var(--accent);
+    background: rgba(230, 57, 70, 0.05);
+}
+
+.recommendation-card.secondary {
+    border-left-color: var(--accent-green);
+}
+
+.recommendation-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.recommendation-icon .local-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.recommendation-content h5 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.recommendation-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.recommendation-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.recommendation-link:hover {
+    text-decoration: underline;
+}
+
+/* Try It Section */
+.try-it-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.try-it-section > h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.try-it-section > p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+/* Mobile Adjustments for Wizard */
+@media (max-width: 768px) {
+    .tool-finder-wizard {
+        padding: 20px 15px;
+    }
+
+    .wizard-options {
+        grid-template-columns: 1fr;
+    }
+
+    .wizard-option {
+        padding: 15px;
+    }
+
+    .recommendation-card {
+        flex-direction: column;
+    }
+
+    .recommendation-icon {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -47,6 +47,28 @@
       "method": ""
     },
     {
+      "id": "guide-tool-finder",
+      "title": "AI Tool Finder Wizard",
+      "category": "Guide",
+      "subcategory": "Interactive",
+      "keywords": ["tool finder", "wizard", "recommend", "choose AI", "which AI", "best AI tool", "ChatGPT vs Claude", "compare"],
+      "page": "pages/ai-guide.html",
+      "anchor": "tool-finder",
+      "excerpt": "Interactive wizard to find the best AI tool for your needs based on content type, experience, and budget",
+      "method": ""
+    },
+    {
+      "id": "guide-try-prompts",
+      "title": "Try It Yourself - Example Prompts",
+      "category": "Guide",
+      "subcategory": "Examples",
+      "keywords": ["example", "try it", "copy prompt", "sample", "practice", "CRISP example", "COSTAR example", "ReAct example"],
+      "page": "pages/ai-guide.html",
+      "anchor": "prompt-methods",
+      "excerpt": "Copy and paste these example prompts into any AI tool to practice structured prompting",
+      "method": ""
+    },
+    {
       "id": "guide-safety",
       "title": "AI Safety & Ethics Guide",
       "category": "Guide",

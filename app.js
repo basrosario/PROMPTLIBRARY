@@ -1367,4 +1367,235 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize search
     const siteSearch = new SiteSearch();
     siteSearch.init();
+
+    // ==========================================
+    // AI TOOL FINDER WIZARD
+    // ==========================================
+    const wizard = document.querySelector('.tool-finder-wizard');
+    if (wizard) {
+        const answers = {};
+        const progressBar = wizard.querySelector('.wizard-progress-bar');
+        const steps = wizard.querySelectorAll('.wizard-step');
+
+        // AI tool recommendations database
+        const recommendations = {
+            text: {
+                beginner: {
+                    free: {
+                        primary: { name: 'ChatGPT Free', desc: 'Easy to use, great for beginners. Start conversations naturally and learn as you go.', icon: 'chat', link: 'https://chat.openai.com' },
+                        secondary: { name: 'Google Gemini', desc: 'Integrated with Google services, good for research with web search.', icon: 'search', link: 'https://gemini.google.com' }
+                    },
+                    paid: {
+                        primary: { name: 'ChatGPT Plus', desc: 'Access to GPT-4, faster responses, and additional features like DALL-E.', icon: 'chat', link: 'https://chat.openai.com' },
+                        secondary: { name: 'Claude Pro', desc: 'Excellent for longer documents and nuanced writing tasks.', icon: 'chat', link: 'https://claude.ai' }
+                    }
+                },
+                intermediate: {
+                    free: {
+                        primary: { name: 'Claude Free', desc: 'Excellent for detailed analysis, longer context windows, and nuanced writing.', icon: 'chat', link: 'https://claude.ai' },
+                        secondary: { name: 'Perplexity Free', desc: 'Great for research with cited sources and current information.', icon: 'search', link: 'https://perplexity.ai' }
+                    },
+                    paid: {
+                        primary: { name: 'Claude Pro', desc: 'Extended limits, priority access, ideal for professional writing and analysis.', icon: 'chat', link: 'https://claude.ai' },
+                        secondary: { name: 'ChatGPT Plus', desc: 'GPT-4 access with plugins and advanced features.', icon: 'chat', link: 'https://chat.openai.com' }
+                    }
+                },
+                advanced: {
+                    free: {
+                        primary: { name: 'Claude Free', desc: 'Best reasoning capabilities for complex tasks and longer documents.', icon: 'chat', link: 'https://claude.ai' },
+                        secondary: { name: 'ChatGPT Free', desc: 'Good for varied tasks and creative writing.', icon: 'chat', link: 'https://chat.openai.com' }
+                    },
+                    paid: {
+                        primary: { name: 'Claude Pro', desc: 'Maximum context length, best for complex professional work.', icon: 'chat', link: 'https://claude.ai' },
+                        secondary: { name: 'ChatGPT Plus with GPT-4', desc: 'Advanced reasoning with plugin ecosystem.', icon: 'chat', link: 'https://chat.openai.com' }
+                    }
+                }
+            },
+            images: {
+                beginner: {
+                    free: {
+                        primary: { name: 'Microsoft Designer', desc: 'Free, easy-to-use image generation with templates and editing tools.', icon: 'image', link: 'https://designer.microsoft.com' },
+                        secondary: { name: 'Canva AI', desc: 'Design platform with AI image generation built in.', icon: 'image', link: 'https://canva.com' }
+                    },
+                    paid: {
+                        primary: { name: 'Midjourney', desc: 'Highest quality artistic images, excellent for creative projects.', icon: 'image', link: 'https://midjourney.com' },
+                        secondary: { name: 'DALL-E 3 (ChatGPT Plus)', desc: 'Included with ChatGPT Plus, great for quick image generation.', icon: 'image', link: 'https://chat.openai.com' }
+                    }
+                },
+                intermediate: {
+                    free: {
+                        primary: { name: 'Leonardo AI', desc: 'Generous free tier with professional-quality outputs.', icon: 'image', link: 'https://leonardo.ai' },
+                        secondary: { name: 'Ideogram', desc: 'Excellent at text in images, good for logos and graphics.', icon: 'image', link: 'https://ideogram.ai' }
+                    },
+                    paid: {
+                        primary: { name: 'Midjourney', desc: 'Industry-leading quality for artistic and photorealistic images.', icon: 'image', link: 'https://midjourney.com' },
+                        secondary: { name: 'Adobe Firefly', desc: 'Integrates with Creative Cloud, commercially safe.', icon: 'image', link: 'https://firefly.adobe.com' }
+                    }
+                },
+                advanced: {
+                    free: {
+                        primary: { name: 'Stable Diffusion (local)', desc: 'Full control, run locally, unlimited generations.', icon: 'image', link: 'https://stability.ai' },
+                        secondary: { name: 'ComfyUI', desc: 'Node-based workflow for advanced image generation.', icon: 'image', link: 'https://github.com/comfyanonymous/ComfyUI' }
+                    },
+                    paid: {
+                        primary: { name: 'Midjourney', desc: 'Best overall quality, especially for artistic work.', icon: 'image', link: 'https://midjourney.com' },
+                        secondary: { name: 'Runway ML', desc: 'Advanced video and image generation tools.', icon: 'video', link: 'https://runway.ml' }
+                    }
+                }
+            },
+            code: {
+                beginner: {
+                    free: {
+                        primary: { name: 'Claude Free', desc: 'Excellent at explaining code and helping beginners learn.', icon: 'code', link: 'https://claude.ai' },
+                        secondary: { name: 'ChatGPT Free', desc: 'Good for learning programming concepts with examples.', icon: 'chat', link: 'https://chat.openai.com' }
+                    },
+                    paid: {
+                        primary: { name: 'GitHub Copilot', desc: 'Real-time code suggestions directly in your editor.', icon: 'code', link: 'https://github.com/features/copilot' },
+                        secondary: { name: 'Claude Pro', desc: 'Extended context for larger codebases and projects.', icon: 'code', link: 'https://claude.ai' }
+                    }
+                },
+                intermediate: {
+                    free: {
+                        primary: { name: 'Codeium', desc: 'Free code completion with IDE integration.', icon: 'code', link: 'https://codeium.com' },
+                        secondary: { name: 'Claude Free', desc: 'Great for code review and debugging help.', icon: 'code', link: 'https://claude.ai' }
+                    },
+                    paid: {
+                        primary: { name: 'GitHub Copilot', desc: 'Industry standard for code assistance in IDEs.', icon: 'code', link: 'https://github.com/features/copilot' },
+                        secondary: { name: 'Cursor', desc: 'AI-first code editor with advanced features.', icon: 'code', link: 'https://cursor.sh' }
+                    }
+                },
+                advanced: {
+                    free: {
+                        primary: { name: 'Claude Free', desc: 'Best for complex architectural decisions and code review.', icon: 'code', link: 'https://claude.ai' },
+                        secondary: { name: 'Codeium', desc: 'Solid free alternative to Copilot.', icon: 'code', link: 'https://codeium.com' }
+                    },
+                    paid: {
+                        primary: { name: 'Claude Code (CLI)', desc: 'Command-line AI coding assistant for professional developers.', icon: 'code', link: 'https://claude.ai/code' },
+                        secondary: { name: 'Cursor', desc: 'Full IDE with integrated AI for complex projects.', icon: 'code', link: 'https://cursor.sh' }
+                    }
+                }
+            },
+            research: {
+                beginner: {
+                    free: {
+                        primary: { name: 'Perplexity Free', desc: 'AI search with cited sources, perfect for research.', icon: 'search', link: 'https://perplexity.ai' },
+                        secondary: { name: 'Google Gemini', desc: 'Web search integrated with AI summaries.', icon: 'search', link: 'https://gemini.google.com' }
+                    },
+                    paid: {
+                        primary: { name: 'Perplexity Pro', desc: 'Deeper research capabilities with GPT-4 and Claude.', icon: 'search', link: 'https://perplexity.ai' },
+                        secondary: { name: 'ChatGPT Plus with Browse', desc: 'Web browsing for current information.', icon: 'search', link: 'https://chat.openai.com' }
+                    }
+                },
+                intermediate: {
+                    free: {
+                        primary: { name: 'Perplexity Free', desc: 'Best free option for sourced research and fact-checking.', icon: 'search', link: 'https://perplexity.ai' },
+                        secondary: { name: 'Consensus', desc: 'AI search specifically for academic papers.', icon: 'search', link: 'https://consensus.app' }
+                    },
+                    paid: {
+                        primary: { name: 'Perplexity Pro', desc: 'Unlimited Pro searches with advanced AI models.', icon: 'search', link: 'https://perplexity.ai' },
+                        secondary: { name: 'Elicit', desc: 'Research assistant for academic literature review.', icon: 'search', link: 'https://elicit.org' }
+                    }
+                },
+                advanced: {
+                    free: {
+                        primary: { name: 'Semantic Scholar', desc: 'AI-powered academic paper search and analysis.', icon: 'search', link: 'https://semanticscholar.org' },
+                        secondary: { name: 'Perplexity Free', desc: 'General research with source citations.', icon: 'search', link: 'https://perplexity.ai' }
+                    },
+                    paid: {
+                        primary: { name: 'Perplexity Pro', desc: 'Most comprehensive AI research tool available.', icon: 'search', link: 'https://perplexity.ai' },
+                        secondary: { name: 'Elicit', desc: 'Systematic literature review automation.', icon: 'search', link: 'https://elicit.org' }
+                    }
+                }
+            }
+        };
+
+        function showStep(stepNum) {
+            steps.forEach(step => step.classList.remove('active'));
+            const targetStep = wizard.querySelector(`.wizard-step[data-step="${stepNum}"]`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+                if (progressBar) progressBar.dataset.step = stepNum;
+            }
+        }
+
+        function showResults() {
+            const contentType = answers.content || 'text';
+            const experience = answers.experience || 'beginner';
+            const budget = answers.budget || 'free';
+
+            const result = recommendations[contentType]?.[experience]?.[budget];
+            const resultContainer = document.getElementById('wizard-recommendation');
+
+            if (result && resultContainer) {
+                resultContainer.innerHTML = `
+                    <div class="recommendation-card primary">
+                        <div class="recommendation-icon">
+                            <img src="../assets/icons/SVG/${result.primary.icon}.svg" alt="" class="local-icon icon-white">
+                        </div>
+                        <div class="recommendation-content">
+                            <h5>${result.primary.name}</h5>
+                            <p>${result.primary.desc}</p>
+                            <a href="${result.primary.link}" target="_blank" rel="noopener noreferrer" class="recommendation-link">
+                                Visit ${result.primary.name} →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="recommendation-card secondary">
+                        <div class="recommendation-icon" style="background: var(--accent-green);">
+                            <img src="../assets/icons/SVG/${result.secondary.icon}.svg" alt="" class="local-icon icon-white">
+                        </div>
+                        <div class="recommendation-content">
+                            <h5>Also Consider: ${result.secondary.name}</h5>
+                            <p>${result.secondary.desc}</p>
+                            <a href="${result.secondary.link}" target="_blank" rel="noopener noreferrer" class="recommendation-link">
+                                Visit ${result.secondary.name} →
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+            showStep('result');
+        }
+
+        // Handle option clicks
+        wizard.querySelectorAll('.wizard-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const step = option.closest('.wizard-step');
+                const stepNum = step?.dataset.step;
+                const nextStep = option.dataset.next;
+                const answer = option.dataset.answer;
+
+                // Store answer based on step
+                if (stepNum === '1') answers.content = answer;
+                if (stepNum === '2') answers.experience = answer;
+                if (stepNum === '3') answers.budget = answer;
+
+                // Navigate
+                if (nextStep === 'result') {
+                    showResults();
+                } else {
+                    showStep(nextStep);
+                }
+            });
+        });
+
+        // Handle back buttons
+        wizard.querySelectorAll('.wizard-back').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const prevStep = btn.dataset.prev;
+                showStep(prevStep);
+            });
+        });
+
+        // Handle restart
+        const restartBtn = wizard.querySelector('.wizard-restart');
+        if (restartBtn) {
+            restartBtn.addEventListener('click', () => {
+                answers.content = null;
+                answers.experience = null;
+                answers.budget = null;
+                showStep('1');
+            });
+        }
+    }
 });

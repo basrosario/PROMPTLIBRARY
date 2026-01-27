@@ -31,6 +31,7 @@
             <a href="#introduction" class="nav-item">What is AI?</a>
             <a href="#ai-types" class="nav-item">Types of AI Tools</a>
             <a href="#when-to-use" class="nav-item">When to Use Each</a>
+            <a href="#tool-finder" class="nav-item">Find Your AI Tool</a>
             <a href="#how-to-use" class="nav-item">How to Use AI</a>
             <a href="#prompt-methods" class="nav-item">Prompt Methods</a>
             <a href="#safety-ethics" class="nav-item">Safety & Ethics</a>
@@ -218,6 +219,88 @@
 
                 <div class="section-divider"></div>
 
+                <!-- Interactive AI Tool Finder -->
+                <div class="sec-section" id="tool-finder">
+                    <h3><img src="../assets/icons/SVG/search.svg" class="local-icon icon-red" alt=""> Find Your AI Tool</h3>
+                    <p class="lead">Answer a few questions to get a personalized AI tool recommendation.</p>
+
+                    <div class="tool-finder-wizard">
+                        <div class="wizard-progress">
+                            <div class="wizard-progress-bar" data-step="1"></div>
+                        </div>
+
+                        <!-- Question 1 -->
+                        <div class="wizard-step active" data-step="1">
+                            <h4 class="wizard-question">What type of content do you need to create?</h4>
+                            <div class="wizard-options">
+                                <button class="wizard-option" data-next="2" data-answer="text">
+                                    <img src="../assets/icons/SVG/chat.svg" alt="" class="local-icon icon-white">
+                                    <span>Text (writing, emails, reports)</span>
+                                </button>
+                                <button class="wizard-option" data-next="2" data-answer="images">
+                                    <img src="../assets/icons/SVG/image.svg" alt="" class="local-icon icon-white">
+                                    <span>Images (graphics, art, photos)</span>
+                                </button>
+                                <button class="wizard-option" data-next="2" data-answer="code">
+                                    <img src="../assets/icons/SVG/code.svg" alt="" class="local-icon icon-white">
+                                    <span>Code (programming, scripts)</span>
+                                </button>
+                                <button class="wizard-option" data-next="2" data-answer="research">
+                                    <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                                    <span>Research (finding information)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="wizard-step" data-step="2">
+                            <h4 class="wizard-question">What's your experience level with AI tools?</h4>
+                            <div class="wizard-options">
+                                <button class="wizard-option" data-next="3" data-answer="beginner">
+                                    <img src="../assets/icons/SVG/star.svg" alt="" class="local-icon icon-white">
+                                    <span>Beginner (just starting)</span>
+                                </button>
+                                <button class="wizard-option" data-next="3" data-answer="intermediate">
+                                    <img src="../assets/icons/SVG/layers.svg" alt="" class="local-icon icon-white">
+                                    <span>Intermediate (some experience)</span>
+                                </button>
+                                <button class="wizard-option" data-next="3" data-answer="advanced">
+                                    <img src="../assets/icons/SVG/rocket.svg" alt="" class="local-icon icon-white">
+                                    <span>Advanced (power user)</span>
+                                </button>
+                            </div>
+                            <button class="wizard-back" data-prev="1">← Back</button>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="wizard-step" data-step="3">
+                            <h4 class="wizard-question">What's your budget preference?</h4>
+                            <div class="wizard-options">
+                                <button class="wizard-option" data-next="result" data-answer="free">
+                                    <img src="../assets/icons/SVG/check.svg" alt="" class="local-icon icon-white">
+                                    <span>Free tools only</span>
+                                </button>
+                                <button class="wizard-option" data-next="result" data-answer="paid">
+                                    <img src="../assets/icons/SVG/crown.svg" alt="" class="local-icon icon-white">
+                                    <span>Willing to pay for premium</span>
+                                </button>
+                            </div>
+                            <button class="wizard-back" data-prev="2">← Back</button>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="wizard-step wizard-result" data-step="result">
+                            <h4 class="wizard-question">Your Recommended AI Tools</h4>
+                            <div class="wizard-recommendation" id="wizard-recommendation">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                            <button class="wizard-restart">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
                 <!-- How to Use Section -->
                 <div class="sec-section" id="how-to-use">
                     <h3><img src="../assets/icons/SVG/target.svg" class="local-icon icon-red" alt=""> How to Use AI Effectively</h3>
@@ -322,6 +405,71 @@
                                 <li><strong>Repeat</strong> - Iterate until solved</li>
                             </ul>
                             <p><strong>Best for:</strong> Problem-solving, research, multi-step tasks</p>
+                        </div>
+                    </div>
+
+                    <!-- Try It Yourself Section -->
+                    <div class="try-it-section">
+                        <h4><img src="../assets/icons/SVG/target.svg" class="local-icon icon-red" alt=""> Try It Yourself</h4>
+                        <p>Copy these example prompts and paste them into any AI tool to see structured prompting in action.</p>
+
+                        <div class="example-block">
+                            <div class="example-header">
+                                <span class="example-label">CRISP Example</span>
+                                <span class="method-badge">CRISP</span>
+                            </div>
+                            <div class="example-content active">
+                                <div class="prompt-text">Context: I'm a marketing manager at a small tech startup launching a new productivity app.
+
+Request: Write a product announcement email for our existing customers.
+
+Instructions: Include the key features, benefits, and a clear call-to-action. Keep it under 200 words.
+
+Style: Professional but friendly, enthusiastic without being pushy.
+
+Parameters: Subject line included, no jargon, mobile-friendly formatting.</div>
+                                <button class="btn-copy" aria-label="Copy prompt">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="example-block">
+                            <div class="example-header">
+                                <span class="example-label">COSTAR Example</span>
+                                <span class="method-badge">COSTAR</span>
+                            </div>
+                            <div class="example-content active">
+                                <div class="prompt-text">Context: Our company just achieved carbon-neutral certification after a 3-year sustainability initiative.
+
+Objective: Create a LinkedIn post announcing this achievement.
+
+Style: Inspiring and authentic, avoiding corporate buzzwords.
+
+Tone: Proud but humble, grateful to employees and partners.
+
+Audience: Business professionals, potential employees, industry peers.
+
+Response: 150-200 word post with 3-5 relevant hashtags.</div>
+                                <button class="btn-copy" aria-label="Copy prompt">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="example-block">
+                            <div class="example-header">
+                                <span class="example-label">ReAct Example</span>
+                                <span class="method-badge">ReAct</span>
+                            </div>
+                            <div class="example-content active">
+                                <div class="prompt-text">I need to plan a team-building event for 15 people with a $500 budget. Use the ReAct approach:
+
+Thought: First, consider what types of activities work for groups of 15 within budget constraints.
+
+Action: List 5 activity options with estimated costs.
+
+Observation: Evaluate which options best balance engagement, cost, and logistics.
+
+Then repeat this process to narrow down to a final recommendation with a complete plan.</div>
+                                <button class="btn-copy" aria-label="Copy prompt">Copy</button>
+                            </div>
                         </div>
                     </div>
 
