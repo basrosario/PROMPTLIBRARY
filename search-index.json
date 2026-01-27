@@ -95,10 +95,10 @@
       "title": "IT Site Support Prompts",
       "category": "Library",
       "subcategory": "Information Technology",
-      "keywords": ["support", "helpdesk", "tickets", "user support", "troubleshooting"],
+      "keywords": ["IT", "IT support", "support", "helpdesk", "help desk", "tickets", "user support", "troubleshooting", "tech support", "technical support", "desktop support"],
       "page": "library.html",
       "anchor": "support",
-      "excerpt": "Help desk and user support prompts for efficient ticket resolution",
+      "excerpt": "Help desk and IT user support prompts for efficient ticket resolution and technical assistance",
       "method": "CRISP"
     },
     {

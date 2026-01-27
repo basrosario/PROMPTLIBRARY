@@ -1147,11 +1147,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         getBasePath() {
-            // Determine base path based on current page location
+            // Determine base path based on current page directory depth
             const path = window.location.pathname;
-            if (path.includes('/education/') || path.includes('/business/') ||
-                path.includes('/services/') || path.includes('/pages/') ||
-                path.includes('/enterprise/')) {
+
+            // Count how many directory levels deep we are
+            // Remove leading slash, split by /, filter out empty strings and filenames
+            const segments = path.split('/').filter(s => s && !s.includes('.html') && !s.includes('.htm'));
+
+            // For nested directories like /education/games/, we need ../../
+            // For single level like /education/, we need ../
+            // For root, we need nothing
+            if (segments.length >= 2) {
+                return '../'.repeat(segments.length);
+            } else if (segments.length === 1) {
                 return '../';
             }
             return '';
