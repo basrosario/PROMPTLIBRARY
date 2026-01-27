@@ -3286,9 +3286,10 @@ p { margin-bottom: 15px; }
 }
 
 .praxis-brand-massive {
-    font-size: 6rem;
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
     margin-bottom: 40px;
-    letter-spacing: 8px;
+    letter-spacing: clamp(2px, 0.8vw, 6px);
+    white-space: nowrap;
     text-shadow:
         0 0 30px rgba(230, 57, 70, 0.5),
         0 0 60px rgba(230, 57, 70, 0.3),
@@ -3297,12 +3298,12 @@ p { margin-bottom: 15px; }
 }
 
 .praxis-brand-massive .praxis-bracket {
-    font-size: 5rem;
+    font-size: clamp(1.8rem, 6vw, 4rem);
 }
 
 .praxis-brand-massive .praxis-text,
 .praxis-brand-massive .praxis-ai {
-    font-size: 6rem;
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
 }
 
 @keyframes staticFlicker {
@@ -3846,19 +3847,7 @@ p { margin-bottom: 15px; }
         font-size: 1.2rem;
     }
 
-    .praxis-brand-massive {
-        font-size: 3.5rem;
-        letter-spacing: 4px;
-    }
-
-    .praxis-brand-massive .praxis-bracket {
-        font-size: 3rem;
-    }
-
-    .praxis-brand-massive .praxis-text,
-    .praxis-brand-massive .praxis-ai {
-        font-size: 3.5rem;
-    }
+    /* Brand massive uses clamp() for responsive sizing */
 
     .praxis-stats {
         gap: 25px;
@@ -3894,19 +3883,7 @@ p { margin-bottom: 15px; }
         font-size: 2rem;
     }
 
-    .praxis-brand-massive {
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-    }
-
-    .praxis-brand-massive .praxis-bracket {
-        font-size: 2.2rem;
-    }
-
-    .praxis-brand-massive .praxis-text,
-    .praxis-brand-massive .praxis-ai {
-        font-size: 2.5rem;
-    }
+    /* Brand massive uses clamp() for responsive sizing */
 
     .praxis-tagline {
         font-size: 1rem;
@@ -3918,5 +3895,1439 @@ p { margin-bottom: 15px; }
 
     .hub-card {
         padding: 20px 10px;
+    }
+}
+
+/* ==========================================
+   SITE-WIDE SEARCH SYSTEM
+   ========================================== */
+
+/* Search Toggle Button */
+.search-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--color-light-grey);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 10px 15px;
+}
+
+.search-toggle:hover {
+    background: rgba(230, 57, 70, 0.1);
+    border-color: rgba(230, 57, 70, 0.3);
+    color: var(--color-white);
+}
+
+.search-toggle img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.search-toggle .search-shortcut {
+    font-size: 0.625rem;
+    opacity: 0.5;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Search Modal Overlay */
+.search-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 10000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 12vh;
+    animation: fadeIn 0.15s ease;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+/* Search Modal Content */
+.search-modal-content {
+    width: 90%;
+    max-width: 600px;
+    background: var(--color-dark-grey);
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search Input Container */
+.search-input-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input-container img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+#site-search {
+    flex: 1;
+    padding: 20px 15px;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.125rem;
+    font-family: inherit;
+    outline: none;
+}
+
+#site-search::placeholder {
+    color: var(--color-light-grey);
+    opacity: 0.6;
+}
+
+.search-close {
+    background: none;
+    border: none;
+    color: var(--color-light-grey);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.search-close:hover {
+    color: var(--color-red);
+}
+
+/* Search Results */
+.search-results {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.search-result-item {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.search-result-item:hover,
+.search-result-item:focus,
+.search-result-item.selected {
+    background: rgba(230, 57, 70, 0.1);
+    outline: none;
+}
+
+.search-result-item .result-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.search-result-item .result-title {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.search-result-item .result-category {
+    color: var(--color-red);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    background: rgba(230, 57, 70, 0.15);
+    border-radius: 4px;
+}
+
+.search-result-item .result-method {
+    color: var(--color-green);
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    background: rgba(40, 167, 69, 0.15);
+    border-radius: 4px;
+}
+
+.search-result-item .result-excerpt {
+    color: var(--color-light-grey);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+/* No Results State */
+.search-no-results {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--color-light-grey);
+}
+
+.search-no-results p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Search Footer */
+.search-footer {
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--color-light-grey);
+    opacity: 0.7;
+}
+
+.search-footer kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.7rem;
+}
+
+/* Mobile Search Adjustments */
+@media (max-width: 768px) {
+    .search-modal {
+        align-items: flex-end;
+        padding-top: 0;
+    }
+
+    .search-modal-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 24px 24px 0 0;
+        max-height: 85vh;
+    }
+
+    .search-toggle {
+        padding: 10px;
+    }
+
+    .search-toggle .search-shortcut {
+        display: none;
+    }
+
+    .search-footer {
+        display: none;
+    }
+}
+
+/* ==========================================
+   MOBILE UX ENHANCEMENTS
+   ========================================== */
+
+/* Touch-Optimized Interactions */
+@media (max-width: 768px) {
+    /* Larger touch targets - minimum 48px */
+    .nav-item,
+    .hub-card,
+    .example-header,
+    .score-card,
+    .method-badge,
+    .btn-copy {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Swipe-friendly cards */
+    .example-block {
+        touch-action: pan-y;
+    }
+
+    /* Better tap feedback animation */
+    .nav-item,
+    .hub-card,
+    .example-header,
+    .score-card,
+    .btn-primary,
+    .btn-secondary {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-item::after,
+    .hub-card::after,
+    .score-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at var(--tap-x, 50%) var(--tap-y, 50%), rgba(230, 57, 70, 0.3) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        border-radius: inherit;
+    }
+
+    .nav-item:active::after,
+    .hub-card:active::after,
+    .score-card:active::after {
+        opacity: 1;
+    }
+
+    /* Smoother mobile transitions */
+    .fade-in {
+        transition-duration: 0.35s;
+    }
+
+    /* Improved mobile sidebar */
+    .sidebar {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Better mobile button sizing */
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+
+    /* Prevent text selection during touch */
+    .nav-item,
+    .hub-card,
+    .example-header {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* Larger accordion icons for touch */
+    .accordion-icon,
+    .accordion-toggle {
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+    }
+
+    /* More breathing room for touch */
+    .example-block {
+        margin-bottom: 16px;
+    }
+
+    .nav-accordion-content .nav-item {
+        padding: 14px 20px 14px 30px;
+    }
+
+    /* Improved card spacing on mobile */
+    .score-grid,
+    .metrics-grid,
+    .rationale-grid {
+        gap: 12px;
+    }
+}
+
+/* Extra small devices - further optimizations */
+@media (max-width: 480px) {
+    /* Stack elements that are cramped */
+    .example-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .method-badge {
+        order: -1;
+        margin-bottom: 4px;
+    }
+
+    /* Simplify complex layouts */
+    .praxis-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    /* Full-width buttons on very small screens */
+    .btn-primary,
+    .btn-secondary,
+    .btn-copy {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Reduce padding on small screens */
+    .container {
+        padding: 0 12px;
+    }
+
+    .sec-section {
+        padding: 20px 15px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .neural-bg,
+    #praxis-canvas,
+    #neural-network-bg {
+        display: none !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover effects that don't work on touch */
+    .example-block:hover,
+    .score-card:hover,
+    .hub-card:hover {
+        transform: none;
+    }
+
+    /* Add active states instead */
+    .example-block:active,
+    .score-card:active,
+    .hub-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* Larger touch targets for cards */
+    .hub-card {
+        padding: 24px 16px;
+    }
+}
+
+/* ==========================================
+   EDUCATION GAMIFICATION SYSTEM
+   ========================================== */
+
+/* Age Selector Grid */
+.age-selector {
+    margin: 20px 0;
+}
+
+.age-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.age-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 25px 20px;
+    background: var(--color-dark-grey);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.age-card:hover {
+    border-color: rgba(230, 57, 70, 0.5);
+    transform: translateY(-3px);
+}
+
+.age-card.selected {
+    border-color: var(--color-red);
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.age-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-red);
+    border-radius: 50%;
+}
+
+.age-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.age-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-white);
+}
+
+.age-range {
+    font-size: 0.8rem;
+    color: var(--color-light-grey);
+}
+
+/* Games Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-card {
+    display: flex;
+    gap: 15px;
+    padding: 25px;
+    background: var(--color-dark-grey);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.game-card:hover {
+    border-color: rgba(230, 57, 70, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.game-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-red);
+    border-radius: 12px;
+}
+
+.game-icon img {
+    width: 28px;
+    height: 28px;
+}
+
+.game-content h4 {
+    margin: 0 0 8px 0;
+    color: var(--color-white);
+    font-size: 1.1rem;
+}
+
+.game-content p {
+    margin: 0 0 12px 0;
+    color: var(--color-light-grey);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.game-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.game-stat {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    background: rgba(230, 57, 70, 0.15);
+    color: var(--color-red);
+    border-radius: 4px;
+}
+
+/* Leaderboard */
+.leaderboard {
+    background: var(--color-dark-grey);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.leaderboard-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lb-tab {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    color: var(--color-light-grey);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.lb-tab:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lb-tab.active {
+    color: var(--color-red);
+    background: rgba(230, 57, 70, 0.1);
+    border-bottom: 2px solid var(--color-red);
+}
+
+.leaderboard-content {
+    padding: 0;
+}
+
+.lb-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lb-table th,
+.lb-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.lb-table th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--color-light-grey);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lb-table td {
+    color: var(--color-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lb-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.lb-empty {
+    text-align: center;
+    color: var(--color-light-grey);
+    padding: 30px !important;
+}
+
+/* Quiz Specific Styles */
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quiz-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--color-dark-grey);
+    border-radius: 8px;
+}
+
+.quiz-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin: 0 15px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: var(--color-red);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.quiz-question {
+    background: var(--color-dark-grey);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quiz-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.quiz-option.selected {
+    border-color: var(--color-red);
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.quiz-option.correct {
+    border-color: var(--color-green);
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.quiz-option.incorrect {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.option-letter {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.quiz-option.selected .option-letter {
+    background: var(--color-red);
+}
+
+.quiz-option.correct .option-letter {
+    background: var(--color-green);
+}
+
+.quiz-option.incorrect .option-letter {
+    background: #dc3545;
+}
+
+.quiz-explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(40, 167, 69, 0.1);
+    border-left: 3px solid var(--color-green);
+    border-radius: 0 8px 8px 0;
+}
+
+.quiz-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Quiz Results */
+.quiz-results {
+    text-align: center;
+    padding: 40px;
+    background: var(--color-dark-grey);
+    border-radius: 12px;
+}
+
+.quiz-score {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-red);
+    margin-bottom: 10px;
+}
+
+.quiz-score-label {
+    font-size: 1.25rem;
+    color: var(--color-light-grey);
+    margin-bottom: 30px;
+}
+
+/* Flashcard Styles */
+.flashcard-container {
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.flashcard-progress {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-light-grey);
+}
+
+.flashcard {
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: var(--color-dark-grey);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.flashcard-front {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    background: rgba(230, 57, 70, 0.1);
+    border-color: var(--color-red);
+}
+
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Prompt Test Styles */
+.prompt-workspace {
+    background: var(--color-dark-grey);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.prompt-workspace label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.prompt-workspace textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+.prompt-workspace textarea:focus {
+    outline: none;
+    border-color: var(--color-red);
+}
+
+.ai-instructions {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.ai-instructions p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+}
+
+.scoring-results {
+    text-align: center;
+    padding: 30px;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.rubric-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.rubric-item {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.rubric-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-green);
+}
+
+.rubric-label {
+    font-size: 0.8rem;
+    color: var(--color-light-grey);
+    margin-top: 5px;
+}
+
+/* Challenge Card */
+.challenge-card {
+    background: var(--color-dark-grey);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.challenge-title {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.challenge-objective {
+    color: var(--color-light-grey);
+    margin-bottom: 15px;
+}
+
+.btn-hint {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    color: var(--color-light-grey);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-hint:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+}
+
+/* Initials Modal */
+.initials-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.initials-modal.active {
+    display: flex;
+}
+
+.initials-content {
+    background: var(--color-dark-grey);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.initials-input {
+    width: 100px;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--color-white);
+    margin: 20px 0;
+}
+
+.initials-input:focus {
+    outline: none;
+    border-color: var(--color-red);
+}
+
+/* Game Responsive */
+@media (max-width: 768px) {
+    .age-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .flashcard {
+        height: 250px;
+    }
+
+    .quiz-score {
+        font-size: 3rem;
+    }
+}
+
+/* Additional Flashcard Styles */
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.flashcard-level {
+    font-weight: 600;
+    color: var(--color-red);
+}
+
+.flashcard-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-light-grey);
+    margin-bottom: 15px;
+}
+
+.flashcard-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.flashcard-hint {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--color-light-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.flashcard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Additional Challenge Styles */
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.challenge-level {
+    font-weight: 600;
+    color: var(--color-red);
+}
+
+.challenge-title-display {
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.challenge-card .challenge-objective h4 {
+    margin: 0 0 10px 0;
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+.challenge-card .challenge-objective p {
+    margin: 0;
+    color: var(--color-light-grey);
+    line-height: 1.6;
+}
+
+.challenge-hints {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.challenge-hints h5 {
+    margin: 0 0 10px 0;
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+.challenge-hints ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--color-light-grey);
+}
+
+.challenge-hints li {
+    margin-bottom: 5px;
+}
+
+/* Workspace Steps */
+.workspace-step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--color-red);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-instruction {
+    color: var(--color-light-grey);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* AI Quick Links */
+.ai-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ai-link-label {
+    font-size: 0.85rem;
+    color: var(--color-light-grey);
+}
+
+.ai-link {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.ai-link:hover {
+    background: rgba(230, 57, 70, 0.3);
+    color: var(--color-white);
+}
+
+/* Prompt Actions */
+.prompt-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Score Display for Prompt Test */
+.score-display {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.score-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-red);
+}
+
+.score-max {
+    font-size: 2rem;
+    color: var(--color-light-grey);
+}
+
+.score-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: 25px;
+}
+
+/* Updated Rubric Breakdown */
+.rubric-breakdown h4 {
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.rubric-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rubric-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.rubric-label {
+    flex-shrink: 0;
+    width: 120px;
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+.rubric-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rubric-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-red), #ff6b7a);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.rubric-score {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--color-green);
+    font-size: 0.9rem;
+}
+
+/* Submission Review */
+.submission-review {
+    margin-top: 30px;
+}
+
+.review-section {
+    margin-bottom: 20px;
+}
+
+.review-section h5 {
+    margin: 0 0 10px 0;
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+.review-content {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    color: var(--color-light-grey);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-height: 150px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+/* Tip List */
+.tip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tip-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-light-grey);
+    line-height: 1.6;
+}
+
+.tip-list li:last-child {
+    border-bottom: none;
+}
+
+.tip-list li strong {
+    color: var(--color-white);
+}
+
+/* Button Small Variant */
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--color-light-grey);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.btn-text:hover {
+    color: var(--color-white);
+}
+
+/* Results Nav */
+.results-nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Selected Age Card */
+.age-card.selected {
+    border-color: var(--color-red);
+    background: rgba(230, 57, 70, 0.2);
+}
+
+/* Mobile Adjustments for New Elements */
+@media (max-width: 768px) {
+    .flashcard-header,
+    .challenge-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .workspace-step {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .step-number {
+        align-self: flex-start;
+    }
+
+    .ai-links {
+        justify-content: center;
+    }
+
+    .flashcard-actions,
+    .prompt-actions {
+        flex-direction: column;
+    }
+
+    .flashcard-actions .btn-secondary,
+    .prompt-actions .btn-secondary {
+        width: 100%;
+    }
+
+    .rubric-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .rubric-label {
+        width: auto;
+    }
+
+    .rubric-bar {
+        width: 100%;
+    }
+
+    .score-value {
+        font-size: 3rem;
+    }
+
+    .score-max {
+        font-size: 1.5rem;
     }
 }

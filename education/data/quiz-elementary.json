@@ -1,0 +1,365 @@
+{
+  "tier": "elementary",
+  "questions": [
+    {
+      "id": "e001",
+      "question": "What does AI stand for?",
+      "options": [
+        "Artificial Intelligence",
+        "Automatic Internet",
+        "Apple iPhone",
+        "Animal Information"
+      ],
+      "correct": 0,
+      "explanation": "AI stands for Artificial Intelligence - computers that can do smart things like answer questions and help with tasks!"
+    },
+    {
+      "id": "e002",
+      "question": "Which of these is something AI can help you do?",
+      "options": [
+        "Make your bed",
+        "Write a story",
+        "Eat your lunch",
+        "Tie your shoes"
+      ],
+      "correct": 1,
+      "explanation": "AI can help you write stories! It can suggest ideas and help with spelling and grammar."
+    },
+    {
+      "id": "e003",
+      "question": "Is everything AI tells you always correct?",
+      "options": [
+        "Yes, AI is always right",
+        "No, AI can make mistakes",
+        "Only on Tuesdays",
+        "Only if you say please"
+      ],
+      "correct": 1,
+      "explanation": "AI can make mistakes! That's why it's important to check important information with a grown-up or another source."
+    },
+    {
+      "id": "e004",
+      "question": "What should you do before using AI for homework?",
+      "options": [
+        "Ask a teacher or parent first",
+        "Use it without telling anyone",
+        "Never use it",
+        "Only use it at midnight"
+      ],
+      "correct": 0,
+      "explanation": "Always ask a teacher or parent before using AI for homework. They can help you use it the right way!"
+    },
+    {
+      "id": "e005",
+      "question": "What is a 'prompt'?",
+      "options": [
+        "A type of computer",
+        "A question or instruction you give to AI",
+        "A computer game",
+        "A type of sandwich"
+      ],
+      "correct": 1,
+      "explanation": "A prompt is like asking AI a question or giving it instructions. The better your question, the better the answer!"
+    },
+    {
+      "id": "e006",
+      "question": "Which helper is an example of AI?",
+      "options": [
+        "A calculator",
+        "Siri or Alexa",
+        "A pencil",
+        "A notebook"
+      ],
+      "correct": 1,
+      "explanation": "Siri and Alexa are AI helpers! They can answer questions and do things when you ask them."
+    },
+    {
+      "id": "e007",
+      "question": "Can AI draw pictures?",
+      "options": [
+        "No, only humans can draw",
+        "Yes, some AI can create images",
+        "Only stick figures",
+        "Only in black and white"
+      ],
+      "correct": 1,
+      "explanation": "Some AI can create amazing pictures! You describe what you want, and the AI draws it for you."
+    },
+    {
+      "id": "e008",
+      "question": "What should you NEVER share with AI?",
+      "options": [
+        "Your favorite color",
+        "Your full name and address",
+        "What you want to learn about",
+        "Questions about animals"
+      ],
+      "correct": 1,
+      "explanation": "Never share personal information like your full name, address, or school with AI. Keep that private!"
+    },
+    {
+      "id": "e009",
+      "question": "How does AI learn?",
+      "options": [
+        "By going to school",
+        "By reading lots of text and finding patterns",
+        "By watching TV",
+        "By eating books"
+      ],
+      "correct": 1,
+      "explanation": "AI learns by reading billions of words and finding patterns. It's like learning to recognize patterns in puzzles!"
+    },
+    {
+      "id": "e010",
+      "question": "If AI gives you an answer you're not sure about, what should you do?",
+      "options": [
+        "Believe it no matter what",
+        "Check with a trusted adult or book",
+        "Ignore it completely",
+        "Ask 100 more questions"
+      ],
+      "correct": 1,
+      "explanation": "When you're not sure about an AI answer, check with a trusted adult, teacher, or look it up in a book!"
+    },
+    {
+      "id": "e011",
+      "question": "Can AI read your mind?",
+      "options": [
+        "Yes, always",
+        "No, you have to tell it what you want",
+        "Only when you're sleeping",
+        "Only on weekends"
+      ],
+      "correct": 1,
+      "explanation": "AI cannot read minds! You need to tell it clearly what you want help with."
+    },
+    {
+      "id": "e012",
+      "question": "What makes a good question for AI?",
+      "options": [
+        "A very short question with no details",
+        "A clear question with helpful details",
+        "Just saying 'help'",
+        "Using only emojis"
+      ],
+      "correct": 1,
+      "explanation": "Good AI questions are clear and have details. Instead of 'help with homework,' try 'help me understand why leaves change color.'"
+    },
+    {
+      "id": "e013",
+      "question": "Is AI the same as a robot?",
+      "options": [
+        "Yes, they're exactly the same",
+        "No, AI is the 'brain' and robots are machines",
+        "Robots are better",
+        "AI is a type of food"
+      ],
+      "correct": 1,
+      "explanation": "AI is like a smart brain that can think. A robot is a machine that can move. Some robots have AI brains!"
+    },
+    {
+      "id": "e014",
+      "question": "Why is it important to be nice when talking to AI?",
+      "options": [
+        "AI has feelings",
+        "Being polite helps you practice good habits",
+        "AI will cry",
+        "It doesn't matter at all"
+      ],
+      "correct": 1,
+      "explanation": "Being polite to AI helps you practice good communication habits, even though AI doesn't have feelings."
+    },
+    {
+      "id": "e015",
+      "question": "Can AI do your thinking for you?",
+      "options": [
+        "Yes, you never need to think again",
+        "No, AI helps but you still need to think",
+        "Only for math",
+        "Only for art"
+      ],
+      "correct": 1,
+      "explanation": "AI is a helper, not a replacement for your own thinking! Your ideas and creativity are still super important."
+    },
+    {
+      "id": "e016",
+      "question": "What can ChatGPT and Claude help you with?",
+      "options": [
+        "Physical exercise",
+        "Writing and answering questions",
+        "Cooking dinner",
+        "Cleaning your room"
+      ],
+      "correct": 1,
+      "explanation": "ChatGPT and Claude are AI that help with writing, answering questions, and explaining things."
+    },
+    {
+      "id": "e017",
+      "question": "If you copy AI's answer exactly for homework, is that okay?",
+      "options": [
+        "Yes, always",
+        "No, you should use your own words and ideas",
+        "Only if no one finds out",
+        "Only for art class"
+      ],
+      "correct": 1,
+      "explanation": "Copying AI word-for-word isn't your own work. Use AI to help you understand, then write in your own words!"
+    },
+    {
+      "id": "e018",
+      "question": "What does it mean when we say AI can 'hallucinate'?",
+      "options": [
+        "AI can see things that aren't there",
+        "AI sometimes makes up incorrect information",
+        "AI is dreaming",
+        "AI needs glasses"
+      ],
+      "correct": 1,
+      "explanation": "When AI 'hallucinates,' it means it might confidently say something that isn't true. Always double-check important facts!"
+    },
+    {
+      "id": "e019",
+      "question": "Which is a good way to use AI?",
+      "options": [
+        "Let it do all your work",
+        "Use it as a helper and learning tool",
+        "Never use it",
+        "Use it only to play games"
+      ],
+      "correct": 1,
+      "explanation": "AI is best used as a helper and learning tool. It can explain things, give ideas, and help you learn!"
+    },
+    {
+      "id": "e020",
+      "question": "Can AI feel happy or sad?",
+      "options": [
+        "Yes, just like people",
+        "No, AI doesn't have feelings",
+        "Only on its birthday",
+        "Only when it wins games"
+      ],
+      "correct": 1,
+      "explanation": "AI doesn't have feelings like people do. It might use words about feelings, but it doesn't actually experience them."
+    },
+    {
+      "id": "e021",
+      "question": "What's the best thing about AI?",
+      "options": [
+        "It can replace teachers",
+        "It can help you learn and be creative",
+        "It knows everything perfectly",
+        "It can do your chores"
+      ],
+      "correct": 1,
+      "explanation": "AI is great for helping you learn new things and sparking creativity! But it works best alongside teachers and parents."
+    },
+    {
+      "id": "e022",
+      "question": "How is AI different from a search engine like Google?",
+      "options": [
+        "They're exactly the same",
+        "AI can create new text, not just find existing pages",
+        "Google is smarter",
+        "AI only works offline"
+      ],
+      "correct": 1,
+      "explanation": "Search engines find existing web pages. AI can create new text, like writing a story or explaining something in different ways."
+    },
+    {
+      "id": "e023",
+      "question": "What's a 'chatbot'?",
+      "options": [
+        "A robot that chats in person",
+        "An AI you can have a conversation with by typing",
+        "A cat that talks",
+        "A type of video game"
+      ],
+      "correct": 1,
+      "explanation": "A chatbot is an AI you can have conversations with by typing messages. ChatGPT and Claude are chatbots!"
+    },
+    {
+      "id": "e024",
+      "question": "Who makes AI?",
+      "options": [
+        "Magic fairies",
+        "People who work as computer scientists and engineers",
+        "Robots make themselves",
+        "AI grows on trees"
+      ],
+      "correct": 1,
+      "explanation": "People called computer scientists and engineers create AI. They write special instructions called code."
+    },
+    {
+      "id": "e025",
+      "question": "If AI helps you with a school project, should you tell your teacher?",
+      "options": [
+        "No, keep it secret",
+        "Yes, it's important to be honest",
+        "Only if you get caught",
+        "Teachers don't care"
+      ],
+      "correct": 1,
+      "explanation": "Being honest is important! Tell your teacher if AI helped you. Many teachers want to know so they can guide you."
+    },
+    {
+      "id": "e026",
+      "question": "What happens when lots of people ask AI the same question?",
+      "options": [
+        "AI gets tired",
+        "AI might give different answers each time",
+        "AI breaks",
+        "Nothing changes"
+      ],
+      "correct": 1,
+      "explanation": "AI can give slightly different answers each time, even for the same question! That's part of how it works."
+    },
+    {
+      "id": "e027",
+      "question": "Can AI help you learn a new language?",
+      "options": [
+        "No, AI only speaks English",
+        "Yes, AI can help practice languages",
+        "Only made-up languages",
+        "Only animal sounds"
+      ],
+      "correct": 1,
+      "explanation": "AI can help you practice many languages! It can translate, explain grammar, and help you learn new words."
+    },
+    {
+      "id": "e028",
+      "question": "Why do we say AI is a 'tool'?",
+      "options": [
+        "Because it looks like a hammer",
+        "Because it helps us do things, like other tools help us",
+        "Because you can buy it at a hardware store",
+        "Because it's made of metal"
+      ],
+      "correct": 1,
+      "explanation": "Just like a hammer helps build things, AI is a tool that helps us write, learn, and solve problems!"
+    },
+    {
+      "id": "e029",
+      "question": "What should you do if AI says something mean or wrong?",
+      "options": [
+        "Believe it anyway",
+        "Tell a trusted adult and don't use that information",
+        "Keep asking until it says something nice",
+        "Get angry at the computer"
+      ],
+      "correct": 1,
+      "explanation": "If AI says something wrong or unkind, don't use that information. Tell a trusted adult so they can help."
+    },
+    {
+      "id": "e030",
+      "question": "Is AI getting smarter over time?",
+      "options": [
+        "No, AI stays the same forever",
+        "Yes, people keep improving AI",
+        "AI gets dumber",
+        "Only during summer"
+      ],
+      "correct": 1,
+      "explanation": "AI keeps getting better because people keep working to improve it! That's why it's important to keep learning about it."
+    }
+  ]
+}

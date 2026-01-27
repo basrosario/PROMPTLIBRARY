@@ -1073,4 +1073,276 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 500);
     }
+
+    // ==========================================
+    // SITE-WIDE SEARCH SYSTEM
+    // ==========================================
+
+    class SiteSearch {
+        constructor() {
+            this.index = null;
+            this.modal = null;
+            this.input = null;
+            this.results = null;
+            this.selectedIndex = -1;
+            this.currentResults = [];
+        }
+
+        async init() {
+            // Create search UI
+            this.createSearchUI();
+
+            // Load search index
+            await this.loadIndex();
+
+            // Bind events
+            this.bindEvents();
+        }
+
+        createSearchUI() {
+            // Find nav-scroller to add search toggle
+            const navScroller = document.querySelector('.nav-scroller');
+            if (navScroller) {
+                // Create search toggle button
+                const searchToggle = document.createElement('button');
+                searchToggle.className = 'search-toggle';
+                searchToggle.setAttribute('aria-label', 'Search site');
+                searchToggle.innerHTML = `
+                    <img src="${this.getBasePath()}assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                    <span>Search...</span>
+                    <span class="search-shortcut">Ctrl+K</span>
+                `;
+
+                // Insert at top of nav-scroller
+                navScroller.insertBefore(searchToggle, navScroller.firstChild);
+                this.searchToggle = searchToggle;
+            }
+
+            // Create modal
+            this.modal = document.createElement('div');
+            this.modal.className = 'search-modal';
+            this.modal.setAttribute('role', 'dialog');
+            this.modal.setAttribute('aria-modal', 'true');
+            this.modal.setAttribute('aria-label', 'Site search');
+            this.modal.innerHTML = `
+                <div class="search-modal-content">
+                    <div class="search-input-container">
+                        <img src="${this.getBasePath()}assets/icons/SVG/search.svg" alt="" class="local-icon">
+                        <input type="search" id="site-search" placeholder="Search prompts, guides, topics..." autocomplete="off" aria-label="Search">
+                        <button class="search-close" aria-label="Close search">&times;</button>
+                    </div>
+                    <div class="search-results" role="listbox" aria-label="Search results"></div>
+                    <div class="search-footer">
+                        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
+                        <span><kbd>Enter</kbd> Open</span>
+                        <span><kbd>Esc</kbd> Close</span>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(this.modal);
+
+            this.input = this.modal.querySelector('#site-search');
+            this.results = this.modal.querySelector('.search-results');
+            this.closeBtn = this.modal.querySelector('.search-close');
+        }
+
+        getBasePath() {
+            // Determine base path based on current page location
+            const path = window.location.pathname;
+            if (path.includes('/education/') || path.includes('/business/') ||
+                path.includes('/services/') || path.includes('/pages/') ||
+                path.includes('/enterprise/')) {
+                return '../';
+            }
+            return '';
+        }
+
+        async loadIndex() {
+            try {
+                const basePath = this.getBasePath();
+                const response = await fetch(`${basePath}search-index.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    this.index = data.entries;
+                } else {
+                    console.warn('Search index not found');
+                    this.index = [];
+                }
+            } catch (error) {
+                console.warn('Failed to load search index:', error);
+                this.index = [];
+            }
+        }
+
+        bindEvents() {
+            // Toggle button click
+            if (this.searchToggle) {
+                this.searchToggle.addEventListener('click', () => this.open());
+            }
+
+            // Close button
+            this.closeBtn.addEventListener('click', () => this.close());
+
+            // Click outside to close
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) this.close();
+            });
+
+            // Input events
+            this.input.addEventListener('input', () => this.onSearch());
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                // Ctrl/Cmd + K to open
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    this.open();
+                }
+
+                // Escape to close
+                if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                    this.close();
+                }
+
+                // Arrow navigation in results
+                if (this.modal.classList.contains('active')) {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        this.navigateResults(1);
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        this.navigateResults(-1);
+                    } else if (e.key === 'Enter' && this.selectedIndex >= 0) {
+                        e.preventDefault();
+                        this.selectResult(this.currentResults[this.selectedIndex]);
+                    }
+                }
+            });
+        }
+
+        open() {
+            this.modal.classList.add('active');
+            this.input.focus();
+            document.body.style.overflow = 'hidden';
+        }
+
+        close() {
+            this.modal.classList.remove('active');
+            this.input.value = '';
+            this.results.innerHTML = '';
+            this.selectedIndex = -1;
+            this.currentResults = [];
+            document.body.style.overflow = '';
+        }
+
+        onSearch() {
+            const query = this.input.value.trim();
+
+            if (query.length < 2) {
+                this.results.innerHTML = '';
+                this.currentResults = [];
+                this.selectedIndex = -1;
+                return;
+            }
+
+            const matches = this.search(query);
+            this.currentResults = matches;
+            this.selectedIndex = -1;
+            this.renderResults(matches);
+        }
+
+        search(query) {
+            if (!this.index || !query) return [];
+
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+
+            return this.index.filter(entry => {
+                const searchText = [
+                    entry.title,
+                    entry.category,
+                    entry.subcategory,
+                    entry.excerpt,
+                    ...(entry.keywords || [])
+                ].join(' ').toLowerCase();
+
+                return terms.every(term => searchText.includes(term));
+            }).slice(0, 10);
+        }
+
+        renderResults(matches) {
+            if (matches.length === 0) {
+                this.results.innerHTML = `
+                    <div class="search-no-results">
+                        <p>No results found. Try different keywords.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const basePath = this.getBasePath();
+
+            this.results.innerHTML = matches.map((entry, index) => `
+                <a href="${basePath}${entry.page}${entry.anchor ? '#' + entry.anchor : ''}"
+                   class="search-result-item"
+                   data-index="${index}"
+                   role="option">
+                    <div class="result-header">
+                        <span class="result-title">${this.escapeHtml(entry.title)}</span>
+                        <span class="result-category">${this.escapeHtml(entry.category)}${entry.subcategory ? ' / ' + this.escapeHtml(entry.subcategory) : ''}</span>
+                        ${entry.method ? `<span class="result-method">${this.escapeHtml(entry.method)}</span>` : ''}
+                    </div>
+                    <div class="result-excerpt">${this.escapeHtml(entry.excerpt)}</div>
+                </a>
+            `).join('');
+
+            // Add click handlers
+            this.results.querySelectorAll('.search-result-item').forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    // Let the link work naturally
+                    this.close();
+                });
+            });
+        }
+
+        navigateResults(direction) {
+            if (this.currentResults.length === 0) return;
+
+            const items = this.results.querySelectorAll('.search-result-item');
+
+            // Remove current selection
+            if (this.selectedIndex >= 0 && items[this.selectedIndex]) {
+                items[this.selectedIndex].classList.remove('selected');
+            }
+
+            // Update index
+            this.selectedIndex += direction;
+            if (this.selectedIndex < 0) this.selectedIndex = this.currentResults.length - 1;
+            if (this.selectedIndex >= this.currentResults.length) this.selectedIndex = 0;
+
+            // Add selection
+            if (items[this.selectedIndex]) {
+                items[this.selectedIndex].classList.add('selected');
+                items[this.selectedIndex].scrollIntoView({ block: 'nearest' });
+            }
+        }
+
+        selectResult(entry) {
+            if (!entry) return;
+            const basePath = this.getBasePath();
+            const url = entry.anchor
+                ? `${basePath}${entry.page}#${entry.anchor}`
+                : `${basePath}${entry.page}`;
+            window.location.href = url;
+        }
+
+        escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text || '';
+            return div.innerHTML;
+        }
+    }
+
+    // Initialize search
+    const siteSearch = new SiteSearch();
+    siteSearch.init();
 });

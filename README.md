@@ -1,4 +1,4 @@
-# Praxis AI - Prompt Engineering Example Library
+# Praxis Interactive AI Library
 
 <div align="center">
 
@@ -345,7 +345,7 @@ See [LICENSE](LICENSE) for full terms.
 
 <div align="center">
 
-**Praxis AI - Prompt Engineering Example Library**
+**Praxis Interactive AI Library**
 
 *Human creativity. AI capability. Better outcomes.*
 

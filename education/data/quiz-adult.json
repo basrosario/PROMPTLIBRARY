@@ -1,0 +1,365 @@
+{
+  "tier": "adult",
+  "questions": [
+    {
+      "id": "a001",
+      "question": "What is the primary innovation of the 'Attention Is All You Need' paper?",
+      "options": [
+        "Introducing convolutional neural networks",
+        "Proposing the transformer architecture that relies solely on attention mechanisms",
+        "Creating the first chatbot",
+        "Developing reinforcement learning"
+      ],
+      "correct": 1,
+      "explanation": "The 2017 'Attention Is All You Need' paper introduced the transformer architecture, which replaced recurrent networks with self-attention, revolutionizing NLP."
+    },
+    {
+      "id": "a002",
+      "question": "What distinguishes 'autoregressive' language models from other approaches?",
+      "options": [
+        "They automatically correct errors",
+        "They generate text by predicting one token at a time based on previous tokens",
+        "They process all tokens simultaneously",
+        "They use automated training"
+      ],
+      "correct": 1,
+      "explanation": "Autoregressive models like GPT generate text sequentially, predicting each next token based on all previous tokens, enabling coherent text generation."
+    },
+    {
+      "id": "a003",
+      "question": "What is 'cross-entropy loss' in the context of LLM training?",
+      "options": [
+        "Heat generated during training",
+        "A measure of difference between predicted probability distribution and actual distribution",
+        "Energy loss in neural networks",
+        "Data loss during transfer"
+      ],
+      "correct": 1,
+      "explanation": "Cross-entropy loss measures how well the model's predicted probability distribution matches the actual next token, guiding training to improve predictions."
+    },
+    {
+      "id": "a004",
+      "question": "What is 'perplexity' as a metric for language models?",
+      "options": [
+        "User confusion levels",
+        "A measure of how well a model predicts a sample, related to cross-entropy",
+        "Model complexity",
+        "Processing speed"
+      ],
+      "correct": 1,
+      "explanation": "Perplexity measures how 'surprised' a model is by test data - lower perplexity indicates better prediction. It's the exponential of cross-entropy loss."
+    },
+    {
+      "id": "a005",
+      "question": "What is the purpose of 'layer normalization' in transformers?",
+      "options": [
+        "Organizing code into layers",
+        "Stabilizing training by normalizing activations across features",
+        "Reducing the number of layers",
+        "Compressing layer data"
+      ],
+      "correct": 1,
+      "explanation": "Layer normalization stabilizes training by normalizing activations, helping gradients flow and enabling deeper networks to train effectively."
+    },
+    {
+      "id": "a006",
+      "question": "What is 'positional encoding' in transformers?",
+      "options": [
+        "Encoding geographic coordinates",
+        "Adding information about token positions since attention doesn't inherently capture order",
+        "Positioning servers in data centers",
+        "Encoding user positions"
+      ],
+      "correct": 1,
+      "explanation": "Since self-attention is permutation-invariant, positional encodings add sequence position information, enabling the model to understand word order."
+    },
+    {
+      "id": "a007",
+      "question": "What is 'beam search' in text generation?",
+      "options": [
+        "Searching with laser beams",
+        "A decoding strategy that maintains multiple candidate sequences to find higher-quality outputs",
+        "Searching through training data",
+        "A type of neural network"
+      ],
+      "correct": 1,
+      "explanation": "Beam search explores multiple generation paths simultaneously, keeping the top-k candidates at each step to find more globally optimal sequences."
+    },
+    {
+      "id": "a008",
+      "question": "What is 'nucleus sampling' (top-p sampling)?",
+      "options": [
+        "Sampling from the nucleus of atoms",
+        "Selecting from the smallest set of tokens whose cumulative probability exceeds p",
+        "Taking samples from neural networks",
+        "A medical sampling technique"
+      ],
+      "correct": 1,
+      "explanation": "Nucleus sampling dynamically selects from tokens whose cumulative probability exceeds threshold p, balancing diversity and quality in generation."
+    },
+    {
+      "id": "a009",
+      "question": "What is the 'softmax temperature' parameter?",
+      "options": [
+        "Physical temperature of hardware",
+        "A scalar that controls the sharpness of probability distributions, affecting output randomness",
+        "A software setting",
+        "The optimal training temperature"
+      ],
+      "correct": 1,
+      "explanation": "Temperature scales logits before softmax - lower values make distributions sharper (more deterministic), higher values make them flatter (more random)."
+    },
+    {
+      "id": "a010",
+      "question": "What is 'catastrophic forgetting' in neural networks?",
+      "options": [
+        "When servers lose all data",
+        "When training on new tasks causes the model to forget previously learned tasks",
+        "Memory errors in computing",
+        "When users forget their passwords"
+      ],
+      "correct": 1,
+      "explanation": "Catastrophic forgetting occurs when fine-tuning on new data overwrites weights important for previous tasks, a key challenge in continual learning."
+    },
+    {
+      "id": "a011",
+      "question": "What is 'LoRA' (Low-Rank Adaptation)?",
+      "options": [
+        "A type of radio antenna",
+        "An efficient fine-tuning method that trains small rank-decomposition matrices",
+        "A learning rate algorithm",
+        "A low-resolution AI"
+      ],
+      "correct": 1,
+      "explanation": "LoRA enables efficient fine-tuning by training small, low-rank matrices that modify pre-trained weights, dramatically reducing trainable parameters."
+    },
+    {
+      "id": "a012",
+      "question": "What is 'knowledge distillation'?",
+      "options": [
+        "Extracting knowledge from databases",
+        "Training a smaller model to mimic a larger model's behavior",
+        "Purifying training data",
+        "Converting knowledge to code"
+      ],
+      "correct": 1,
+      "explanation": "Knowledge distillation transfers capabilities from a large 'teacher' model to a smaller 'student' model, often using soft labels from the teacher."
+    },
+    {
+      "id": "a013",
+      "question": "What is 'contrastive learning'?",
+      "options": [
+        "Learning by comparison with contrasting colors",
+        "Learning representations by comparing similar and dissimilar examples",
+        "A debate-based learning method",
+        "Learning with high contrast displays"
+      ],
+      "correct": 1,
+      "explanation": "Contrastive learning trains models by pulling similar examples closer in embedding space while pushing dissimilar ones apart, enabling powerful representations."
+    },
+    {
+      "id": "a014",
+      "question": "What is 'RLHF's reward model'?",
+      "options": [
+        "A financial incentive system",
+        "A model trained on human preferences to score AI outputs for alignment training",
+        "A model that predicts rewards in games",
+        "Hardware reward systems"
+      ],
+      "correct": 1,
+      "explanation": "In RLHF, the reward model learns from human comparisons of AI outputs, then provides reward signals to train the main model toward preferred behaviors."
+    },
+    {
+      "id": "a015",
+      "question": "What is 'Proximal Policy Optimization' (PPO)?",
+      "options": [
+        "Optimizing server proximity",
+        "A reinforcement learning algorithm that constrains policy updates for stable training",
+        "Optimizing prompt proximity",
+        "A data optimization technique"
+      ],
+      "correct": 1,
+      "explanation": "PPO is an RL algorithm commonly used in RLHF that limits how much the policy can change per update, enabling stable and efficient training."
+    },
+    {
+      "id": "a016",
+      "question": "What is 'Direct Preference Optimization' (DPO)?",
+      "options": [
+        "Directly asking users their preferences",
+        "A simpler alternative to RLHF that optimizes directly on preference data without a reward model",
+        "Optimizing database queries",
+        "A direct optimization compiler"
+      ],
+      "correct": 1,
+      "explanation": "DPO bypasses the reward model in RLHF, directly optimizing the policy using preference pairs, simplifying the alignment training pipeline."
+    },
+    {
+      "id": "a017",
+      "question": "What is 'mixture of experts' (MoE) architecture?",
+      "options": [
+        "Combining opinions from human experts",
+        "A model architecture where only a subset of parameters are activated for each input",
+        "A team of AI developers",
+        "Mixed training data from experts"
+      ],
+      "correct": 1,
+      "explanation": "MoE models contain multiple 'expert' sub-networks with a routing mechanism that activates only relevant experts per input, enabling larger models with less compute."
+    },
+    {
+      "id": "a018",
+      "question": "What is 'speculative decoding'?",
+      "options": [
+        "Guessing what users will type",
+        "Using a smaller model to draft tokens that a larger model verifies, speeding inference",
+        "Predicting stock prices",
+        "Speculation in AI development"
+      ],
+      "correct": 1,
+      "explanation": "Speculative decoding uses a fast draft model to propose multiple tokens, which a larger model then verifies in parallel, accelerating generation."
+    },
+    {
+      "id": "a019",
+      "question": "What is 'KV cache' in transformer inference?",
+      "options": [
+        "A type of cryptocurrency",
+        "Stored key-value pairs from previous tokens to avoid recomputation during generation",
+        "Keyboard-video cache",
+        "Knowledge verification cache"
+      ],
+      "correct": 1,
+      "explanation": "KV cache stores computed key and value tensors for previous tokens, enabling efficient autoregressive generation without recomputing them each step."
+    },
+    {
+      "id": "a020",
+      "question": "What is 'flash attention'?",
+      "options": [
+        "Attention that works quickly",
+        "An IO-aware attention algorithm that reduces memory usage and improves speed",
+        "Attention for flash photography",
+        "A type of memory"
+      ],
+      "correct": 1,
+      "explanation": "Flash attention optimizes attention computation by being IO-aware, reducing memory reads/writes to HBM, enabling longer sequences and faster training."
+    },
+    {
+      "id": "a021",
+      "question": "What is 'activation checkpointing' (gradient checkpointing)?",
+      "options": [
+        "Checking model activations for errors",
+        "Recomputing activations during backprop instead of storing them, trading compute for memory",
+        "Checkpoint files for activations",
+        "Activating checkpoints"
+      ],
+      "correct": 1,
+      "explanation": "Activation checkpointing saves memory by not storing all intermediate activations, recomputing them during backward pass, enabling training larger models."
+    },
+    {
+      "id": "a022",
+      "question": "What is 'model parallelism'?",
+      "options": [
+        "Running the same model twice",
+        "Splitting a model across multiple devices to handle models larger than single-device memory",
+        "Parallel universe models",
+        "Similar AI models"
+      ],
+      "correct": 1,
+      "explanation": "Model parallelism distributes model layers or parameters across multiple GPUs/devices, enabling training of models too large for single-device memory."
+    },
+    {
+      "id": "a023",
+      "question": "What is 'data parallelism' in distributed training?",
+      "options": [
+        "Using the same data multiple times",
+        "Replicating the model across devices, each processing different data batches",
+        "Parallel data storage",
+        "Similar datasets"
+      ],
+      "correct": 1,
+      "explanation": "Data parallelism replicates the full model on each device, with each processing different data batches and synchronizing gradients, scaling throughput."
+    },
+    {
+      "id": "a024",
+      "question": "What is 'in-context learning'?",
+      "options": [
+        "Learning within context managers in code",
+        "A model learning from examples provided in the prompt without weight updates",
+        "Learning in a specific context",
+        "Contextual advertisements"
+      ],
+      "correct": 1,
+      "explanation": "In-context learning is when LLMs learn to perform tasks from examples in the prompt, adapting behavior without any parameter updates."
+    },
+    {
+      "id": "a025",
+      "question": "What is 'mechanistic interpretability'?",
+      "options": [
+        "Understanding mechanical systems",
+        "Reverse-engineering neural networks to understand how they implement specific computations",
+        "Interpreting machine code",
+        "Mechanical explanations of AI"
+      ],
+      "correct": 1,
+      "explanation": "Mechanistic interpretability aims to understand the internal mechanisms of neural networks, identifying circuits and features that implement specific capabilities."
+    },
+    {
+      "id": "a026",
+      "question": "What are 'superposition' and 'polysemanticity' in neural networks?",
+      "options": [
+        "Quantum computing concepts",
+        "Phenomena where neurons represent multiple features simultaneously",
+        "Network architecture types",
+        "Training methods"
+      ],
+      "correct": 1,
+      "explanation": "Superposition is when models represent more features than they have neurons, leading to polysemanticity where individual neurons respond to multiple unrelated concepts."
+    },
+    {
+      "id": "a027",
+      "question": "What is 'Constitutional AI's' approach to self-improvement?",
+      "options": [
+        "Following government constitutions",
+        "Using AI to critique and revise its own outputs based on principles",
+        "Constitutional amendments for AI",
+        "Legal compliance checking"
+      ],
+      "correct": 1,
+      "explanation": "Constitutional AI has the model critique and revise its own responses according to a set of principles, then uses these revisions for RLHF training."
+    },
+    {
+      "id": "a028",
+      "question": "What is 'instruction tuning'?",
+      "options": [
+        "Tuning instruments with AI",
+        "Fine-tuning models on instruction-response pairs to improve instruction following",
+        "Adjusting hyperparameters",
+        "Writing better instructions"
+      ],
+      "correct": 1,
+      "explanation": "Instruction tuning trains models on datasets of instructions and appropriate responses, dramatically improving their ability to follow diverse user requests."
+    },
+    {
+      "id": "a029",
+      "question": "What is the 'grokking' phenomenon in deep learning?",
+      "options": [
+        "Fully understanding something",
+        "Delayed generalization where models suddenly improve on test data long after overfitting training data",
+        "A programming term",
+        "Deep meditation on AI"
+      ],
+      "correct": 1,
+      "explanation": "Grokking is when models initially memorize training data (overfitting) then suddenly generalize much later in training, revealing interesting optimization dynamics."
+    },
+    {
+      "id": "a030",
+      "question": "What is 'sparse attention' and why is it important?",
+      "options": [
+        "Paying attention rarely",
+        "Attention patterns that don't compute all pairwise interactions, enabling longer sequences",
+        "Attention with missing data",
+        "Low-quality attention"
+      ],
+      "correct": 1,
+      "explanation": "Sparse attention reduces the O(n²) complexity of standard attention by only computing selected pairwise interactions, enabling much longer context windows."
+    }
+  ]
+}
