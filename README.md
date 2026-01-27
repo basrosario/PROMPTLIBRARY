@@ -21,7 +21,7 @@
 
 I created this Interactive AI Library because I believe that true innovation in AI isn't just about companies adopting AI as a new technology—it's about **people** learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential.
 
-<font color="red">Favorite Quote</font> >> **"The best way to predict the future is to create it."**
+Favorite Quote >> **"The best way to predict the future is to create it."**
 
 My mission is to demystify AI use and drive personal adoption, with the goal of creating collaborative environments where technology and human creativity combine to solve complex problems and build a better tomorrow.
 
