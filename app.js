@@ -321,32 +321,223 @@ document.addEventListener('DOMContentLoaded', () => {
             specificity: Math.round(specificity),
             structure: Math.round(structure),
             context: Math.round(context),
-            feedback: generateFeedback(clarity, specificity, structure, context)
+            feedback: generateFeedback(clarity, specificity, structure, context, prompt)
         };
     }
 
-    function generateFeedback(clarity, specificity, structure, context) {
-        const feedback = [];
+    function generateFeedback(clarity, specificity, structure, context, prompt) {
+        const improvements = [];
+        const strengths = [];
+        const examples = [];
 
-        if (clarity < 60) feedback.push('Use shorter, clearer sentences for better understanding.');
-        if (specificity < 60) feedback.push('Add more specific details about what you want.');
-        if (structure < 60) feedback.push('Organize your prompt with clear sections or steps.');
-        if (context < 60) feedback.push('Provide more background context for better results.');
+        // Analyze what's actually in the prompt
+        const hasNumbers = /\d+/.test(prompt);
+        const hasFormat = /format|style|tone|write as|written in/i.test(prompt);
+        const hasContext = /context|background|situation|because|since|currently/i.test(prompt);
+        const hasAudience = /audience|reader|user|customer|for\s+(a|my|our|the)/i.test(prompt);
+        const hasAction = /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design)/i.test(prompt.trim());
+        const hasExamples = /example|such as|like this|similar to|e\.g\.|for instance/i.test(prompt);
+        const hasConstraints = /must|should|don't|avoid|only|never|always|limit|maximum|minimum/i.test(prompt);
+        const hasSteps = /step|first|then|next|finally|1\.|2\.|3\.|-\s/i.test(prompt);
 
-        if (feedback.length === 0) {
-            feedback.push('Great prompt! Consider adding examples for even better results.');
+        // CLARITY feedback
+        if (clarity >= 80) {
+            strengths.push({ category: 'Clarity', text: 'Your prompt is well-written and easy to understand.' });
+            if (hasAction) {
+                strengths.push({ category: 'Clarity', text: 'Great use of an action verb to start your prompt!' });
+            }
+        } else if (clarity >= 60) {
+            if (!hasAction) {
+                improvements.push({
+                    category: 'Clarity',
+                    text: 'Your prompt is fairly clear, but could be more direct.',
+                    tip: 'Try starting with an action verb (Write, Create, Explain, Analyze).'
+                });
+            }
+        } else {
+            improvements.push({
+                category: 'Clarity',
+                text: 'Your prompt may be confusing to the AI.',
+                tip: 'Break long sentences into shorter ones. Remove filler words like "I was wondering if you could maybe..."'
+            });
+            examples.push({
+                bad: 'I was wondering if you could maybe help me with writing something about...',
+                good: 'Write a 300-word article about...'
+            });
         }
 
-        return feedback;
+        // SPECIFICITY feedback
+        if (specificity >= 80) {
+            strengths.push({ category: 'Specificity', text: 'Excellent detail! You\'ve clearly defined what you want.' });
+        } else if (specificity >= 60) {
+            if (!hasNumbers) {
+                improvements.push({
+                    category: 'Specificity',
+                    text: 'Consider adding specific numbers or quantities.',
+                    tip: 'Specify length (500 words), number of items (5 bullet points), or time (2-minute read).'
+                });
+            }
+            if (!hasFormat) {
+                improvements.push({
+                    category: 'Specificity',
+                    text: 'Define the format or style you want.',
+                    tip: 'Add: "Write in a professional tone" or "Format as a bulleted list".'
+                });
+            }
+        } else {
+            improvements.push({
+                category: 'Specificity',
+                text: 'Your prompt is too vague. The AI will have to guess what you want.',
+                tip: 'Tell the AI exactly what output you need: format, length, style, and key points to include.'
+            });
+            examples.push({
+                bad: 'Write about marketing',
+                good: 'Write a 500-word blog post about 5 email marketing tips for small e-commerce businesses. Use a conversational tone with practical examples.'
+            });
+        }
+
+        // STRUCTURE feedback
+        if (structure >= 80) {
+            strengths.push({ category: 'Structure', text: 'Well-organized prompt with clear sections.' });
+        } else if (structure >= 60) {
+            if (!hasSteps) {
+                improvements.push({
+                    category: 'Structure',
+                    text: 'Consider organizing with numbered steps or sections.',
+                    tip: 'Use labels like "Context:", "Task:", "Format:" to separate parts of your prompt.'
+                });
+            }
+        } else {
+            improvements.push({
+                category: 'Structure',
+                text: 'Your prompt lacks organization, making it harder for the AI to follow.',
+                tip: 'Structure your prompt: 1) Background/Context, 2) Main Task, 3) Specific Requirements, 4) Output Format.'
+            });
+            examples.push({
+                bad: 'I need help with a presentation about our Q3 results and it should be for executives and include charts',
+                good: 'Context: I\'m presenting Q3 sales results to our executive team.\n\nTask: Create an outline for a 10-minute presentation.\n\nInclude:\n- Key metrics with year-over-year comparison\n- 3 main achievements\n- Recommendations for Q4'
+            });
+        }
+
+        // CONTEXT feedback
+        if (context >= 80) {
+            strengths.push({ category: 'Context', text: 'Great job providing background information!' });
+        } else if (context >= 60) {
+            if (!hasAudience) {
+                improvements.push({
+                    category: 'Context',
+                    text: 'Specify who the output is for.',
+                    tip: 'Add your audience: "for technical developers", "for beginners with no coding experience", "for C-level executives".'
+                });
+            }
+        } else {
+            improvements.push({
+                category: 'Context',
+                text: 'The AI doesn\'t know your situation, goals, or constraints.',
+                tip: 'Start with: "I\'m a [role] working on [project]. I need [output] because [reason]."'
+            });
+            if (!hasContext && !hasAudience) {
+                examples.push({
+                    bad: 'Write a product description',
+                    good: 'Context: I run a small handmade jewelry store on Etsy targeting young professionals.\n\nWrite a product description for our new minimalist gold necklace. Emphasize quality craftsmanship and versatility for both work and casual wear.'
+                });
+            }
+        }
+
+        // Add bonus tips based on missing elements
+        if (!hasExamples && specificity < 80) {
+            improvements.push({
+                category: 'Pro Tip',
+                text: 'Add an example of what you\'re looking for.',
+                tip: 'Say "Similar to..." or "For example..." to show the AI exactly what style or format you want.'
+            });
+        }
+
+        if (!hasConstraints && structure < 80) {
+            improvements.push({
+                category: 'Pro Tip',
+                text: 'Add constraints to prevent unwanted content.',
+                tip: 'Include what to avoid: "Don\'t use jargon", "Keep it under 200 words", "Focus only on..."'
+            });
+        }
+
+        return { improvements, strengths, examples };
     }
 
     function displayScores(scores) {
+        const { improvements, strengths, examples } = scores.feedback;
+
+        let strengthsHTML = '';
+        if (strengths.length > 0) {
+            strengthsHTML = `
+                <div class="feedback-section feedback-strengths">
+                    <h4>What You Did Well</h4>
+                    <ul class="feedback-list">
+                        ${strengths.map(s => `<li><span class="feedback-category">${s.category}:</span> ${s.text}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        let improvementsHTML = '';
+        if (improvements.length > 0) {
+            improvementsHTML = `
+                <div class="feedback-section feedback-improvements">
+                    <h4>How to Improve</h4>
+                    <div class="feedback-cards">
+                        ${improvements.map(i => `
+                            <div class="feedback-card">
+                                <div class="feedback-card-header">
+                                    <span class="feedback-category">${i.category}</span>
+                                </div>
+                                <p class="feedback-issue">${i.text}</p>
+                                <p class="feedback-tip"><strong>Tip:</strong> ${i.tip}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        let examplesHTML = '';
+        if (examples.length > 0) {
+            examplesHTML = `
+                <div class="feedback-section feedback-examples">
+                    <h4>Before & After Examples</h4>
+                    ${examples.map(ex => `
+                        <div class="example-comparison">
+                            <div class="example-before">
+                                <span class="example-label-bad">Before</span>
+                                <p>${ex.bad}</p>
+                            </div>
+                            <div class="example-after">
+                                <span class="example-label-good">After</span>
+                                <p>${ex.good.replace(/\n/g, '<br>')}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        let overallMessage = '';
+        if (scores.overall >= 80) {
+            overallMessage = '<p class="score-message score-message-great">Excellent! This prompt is well-crafted and should get great results.</p>';
+        } else if (scores.overall >= 60) {
+            overallMessage = '<p class="score-message score-message-good">Good start! A few improvements will make this prompt even better.</p>';
+        } else if (scores.overall >= 40) {
+            overallMessage = '<p class="score-message score-message-fair">This prompt needs work. Review the suggestions below to improve your results.</p>';
+        } else {
+            overallMessage = '<p class="score-message score-message-poor">This prompt is too vague. The AI will likely give generic or unhelpful results.</p>';
+        }
+
         scoreDisplay.innerHTML = `
             <div class="score-main">
                 <div class="score-circle ${getScoreClass(scores.overall)}">
                     <span class="score-value">${scores.overall}</span>
                     <span class="score-label">Overall</span>
                 </div>
+                ${overallMessage}
             </div>
             <div class="sub-scores">
                 <div class="sub-score">
@@ -378,11 +569,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="sub-score-value">${scores.context}</span>
                 </div>
             </div>
-            <div class="feedback-section">
-                <h4>Suggestions</h4>
-                <ul class="feedback-list">
-                    ${scores.feedback.map(f => `<li>${f}</li>`).join('')}
-                </ul>
+            ${strengthsHTML}
+            ${improvementsHTML}
+            ${examplesHTML}
+            <div class="feedback-cta">
+                <p>Want to learn more about writing effective prompts?</p>
+                <a href="../learn/prompt-basics.html" class="btn btn-secondary">Learn Prompt Basics</a>
             </div>
         `;
         scoreDisplay.classList.add('visible');
