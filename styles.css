@@ -2470,6 +2470,22 @@ p {
     line-height: 1.7;
 }
 
+.mission-text + .mission-text {
+    margin-top: var(--space-md);
+}
+
+.mission-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent);
+    text-align: center;
+    margin: 0 0 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(230, 57, 70, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
 .about-content {
     display: flex;
     flex-direction: column;
