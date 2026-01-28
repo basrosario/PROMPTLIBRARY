@@ -44,7 +44,7 @@
                 </nav>
                 <div class="card-badge">Intermediate</div>
                 <h1 class="page-title fade-in">The CRISPE Method</h1>
-                <p class="page-subtitle fade-in">An extended version of CRISP that adds Personality and Evaluation for richer, more consistent AI interactions.</p>
+                <p class="page-subtitle fade-in">An extended prompting framework that adds Role and Example for more consistent, persona-driven AI interactions with few-shot learning.</p>
             </div>
         </section>
 
@@ -55,148 +55,299 @@
                     <div class="acronym-card">
                         <span class="acronym-letter">C</span>
                         <h3>Context</h3>
-                        <p>Background and situation</p>
+                        <p>Give background</p>
                     </div>
-                    <div class="acronym-card">
+                    <div class="acronym-card acronym-highlight">
                         <span class="acronym-letter">R</span>
-                        <h3>Request</h3>
-                        <p>What you want done</p>
+                        <h3>Role</h3>
+                        <p>Tell AI who it is</p>
                     </div>
                     <div class="acronym-card">
                         <span class="acronym-letter">I</span>
-                        <h3>Instructions</h3>
-                        <p>Specific guidelines</p>
+                        <h3>Instruction</h3>
+                        <p>The main ask</p>
                     </div>
                     <div class="acronym-card">
                         <span class="acronym-letter">S</span>
                         <h3>Style</h3>
-                        <p>Tone and format</p>
+                        <p>How output sounds</p>
                     </div>
-                    <div class="acronym-card acronym-highlight">
+                    <div class="acronym-card">
                         <span class="acronym-letter">P</span>
-                        <h3>Personality</h3>
-                        <p>Role or persona</p>
+                        <h3>Parameters</h3>
+                        <p>Rules and boundaries</p>
                     </div>
                     <div class="acronym-card acronym-highlight">
                         <span class="acronym-letter">E</span>
-                        <h3>Evaluation</h3>
-                        <p>Quality criteria</p>
+                        <h3>Example</h3>
+                        <p>Sample input/output</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- From CRISP to CRISPE -->
+        <!-- What Makes CRISPE Different -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">From CRISP to CRISPE</h2>
-                <p class="section-subtitle fade-in-up">Two powerful additions that transform your prompts</p>
+                <h2 class="section-title fade-in-up">What Makes CRISPE Different</h2>
+                <p class="section-subtitle fade-in-up">Two powerful additions for richer AI interactions</p>
 
                 <div class="content-block fade-in-up">
-                    <p>CRISPE builds on the CRISP foundation by adding two powerful elements that enable more sophisticated interactions with AI.</p>
+                    <p>CRISPE extends the basic prompting elements by adding <strong>Role</strong> (persona assignment) and <strong>Example</strong> (few-shot learning). These additions create more consistent, expert-level responses.</p>
                 </div>
 
                 <div class="evolution-cards stagger-children">
                     <div class="evolution-card">
-                        <h3>P - Personality</h3>
-                        <p>Assigns the AI a specific role, expertise, or persona. This creates more consistent, contextually appropriate responses.</p>
+                        <h3>R - Role</h3>
+                        <p>Tell the AI who it is. Assign a specific persona, expertise, or identity that shapes how it approaches your task.</p>
                         <div class="evolution-example">
-                            "Act as a senior marketing strategist with 15 years of experience in B2B SaaS"
+                            "Act as a senior UX researcher with 10 years of experience in mobile app usability"
                         </div>
                     </div>
                     <div class="evolution-card">
-                        <h3>E - Evaluation</h3>
-                        <p>Defines success criteria so the AI knows how to judge its own output quality.</p>
+                        <h3>E - Example</h3>
+                        <p>Show the AI what you want through sample input/output pairs. This is called few-shot prompting and dramatically improves output quality.</p>
                         <div class="evolution-example">
-                            "A good response will be actionable, specific to my industry, and include at least 3 concrete next steps"
+                            "Example: Input: 'Our checkout has 8 steps' Output: 'Reduce to 3 steps: Cart &rarr; Details &rarr; Confirm'"
                         </div>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">When to Use CRISPE over CRISP</div>
-                    <p>Use CRISPE when you need consistent persona-based responses, are working on complex creative tasks, or want the AI to self-evaluate its output quality.</p>
+                    <div class="callout-title">When to Use CRISPE</div>
+                    <p>Use CRISPE when you need the AI to adopt a specific expert persona, or when showing examples of your desired output format will help the AI understand exactly what you need.</p>
                 </div>
             </div>
         </section>
 
-        <!-- P - Personality -->
+        <!-- C - Context -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">P - Personality</h2>
-                <p class="section-subtitle fade-in-up">Transform the AI from generic assistant to specific expert</p>
+                <h2 class="section-title fade-in-up">C - Context</h2>
+                <p class="section-subtitle fade-in-up">Give the AI the background it needs</p>
 
                 <div class="content-block fade-in-up">
-                    <p>The Personality component transforms the AI from a generic assistant into a specific expert or role. This affects vocabulary, perspective, and recommendations.</p>
+                    <p>Context provides the situation, background, and relevant details that help the AI understand your world. Without context, responses are generic. With context, they're tailored to your specific needs.</p>
                 </div>
 
-                <div class="personality-cards stagger-children">
-                    <div class="personality-card">
-                        <h3>Role/Title</h3>
-                        <p>"You are a product designer" or "Act as a financial advisor"</p>
+                <div class="info-cards stagger-children">
+                    <div class="info-card">
+                        <h3>Your Situation</h3>
+                        <p>"I'm a product manager at a fintech startup launching our first mobile app"</p>
                     </div>
-                    <div class="personality-card">
-                        <h3>Experience Level</h3>
-                        <p>"...with 20 years of experience" or "...who specializes in startups"</p>
+                    <div class="info-card">
+                        <h3>The Problem</h3>
+                        <p>"We're seeing 60% drop-off during onboarding"</p>
                     </div>
-                    <div class="personality-card">
-                        <h3>Perspective</h3>
-                        <p>"...who prioritizes user experience over technical complexity"</p>
-                    </div>
-                    <div class="personality-card">
-                        <h3>Communication Style</h3>
-                        <p>"...who explains complex concepts using simple analogies"</p>
+                    <div class="info-card">
+                        <h3>Constraints</h3>
+                        <p>"We have a small dev team and need solutions implementable in 2 sprints"</p>
                     </div>
                 </div>
 
                 <div class="example-card good fade-in-up">
-                    <div class="example-label">Strong Personality Prompt</div>
-                    <p>"You are a seasoned startup advisor who has mentored over 50 companies through Series A funding. You're known for giving direct, honest feedback and always grounding advice in real examples. You tend to ask clarifying questions before giving recommendations."</p>
+                    <div class="example-label">Strong Context Example</div>
+                    <p>"I run a small e-commerce business selling handmade ceramics. Our website gets about 5,000 visitors monthly, but only 2% convert to buyers. Most visitors leave after viewing just one product page."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- R - Role -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">R - Role</h2>
+                <p class="section-subtitle fade-in-up">Tell the AI who it is</p>
+
+                <div class="content-block fade-in-up">
+                    <p>The Role component transforms the AI from a generic assistant into a specific expert. Use "Act as..." or "You are..." to assign a persona that brings specialized knowledge and perspective to your task.</p>
+                </div>
+
+                <div class="personality-cards stagger-children">
+                    <div class="personality-card">
+                        <h3>Professional Role</h3>
+                        <p>"Act as a senior marketing strategist" or "You are an experienced copywriter"</p>
+                    </div>
+                    <div class="personality-card">
+                        <h3>Experience Level</h3>
+                        <p>"...with 15 years in B2B SaaS" or "...who has worked with Fortune 500 clients"</p>
+                    </div>
+                    <div class="personality-card">
+                        <h3>Specialization</h3>
+                        <p>"...specializing in conversion optimization" or "...focused on mobile-first design"</p>
+                    </div>
+                    <div class="personality-card">
+                        <h3>Approach</h3>
+                        <p>"...known for data-driven recommendations" or "...who prioritizes user research"</p>
+                    </div>
+                </div>
+
+                <div class="example-card good fade-in-up">
+                    <div class="example-label">Strong Role Example</div>
+                    <p>"Act as a senior conversion rate optimization specialist who has helped 50+ e-commerce businesses increase their conversion rates. You're known for identifying quick wins that don't require major development resources."</p>
                 </div>
 
                 <div class="callout warning fade-in-up">
-                    <div class="callout-title">Avoid These Personality Pitfalls</div>
+                    <div class="callout-title">Role Best Practices</div>
                     <ul>
-                        <li>Vague roles: "Be an expert" (expert at what?)</li>
-                        <li>Contradictory traits: "Be detailed but brief"</li>
-                        <li>Unrealistic personas: "Be a superhuman genius"</li>
+                        <li>Be specific: "UX designer for mobile apps" beats "designer"</li>
+                        <li>Add relevant experience that matches your problem</li>
+                        <li>Include perspective or approach when it matters</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- E - Evaluation -->
-        <section class="section section-alt">
+        <!-- I - Instruction -->
+        <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">E - Evaluation</h2>
-                <p class="section-subtitle fade-in-up">Define what success looks like for your output</p>
+                <h2 class="section-title fade-in-up">I - Instruction</h2>
+                <p class="section-subtitle fade-in-up">The main ask&mdash;what you want done</p>
 
                 <div class="content-block fade-in-up">
-                    <p>The Evaluation component defines what "success" looks like. It helps the AI assess and improve its own output before presenting it to you.</p>
+                    <p>The Instruction is your core request. Use clear action verbs and be specific about the deliverable. This is what you want the AI to actually produce.</p>
                 </div>
 
-                <div class="eval-cards stagger-children">
-                    <div class="eval-card">
-                        <h3>Content Quality</h3>
-                        <p>"The response should be factually accurate and include citations where possible"</p>
+                <div class="verb-grid stagger-children">
+                    <div class="verb-card">
+                        <h3>Creating</h3>
+                        <p>Write, Create, Generate, Design, Draft, Develop</p>
                     </div>
-                    <div class="eval-card">
-                        <h3>Actionability</h3>
-                        <p>"Each recommendation should be something I can implement this week"</p>
+                    <div class="verb-card">
+                        <h3>Analyzing</h3>
+                        <p>Analyze, Review, Evaluate, Audit, Assess, Critique</p>
                     </div>
-                    <div class="eval-card">
-                        <h3>Completeness</h3>
-                        <p>"Cover all aspects of the topic without leaving obvious gaps"</p>
+                    <div class="verb-card">
+                        <h3>Transforming</h3>
+                        <p>Rewrite, Simplify, Expand, Translate, Summarize, Convert</p>
                     </div>
-                    <div class="eval-card">
-                        <h3>Audience Fit</h3>
-                        <p>"The explanation should be understandable by someone with no technical background"</p>
+                    <div class="verb-card">
+                        <h3>Strategizing</h3>
+                        <p>Plan, Recommend, Propose, Outline, Prioritize, Organize</p>
                     </div>
                 </div>
 
                 <div class="example-card good fade-in-up">
-                    <div class="example-label">Evaluation Criteria Example</div>
-                    <p>"Evaluate your response against these criteria: (1) Is it specific to my industry, not generic advice? (2) Are there concrete examples I can reference? (3) Is the recommended timeline realistic for a small team? (4) Have you addressed potential objections?"</p>
+                    <div class="example-label">Clear Instruction Example</div>
+                    <p>"Create a 5-point action plan to reduce our onboarding drop-off rate, with specific tactics for each step of the current flow."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- S - Style -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">S - Style</h2>
+                <p class="section-subtitle fade-in-up">How the output should sound</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Style defines the voice, tone, and feel of the response. It shapes how information is presented, not what information is included.</p>
+                </div>
+
+                <div class="style-cards stagger-children">
+                    <div class="style-card">
+                        <h3>Professional</h3>
+                        <p>Polished, business-appropriate, suitable for stakeholder presentations</p>
+                    </div>
+                    <div class="style-card">
+                        <h3>Conversational</h3>
+                        <p>Friendly, approachable, like advice from a trusted colleague</p>
+                    </div>
+                    <div class="style-card">
+                        <h3>Technical</h3>
+                        <p>Precise, detailed, uses domain-specific terminology</p>
+                    </div>
+                    <div class="style-card">
+                        <h3>Actionable</h3>
+                        <p>Direct, step-by-step, focused on what to do next</p>
+                    </div>
+                </div>
+
+                <div class="example-card good fade-in-up">
+                    <div class="example-label">Style Specification Example</div>
+                    <p>"Write in a direct, actionable style. Use bullet points for recommendations. Avoid jargon&mdash;this will be shared with non-technical stakeholders. Be confident but not salesy."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- P - Parameters -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">P - Parameters</h2>
+                <p class="section-subtitle fade-in-up">Rules and boundaries for the output</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Parameters set the constraints, requirements, and boundaries for the response. These are the measurable, specific rules the AI must follow.</p>
+                </div>
+
+                <div class="param-cards stagger-children">
+                    <div class="param-card">
+                        <h3>Length</h3>
+                        <p>"Maximum 500 words", "Keep each point to 2-3 sentences", "One page summary"</p>
+                    </div>
+                    <div class="param-card">
+                        <h3>Format</h3>
+                        <p>"Numbered list", "Table format", "Use headers for each section"</p>
+                    </div>
+                    <div class="param-card">
+                        <h3>Requirements</h3>
+                        <p>"Include specific metrics", "Reference industry benchmarks", "Add implementation steps"</p>
+                    </div>
+                    <div class="param-card">
+                        <h3>Restrictions</h3>
+                        <p>"No solutions requiring new hires", "Budget under $5,000", "Must be mobile-compatible"</p>
+                    </div>
+                </div>
+
+                <div class="example-card good fade-in-up">
+                    <div class="example-label">Parameters Example</div>
+                    <p>"Keep the plan to 5 action items maximum. Each item should include: the tactic, expected impact (high/medium/low), implementation effort, and a 1-sentence rationale. No recommendations that require hiring or major tech changes."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- E - Example -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">E - Example</h2>
+                <p class="section-subtitle fade-in-up">Show what you want through sample input/output</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Examples demonstrate exactly what you're looking for through sample input/output pairs. This technique, called <strong>few-shot prompting</strong>, is one of the most powerful ways to get consistent, high-quality results.</p>
+                </div>
+
+                <div class="example-types stagger-children">
+                    <div class="example-type-card">
+                        <h3>Format Examples</h3>
+                        <p>Show the exact structure you want the output to follow</p>
+                        <div class="example-snippet">
+                            Example output format:<br>
+                            <strong>[Tactic]:</strong> Simplify form fields<br>
+                            <strong>[Impact]:</strong> High<br>
+                            <strong>[Effort]:</strong> Low<br>
+                            <strong>[Why]:</strong> Reduces friction at highest drop-off point
+                        </div>
+                    </div>
+                    <div class="example-type-card">
+                        <h3>Tone Examples</h3>
+                        <p>Demonstrate the voice and style you're looking for</p>
+                        <div class="example-snippet">
+                            Good: "Consider A/B testing your CTA placement"<br>
+                            Not: "You should definitely move your CTA!"
+                        </div>
+                    </div>
+                    <div class="example-type-card">
+                        <h3>Input/Output Pairs</h3>
+                        <p>Show how to transform specific inputs into desired outputs</p>
+                        <div class="example-snippet">
+                            Input: "8-step checkout process"<br>
+                            Output: "Consolidate to 3 steps: Cart Review &rarr; Shipping + Payment &rarr; Confirmation"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Few-Shot Prompting Power</div>
+                    <p>Even one good example dramatically improves AI output. Two or three examples create even more consistency. Use examples when you need specific formats, consistent tone, or when words alone don't capture what you want.</p>
                 </div>
             </div>
         </section>
@@ -210,27 +361,27 @@
                 <div class="crisp-example-flow stagger-children">
                     <div class="crisp-component-card">
                         <span class="component-label">C - Context</span>
-                        <p>I'm launching a new productivity app for remote teams. We're a 5-person startup with limited marketing budget. Our beta has 200 users with strong retention.</p>
+                        <p>I run a small e-commerce store selling handmade ceramics. We get 5,000 monthly visitors but only 2% convert. Most leave after viewing one product. We're a 2-person team with limited development resources.</p>
                     </div>
                     <div class="crisp-component-card">
-                        <span class="component-label">R - Request</span>
-                        <p>Create a go-to-market strategy for our public launch.</p>
+                        <span class="component-label">R - Role</span>
+                        <p>Act as a conversion rate optimization specialist who has helped 50+ small e-commerce businesses increase sales. You specialize in quick wins that don't require major development work.</p>
                     </div>
                     <div class="crisp-component-card">
-                        <span class="component-label">I - Instructions</span>
-                        <p>Focus on organic and low-cost acquisition channels. Include specific tactics for each channel, not just channel names. Address how to leverage our existing beta users.</p>
+                        <span class="component-label">I - Instruction</span>
+                        <p>Create a prioritized list of 5 changes we can make to increase our conversion rate from 2% to 4%.</p>
                     </div>
                     <div class="crisp-component-card">
                         <span class="component-label">S - Style</span>
-                        <p>Strategic but practical. Use frameworks when helpful but prioritize actionable steps over theory.</p>
+                        <p>Direct and actionable. Focus on practical tactics, not theory. Write as if you're advising a friend who needs quick results.</p>
                     </div>
                     <div class="crisp-component-card">
-                        <span class="component-label">P - Personality</span>
-                        <p>You are a growth marketing advisor who has helped 10+ startups go from beta to $1M ARR. You've worked with bootstrapped companies and understand resource constraints. You're known for creative, scrappy tactics that punch above their budget.</p>
+                        <span class="component-label">P - Parameters</span>
+                        <p>Exactly 5 recommendations. Each must be implementable within 1 week by a non-technical person. No recommendations requiring custom development or paid tools over $50/month.</p>
                     </div>
                     <div class="crisp-component-card">
-                        <span class="component-label">E - Evaluation</span>
-                        <p>A successful strategy will: (1) include at least 5 specific tactics we can start this month, (2) require minimal paid spend, (3) leverage our existing user base, and (4) include measurable milestones for the first 90 days.</p>
+                        <span class="component-label">E - Example</span>
+                        <p>Format each recommendation like this:<br><br><strong>1. [Tactic Name]</strong><br>What to do: [Specific action]<br>Why it works: [One sentence]<br>How to implement: [2-3 steps]<br>Expected impact: [High/Medium/Low]</p>
                     </div>
                 </div>
             </div>

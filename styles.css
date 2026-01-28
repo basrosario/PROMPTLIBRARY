@@ -3385,6 +3385,47 @@ body.menu-open {
     font-size: 0.875rem;
 }
 
+/* Example Types (CRISPE E section) */
+.example-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.example-type-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.example-type-card h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.example-type-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.example-snippet {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--primary);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
 /* Personality/Eval Cards */
 .personality-cards,
 .eval-cards {
