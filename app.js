@@ -76,13 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouse = { x: null, y: null, radius: 150 };
         let animationId;
 
-        // AI terms that float through the network
+        // AI terms that float through the network - expanded list
         const AI_TERMS = [
-            'CRISP', 'COSTAR', 'ReAct', 'Prompt', 'Context', 'Token',
-            'LLM', 'GPT', 'Claude', 'Neural', 'Inference', 'Embedding',
-            'Transform', 'Attention', 'Query', 'Model', 'Train', 'Fine-tune',
-            'Chain', 'Agent', 'Memory', 'Vector', 'Semantic', 'Generate',
-            'Parameters', 'Weights', 'Layers', 'Output', 'Input', 'Reasoning'
+            // Prompting Methods
+            'CRISP', 'COSTAR', 'ReAct', 'CRISPE', 'Chain-of-Thought', 'Few-Shot',
+            'Zero-Shot', 'Role Play', 'System Prompt', 'Meta Prompt',
+            // Core Concepts
+            'Prompt', 'Context', 'Token', 'Completion', 'Temperature', 'Top-P',
+            'Hallucination', 'Grounding', 'Retrieval', 'RAG', 'Fine-tune',
+            // AI Models & Tech
+            'LLM', 'GPT', 'Claude', 'Gemini', 'Neural', 'Transformer',
+            'Attention', 'BERT', 'Diffusion', 'Multimodal', 'Vision',
+            // Technical Terms
+            'Embedding', 'Vector', 'Semantic', 'Inference', 'Latent',
+            'Tokenizer', 'Encoder', 'Decoder', 'Softmax', 'Gradient',
+            // Process Terms
+            'Generate', 'Train', 'Evaluate', 'Iterate', 'Optimize',
+            'Query', 'Response', 'Output', 'Input', 'Reasoning',
+            // Architecture
+            'Parameters', 'Weights', 'Layers', 'Neurons', 'Activation',
+            'Batch', 'Epoch', 'Loss', 'Backprop', 'Dropout',
+            // Agent & Memory
+            'Agent', 'Memory', 'Chain', 'Tool Use', 'Function Call',
+            'Autonomous', 'Planning', 'Reflection', 'Self-Correct',
+            // Safety & Ethics
+            'Alignment', 'Safety', 'Bias', 'Fairness', 'RLHF',
+            'Guardrails', 'Moderation', 'Responsible AI', 'Ethics'
         ];
 
         // Node class for neural network points
@@ -270,8 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function initTerms() {
             aiTerms = [];
-            // Fewer terms on mobile
-            const termCount = width < 768 ? 8 : 15;
+            // More terms for richer animation - increased from 8/15 to 18/35
+            const termCount = width < 768 ? 18 : 35;
 
             for (let i = 0; i < termCount; i++) {
                 const term = new AITerm();
@@ -303,10 +322,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Mouse/touch glow effect - lights up the area around cursor
+        function drawMouseGlow(time) {
+            if (mouse.x === null || mouse.y === null) return;
+
+            // Pulsing glow intensity
+            const pulseIntensity = 0.15 + Math.sin(time * 0.003) * 0.05;
+            const glowRadius = mouse.radius * 1.5;
+
+            // Create radial gradient for the glow
+            const gradient = ctx.createRadialGradient(
+                mouse.x, mouse.y, 0,
+                mouse.x, mouse.y, glowRadius
+            );
+
+            // Inner bright core
+            gradient.addColorStop(0, `rgba(230, 57, 70, ${pulseIntensity * 1.5})`);
+            // Mid glow
+            gradient.addColorStop(0.3, `rgba(230, 57, 70, ${pulseIntensity * 0.8})`);
+            // Outer fade
+            gradient.addColorStop(0.6, `rgba(230, 57, 70, ${pulseIntensity * 0.3})`);
+            // Edge fade out
+            gradient.addColorStop(1, 'rgba(230, 57, 70, 0)');
+
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, glowRadius, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Add a brighter inner ring
+            const innerGradient = ctx.createRadialGradient(
+                mouse.x, mouse.y, 0,
+                mouse.x, mouse.y, 30
+            );
+            innerGradient.addColorStop(0, `rgba(255, 255, 255, ${pulseIntensity * 0.3})`);
+            innerGradient.addColorStop(0.5, `rgba(230, 57, 70, ${pulseIntensity * 0.5})`);
+            innerGradient.addColorStop(1, 'rgba(230, 57, 70, 0)');
+
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2);
+            ctx.fillStyle = innerGradient;
+            ctx.fill();
+        }
+
         function animate(time) {
             ctx.clearRect(0, 0, width, height);
 
-            // Draw connections first (behind nodes)
+            // Draw mouse glow first (behind everything)
+            drawMouseGlow(time);
+
+            // Draw connections (behind nodes)
             drawConnections();
 
             // Update and draw nodes
