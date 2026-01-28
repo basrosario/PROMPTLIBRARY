@@ -13,49 +13,31 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav class="sidebar">
-        <div class="brand-area">
-            &lt; /PRAXIS<span class="text-red">LIBRARY &gt;</span>
+    <!-- Top Header -->
+    <header class="top-header scrolled">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="../learn/index.html" class="header-nav-link">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="ai-safety.html" class="header-nav-link active">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-scroller">
-            <a href="../index.html" class="nav-item back-link">
-                <img src="../assets/icons/SVG/arrow-left.svg" alt="Back" class="local-icon icon-red"> Back to Main Site
-            </a>
+    </header>
 
-            <div class="nav-header">Education Hub</div>
-            <a href="index.html" class="nav-item">Education Overview</a>
-            <a href="teachers.html" class="nav-item">Teachers</a>
-            <a href="students.html" class="nav-item">Students</a>
-            <a href="administrators.html" class="nav-item">Administrators</a>
-            <a href="#" class="nav-item active">AI Safety & Ethics</a>
-            <a href="games/index.html" class="nav-item">
-                <img src="../assets/icons/SVG/random.svg" alt="" class="local-icon icon-white"> Learning Games
-            </a>
-
-            <div class="nav-header">Prompt Hubs</div>
-            <a href="../library.html" class="nav-item">Enterprise Prompts</a>
-            <a href="../business/index.html" class="nav-item">Business Sectors</a>
-            <a href="../services/index.html" class="nav-item">Service Industries</a>
-            <a href="../enterprise/index.html" class="nav-item">Enterprise Programs</a>
-
-            <div class="nav-header">Connect</div>
-            <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer" class="nav-item">
-                <img src="../assets/icons/SVG/linkedin.svg" alt="" class="local-icon icon-white"> LinkedIn
-            </a>
-            <a href="mailto:bas.rosario@gmail.com" class="nav-item">
-                <img src="../assets/icons/SVG/email.svg" alt="" class="local-icon icon-white"> Contact
-            </a>
-        </div>
-    </nav>
-
-    <main id="main-content" class="main-wrapper">
-        <div class="content-scroll">
-            <div class="container security-container">
+    <main id="main-content" class="corporate-main" style="padding-top: 80px;">
+        <div class="container security-container">
 
                 <h1 class="sec-main-title">AI Safety <span class="text-red">& Ethics</span></h1>
                 <div class="sec-meta">
@@ -164,6 +146,8 @@
 
                     <div class="example-block collapsible expanded"><div class="example-header"><span>Fact-Check AI Output</span><span class="method-badge">CRISP</span><button class="btn-copy">Copy</button><img src="../assets/icons/SVG/chevron-right.svg" alt="" class="accordion-toggle icon-grey"></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> I received information from an AI system and need to verify its accuracy before using it in my work.<br><span class="key">[Request]</span> Help me fact-check the following AI-generated content: [Paste content here].<br><span class="key">[Instructions]</span> Identify: (1) Any claims that need verification; (2) Statistics or numbers that should have sources; (3) Quotes attributed to real people; (4) References to studies, papers, or organizations; (5) Historical claims or dates.<br><span class="key">[Style]</span> Systematic and skeptical.<br><span class="key">[Parameters]</span> For each claim identified, suggest how to verify it (specific database, official source, fact-checking site). Flag any claims that cannot be easily verified.</div></div></div>
 
+                    <div class="method-explanation"><p><strong>Why It Works:</strong> CRISP's systematic approach transforms vague skepticism into actionable verification steps. By categorizing claim types (statistics, quotes, citations), this prompt helps you prioritize verification efforts where AI hallucination is most common. The specific database suggestions enable actual fact-checking rather than just awareness of the need. This aligns with 2026 information literacy standards increasingly required across educational and professional contexts. Note: Using AI to help fact-check AI requires additional verification—AI may not recognize its own fabrications.</p></div>
+
                     <div class="rationale-grid">
                         <div class="rationale-item">
                             <strong>Verification Best Practices</strong>
@@ -184,6 +168,8 @@
                     <p class="lead">When AI suggests websites, tools, or resources, apply the same critical evaluation you would to any recommendation.</p>
 
                     <div class="example-block collapsible expanded"><div class="example-header"><span>Source Credibility Checker</span><span class="method-badge">COSTAR</span><button class="btn-copy">Copy</button><img src="../assets/icons/SVG/chevron-right.svg" alt="" class="accordion-toggle icon-grey"></div><div class="example-content"><div class="prompt-text"><span class="key">[Context]</span> I was recommended a resource/website/tool by AI and want to evaluate whether it's legitimate and trustworthy before using it.<br><span class="key">[Objective]</span> Provide a framework for evaluating the credibility of this resource: [Name of resource/URL].<br><span class="key">[Style]</span> Critical evaluation framework using established criteria.<br><span class="key">[Tone]</span> Skeptical but fair—assume nothing, verify everything.<br><span class="key">[Audience]</span> Someone who wants to make an informed decision about using this resource.<br><span class="key">[Response]</span> Evaluate using: (1) Authority - who owns/operates this? What are their credentials? (2) Accuracy - can claims be verified elsewhere? (3) Currency - when was it last updated? (4) Purpose - what is the goal? Educational, commercial, persuasive? (5) Coverage - is the information comprehensive or selective? (6) Red Flags - pop-ups, sensational claims, no contact info, grammatical errors.</div></div></div>
+
+                    <div class="method-explanation"><p><strong>Why It Works:</strong> COSTAR's skeptical tone establishes appropriate caution when evaluating AI recommendations. The evaluation criteria (Authority, Accuracy, Currency, Purpose, Coverage) mirror the CRAAP test used by academic librarians—a validated information literacy framework. By systematizing evaluation, this prompt prevents the common error of trusting AI recommendations without investigation. Important: AI may recommend resources that don't exist or misrepresent legitimate resources—always visit the actual source before using it.</p></div>
 
                     <div class="sec-card sec-card-spaced">
                         <div class="sec-card-header">
@@ -275,6 +261,8 @@
                     </div>
 
                     <div class="example-block collapsible expanded"><div class="example-header"><span>Critical AI Evaluation</span><span class="method-badge">CRISPE</span><button class="btn-copy">Copy</button><img src="../assets/icons/SVG/chevron-right.svg" alt="" class="accordion-toggle icon-grey"></div><div class="example-content"><div class="prompt-text"><span class="key">[Capacity]</span> You are a critical thinking coach helping someone evaluate AI-generated content.<br><span class="key">[Role]</span> Skeptical analyst who questions assumptions and identifies potential issues.<br><span class="key">[Insight]</span> I received this output from an AI and want to evaluate it critically before using it: [Paste AI output here].<br><span class="key">[Statement]</span> Analyze this content for: (1) Factual claims that need verification; (2) Potential biases in framing or word choice; (3) Missing perspectives or alternative viewpoints; (4) Logical fallacies or weak arguments; (5) Confidence level appropriate to the evidence; (6) Anything that seems "too convenient" or suspiciously perfect.<br><span class="key">[Personality]</span> Constructively critical—not cynical, but appropriately skeptical.<br><span class="key">[Experiment]</span> Suggest specific questions I should ask myself before using this content.</div></div></div>
+
+                    <div class="method-explanation"><p><strong>Why It Works:</strong> CRISPE's critical thinking coach capacity develops analytical skills transferable beyond AI evaluation. The "too convenient" check addresses a key AI hallucination pattern: AI often generates exactly what you want to hear. By identifying missing perspectives, this prompt counters AI's tendency toward certain viewpoints present in training data. The self-questioning experiment builds metacognitive habits that improve critical thinking over time. This framework aligns with 2026 AI literacy requirements emerging in educational standards and professional competency frameworks.</p></div>
                 </div>
 
                 <div class="section-divider"></div>
@@ -345,8 +333,41 @@
                 </div>
 
             </div>
-        </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="../app.js" defer></script>
 </body>

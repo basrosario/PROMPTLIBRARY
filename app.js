@@ -182,6 +182,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // COLLAPSE ALL / EXPAND ALL BUTTONS
+    // ==========================================
+    const promptControlsContainer = document.querySelector('.prompt-controls');
+
+    if (promptControlsContainer && collapsibleBlocks.length > 0) {
+        const collapseBtn = promptControlsContainer.querySelector('.btn-collapse-all');
+        const expandBtn = promptControlsContainer.querySelector('.btn-expand-all');
+
+        if (collapseBtn) {
+            collapseBtn.addEventListener('click', () => {
+                collapsibleBlocks.forEach(block => {
+                    block.classList.remove('expanded');
+                });
+                showToast('All prompts collapsed', 'success');
+            });
+        }
+
+        if (expandBtn) {
+            expandBtn.addEventListener('click', () => {
+                collapsibleBlocks.forEach(block => {
+                    block.classList.add('expanded');
+                });
+                showToast('All prompts expanded', 'success');
+            });
+        }
+    }
+
+    // Auto-create prompt controls if collapsible blocks exist and no controls present
+    if (collapsibleBlocks.length > 3 && !promptControlsContainer) {
+        // Find a suitable insertion point (first level-header or first example-block)
+        const firstLevelHeader = document.querySelector('.level-header');
+        const tabContent = document.querySelector('.tab-content.active') || document.querySelector('.tab-content');
+
+        if (firstLevelHeader || tabContent) {
+            const controls = document.createElement('div');
+            controls.className = 'prompt-controls';
+            controls.innerHTML = `
+                <button class="btn-secondary btn-collapse-all" aria-label="Collapse all prompts">
+                    <svg viewBox="0 0 24 24" class="btn-icon"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+                    Collapse All
+                </button>
+                <button class="btn-secondary btn-expand-all" aria-label="Expand all prompts">
+                    <svg viewBox="0 0 24 24" class="btn-icon"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                    Expand All
+                </button>
+            `;
+
+            // Insert at top of content area
+            const insertTarget = tabContent || firstLevelHeader.parentNode;
+            if (insertTarget) {
+                insertTarget.insertBefore(controls, insertTarget.firstChild);
+
+                // Bind events to dynamically created buttons
+                controls.querySelector('.btn-collapse-all').addEventListener('click', () => {
+                    document.querySelectorAll('.example-block.collapsible').forEach(block => {
+                        block.classList.remove('expanded');
+                    });
+                    showToast('All prompts collapsed', 'success');
+                });
+
+                controls.querySelector('.btn-expand-all').addEventListener('click', () => {
+                    document.querySelectorAll('.example-block.collapsible').forEach(block => {
+                        block.classList.add('expanded');
+                    });
+                    showToast('All prompts expanded', 'success');
+                });
+            }
+        }
+    }
+
+    // ==========================================
     // TOAST NOTIFICATION SYSTEM
     // ==========================================
     // Create toast container
@@ -364,8 +435,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // THEME TOGGLE (Dark/Light Mode)
+    // THEME CONTROLS (Dark/Light Mode + Color Slider)
     // ==========================================
+
+    // Create container for theme controls
+    const themeControls = document.createElement('div');
+    themeControls.className = 'theme-controls';
+
     // Create theme toggle button
     const themeToggle = document.createElement('button');
     themeToggle.className = 'theme-toggle';
@@ -378,7 +454,56 @@ document.addEventListener('DOMContentLoaded', () => {
             <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
         </svg>
     `;
-    document.body.appendChild(themeToggle);
+
+    // Create color slider container
+    const colorSliderContainer = document.createElement('div');
+    colorSliderContainer.className = 'color-slider-container';
+    colorSliderContainer.innerHTML = `
+        <div class="color-slider-icon" aria-hidden="true"></div>
+        <input type="range" class="color-slider" min="0" max="360" value="355" aria-label="Adjust accent color hue">
+        <button class="color-reset-btn" aria-label="Reset to default color">Reset</button>
+    `;
+
+    // Add controls to container
+    themeControls.appendChild(themeToggle);
+    themeControls.appendChild(colorSliderContainer);
+    document.body.appendChild(themeControls);
+
+    // Default hue value (red)
+    const DEFAULT_HUE = 355;
+
+    // Function to update accent hue
+    function updateAccentHue(hue) {
+        document.documentElement.style.setProperty('--accent-hue', hue);
+        const colorIcon = colorSliderContainer.querySelector('.color-slider-icon');
+        if (colorIcon) {
+            colorIcon.style.background = `hsl(${hue}, 78%, 56%)`;
+        }
+    }
+
+    // Check for saved color preference
+    const savedHue = localStorage.getItem('accentHue');
+    const colorSlider = colorSliderContainer.querySelector('.color-slider');
+    if (savedHue !== null) {
+        updateAccentHue(savedHue);
+        colorSlider.value = savedHue;
+    }
+
+    // Color slider event listener
+    colorSlider.addEventListener('input', (e) => {
+        const hue = e.target.value;
+        updateAccentHue(hue);
+        localStorage.setItem('accentHue', hue);
+    });
+
+    // Reset button event listener
+    const resetBtn = colorSliderContainer.querySelector('.color-reset-btn');
+    resetBtn.addEventListener('click', () => {
+        updateAccentHue(DEFAULT_HUE);
+        colorSlider.value = DEFAULT_HUE;
+        localStorage.removeItem('accentHue');
+        showToast('Color reset to default', 'success');
+    });
 
     // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -995,46 +1120,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Typing Effect for Tagline
+    // Static Tagline Display
     const taglineElement = document.getElementById('typed-tagline');
     if (taglineElement) {
-        const taglines = [
-            'Human knowledge + AI capability = Superior results',
-            'Perfected through the power of collaboration',
-            '50+ prompts across 4 sectors and 20+ industries',
-            'From education to enterprise, built for everyone'
-        ];
-        let currentTagline = 0;
+        const tagline = 'Interactive AI Educational Library';
         let currentChar = 0;
-        let isDeleting = false;
-        let typingSpeed = 80;
 
         function typeTagline() {
-            const current = taglines[currentTagline];
-
-            if (isDeleting) {
-                taglineElement.textContent = current.substring(0, currentChar - 1);
-                currentChar--;
-                typingSpeed = 40;
-            } else {
-                taglineElement.textContent = current.substring(0, currentChar + 1);
+            if (currentChar < tagline.length) {
+                taglineElement.textContent = tagline.substring(0, currentChar + 1);
                 currentChar++;
-                typingSpeed = 80;
+                setTimeout(typeTagline, 60);
             }
-
-            if (!isDeleting && currentChar === current.length) {
-                typingSpeed = 2000; // Pause at end
-                isDeleting = true;
-            } else if (isDeleting && currentChar === 0) {
-                isDeleting = false;
-                currentTagline = (currentTagline + 1) % taglines.length;
-                typingSpeed = 500; // Pause before next
-            }
-
-            setTimeout(typeTagline, typingSpeed);
         }
 
-        setTimeout(typeTagline, 1000);
+        setTimeout(typeTagline, 800);
     }
 
     // Counter Animation for Stats
@@ -1597,5 +1697,262 @@ document.addEventListener('DOMContentLoaded', () => {
                 showStep('1');
             });
         }
+    }
+
+    // ==========================================
+    // CORPORATE REDESIGN - ANIMATION CONTROLLERS
+    // ==========================================
+
+    // Scroll Reveal Animation using Intersection Observer
+    class ScrollAnimator {
+        constructor() {
+            this.observer = new IntersectionObserver(
+                (entries) => this.handleIntersect(entries),
+                {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                }
+            );
+        }
+
+        init() {
+            const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger, .section-fade');
+            elements.forEach(el => this.observer.observe(el));
+        }
+
+        handleIntersect(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Parallax Effect Controller (Performance Optimized)
+    class ParallaxController {
+        constructor() {
+            this.elements = [];
+            this.ticking = false;
+        }
+
+        init() {
+            this.elements = document.querySelectorAll('[data-parallax]');
+            if (this.elements.length > 0) {
+                window.addEventListener('scroll', () => this.requestTick(), { passive: true });
+                this.update(); // Initial position
+            }
+        }
+
+        requestTick() {
+            if (!this.ticking) {
+                requestAnimationFrame(() => this.update());
+                this.ticking = true;
+            }
+        }
+
+        update() {
+            const scrollY = window.scrollY;
+            this.elements.forEach(el => {
+                const speed = parseFloat(el.dataset.parallax) || 0.5;
+                const offset = scrollY * speed;
+                el.style.setProperty('--parallax-offset', `${offset}px`);
+            });
+            this.ticking = false;
+        }
+    }
+
+    // Counter Animation
+    function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // easeOutCubic for smooth deceleration
+            const eased = 1 - Math.pow(1 - progress, 3);
+            element.textContent = Math.floor(start + (target - start) * eased);
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    // Counter Observer - triggers counter when visible
+    class CounterAnimator {
+        constructor() {
+            this.observer = new IntersectionObserver(
+                (entries) => this.handleIntersect(entries),
+                { threshold: 0.5 }
+            );
+        }
+
+        init() {
+            const counters = document.querySelectorAll('[data-counter]');
+            counters.forEach(el => {
+                el.dataset.animated = 'false';
+                this.observer.observe(el);
+            });
+        }
+
+        handleIntersect(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.dataset.animated === 'false') {
+                    const target = parseInt(entry.target.dataset.counter, 10);
+                    const duration = parseInt(entry.target.dataset.duration, 10) || 2000;
+                    entry.target.dataset.animated = 'true';
+                    animateCounter(entry.target, target, duration);
+                }
+            });
+        }
+    }
+
+    // Header Scroll Effect
+    class HeaderScrollEffect {
+        constructor() {
+            this.header = document.querySelector('.top-header');
+            this.scrollThreshold = 50;
+            this.ticking = false;
+        }
+
+        init() {
+            if (!this.header) return;
+
+            window.addEventListener('scroll', () => this.requestTick(), { passive: true });
+            this.update(); // Initial state
+        }
+
+        requestTick() {
+            if (!this.ticking) {
+                requestAnimationFrame(() => this.update());
+                this.ticking = true;
+            }
+        }
+
+        update() {
+            if (window.scrollY > this.scrollThreshold) {
+                this.header.classList.add('scrolled');
+            } else {
+                this.header.classList.remove('scrolled');
+            }
+            this.ticking = false;
+        }
+    }
+
+    // Tab Controller for Resources Section
+    class TabController {
+        constructor(containerSelector) {
+            this.container = document.querySelector(containerSelector);
+        }
+
+        init() {
+            if (!this.container) return;
+
+            const tabs = this.container.querySelectorAll('.tab-btn');
+            const panels = this.container.querySelectorAll('.tab-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Update active panel
+                    panels.forEach(panel => {
+                        if (panel.dataset.panel === targetTab) {
+                            panel.classList.add('active');
+                        } else {
+                            panel.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+    }
+
+    // Initialize all animation controllers
+    const scrollAnimator = new ScrollAnimator();
+    scrollAnimator.init();
+
+    const parallaxController = new ParallaxController();
+    parallaxController.init();
+
+    const counterAnimator = new CounterAnimator();
+    counterAnimator.init();
+
+    const headerScrollEffect = new HeaderScrollEffect();
+    headerScrollEffect.init();
+
+    const tabController = new TabController('.resources-section');
+    tabController.init();
+
+    // Hero Search Bar - triggers existing site search
+    const heroSearchInput = document.querySelector('.hero-search-input');
+    const heroSearchBtn = document.querySelector('.hero-search-btn');
+
+    if (heroSearchInput && typeof siteSearch !== 'undefined') {
+        heroSearchInput.addEventListener('focus', () => {
+            siteSearch.open();
+            heroSearchInput.blur();
+        });
+
+        if (heroSearchBtn) {
+            heroSearchBtn.addEventListener('click', () => {
+                siteSearch.open();
+            });
+        }
+    }
+
+    // Popular tag clicks
+    const heroTags = document.querySelectorAll('.hero-tag');
+    heroTags.forEach(tag => {
+        tag.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof siteSearch !== 'undefined') {
+                siteSearch.open();
+                // Pre-fill search with tag text
+                setTimeout(() => {
+                    const searchInput = document.querySelector('.search-input');
+                    if (searchInput) {
+                        searchInput.value = tag.textContent.trim();
+                        searchInput.dispatchEvent(new Event('input'));
+                    }
+                }, 100);
+            }
+        });
+    });
+
+    // Header Search Button - triggers existing site search
+    const headerSearchBtn = document.querySelector('.header-search-btn');
+    if (headerSearchBtn && typeof siteSearch !== 'undefined') {
+        headerSearchBtn.addEventListener('click', () => {
+            siteSearch.open();
+        });
+    }
+
+    // Mobile Menu Toggle for top header
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const headerNav = document.querySelector('.header-nav');
+
+    if (mobileMenuToggle && headerNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            headerNav.classList.toggle('mobile-active');
+        });
+
+        // Close mobile menu when clicking a link
+        const headerLinks = headerNav.querySelectorAll('.header-nav-link');
+        headerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                headerNav.classList.remove('mobile-active');
+            });
+        });
     }
 });

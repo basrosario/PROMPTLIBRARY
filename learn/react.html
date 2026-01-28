@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>ReAct Method - Learn Prompt Engineering</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="index.html" class="header-nav-link active">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="corporate-main">
+        <!-- Hero Section -->
+        <section class="learn-hero method-hero">
+            <div class="container">
+                <nav class="breadcrumb reveal">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">ReAct Method</span>
+                </nav>
+                <div class="method-badge-large advanced-tag">Advanced</div>
+                <h1 class="reveal">The ReAct Method</h1>
+                <p class="lead reveal">Reasoning and Acting. A powerful technique for complex problem-solving that makes AI thinking transparent and verifiable.</p>
+            </div>
+        </section>
+
+        <!-- Concept Visual -->
+        <section class="react-concept">
+            <div class="container">
+                <div class="concept-visual reveal">
+                    <div class="concept-box">
+                        <span class="concept-label">Reason</span>
+                        <p>Think through the problem step by step</p>
+                    </div>
+                    <div class="concept-arrow">+</div>
+                    <div class="concept-box">
+                        <span class="concept-label">Act</span>
+                        <p>Take actions based on reasoning</p>
+                    </div>
+                    <div class="concept-arrow">=</div>
+                    <div class="concept-box result">
+                        <span class="concept-label">ReAct</span>
+                        <p>Transparent, verifiable solutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="learn-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Main Content -->
+                    <article class="main-content">
+                        <!-- What is ReAct -->
+                        <div class="lesson-block reveal" id="what-is-react">
+                            <div class="lesson-header">
+                                <h2>What is ReAct?</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>ReAct (Reasoning + Acting) is a prompting paradigm where the AI alternates between <strong>thinking through a problem</strong> and <strong>taking actions</strong>. This creates a transparent chain of thought that you can follow and verify.</p>
+
+                                <div class="key-principles">
+                                    <div class="principle">
+                                        <h4>Explicit Reasoning</h4>
+                                        <p>The AI shows its work, explaining why it's making each decision.</p>
+                                    </div>
+                                    <div class="principle">
+                                        <h4>Interleaved Actions</h4>
+                                        <p>Reasoning leads to concrete actions, which produce new information for more reasoning.</p>
+                                    </div>
+                                    <div class="principle">
+                                        <h4>Verifiable Process</h4>
+                                        <p>You can check each step, catch errors early, and understand the full logic.</p>
+                                    </div>
+                                </div>
+
+                                <div class="key-takeaway">
+                                    <h4>When to Use ReAct</h4>
+                                    <p>Use ReAct for complex problems where the solution isn't obvious, when you need to verify reasoning, or when the task requires multiple steps with decisions along the way.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The ReAct Loop -->
+                        <div class="lesson-block reveal" id="react-loop">
+                            <div class="lesson-header">
+                                <h2>The ReAct Loop</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <div class="loop-visual">
+                                    <div class="loop-step">
+                                        <span class="step-num">1</span>
+                                        <h4>Thought</h4>
+                                        <p>Analyze the current state and decide what to do next</p>
+                                    </div>
+                                    <div class="loop-arrow"></div>
+                                    <div class="loop-step">
+                                        <span class="step-num">2</span>
+                                        <h4>Action</h4>
+                                        <p>Take a specific action based on the reasoning</p>
+                                    </div>
+                                    <div class="loop-arrow"></div>
+                                    <div class="loop-step">
+                                        <span class="step-num">3</span>
+                                        <h4>Observation</h4>
+                                        <p>Note the result of the action</p>
+                                    </div>
+                                    <div class="loop-arrow loop-back"></div>
+                                </div>
+
+                                <p>This loop continues until the problem is solved. Each iteration builds on the previous one, creating a clear trail of logic.</p>
+                            </div>
+                        </div>
+
+                        <!-- Prompting for ReAct -->
+                        <div class="lesson-block reveal" id="prompting">
+                            <div class="lesson-header">
+                                <h2>How to Prompt for ReAct</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>To get ReAct-style responses, structure your prompt to encourage explicit reasoning:</p>
+
+                                <div class="prompt-template">
+                                    <h4>ReAct Prompt Template</h4>
+                                    <div class="template-content">
+                                        <p><strong>Task:</strong> [Your problem or question]</p>
+                                        <p><strong>Instructions:</strong> Solve this step by step. For each step:</p>
+                                        <ol>
+                                            <li><strong>Thought:</strong> Explain your reasoning about what to do next</li>
+                                            <li><strong>Action:</strong> Describe the action you're taking</li>
+                                            <li><strong>Observation:</strong> Note the result and what it tells you</li>
+                                        </ol>
+                                        <p>Continue until you reach the solution.</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">ReAct Prompt Example</div>
+                                    <p>"I need to debug why our API is returning 500 errors intermittently. Walk me through your diagnostic process step by step. For each step, share your reasoning (Thought), what you would check or do (Action), and what the result tells us (Observation). Continue until you identify the likely cause."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Walkthrough -->
+                        <div class="lesson-block reveal" id="example">
+                            <div class="lesson-header">
+                                <h2>ReAct in Action</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Here's how a ReAct-style response looks for a debugging task:</p>
+
+                                <div class="react-example">
+                                    <div class="react-step">
+                                        <span class="react-label thought">Thought 1</span>
+                                        <p>Intermittent 500 errors suggest the issue isn't with the code logic itself (which would fail consistently), but likely related to resources, connections, or external dependencies. I should first identify if there's a pattern to when errors occur.</p>
+                                    </div>
+                                    <div class="react-step">
+                                        <span class="react-label action">Action 1</span>
+                                        <p>Check the error logs for timestamps and look for patterns. Are errors clustered at certain times? Do they correlate with traffic spikes?</p>
+                                    </div>
+                                    <div class="react-step">
+                                        <span class="react-label observation">Observation 1</span>
+                                        <p>Errors spike between 9-10 AM and 2-3 PM, which corresponds to peak usage times. The errors include "connection timeout" messages.</p>
+                                    </div>
+                                    <div class="react-step">
+                                        <span class="react-label thought">Thought 2</span>
+                                        <p>Connection timeouts during peak usage suggests either database connection pool exhaustion or the external service we depend on is rate-limiting us. I should check which connections are timing out.</p>
+                                    </div>
+                                    <div class="react-step">
+                                        <span class="react-label action">Action 2</span>
+                                        <p>Examine the stack traces in the logs to identify which service call is timing out - is it the database or an external API?</p>
+                                    </div>
+                                    <div class="react-step">
+                                        <span class="react-label observation">Observation 2</span>
+                                        <p>The timeouts are occurring on calls to our payment processor API, not the database.</p>
+                                    </div>
+                                    <div class="react-step conclusion">
+                                        <span class="react-label">Conclusion</span>
+                                        <p>The payment processor is likely rate-limiting our requests during peak times. We should implement request queuing, caching of results where appropriate, and consider upgrading our API tier with the payment processor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Use Cases -->
+                        <div class="lesson-block reveal" id="use-cases">
+                            <div class="lesson-header">
+                                <h2>Best Use Cases for ReAct</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <div class="use-case-grid">
+                                    <div class="use-case">
+                                        <h4>Debugging & Troubleshooting</h4>
+                                        <p>Work through issues systematically, testing hypotheses and narrowing down causes.</p>
+                                    </div>
+                                    <div class="use-case">
+                                        <h4>Research & Analysis</h4>
+                                        <p>Explore a topic by gathering information, synthesizing findings, and drawing conclusions.</p>
+                                    </div>
+                                    <div class="use-case">
+                                        <h4>Decision Making</h4>
+                                        <p>Evaluate options, consider trade-offs, and arrive at a reasoned recommendation.</p>
+                                    </div>
+                                    <div class="use-case">
+                                        <h4>Complex Calculations</h4>
+                                        <p>Break down multi-step problems, showing work at each stage.</p>
+                                    </div>
+                                    <div class="use-case">
+                                        <h4>Planning & Strategy</h4>
+                                        <p>Consider constraints, evaluate approaches, and build a step-by-step plan.</p>
+                                    </div>
+                                    <div class="use-case">
+                                        <h4>Code Review</h4>
+                                        <p>Systematically analyze code, explain reasoning, and provide justified feedback.</p>
+                                    </div>
+                                </div>
+
+                                <div class="next-steps">
+                                    <h4>Continue Learning</h4>
+                                    <div class="next-links">
+                                        <a href="advanced.html" class="btn-animate">Advanced Techniques</a>
+                                        <a href="index.html" class="btn-secondary">All Methods</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <div class="sidebar-card sticky">
+                            <h4>On This Page</h4>
+                            <nav class="toc">
+                                <a href="#what-is-react">What is ReAct?</a>
+                                <a href="#react-loop">The ReAct Loop</a>
+                                <a href="#prompting">How to Prompt</a>
+                                <a href="#example">ReAct in Action</a>
+                                <a href="#use-cases">Best Use Cases</a>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Method</a>
+                    <a href="costar.html">COSTAR Method</a>
+                    <a href="advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

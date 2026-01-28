@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>Prompt Basics - Learn Prompt Engineering</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="index.html" class="header-nav-link active">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="corporate-main">
+        <!-- Hero Section -->
+        <section class="learn-hero method-hero">
+            <div class="container">
+                <nav class="breadcrumb reveal">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">Prompt Basics</span>
+                </nav>
+                <div class="method-badge-large beginner-tag">Beginner</div>
+                <h1 class="reveal">Prompt Basics</h1>
+                <p class="lead reveal">Master the fundamental principles of effective AI prompting. These core concepts apply to every methodology and every AI tool.</p>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="learn-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Main Content -->
+                    <article class="main-content">
+                        <!-- Lesson 1 -->
+                        <div class="lesson-block reveal" id="lesson-1">
+                            <div class="lesson-header">
+                                <span class="lesson-number">Lesson 1</span>
+                                <h2>What is a Prompt?</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>A <strong>prompt</strong> is the input you give to an AI system to get a response. It's your way of communicating what you want the AI to do.</p>
+
+                                <p>Think of it like giving instructions to a highly capable assistant who:</p>
+                                <ul>
+                                    <li>Has vast knowledge but no context about your specific situation</li>
+                                    <li>Takes instructions literally and precisely</li>
+                                    <li>Can produce different outputs based on how you phrase your request</li>
+                                    <li>Doesn't know what you're thinking unless you tell it</li>
+                                </ul>
+
+                                <div class="example-block">
+                                    <div class="example-label">Weak Prompt</div>
+                                    <p>"Write about marketing"</p>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Strong Prompt</div>
+                                    <p>"Write a 200-word introduction for a blog post about email marketing best practices for small e-commerce businesses. Use a friendly, conversational tone."</p>
+                                </div>
+
+                                <div class="key-takeaway">
+                                    <h4>Key Takeaway</h4>
+                                    <p>The quality of your output is directly tied to the quality of your input. Vague prompts produce vague results; specific prompts produce specific results.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 2 -->
+                        <div class="lesson-block reveal" id="lesson-2">
+                            <div class="lesson-header">
+                                <span class="lesson-number">Lesson 2</span>
+                                <h2>The Anatomy of a Good Prompt</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Every effective prompt contains some combination of these elements:</p>
+
+                                <div class="anatomy-grid">
+                                    <div class="anatomy-item">
+                                        <h4>1. Task/Action</h4>
+                                        <p>What do you want the AI to do? (Write, analyze, explain, create, compare, summarize...)</p>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <h4>2. Context</h4>
+                                        <p>Background information that helps the AI understand your situation.</p>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <h4>3. Specifics</h4>
+                                        <p>Details about format, length, style, audience, or constraints.</p>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <h4>4. Examples</h4>
+                                        <p>Sample inputs/outputs that show what you're looking for.</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Complete Prompt Example</div>
+                                    <p><strong>Task:</strong> "Create a product description"<br>
+                                    <strong>Context:</strong> "for our new wireless earbuds, targeting young professionals"<br>
+                                    <strong>Specifics:</strong> "Keep it under 100 words, emphasize comfort and battery life"<br>
+                                    <strong>Example:</strong> "Similar in style to Apple's product descriptions - clean and benefit-focused"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 3 -->
+                        <div class="lesson-block reveal" id="lesson-3">
+                            <div class="lesson-header">
+                                <span class="lesson-number">Lesson 3</span>
+                                <h2>Common Prompting Mistakes</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <div class="mistakes-grid">
+                                    <div class="mistake-card">
+                                        <div class="mistake-header">
+                                            <span class="mistake-icon">1</span>
+                                            <h4>Being Too Vague</h4>
+                                        </div>
+                                        <div class="mistake-example bad">"Help me with my presentation"</div>
+                                        <div class="mistake-example good">"Create an outline for a 10-minute presentation about Q3 sales results for our executive team"</div>
+                                    </div>
+
+                                    <div class="mistake-card">
+                                        <div class="mistake-header">
+                                            <span class="mistake-icon">2</span>
+                                            <h4>Assuming Context</h4>
+                                        </div>
+                                        <div class="mistake-example bad">"Make it better"</div>
+                                        <div class="mistake-example good">"Improve this email by making it more concise and adding a clear call-to-action"</div>
+                                    </div>
+
+                                    <div class="mistake-card">
+                                        <div class="mistake-header">
+                                            <span class="mistake-icon">3</span>
+                                            <h4>Overloading</h4>
+                                        </div>
+                                        <div class="mistake-example bad">"Write a blog post, create social media posts, draft an email, and make a video script about our new product"</div>
+                                        <div class="mistake-example good">Break into separate prompts, one task at a time</div>
+                                    </div>
+
+                                    <div class="mistake-card">
+                                        <div class="mistake-header">
+                                            <span class="mistake-icon">4</span>
+                                            <h4>No Format Guidance</h4>
+                                        </div>
+                                        <div class="mistake-example bad">"Explain machine learning"</div>
+                                        <div class="mistake-example good">"Explain machine learning in 3 paragraphs suitable for a high school student, using everyday analogies"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 4 -->
+                        <div class="lesson-block reveal" id="lesson-4">
+                            <div class="lesson-header">
+                                <span class="lesson-number">Lesson 4</span>
+                                <h2>The Iteration Mindset</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Great prompts are rarely written on the first try. The best prompt engineers use an iterative approach:</p>
+
+                                <div class="process-steps">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        <div class="step-content">
+                                            <h4>Start Simple</h4>
+                                            <p>Begin with a basic prompt to see what the AI produces.</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        <div class="step-content">
+                                            <h4>Analyze the Output</h4>
+                                            <p>What's good? What's missing? What's wrong?</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        <div class="step-content">
+                                            <h4>Refine Your Prompt</h4>
+                                            <p>Add constraints, context, or examples to address gaps.</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">4</span>
+                                        <div class="step-content">
+                                            <h4>Repeat</h4>
+                                            <p>Continue until you get the results you need.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="key-takeaway">
+                                    <h4>Key Takeaway</h4>
+                                    <p>Don't expect perfection on the first try. Treat prompting as a conversation, not a one-shot request.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 5 -->
+                        <div class="lesson-block reveal" id="lesson-5">
+                            <div class="lesson-header">
+                                <span class="lesson-number">Lesson 5</span>
+                                <h2>Putting It All Together</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Now you understand the basics. Here's your action plan:</p>
+
+                                <div class="checklist">
+                                    <div class="check-item">
+                                        <span class="check-icon">1</span>
+                                        <p><strong>Always include a clear action verb</strong> - Tell the AI exactly what to do</p>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-icon">2</span>
+                                        <p><strong>Provide relevant context</strong> - Who, what, why, for whom?</p>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-icon">3</span>
+                                        <p><strong>Specify the format</strong> - Length, structure, style, tone</p>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-icon">4</span>
+                                        <p><strong>Give examples when helpful</strong> - Show, don't just tell</p>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-icon">5</span>
+                                        <p><strong>Iterate and refine</strong> - Build on what works</p>
+                                    </div>
+                                </div>
+
+                                <div class="next-steps">
+                                    <h4>Ready for More?</h4>
+                                    <p>Now that you understand the basics, explore a structured methodology:</p>
+                                    <div class="next-links">
+                                        <a href="crisp.html" class="btn-animate">Learn CRISP Method</a>
+                                        <a href="costar.html" class="btn-secondary">Explore COSTAR</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <div class="sidebar-card sticky">
+                            <h4>On This Page</h4>
+                            <nav class="toc">
+                                <a href="#lesson-1">1. What is a Prompt?</a>
+                                <a href="#lesson-2">2. Anatomy of a Good Prompt</a>
+                                <a href="#lesson-3">3. Common Mistakes</a>
+                                <a href="#lesson-4">4. The Iteration Mindset</a>
+                                <a href="#lesson-5">5. Putting It Together</a>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Method</a>
+                    <a href="costar.html">COSTAR Method</a>
+                    <a href="advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

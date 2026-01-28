@@ -6,160 +6,440 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
 
-    <title>Praxis AI - Prompt Engineering Library</title>
+    <title>Praxis AI - Learn Prompt Engineering</title>
+    <meta name="description" content="Master the art of AI communication. Learn professional prompt engineering techniques with CRISP, CRISPE, COSTAR, and ReAct methodologies.">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav class="sidebar">
-        <div class="brand-area">
-            &lt; /PRAXIS<span class="text-red">LIBRARY &gt;</span>
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="index.html" class="header-logo">
+            &lt;/<span>Praxis</span>&gt;
+        </a>
+
+        <nav class="header-nav">
+            <a href="learn/index.html" class="header-nav-link">Learn</a>
+            <a href="pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="education/games/index.html" class="header-nav-link">Practice</a>
+            <a href="pages/about.html" class="header-nav-link">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
+
+        <button class="header-mobile-toggle" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <div class="nav-scroller">
-            <div class="nav-header">Site Navigation</div>
+    </header>
 
-            <a href="#" class="nav-item active">Home</a>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="corporate-hero">
+            <canvas id="praxis-canvas" class="neural-canvas"></canvas>
 
-            <a href="library.html" class="nav-item">Prompt Library</a>
+            <div class="hero-content">
+                <p class="hero-tagline reveal">Master the Art of AI Communication</p>
 
-            <a href="pages/ai-guide.html" class="nav-item">
-                <img src="assets/icons/SVG/rocket.svg" alt="" class="local-icon icon-white"> Using AI Guide
-            </a>
+                <h1 class="hero-title reveal">
+                    Learn <span>Prompt Engineering</span>
+                </h1>
 
-            <div class="nav-accordion">
-                <div class="nav-accordion-header">
-                    Prompt Hubs
-                    <img src="assets/icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
-                </div>
-                <div class="nav-accordion-content">
-                    <a href="education/index.html" class="nav-item">Education Hub</a>
-                    <a href="business/index.html" class="nav-item">Business Sectors</a>
-                    <a href="services/index.html" class="nav-item">Service Industries</a>
-                    <a href="enterprise/index.html" class="nav-item">Enterprise Programs</a>
-                </div>
-            </div>
-
-            <div class="nav-accordion">
-                <div class="nav-accordion-header">
-                    GitHub
-                    <img src="assets/icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
-                </div>
-                <div class="nav-accordion-content">
-                    <a href="pages/github-insights.html" class="nav-item">GitHub Insights</a>
-                    <a href="pages/security.html" class="nav-item">Security Posture</a>
-                    <a href="pages/site-use-policy.html" class="nav-item">Terms of Use Policy</a>
-                </div>
-            </div>
-
-            <a href="pages/about.html" class="nav-item">
-                <img src="assets/icons/SVG/user-tie.svg" alt="" class="local-icon icon-white"> About Me
-            </a>
-
-            <div class="nav-header">Connect</div>
-            <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer" class="nav-item">
-                <img src="assets/icons/SVG/linkedin.svg" alt="" class="local-icon icon-white"> LinkedIn
-            </a>
-            <a href="mailto:bas.rosario@gmail.com" class="nav-item">
-                <img src="assets/icons/SVG/email.svg" alt="" class="local-icon icon-white"> Contact
-            </a>
-        </div>
-    </nav>
-
-    <main id="main-content" class="main-wrapper praxis-hero-mode">
-
-        <!-- Animated Background Canvas -->
-        <canvas id="praxis-canvas" class="praxis-canvas"></canvas>
-
-        <!-- Hero Content -->
-        <div class="praxis-hero">
-            <div class="praxis-hero-content">
-
-                <!-- Animated Logo/Brand - MASSIVE -->
-                <div class="praxis-brand praxis-brand-massive" id="animated-brand">
-                    <span class="praxis-bracket anim-char">&lt;</span>
-                    <span class="praxis-slash anim-char">/</span>
-                    <span class="praxis-text anim-char">Praxis</span>
-                    <span class="praxis-ai anim-char">Library</span>
-                    <span class="praxis-bracket anim-char">&gt;</span>
-                </div>
-
-                <!-- Animated Tagline -->
-                <p class="praxis-tagline">
-                    <span class="tagline-text" id="typed-tagline"></span>
-                    <span class="typing-cursor">|</span>
+                <p class="hero-description reveal">
+                    Discover professional techniques to communicate effectively with AI.
+                    From foundational concepts to advanced methodologies.
                 </p>
 
-                <!-- Stats Row -->
-                <div class="praxis-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="50">0</span>
-                        <span class="stat-plus">+</span>
-                        <span class="stat-label">Prompts</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="4">0</span>
-                        <span class="stat-label">Sectors</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="20">0</span>
-                        <span class="stat-plus">+</span>
-                        <span class="stat-label">Industries</span>
+                <!-- Hero Search -->
+                <div class="hero-search reveal">
+                    <div class="hero-search-wrapper">
+                        <input
+                            type="text"
+                            class="hero-search-input"
+                            placeholder="Search prompt techniques, methods, guides..."
+                            aria-label="Search site"
+                            readonly
+                        >
+                        <button class="hero-search-btn">Search</button>
                     </div>
                 </div>
 
-                <!-- CTA Buttons -->
-                <div class="praxis-cta">
-                    <a href="library.html" class="btn-primary btn-large">
-                        Explore Library
-                        <span class="btn-icon-circle">
-                            <img src="assets/icons/SVG/arrow-right.svg" alt="Go" class="local-icon icon-white">
-                        </span>
-                    </a>
-                    <a href="pages/about.html" class="btn-secondary">
-                        About the Creator
-                    </a>
+                <!-- Popular Tags -->
+                <div class="hero-tags reveal">
+                    <span class="hero-tags-label">Popular:</span>
+                    <a href="#" class="hero-tag">CRISP Method</a>
+                    <a href="#" class="hero-tag">COSTAR</a>
+                    <a href="#" class="hero-tag">ReAct</a>
+                    <a href="#" class="hero-tag">AI Safety</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar reveal-stagger">
+            <div class="stat-block">
+                <div class="stat-number" data-counter="4" data-duration="1500">0</div>
+                <div class="stat-label">Methodologies</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number" data-counter="25" data-duration="2000">0</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-number">A+</div>
+                <div class="stat-label">Security</div>
+            </div>
+        </section>
+
+        <!-- Topic Categories -->
+        <section class="topics-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title reveal">Browse by Topic</h2>
+                    <p class="section-subtitle reveal">Choose your learning path and master AI communication</p>
                 </div>
 
-                <!-- Hub Navigation Cards -->
-                <div class="praxis-hubs">
-                    <a href="education/index.html" class="hub-card">
-                        <div class="hub-icon">
+                <div class="topics-grid reveal-stagger">
+                    <a href="learn/prompt-basics.html" class="topic-card card-lift">
+                        <div class="topic-icon">
                             <img src="assets/icons/SVG/layers.svg" alt="" class="local-icon icon-red">
                         </div>
-                        <span class="hub-name">Education</span>
+                        <h3>Prompt Basics</h3>
+                        <p>Foundation concepts for effective AI communication</p>
+                        <span class="topic-meta">Start Here</span>
                     </a>
-                    <a href="business/index.html" class="hub-card">
-                        <div class="hub-icon">
+
+                    <a href="learn/crisp.html" class="topic-card card-lift">
+                        <div class="topic-icon">
+                            <img src="assets/icons/SVG/clipboard.svg" alt="" class="local-icon icon-red">
+                        </div>
+                        <h3>CRISP Method</h3>
+                        <p>Context, Request, Instructions, Style, Parameters</p>
+                        <span class="topic-meta">Quick Tasks</span>
+                    </a>
+
+                    <a href="learn/crispe.html" class="topic-card card-lift">
+                        <div class="topic-icon">
+                            <img src="assets/icons/SVG/user-tie.svg" alt="" class="local-icon icon-red">
+                        </div>
+                        <h3>CRISPE Method</h3>
+                        <p>Extended prompting with role and personality</p>
+                        <span class="topic-meta">Expert Tasks</span>
+                    </a>
+
+                    <a href="learn/costar.html" class="topic-card card-lift">
+                        <div class="topic-icon">
                             <img src="assets/icons/SVG/cube.svg" alt="" class="local-icon icon-red">
                         </div>
-                        <span class="hub-name">Business</span>
+                        <h3>COSTAR Method</h3>
+                        <p>Context-driven prompting for content creation</p>
+                        <span class="topic-meta">Content Focus</span>
                     </a>
-                    <a href="services/index.html" class="hub-card">
-                        <div class="hub-icon">
+
+                    <a href="learn/react.html" class="topic-card card-lift">
+                        <div class="topic-icon">
                             <img src="assets/icons/SVG/random.svg" alt="" class="local-icon icon-red">
                         </div>
-                        <span class="hub-name">Services</span>
+                        <h3>ReAct Method</h3>
+                        <p>Reasoning and acting for complex problem-solving</p>
+                        <span class="topic-meta">Advanced</span>
                     </a>
-                    <a href="enterprise/index.html" class="hub-card">
-                        <div class="hub-icon">
+
+                    <a href="education/ai-safety.html" class="topic-card card-lift">
+                        <div class="topic-icon">
+                            <img src="assets/icons/SVG/shield-check.svg" alt="" class="local-icon icon-red">
+                        </div>
+                        <h3>AI Safety & Ethics</h3>
+                        <p>Responsible AI use and critical evaluation</p>
+                        <span class="topic-meta">Essential</span>
+                    </a>
+
+                    <a href="pages/ai-guide.html" class="topic-card card-lift">
+                        <div class="topic-icon">
                             <img src="assets/icons/SVG/rocket.svg" alt="" class="local-icon icon-red">
                         </div>
-                        <span class="hub-name">Enterprise</span>
+                        <h3>AI Tools Guide</h3>
+                        <p>When and how to use different AI systems</p>
+                        <span class="topic-meta">Comprehensive</span>
+                    </a>
+
+                    <a href="learn/advanced.html" class="topic-card card-lift">
+                        <div class="topic-icon">
+                            <img src="assets/icons/SVG/star.svg" alt="" class="local-icon icon-red">
+                        </div>
+                        <h3>Advanced Techniques</h3>
+                        <p>Expert-level prompting strategies</p>
+                        <span class="topic-meta">Expert Level</span>
                     </a>
                 </div>
+            </div>
+        </section>
 
+        <!-- Resources by User Type -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title reveal">Resources for You</h2>
+                    <p class="section-subtitle reveal">Tailored learning paths for your role</p>
+                </div>
+
+                <div class="user-tabs reveal">
+                    <button class="tab-btn active" data-tab="educators">Educators</button>
+                    <button class="tab-btn" data-tab="students">Students</button>
+                    <button class="tab-btn" data-tab="business">Business</button>
+                    <button class="tab-btn" data-tab="developers">Developers</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Educators Panel -->
+                    <div class="tab-panel active" data-panel="educators">
+                        <div class="resource-list reveal-stagger">
+                            <a href="learn/prompt-basics.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/layers.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Teaching AI Literacy</h4>
+                                    <p>Help students understand how to communicate with AI effectively</p>
+                                </div>
+                            </a>
+                            <a href="education/ai-safety.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/shield-check.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>AI Ethics in Education</h4>
+                                    <p>Guidelines for responsible AI use in academic settings</p>
+                                </div>
+                            </a>
+                            <a href="education/games/index.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/star.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Interactive Learning Games</h4>
+                                    <p>Engage students with quizzes and flashcards</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Students Panel -->
+                    <div class="tab-panel" data-panel="students">
+                        <div class="resource-list reveal-stagger">
+                            <a href="learn/prompt-basics.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/rocket.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Getting Started</h4>
+                                    <p>Learn the fundamentals of effective AI communication</p>
+                                </div>
+                            </a>
+                            <a href="education/games/index.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/star.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Practice & Test</h4>
+                                    <p>Interactive quizzes to reinforce your learning</p>
+                                </div>
+                            </a>
+                            <a href="education/ai-safety.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/shield-check.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Academic Integrity</h4>
+                                    <p>Using AI responsibly in your studies</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Business Panel -->
+                    <div class="tab-panel" data-panel="business">
+                        <div class="resource-list reveal-stagger">
+                            <a href="learn/costar.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/cube.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Content Creation</h4>
+                                    <p>COSTAR method for professional content</p>
+                                </div>
+                            </a>
+                            <a href="learn/crispe.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/user-tie.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Expert Analysis</h4>
+                                    <p>CRISPE method for complex business tasks</p>
+                                </div>
+                            </a>
+                            <a href="enterprise/index.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/random.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Enterprise Programs</h4>
+                                    <p>Training and implementation support</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Developers Panel -->
+                    <div class="tab-panel" data-panel="developers">
+                        <div class="resource-list reveal-stagger">
+                            <a href="learn/react.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/random.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>ReAct Patterns</h4>
+                                    <p>Reasoning and acting for complex tasks</p>
+                                </div>
+                            </a>
+                            <a href="learn/advanced.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/star.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Advanced Techniques</h4>
+                                    <p>Chain-of-thought, few-shot learning, and more</p>
+                                </div>
+                            </a>
+                            <a href="pages/security.html" class="resource-item">
+                                <div class="resource-icon">
+                                    <img src="assets/icons/SVG/shield-check.svg" alt="">
+                                </div>
+                                <div class="resource-content">
+                                    <h4>Security Best Practices</h4>
+                                    <p>Building secure AI-integrated applications</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Showcase -->
+        <section class="methods-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title reveal" style="color: #FFFFFF;">Master the Methods</h2>
+                    <p class="section-subtitle reveal" style="color: rgba(255,255,255,0.6);">Four proven frameworks for effective AI communication</p>
+                </div>
+
+                <div class="methods-scroll">
+                    <div class="method-card card-lift">
+                        <span class="method-badge">CRISP</span>
+                        <h3>Context + Request + Instructions + Style + Parameters</h3>
+                        <p>Best for quick, focused tasks with clear requirements. The foundational method for structured prompting.</p>
+                        <a href="learn/crisp.html" class="btn-animate">Learn CRISP</a>
+                    </div>
+
+                    <div class="method-card card-lift">
+                        <span class="method-badge">CRISPE</span>
+                        <h3>Capacity + Role + Insight + Statement + Personality + Experiment</h3>
+                        <p>Extended prompting with role-playing and personality. Ideal for complex tasks requiring specific expertise.</p>
+                        <a href="learn/crispe.html" class="btn-animate">Learn CRISPE</a>
+                    </div>
+
+                    <div class="method-card card-lift">
+                        <span class="method-badge">COSTAR</span>
+                        <h3>Context + Objective + Style + Tone + Audience + Response</h3>
+                        <p>Comprehensive framework for content creation. Perfect for audience-focused communication.</p>
+                        <a href="learn/costar.html" class="btn-animate">Learn COSTAR</a>
+                    </div>
+
+                    <div class="method-card card-lift">
+                        <span class="method-badge">ReAct</span>
+                        <h3>Thought + Action + Observation + Repeat</h3>
+                        <p>Reasoning and acting pattern for multi-step problems. Essential for research and complex analysis.</p>
+                        <a href="learn/react.html" class="btn-animate">Learn ReAct</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">&lt;/<span>Praxis</span>&gt;</div>
+                <p class="footer-desc">
+                    Master the art of AI communication. Learn professional prompt engineering
+                    techniques to unlock the full potential of artificial intelligence.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <img src="assets/icons/SVG/linkedin.svg" alt="">
+                    </a>
+                    <a href="mailto:bas.rosario@gmail.com" aria-label="Email">
+                        <img src="assets/icons/SVG/email.svg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn/prompt-basics.html">Prompt Basics</a></li>
+                    <li><a href="learn/crisp.html">CRISP Method</a></li>
+                    <li><a href="learn/crispe.html">CRISPE Method</a></li>
+                    <li><a href="learn/costar.html">COSTAR Method</a></li>
+                    <li><a href="learn/react.html">ReAct Method</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="pages/ai-guide.html">AI Tools Guide</a></li>
+                    <li><a href="education/ai-safety.html">AI Safety</a></li>
+                    <li><a href="education/games/index.html">Practice Games</a></li>
+                    <li><a href="enterprise/index.html">Enterprise</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="pages/about.html">About Me</a></li>
+                    <li><a href="pages/security.html">Security</a></li>
+                    <li><a href="pages/site-use-policy.html">Terms of Use</a></li>
+                    <li><a href="pages/github-insights.html">GitHub</a></li>
+                </ul>
             </div>
         </div>
-    </main>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">AI for Everybody</p>
+            <div class="footer-links">
+                <a href="pages/site-use-policy.html">Privacy</a>
+                <a href="pages/security.html">Security</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="app.js" defer></script>
 </body>

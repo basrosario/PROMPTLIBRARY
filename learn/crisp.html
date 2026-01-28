@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>CRISP Method - Learn Prompt Engineering</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="index.html" class="header-nav-link active">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="corporate-main">
+        <!-- Hero Section -->
+        <section class="learn-hero method-hero">
+            <div class="container">
+                <nav class="breadcrumb reveal">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">CRISP Method</span>
+                </nav>
+                <div class="method-badge-large intermediate-tag">Intermediate</div>
+                <h1 class="reveal">The CRISP Method</h1>
+                <p class="lead reveal">A structured approach for quick, focused AI prompting. Perfect for everyday tasks that need clear, actionable results.</p>
+            </div>
+        </section>
+
+        <!-- Acronym Breakdown -->
+        <section class="acronym-section">
+            <div class="container">
+                <div class="acronym-grid reveal-stagger">
+                    <div class="acronym-card">
+                        <span class="letter">C</span>
+                        <h3>Context</h3>
+                        <p>Background information about your situation</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">R</span>
+                        <h3>Request</h3>
+                        <p>What you want the AI to do</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">I</span>
+                        <h3>Instructions</h3>
+                        <p>Specific guidelines for the task</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">S</span>
+                        <h3>Style</h3>
+                        <p>Tone, format, and voice</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">P</span>
+                        <h3>Parameters</h3>
+                        <p>Constraints like length, format</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="learn-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Main Content -->
+                    <article class="main-content">
+                        <!-- Why CRISP -->
+                        <div class="lesson-block reveal" id="why-crisp">
+                            <div class="lesson-header">
+                                <h2>Why Use CRISP?</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>CRISP is designed for <strong>efficiency and clarity</strong>. It works best when you need:</p>
+
+                                <ul class="feature-list">
+                                    <li>Quick, focused outputs for everyday tasks</li>
+                                    <li>A simple framework you can memorize</li>
+                                    <li>Consistent results without extensive setup</li>
+                                    <li>A starting point before learning advanced methods</li>
+                                </ul>
+
+                                <div class="comparison-box">
+                                    <h4>CRISP vs. Other Methods</h4>
+                                    <p>CRISP is leaner than COSTAR or CRISPE. Use it when you don't need to specify audience separately or add personality. For more complex needs, consider <a href="costar.html">COSTAR</a> or <a href="crispe.html">CRISPE</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Component Deep Dives -->
+                        <div class="lesson-block reveal" id="context">
+                            <div class="lesson-header">
+                                <span class="lesson-number">C</span>
+                                <h2>Context</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Context sets the stage. It tells the AI about your situation, background, and relevant details that will shape the response.</p>
+
+                                <div class="context-examples">
+                                    <h4>Good Context Includes:</h4>
+                                    <ul>
+                                        <li><strong>Who you are:</strong> "I'm a marketing manager at a B2B software company"</li>
+                                        <li><strong>The situation:</strong> "We're launching a new feature next month"</li>
+                                        <li><strong>Relevant background:</strong> "Our audience is mid-size businesses in healthcare"</li>
+                                    </ul>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Strong Context</div>
+                                    <p>"I'm a freelance web developer creating a portfolio website. I specialize in React and Node.js, and my target clients are small businesses and startups."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-block reveal" id="request">
+                            <div class="lesson-header">
+                                <span class="lesson-number">R</span>
+                                <h2>Request</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>The request is your core ask. Use a clear action verb and be specific about the deliverable.</p>
+
+                                <div class="verb-grid">
+                                    <div class="verb-category">
+                                        <h4>Creating</h4>
+                                        <p>Write, Create, Generate, Design, Draft, Compose</p>
+                                    </div>
+                                    <div class="verb-category">
+                                        <h4>Analyzing</h4>
+                                        <p>Analyze, Compare, Evaluate, Review, Assess, Examine</p>
+                                    </div>
+                                    <div class="verb-category">
+                                        <h4>Transforming</h4>
+                                        <p>Summarize, Simplify, Expand, Translate, Rewrite, Convert</p>
+                                    </div>
+                                    <div class="verb-category">
+                                        <h4>Explaining</h4>
+                                        <p>Explain, Describe, Define, Clarify, Break down, Outline</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Clear Request</div>
+                                    <p>"Write a project proposal for building a customer feedback portal"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-block reveal" id="instructions">
+                            <div class="lesson-header">
+                                <span class="lesson-number">I</span>
+                                <h2>Instructions</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Instructions are the specific guidelines for how to complete the task. Think of these as the "rules" for the output.</p>
+
+                                <div class="instruction-types">
+                                    <div class="instruction-type">
+                                        <h4>What to Include</h4>
+                                        <p>"Include a timeline, budget estimate, and risk assessment"</p>
+                                    </div>
+                                    <div class="instruction-type">
+                                        <h4>What to Avoid</h4>
+                                        <p>"Don't use technical jargon or acronyms"</p>
+                                    </div>
+                                    <div class="instruction-type">
+                                        <h4>How to Structure</h4>
+                                        <p>"Organize into three sections: Problem, Solution, Benefits"</p>
+                                    </div>
+                                    <div class="instruction-type">
+                                        <h4>Priority/Focus</h4>
+                                        <p>"Focus primarily on cost savings and ROI"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-block reveal" id="style">
+                            <div class="lesson-header">
+                                <span class="lesson-number">S</span>
+                                <h2>Style</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Style defines the voice, tone, and feel of the output.</p>
+
+                                <div class="style-spectrum">
+                                    <div class="style-option">
+                                        <h4>Formal</h4>
+                                        <p>Professional, polished, suitable for executives</p>
+                                    </div>
+                                    <div class="style-option">
+                                        <h4>Conversational</h4>
+                                        <p>Friendly, approachable, like talking to a colleague</p>
+                                    </div>
+                                    <div class="style-option">
+                                        <h4>Technical</h4>
+                                        <p>Precise, detailed, uses domain terminology</p>
+                                    </div>
+                                    <div class="style-option">
+                                        <h4>Persuasive</h4>
+                                        <p>Compelling, benefit-focused, action-oriented</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Style Specification</div>
+                                    <p>"Write in a confident but not aggressive tone. Be direct and use active voice. The style should feel like a trusted advisor, not a salesperson."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-block reveal" id="parameters">
+                            <div class="lesson-header">
+                                <span class="lesson-number">P</span>
+                                <h2>Parameters</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Parameters are the constraints and specifications that bound the output.</p>
+
+                                <div class="parameter-grid">
+                                    <div class="param-item">
+                                        <h4>Length</h4>
+                                        <p>"300 words", "2 paragraphs", "one page"</p>
+                                    </div>
+                                    <div class="param-item">
+                                        <h4>Format</h4>
+                                        <p>"Bullet points", "numbered list", "table"</p>
+                                    </div>
+                                    <div class="param-item">
+                                        <h4>Sections</h4>
+                                        <p>"5 sections with headers", "intro/body/conclusion"</p>
+                                    </div>
+                                    <div class="param-item">
+                                        <h4>Special Requirements</h4>
+                                        <p>"Include citations", "add examples", "no images"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complete Example -->
+                        <div class="lesson-block reveal" id="example">
+                            <div class="lesson-header">
+                                <h2>Complete CRISP Example</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <div class="full-example">
+                                    <div class="example-component">
+                                        <span class="component-label">Context</span>
+                                        <p>I'm a product manager at a SaaS company. We're preparing for our quarterly business review with leadership.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Request</span>
+                                        <p>Create an executive summary of our Q3 product achievements.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Instructions</span>
+                                        <p>Include key metrics (user growth, feature adoption, NPS). Highlight the top 3 launches and their business impact. Mention any challenges and how we addressed them.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Style</span>
+                                        <p>Professional and confident. Focus on outcomes, not activities. Use data to support claims.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Parameters</span>
+                                        <p>One page maximum. Use headers for each section. Include a brief "Looking Ahead" section at the end.</p>
+                                    </div>
+                                </div>
+
+                                <div class="next-steps">
+                                    <h4>Ready to Level Up?</h4>
+                                    <p>CRISP is a great foundation. For more complex needs, explore:</p>
+                                    <div class="next-links">
+                                        <a href="crispe.html" class="btn-animate">Learn CRISPE</a>
+                                        <a href="costar.html" class="btn-secondary">Explore COSTAR</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <div class="sidebar-card sticky">
+                            <h4>On This Page</h4>
+                            <nav class="toc">
+                                <a href="#why-crisp">Why Use CRISP?</a>
+                                <a href="#context">C - Context</a>
+                                <a href="#request">R - Request</a>
+                                <a href="#instructions">I - Instructions</a>
+                                <a href="#style">S - Style</a>
+                                <a href="#parameters">P - Parameters</a>
+                                <a href="#example">Complete Example</a>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Method</a>
+                    <a href="costar.html">COSTAR Method</a>
+                    <a href="advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>CRISPE Method - Learn Prompt Engineering</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="index.html" class="header-nav-link active">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="corporate-main">
+        <!-- Hero Section -->
+        <section class="learn-hero method-hero">
+            <div class="container">
+                <nav class="breadcrumb reveal">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">CRISPE Method</span>
+                </nav>
+                <div class="method-badge-large intermediate-tag">Intermediate</div>
+                <h1 class="reveal">The CRISPE Method</h1>
+                <p class="lead reveal">An extended version of CRISP that adds Personality and Evaluation for richer, more consistent AI interactions.</p>
+            </div>
+        </section>
+
+        <!-- Acronym Breakdown -->
+        <section class="acronym-section">
+            <div class="container">
+                <div class="acronym-grid reveal-stagger">
+                    <div class="acronym-card">
+                        <span class="letter">C</span>
+                        <h3>Context</h3>
+                        <p>Background and situation</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">R</span>
+                        <h3>Request</h3>
+                        <p>What you want done</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">I</span>
+                        <h3>Instructions</h3>
+                        <p>Specific guidelines</p>
+                    </div>
+                    <div class="acronym-card">
+                        <span class="letter">S</span>
+                        <h3>Style</h3>
+                        <p>Tone and format</p>
+                    </div>
+                    <div class="acronym-card highlight">
+                        <span class="letter">P</span>
+                        <h3>Personality</h3>
+                        <p>Role or persona</p>
+                    </div>
+                    <div class="acronym-card highlight">
+                        <span class="letter">E</span>
+                        <h3>Evaluation</h3>
+                        <p>Quality criteria</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="learn-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Main Content -->
+                    <article class="main-content">
+                        <!-- CRISP to CRISPE -->
+                        <div class="lesson-block reveal" id="evolution">
+                            <div class="lesson-header">
+                                <h2>From CRISP to CRISPE</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>CRISPE builds on the CRISP foundation by adding two powerful elements:</p>
+
+                                <div class="evolution-grid">
+                                    <div class="evo-item">
+                                        <h4>Personality</h4>
+                                        <p>Assigns the AI a specific role, expertise, or persona. This creates more consistent, contextually appropriate responses.</p>
+                                        <div class="evo-example">"Act as a senior marketing strategist with 15 years of experience in B2B SaaS"</div>
+                                    </div>
+                                    <div class="evo-item">
+                                        <h4>Evaluation</h4>
+                                        <p>Defines success criteria so the AI knows how to judge its own output quality.</p>
+                                        <div class="evo-example">"A good response will be actionable, specific to my industry, and include at least 3 concrete next steps"</div>
+                                    </div>
+                                </div>
+
+                                <div class="key-takeaway">
+                                    <h4>When to Use CRISPE over CRISP</h4>
+                                    <p>Use CRISPE when you need consistent persona-based responses, are working on complex creative tasks, or want the AI to self-evaluate its output quality.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personality Deep Dive -->
+                        <div class="lesson-block reveal" id="personality">
+                            <div class="lesson-header">
+                                <span class="lesson-number">P</span>
+                                <h2>Personality</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>The Personality component transforms the AI from a generic assistant into a specific expert or role. This affects vocabulary, perspective, and recommendations.</p>
+
+                                <h4>Effective Personality Prompts Include:</h4>
+                                <div class="personality-elements">
+                                    <div class="p-element">
+                                        <h5>Role/Title</h5>
+                                        <p>"You are a product designer" or "Act as a financial advisor"</p>
+                                    </div>
+                                    <div class="p-element">
+                                        <h5>Experience Level</h5>
+                                        <p>"...with 20 years of experience" or "...who specializes in startups"</p>
+                                    </div>
+                                    <div class="p-element">
+                                        <h5>Perspective</h5>
+                                        <p>"...who prioritizes user experience over technical complexity"</p>
+                                    </div>
+                                    <div class="p-element">
+                                        <h5>Communication Style</h5>
+                                        <p>"...who explains complex concepts using simple analogies"</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Strong Personality Prompt</div>
+                                    <p>"You are a seasoned startup advisor who has mentored over 50 companies through Series A funding. You're known for giving direct, honest feedback and always grounding advice in real examples. You tend to ask clarifying questions before giving recommendations."</p>
+                                </div>
+
+                                <div class="warning-box">
+                                    <h4>Avoid These Personality Pitfalls</h4>
+                                    <ul>
+                                        <li>Vague roles: "Be an expert" (expert at what?)</li>
+                                        <li>Contradictory traits: "Be detailed but brief"</li>
+                                        <li>Unrealistic personas: "Be a superhuman genius"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Evaluation Deep Dive -->
+                        <div class="lesson-block reveal" id="evaluation">
+                            <div class="lesson-header">
+                                <span class="lesson-number">E</span>
+                                <h2>Evaluation</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>The Evaluation component defines what "success" looks like. It helps the AI assess and improve its own output before presenting it to you.</p>
+
+                                <h4>Types of Evaluation Criteria:</h4>
+                                <div class="eval-types">
+                                    <div class="eval-type">
+                                        <h5>Content Quality</h5>
+                                        <p>"The response should be factually accurate and include citations where possible"</p>
+                                    </div>
+                                    <div class="eval-type">
+                                        <h5>Actionability</h5>
+                                        <p>"Each recommendation should be something I can implement this week"</p>
+                                    </div>
+                                    <div class="eval-type">
+                                        <h5>Completeness</h5>
+                                        <p>"Cover all aspects of the topic without leaving obvious gaps"</p>
+                                    </div>
+                                    <div class="eval-type">
+                                        <h5>Audience Fit</h5>
+                                        <p>"The explanation should be understandable by someone with no technical background"</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Evaluation Criteria Example</div>
+                                    <p>"Evaluate your response against these criteria: (1) Is it specific to my industry, not generic advice? (2) Are there concrete examples I can reference? (3) Is the recommended timeline realistic for a small team? (4) Have you addressed potential objections?"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complete Example -->
+                        <div class="lesson-block reveal" id="example">
+                            <div class="lesson-header">
+                                <h2>Complete CRISPE Example</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <div class="full-example">
+                                    <div class="example-component">
+                                        <span class="component-label">Context</span>
+                                        <p>I'm launching a new productivity app for remote teams. We're a 5-person startup with limited marketing budget. Our beta has 200 users with strong retention.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Request</span>
+                                        <p>Create a go-to-market strategy for our public launch.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Instructions</span>
+                                        <p>Focus on organic and low-cost acquisition channels. Include specific tactics for each channel, not just channel names. Address how to leverage our existing beta users.</p>
+                                    </div>
+                                    <div class="example-component">
+                                        <span class="component-label">Style</span>
+                                        <p>Strategic but practical. Use frameworks when helpful but prioritize actionable steps over theory.</p>
+                                    </div>
+                                    <div class="example-component highlight">
+                                        <span class="component-label">Personality</span>
+                                        <p>You are a growth marketing advisor who has helped 10+ startups go from beta to $1M ARR. You've worked with bootstrapped companies and understand resource constraints. You're known for creative, scrappy tactics that punch above their budget.</p>
+                                    </div>
+                                    <div class="example-component highlight">
+                                        <span class="component-label">Evaluation</span>
+                                        <p>A successful strategy will: (1) include at least 5 specific tactics we can start this month, (2) require minimal paid spend, (3) leverage our existing user base, and (4) include measurable milestones for the first 90 days.</p>
+                                    </div>
+                                </div>
+
+                                <div class="next-steps">
+                                    <h4>Continue Learning</h4>
+                                    <div class="next-links">
+                                        <a href="costar.html" class="btn-animate">Learn COSTAR</a>
+                                        <a href="advanced.html" class="btn-secondary">Advanced Techniques</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <div class="sidebar-card sticky">
+                            <h4>On This Page</h4>
+                            <nav class="toc">
+                                <a href="#evolution">CRISP to CRISPE</a>
+                                <a href="#personality">P - Personality</a>
+                                <a href="#evaluation">E - Evaluation</a>
+                                <a href="#example">Complete Example</a>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Method</a>
+                    <a href="costar.html">COSTAR Method</a>
+                    <a href="advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

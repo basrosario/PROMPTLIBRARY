@@ -13,60 +13,30 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav class="sidebar">
-        <div class="brand-area">
-            &lt; /PRAXIS<span class="text-red">LIBRARY &gt;</span>
+    <!-- Top Header -->
+    <header class="top-header scrolled">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="../learn/index.html" class="header-nav-link">Learn</a>
+            <a href="ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="about.html" class="header-nav-link active">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-scroller">
-            <div class="nav-header">Site Navigation</div>
+    </header>
 
-            <a href="../index.html" class="nav-item">Home / Profile</a>
-
-            <a href="../library.html" class="nav-item">Prompt Library</a>
-
-            <div class="nav-accordion">
-                <div class="nav-accordion-header">
-                    Prompt Hubs
-                    <img src="../assets/icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
-                </div>
-                <div class="nav-accordion-content">
-                    <a href="../education/index.html" class="nav-item">Education Hub</a>
-                    <a href="../business/index.html" class="nav-item">Business Sectors</a>
-                    <a href="../services/index.html" class="nav-item">Service Industries</a>
-                    <a href="../enterprise/index.html" class="nav-item">Enterprise Programs</a>
-                </div>
-            </div>
-
-            <div class="nav-accordion">
-                <div class="nav-accordion-header">
-                    GitHub
-                    <img src="../assets/icons/SVG/chevron-right.svg" alt="" class="accordion-icon icon-grey">
-                </div>
-                <div class="nav-accordion-content">
-                    <a href="github-insights.html" class="nav-item">GitHub Insights</a>
-                    <a href="security.html" class="nav-item">Security Posture</a>
-                    <a href="site-use-policy.html" class="nav-item">Terms of Use Policy</a>
-                </div>
-            </div>
-
-            <a href="#" class="nav-item active">About Me</a>
-
-            <div class="nav-header">Connect</div>
-            <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer" class="nav-item">
-                <img src="../assets/icons/SVG/linkedin.svg" alt="" class="local-icon icon-white"> LinkedIn
-            </a>
-            <a href="mailto:bas.rosario@gmail.com" class="nav-item">
-                <img src="../assets/icons/SVG/email.svg" alt="" class="local-icon icon-white"> Contact
-            </a>
-        </div>
-    </nav>
-
-    <main id="main-content" class="main-wrapper profile-mode">
+    <main id="main-content" class="corporate-main profile-mode" style="padding-top: 80px;">
 
         <!-- Profile Hero Section (moved from index) -->
         <div class="hero-container">
@@ -320,6 +290,40 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="about.html">About</a>
+                    <a href="security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="../app.js" defer></script>
 </body>

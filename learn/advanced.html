@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>Advanced Techniques - Learn Prompt Engineering</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <a href="../index.html" class="header-logo">&lt;/<span>Praxis</span>&gt;</a>
+        <nav class="header-nav">
+            <a href="index.html" class="header-nav-link active">Learn</a>
+            <a href="../pages/ai-guide.html" class="header-nav-link">AI Guide</a>
+            <a href="../education/ai-safety.html" class="header-nav-link">AI Safety</a>
+            <a href="../pages/about.html" class="header-nav-link">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-search-btn" aria-label="Search">
+                <img src="../assets/icons/SVG/search.svg" alt="" class="local-icon icon-white">
+                <span class="search-text">Search</span>
+                <span class="search-shortcut">Ctrl+K</span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="corporate-main">
+        <!-- Hero Section -->
+        <section class="learn-hero method-hero">
+            <div class="container">
+                <nav class="breadcrumb reveal">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">Advanced Techniques</span>
+                </nav>
+                <div class="method-badge-large advanced-tag">Advanced</div>
+                <h1 class="reveal">Advanced Prompting Techniques</h1>
+                <p class="lead reveal">Expert-level strategies for maximizing AI capabilities. Chain-of-thought, few-shot learning, and beyond.</p>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="learn-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Main Content -->
+                    <article class="main-content">
+                        <!-- Chain of Thought -->
+                        <div class="lesson-block reveal" id="chain-of-thought">
+                            <div class="lesson-header">
+                                <span class="lesson-number">1</span>
+                                <h2>Chain-of-Thought Prompting</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Chain-of-Thought (CoT) prompting encourages the AI to break down complex reasoning into explicit steps. This dramatically improves performance on tasks requiring logic, math, or multi-step analysis.</p>
+
+                                <h4>How to Trigger CoT</h4>
+                                <div class="technique-examples">
+                                    <div class="tech-example">
+                                        <h5>Simple Trigger</h5>
+                                        <p>Add "Let's think step by step" or "Walk through this step by step" to your prompt.</p>
+                                    </div>
+                                    <div class="tech-example">
+                                        <h5>Structured Trigger</h5>
+                                        <p>"Before giving your final answer, show your reasoning process. Consider each factor, then conclude."</p>
+                                    </div>
+                                </div>
+
+                                <div class="example-block">
+                                    <div class="example-label">Without CoT</div>
+                                    <p>"What's 15% of 847?"<br><em>Answer: 127.05</em></p>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">With CoT</div>
+                                    <p>"What's 15% of 847? Think through this step by step."<br><em>Answer: To find 15% of 847: First, 10% of 847 = 84.7. Then, 5% = half of that = 42.35. So 15% = 84.7 + 42.35 = 127.05</em></p>
+                                </div>
+
+                                <div class="key-takeaway">
+                                    <h4>When to Use CoT</h4>
+                                    <p>Use Chain-of-Thought for math problems, logical reasoning, complex analysis, planning, and any task where showing work helps verify correctness.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Few-Shot Learning -->
+                        <div class="lesson-block reveal" id="few-shot">
+                            <div class="lesson-header">
+                                <span class="lesson-number">2</span>
+                                <h2>Few-Shot Learning</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Few-shot learning means providing examples in your prompt to show the AI exactly what you want. Instead of describing the format, you demonstrate it.</p>
+
+                                <h4>The Power of Examples</h4>
+                                <p>Examples work because they implicitly communicate:</p>
+                                <ul>
+                                    <li>The exact format you expect</li>
+                                    <li>The level of detail you want</li>
+                                    <li>The style and tone to use</li>
+                                    <li>Edge cases and how to handle them</li>
+                                </ul>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Few-Shot Example</div>
+                                    <div class="few-shot-demo">
+                                        <p><strong>Task:</strong> Convert these feature descriptions into user-friendly bullet points.</p>
+                                        <p><strong>Example 1:</strong><br>
+                                        Input: "256-bit AES encryption for data at rest and in transit"<br>
+                                        Output: "Bank-level security protects your data everywhere"</p>
+                                        <p><strong>Example 2:</strong><br>
+                                        Input: "OAuth 2.0 integration with SAML support"<br>
+                                        Output: "Single sign-on with your existing company login"</p>
+                                        <p><strong>Now convert:</strong> "Real-time WebSocket connections with automatic reconnection"</p>
+                                    </div>
+                                </div>
+
+                                <h4>Best Practices</h4>
+                                <div class="practice-list">
+                                    <div class="practice">
+                                        <h5>Use 2-5 Examples</h5>
+                                        <p>More examples help with complex patterns, but diminishing returns set in quickly.</p>
+                                    </div>
+                                    <div class="practice">
+                                        <h5>Show Diversity</h5>
+                                        <p>Include examples that cover different cases the AI might encounter.</p>
+                                    </div>
+                                    <div class="practice">
+                                        <h5>Match Real Data</h5>
+                                        <p>Your examples should be representative of actual inputs the AI will see.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role Prompting -->
+                        <div class="lesson-block reveal" id="role-prompting">
+                            <div class="lesson-header">
+                                <span class="lesson-number">3</span>
+                                <h2>Role Prompting</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Assigning the AI a specific role or persona changes how it approaches problems. Different roles activate different "modes" of thinking.</p>
+
+                                <div class="role-examples">
+                                    <div class="role-card">
+                                        <h4>The Critic</h4>
+                                        <p>"Act as a devil's advocate and find weaknesses in this plan"</p>
+                                        <span class="role-use">Use for: Stress-testing ideas</span>
+                                    </div>
+                                    <div class="role-card">
+                                        <h4>The Expert</h4>
+                                        <p>"You are a senior data scientist with 15 years of experience"</p>
+                                        <span class="role-use">Use for: Technical depth</span>
+                                    </div>
+                                    <div class="role-card">
+                                        <h4>The Teacher</h4>
+                                        <p>"Explain this as if teaching a bright high school student"</p>
+                                        <span class="role-use">Use for: Accessible explanations</span>
+                                    </div>
+                                    <div class="role-card">
+                                        <h4>The Editor</h4>
+                                        <p>"Review this text as a strict editor for The New York Times"</p>
+                                        <span class="role-use">Use for: Quality improvement</span>
+                                    </div>
+                                </div>
+
+                                <div class="warning-box">
+                                    <h4>Role Prompting Limitations</h4>
+                                    <p>Roles influence style and approach, but don't give the AI knowledge it doesn't have. A "legal expert" role doesn't make the AI a lawyer. Always verify important information.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Constrained Output -->
+                        <div class="lesson-block reveal" id="constrained-output">
+                            <div class="lesson-header">
+                                <span class="lesson-number">4</span>
+                                <h2>Constrained Output Formats</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>When you need structured data, explicitly define the output format. This is essential for programmatic use of AI outputs.</p>
+
+                                <div class="format-types">
+                                    <div class="format-example">
+                                        <h4>JSON Output</h4>
+                                        <pre>{
+  "summary": "...",
+  "key_points": ["...", "..."],
+  "sentiment": "positive|negative|neutral",
+  "confidence": 0.0-1.0
+}</pre>
+                                    </div>
+                                    <div class="format-example">
+                                        <h4>Structured Text</h4>
+                                        <pre>TITLE: ...
+CATEGORY: ...
+PRIORITY: High/Medium/Low
+ACTION ITEMS:
+- Item 1
+- Item 2
+NEXT STEPS: ...</pre>
+                                    </div>
+                                </div>
+
+                                <div class="example-block good">
+                                    <div class="example-label">Format Enforcement Prompt</div>
+                                    <p>"Analyze this customer feedback. Return your analysis in exactly this JSON format, with no additional text before or after: {\"sentiment\": \"positive/negative/neutral\", \"main_issue\": \"...\", \"suggested_action\": \"...\", \"urgency\": 1-5}"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Self-Consistency -->
+                        <div class="lesson-block reveal" id="self-consistency">
+                            <div class="lesson-header">
+                                <span class="lesson-number">5</span>
+                                <h2>Self-Consistency Checking</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Ask the AI to verify its own work. This catches errors and improves reliability, especially for complex tasks.</p>
+
+                                <div class="consistency-techniques">
+                                    <div class="tech-item">
+                                        <h4>Review and Revise</h4>
+                                        <p>"After generating your response, review it for accuracy and completeness. If you find any errors, correct them."</p>
+                                    </div>
+                                    <div class="tech-item">
+                                        <h4>Multiple Approaches</h4>
+                                        <p>"Solve this problem using two different methods, then compare answers to verify."</p>
+                                    </div>
+                                    <div class="tech-item">
+                                        <h4>Confidence Assessment</h4>
+                                        <p>"Rate your confidence in each claim (High/Medium/Low) and explain any uncertainties."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prompt Chaining -->
+                        <div class="lesson-block reveal" id="prompt-chaining">
+                            <div class="lesson-header">
+                                <span class="lesson-number">6</span>
+                                <h2>Prompt Chaining</h2>
+                            </div>
+                            <div class="lesson-content">
+                                <p>Complex tasks work better when broken into a series of prompts, where each step's output feeds into the next.</p>
+
+                                <div class="chain-visual">
+                                    <div class="chain-step">
+                                        <span class="chain-num">1</span>
+                                        <h4>Research</h4>
+                                        <p>"List all factors to consider for [topic]"</p>
+                                    </div>
+                                    <div class="chain-arrow"></div>
+                                    <div class="chain-step">
+                                        <span class="chain-num">2</span>
+                                        <h4>Analyze</h4>
+                                        <p>"Given these factors: [output 1], analyze the implications"</p>
+                                    </div>
+                                    <div class="chain-arrow"></div>
+                                    <div class="chain-step">
+                                        <span class="chain-num">3</span>
+                                        <h4>Synthesize</h4>
+                                        <p>"Based on this analysis: [output 2], recommend a course of action"</p>
+                                    </div>
+                                </div>
+
+                                <h4>Benefits of Chaining</h4>
+                                <ul class="feature-list">
+                                    <li>Each step gets focused attention</li>
+                                    <li>You can verify intermediate outputs</li>
+                                    <li>Easier to debug when something goes wrong</li>
+                                    <li>Can reuse chains for similar tasks</li>
+                                </ul>
+
+                                <div class="next-steps">
+                                    <h4>Keep Practicing</h4>
+                                    <p>Advanced techniques require practice. Start with one technique, master it, then add more to your toolkit.</p>
+                                    <div class="next-links">
+                                        <a href="index.html" class="btn-animate">All Methods</a>
+                                        <a href="prompt-basics.html" class="btn-secondary">Review Basics</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sidebar -->
+                    <aside class="content-sidebar">
+                        <div class="sidebar-card sticky">
+                            <h4>On This Page</h4>
+                            <nav class="toc">
+                                <a href="#chain-of-thought">Chain-of-Thought</a>
+                                <a href="#few-shot">Few-Shot Learning</a>
+                                <a href="#role-prompting">Role Prompting</a>
+                                <a href="#constrained-output">Constrained Output</a>
+                                <a href="#self-consistency">Self-Consistency</a>
+                                <a href="#prompt-chaining">Prompt Chaining</a>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/<span>Praxis</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies and best practices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Method</a>
+                    <a href="costar.html">COSTAR Method</a>
+                    <a href="advanced.html">Advanced</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/ai-guide.html">AI Guide</a>
+                    <a href="../education/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/security.html">Security</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/basiliso-rosario/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:bas.rosario@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>
