@@ -66,391 +66,371 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // INTERACTIVE NEURAL NETWORK ANIMATION
     // ==========================================
-    const neuralCanvas = document.getElementById('neural-network');
 
-    if (neuralCanvas) {
-        const ctx = neuralCanvas.getContext('2d');
-        let width, height;
-        let nodes = [];
-        let aiTerms = [];
-        let mouse = { x: null, y: null, radius: 150 };
-        let animationId;
+    // AI terms that float through the network
+    const AI_TERMS = [
+        'CRISP', 'COSTAR', 'ReAct', 'CRISPE', 'Chain-of-Thought', 'Few-Shot',
+        'Zero-Shot', 'Role Play', 'System Prompt', 'Meta Prompt',
+        'Prompt', 'Context', 'Token', 'Completion', 'Temperature', 'Top-P',
+        'Hallucination', 'Grounding', 'Retrieval', 'RAG', 'Fine-tune',
+        'LLM', 'GPT', 'Claude', 'Gemini', 'Neural', 'Transformer',
+        'Attention', 'BERT', 'Diffusion', 'Multimodal', 'Vision',
+        'Embedding', 'Vector', 'Semantic', 'Inference', 'Latent',
+        'Generate', 'Train', 'Evaluate', 'Iterate', 'Optimize',
+        'Agent', 'Memory', 'Chain', 'Tool Use', 'Function Call',
+        'Alignment', 'Safety', 'Bias', 'Fairness', 'RLHF'
+    ];
 
-        // AI terms that float through the network - expanded list
-        const AI_TERMS = [
-            // Prompting Methods
-            'CRISP', 'COSTAR', 'ReAct', 'CRISPE', 'Chain-of-Thought', 'Few-Shot',
-            'Zero-Shot', 'Role Play', 'System Prompt', 'Meta Prompt',
-            // Core Concepts
-            'Prompt', 'Context', 'Token', 'Completion', 'Temperature', 'Top-P',
-            'Hallucination', 'Grounding', 'Retrieval', 'RAG', 'Fine-tune',
-            // AI Models & Tech
-            'LLM', 'GPT', 'Claude', 'Gemini', 'Neural', 'Transformer',
-            'Attention', 'BERT', 'Diffusion', 'Multimodal', 'Vision',
-            // Technical Terms
-            'Embedding', 'Vector', 'Semantic', 'Inference', 'Latent',
-            'Tokenizer', 'Encoder', 'Decoder', 'Softmax', 'Gradient',
-            // Process Terms
-            'Generate', 'Train', 'Evaluate', 'Iterate', 'Optimize',
-            'Query', 'Response', 'Output', 'Input', 'Reasoning',
-            // Architecture
-            'Parameters', 'Weights', 'Layers', 'Neurons', 'Activation',
-            'Batch', 'Epoch', 'Loss', 'Backprop', 'Dropout',
-            // Agent & Memory
-            'Agent', 'Memory', 'Chain', 'Tool Use', 'Function Call',
-            'Autonomous', 'Planning', 'Reflection', 'Self-Correct',
-            // Safety & Ethics
-            'Alignment', 'Safety', 'Bias', 'Fairness', 'RLHF',
-            'Guardrails', 'Moderation', 'Responsible AI', 'Ethics'
-        ];
+    // Neural Network class - supports multiple instances
+    class NeuralNetwork {
+        constructor(canvas, options = {}) {
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+            this.width = 0;
+            this.height = 0;
+            this.nodes = [];
+            this.aiTerms = [];
+            this.mouse = { x: null, y: null, radius: 100 };
+            this.animationId = null;
+            this.connectionStates = new Map();
+            this.lastConnectionUpdate = 0;
 
-        // Node class for neural network points
-        class Node {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.baseX = x;
-                this.baseY = y;
-                this.size = Math.random() * 3 + 1;
-                this.baseSize = this.size;
-                this.density = Math.random() * 30 + 1;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
-                this.brightness = Math.random() * 0.5 + 0.3;
-                this.pulseSpeed = Math.random() * 0.02 + 0.01;
-                this.pulseOffset = Math.random() * Math.PI * 2;
-            }
+            // Options for different canvas types
+            this.showTerms = options.showTerms !== false;
+            this.nodeDensity = options.nodeDensity || 0.00015;
+            this.maxNodes = options.maxNodes || 300;
+            this.minNodes = options.minNodes || 40;
+            this.termCount = options.termCount || (window.innerWidth < 768 ? 12 : 25);
 
-            update(time) {
-                // Pulse effect
-                this.brightness = 0.3 + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.2;
-                this.size = this.baseSize + Math.sin(time * this.pulseSpeed * 0.5 + this.pulseOffset) * 0.5;
-
-                // Mouse repulsion - water-like effect
-                if (mouse.x !== null && mouse.y !== null) {
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < mouse.radius) {
-                        const force = (mouse.radius - distance) / mouse.radius;
-                        const angle = Math.atan2(dy, dx);
-                        const pushX = Math.cos(angle) * force * 3;
-                        const pushY = Math.sin(angle) * force * 3;
-                        this.x -= pushX;
-                        this.y -= pushY;
-                    }
-                }
-
-                // Return to base position (spring effect)
-                const dx = this.baseX - this.x;
-                const dy = this.baseY - this.y;
-                this.x += dx * 0.03;
-                this.y += dy * 0.03;
-
-                // Gentle drift
-                this.baseX += this.vx;
-                this.baseY += this.vy;
-
-                // Boundary check for base position
-                if (this.baseX < 0 || this.baseX > width) this.vx *= -1;
-                if (this.baseY < 0 || this.baseY > height) this.vy *= -1;
-            }
-
-            draw() {
-                const alpha = this.brightness;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(230, 57, 70, ${alpha})`;
-                ctx.fill();
-
-                // Glow effect for larger nodes
-                if (this.baseSize > 2.5) {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(230, 57, 70, ${alpha * 0.15})`;
-                    ctx.fill();
-                }
-            }
+            this.init();
         }
 
-        // Floating AI term class
-        class AITerm {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.text = AI_TERMS[Math.floor(Math.random() * AI_TERMS.length)];
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.fontSize = Math.random() * 10 + 10;
-                this.brightness = 0;
-                this.targetBrightness = Math.random() * 0.6 + 0.2;
-                this.fadeSpeed = Math.random() * 0.01 + 0.005;
-                this.phase = 'fadeIn';
-                this.lifetime = Math.random() * 5000 + 3000;
-                this.born = performance.now();
-                this.flickerIntensity = Math.random() * 0.3;
-                this.flickerSpeed = Math.random() * 0.1 + 0.05;
-            }
-
-            update(time) {
-                // Movement
-                this.x += this.vx;
-                this.y += this.vy;
-
-                // Mouse interaction - terms scatter from mouse
-                if (mouse.x !== null && mouse.y !== null) {
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < mouse.radius * 0.8) {
-                        const force = (mouse.radius * 0.8 - distance) / (mouse.radius * 0.8);
-                        const angle = Math.atan2(dy, dx);
-                        this.x -= Math.cos(angle) * force * 2;
-                        this.y -= Math.sin(angle) * force * 2;
-                    }
-                }
-
-                // Boundary wrapping
-                if (this.x < -100) this.x = width + 100;
-                if (this.x > width + 100) this.x = -100;
-                if (this.y < -50) this.y = height + 50;
-                if (this.y > height + 50) this.y = -50;
-
-                // Lifecycle management
-                const age = performance.now() - this.born;
-
-                if (this.phase === 'fadeIn') {
-                    this.brightness += this.fadeSpeed;
-                    if (this.brightness >= this.targetBrightness) {
-                        this.brightness = this.targetBrightness;
-                        this.phase = 'visible';
-                    }
-                } else if (this.phase === 'visible') {
-                    if (age > this.lifetime) {
-                        this.phase = 'fadeOut';
-                    }
-                } else if (this.phase === 'fadeOut') {
-                    this.brightness -= this.fadeSpeed;
-                    if (this.brightness <= 0) {
-                        this.reset();
-                    }
-                }
-
-                // Flicker effect
-                const flicker = Math.sin(time * this.flickerSpeed) * this.flickerIntensity;
-                this.currentBrightness = Math.max(0, this.brightness + flicker);
-            }
-
-            draw() {
-                if (this.currentBrightness <= 0) return;
-
-                ctx.save();
-                ctx.font = `${this.fontSize}px monospace`;
-                ctx.fillStyle = `rgba(230, 57, 70, ${this.currentBrightness})`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-
-                // Glow effect
-                ctx.shadowColor = `rgba(230, 57, 70, ${this.currentBrightness})`;
-                ctx.shadowBlur = 10 + this.currentBrightness * 20;
-                ctx.fillText(this.text, this.x, this.y);
-
-                ctx.restore();
-            }
+        init() {
+            this.resize();
+            this.setupEventListeners();
+            this.animate(0);
         }
 
-        function resize() {
-            width = neuralCanvas.width = neuralCanvas.offsetWidth;
-            height = neuralCanvas.height = neuralCanvas.offsetHeight;
-            initNodes();
-            initTerms();
+        setupEventListeners() {
+            // Resize handler
+            this.resizeHandler = () => this.resize();
+            window.addEventListener('resize', this.resizeHandler);
+
+            // Mouse tracking
+            this.canvas.addEventListener('mousemove', (e) => {
+                const rect = this.canvas.getBoundingClientRect();
+                this.mouse.x = e.clientX - rect.left;
+                this.mouse.y = e.clientY - rect.top;
+            });
+
+            this.canvas.addEventListener('mouseleave', () => {
+                this.mouse.x = null;
+                this.mouse.y = null;
+            });
+
+            // Touch support
+            this.canvas.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    const rect = this.canvas.getBoundingClientRect();
+                    this.mouse.x = e.touches[0].clientX - rect.left;
+                    this.mouse.y = e.touches[0].clientY - rect.top;
+                }
+            }, { passive: true });
+
+            this.canvas.addEventListener('touchend', () => {
+                this.mouse.x = null;
+                this.mouse.y = null;
+            });
         }
 
-        function initNodes() {
-            nodes = [];
-            // Calculate node count based on screen size (more for larger screens)
-            const density = 0.00015;
-            const nodeCount = Math.floor(width * height * density);
-            const clampedCount = Math.min(Math.max(nodeCount, 80), 300);
+        resize() {
+            this.width = this.canvas.width = this.canvas.offsetWidth;
+            this.height = this.canvas.height = this.canvas.offsetHeight;
+            this.initNodes();
+            if (this.showTerms) this.initTerms();
+        }
+
+        initNodes() {
+            this.nodes = [];
+            const nodeCount = Math.floor(this.width * this.height * this.nodeDensity);
+            const clampedCount = Math.min(Math.max(nodeCount, this.minNodes), this.maxNodes);
 
             for (let i = 0; i < clampedCount; i++) {
-                nodes.push(new Node(
-                    Math.random() * width,
-                    Math.random() * height
+                this.nodes.push(this.createNode(
+                    Math.random() * this.width,
+                    Math.random() * this.height
                 ));
             }
         }
 
-        function initTerms() {
-            aiTerms = [];
-            // More terms for richer animation - increased from 8/15 to 18/35
-            const termCount = width < 768 ? 18 : 35;
+        createNode(x, y) {
+            return {
+                x, y,
+                baseX: x,
+                baseY: y,
+                size: Math.random() * 3 + 1,
+                baseSize: Math.random() * 3 + 1,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                brightness: Math.random() * 0.5 + 0.3,
+                pulseSpeed: Math.random() * 0.02 + 0.01,
+                pulseOffset: Math.random() * Math.PI * 2
+            };
+        }
 
-            for (let i = 0; i < termCount; i++) {
-                const term = new AITerm();
-                // Stagger initial appearance
-                term.born = performance.now() - Math.random() * 5000;
-                aiTerms.push(term);
+        initTerms() {
+            this.aiTerms = [];
+            for (let i = 0; i < this.termCount; i++) {
+                this.aiTerms.push(this.createTerm());
             }
         }
 
-        // Dynamic connection state - connections can release and reconnect
-        let connectionStates = new Map();
-        let lastConnectionUpdate = 0;
-        const connectionUpdateInterval = 2000; // Check for reconnections every 2 seconds
-
-        function getConnectionKey(i, j) {
-            return i < j ? `${i}-${j}` : `${j}-${i}`;
+        createTerm() {
+            return {
+                text: AI_TERMS[Math.floor(Math.random() * AI_TERMS.length)],
+                x: Math.random() * this.width,
+                y: Math.random() * this.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                fontSize: Math.random() * 10 + 10,
+                brightness: 0,
+                targetBrightness: Math.random() * 0.6 + 0.2,
+                fadeSpeed: Math.random() * 0.01 + 0.005,
+                phase: 'fadeIn',
+                lifetime: Math.random() * 5000 + 3000,
+                born: performance.now() - Math.random() * 5000,
+                flickerIntensity: Math.random() * 0.3,
+                flickerSpeed: Math.random() * 0.1 + 0.05,
+                currentBrightness: 0
+            };
         }
 
-        function updateConnectionStates(time) {
-            // Periodically release some connections and form new ones
-            if (time - lastConnectionUpdate > connectionUpdateInterval) {
-                lastConnectionUpdate = time;
+        updateNode(node, time) {
+            // Pulse effect
+            node.brightness = 0.3 + Math.sin(time * node.pulseSpeed + node.pulseOffset) * 0.2;
+            node.size = node.baseSize + Math.sin(time * node.pulseSpeed * 0.5 + node.pulseOffset) * 0.5;
 
-                // Randomly release 5-10% of existing connections
-                connectionStates.forEach((state, key) => {
+            // Mouse repulsion
+            if (this.mouse.x !== null && this.mouse.y !== null) {
+                const dx = this.mouse.x - node.x;
+                const dy = this.mouse.y - node.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.mouse.radius) {
+                    const force = (this.mouse.radius - distance) / this.mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    node.x -= Math.cos(angle) * force * 3;
+                    node.y -= Math.sin(angle) * force * 3;
+                }
+            }
+
+            // Spring back to base
+            node.x += (node.baseX - node.x) * 0.03;
+            node.y += (node.baseY - node.y) * 0.03;
+
+            // Drift
+            node.baseX += node.vx;
+            node.baseY += node.vy;
+
+            // Boundaries
+            if (node.baseX < 0 || node.baseX > this.width) node.vx *= -1;
+            if (node.baseY < 0 || node.baseY > this.height) node.vy *= -1;
+        }
+
+        drawNode(node) {
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+            this.ctx.fillStyle = `rgba(230, 57, 70, ${node.brightness})`;
+            this.ctx.fill();
+
+            if (node.baseSize > 2.5) {
+                this.ctx.beginPath();
+                this.ctx.arc(node.x, node.y, node.size * 2, 0, Math.PI * 2);
+                this.ctx.fillStyle = `rgba(230, 57, 70, ${node.brightness * 0.15})`;
+                this.ctx.fill();
+            }
+        }
+
+        updateTerm(term, time) {
+            term.x += term.vx;
+            term.y += term.vy;
+
+            // Mouse scatter
+            if (this.mouse.x !== null && this.mouse.y !== null) {
+                const dx = this.mouse.x - term.x;
+                const dy = this.mouse.y - term.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.mouse.radius * 0.8) {
+                    const force = (this.mouse.radius * 0.8 - distance) / (this.mouse.radius * 0.8);
+                    const angle = Math.atan2(dy, dx);
+                    term.x -= Math.cos(angle) * force * 2;
+                    term.y -= Math.sin(angle) * force * 2;
+                }
+            }
+
+            // Wrap boundaries
+            if (term.x < -100) term.x = this.width + 100;
+            if (term.x > this.width + 100) term.x = -100;
+            if (term.y < -50) term.y = this.height + 50;
+            if (term.y > this.height + 50) term.y = -50;
+
+            // Lifecycle
+            const age = performance.now() - term.born;
+            if (term.phase === 'fadeIn') {
+                term.brightness += term.fadeSpeed;
+                if (term.brightness >= term.targetBrightness) {
+                    term.brightness = term.targetBrightness;
+                    term.phase = 'visible';
+                }
+            } else if (term.phase === 'visible' && age > term.lifetime) {
+                term.phase = 'fadeOut';
+            } else if (term.phase === 'fadeOut') {
+                term.brightness -= term.fadeSpeed;
+                if (term.brightness <= 0) {
+                    Object.assign(term, this.createTerm());
+                }
+            }
+
+            const flicker = Math.sin(time * term.flickerSpeed) * term.flickerIntensity;
+            term.currentBrightness = Math.max(0, term.brightness + flicker);
+        }
+
+        drawTerm(term) {
+            if (term.currentBrightness <= 0) return;
+
+            this.ctx.save();
+            this.ctx.font = `${term.fontSize}px monospace`;
+            this.ctx.fillStyle = `rgba(230, 57, 70, ${term.currentBrightness})`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.shadowColor = `rgba(230, 57, 70, ${term.currentBrightness})`;
+            this.ctx.shadowBlur = 10 + term.currentBrightness * 20;
+            this.ctx.fillText(term.text, term.x, term.y);
+            this.ctx.restore();
+        }
+
+        updateConnectionStates(time) {
+            if (time - this.lastConnectionUpdate > 2000) {
+                this.lastConnectionUpdate = time;
+                this.connectionStates.forEach((state, key) => {
                     if (Math.random() < 0.08) {
-                        connectionStates.set(key, {
+                        this.connectionStates.set(key, {
                             active: false,
                             releaseTime: time,
-                            reconnectDelay: Math.random() * 3000 + 1000 // 1-4 seconds to reconnect
+                            reconnectDelay: Math.random() * 3000 + 1000
                         });
                     }
                 });
             }
 
-            // Check for connections ready to reconnect
-            connectionStates.forEach((state, key) => {
+            this.connectionStates.forEach((state, key) => {
                 if (!state.active && time - state.releaseTime > state.reconnectDelay) {
-                    connectionStates.set(key, { active: true });
+                    this.connectionStates.set(key, { active: true });
                 }
             });
         }
 
-        function drawConnections(time) {
-            const maxDistance = 150; // Increased range for more connections
+        drawConnections(time) {
+            const maxDistance = 150;
+            this.updateConnectionStates(time);
 
-            updateConnectionStates(time);
-
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const dx = nodes[i].x - nodes[j].x;
-                    const dy = nodes[i].y - nodes[j].y;
+            for (let i = 0; i < this.nodes.length; i++) {
+                for (let j = i + 1; j < this.nodes.length; j++) {
+                    const dx = this.nodes[i].x - this.nodes[j].x;
+                    const dy = this.nodes[i].y - this.nodes[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < maxDistance) {
-                        const key = getConnectionKey(i, j);
+                        const key = `${i}-${j}`;
 
-                        // Initialize connection state if not exists
-                        if (!connectionStates.has(key)) {
-                            connectionStates.set(key, { active: true });
+                        if (!this.connectionStates.has(key)) {
+                            this.connectionStates.set(key, { active: true });
                         }
 
-                        const state = connectionStates.get(key);
+                        const state = this.connectionStates.get(key);
 
-                        // Skip if connection is released
                         if (!state.active) {
-                            // Draw fading connection during release
                             const fadeProgress = Math.min(1, (performance.now() - state.releaseTime) / 500);
                             if (fadeProgress < 1) {
                                 const fadeAlpha = (1 - distance / maxDistance) * 0.5 * (1 - fadeProgress);
-                                ctx.beginPath();
-                                ctx.moveTo(nodes[i].x, nodes[i].y);
-                                ctx.lineTo(nodes[j].x, nodes[j].y);
-                                ctx.strokeStyle = `rgba(230, 57, 70, ${fadeAlpha})`;
-                                ctx.lineWidth = 1;
-                                ctx.stroke();
+                                this.ctx.beginPath();
+                                this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                                this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                                this.ctx.strokeStyle = `rgba(230, 57, 70, ${fadeAlpha})`;
+                                this.ctx.lineWidth = 1;
+                                this.ctx.stroke();
                             }
                             continue;
                         }
 
-                        // Brighter lines - increased from 0.15 to 0.5
                         const baseAlpha = (1 - distance / maxDistance) * 0.5;
-                        // Add subtle pulse to connections
                         const pulse = Math.sin(time * 0.002 + i * 0.1) * 0.1;
                         const alpha = Math.max(0.1, baseAlpha + pulse);
 
-                        ctx.beginPath();
-                        ctx.moveTo(nodes[i].x, nodes[i].y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = `rgba(230, 57, 70, ${alpha})`;
-                        ctx.lineWidth = 1; // Thicker lines
-                        ctx.stroke();
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                        this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                        this.ctx.strokeStyle = `rgba(230, 57, 70, ${alpha})`;
+                        this.ctx.lineWidth = 1;
+                        this.ctx.stroke();
                     }
                 }
             }
         }
 
-        function animate(time) {
-            ctx.clearRect(0, 0, width, height);
+        animate(time) {
+            this.ctx.clearRect(0, 0, this.width, this.height);
 
-            // Draw connections (behind nodes)
-            drawConnections(time);
+            this.drawConnections(time);
 
-            // Update and draw nodes
-            nodes.forEach(node => {
-                node.update(time);
-                node.draw();
+            this.nodes.forEach(node => {
+                this.updateNode(node, time);
+                this.drawNode(node);
             });
 
-            // Update and draw AI terms
-            aiTerms.forEach(term => {
-                term.update(time);
-                term.draw();
-            });
-
-            animationId = requestAnimationFrame(animate);
-        }
-
-        // Mouse tracking
-        function handleMouseMove(e) {
-            const rect = neuralCanvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        }
-
-        function handleMouseLeave() {
-            mouse.x = null;
-            mouse.y = null;
-        }
-
-        // Touch support
-        function handleTouchMove(e) {
-            if (e.touches.length > 0) {
-                const rect = neuralCanvas.getBoundingClientRect();
-                mouse.x = e.touches[0].clientX - rect.left;
-                mouse.y = e.touches[0].clientY - rect.top;
+            if (this.showTerms) {
+                this.aiTerms.forEach(term => {
+                    this.updateTerm(term, time);
+                    this.drawTerm(term);
+                });
             }
+
+            this.animationId = requestAnimationFrame((t) => this.animate(t));
         }
 
-        function handleTouchEnd() {
-            mouse.x = null;
-            mouse.y = null;
+        destroy() {
+            cancelAnimationFrame(this.animationId);
+            window.removeEventListener('resize', this.resizeHandler);
         }
-
-        // Initialize
-        resize();
-        animate(0);
-
-        // Event listeners
-        window.addEventListener('resize', resize);
-        neuralCanvas.addEventListener('mousemove', handleMouseMove);
-        neuralCanvas.addEventListener('mouseleave', handleMouseLeave);
-        neuralCanvas.addEventListener('touchmove', handleTouchMove, { passive: true });
-        neuralCanvas.addEventListener('touchend', handleTouchEnd);
-
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', () => {
-            cancelAnimationFrame(animationId);
-        });
     }
+
+    // Initialize all neural network canvases
+    const neuralNetworks = [];
+
+    // Main hero canvas (with AI terms)
+    const mainCanvas = document.getElementById('neural-network');
+    if (mainCanvas) {
+        neuralNetworks.push(new NeuralNetwork(mainCanvas, {
+            showTerms: true,
+            termCount: window.innerWidth < 768 ? 18 : 35
+        }));
+    }
+
+    // Secondary canvases (CTA cards, footer - lighter version without terms)
+    document.querySelectorAll('.neural-canvas-secondary').forEach(canvas => {
+        neuralNetworks.push(new NeuralNetwork(canvas, {
+            showTerms: false,
+            nodeDensity: 0.0002,
+            maxNodes: 100,
+            minNodes: 30
+        }));
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        neuralNetworks.forEach(nn => nn.destroy());
+    });
 
     // ==========================================
     // SCROLL REVEAL ANIMATIONS
