@@ -2145,6 +2145,48 @@ p {
     gap: var(--space-sm);
 }
 
+/* Pillar Results Breakdown */
+.pillar-results {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    text-align: left;
+}
+
+.pillar-results h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.pillar-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pillar-result:last-child {
+    border-bottom: none;
+}
+
+.pillar-name {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+}
+
+.pillar-score {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
 /* Patterns */
 .pattern-filter {
     display: flex;

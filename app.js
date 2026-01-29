@@ -1043,7 +1043,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('readiness-quiz');
 
     if (quizContainer) {
+        // 10 Questions with progressive difficulty and pillar mapping
         const questions = [
+            // Q1: Basics / Communicate
             {
                 question: "Before using AI for a task, you should first:",
                 options: [
@@ -1052,52 +1054,144 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Copy a prompt from the internet",
                     "Ask the AI what to ask it"
                 ],
-                correct: 1
+                correct: 1,
+                difficulty: "basics",
+                pillar: "communicate"
             },
+            // Q2: Basics / Think
             {
-                question: "When reviewing AI-generated content, you should:",
+                question: "Why might an AI give you an incorrect answer even with a well-written prompt?",
                 options: [
-                    "Trust it completely since AI doesn't make mistakes",
-                    "Only check for spelling errors",
-                    "Verify facts, check for consistency, and evaluate if it meets your needs",
-                    "Publish it immediately to save time"
+                    "The AI is intentionally being unhelpful",
+                    "AI models can have knowledge gaps, outdated information, or misinterpret context",
+                    "You need to pay for the premium version",
+                    "AI always gives correct answers if the prompt is good"
                 ],
-                correct: 2
+                correct: 1,
+                difficulty: "basics",
+                pillar: "think"
             },
+            // Q3: CRISP / Communicate
             {
-                question: "If an AI gives you incorrect information, the best response is to:",
+                question: "In the CRISP framework, the 'P' stands for Parameters. What do parameters define?",
                 options: [
-                    "Assume your prompt was perfect and the AI is broken",
-                    "Rephrase your prompt with more context and specific requirements",
-                    "Give up on using AI",
-                    "Accept the incorrect information anyway"
+                    "The AI model's personality settings",
+                    "Constraints like length, format, and specific requirements",
+                    "The password to access advanced features",
+                    "The price of the AI service"
                 ],
-                correct: 1
+                correct: 1,
+                difficulty: "crisp",
+                pillar: "communicate"
             },
+            // Q4: CRISP / Iterate
             {
-                question: "The CRISP framework stands for:",
+                question: "If an AI gives you content that's too long and too formal, what should you do?",
                 options: [
-                    "Context, Request, Instructions, Style, Parameters",
-                    "Clear, Refined, Intelligent, Smart, Perfect",
-                    "Create, Review, Iterate, Submit, Publish",
-                    "Complex, Random, Interesting, Simple, Plain"
+                    "Accept it as-is since AI knows best",
+                    "Give up and write it yourself",
+                    "Refine your prompt by adding length constraints and specifying a more casual style",
+                    "Report the AI as broken"
                 ],
-                correct: 0
+                correct: 2,
+                difficulty: "crisp",
+                pillar: "iterate"
             },
+            // Q5: CRISPE / Communicate
             {
-                question: "When should you include examples in your prompt?",
+                question: "What does the 'R' in CRISPE stand for, and what does it enable?",
+                options: [
+                    "Request - asking for something specific",
+                    "Role - assigning the AI a specific persona (e.g., 'Act as a senior developer')",
+                    "Response - defining how the AI should answer",
+                    "Repeat - running the prompt multiple times"
+                ],
+                correct: 1,
+                difficulty: "crispe",
+                pillar: "communicate"
+            },
+            // Q6: CRISPE / Communicate
+            {
+                question: "When should you include examples (few-shot prompting) in your prompt?",
                 options: [
                     "Never - AI should figure it out",
                     "Only when writing code",
-                    "When you want the AI to follow a specific format or style",
+                    "When you want the AI to follow a specific format, style, or transformation pattern",
                     "Only for creative writing tasks"
                 ],
-                correct: 2
+                correct: 2,
+                difficulty: "crispe",
+                pillar: "communicate"
+            },
+            // Q7: COSTAR / Think
+            {
+                question: "COSTAR emphasizes defining your Audience. Why is this important?",
+                options: [
+                    "To help the AI count how many people will read it",
+                    "Because the same information should be presented differently for executives vs. technical staff",
+                    "To track user engagement metrics",
+                    "The audience doesn't actually matter for AI prompts"
+                ],
+                correct: 1,
+                difficulty: "costar",
+                pillar: "think"
+            },
+            // Q8: COSTAR / Spot
+            {
+                question: "You ask AI to write a technical guide and it uses jargon your non-technical audience won't understand. What went wrong?",
+                options: [
+                    "The AI is incapable of simple language",
+                    "You didn't specify the audience's knowledge level or that jargon should be avoided",
+                    "Technical topics always require jargon",
+                    "Nothing - readers should look up the terms"
+                ],
+                correct: 1,
+                difficulty: "costar",
+                pillar: "spot"
+            },
+            // Q9: Advanced / Spot
+            {
+                question: "An AI confidently states a specific statistic about a company's 2024 revenue. What should you do?",
+                options: [
+                    "Trust it because AI has access to all information",
+                    "Verify the claim from a reliable source, as AI can hallucinate specific details",
+                    "Assume it's wrong because AI always lies",
+                    "Include it in your report immediately to save time"
+                ],
+                correct: 1,
+                difficulty: "advanced",
+                pillar: "spot"
+            },
+            // Q10: Advanced / Iterate
+            {
+                question: "For complex problem-solving, which technique helps verify AI reasoning?",
+                options: [
+                    "Ask the AI to respond faster",
+                    "Use chain-of-thought prompting to make the AI show its step-by-step reasoning",
+                    "Only use single-word prompts",
+                    "Avoid asking follow-up questions"
+                ],
+                correct: 1,
+                difficulty: "advanced",
+                pillar: "iterate"
             }
         ];
 
         let currentQuestion = 0;
         let quizScore = 0;
+        let pillarScores = {
+            communicate: { correct: 0, total: 0 },
+            think: { correct: 0, total: 0 },
+            spot: { correct: 0, total: 0 },
+            iterate: { correct: 0, total: 0 }
+        };
+
+        const pillarNames = {
+            communicate: "Communicate Clearly",
+            think: "Think Critically",
+            spot: "Spot Problems",
+            iterate: "Iterate & Improve"
+        };
 
         function renderQuestion() {
             if (currentQuestion >= questions.length) {
@@ -1139,8 +1233,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Track pillar scores
+            pillarScores[q.pillar].total++;
             if (index === q.correct) {
                 quizScore++;
+                pillarScores[q.pillar].correct++;
             }
 
             setTimeout(() => {
@@ -1151,18 +1248,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showQuizResults() {
             const percent = Math.round((quizScore / questions.length) * 100);
-            let level, message;
+            let level, message, recommendedPath;
 
-            if (percent >= 80) {
+            if (percent >= 90) {
                 level = 'Expert';
-                message = 'Excellent! You have a strong understanding of AI prompting best practices.';
-            } else if (percent >= 60) {
+                message = 'Excellent! You have mastered AI prompting. Explore advanced patterns to stay sharp.';
+                recommendedPath = '../patterns/index.html';
+            } else if (percent >= 70) {
+                level = 'Proficient';
+                message = 'Strong skills! Review advanced techniques like ReAct and chain-of-thought to reach expert level.';
+                recommendedPath = '../learn/advanced.html';
+            } else if (percent >= 50) {
                 level = 'Intermediate';
-                message = 'Good foundation! Review our methodology guides to strengthen your skills.';
+                message = 'Good foundation! Study COSTAR and CRISPE frameworks to improve your structured prompting.';
+                recommendedPath = '../learn/costar.html';
             } else {
                 level = 'Beginner';
-                message = 'Great start! Check out our Learn section to build your prompting skills.';
+                message = 'Great starting point! Begin with Prompt Basics and work up to the CRISP method.';
+                recommendedPath = '../learn/prompt-basics.html';
             }
+
+            // Build pillar breakdown HTML
+            let pillarBreakdown = '<div class="pillar-results"><h4>Performance by Skill Area</h4>';
+            for (const [key, scores] of Object.entries(pillarScores)) {
+                if (scores.total > 0) {
+                    pillarBreakdown += `
+                        <div class="pillar-result">
+                            <span class="pillar-name">${pillarNames[key]}</span>
+                            <span class="pillar-score">${scores.correct}/${scores.total}</span>
+                        </div>
+                    `;
+                }
+            }
+            pillarBreakdown += '</div>';
 
             quizContainer.innerHTML = `
                 <div class="quiz-results">
@@ -1170,9 +1288,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="result-percent">${percent}%</div>
                     <div class="result-level">${level} Level</div>
                     <p class="result-message">${message}</p>
+                    ${pillarBreakdown}
                     <div class="result-actions">
                         <button class="btn btn-primary" onclick="location.reload()">Retake Quiz</button>
-                        <a href="../learn/index.html" class="btn btn-secondary">Start Learning</a>
+                        <a href="${recommendedPath}" class="btn btn-secondary">Start Learning</a>
                     </div>
                 </div>
             `;
