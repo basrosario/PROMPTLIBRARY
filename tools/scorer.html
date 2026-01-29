@@ -52,6 +52,73 @@
             <div class="container">
                 <div class="tool-container fade-in-up">
                     <form id="scorer-form" class="scorer-form">
+                        <!-- Guided Mode Toggle -->
+                        <div class="scorer-mode-toggle">
+                            <button type="button" id="guided-mode-toggle" class="btn btn-outline btn-sm" aria-pressed="false">
+                                <span class="toggle-icon">?</span>
+                                <span class="toggle-text">Help me build this prompt</span>
+                            </button>
+                        </div>
+
+                        <!-- Guided Mode Panel (hidden by default) -->
+                        <div id="guided-mode-panel" class="guided-mode-panel" hidden>
+                            <div class="guided-mode-header">
+                                <h3>Build Your Prompt</h3>
+                                <p>Answer these questions to create a well-structured prompt</p>
+                            </div>
+
+                            <div class="guided-questions">
+                                <div class="guided-question" data-element="request">
+                                    <label for="guided-request" class="guided-label">
+                                        <span class="guided-letter">R</span>
+                                        What do you want the AI to do?
+                                    </label>
+                                    <textarea id="guided-request" class="guided-input"
+                                        placeholder="e.g., Write a blog post about email marketing tips..." rows="2"></textarea>
+                                </div>
+
+                                <div class="guided-question" data-element="context">
+                                    <label for="guided-context" class="guided-label">
+                                        <span class="guided-letter">C</span>
+                                        What background info does the AI need?
+                                    </label>
+                                    <textarea id="guided-context" class="guided-input"
+                                        placeholder="e.g., I run a small e-commerce business selling handmade jewelry..." rows="2"></textarea>
+                                </div>
+
+                                <div class="guided-question" data-element="parameters">
+                                    <label for="guided-parameters" class="guided-label">
+                                        <span class="guided-letter">P</span>
+                                        Any specific requirements? (length, format)
+                                    </label>
+                                    <textarea id="guided-parameters" class="guided-input"
+                                        placeholder="e.g., 500 words, 5 bullet points, professional tone..." rows="2"></textarea>
+                                </div>
+
+                                <div class="guided-question" data-element="audience">
+                                    <label for="guided-audience" class="guided-label">
+                                        <span class="guided-letter">A</span>
+                                        Who is this for? What style?
+                                    </label>
+                                    <textarea id="guided-audience" class="guided-input"
+                                        placeholder="e.g., For small business owners, friendly and practical tone..." rows="2"></textarea>
+                                </div>
+
+                                <div class="guided-question" data-element="role">
+                                    <label for="guided-role" class="guided-label">
+                                        <span class="guided-letter guided-letter-optional">+</span>
+                                        Should the AI act as someone specific? (optional)
+                                    </label>
+                                    <textarea id="guided-role" class="guided-input"
+                                        placeholder="e.g., Act as an experienced marketing consultant..." rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <button type="button" id="combine-prompt-btn" class="btn btn-primary">
+                                Combine into Prompt
+                            </button>
+                        </div>
+
                         <label for="prompt-input" class="input-label">Enter your prompt:</label>
                         <textarea
                             id="prompt-input"
@@ -74,39 +141,49 @@
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">How Scoring Works</h2>
-                <p class="section-subtitle fade-in-up">Your prompt is analyzed across four dimensions</p>
+                <p class="section-subtitle fade-in-up">Your prompt is analyzed against proven frameworks</p>
 
                 <div class="score-info-grid stagger-children">
                     <div class="score-info-card">
-                        <h3>Clarity</h3>
-                        <p>How clear and understandable is your prompt? Measures sentence structure, word choice, and readability.</p>
+                        <h3>Framework Coverage (50%)</h3>
+                        <p>We detect elements from CRISP, COSTAR, and CRISPE frameworks. More elements covered = higher score.</p>
                         <div class="score-tip">
-                            <strong>Improve it:</strong> Use shorter sentences, avoid jargon, be direct.
+                            <strong>Key elements:</strong> Context, Request/Objective, Instructions, Style, Parameters, Audience.
                         </div>
                     </div>
 
                     <div class="score-info-card">
-                        <h3>Specificity</h3>
-                        <p>How detailed and precise is your request? Looks for specific requirements, formats, and constraints.</p>
+                        <h3>Sentence Quality (25%)</h3>
+                        <p>Well-structured sentences (8-25 words each) are easier for AI to parse accurately.</p>
                         <div class="score-tip">
-                            <strong>Improve it:</strong> Add details about format, length, style, or examples.
+                            <strong>Improve it:</strong> Break long sentences, remove filler words, be direct.
                         </div>
                     </div>
 
                     <div class="score-info-card">
-                        <h3>Structure</h3>
-                        <p>How well organized is your prompt? Checks for logical flow, sections, and clear instructions.</p>
+                        <h3>Intent Clarity (25%)</h3>
+                        <p>Starting with action verbs and using structured labels makes your intent clear.</p>
                         <div class="score-tip">
-                            <strong>Improve it:</strong> Use numbered steps, headers, or clear sections.
+                            <strong>Improve it:</strong> Start with "Write/Create/Explain" or use "Context:", "Task:" labels.
                         </div>
                     </div>
+                </div>
 
-                    <div class="score-info-card">
-                        <h3>Context</h3>
-                        <p>How much background information do you provide? Evaluates whether the AI has enough context to respond well.</p>
-                        <div class="score-tip">
-                            <strong>Improve it:</strong> Explain your situation, goals, and constraints.
-                        </div>
+                <div class="frameworks-overview fade-in-up">
+                    <h3>Supported Frameworks</h3>
+                    <div class="framework-cards">
+                        <a href="../learn/crisp.html" class="framework-mini-card">
+                            <strong>CRISP</strong>
+                            <span>Context, Request, Instructions, Style, Parameters</span>
+                        </a>
+                        <a href="../learn/costar.html" class="framework-mini-card">
+                            <strong>COSTAR</strong>
+                            <span>Context, Objective, Style, Tone, Audience, Response</span>
+                        </a>
+                        <a href="../learn/crispe.html" class="framework-mini-card">
+                            <strong>CRISPE</strong>
+                            <span>Context, Role, Instruction, Style, Parameters, Example</span>
+                        </a>
                     </div>
                 </div>
             </div>

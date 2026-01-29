@@ -896,6 +896,644 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // TOOL PAGE: PROMPT SCORER
     // ==========================================
+
+    // Framework definitions with detection patterns
+    const FRAMEWORKS = {
+        CRISP: {
+            name: 'CRISP',
+            elements: {
+                C: {
+                    name: 'Context',
+                    patterns: [
+                        /\b(background|context|situation)\s*:/i,
+                        /\b(I am a|I'm a|as a|my role|I work)\b/i,
+                        /\b(currently|working on|project|because|since)\b/i
+                    ],
+                    tip: 'Add background: "Context: I\'m a [role] working on [project]..."',
+                    example: 'Context: I run a small e-commerce store selling handmade jewelry.'
+                },
+                R: {
+                    name: 'Request',
+                    patterns: [
+                        /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|develop|build|make|help me)/im,
+                        /\b(I need|I want|please|can you|could you|would you)\b/i,
+                        /\b(task|request)\s*:/i
+                    ],
+                    tip: 'Start with an action verb: Write, Create, Explain, Analyze...',
+                    example: 'Write a product description for our new minimalist necklace.'
+                },
+                I: {
+                    name: 'Instructions',
+                    patterns: [
+                        /\b(include|ensure|make sure|cover|address)\b/i,
+                        /\b(don't|do not|avoid|exclude|without)\b/i,
+                        /\b(must|should|shall|need to|required|important)\b/i,
+                        /\b(step\s*\d|first|second|then|next|finally)\b/i,
+                        /(\d+\.\s|\*\s|-\s)/m
+                    ],
+                    tip: 'Add what to include/exclude: "Include X. Avoid Y."',
+                    example: 'Include: price point, materials, target demographic. Avoid: generic marketing speak.'
+                },
+                S: {
+                    name: 'Style',
+                    patterns: [
+                        /\b(tone|voice|style)\s*:/i,
+                        /\b(formal|casual|professional|friendly|technical|conversational|humorous|serious)\b/i,
+                        /\b(write (as|like|in)|in the style of|sound like)\b/i
+                    ],
+                    tip: 'Specify tone: "Use a professional/casual/friendly tone"',
+                    example: 'Use a warm, conversational tone appropriate for Instagram.'
+                },
+                P: {
+                    name: 'Parameters',
+                    patterns: [
+                        /\b(\d+)\s*(words?|sentences?|paragraphs?|pages?|minutes?|bullet\s*points?|items?|tips?|points?)\b/i,
+                        /\b(maximum|minimum|at least|no more than|between|limit|within|under|over)\s*\d/i,
+                        /\b(format|output|return|structure)\s*(as|:)/i,
+                        /\b(JSON|markdown|HTML|bullet|table|list|code|email|article|blog)\b/i
+                    ],
+                    tip: 'Add constraints: "500 words", "5 bullet points", "as a table"',
+                    example: 'Limit to 150 words, formatted as a single paragraph.'
+                }
+            }
+        },
+        COSTAR: {
+            name: 'COSTAR',
+            elements: {
+                C: {
+                    name: 'Context',
+                    patterns: [
+                        /\b(background|context|situation)\s*:/i,
+                        /\b(I am a|I'm a|as a|my role|I work)\b/i,
+                        /\b(currently|working on|project|because|since)\b/i
+                    ],
+                    tip: 'Add background: "Context: I\'m a [role] working on [project]..."',
+                    example: 'Context: I run a small e-commerce store selling handmade jewelry.'
+                },
+                O: {
+                    name: 'Objective',
+                    patterns: [
+                        /\b(objective|goal|aim|purpose)\s*:/i,
+                        /\b(goal is|objective is|aim to|purpose is|in order to|so that)\b/i,
+                        /\b(I want to|we want to|trying to|hoping to|intend to|outcome|achieve|accomplish)\b/i
+                    ],
+                    tip: 'State your goal: "My objective is to..." or "I want to achieve..."',
+                    example: 'My goal is to increase product page conversions by 15%.'
+                },
+                S: {
+                    name: 'Style',
+                    patterns: [
+                        /\b(tone|voice|style)\s*:/i,
+                        /\b(formal|casual|professional|friendly|technical|conversational)\b/i,
+                        /\b(write (as|like|in)|in the style of|sound like)\b/i
+                    ],
+                    tip: 'Specify tone: "Use a professional/casual/friendly tone"',
+                    example: 'Use a warm, conversational tone appropriate for Instagram.'
+                },
+                T: {
+                    name: 'Tone',
+                    patterns: [
+                        /\b(tone)\s*:/i,
+                        /\b(warm|cold|neutral|optimistic|pessimistic|urgent|relaxed)\b/i,
+                        /\b(enthusiastic|reserved|confident|humble|empathetic|authoritative)\b/i,
+                        /\b(serious|playful|inspiring|reassuring)\b/i
+                    ],
+                    tip: 'Define emotional quality: "Keep a confident but approachable tone"',
+                    example: 'Keep a confident but not arrogant tone.'
+                },
+                A: {
+                    name: 'Audience',
+                    patterns: [
+                        /\b(audience|reader|target)\s*:/i,
+                        /\b(for (a|my|our|the)|targeted at|aimed at|intended for|targeting)\b/i,
+                        /\b(beginners?|experts?|professionals?|executives?|children|students?|developers?|managers?)\b/i,
+                        /\bwho (are|have|need|want)\b/i
+                    ],
+                    tip: 'Specify who: "For beginners with no experience" or "Targeting executives"',
+                    example: 'Targeting young professionals aged 25-35 with disposable income.'
+                },
+                R: {
+                    name: 'Response',
+                    patterns: [
+                        /\b(response|output|format|deliver)\s*:/i,
+                        /\b(as a|in (a|the) form of|formatted as|structure as)\b/i,
+                        /\b(email|article|report|summary|outline|script|code|list|table)\b/i,
+                        /\b(return|provide|give me|deliver)\b.*\b(as|in)\b/i
+                    ],
+                    tip: 'Define output: "Format as a bulleted list" or "Return as JSON"',
+                    example: 'Format as: headline, 2-sentence description, 3 bullet points.'
+                }
+            }
+        },
+        CRISPE: {
+            name: 'CRISPE',
+            elements: {
+                C: {
+                    name: 'Context',
+                    patterns: [
+                        /\b(background|context|situation)\s*:/i,
+                        /\b(I am a|I'm a|as a|my role|I work)\b/i,
+                        /\b(currently|working on|project|because|since)\b/i
+                    ],
+                    tip: 'Add background: "Context: I\'m a [role] working on [project]..."',
+                    example: 'Context: I run a small e-commerce store selling handmade jewelry.'
+                },
+                R: {
+                    name: 'Role',
+                    patterns: [
+                        /\b(act as|you are|pretend to be|imagine you('re| are)|behave as)\b/i,
+                        /\b(role|persona|character|expert|specialist)\s*:/i,
+                        /\b(as (a|an) (expert|professional|specialist|consultant|advisor))\b/i
+                    ],
+                    tip: 'Assign a persona: "Act as an experienced marketing consultant..."',
+                    example: 'Act as an experienced copywriter who specializes in luxury brands.'
+                },
+                I: {
+                    name: 'Instruction',
+                    patterns: [
+                        /\b(include|ensure|make sure|cover|address)\b/i,
+                        /\b(don't|do not|avoid|exclude|without)\b/i,
+                        /\b(must|should|shall|need to|required|important)\b/i,
+                        /\b(step\s*\d|first|second|then|next|finally)\b/i,
+                        /(\d+\.\s|\*\s|-\s)/m
+                    ],
+                    tip: 'Add what to include/exclude: "Include X. Avoid Y."',
+                    example: 'Include: price point, materials, target demographic. Avoid: generic marketing speak.'
+                },
+                S: {
+                    name: 'Style',
+                    patterns: [
+                        /\b(tone|voice|style)\s*:/i,
+                        /\b(formal|casual|professional|friendly|technical|conversational)\b/i,
+                        /\b(write (as|like|in)|in the style of|sound like)\b/i
+                    ],
+                    tip: 'Specify tone: "Use a professional/casual/friendly tone"',
+                    example: 'Use a warm, conversational tone appropriate for Instagram.'
+                },
+                P: {
+                    name: 'Parameters',
+                    patterns: [
+                        /\b(\d+)\s*(words?|sentences?|paragraphs?|pages?|minutes?|bullet\s*points?|items?|tips?|points?)\b/i,
+                        /\b(maximum|minimum|at least|no more than|between|limit|within|under|over)\s*\d/i,
+                        /\b(format|output|return|structure)\s*(as|:)/i,
+                        /\b(JSON|markdown|HTML|bullet|table|list|code|email|article|blog)\b/i
+                    ],
+                    tip: 'Add constraints: "500 words", "5 bullet points", "as a table"',
+                    example: 'Limit to 150 words, formatted as a single paragraph.'
+                },
+                E: {
+                    name: 'Example',
+                    patterns: [
+                        /\b(example|for instance|such as|like this|similar to|e\.g\.|sample)\s*:/i,
+                        /\b(here is|here's|below is|following is)\s*(an? )?(example|sample)/i,
+                        /[""][^""]{10,}[""]/, // Quoted text as example
+                        /\b(input|output)\s*:/i
+                    ],
+                    tip: 'Provide a sample: "Example: [show what you want]"',
+                    example: 'Example output: "Handcrafted with love, our minimalist gold necklace..."'
+                }
+            }
+        }
+    };
+
+    // Scorer state management
+    const ScorerState = {
+        mode: 'standard',
+        guidedAnswers: { request: '', context: '', parameters: '', audience: '', role: '' },
+        lastAnalysis: null,
+        selectedFramework: 'CRISP'
+    };
+
+    // Detect framework elements in a prompt
+    function detectFrameworkElements(prompt) {
+        const results = {};
+
+        for (const [frameworkKey, framework] of Object.entries(FRAMEWORKS)) {
+            results[frameworkKey] = {
+                name: framework.name,
+                detected: {},
+                coverage: 0,
+                total: Object.keys(framework.elements).length
+            };
+
+            for (const [letter, element] of Object.entries(framework.elements)) {
+                const matchCount = element.patterns.filter(p => p.test(prompt)).length;
+                const found = matchCount > 0;
+                const confidence = matchCount / element.patterns.length;
+
+                results[frameworkKey].detected[letter] = {
+                    name: element.name,
+                    found,
+                    confidence,
+                    tip: element.tip,
+                    example: element.example
+                };
+
+                if (found) {
+                    results[frameworkKey].coverage++;
+                }
+            }
+
+            results[frameworkKey].percentage = Math.round(
+                (results[frameworkKey].coverage / results[frameworkKey].total) * 100
+            );
+        }
+
+        return results;
+    }
+
+    // Calculate scores based on framework detection
+    function analyzePrompt(prompt) {
+        const frameworkResults = detectFrameworkElements(prompt);
+
+        // Find best matching framework
+        const bestFramework = Object.entries(frameworkResults)
+            .sort((a, b) => b[1].percentage - a[1].percentage)[0];
+
+        const frameworkScore = bestFramework[1].percentage;
+
+        // Sentence quality scoring
+        const sentences = prompt.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        const words = prompt.split(/\s+/).filter(w => w.length > 0);
+        const avgWordsPerSentence = sentences.length > 0 ? words.length / sentences.length : words.length;
+
+        // Ideal: 8-25 words per sentence
+        let sentenceQuality;
+        if (avgWordsPerSentence >= 8 && avgWordsPerSentence <= 25) {
+            sentenceQuality = 100;
+        } else if (avgWordsPerSentence >= 5 && avgWordsPerSentence <= 35) {
+            sentenceQuality = 70;
+        } else {
+            sentenceQuality = 40;
+        }
+
+        // Intent clarity: action verb or structured format
+        const hasActionVerb = /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|help|act|you are)/im.test(prompt.trim());
+        const hasStructuredLabels = /(context|task|format|style|output|instructions?|background|objective|audience|role)\s*:/i.test(prompt);
+        const intentClarity = (hasActionVerb ? 50 : 0) + (hasStructuredLabels ? 50 : 20);
+
+        // Combined scoring: 50% framework, 25% sentence quality, 25% intent
+        const overall = Math.round(frameworkScore * 0.5 + sentenceQuality * 0.25 + intentClarity * 0.25);
+
+        // Generate feedback based on detected elements
+        const feedback = generateFrameworkFeedback(bestFramework, frameworkResults);
+
+        return {
+            overall,
+            frameworkCoverage: frameworkScore,
+            sentenceQuality: Math.round(sentenceQuality),
+            intentClarity: Math.round(intentClarity),
+            bestFramework: bestFramework[0],
+            frameworkResults,
+            feedback
+        };
+    }
+
+    // Generate feedback based on framework elements
+    function generateFrameworkFeedback(bestFramework, allResults) {
+        const improvements = [];
+        const strengths = [];
+        const frameworkName = bestFramework[0];
+        const elements = bestFramework[1].detected;
+
+        // Categorize found and missing elements
+        for (const [letter, element] of Object.entries(elements)) {
+            if (element.found) {
+                if (element.confidence >= 0.5) {
+                    strengths.push({
+                        element: letter,
+                        name: element.name,
+                        text: `Strong ${element.name} - clearly defined`
+                    });
+                } else {
+                    strengths.push({
+                        element: letter,
+                        name: element.name,
+                        text: `${element.name} detected - could be more explicit`
+                    });
+                }
+            } else {
+                improvements.push({
+                    element: letter,
+                    name: element.name,
+                    text: `Add ${element.name}`,
+                    tip: element.tip,
+                    example: element.example
+                });
+            }
+        }
+
+        // Sort improvements by importance (core elements first)
+        const coreElements = ['R', 'C', 'I', 'O']; // Request/Role, Context, Instructions/Instruction, Objective
+        improvements.sort((a, b) => {
+            const aCore = coreElements.includes(a.element) ? 0 : 1;
+            const bCore = coreElements.includes(b.element) ? 0 : 1;
+            return aCore - bCore;
+        });
+
+        return { improvements, strengths, frameworkName };
+    }
+
+    // Display scores with framework elements
+    function displayScores(scores) {
+        const { improvements, strengths, frameworkName } = scores.feedback;
+
+        // Store for framework switching
+        ScorerState.lastAnalysis = scores.frameworkResults;
+
+        // Framework elements HTML
+        const frameworkElementsHTML = generateFrameworkElementsHTML(scores.frameworkResults, ScorerState.selectedFramework);
+
+        // Strengths HTML
+        let strengthsHTML = '';
+        if (strengths.length > 0) {
+            strengthsHTML = `
+                <div class="feedback-section feedback-strengths">
+                    <h4>What You Did Well</h4>
+                    <ul class="feedback-list">
+                        ${strengths.map(s => `
+                            <li>
+                                <span class="element-badge element-badge-success">${s.element}</span>
+                                <span class="feedback-text">${s.text}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Improvements HTML
+        let improvementsHTML = '';
+        if (improvements.length > 0) {
+            improvementsHTML = `
+                <div class="feedback-section feedback-improvements">
+                    <h4>How to Improve</h4>
+                    <div class="feedback-cards">
+                        ${improvements.slice(0, 4).map(i => `
+                            <div class="feedback-card">
+                                <div class="feedback-card-header">
+                                    <span class="element-badge">${i.element}</span>
+                                    <span class="feedback-category">${i.name}</span>
+                                </div>
+                                <p class="feedback-tip">${i.tip}</p>
+                                <p class="feedback-example"><strong>Example:</strong> ${i.example}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Overall message
+        let overallMessage = '';
+        if (scores.overall >= 80) {
+            overallMessage = '<p class="score-message score-message-great">Excellent prompt structure! You\'ve covered the key elements.</p>';
+        } else if (scores.overall >= 60) {
+            overallMessage = '<p class="score-message score-message-good">Good foundation! Adding a few more elements will strengthen your prompt.</p>';
+        } else if (scores.overall >= 40) {
+            overallMessage = '<p class="score-message score-message-fair">Your prompt has some elements but is missing key components.</p>';
+        } else {
+            overallMessage = '<p class="score-message score-message-poor">Your prompt needs more structure. Try adding the suggested elements below.</p>';
+        }
+
+        scoreDisplay.innerHTML = `
+            <div class="score-main">
+                <div class="score-circle ${getScoreClass(scores.overall)}">
+                    <span class="score-value">${scores.overall}</span>
+                    <span class="score-label">Overall</span>
+                </div>
+                ${overallMessage}
+            </div>
+
+            ${frameworkElementsHTML}
+
+            <div class="sub-scores">
+                <div class="sub-score">
+                    <div class="sub-score-bar">
+                        <div class="sub-score-fill ${getScoreClass(scores.frameworkCoverage)}" style="width: ${scores.frameworkCoverage}%"></div>
+                    </div>
+                    <span class="sub-score-label">Framework Coverage</span>
+                    <span class="sub-score-value">${scores.frameworkCoverage}%</span>
+                </div>
+                <div class="sub-score">
+                    <div class="sub-score-bar">
+                        <div class="sub-score-fill ${getScoreClass(scores.sentenceQuality)}" style="width: ${scores.sentenceQuality}%"></div>
+                    </div>
+                    <span class="sub-score-label">Sentence Quality</span>
+                    <span class="sub-score-value">${scores.sentenceQuality}%</span>
+                </div>
+                <div class="sub-score">
+                    <div class="sub-score-bar">
+                        <div class="sub-score-fill ${getScoreClass(scores.intentClarity)}" style="width: ${scores.intentClarity}%"></div>
+                    </div>
+                    <span class="sub-score-label">Intent Clarity</span>
+                    <span class="sub-score-value">${scores.intentClarity}%</span>
+                </div>
+            </div>
+            ${strengthsHTML}
+            ${improvementsHTML}
+            <div class="feedback-cta">
+                <p>Want to learn more about these frameworks?</p>
+                <div class="feedback-cta-links">
+                    <a href="../learn/crisp.html" class="btn btn-outline btn-sm">CRISP Method</a>
+                    <a href="../learn/costar.html" class="btn btn-outline btn-sm">COSTAR Method</a>
+                    <a href="../learn/crispe.html" class="btn btn-outline btn-sm">CRISPE Method</a>
+                </div>
+            </div>
+        `;
+        scoreDisplay.classList.add('visible');
+
+        // Initialize framework tabs
+        initFrameworkTabs();
+    }
+
+    // Generate framework elements display HTML
+    function generateFrameworkElementsHTML(frameworkResults, selectedFramework) {
+        const framework = frameworkResults[selectedFramework];
+        if (!framework) return '';
+
+        const elementsHTML = Object.entries(framework.detected).map(([letter, element]) => {
+            const statusClass = element.found ? 'detected' : 'missing';
+            const icon = element.found
+                ? '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>'
+                : '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
+
+            return `
+                <div class="element-pill ${statusClass}" title="${element.found ? 'Detected' : element.tip}">
+                    <span class="element-letter">${letter}</span>
+                    <span class="element-name">${element.name}</span>
+                    ${icon}
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div class="framework-elements" id="framework-elements">
+                <h4>Detected Framework Elements</h4>
+                <div class="framework-selector">
+                    <button type="button" class="framework-tab ${selectedFramework === 'CRISP' ? 'active' : ''}" data-framework="CRISP">CRISP</button>
+                    <button type="button" class="framework-tab ${selectedFramework === 'COSTAR' ? 'active' : ''}" data-framework="COSTAR">COSTAR</button>
+                    <button type="button" class="framework-tab ${selectedFramework === 'CRISPE' ? 'active' : ''}" data-framework="CRISPE">CRISPE</button>
+                </div>
+                <div class="elements-display" id="elements-display">
+                    ${elementsHTML}
+                </div>
+                <p class="framework-coverage">${framework.coverage}/${framework.total} elements detected</p>
+            </div>
+        `;
+    }
+
+    // Initialize framework tab switching
+    function initFrameworkTabs() {
+        const tabs = document.querySelectorAll('.framework-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const framework = tab.dataset.framework;
+                ScorerState.selectedFramework = framework;
+
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update elements display
+                if (ScorerState.lastAnalysis) {
+                    updateFrameworkElements(ScorerState.lastAnalysis, framework);
+                }
+            });
+        });
+    }
+
+    // Update framework elements display
+    function updateFrameworkElements(frameworkResults, selectedFramework) {
+        const container = document.getElementById('elements-display');
+        const framework = frameworkResults[selectedFramework];
+        if (!container || !framework) return;
+
+        const elementsHTML = Object.entries(framework.detected).map(([letter, element]) => {
+            const statusClass = element.found ? 'detected' : 'missing';
+            const icon = element.found
+                ? '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>'
+                : '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
+
+            return `
+                <div class="element-pill ${statusClass}" title="${element.found ? 'Detected' : element.tip}">
+                    <span class="element-letter">${letter}</span>
+                    <span class="element-name">${element.name}</span>
+                    ${icon}
+                </div>
+            `;
+        }).join('');
+
+        container.innerHTML = elementsHTML;
+
+        // Update coverage text
+        const coverageText = document.querySelector('.framework-coverage');
+        if (coverageText) {
+            coverageText.textContent = `${framework.coverage}/${framework.total} elements detected`;
+        }
+    }
+
+    // Guided mode functions
+    function toggleGuidedMode(enabled) {
+        const guidedToggle = document.getElementById('guided-mode-toggle');
+        const guidedPanel = document.getElementById('guided-mode-panel');
+        const promptInput = document.getElementById('prompt-input');
+        const inputLabel = document.querySelector('label[for="prompt-input"]');
+
+        if (!guidedToggle || !guidedPanel) return;
+
+        ScorerState.mode = enabled ? 'guided' : 'standard';
+        guidedToggle.setAttribute('aria-pressed', enabled);
+
+        const toggleText = guidedToggle.querySelector('.toggle-text');
+        if (toggleText) {
+            toggleText.textContent = enabled ? 'Switch to free-form mode' : 'Help me build this prompt';
+        }
+
+        if (enabled) {
+            guidedPanel.hidden = false;
+            if (inputLabel) inputLabel.textContent = 'Combined prompt (editable):';
+            if (promptInput) promptInput.placeholder = 'Your combined prompt will appear here. You can edit it before analyzing.';
+        } else {
+            guidedPanel.hidden = true;
+            if (inputLabel) inputLabel.textContent = 'Enter your prompt:';
+            if (promptInput) promptInput.placeholder = 'Paste or type your prompt here...';
+        }
+
+        localStorage.setItem('scorer-mode', ScorerState.mode);
+    }
+
+    function combineGuidedAnswers() {
+        const { request, context, parameters, audience, role } = ScorerState.guidedAnswers;
+        const promptInput = document.getElementById('prompt-input');
+
+        if (!promptInput) return;
+
+        let combined = '';
+
+        if (context.trim()) {
+            combined += `Context: ${context.trim()}\n\n`;
+        }
+
+        if (role.trim()) {
+            combined += `Role: ${role.trim()}\n\n`;
+        }
+
+        if (request.trim()) {
+            combined += `Task: ${request.trim()}\n\n`;
+        }
+
+        if (parameters.trim()) {
+            combined += `Requirements: ${parameters.trim()}\n\n`;
+        }
+
+        if (audience.trim()) {
+            combined += `Audience/Style: ${audience.trim()}`;
+        }
+
+        promptInput.value = combined.trim();
+        promptInput.focus();
+
+        showToast('Prompt combined! Edit if needed, then click Analyze.', 'success');
+    }
+
+    // Initialize scorer enhancements
+    function initScorerEnhancements() {
+        const guidedToggle = document.getElementById('guided-mode-toggle');
+        const combineBtn = document.getElementById('combine-prompt-btn');
+        const guidedInputs = document.querySelectorAll('.guided-input');
+
+        // Load saved mode preference
+        const savedMode = localStorage.getItem('scorer-mode');
+        if (savedMode === 'guided') {
+            toggleGuidedMode(true);
+        }
+
+        // Toggle button
+        if (guidedToggle) {
+            guidedToggle.addEventListener('click', () => {
+                const newState = ScorerState.mode === 'standard';
+                toggleGuidedMode(newState);
+            });
+        }
+
+        // Combine button
+        if (combineBtn) {
+            combineBtn.addEventListener('click', combineGuidedAnswers);
+        }
+
+        // Track guided input changes
+        guidedInputs.forEach(input => {
+            input.addEventListener('input', (e) => {
+                const element = e.target.closest('.guided-question')?.dataset.element;
+                if (element) {
+                    ScorerState.guidedAnswers[element] = e.target.value;
+                }
+            });
+        });
+    }
+
+    // Initialize scorer
     const scorerForm = document.getElementById('scorer-form');
     const promptInput = document.getElementById('prompt-input');
     const scoreDisplay = document.getElementById('score-display');
@@ -913,298 +1551,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const scores = analyzePrompt(prompt);
             displayScores(scores);
         });
-    }
 
-    function analyzePrompt(prompt) {
-        const words = prompt.split(/\s+/).filter(w => w.length > 0);
-        const sentences = prompt.split(/[.!?]+/).filter(s => s.trim().length > 0);
-
-        // Clarity score (based on sentence structure and word length)
-        const avgWordLength = words.reduce((sum, w) => sum + w.length, 0) / words.length;
-        const clarityBase = avgWordLength < 8 ? 70 : 50;
-        const clarity = Math.min(100, clarityBase + (sentences.length > 1 ? 20 : 0) + (words.length > 10 ? 10 : 0));
-
-        // Specificity score (based on detail indicators)
-        const specificWords = ['specific', 'exactly', 'precisely', 'include', 'must', 'should', 'format', 'example', 'such as', 'like'];
-        const specificCount = specificWords.filter(w => prompt.toLowerCase().includes(w)).length;
-        const specificity = Math.min(100, 40 + specificCount * 15 + (words.length > 20 ? 20 : 0));
-
-        // Structure score (based on organization indicators)
-        const structureWords = ['first', 'second', 'then', 'finally', 'step', '1.', '2.', '-', ':', 'context', 'task', 'output'];
-        const structureCount = structureWords.filter(w => prompt.toLowerCase().includes(w)).length;
-        const structure = Math.min(100, 30 + structureCount * 20);
-
-        // Context score (based on background information)
-        const contextWords = ['background', 'context', 'situation', 'currently', 'working on', 'project', 'goal', 'purpose', 'need'];
-        const contextCount = contextWords.filter(w => prompt.toLowerCase().includes(w)).length;
-        const context = Math.min(100, 25 + contextCount * 20 + (words.length > 30 ? 25 : 0));
-
-        // Overall score (weighted average)
-        const overall = Math.round((clarity * 0.3 + specificity * 0.3 + structure * 0.2 + context * 0.2));
-
-        return {
-            overall,
-            clarity: Math.round(clarity),
-            specificity: Math.round(specificity),
-            structure: Math.round(structure),
-            context: Math.round(context),
-            feedback: generateFeedback(clarity, specificity, structure, context, prompt)
-        };
-    }
-
-    function generateFeedback(clarity, specificity, structure, context, prompt) {
-        const improvements = [];
-        const strengths = [];
-        const examples = [];
-
-        // Analyze what's actually in the prompt
-        const hasNumbers = /\d+/.test(prompt);
-        const hasFormat = /format|style|tone|write as|written in/i.test(prompt);
-        const hasContext = /context|background|situation|because|since|currently/i.test(prompt);
-        const hasAudience = /audience|reader|user|customer|for\s+(a|my|our|the)/i.test(prompt);
-        const hasAction = /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design)/i.test(prompt.trim());
-        const hasExamples = /example|such as|like this|similar to|e\.g\.|for instance/i.test(prompt);
-        const hasConstraints = /must|should|don't|avoid|only|never|always|limit|maximum|minimum/i.test(prompt);
-        const hasSteps = /step|first|then|next|finally|1\.|2\.|3\.|-\s/i.test(prompt);
-
-        // CLARITY feedback
-        if (clarity >= 80) {
-            strengths.push({ category: 'Clarity', text: 'Your prompt is well-written and easy to understand.' });
-            if (hasAction) {
-                strengths.push({ category: 'Clarity', text: 'Great use of an action verb to start your prompt!' });
-            }
-        } else if (clarity >= 60) {
-            if (!hasAction) {
-                improvements.push({
-                    category: 'Clarity',
-                    text: 'Your prompt is fairly clear, but could be more direct.',
-                    tip: 'Try starting with an action verb (Write, Create, Explain, Analyze).'
-                });
-            }
-        } else {
-            improvements.push({
-                category: 'Clarity',
-                text: 'Your prompt may be confusing to the AI.',
-                tip: 'Break long sentences into shorter ones. Remove filler words like "I was wondering if you could maybe..."'
-            });
-            examples.push({
-                bad: 'I was wondering if you could maybe help me with writing something about...',
-                good: 'Write a 300-word article about...'
-            });
-        }
-
-        // SPECIFICITY feedback
-        if (specificity >= 80) {
-            strengths.push({ category: 'Specificity', text: 'Excellent detail! You\'ve clearly defined what you want.' });
-        } else if (specificity >= 60) {
-            if (!hasNumbers) {
-                improvements.push({
-                    category: 'Specificity',
-                    text: 'Consider adding specific numbers or quantities.',
-                    tip: 'Specify length (500 words), number of items (5 bullet points), or time (2-minute read).'
-                });
-            }
-            if (!hasFormat) {
-                improvements.push({
-                    category: 'Specificity',
-                    text: 'Define the format or style you want.',
-                    tip: 'Add: "Write in a professional tone" or "Format as a bulleted list".'
-                });
-            }
-        } else {
-            improvements.push({
-                category: 'Specificity',
-                text: 'Your prompt is too vague. The AI will have to guess what you want.',
-                tip: 'Tell the AI exactly what output you need: format, length, style, and key points to include.'
-            });
-            examples.push({
-                bad: 'Write about marketing',
-                good: 'Write a 500-word blog post about 5 email marketing tips for small e-commerce businesses. Use a conversational tone with practical examples.'
-            });
-        }
-
-        // STRUCTURE feedback
-        if (structure >= 80) {
-            strengths.push({ category: 'Structure', text: 'Well-organized prompt with clear sections.' });
-        } else if (structure >= 60) {
-            if (!hasSteps) {
-                improvements.push({
-                    category: 'Structure',
-                    text: 'Consider organizing with numbered steps or sections.',
-                    tip: 'Use labels like "Context:", "Task:", "Format:" to separate parts of your prompt.'
-                });
-            }
-        } else {
-            improvements.push({
-                category: 'Structure',
-                text: 'Your prompt lacks organization, making it harder for the AI to follow.',
-                tip: 'Structure your prompt: 1) Background/Context, 2) Main Task, 3) Specific Requirements, 4) Output Format.'
-            });
-            examples.push({
-                bad: 'I need help with a presentation about our Q3 results and it should be for executives and include charts',
-                good: 'Context: I\'m presenting Q3 sales results to our executive team.\n\nTask: Create an outline for a 10-minute presentation.\n\nInclude:\n- Key metrics with year-over-year comparison\n- 3 main achievements\n- Recommendations for Q4'
-            });
-        }
-
-        // CONTEXT feedback
-        if (context >= 80) {
-            strengths.push({ category: 'Context', text: 'Great job providing background information!' });
-        } else if (context >= 60) {
-            if (!hasAudience) {
-                improvements.push({
-                    category: 'Context',
-                    text: 'Specify who the output is for.',
-                    tip: 'Add your audience: "for technical developers", "for beginners with no coding experience", "for C-level executives".'
-                });
-            }
-        } else {
-            improvements.push({
-                category: 'Context',
-                text: 'The AI doesn\'t know your situation, goals, or constraints.',
-                tip: 'Start with: "I\'m a [role] working on [project]. I need [output] because [reason]."'
-            });
-            if (!hasContext && !hasAudience) {
-                examples.push({
-                    bad: 'Write a product description',
-                    good: 'Context: I run a small handmade jewelry store on Etsy targeting young professionals.\n\nWrite a product description for our new minimalist gold necklace. Emphasize quality craftsmanship and versatility for both work and casual wear.'
-                });
-            }
-        }
-
-        // Add bonus tips based on missing elements
-        if (!hasExamples && specificity < 80) {
-            improvements.push({
-                category: 'Pro Tip',
-                text: 'Add an example of what you\'re looking for.',
-                tip: 'Say "Similar to..." or "For example..." to show the AI exactly what style or format you want.'
-            });
-        }
-
-        if (!hasConstraints && structure < 80) {
-            improvements.push({
-                category: 'Pro Tip',
-                text: 'Add constraints to prevent unwanted content.',
-                tip: 'Include what to avoid: "Don\'t use jargon", "Keep it under 200 words", "Focus only on..."'
-            });
-        }
-
-        return { improvements, strengths, examples };
-    }
-
-    function displayScores(scores) {
-        const { improvements, strengths, examples } = scores.feedback;
-
-        let strengthsHTML = '';
-        if (strengths.length > 0) {
-            strengthsHTML = `
-                <div class="feedback-section feedback-strengths">
-                    <h4>What You Did Well</h4>
-                    <ul class="feedback-list">
-                        ${strengths.map(s => `<li><span class="feedback-category">${s.category}:</span> ${s.text}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-        }
-
-        let improvementsHTML = '';
-        if (improvements.length > 0) {
-            improvementsHTML = `
-                <div class="feedback-section feedback-improvements">
-                    <h4>How to Improve</h4>
-                    <div class="feedback-cards">
-                        ${improvements.map(i => `
-                            <div class="feedback-card">
-                                <div class="feedback-card-header">
-                                    <span class="feedback-category">${i.category}</span>
-                                </div>
-                                <p class="feedback-issue">${i.text}</p>
-                                <p class="feedback-tip"><strong>Tip:</strong> ${i.tip}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        let examplesHTML = '';
-        if (examples.length > 0) {
-            examplesHTML = `
-                <div class="feedback-section feedback-examples">
-                    <h4>Before & After Examples</h4>
-                    ${examples.map(ex => `
-                        <div class="example-comparison">
-                            <div class="example-before">
-                                <span class="example-label-bad">Before</span>
-                                <p>${ex.bad}</p>
-                            </div>
-                            <div class="example-after">
-                                <span class="example-label-good">After</span>
-                                <p>${ex.good.replace(/\n/g, '<br>')}</p>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        let overallMessage = '';
-        if (scores.overall >= 80) {
-            overallMessage = '<p class="score-message score-message-great">Excellent! This prompt is well-crafted and should get great results.</p>';
-        } else if (scores.overall >= 60) {
-            overallMessage = '<p class="score-message score-message-good">Good start! A few improvements will make this prompt even better.</p>';
-        } else if (scores.overall >= 40) {
-            overallMessage = '<p class="score-message score-message-fair">This prompt needs work. Review the suggestions below to improve your results.</p>';
-        } else {
-            overallMessage = '<p class="score-message score-message-poor">This prompt is too vague. The AI will likely give generic or unhelpful results.</p>';
-        }
-
-        scoreDisplay.innerHTML = `
-            <div class="score-main">
-                <div class="score-circle ${getScoreClass(scores.overall)}">
-                    <span class="score-value">${scores.overall}</span>
-                    <span class="score-label">Overall</span>
-                </div>
-                ${overallMessage}
-            </div>
-            <div class="sub-scores">
-                <div class="sub-score">
-                    <div class="sub-score-bar">
-                        <div class="sub-score-fill ${getScoreClass(scores.clarity)}" style="width: ${scores.clarity}%"></div>
-                    </div>
-                    <span class="sub-score-label">Clarity</span>
-                    <span class="sub-score-value">${scores.clarity}</span>
-                </div>
-                <div class="sub-score">
-                    <div class="sub-score-bar">
-                        <div class="sub-score-fill ${getScoreClass(scores.specificity)}" style="width: ${scores.specificity}%"></div>
-                    </div>
-                    <span class="sub-score-label">Specificity</span>
-                    <span class="sub-score-value">${scores.specificity}</span>
-                </div>
-                <div class="sub-score">
-                    <div class="sub-score-bar">
-                        <div class="sub-score-fill ${getScoreClass(scores.structure)}" style="width: ${scores.structure}%"></div>
-                    </div>
-                    <span class="sub-score-label">Structure</span>
-                    <span class="sub-score-value">${scores.structure}</span>
-                </div>
-                <div class="sub-score">
-                    <div class="sub-score-bar">
-                        <div class="sub-score-fill ${getScoreClass(scores.context)}" style="width: ${scores.context}%"></div>
-                    </div>
-                    <span class="sub-score-label">Context</span>
-                    <span class="sub-score-value">${scores.context}</span>
-                </div>
-            </div>
-            ${strengthsHTML}
-            ${improvementsHTML}
-            ${examplesHTML}
-            <div class="feedback-cta">
-                <p>Want to learn more about writing effective prompts?</p>
-                <a href="../learn/prompt-basics.html" class="btn btn-secondary">Learn Prompt Basics</a>
-            </div>
-        `;
-        scoreDisplay.classList.add('visible');
+        // Initialize guided mode enhancements
+        initScorerEnhancements();
     }
 
     function getScoreClass(score) {
