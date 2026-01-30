@@ -906,54 +906,56 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: 'Context',
                     patterns: [
                         /\b(background|context|situation)\s*:/i,
-                        /\b(I am a|I'm a|as a|my role|I work)\b/i,
-                        /\b(currently|working on|project|because|since)\b/i
+                        /\b(launching|working on|building|creating|developing)\b/i,
+                        /\b(our|my|the)\s+(brand|product|company|business|project|team)\b/i,
+                        /\b(currently|because|since|given that)\b/i
                     ],
-                    tip: 'Add background: "Context: I\'m a [role] working on [project]..."',
-                    example: 'Context: I run a small e-commerce store selling handmade jewelry.'
+                    tip: 'Set the scene: "I am launching a new eco-friendly coffee brand..."',
+                    example: 'I am launching a new eco-friendly coffee brand targeting young professionals.'
                 },
                 R: {
-                    name: 'Request',
+                    name: 'Role',
                     patterns: [
-                        /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|develop|build|make|help me)/im,
-                        /\b(I need|I want|please|can you|could you|would you)\b/i,
-                        /\b(task|request)\s*:/i
+                        /\b(act as|you are|pretend to be|imagine you('re| are)|behave as)\b/i,
+                        /\b(role|persona|expert|specialist|consultant|advisor)\s*:/i,
+                        /\b(as (a|an) (senior|expert|professional|experienced))\b/i
                     ],
-                    tip: 'Start with an action verb: Write, Create, Explain, Analyze...',
-                    example: 'Write a product description for our new minimalist necklace.'
+                    tip: 'Define the AI persona: "Act as a senior marketing expert..."',
+                    example: 'Act as a senior marketing expert with 10 years of experience.'
                 },
                 I: {
                     name: 'Instructions',
                     patterns: [
+                        /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|develop|build|make)/im,
+                        /\b(I need|I want|please|can you|could you|would you)\b/i,
                         /\b(include|ensure|make sure|cover|address)\b/i,
-                        /\b(don't|do not|avoid|exclude|without)\b/i,
-                        /\b(must|should|shall|need to|required|important)\b/i,
-                        /\b(step\s*\d|first|second|then|next|finally)\b/i,
-                        /(\d+\.\s|\*\s|-\s)/m
+                        /\b(step\s*\d|first|second|then|next|finally)\b/i
                     ],
-                    tip: 'Add what to include/exclude: "Include X. Avoid Y."',
-                    example: 'Include: price point, materials, target demographic. Avoid: generic marketing speak.'
+                    tip: 'Clearly state what you want done with examples if helpful',
+                    example: 'Create a 50-word LinkedIn post announcing our new product launch.'
                 },
                 S: {
-                    name: 'Style',
+                    name: 'Specifics',
                     patterns: [
+                        /\b(\d+)\s*(words?|sentences?|paragraphs?|bullet\s*points?|items?)\b/i,
+                        /\b(format|output|structure)\s*(as|:)/i,
                         /\b(tone|voice|style)\s*:/i,
-                        /\b(formal|casual|professional|friendly|technical|conversational|humorous|serious)\b/i,
-                        /\b(write (as|like|in)|in the style of|sound like)\b/i
+                        /\b(formal|casual|professional|friendly|urgent|persuasive)\b/i,
+                        /\b(JSON|markdown|bullet|table|list)\b/i
                     ],
-                    tip: 'Specify tone: "Use a professional/casual/friendly tone"',
-                    example: 'Use a warm, conversational tone appropriate for Instagram.'
+                    tip: 'Define format, length, tone: "Write 3 bullet points under 50 words"',
+                    example: 'Write 3 bullet points, under 50 words each, in an urgent tone.'
                 },
                 P: {
                     name: 'Parameters',
                     patterns: [
-                        /\b(\d+)\s*(words?|sentences?|paragraphs?|pages?|minutes?|bullet\s*points?|items?|tips?|points?)\b/i,
-                        /\b(maximum|minimum|at least|no more than|between|limit|within|under|over)\s*\d/i,
-                        /\b(format|output|return|structure)\s*(as|:)/i,
-                        /\b(JSON|markdown|HTML|bullet|table|list|code|email|article|blog)\b/i
+                        /\b(don't|do not|avoid|exclude|without|never)\b/i,
+                        /\b(must|should|shall|need to|required|important)\b/i,
+                        /\b(maximum|minimum|at least|no more than|limit)\b/i,
+                        /\b(include|use|add)\s+(\d+|three|two|five)\s+(hashtag|emoji|link)/i
                     ],
-                    tip: 'Add constraints: "500 words", "5 bullet points", "as a table"',
-                    example: 'Limit to 150 words, formatted as a single paragraph.'
+                    tip: 'Set constraints and what to avoid: "Include 3 hashtags. Avoid jargon."',
+                    example: 'Include three hashtags. Avoid industry jargon. Keep it actionable.'
                 }
             }
         },
@@ -1099,11 +1101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Guided mode question definitions for each methodology
     const GUIDED_QUESTIONS = {
         CRISP: [
-            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
-            { key: 'request', letter: 'R', label: 'What do you want the AI to do?', placeholder: 'e.g., Write a blog post about email marketing tips...', fullWidth: true },
-            { key: 'instructions', letter: 'I', label: 'Any specific instructions? (include/exclude)', placeholder: 'e.g., Include 5 tips. Avoid jargon...' },
-            { key: 'style', letter: 'S', label: 'What tone or style?', placeholder: 'e.g., Professional but friendly, conversational...' },
-            { key: 'parameters', letter: 'P', label: 'Format and length requirements?', placeholder: 'e.g., 500 words, bullet points, table format...' }
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I am launching a new eco-friendly coffee brand...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a senior marketing expert...', fullWidth: true },
+            { key: 'instructions', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 50-word LinkedIn post about our product launch...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., 3 bullet points, under 50 words, urgent tone...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Include 3 hashtags. Avoid jargon. Keep it actionable...' }
         ],
         COSTAR: [
             { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
@@ -1114,12 +1116,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'response', letter: 'R', label: 'What output format?', placeholder: 'e.g., Email, bullet list, table, JSON...' }
         ],
         CRISPE: [
-            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
-            { key: 'role', letter: 'R', label: 'What role should the AI play?', placeholder: 'e.g., Act as an experienced marketing consultant...', fullWidth: true },
-            { key: 'instruction', letter: 'I', label: 'What is the main task?', placeholder: 'e.g., Write a product description that converts...' },
-            { key: 'style', letter: 'S', label: 'What tone or style?', placeholder: 'e.g., Professional but friendly, conversational...' },
-            { key: 'parameters', letter: 'P', label: 'Format and length requirements?', placeholder: 'e.g., 500 words, bullet points, table format...' },
-            { key: 'example', letter: 'E', label: 'Any example of what you want? (optional)', placeholder: 'e.g., Similar to: "Handcrafted with love, our..."', optional: true }
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I am launching a new eco-friendly coffee brand...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a senior marketing expert...', fullWidth: true },
+            { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 50-word LinkedIn post about our product launch...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., 3 bullet points, under 50 words, urgent tone...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Include 3 hashtags. Avoid jargon. Keep it actionable...' },
+            { key: 'example', letter: 'E', label: 'Example of desired output? (optional)', placeholder: 'e.g., Similar to: "Handcrafted with love, our..."', optional: true }
         ]
     };
 
@@ -1544,10 +1546,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Order and combine based on methodology
         if (methodology === 'CRISP') {
+            if (answers.role?.trim()) parts.push(`Act as ${answers.role.trim()}.`);
             if (answers.context?.trim()) parts.push(answers.context.trim());
-            if (answers.request?.trim()) parts.push(answers.request.trim());
             if (answers.instructions?.trim()) parts.push(answers.instructions.trim());
-            if (answers.style?.trim()) parts.push(`Use a ${answers.style.trim()} tone.`);
+            if (answers.specifics?.trim()) parts.push(answers.specifics.trim());
             if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
         } else if (methodology === 'COSTAR') {
             if (answers.context?.trim()) parts.push(answers.context.trim());
@@ -1562,7 +1564,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (answers.role?.trim()) parts.push(`Act as ${answers.role.trim()}.`);
             if (answers.context?.trim()) parts.push(answers.context.trim());
             if (answers.instruction?.trim()) parts.push(answers.instruction.trim());
-            if (answers.style?.trim()) parts.push(`Use a ${answers.style.trim()} tone.`);
+            if (answers.specifics?.trim()) parts.push(answers.specifics.trim());
             if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
             if (answers.example?.trim()) parts.push(`Example: ${answers.example.trim()}`);
         }
