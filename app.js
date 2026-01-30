@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // INTERACTIVE NEURAL NETWORK ANIMATION
     // ==========================================
 
-    // AI assistant names - permanently displayed in the network
+    // AI assistant names - permanently displayed in the network (main page only)
     const AI_NAMES = [
         'ChatGPT',
         'CLAUDE CODE',
@@ -75,6 +75,35 @@ document.addEventListener('DOMContentLoaded', () => {
         'CURSOR.AI',
         'COPILOT',
         'PERPLEXITY'
+    ];
+
+    // AI-related terms for floating display (secondary pages)
+    const AI_TERMS = [
+        'Machine Learning',
+        'Neural Network',
+        'Deep Learning',
+        'NLP',
+        'Computer Vision',
+        'Transformer',
+        'GPT',
+        'Diffusion',
+        'Embedding',
+        'Tokenization',
+        'Fine-tuning',
+        'RAG',
+        'Vector DB',
+        'Attention',
+        'Inference',
+        'Training',
+        'Prompt',
+        'Context Window',
+        'Hallucination',
+        'Alignment',
+        'RLHF',
+        'Chain of Thought',
+        'Few-shot',
+        'Zero-shot',
+        'Multimodal'
     ];
 
     // Neural Network class - Each AI gets its own active cluster
@@ -85,15 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
             this.width = 0;
             this.height = 0;
             this.nodes = [];
-            this.aiClusters = []; // Each AI has its own cluster
+            this.aiClusters = []; // Each AI has its own cluster (cluster mode)
+            this.floatingTerms = []; // Floating AI terms (terms mode)
             this.animationId = null;
 
             // Mobile detection
             this.isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
 
-            // Cluster settings - one per AI
+            // Mode: 'clusters' (main page with AI names) or 'terms' (other pages with floating terms)
+            this.mode = options.mode || 'clusters';
+
+            // Cluster settings - one per AI (cluster mode)
             this.nodesPerCluster = this.isMobile ? 15 : 25;
             this.clusterSpread = this.isMobile ? 80 : 120;
+
+            // Terms mode settings
+            this.nodeCount = this.isMobile ? 40 : 80;
+            this.termCount = this.isMobile ? 6 : 12;
 
             // Options
             this.showTerms = options.showTerms !== false;
@@ -132,7 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
         resize() {
             this.width = this.canvas.width = this.canvas.offsetWidth;
             this.height = this.canvas.height = this.canvas.offsetHeight;
-            this.initClusters(); // Initialize AI clusters with nodes
+
+            // Initialize based on mode
+            if (this.mode === 'terms') {
+                this.initTermsMode();
+            } else {
+                this.initClusters();
+            }
+
             this.dataPulses = [];
             this.buildConnections();
         }
@@ -223,6 +267,65 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Terms mode: Distributed nodes with floating AI-related terms
+        initTermsMode() {
+            this.nodes = [];
+            this.floatingTerms = [];
+
+            // Create distributed nodes across the canvas
+            for (let i = 0; i < this.nodeCount; i++) {
+                const x = Math.random() * this.width;
+                const y = Math.random() * this.height;
+                const z = Math.random() * 0.6 + 0.4;
+
+                this.nodes.push({
+                    x: x,
+                    y: y,
+                    baseX: x,
+                    baseY: y,
+                    // Drift animation
+                    driftSpeedX: (Math.random() - 0.5) * 0.3,
+                    driftSpeedY: (Math.random() - 0.5) * 0.3,
+                    // Floating animation
+                    floatSpeedX: 0.0005 + Math.random() * 0.0005,
+                    floatSpeedY: 0.0007 + Math.random() * 0.0005,
+                    floatAmplitudeX: 15 + Math.random() * 20,
+                    floatAmplitudeY: 10 + Math.random() * 15,
+                    floatPhaseX: Math.random() * Math.PI * 2,
+                    floatPhaseY: Math.random() * Math.PI * 2,
+                    // Size and brightness based on depth
+                    size: 2 + z * 3,
+                    z: z,
+                    glowIntensity: 0.4 + z * 0.6,
+                    pulseOffset: Math.random() * Math.PI * 2,
+                    isTermsMode: true
+                });
+            }
+
+            // Create floating terms - select random subset
+            const shuffledTerms = [...AI_TERMS].sort(() => Math.random() - 0.5);
+            const selectedTerms = shuffledTerms.slice(0, this.termCount);
+
+            selectedTerms.forEach((term, i) => {
+                this.floatingTerms.push({
+                    text: term,
+                    x: Math.random() * (this.width * 0.8) + this.width * 0.1,
+                    y: Math.random() * (this.height * 0.8) + this.height * 0.1,
+                    // Floating animation
+                    floatSpeedX: 0.0003 + Math.random() * 0.0002,
+                    floatSpeedY: 0.0004 + Math.random() * 0.0002,
+                    floatAmplitudeX: 20 + Math.random() * 30,
+                    floatAmplitudeY: 15 + Math.random() * 25,
+                    floatPhaseX: Math.random() * Math.PI * 2,
+                    floatPhaseY: Math.random() * Math.PI * 2,
+                    // Visual properties
+                    opacity: 0.3 + Math.random() * 0.4,
+                    pulseOffset: i * 0.8,
+                    fontSize: this.isMobile ? 10 : 12 + Math.floor(Math.random() * 4)
+                });
+            });
+        }
+
         createNode(angle, radius, clusterIndex, nodeIndex) {
             // z represents depth (0 = far/dim, 1 = close/bright)
             const z = Math.random() * 0.6 + 0.4;
@@ -242,13 +345,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateNode(node, time) {
-            // Nodes orbit slowly around their cluster center
+            // Terms mode: floating animation with drift
+            if (node.isTermsMode) {
+                node.x = node.baseX +
+                    Math.sin(time * node.floatSpeedX + node.floatPhaseX) * node.floatAmplitudeX;
+                node.y = node.baseY +
+                    Math.sin(time * node.floatSpeedY + node.floatPhaseY) * node.floatAmplitudeY;
+
+                // Slow drift
+                node.baseX += node.driftSpeedX;
+                node.baseY += node.driftSpeedY;
+
+                // Wrap around edges
+                if (node.baseX < -50) node.baseX = this.width + 50;
+                if (node.baseX > this.width + 50) node.baseX = -50;
+                if (node.baseY < -50) node.baseY = this.height + 50;
+                if (node.baseY > this.height + 50) node.baseY = -50;
+                return;
+            }
+
+            // Cluster mode: nodes orbit slowly around their cluster center
             node.angle += node.orbitSpeed;
         }
 
         getNodePosition(node, time) {
+            // Terms mode: nodes have direct x/y with floating animation
+            if (node.isTermsMode) {
+                return { x: node.x, y: node.y };
+            }
+
+            // Cluster mode: calculate from cluster center + angle/radius
             const cluster = this.aiClusters[node.clusterIndex];
-            // Calculate node position based on cluster center + angle/radius
             const x = cluster.centerX + Math.cos(node.angle) * node.radius;
             const y = cluster.centerY + Math.sin(node.angle) * node.radius;
             return { x, y };
@@ -365,6 +492,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Main text - fully white, always visible
                 this.ctx.fillStyle = '#ffffff';
                 this.ctx.fillText(cluster.name, cluster.centerX, cluster.centerY);
+
+                this.ctx.restore();
+            });
+        }
+
+        // Update floating terms positions (terms mode)
+        updateFloatingTerms(time) {
+            this.floatingTerms.forEach(term => {
+                term.currentX = term.x +
+                    Math.sin(time * term.floatSpeedX + term.floatPhaseX) * term.floatAmplitudeX;
+                term.currentY = term.y +
+                    Math.sin(time * term.floatSpeedY + term.floatPhaseY) * term.floatAmplitudeY;
+            });
+        }
+
+        // Draw floating AI-related terms (terms mode)
+        drawFloatingTerms(time) {
+            this.floatingTerms.forEach(term => {
+                const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.1 + 0.9;
+                const opacity = term.opacity * pulse;
+
+                this.ctx.save();
+                this.ctx.font = `${term.fontSize}px monospace`;
+                this.ctx.textAlign = 'center';
+                this.ctx.textBaseline = 'middle';
+
+                // Subtle text glow
+                if (!this.isMobile) {
+                    this.ctx.shadowColor = `rgba(230, 57, 70, ${opacity * 0.5})`;
+                    this.ctx.shadowBlur = 10;
+                }
+
+                // Text color - soft white/gray with red tint
+                this.ctx.fillStyle = `rgba(200, 180, 180, ${opacity})`;
+                this.ctx.fillText(term.text, term.currentX, term.currentY);
 
                 this.ctx.restore();
             });
@@ -525,8 +687,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.ctx.clearRect(0, 0, this.width, this.height);
 
-            // Update cluster floating positions (labels + nodes move together)
-            this.updateClusterPositions(time);
+            // Update positions based on mode
+            if (this.mode === 'terms') {
+                this.updateFloatingTerms(time);
+            } else {
+                this.updateClusterPositions(time);
+            }
 
             // Layer 1: Connections (behind everything)
             this.drawConnections(time);
@@ -536,14 +702,18 @@ document.addEventListener('DOMContentLoaded', () => {
             this.updateDataPulses();
             this.drawDataPulses();
 
-            // Layer 3: Nodes (orbit around their cluster center)
+            // Layer 3: Nodes
             this.nodes.forEach(node => {
                 this.updateNode(node, time);
                 this.drawNode(node, time);
             });
 
-            // Layer 4: AI Cluster Labels (topmost)
-            if (this.showTerms) {
+            // Layer 4: Labels (topmost)
+            if (this.mode === 'terms') {
+                // Terms mode: draw floating AI terms
+                this.drawFloatingTerms(time);
+            } else if (this.showTerms) {
+                // Cluster mode: draw AI cluster labels
                 this.drawClusterLabels(time);
             }
 
@@ -559,21 +729,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all neural network canvases
     const neuralNetworks = [];
 
-    // Main hero canvas - self-animating neural network with static AI labels
+    // Check if this is the main index page (has neural-network canvas with AI clusters)
     const mainCanvas = document.getElementById('neural-network');
-    if (mainCanvas) {
+    const isMainPage = mainCanvas && window.location.pathname.endsWith('index.html') ||
+                       window.location.pathname === '/' ||
+                       window.location.pathname.endsWith('/');
+
+    // Main hero canvas on index page - cluster mode with AI labels
+    if (mainCanvas && isMainPage) {
         neuralNetworks.push(new NeuralNetwork(mainCanvas, {
+            mode: 'clusters',
             showTerms: true
+        }));
+    } else if (mainCanvas) {
+        // Other pages - terms mode with floating AI terminology
+        neuralNetworks.push(new NeuralNetwork(mainCanvas, {
+            mode: 'terms'
         }));
     }
 
-    // Secondary canvases (CTA cards, footer - lighter version without labels)
+    // Secondary canvases (CTA cards, footer) - terms mode with floating AI terms
     // Skip on mobile for better performance
     const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
     if (!isMobileDevice) {
         document.querySelectorAll('.neural-canvas-secondary').forEach(canvas => {
             neuralNetworks.push(new NeuralNetwork(canvas, {
-                showTerms: false
+                mode: 'terms'
             }));
         });
     }
