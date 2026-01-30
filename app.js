@@ -578,11 +578,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update floating terms positions - orbit around their assigned cluster
         updateFloatingTerms(time) {
             this.floatingTerms.forEach(term => {
-                // Update orbital angle
-                term.angle += term.orbitSpeed;
-
                 // Check if term has a cluster assignment (combined mode)
                 if (term.clusterIndex !== undefined && this.aiClusters[term.clusterIndex]) {
+                    // Update orbital angle (only for cluster-attached terms)
+                    term.angle += term.orbitSpeed;
                     const cluster = this.aiClusters[term.clusterIndex];
 
                     // Calculate position based on cluster center + orbital position + wobble
