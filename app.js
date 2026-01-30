@@ -1096,10 +1096,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Guided mode question definitions for each methodology
+    const GUIDED_QUESTIONS = {
+        CRISP: [
+            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
+            { key: 'request', letter: 'R', label: 'What do you want the AI to do?', placeholder: 'e.g., Write a blog post about email marketing tips...', fullWidth: true },
+            { key: 'instructions', letter: 'I', label: 'Any specific instructions? (include/exclude)', placeholder: 'e.g., Include 5 tips. Avoid jargon...' },
+            { key: 'style', letter: 'S', label: 'What tone or style?', placeholder: 'e.g., Professional but friendly, conversational...' },
+            { key: 'parameters', letter: 'P', label: 'Format and length requirements?', placeholder: 'e.g., 500 words, bullet points, table format...' }
+        ],
+        COSTAR: [
+            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
+            { key: 'objective', letter: 'O', label: 'What is your goal?', placeholder: 'e.g., Increase email open rates by 20%...', fullWidth: true },
+            { key: 'style', letter: 'S', label: 'What writing style?', placeholder: 'e.g., Professional, academic, casual...' },
+            { key: 'tone', letter: 'T', label: 'What emotional tone?', placeholder: 'e.g., Enthusiastic, reassuring, urgent...' },
+            { key: 'audience', letter: 'A', label: 'Who is the audience?', placeholder: 'e.g., Small business owners, beginners, executives...' },
+            { key: 'response', letter: 'R', label: 'What output format?', placeholder: 'e.g., Email, bullet list, table, JSON...' }
+        ],
+        CRISPE: [
+            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI play?', placeholder: 'e.g., Act as an experienced marketing consultant...', fullWidth: true },
+            { key: 'instruction', letter: 'I', label: 'What is the main task?', placeholder: 'e.g., Write a product description that converts...' },
+            { key: 'style', letter: 'S', label: 'What tone or style?', placeholder: 'e.g., Professional but friendly, conversational...' },
+            { key: 'parameters', letter: 'P', label: 'Format and length requirements?', placeholder: 'e.g., 500 words, bullet points, table format...' },
+            { key: 'example', letter: 'E', label: 'Any example of what you want? (optional)', placeholder: 'e.g., Similar to: "Handcrafted with love, our..."', optional: true }
+        ]
+    };
+
     // Scorer state management
     const ScorerState = {
         mode: 'standard',
-        guidedAnswers: { request: '', context: '', parameters: '', audience: '', role: '' },
+        guidedMethodology: 'CRISP',
+        guidedAnswers: {},
         lastAnalysis: null,
         selectedFramework: 'CRISP'
     };
@@ -1167,10 +1195,10 @@ document.addEventListener('DOMContentLoaded', () => {
             sentenceQuality = 40;
         }
 
-        // Intent clarity: action verb or structured format
-        const hasActionVerb = /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|help|act|you are)/im.test(prompt.trim());
-        const hasStructuredLabels = /(context|task|format|style|output|instructions?|background|objective|audience|role)\s*:/i.test(prompt);
-        const intentClarity = (hasActionVerb ? 50 : 0) + (hasStructuredLabels ? 50 : 20);
+        // Intent clarity: based on clear request language (not labels)
+        const hasActionVerb = /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|help|act|you are|i need|i want|please|can you|could you)/im.test(prompt.trim());
+        const hasClearRequest = /\b(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|make|build|develop|produce|give me|provide|help me)\b/i.test(prompt);
+        const intentClarity = (hasActionVerb ? 60 : 0) + (hasClearRequest ? 40 : 20);
 
         // Combined scoring: 50% framework, 25% sentence quality, 25% intent
         const overall = Math.round(frameworkScore * 0.5 + sentenceQuality * 0.25 + intentClarity * 0.25);
@@ -1463,48 +1491,117 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('scorer-mode', ScorerState.mode);
     }
 
-    function combineGuidedAnswers() {
-        const { request, context, parameters, audience, role } = ScorerState.guidedAnswers;
-        const promptInput = document.getElementById('prompt-input');
+    // Render guided questions for selected methodology
+    function renderGuidedQuestions(methodology) {
+        const container = document.getElementById('guided-questions');
+        if (!container) return;
 
+        const questions = GUIDED_QUESTIONS[methodology];
+        if (!questions) return;
+
+        // Clear current answers when switching methodology
+        ScorerState.guidedAnswers = {};
+
+        let html = '';
+        questions.forEach(q => {
+            const fullWidthClass = q.fullWidth ? ' data-fullwidth="true"' : '';
+            const optionalClass = q.optional ? ' guided-letter-optional' : '';
+            html += `
+                <div class="guided-question" data-element="${q.key}"${fullWidthClass}>
+                    <label for="guided-${q.key}" class="guided-label">
+                        <span class="guided-letter${optionalClass}">${q.letter}</span>
+                        ${q.label}${q.optional ? ' (optional)' : ''}
+                    </label>
+                    <textarea id="guided-${q.key}" class="guided-input"
+                        placeholder="${q.placeholder}" rows="2"></textarea>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+
+        // Reattach input listeners
+        container.querySelectorAll('.guided-input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const element = e.target.closest('.guided-question')?.dataset.element;
+                if (element) {
+                    ScorerState.guidedAnswers[element] = e.target.value;
+                }
+            });
+        });
+    }
+
+    function combineGuidedAnswers() {
+        const promptInput = document.getElementById('prompt-input');
         if (!promptInput) return;
 
-        let combined = '';
+        const methodology = ScorerState.guidedMethodology;
+        const answers = ScorerState.guidedAnswers;
+        const questions = GUIDED_QUESTIONS[methodology];
 
-        if (context.trim()) {
-            combined += `Context: ${context.trim()}\n\n`;
+        // Build combined prompt naturally without labels
+        let parts = [];
+
+        // Order and combine based on methodology
+        if (methodology === 'CRISP') {
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.request?.trim()) parts.push(answers.request.trim());
+            if (answers.instructions?.trim()) parts.push(answers.instructions.trim());
+            if (answers.style?.trim()) parts.push(`Use a ${answers.style.trim()} tone.`);
+            if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
+        } else if (methodology === 'COSTAR') {
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.objective?.trim()) parts.push(`My goal is to ${answers.objective.trim()}.`);
+            if (answers.audience?.trim()) parts.push(`This is for ${answers.audience.trim()}.`);
+            if (answers.style?.trim() || answers.tone?.trim()) {
+                const styleText = [answers.style?.trim(), answers.tone?.trim()].filter(Boolean).join(', ');
+                parts.push(`Use a ${styleText} tone.`);
+            }
+            if (answers.response?.trim()) parts.push(`Format as ${answers.response.trim()}.`);
+        } else if (methodology === 'CRISPE') {
+            if (answers.role?.trim()) parts.push(`Act as ${answers.role.trim()}.`);
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.instruction?.trim()) parts.push(answers.instruction.trim());
+            if (answers.style?.trim()) parts.push(`Use a ${answers.style.trim()} tone.`);
+            if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
+            if (answers.example?.trim()) parts.push(`Example: ${answers.example.trim()}`);
         }
 
-        if (role.trim()) {
-            combined += `Role: ${role.trim()}\n\n`;
-        }
-
-        if (request.trim()) {
-            combined += `Task: ${request.trim()}\n\n`;
-        }
-
-        if (parameters.trim()) {
-            combined += `Requirements: ${parameters.trim()}\n\n`;
-        }
-
-        if (audience.trim()) {
-            combined += `Audience/Style: ${audience.trim()}`;
-        }
-
-        promptInput.value = combined.trim();
+        const combined = parts.join('\n\n');
+        promptInput.value = combined;
         promptInput.focus();
 
-        showToast('Prompt combined! Edit if needed, then click Analyze.', 'success');
+        if (combined.trim()) {
+            showToast('Prompt combined! Edit if needed, then click Analyze.', 'success');
+        } else {
+            showToast('Please fill in at least one field.', 'error');
+        }
     }
 
     // Initialize scorer enhancements
     function initScorerEnhancements() {
         const guidedToggle = document.getElementById('guided-mode-toggle');
         const combineBtn = document.getElementById('combine-prompt-btn');
-        const guidedInputs = document.querySelectorAll('.guided-input');
+        const methodologyBtns = document.querySelectorAll('.methodology-btn');
 
         // Load saved mode preference
         const savedMode = localStorage.getItem('scorer-mode');
+        const savedMethodology = localStorage.getItem('scorer-methodology') || 'CRISP';
+
+        ScorerState.guidedMethodology = savedMethodology;
+
+        // Render initial questions
+        renderGuidedQuestions(savedMethodology);
+
+        // Update active methodology button
+        methodologyBtns.forEach(btn => {
+            if (btn.dataset.method === savedMethodology) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
         if (savedMode === 'guided') {
             toggleGuidedMode(true);
         }
@@ -1517,20 +1614,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Methodology selector buttons
+        methodologyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const method = btn.dataset.method;
+                ScorerState.guidedMethodology = method;
+                localStorage.setItem('scorer-methodology', method);
+
+                // Update active state
+                methodologyBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Re-render questions
+                renderGuidedQuestions(method);
+            });
+        });
+
         // Combine button
         if (combineBtn) {
             combineBtn.addEventListener('click', combineGuidedAnswers);
         }
-
-        // Track guided input changes
-        guidedInputs.forEach(input => {
-            input.addEventListener('input', (e) => {
-                const element = e.target.closest('.guided-question')?.dataset.element;
-                if (element) {
-                    ScorerState.guidedAnswers[element] = e.target.value;
-                }
-            });
-        });
     }
 
     // Initialize scorer

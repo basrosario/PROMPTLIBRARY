@@ -64,54 +64,28 @@
                         <div id="guided-mode-panel" class="guided-mode-panel" hidden>
                             <div class="guided-mode-header">
                                 <h3>Build Your Prompt</h3>
-                                <p>Answer these questions to create a well-structured prompt</p>
+                                <p>Choose a framework and answer the questions</p>
                             </div>
 
-                            <div class="guided-questions">
-                                <div class="guided-question" data-element="request">
-                                    <label for="guided-request" class="guided-label">
-                                        <span class="guided-letter">R</span>
-                                        What do you want the AI to do?
-                                    </label>
-                                    <textarea id="guided-request" class="guided-input"
-                                        placeholder="e.g., Write a blog post about email marketing tips..." rows="2"></textarea>
-                                </div>
+                            <!-- Methodology Selector -->
+                            <div class="methodology-selector">
+                                <button type="button" class="methodology-btn active" data-method="CRISP">
+                                    <strong>CRISP</strong>
+                                    <span>Context, Request, Instructions, Style, Parameters</span>
+                                </button>
+                                <button type="button" class="methodology-btn" data-method="COSTAR">
+                                    <strong>COSTAR</strong>
+                                    <span>Context, Objective, Style, Tone, Audience, Response</span>
+                                </button>
+                                <button type="button" class="methodology-btn" data-method="CRISPE">
+                                    <strong>CRISPE</strong>
+                                    <span>Context, Role, Instruction, Style, Parameters, Example</span>
+                                </button>
+                            </div>
 
-                                <div class="guided-question" data-element="context">
-                                    <label for="guided-context" class="guided-label">
-                                        <span class="guided-letter">C</span>
-                                        What background info does the AI need?
-                                    </label>
-                                    <textarea id="guided-context" class="guided-input"
-                                        placeholder="e.g., I run a small e-commerce business selling handmade jewelry..." rows="2"></textarea>
-                                </div>
-
-                                <div class="guided-question" data-element="parameters">
-                                    <label for="guided-parameters" class="guided-label">
-                                        <span class="guided-letter">P</span>
-                                        Any specific requirements? (length, format)
-                                    </label>
-                                    <textarea id="guided-parameters" class="guided-input"
-                                        placeholder="e.g., 500 words, 5 bullet points, professional tone..." rows="2"></textarea>
-                                </div>
-
-                                <div class="guided-question" data-element="audience">
-                                    <label for="guided-audience" class="guided-label">
-                                        <span class="guided-letter">A</span>
-                                        Who is this for? What style?
-                                    </label>
-                                    <textarea id="guided-audience" class="guided-input"
-                                        placeholder="e.g., For small business owners, friendly and practical tone..." rows="2"></textarea>
-                                </div>
-
-                                <div class="guided-question" data-element="role">
-                                    <label for="guided-role" class="guided-label">
-                                        <span class="guided-letter guided-letter-optional">+</span>
-                                        Should the AI act as someone specific? (optional)
-                                    </label>
-                                    <textarea id="guided-role" class="guided-input"
-                                        placeholder="e.g., Act as an experienced marketing consultant..." rows="2"></textarea>
-                                </div>
+                            <!-- Dynamic Questions Container -->
+                            <div id="guided-questions" class="guided-questions">
+                                <!-- Questions populated by JavaScript based on selected methodology -->
                             </div>
 
                             <button type="button" id="combine-prompt-btn" class="btn btn-primary">

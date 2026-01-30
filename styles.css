@@ -1956,6 +1956,61 @@ p {
     margin: 0;
 }
 
+/* Methodology Selector */
+.methodology-selector {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.methodology-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: var(--space-md);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.methodology-btn:hover {
+    border-color: var(--primary);
+}
+
+.methodology-btn.active {
+    border-color: var(--primary);
+    background: rgba(220, 53, 69, 0.05);
+}
+
+.methodology-btn strong {
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+}
+
+.methodology-btn.active strong {
+    color: var(--primary);
+}
+
+.methodology-btn span {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .methodology-selector {
+        flex-direction: row;
+    }
+
+    .methodology-btn {
+        flex: 1;
+    }
+}
+
 .guided-questions {
     display: flex;
     flex-direction: column;
@@ -2282,7 +2337,7 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .guided-question[data-element="request"] {
+    .guided-question[data-fullwidth="true"] {
         grid-column: 1 / -1;
     }
 }
