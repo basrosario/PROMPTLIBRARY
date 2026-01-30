@@ -910,8 +910,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(our|my|the)\s+(brand|product|company|business|project|team)\b/i,
                         /\b(currently|because|since|given that)\b/i
                     ],
-                    tip: 'Set the scene: "I am launching a new eco-friendly coffee brand..."',
-                    example: 'I am launching a new eco-friendly coffee brand targeting young professionals.'
+                    tip: 'Set the scene: "I\'m planning a family vacation to Italy..."',
+                    example: 'I\'m planning a week-long family vacation to Italy with two teenagers.'
                 },
                 R: {
                     name: 'Role',
@@ -920,8 +920,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(role|persona|expert|specialist|consultant|advisor)\s*:/i,
                         /\b(as (a|an) (senior|expert|professional|experienced))\b/i
                     ],
-                    tip: 'Define the AI persona: "Act as a senior marketing expert..."',
-                    example: 'Act as a senior marketing expert with 10 years of experience.'
+                    tip: 'Define the AI persona: "Act as an experienced travel agent..."',
+                    example: 'Act as an experienced travel agent who specializes in family trips.'
                 },
                 I: {
                     name: 'Instructions',
@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(step\s*\d|first|second|then|next|finally)\b/i
                     ],
                     tip: 'Clearly state what you want done with examples if helpful',
-                    example: 'Create a 50-word LinkedIn post announcing our new product launch.'
+                    example: 'Create a 7-day itinerary covering Rome and Florence with family-friendly activities.'
                 },
                 S: {
                     name: 'Specifics',
@@ -1037,8 +1037,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(I am a|I'm a|as a|my role|I work)\b/i,
                         /\b(currently|working on|project|because|since)\b/i
                     ],
-                    tip: 'Add background: "Context: I\'m a [role] working on [project]..."',
-                    example: 'Context: I run a small e-commerce store selling handmade jewelry.'
+                    tip: 'Add background: "Context: I\'m planning a family trip to..."',
+                    example: 'Context: I\'m planning a week-long family vacation to Italy with two teenagers.'
                 },
                 R: {
                     name: 'Role',
@@ -1047,8 +1047,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(role|persona|character|expert|specialist)\s*:/i,
                         /\b(as (a|an) (expert|professional|specialist|consultant|advisor))\b/i
                     ],
-                    tip: 'Assign a persona: "Act as an experienced marketing consultant..."',
-                    example: 'Act as an experienced copywriter who specializes in luxury brands.'
+                    tip: 'Assign a persona: "Act as an experienced travel planner..."',
+                    example: 'Act as an experienced travel agent who specializes in family trips.'
                 },
                 I: {
                     name: 'Instruction',
@@ -1060,7 +1060,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         /(\d+\.\s|\*\s|-\s)/m
                     ],
                     tip: 'Add what to include/exclude: "Include X. Avoid Y."',
-                    example: 'Include: price point, materials, target demographic. Avoid: generic marketing speak.'
+                    example: 'Include: kid-friendly activities, local restaurants, travel times. Avoid: overly touristy traps.'
                 },
                 S: {
                     name: 'Specifics',
@@ -1094,7 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         /\b(input|output)\s*:/i
                     ],
                     tip: 'Provide a sample: "Example: [show what you want]"',
-                    example: 'Example output: "Handcrafted with love, our minimalist gold necklace..."'
+                    example: 'Example output: "Day 1 - Rome: Start your morning at the Colosseum (arrive by 9am)..."'
                 }
             }
         }
@@ -1103,27 +1103,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Guided mode question definitions for each methodology
     const GUIDED_QUESTIONS = {
         CRISP: [
-            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I am launching a new eco-friendly coffee brand...' },
-            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a senior marketing expert...', fullWidth: true },
-            { key: 'instructions', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 50-word LinkedIn post about our product launch...' },
-            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., 3 bullet points, under 50 words, urgent tone...' },
-            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Include 3 hashtags. Avoid jargon. Keep it actionable...' }
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I\'m planning a family vacation to Italy with two teenagers...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as an experienced travel agent specializing in family trips...', fullWidth: true },
+            { key: 'instructions', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 7-day itinerary covering Rome and Florence...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Day-by-day format, friendly tone, include estimated costs...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Budget of $5,000. No more than 2 museums per day...' }
         ],
         COSTAR: [
-            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I run a small e-commerce business selling handmade jewelry...' },
-            { key: 'objective', letter: 'O', label: 'What is your goal?', placeholder: 'e.g., Increase email open rates by 20%...', fullWidth: true },
-            { key: 'style', letter: 'S', label: 'What writing style?', placeholder: 'e.g., Professional, academic, casual...' },
-            { key: 'tone', letter: 'T', label: 'What emotional tone?', placeholder: 'e.g., Enthusiastic, reassuring, urgent...' },
-            { key: 'audience', letter: 'A', label: 'Who is the audience?', placeholder: 'e.g., Small business owners, beginners, executives...' },
-            { key: 'response', letter: 'R', label: 'What output format?', placeholder: 'e.g., Email, bullet list, table, JSON...' }
+            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I\'m hosting a neighborhood potluck for 20 people...' },
+            { key: 'objective', letter: 'O', label: 'What is your goal?', placeholder: 'e.g., Create a warm invitation that gets people excited to attend...', fullWidth: true },
+            { key: 'style', letter: 'S', label: 'What writing style?', placeholder: 'e.g., Friendly, welcoming, like talking to a good neighbor...' },
+            { key: 'tone', letter: 'T', label: 'What emotional tone?', placeholder: 'e.g., Enthusiastic, warm, community-focused...' },
+            { key: 'audience', letter: 'A', label: 'Who is the audience?', placeholder: 'e.g., Neighbors of all ages, families with kids, elderly residents...' },
+            { key: 'response', letter: 'R', label: 'What output format?', placeholder: 'e.g., Short invitation (100-150 words) for a printed flyer...' }
         ],
         CRISPE: [
-            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I am launching a new eco-friendly coffee brand...' },
-            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a senior marketing expert...', fullWidth: true },
-            { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 50-word LinkedIn post about our product launch...' },
-            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., 3 bullet points, under 50 words, urgent tone...' },
-            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Include 3 hashtags. Avoid jargon. Keep it actionable...' },
-            { key: 'example', letter: 'E', label: 'Example of desired output? (optional)', placeholder: 'e.g., Similar to: "Handcrafted with love, our..."', optional: true }
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I\'m a busy parent with two kids who wants to eat healthier...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a family nutritionist who helps picky eaters...', fullWidth: true },
+            { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 5-day weeknight dinner plan with kid-friendly recipes...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Friendly tone, include prep time, common grocery ingredients...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Under 45 minutes per meal. No seafood (allergies)...' },
+            { key: 'example', letter: 'E', label: 'Example of desired output? (optional)', placeholder: 'e.g., Format like: "Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers"', optional: true }
         ]
     };
 

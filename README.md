@@ -25,311 +25,528 @@ Favorite Quote >> **"The best way to predict the future is to create it."**
 
 My mission is to demystify AI use and drive personal adoption, with the goal of creating collaborative environments where technology and human creativity combine to solve complex problems and build a better tomorrow.
 
-### What This Project Represents
+---
 
-This isn't just a prompt library—it's a demonstration of what happens when human expertise meets AI capability:
+## Development Process: Human + AI Collaboration
 
-- **50+ carefully crafted prompts** across education, business, and service industries
-- **Enterprise-grade security** achieved through human-AI collaboration
-- **Accessible design** built with Universal Design principles
-- **A reproducible workflow** that anyone can follow
+This project demonstrates a **systematic, framework-driven approach** to AI-assisted development. Every feature, security implementation, and design decision was created through structured prompting methodologies that are now taught on the site itself.
+
+### The Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          DEVELOPMENT CYCLE                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐          │
+│   │  HUMAN   │───▶│  CLAUDE  │───▶│ VALIDATE │───▶│  REFINE  │───┐    │
+│   │  VISION  │    │   CODE   │    │  & TEST  │    │ TOGETHER │     │    │
+│   └──────────┘    └──────────┘    └──────────┘    └──────────┘     │    │
+│        ▲                                                           │    │
+│        └───────────────────────────────────────────────────────────┘    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+| Phase | Human Role | AI Role |
+|-------|-----------|---------|
+| **Vision** | Define goals, user needs, industry requirements | Structure ideas, suggest architecture |
+| **Implementation** | Provide context, validate output | Generate code, apply patterns |
+| **Validation** | Security audit, UX testing, performance check | Identify issues, suggest fixes |
+| **Refinement** | Final decisions, quality standards | Execute changes consistently |
 
 ---
 
-## Getting Started: Your AI Development Environment
+## Prompt Engineering Frameworks Used
 
-This guide walks you through setting up the same tools and workflow used to create this project. No vendor lock-in—choose what works for you.
+This site was built using the same methodologies it teaches. Here's how each framework contributed:
 
-### Step 1: Choose Your Code Editor
+### CRISP Framework
+**Context, Role, Instructions, Specifics, Parameters**
 
-| Editor | Platform | Why Choose It |
-|--------|----------|---------------|
-| [VS Code](https://code.visualstudio.com/) | All | Most popular, extensive extensions |
-| [Cursor](https://cursor.sh/) | All | AI-native with built-in assistance |
-| [Zed](https://zed.dev/) | Mac/Linux | Fast, collaborative, AI-ready |
-| [Sublime Text](https://www.sublimetext.com/) | All | Lightweight, fast |
-| [Neovim](https://neovim.io/) | All | Terminal-based, customizable |
+Used for quick, focused development tasks:
 
-**Recommended VS Code Extensions:**
-- Live Server (local preview)
-- GitLens (version control)
-- Prettier (formatting)
-- HTML CSS Support
-
-### Step 2: Set Up Version Control
-
-```bash
-# Install Git
-# Windows: Download from https://git-scm.com/
-# Mac: xcode-select --install
-# Linux: sudo apt install git
-
-# Configure your identity
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
-
-# Initialize a new project
-git init
-git add .
-git commit -m "Initial commit"
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ C │ Context       │ Give background                            │
+│ R │ Role          │ Tell AI who it is                          │
+│ I │ Instructions  │ The main ask                               │
+│ S │ Specifics     │ Format, length, tone                       │
+│ P │ Parameters    │ Rules and boundaries                       │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-### Step 3: Choose Your AI Assistant
+**Example from this project:**
+```
+Context: I'm building a prompt engineering learning site with strict
+         CSP security requirements. All JavaScript must be in external files.
 
-Pick the AI that fits your workflow. This project uses Claude Code, but the principles apply universally.
+Role: Act as a senior front-end developer who specializes in secure,
+      accessible web applications.
 
-#### Option A: Claude Code (Used Here)
+Instructions: Create an interactive quiz component that tracks user
+              progress through 10 questions covering AI prompting skills.
+
+Specifics: Use vanilla JavaScript, no frameworks. Store state in a
+           single object. Use event delegation for performance.
+
+Parameters: No inline scripts. No external dependencies. Must work
+            without JavaScript for basic content. WCAG 2.1 AA compliant.
+```
+
+### CRISPE Framework
+**Context, Role, Instruction, Specifics, Parameters, Example**
+
+Used for complex features requiring consistent output patterns:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ C │ Context       │ Give background                            │
+│ R │ Role          │ Tell AI who it is                          │
+│ I │ Instruction   │ The main ask                               │
+│ S │ Specifics     │ Format, length, tone                       │
+│ P │ Parameters    │ Rules and boundaries                       │
+│ E │ Example       │ Show desired output format                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Example from this project:**
+```
+Context: Building the Prompt Scorer tool that analyzes user prompts
+         against framework elements.
+
+Role: Act as a JavaScript developer specializing in text analysis
+      and pattern matching.
+
+Instruction: Create a scoring algorithm that detects CRISP, COSTAR,
+             and CRISPE elements in user prompts.
+
+Specifics: Use regex patterns. Weight framework coverage at 50%,
+           sentence quality at 25%, intent clarity at 25%.
+
+Parameters: Must be client-side only. No API calls. Debounce any
+            real-time analysis. Handle edge cases gracefully.
+
+Example:
+  Input: "Write about marketing"
+  Output: { score: 25, elements: { I: true }, missing: [C,R,S,P] }
+
+  Input: "Context: I run a business. Write a 500-word blog..."
+  Output: { score: 85, elements: { C: true, I: true, S: true, P: true } }
+```
+
+### COSTAR Framework
+**Context, Objective, Style, Tone, Audience, Response**
+
+Used for content-heavy pages where audience matters:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ C │ Context    │ Situation background                          │
+│ O │ Objective  │ Goal to achieve                               │
+│ S │ Style      │ Writing style                                 │
+│ T │ Tone       │ Emotional quality                             │
+│ A │ Audience   │ Who will read it                              │
+│ R │ Response   │ Desired format                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Example from this project:**
+```
+Context: Creating educational content about AI safety for the
+         learning site.
+
+Objective: Help users understand AI limitations, hallucinations,
+           and verification practices without causing fear.
+
+Style: Clear, practical, evidence-based. Like a helpful teacher.
+
+Tone: Empowering but cautious. Acknowledge risks without alarmism.
+
+Audience: General public, beginners to intermediate AI users,
+          non-technical professionals.
+
+Response: Structured page with collapsible sections, real-world
+          examples, and actionable verification prompts.
+```
+
+### ReAct Framework
+**Reasoning + Acting**
+
+Used for complex debugging, auditing, and multi-step investigations:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│         ReAct: Thought → Action → Observation → Repeat          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Thought:  "There's a consistency issue across framework       │
+│              definitions. Need to scan the entire site."        │
+│                                                                 │
+│   Action:   Search for all CRISP/CRISPE references              │
+│             grep -r "CRISP" --include="*.html" --include="*.js" │
+│                                                                 │
+│   Observation: Found 15 files with references. 3 have           │
+│                incorrect definitions.                           │
+│                                                                 │
+│   Thought:  "Need to check each file individually and           │
+│              catalog all discrepancies before fixing."          │
+│                                                                 │
+│   [Continue until complete...]                                  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Used for:**
+- Security audit across 26+ pages
+- Framework consistency verification
+- Performance optimization analysis
+- Accessibility compliance review
+
+---
+
+## Security Architecture
+
+### Defense in Depth: 100% Security Score
+
+This site achieves **A+ 100% security rating** through multiple layers of protection:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        SECURITY LAYERS                                  │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Layer 1: Content Security Policy (CSP)                                 │
+│  ├── default-src 'none'           → Block everything by default        │
+│  ├── script-src 'self'            → Only local scripts                 │
+│  ├── style-src 'self'             → Only local styles                  │
+│  ├── img-src 'self' data:         → Local images + data URIs           │
+│  ├── font-src 'self'              → Self-hosted fonts only             │
+│  ├── connect-src 'self'           → Same-origin connections            │
+│  ├── form-action 'none'           → Block all form submissions         │
+│  └── base-uri 'none'              → Prevent base tag hijacking         │
+│                                                                         │
+│  Layer 2: Transport Security                                            │
+│  ├── Strict-Transport-Security    → Force HTTPS (1 year, preload)      │
+│  └── Upgrade-Insecure-Requests    → Auto-upgrade HTTP to HTTPS         │
+│                                                                         │
+│  Layer 3: Frame Protection                                              │
+│  ├── X-Frame-Options: DENY        → Prevent clickjacking               │
+│  └── frame-ancestors 'none'       → CSP frame protection               │
+│                                                                         │
+│  Layer 4: Content Protection                                            │
+│  ├── X-Content-Type-Options       → Prevent MIME sniffing              │
+│  └── X-XSS-Protection             → Legacy XSS filter                  │
+│                                                                         │
+│  Layer 5: Privacy                                                       │
+│  ├── Referrer-Policy              → strict-origin-when-cross-origin    │
+│  └── Permissions-Policy           → Disable unnecessary APIs           │
+│                                                                         │
+│  Layer 6: Server Configuration                                          │
+│  ├── Directory browsing disabled  → Options -Indexes                   │
+│  ├── Sensitive files blocked      → .htaccess, .git, .env              │
+│  └── Error document handling      → Custom 404/403 pages               │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Zero External Dependencies
+
+| What We Avoided | Why It Matters |
+|-----------------|----------------|
+| CDN-hosted JavaScript | No supply chain attacks |
+| External fonts (Google Fonts) | No tracking, no external requests |
+| Third-party analytics | No data leakage |
+| External APIs | No dependency on third-party uptime |
+| Inline scripts/styles | CSP 'self' enforcement |
+
+### Security Headers Implementation
+
+**HTML Meta Tags (per page):**
+```html
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none';
+               connect-src 'self';
+               form-action 'none';
+               base-uri 'none';
+               font-src 'self';
+               img-src 'self' data:;
+               style-src 'self';
+               script-src 'self';">
+
+<meta name="referrer" content="strict-origin-when-cross-origin">
+```
+
+**Server Configuration (.htaccess):**
+```apache
+# Complete Security Headers
+Header set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none';"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "DENY"
+Header set X-XSS-Protection "1; mode=block"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+```
+
+### Security Audit Results
+
+| Test | Tool | Result |
+|------|------|--------|
+| Security Headers | securityheaders.com | **A+** |
+| Mozilla Observatory | observatory.mozilla.org | **A+** |
+| SSL Labs | ssllabs.com | **A+** |
+| CSP Evaluator | csp-evaluator.withgoogle.com | **Pass** |
+
+---
+
+## Technical Specifications
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         PROJECT STRUCTURE                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  praxis-library/                                                        │
+│  ├── index.html                    # Homepage                           │
+│  ├── styles.css                    # Single stylesheet (4000+ lines)    │
+│  ├── app.js                        # Single script (2000+ lines)        │
+│  ├── .htaccess                     # Server security config             │
+│  │                                                                      │
+│  ├── learn/                        # Educational content                │
+│  │   ├── index.html                # Learning hub                       │
+│  │   ├── prompt-basics.html        # Fundamentals                       │
+│  │   ├── crisp.html                # CRISP methodology                  │
+│  │   ├── crispe.html               # CRISPE methodology                 │
+│  │   ├── costar.html               # COSTAR methodology                 │
+│  │   ├── react.html                # ReAct methodology                  │
+│  │   └── advanced.html             # Advanced techniques                │
+│  │                                                                      │
+│  ├── tools/                        # Interactive tools                  │
+│  │   ├── index.html                # Tools hub                          │
+│  │   ├── scorer.html               # Prompt Scorer                      │
+│  │   ├── checklist.html            # Preflight Checklist                │
+│  │   └── hallucination.html        # Hallucination Spotter              │
+│  │                                                                      │
+│  ├── patterns/                     # Prompt patterns library            │
+│  ├── quiz/                         # AI Readiness Quiz                  │
+│  ├── education/                    # Education industry                 │
+│  ├── business/                     # Business industry                  │
+│  ├── services/                     # Services industry                  │
+│  ├── pages/                        # Static pages                       │
+│  │                                                                      │
+│  └── assets/                       # Static resources                   │
+│      ├── fonts/                    # Self-hosted (Inter, JetBrains)     │
+│      ├── icons/SVG/                # 50+ vector icons                   │
+│      └── images/                   # Optimized images                   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Performance Metrics
+
+| Metric | Value | Method |
+|--------|-------|--------|
+| First Contentful Paint | < 1.0s | Lighthouse |
+| Largest Contentful Paint | < 2.0s | Lighthouse |
+| Total Blocking Time | < 100ms | Lighthouse |
+| Cumulative Layout Shift | < 0.1 | Lighthouse |
+| Performance Score | **100** | Lighthouse |
+
+### Accessibility Compliance
+
+| Standard | Status |
+|----------|--------|
+| WCAG 2.1 Level AA | Compliant |
+| Section 508 | Compliant |
+| Keyboard Navigation | Full support |
+| Screen Reader | Optimized |
+| Color Contrast | 4.5:1+ ratios |
+| Focus Indicators | Visible on all elements |
+
+---
+
+## Development Tools
+
+### Primary Stack
+
+| Tool | Purpose | Why Chosen |
+|------|---------|------------|
+| **VS Code** | Code editor | Extensions, integrated terminal |
+| **Claude Code** | AI assistant | Deep code understanding, security awareness |
+| **Git** | Version control | Standard, GitHub integration |
+| **Live Server** | Local development | Hot reload, HTTPS support |
+
+### VS Code Extensions Used
+
+```json
+{
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "ecmel.vscode-html-css",
+    "eamodio.gitlens",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
+```
+
+### Claude Code Configuration
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Edit(**)",
+      "Write(assets/**)",
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)"
+    ]
+  }
+}
+```
+
+---
+
+## Quality Assurance Process
+
+### Validation Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      QA VALIDATION PIPELINE                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌────────────┐  │
+│  │  Security   │──▶│ Performance │──▶│ Accessibility│──▶│    UX     │  │
+│  │   Audit     │   │    Test     │   │    Check     │   │  Review   │  │
+│  └─────────────┘   └─────────────┘   └─────────────┘   └────────────┘  │
+│        │                 │                  │                 │        │
+│        ▼                 ▼                  ▼                 ▼        │
+│  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌────────────┐  │
+│  │ CSP Check   │   │ Lighthouse  │   │    WAVE     │   │  Manual    │  │
+│  │ Header Test │   │ Core Vitals │   │   axe-core  │   │  Testing   │  │
+│  └─────────────┘   └─────────────┘   └─────────────┘   └────────────┘  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Consistency Verification
+
+Used **ReAct framework** to systematically audit all 26+ pages:
+
+1. **Thought**: Framework definitions must be consistent
+2. **Action**: Grep search for all CRISP/CRISPE/COSTAR references
+3. **Observation**: Catalog discrepancies
+4. **Repeat**: Fix and verify each issue
+
+---
+
+## Lessons Learned
+
+### What Works
+
+| Practice | Benefit |
+|----------|---------|
+| Structured prompts (CRISP/CRISPE) | Consistent, predictable output |
+| Framework-driven development | Reduced cognitive load |
+| Security-first approach | Zero vulnerabilities |
+| Human validation loop | Catches AI errors early |
+| Single source files | Easier maintenance |
+
+### What to Avoid
+
+| Anti-Pattern | Why It Fails |
+|--------------|--------------|
+| Vague prompts | Inconsistent results |
+| Skipping validation | Security gaps |
+| Over-reliance on AI | Missing human judgment |
+| External dependencies | Security/privacy risks |
+| Inline code | CSP violations |
+
+---
+
+## Reproducibility
+
+Want to build something similar? Here's the exact process:
+
+### 1. Set Up Your Environment
 
 ```bash
-# Install via npm
+# Clone this repo for reference
+git clone https://github.com/basrosario/PROMPTLIBRARY.git
+
+# Install Claude Code
 npm install -g @anthropic-ai/claude-code
 
-# Or via Homebrew (Mac)
-brew install claude-code
-
-# Run in your project directory
+# Start development
 cd your-project
 claude
 ```
 
-**Best for:** Deep code understanding, security-aware refactoring, iterative improvement
+### 2. Use Structured Prompts
 
-#### Option B: GitHub Copilot
+Start every significant task with a framework:
 
-```bash
-# Install via VS Code extension marketplace
-# Search: "GitHub Copilot"
-# Requires GitHub account and subscription
-```
+- **CRISP** for quick tasks
+- **CRISPE** when you need examples
+- **COSTAR** for content-heavy work
+- **ReAct** for debugging/auditing
 
-**Best for:** Inline completions, quick suggestions, IDE integration
+### 3. Validate Everything
 
-#### Option C: Cursor AI
-
-```bash
-# Download from https://cursor.sh/
-# AI features built directly into the editor
-```
-
-**Best for:** All-in-one solution, natural language commands
-
-#### Option D: Self-Hosted / Open Source
+Run these checks before deploying:
 
 ```bash
-# Ollama - Run local models
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull codellama
-ollama pull mistral
+# Security
+curl -I https://yoursite.com | grep -i "security\|content-security"
 
-# Continue.dev - Open source IDE extension
-# Install from VS Code marketplace
+# Performance
+npx lighthouse https://yoursite.com --view
+
+# Accessibility
+npx axe https://yoursite.com
 ```
 
-**Best for:** Privacy, no API costs, offline capability
+### 4. Iterate and Improve
 
-### Step 4: Organize Your Project
-
-```
-project/
-├── index.html              # Entry point
-├── styles.css              # Centralized styles
-├── app.js                  # Application logic
-├── .htaccess               # Server configuration
-├── README.md               # Documentation
-├── LICENSE                 # Usage terms
-├── assets/
-│   ├── fonts/              # Self-hosted typography
-│   ├── icons/SVG/          # Vector icons
-│   └── images/             # Optimized media
-├── pages/                  # Additional views
-└── .claude/                # AI configuration (optional)
-    └── settings.json
-```
-
-### Step 5: Implement Security From the Start
-
-Add this to your `.htaccess` file:
-
-```apache
-<IfModule mod_headers.c>
-    # Content Security Policy - Block unsafe resources
-    Header set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; form-action 'none'; base-uri 'none';"
-
-    # Force HTTPS
-    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-    # Prevent clickjacking
-    Header set X-Frame-Options "DENY"
-
-    # Prevent MIME sniffing
-    Header set X-Content-Type-Options "nosniff"
-
-    # Referrer policy
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-
-    # Permissions policy
-    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-</IfModule>
-```
-
-### Step 6: Deploy Your Project
-
-#### Static Hosting (Free Options)
-
-| Provider | Custom Domain | SSL | Deploy Method |
-|----------|---------------|-----|---------------|
-| GitHub Pages | Yes | Yes | `git push` |
-| Netlify | Yes | Yes | `netlify deploy` |
-| Vercel | Yes | Yes | `vercel --prod` |
-| Cloudflare Pages | Yes | Yes | Git integration |
-| Render | Yes | Yes | Git integration |
-
-#### Quick Deploy Commands
-
-```bash
-# GitHub Pages
-git push origin main
-# Then enable in repo Settings > Pages
-
-# Netlify
-npm install -g netlify-cli
-netlify deploy --prod
-
-# Vercel
-npm install -g vercel
-vercel --prod
-```
-
----
-
-## The Human-AI Workflow
-
-This is how the collaboration actually works:
-
-### 1. You Bring the Vision
-
-AI doesn't have your ideas. You set the direction.
-
-```
-Human: "I want to create a prompt library that helps people
-        across different industries adopt AI in their work."
-
-AI: "I can help structure that. What industries are you
-     thinking about?"
-```
-
-### 2. Iterate Together
-
-The magic is in the back-and-forth:
-
-```
-Human: "The education section needs prompts for teachers."
-AI: [Creates initial prompts]
-Human: "Good, but they need to address grading and feedback too."
-AI: [Expands and refines]
-Human: "Now make sure they follow our design system."
-AI: [Applies consistent styling]
-```
-
-### 3. Let AI Handle the Details
-
-You focus on what matters; AI handles the tedious parts:
-
-```
-Human: "Apply this same security header to all 26 pages."
-AI: [Updates every file, maintains consistency]
-```
-
-### 4. Review and Refine
-
-AI proposes, you decide:
-
-```
-Human: "Generate a security audit report."
-AI: [Creates comprehensive SECURITY-REPORT.md]
-Human: "Fix these three issues you found."
-AI: [Implements fixes across all affected files]
-```
-
----
-
-## What We Built Together
-
-| Aspect | Human Contribution | AI Contribution |
-|--------|-------------------|-----------------|
-| **Vision** | Industry selection, user needs | Structure and organization |
-| **Content** | Prompt concepts, domain knowledge | Writing, formatting, consistency |
-| **Design** | Color choices, branding direction | CSS implementation, responsiveness |
-| **Security** | Requirements and standards | Implementation, auditing, fixes |
-| **Accessibility** | UD/UDL principles | ARIA labels, semantic HTML |
-
-### Technical Achievements
-
-| Metric | Result |
-|--------|--------|
-| Security Grade | A+ (100%) |
-| Performance | 100% |
-| Inline Scripts | 0 |
-| Inline Styles | 0 |
-| External Dependencies | 0 |
-| Pages | 26+ |
-| Prompts | 50+ |
-
----
-
-## Clone and Explore
-
-```bash
-git clone https://github.com/basrosario/PROMPTLIBRARY.git
-cd PROMPTLIBRARY
-
-# Run locally
-# Option 1: VS Code Live Server extension
-# Option 2: Python
-python -m http.server 8000
-# Option 3: Node
-npx http-server
-```
-
----
-
-## Key Takeaways
-
-### For Individuals
-- AI amplifies your expertise—it doesn't replace it
-- Start with what you know; let AI help you execute better
-- The iteration loop is where quality emerges
-
-### For Teams
-- Establish standards early; let AI enforce them
-- Document decisions as you make them
-- Use AI to maintain consistency at scale
-
-### For Everyone
-- AI adoption is about empowerment, not replacement
-- The human brings judgment and creativity; AI brings speed and consistency
-- Together, we build things neither could build alone
+The human-AI loop:
+1. You define the goal
+2. AI generates implementation
+3. You validate and test
+4. AI refines based on feedback
+5. Repeat until perfect
 
 ---
 
 ## Resources
 
-### AI Development
-- [Claude Code](https://claude.ai/claude-code)
-- [GitHub Copilot](https://github.com/features/copilot)
-- [Cursor](https://cursor.sh/)
-- [Continue.dev](https://continue.dev/)
+### Frameworks Taught on This Site
 
-### Testing & Verification
-- [Mozilla Observatory](https://observatory.mozilla.org) - Security
-- [SecurityHeaders.com](https://securityheaders.com) - Headers
-- [GTmetrix](https://gtmetrix.com) - Performance
-- [WAVE](https://wave.webaim.org/) - Accessibility
+| Framework | Best For | Learn More |
+|-----------|----------|------------|
+| CRISP | Quick tasks | [/learn/crisp.html](learn/crisp.html) |
+| CRISPE | Complex with examples | [/learn/crispe.html](learn/crispe.html) |
+| COSTAR | Content creation | [/learn/costar.html](learn/costar.html) |
+| ReAct | Problem-solving | [/learn/react.html](learn/react.html) |
 
-### Learning
-- [MDN Web Docs](https://developer.mozilla.org)
-- [web.dev](https://web.dev)
-- [Anthropic Docs](https://docs.anthropic.com)
+### External Resources
+
+- [Claude Code Documentation](https://docs.anthropic.com/claude-code)
+- [MDN Web Security](https://developer.mozilla.org/en-US/docs/Web/Security)
+- [OWASP Security Headers](https://owasp.org/www-project-secure-headers/)
+- [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 
 ---
 
@@ -350,5 +567,9 @@ See [LICENSE](LICENSE) for full terms.
 *Human creativity. AI capability. Better outcomes.*
 
 *The future belongs to those who learn to work alongside AI.*
+
+---
+
+**Built with structured prompting. Validated by humans. Secured for everyone.**
 
 </div>

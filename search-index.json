@@ -2493,10 +2493,10 @@
       "title": "CRISPE Prompt Method",
       "category": "Methods",
       "subcategory": "Frameworks",
-      "keywords": ["CRISPE", "method", "prompt", "framework", "capacity", "insight", "statement", "personality", "experiment"],
+      "keywords": ["CRISPE", "method", "prompt", "framework", "context", "role", "instruction", "specifics", "parameters", "example"],
       "page": "library.html",
       "anchor": "foundation",
-      "excerpt": "Extended framework with Capacity-Role-Insight-Statement-Personality-Experiment",
+      "excerpt": "Extended framework with Context-Role-Instruction-Specifics-Parameters-Example",
       "method": "CRISPE"
     },
     {
