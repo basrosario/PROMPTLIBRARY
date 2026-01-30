@@ -77,8 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'PERPLEXITY'
     ];
 
-    // AI-related terms for floating display (secondary pages)
+    // AI-related terms for floating display - processing terms for each AI cluster
     const AI_TERMS = [
+        // Core AI concepts
         'Machine Learning',
         'Neural Network',
         'Deep Learning',
@@ -89,12 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
         'Diffusion',
         'Embedding',
         'Tokenization',
+        // Training & optimization
         'Fine-tuning',
         'RAG',
         'Vector DB',
         'Attention',
         'Inference',
         'Training',
+        'Backprop',
+        'Gradient',
+        'Loss Function',
+        'Optimization',
+        // Prompting concepts
         'Prompt',
         'Context Window',
         'Hallucination',
@@ -103,7 +110,52 @@ document.addEventListener('DOMContentLoaded', () => {
         'Chain of Thought',
         'Few-shot',
         'Zero-shot',
-        'Multimodal'
+        'Multimodal',
+        'Reasoning',
+        // Architecture
+        'Encoder',
+        'Decoder',
+        'Self-Attention',
+        'Feed Forward',
+        'Layer Norm',
+        'Softmax',
+        'Activation',
+        'Dropout',
+        'Batch Size',
+        'Epochs',
+        // Applications
+        'Classification',
+        'Generation',
+        'Summarization',
+        'Translation',
+        'Q&A',
+        'Sentiment',
+        'Entity',
+        'Intent',
+        'Clustering',
+        'Regression',
+        // Modern AI
+        'Foundation Model',
+        'LLM',
+        'SLM',
+        'Agent',
+        'Tool Use',
+        'Retrieval',
+        'Grounding',
+        'Safety',
+        'Benchmark',
+        'Eval',
+        // Data
+        'Dataset',
+        'Preprocessing',
+        'Augmentation',
+        'Labeling',
+        'Annotation',
+        'Corpus',
+        'Token',
+        'Vocab',
+        'Sequence',
+        'Batch'
     ];
 
     // Neural Network class - Each AI gets its own active cluster
@@ -333,30 +385,47 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Initialize only floating terms (for combined mode - doesn't reset nodes)
+        // Initialize only floating terms (for combined mode - attaches terms to each cluster)
         initFloatingTermsOnly() {
             this.floatingTerms = [];
 
-            // Create floating terms - select random subset
-            const shuffledTerms = [...AI_TERMS].sort(() => Math.random() - 0.5);
-            const selectedTerms = shuffledTerms.slice(0, this.termCount);
+            // Terms per cluster - at least 10 processing terms per AI
+            const termsPerCluster = this.isMobile ? 8 : 12;
 
-            selectedTerms.forEach((term, i) => {
-                this.floatingTerms.push({
-                    text: term,
-                    x: Math.random() * (this.width * 0.8) + this.width * 0.1,
-                    y: Math.random() * (this.height * 0.8) + this.height * 0.1,
-                    // Floating animation
-                    floatSpeedX: 0.0003 + Math.random() * 0.0002,
-                    floatSpeedY: 0.0004 + Math.random() * 0.0002,
-                    floatAmplitudeX: 20 + Math.random() * 30,
-                    floatAmplitudeY: 15 + Math.random() * 25,
-                    floatPhaseX: Math.random() * Math.PI * 2,
-                    floatPhaseY: Math.random() * Math.PI * 2,
-                    // Visual properties
-                    opacity: 0.3 + Math.random() * 0.4,
-                    pulseOffset: i * 0.8,
-                    fontSize: this.isMobile ? 10 : 12 + Math.floor(Math.random() * 4)
+            // Shuffle all terms
+            const shuffledTerms = [...AI_TERMS].sort(() => Math.random() - 0.5);
+
+            // Attach terms to each AI cluster
+            this.aiClusters.forEach((cluster, clusterIndex) => {
+                // Get a unique set of terms for this cluster
+                const startIdx = (clusterIndex * termsPerCluster) % shuffledTerms.length;
+                const clusterTerms = [];
+                for (let i = 0; i < termsPerCluster; i++) {
+                    clusterTerms.push(shuffledTerms[(startIdx + i) % shuffledTerms.length]);
+                }
+
+                // Create orbiting terms around this cluster
+                clusterTerms.forEach((term, i) => {
+                    const angle = (i / termsPerCluster) * Math.PI * 2 + Math.random() * 0.5;
+                    const radius = this.clusterSpread * (0.8 + Math.random() * 0.6);
+
+                    this.floatingTerms.push({
+                        text: term,
+                        clusterIndex: clusterIndex,
+                        // Orbital position (relative to cluster)
+                        angle: angle,
+                        radius: radius,
+                        // Orbital speed - slow rotation around cluster
+                        orbitSpeed: (0.0002 + Math.random() * 0.0003) * (Math.random() > 0.5 ? 1 : -1),
+                        // Wobble animation
+                        wobbleSpeed: 0.001 + Math.random() * 0.001,
+                        wobbleAmount: 10 + Math.random() * 15,
+                        wobblePhase: Math.random() * Math.PI * 2,
+                        // Visual properties
+                        opacity: 0.25 + Math.random() * 0.35,
+                        pulseOffset: i * 0.5 + clusterIndex,
+                        fontSize: this.isMobile ? 9 : 10 + Math.floor(Math.random() * 3)
+                    });
                 });
             });
         }
@@ -482,9 +551,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         drawClusterLabels(time) {
-            // Draw permanent labels at each AI cluster center
+            // Draw permanent labels at each AI cluster center - clean text only, no background
             this.aiClusters.forEach((cluster, i) => {
-                // Subtle pulse effect - keep labels bright and visible
                 const pulse = Math.sin(time * 0.002 + cluster.pulseOffset) * 0.1 + 0.9;
                 const fontSize = this.isMobile ? 12 : 15;
 
@@ -493,59 +561,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
 
-                // Draw dark background pill for readability
-                const textWidth = this.ctx.measureText(cluster.name).width;
-                const pillPadding = 10;
-                const pillHeight = fontSize + 10;
-
-                // Background pill - more opaque for better readability
-                this.ctx.fillStyle = `rgba(10, 10, 15, 0.9)`;
-                this.ctx.beginPath();
-                const pillX = cluster.centerX - textWidth / 2 - pillPadding;
-                const pillY = cluster.centerY - pillHeight / 2;
-                const pillW = textWidth + pillPadding * 2;
-                const pillR = pillHeight / 2;
-                // Rounded rectangle
-                this.ctx.moveTo(pillX + pillR, pillY);
-                this.ctx.lineTo(pillX + pillW - pillR, pillY);
-                this.ctx.arc(pillX + pillW - pillR, pillY + pillR, pillR, -Math.PI / 2, Math.PI / 2);
-                this.ctx.lineTo(pillX + pillR, pillY + pillHeight);
-                this.ctx.arc(pillX + pillR, pillY + pillR, pillR, Math.PI / 2, -Math.PI / 2);
-                this.ctx.fill();
-
-                // Glowing border - brighter red
-                this.ctx.strokeStyle = `rgba(230, 57, 70, ${pulse * 0.8})`;
-                this.ctx.lineWidth = 2;
-                this.ctx.stroke();
-
-                // Text glow - white glow for better visibility
+                // Text glow - subtle red/white glow for visibility
                 if (!this.isMobile) {
-                    this.ctx.shadowColor = `rgba(255, 255, 255, 0.5)`;
-                    this.ctx.shadowBlur = 8;
+                    this.ctx.shadowColor = `rgba(230, 57, 70, ${pulse * 0.6})`;
+                    this.ctx.shadowBlur = 15;
                 }
 
-                // Main text - fully white, always visible
-                this.ctx.fillStyle = '#ffffff';
+                // Main text - white with pulse
+                this.ctx.fillStyle = `rgba(255, 255, 255, ${pulse})`;
                 this.ctx.fillText(cluster.name, cluster.centerX, cluster.centerY);
 
                 this.ctx.restore();
             });
         }
 
-        // Update floating terms positions (terms mode)
+        // Update floating terms positions - orbit around their assigned cluster
         updateFloatingTerms(time) {
             this.floatingTerms.forEach(term => {
-                term.currentX = term.x +
-                    Math.sin(time * term.floatSpeedX + term.floatPhaseX) * term.floatAmplitudeX;
-                term.currentY = term.y +
-                    Math.sin(time * term.floatSpeedY + term.floatPhaseY) * term.floatAmplitudeY;
+                // Update orbital angle
+                term.angle += term.orbitSpeed;
+
+                // Check if term has a cluster assignment (combined mode)
+                if (term.clusterIndex !== undefined && this.aiClusters[term.clusterIndex]) {
+                    const cluster = this.aiClusters[term.clusterIndex];
+
+                    // Calculate position based on cluster center + orbital position + wobble
+                    const wobble = Math.sin(time * term.wobbleSpeed + term.wobblePhase) * term.wobbleAmount;
+                    const effectiveRadius = term.radius + wobble;
+
+                    term.currentX = cluster.centerX + Math.cos(term.angle) * effectiveRadius;
+                    term.currentY = cluster.centerY + Math.sin(term.angle) * effectiveRadius;
+                } else {
+                    // Fallback for terms mode (random floating)
+                    term.currentX = term.x +
+                        Math.sin(time * term.floatSpeedX + term.floatPhaseX) * term.floatAmplitudeX;
+                    term.currentY = term.y +
+                        Math.sin(time * term.floatSpeedY + term.floatPhaseY) * term.floatAmplitudeY;
+                }
             });
         }
 
-        // Draw floating AI-related terms (terms mode)
+        // Draw floating AI-related terms - orbiting around clusters
         drawFloatingTerms(time) {
             this.floatingTerms.forEach(term => {
-                const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.1 + 0.9;
+                const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.15 + 0.85;
                 const opacity = term.opacity * pulse;
 
                 this.ctx.save();
@@ -553,14 +612,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
 
-                // Subtle text glow
+                // Subtle text glow - red tint
                 if (!this.isMobile) {
-                    this.ctx.shadowColor = `rgba(230, 57, 70, ${opacity * 0.5})`;
-                    this.ctx.shadowBlur = 10;
+                    this.ctx.shadowColor = `rgba(230, 57, 70, ${opacity * 0.4})`;
+                    this.ctx.shadowBlur = 8;
                 }
 
-                // Text color - soft white/gray with red tint
-                this.ctx.fillStyle = `rgba(200, 180, 180, ${opacity})`;
+                // Text color - soft white/gray
+                this.ctx.fillStyle = `rgba(180, 170, 170, ${opacity})`;
                 this.ctx.fillText(term.text, term.currentX, term.currentY);
 
                 this.ctx.restore();
