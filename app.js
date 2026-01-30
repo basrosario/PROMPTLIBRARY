@@ -774,15 +774,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all neural network canvases
     const neuralNetworks = [];
 
-    // Check if this is the main index page (root path or /index.html)
+    // Check if this is the main index page ONLY (root path or /index.html at root)
     const mainCanvas = document.getElementById('neural-network');
     const pathname = window.location.pathname;
-    const isMainPage = pathname === '/' ||
-                       pathname === '/index.html' ||
-                       pathname.endsWith('/index.html') ||
-                       (pathname.endsWith('/') && !pathname.includes('/learn/') &&
-                        !pathname.includes('/tools/') && !pathname.includes('/patterns/') &&
-                        !pathname.includes('/quiz/') && !pathname.includes('/pages/'));
+    // Only the root index page gets AI clusters - must be exactly / or /index.html (not in any subdirectory)
+    const isMainPage = pathname === '/' || pathname === '/index.html';
 
     // Main hero canvas on index page - combined mode with AI clusters AND floating terms
     if (mainCanvas && isMainPage) {
@@ -791,7 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showTerms: true
         }));
     } else if (mainCanvas) {
-        // Other pages - terms mode with floating AI terminology only (no AI names)
+        // ALL other pages - terms mode with floating AI terminology only (NO AI names)
         neuralNetworks.push(new NeuralNetwork(mainCanvas, {
             mode: 'terms'
         }));
