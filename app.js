@@ -117,32 +117,92 @@ document.addEventListener('DOMContentLoaded', () => {
         'PERPLEXITY'
     ];
 
-    // Chat scripts for each AI - prompts and responses shown in hero chat overlay
+    // Chat scripts for each AI - creative, corporate-friendly, humorous prompts
     const AI_CHAT_SCRIPTS = {
-        'ChatGPT': {
-            prompt: "Hey ChatGPT, can you help me structure this document?",
-            response: "Of course! I'll organize it into clear sections with headers and bullet points..."
-        },
-        'CLAUDE CODE': {
-            prompt: "Claude, can you review this code for bugs?",
-            response: "I'll examine the logic carefully and check for potential issues..."
-        },
-        'GEMINI': {
-            prompt: "Gemini, summarize this research paper for me",
-            response: "Here's a concise summary of the key findings and conclusions..."
-        },
-        'CURSOR.AI': {
-            prompt: "Cursor, help me refactor this function",
-            response: "I'll analyze the structure and suggest cleaner patterns..."
-        },
-        'COPILOT': {
-            prompt: "Hey Copilot, can you see my project files?",
-            response: "Yes, I can see your project. Let me analyze the structure..."
-        },
-        'PERPLEXITY': {
-            prompt: "Perplexity, what are the latest trends in AI?",
-            response: "Based on recent research, the key trends include..."
-        }
+        'ChatGPT': [
+            {
+                prompt: "ChatGPT, my boss wants a 'quick' 50-page report by EOD. Help?",
+                response: "Challenge accepted! Let's turn that mountain into a molehill... with excellent formatting."
+            },
+            {
+                prompt: "Can you make this email sound professional but not passive-aggressive?",
+                response: "Ah yes, the corporate art of saying 'per my last email' with grace. I've got you covered."
+            },
+            {
+                prompt: "Explain blockchain to my grandma. She thinks I mine actual coins.",
+                response: "Picture a magical ledger that everyone can see but no one can cheat... and no pickaxes required!"
+            }
+        ],
+        'CLAUDE CODE': [
+            {
+                prompt: "Claude, this code worked yesterday. I changed nothing. It's broken now.",
+                response: "Ah, the classic 'it works on my machine' paradox. Let's debug this mystery together..."
+            },
+            {
+                prompt: "Can you explain why my 10-line function became 200 lines?",
+                response: "Feature creep is a silent visitor. Let's refactor this back to elegance."
+            },
+            {
+                prompt: "Help me write code that future me won't hate.",
+                response: "Future you will thank present you. Let's add some comments and clean architecture!"
+            }
+        ],
+        'GEMINI': [
+            {
+                prompt: "Gemini, I need to sound smart in tomorrow's meeting about AI.",
+                response: "Let's get you fluent in 'synergy' and 'paradigm shifts' with actual substance behind them."
+            },
+            {
+                prompt: "Summarize this 100-page PDF. I have a meeting in 10 minutes.",
+                response: "Speed-reading mode activated! Here are the 5 things you actually need to know..."
+            },
+            {
+                prompt: "What's the difference between AI and my coffee machine?",
+                response: "One learns from data, the other just judges you for that third espresso. Let me elaborate..."
+            }
+        ],
+        'CURSOR.AI': [
+            {
+                prompt: "Cursor, help me refactor this. The original dev left no comments.",
+                response: "Brave explorer of legacy code! Let's document and modernize this archaeological find."
+            },
+            {
+                prompt: "Why is my code running slower than my Monday morning?",
+                response: "Let's profile this and find those sneaky performance bottlenecks hiding in plain sight."
+            },
+            {
+                prompt: "Convert this spaghetti code into something... less Italian?",
+                response: "Time for some clean architecture! We'll transform this into elegant, maintainable code."
+            }
+        ],
+        'COPILOT': [
+            {
+                prompt: "Copilot, autocomplete my hopes and dreams... I mean, this function.",
+                response: "Dreams loading... In the meantime, here's that perfectly typed function you needed!"
+            },
+            {
+                prompt: "Can you see why this PR has 47 comments?",
+                response: "Ah, a spirited code review! Let's address these concerns one diplomatic commit at a time."
+            },
+            {
+                prompt: "Help me write tests. Yes, I know I should've written them first.",
+                response: "No judgment here! Let's add comprehensive tests and pretend we planned this all along."
+            }
+        ],
+        'PERPLEXITY': [
+            {
+                prompt: "Perplexity, settle an office debate: tabs or spaces?",
+                response: "The eternal war! Research shows... it depends on your team's style guide. Diplomacy wins!"
+            },
+            {
+                prompt: "What did my competitors announce while I was on vacation?",
+                response: "Let me catch you up on the industry news you missed. Spoiler: you didn't miss the AI revolution."
+            },
+            {
+                prompt: "Find me research that proves my idea isn't crazy.",
+                response: "Validating your hypothesis... Good news! There's actually solid research supporting this approach."
+            }
+        ]
     };
 
     // AI-related terms for floating display - processing terms for each AI cluster
@@ -736,8 +796,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!this.chatContainer) return;
 
             const aiName = AI_NAMES[this.currentAIIndex];
-            const script = AI_CHAT_SCRIPTS[aiName];
-            if (!script) return;
+            const scripts = AI_CHAT_SCRIPTS[aiName];
+            if (!scripts || scripts.length === 0) return;
+
+            // Pick a random script from the array
+            const script = scripts[Math.floor(Math.random() * scripts.length)];
 
             // Reset state
             this.chatPromptText.textContent = '';
@@ -750,6 +813,13 @@ document.addEventListener('DOMContentLoaded', () => {
             this.chatCharIndex = 0;
             this.chatLastCharTime = 0;
             this.currentScript = script;
+
+            // Position chat on same side as network
+            if (this.heroSide === 'right') {
+                this.chatContainer.classList.add('right-side');
+            } else {
+                this.chatContainer.classList.remove('right-side');
+            }
 
             // Show container
             this.chatContainer.classList.add('visible');
