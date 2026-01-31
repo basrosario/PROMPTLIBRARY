@@ -643,22 +643,18 @@ p {
     transform: translateX(4px);
 }
 
-/* Feature Cards Grid - horizontal scroll on mobile */
+/* Feature Cards Grid - wrap to fit */
 .cards-grid {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-md);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .cards-grid > * {
-    flex: 0 0 auto;
-    min-width: 260px;
-    max-width: 300px;
+    flex: 1 1 250px;
+    min-width: 200px;
+    max-width: 350px;
 }
 
 /* ============================================
@@ -764,19 +760,16 @@ p {
 
 .footer-links {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .footer-links > * {
-    flex: 0 0 auto;
-    min-width: 140px;
+    flex: 1 1 120px;
+    min-width: 100px;
+    max-width: 180px;
 }
 
 .footer-col h4 {
@@ -1705,23 +1698,19 @@ p {
     background: var(--bg-secondary);
 }
 
-/* Card Grid - horizontal scroll on mobile */
+/* Card Grid - wrap to fit */
 .card-grid {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .card-grid > * {
-    flex: 0 0 auto;
-    min-width: 240px;
-    max-width: 280px;
+    flex: 1 1 250px;
+    min-width: 200px;
+    max-width: 350px;
 }
 
 /* Badge Variants */
@@ -1990,22 +1979,19 @@ p {
     margin: 0;
 }
 
-/* Methodology Selector - horizontal on mobile */
+/* Methodology Selector - wrap to fit */
 .methodology-selector {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-xs);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .methodology-selector > * {
-    flex: 0 0 auto;
-    min-width: 120px;
+    flex: 1 1 100px;
+    min-width: 80px;
+    max-width: 150px;
 }
 
 .methodology-btn {
@@ -3178,21 +3164,17 @@ p {
 .info-cards, .score-info-grid, .coverage-grid, .values-grid,
 .safety-principles, .risks-grid, .caution-grid {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .info-cards > *, .score-info-grid > *, .coverage-grid > *, .values-grid > *,
 .safety-principles > *, .risks-grid > *, .caution-grid > * {
-    flex: 0 0 auto;
-    min-width: 200px;
-    max-width: 260px;
+    flex: 1 1 200px;
+    min-width: 150px;
+    max-width: 300px;
 }
 
 .info-card, .score-info-card, .coverage-card, .value-card,
@@ -4176,13 +4158,9 @@ body.menu-open {
    ============================================ */
 .acronym-cards {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-sm);
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .acronym-card {
@@ -4191,9 +4169,9 @@ body.menu-open {
     border-radius: var(--radius-lg);
     padding: var(--space-md);
     text-align: center;
-    flex: 0 0 auto;
-    min-width: 140px;
-    max-width: 180px;
+    flex: 1 1 120px;
+    min-width: 100px;
+    max-width: 160px;
     transition: all var(--transition-normal);
 }
 
@@ -5308,20 +5286,16 @@ body.menu-open {
 /* Readiness Pillars */
 .readiness-pillars {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .readiness-pillars > * {
-    flex: 0 0 auto;
-    min-width: 180px;
-    max-width: 220px;
+    flex: 1 1 200px;
+    min-width: 150px;
+    max-width: 280px;
 }
 
 .pillar-card {
@@ -5366,22 +5340,18 @@ body.menu-open {
     margin: 0;
 }
 
-/* Tool Cards - horizontal scroll on mobile */
+/* Tool Cards - wrap to fit */
 .tool-cards {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .tool-cards > * {
-    flex: 0 0 auto;
-    min-width: 280px;
-    max-width: 320px;
+    flex: 1 1 280px;
+    min-width: 250px;
+    max-width: 400px;
 }
 
 .tool-card {
@@ -5465,23 +5435,19 @@ body.menu-open {
     transform: translateX(4px);
 }
 
-/* Path Steps - horizontal on mobile */
+/* Path Steps - wrap to fit */
 .path-steps {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-sm);
-    scrollbar-width: thin;
+    justify-content: center;
 }
 
 .path-steps > * {
-    flex: 0 0 auto;
+    flex: 1 1 280px;
     min-width: 220px;
-    max-width: 260px;
+    max-width: 350px;
 }
 
 .path-step {
@@ -6169,11 +6135,12 @@ body.menu-open {
    MOBILE COMPACT STYLES (iPhone 15 Pro Max)
    ============================================ */
 @media (max-width: 480px) {
-    /* Smaller card grids */
+    /* Smaller card grids - allow full width stacking */
     .cards-grid > *,
     .card-grid > * {
-        min-width: 180px;
-        max-width: 200px;
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .card {
@@ -6194,15 +6161,16 @@ body.menu-open {
         padding: 2px 6px;
     }
 
-    /* Smaller info cards */
+    /* Smaller info cards - allow flexible sizing */
     .info-cards > *,
     .coverage-grid > *,
     .values-grid > *,
     .safety-principles > *,
     .risks-grid > *,
     .caution-grid > * {
-        min-width: 160px;
-        max-width: 180px;
+        flex: 1 1 45%;
+        min-width: 0;
+        max-width: 100%;
         padding: var(--space-sm);
     }
 
@@ -6218,10 +6186,11 @@ body.menu-open {
         font-size: 0.7rem;
     }
 
-    /* Smaller readiness pillars */
+    /* Smaller readiness pillars - 2 per row */
     .readiness-pillars > * {
-        min-width: 140px;
-        max-width: 160px;
+        flex: 1 1 45%;
+        min-width: 0;
+        max-width: 100%;
         padding: var(--space-sm);
     }
 
@@ -6239,10 +6208,11 @@ body.menu-open {
         font-size: 0.7rem;
     }
 
-    /* Smaller tool cards */
+    /* Smaller tool cards - stack on mobile */
     .tool-cards > * {
-        min-width: 220px;
-        max-width: 250px;
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: 100%;
         padding: var(--space-md);
     }
 
@@ -6254,10 +6224,11 @@ body.menu-open {
         font-size: 0.8rem;
     }
 
-    /* Smaller path steps */
+    /* Smaller path steps - stack on mobile */
     .path-steps > * {
-        min-width: 180px;
-        max-width: 200px;
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: 100%;
         padding: var(--space-sm);
     }
 
@@ -6267,9 +6238,11 @@ body.menu-open {
         font-size: 1rem;
     }
 
-    /* Smaller footer */
+    /* Smaller footer - 2 columns */
     .footer-links > * {
-        min-width: 100px;
+        flex: 1 1 45%;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .footer-col h4 {
@@ -6282,7 +6255,8 @@ body.menu-open {
 
     /* Smaller methodology buttons */
     .methodology-selector > * {
-        min-width: 100px;
+        flex: 1 1 auto;
+        min-width: 0;
         padding: var(--space-sm);
     }
 
@@ -6361,30 +6335,38 @@ body.menu-open {
 .example-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     margin-top: var(--space-lg);
     padding-top: var(--space-md);
     border-top: 1px solid var(--border-color);
+    justify-content: center;
 }
 
 .legend-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: var(--space-xs);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    min-width: 70px;
+    text-align: center;
 }
 
 .legend-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
     color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 @media (max-width: 480px) {
@@ -6398,16 +6380,18 @@ body.menu-open {
     }
 
     .example-legend {
-        gap: var(--space-sm);
+        gap: var(--space-xs);
     }
 
     .legend-item {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        padding: var(--space-xs) var(--space-sm);
+        min-width: 55px;
     }
 
     .legend-badge {
-        width: 16px;
-        height: 16px;
-        font-size: 0.65rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
     }
 }
