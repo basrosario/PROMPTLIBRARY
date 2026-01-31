@@ -283,8 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Data pulses traveling along connections - more active
             this.dataPulses = [];
             this.lastPulseSpawn = 0;
-            this.pulseSpawnInterval = this.isMobile ? 200 : (isHero ? 50 : 150);
-            this.maxPulses = this.isMobile ? 30 : (isHero ? 120 : 40);
+            this.pulseSpawnInterval = this.isMobile ? 100 : (isHero ? 10 : 150);
+            this.maxPulses = this.isMobile ? 60 : (isHero ? 600 : 40);
 
             // Frame throttling for mobile
             this.lastFrameTime = 0;
@@ -357,19 +357,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (dist < effectiveMaxDist) {
                         const avgZ = (nodeA.z + nodeB.z) / 2;
 
-                        // Hero mode: much thinner lines
+                        // Hero mode: varied line widths for more definition
+                        const isProminent = Math.random() < 0.15; // 15% of connections are prominent
                         const lineWidth = isHero
-                            ? 0.3 + avgZ * 0.5  // Thinner: 0.3 - 0.8
+                            ? (isProminent ? 0.8 + avgZ * 1.0 : 0.3 + avgZ * 0.5)  // Prominent: 0.8-1.8, Normal: 0.3-0.8
                             : 0.5 + avgZ * 1.5; // Normal: 0.5 - 2.0
 
                         const baseAlpha = isHero
-                            ? (1 - dist / effectiveMaxDist) * (0.08 + avgZ * 0.15) // More subtle
+                            ? (1 - dist / effectiveMaxDist) * (isProminent ? 0.15 + avgZ * 0.25 : 0.08 + avgZ * 0.15)
                             : (1 - dist / maxDist) * (0.15 + avgZ * 0.35);
 
                         this.cachedConnections.push({
                             i, j, dist, avgZ,
                             lineWidth: lineWidth,
-                            baseAlpha: baseAlpha
+                            baseAlpha: baseAlpha,
+                            isProminent: isProminent,
+                            // Wave/flow animation parameters
+                            waveOffset: Math.random() * Math.PI * 2,
+                            waveSpeed: 0.002 + Math.random() * 0.002,
+                            waveAmplitude: isProminent ? 3 + Math.random() * 4 : 1 + Math.random() * 2
                         });
                     }
                 }
@@ -1021,6 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Apply hero mode transparency (including fade transition)
             const heroMult = this.mode === 'hero' ? this.heroOpacity * this.aiTransitionProgress : 1;
+            const isHero = this.mode === 'hero';
 
             // Use cached connections - much faster than O(n²) every frame
             for (const conn of this.cachedConnections) {
@@ -1031,21 +1038,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 const posA = this.getNodePosition(nodeA);
                 const posB = this.getNodePosition(nodeB);
 
-                // Subtle pulse animation
-                const pulse = Math.sin(time * 0.001 + conn.i * 0.05) * 0.1 + 0.9;
+                // Animated pulse - prominent lines pulse more
+                const pulseIntensity = conn.isProminent ? 0.2 : 0.1;
+                const pulse = Math.sin(time * 0.001 + conn.i * 0.05) * pulseIntensity + (1 - pulseIntensity);
                 const alpha = conn.baseAlpha * pulse * heroMult;
 
                 this.ctx.beginPath();
-                this.ctx.moveTo(posA.x, posA.y);
-                this.ctx.lineTo(posB.x, posB.y);
 
-                // Color based on depth (pre-calculated avgZ)
-                if (conn.avgZ > 0.6) {
-                    this.ctx.strokeStyle = `rgba(200, 80, 70, ${alpha})`;
-                } else if (conn.avgZ > 0.3) {
-                    this.ctx.strokeStyle = `rgba(180, 60, 60, ${alpha})`;
+                // Hero mode: draw curved lines with wave motion for movement effect
+                if (isHero && conn.waveAmplitude) {
+                    const midX = (posA.x + posB.x) / 2;
+                    const midY = (posA.y + posB.y) / 2;
+
+                    // Calculate perpendicular offset for wave
+                    const dx = posB.x - posA.x;
+                    const dy = posB.y - posA.y;
+                    const len = Math.sqrt(dx * dx + dy * dy);
+                    const perpX = -dy / len;
+                    const perpY = dx / len;
+
+                    // Animated wave offset
+                    const waveOffset = Math.sin(time * conn.waveSpeed + conn.waveOffset) * conn.waveAmplitude;
+
+                    // Draw quadratic curve with animated control point
+                    this.ctx.moveTo(posA.x, posA.y);
+                    this.ctx.quadraticCurveTo(
+                        midX + perpX * waveOffset,
+                        midY + perpY * waveOffset,
+                        posB.x, posB.y
+                    );
                 } else {
-                    this.ctx.strokeStyle = `rgba(140, 50, 55, ${alpha})`;
+                    // Standard straight line for non-hero modes
+                    this.ctx.moveTo(posA.x, posA.y);
+                    this.ctx.lineTo(posB.x, posB.y);
+                }
+
+                // Color based on depth - prominent lines are brighter
+                if (conn.avgZ > 0.6) {
+                    const brightness = conn.isProminent ? 230 : 200;
+                    this.ctx.strokeStyle = `rgba(${brightness}, 80, 70, ${alpha})`;
+                } else if (conn.avgZ > 0.3) {
+                    const brightness = conn.isProminent ? 210 : 180;
+                    this.ctx.strokeStyle = `rgba(${brightness}, 60, 60, ${alpha})`;
+                } else {
+                    const brightness = conn.isProminent ? 170 : 140;
+                    this.ctx.strokeStyle = `rgba(${brightness}, 50, 55, ${alpha})`;
                 }
 
                 this.ctx.lineWidth = conn.lineWidth;
