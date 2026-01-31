@@ -33,7 +33,6 @@
     <main id="main-content">
         <!-- Hero Section -->
         <section class="page-hero">
-            <canvas id="neural-network" class="neural-canvas"></canvas>
             <div class="container">
                 <nav class="breadcrumb fade-in">
                     <a href="../index.html">Home</a>
@@ -95,20 +94,38 @@
                 <p class="section-subtitle fade-in-up">Interactive tools to assess and improve your AI skills</p>
 
                 <div class="tool-cards stagger-children">
-                    <!-- Prompt Scorer -->
-                    <a href="scorer.html" class="tool-card">
+                    <!-- Prompt Analyzer -->
+                    <a href="analyzer.html" class="tool-card">
                         <div class="tool-card-header">
                             <span class="tool-badge">Analysis</span>
-                            <h3>Prompt Scorer</h3>
+                            <h3>Prompt Analyzer</h3>
                         </div>
-                        <p class="tool-description">Get instant feedback on your prompts. Analyze clarity, specificity, structure, and context to understand what makes a prompt effective.</p>
+                        <p class="tool-description">Get intelligent feedback on your prompts. Our smart analyzer detects framework elements by understanding content, not just keywords.</p>
                         <div class="tool-features">
-                            <span class="tool-feature">Real-time scoring</span>
-                            <span class="tool-feature">Detailed feedback</span>
-                            <span class="tool-feature">Improvement tips</span>
+                            <span class="tool-feature">Content-aware scoring</span>
+                            <span class="tool-feature">Detailed excerpts</span>
+                            <span class="tool-feature">Actionable feedback</span>
                         </div>
                         <div class="tool-cta">
                             <span>Analyze a Prompt</span>
+                            <span class="tool-arrow">&rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- Prompt Builder -->
+                    <a href="guidance.html" class="tool-card">
+                        <div class="tool-card-header">
+                            <span class="tool-badge">Builder</span>
+                            <h3>Prompt Builder</h3>
+                        </div>
+                        <p class="tool-description">Build well-structured prompts step by step. Answer guided questions using CRISP, COSTAR, or CRISPE frameworks.</p>
+                        <div class="tool-features">
+                            <span class="tool-feature">Framework templates</span>
+                            <span class="tool-feature">Step-by-step guidance</span>
+                            <span class="tool-feature">Copy & analyze</span>
+                        </div>
+                        <div class="tool-cta">
+                            <span>Build a Prompt</span>
                             <span class="tool-arrow">&rarr;</span>
                         </div>
                     </a>
@@ -198,9 +215,9 @@
                     <div class="path-step">
                         <div class="path-step-number">3</div>
                         <div class="path-step-content">
-                            <h3>Practice with the Scorer</h3>
-                            <p>Write prompts and get feedback to improve your technique.</p>
-                            <a href="scorer.html" class="btn btn-secondary btn-sm">Try Scorer</a>
+                            <h3>Practice with the Analyzer</h3>
+                            <p>Write prompts and get intelligent feedback to improve your technique.</p>
+                            <a href="analyzer.html" class="btn btn-secondary btn-sm">Try Analyzer</a>
                         </div>
                     </div>
                     <div class="path-connector"></div>
@@ -220,12 +237,11 @@
         <section class="section section-alt">
             <div class="container">
                 <div class="cta-card fade-in-up">
-                    <canvas class="neural-canvas-secondary"></canvas>
                     <h2 class="cta-title">Ready to Get Started?</h2>
                     <p class="cta-text">Begin with the Readiness Quiz to understand where you are, or jump straight into improving your prompts.</p>
                     <div class="cta-actions">
                         <a href="../quiz/index.html" class="btn btn-primary">Take Readiness Quiz</a>
-                        <a href="scorer.html" class="btn btn-secondary">Try Prompt Scorer</a>
+                        <a href="analyzer.html" class="btn btn-secondary">Try Prompt Analyzer</a>
                     </div>
                 </div>
             </div>
@@ -234,7 +250,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <canvas class="neural-canvas-secondary"></canvas>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -254,7 +269,8 @@
 
                 <div class="footer-links">
                     <h4>AI Readiness</h4>
-                    <a href="scorer.html">Prompt Scorer</a>
+                    <a href="analyzer.html">Prompt Analyzer</a>
+                    <a href="guidance.html">Prompt Builder</a>
                     <a href="checklist.html">Preflight Checklist</a>
                     <a href="hallucination.html">Hallucination Spotter</a>
                 </div>

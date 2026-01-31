@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>Prompt Analyzer - Praxis</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <a href="../learn/index.html" class="nav-link">Learn</a>
+                <a href="index.html" class="nav-link active">AI Readiness</a>
+                <a href="../patterns/index.html" class="nav-link">Patterns</a>
+                <a href="../quiz/index.html" class="nav-link">Quiz</a>
+                <a href="../pages/ai-safety.html" class="nav-link">Safety</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">AI Readiness</a>
+                    <span class="separator">/</span>
+                    <span class="current">Prompt Analyzer</span>
+                </nav>
+                <h1 class="page-title fade-in">Prompt Analyzer</h1>
+                <p class="page-subtitle fade-in">Get detailed, intelligent feedback on your prompts. Our analyzer detects framework elements by understanding content, not just keywords.</p>
+            </div>
+        </section>
+
+        <!-- Analyzer Tool -->
+        <section class="section">
+            <div class="container">
+                <div class="tool-container fade-in-up">
+                    <form id="analyzer-form" class="analyzer-form">
+                        <label for="prompt-input" class="input-label">Enter your prompt:</label>
+                        <textarea
+                            id="prompt-input"
+                            class="prompt-textarea"
+                            placeholder="Paste or type your prompt here to analyze..."
+                            rows="6"
+                            required
+                        ></textarea>
+
+                        <div class="analyzer-options">
+                            <div class="framework-select">
+                                <label for="framework-selector" class="input-label-sm">Analyze against:</label>
+                                <select id="framework-selector" class="select-input">
+                                    <option value="CRISP" selected>CRISP Framework</option>
+                                    <option value="COSTAR">COSTAR Framework</option>
+                                    <option value="CRISPE">CRISPE Framework</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Analyze Prompt</button>
+                    </form>
+
+                    <div id="analysis-display" class="analysis-display">
+                        <!-- Analysis results will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">How Analysis Works</h2>
+                <p class="section-subtitle fade-in-up">Intelligent content detection, not just keyword matching</p>
+
+                <div class="analysis-info-grid stagger-children">
+                    <div class="analysis-info-card">
+                        <div class="info-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                        <h3>Sentence-Level Analysis</h3>
+                        <p>Each sentence is scored against all element types. We detect context, instructions, and constraints even without explicit labels.</p>
+                    </div>
+
+                    <div class="analysis-info-card">
+                        <div class="info-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3>Content Understanding</h3>
+                        <p>"I'm a marketing manager at a startup" is recognized as context, even without a "Context:" label. We understand what you mean.</p>
+                    </div>
+
+                    <div class="analysis-info-card">
+                        <div class="info-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3>Position Awareness</h3>
+                        <p>Context typically appears first, constraints at the end. We factor in where elements appear for more accurate detection.</p>
+                    </div>
+
+                    <div class="analysis-info-card">
+                        <div class="info-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Confidence Levels</h3>
+                        <p>Not just "found/not found" but high, medium, or low confidence. We show exactly what triggered each detection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Prompts -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Example Analysis</h2>
+                <p class="section-subtitle fade-in-up">See how different prompts are analyzed</p>
+
+                <div class="example-prompts stagger-children">
+                    <div class="example-prompt-card">
+                        <div class="example-score score-poor">32</div>
+                        <h4>Weak Prompt</h4>
+                        <p class="example-text">"Write about marketing"</p>
+                        <div class="example-analysis">
+                            <span class="detected-badge missing">No Context</span>
+                            <span class="detected-badge missing">No Role</span>
+                            <span class="detected-badge found">Instruction (weak)</span>
+                            <span class="detected-badge missing">No Specifics</span>
+                        </div>
+                    </div>
+
+                    <div class="example-prompt-card">
+                        <div class="example-score score-good">71</div>
+                        <h4>Better Prompt</h4>
+                        <p class="example-text">"I run a small bakery. Write a 300-word blog post about seasonal ingredients for home bakers."</p>
+                        <div class="example-analysis">
+                            <span class="detected-badge found">Context (high)</span>
+                            <span class="detected-badge missing">No Role</span>
+                            <span class="detected-badge found">Instruction (high)</span>
+                            <span class="detected-badge found">Specifics (medium)</span>
+                        </div>
+                    </div>
+
+                    <div class="example-prompt-card">
+                        <div class="example-score score-excellent">89</div>
+                        <h4>Strong Prompt</h4>
+                        <p class="example-text">"Context: I run a small artisan bakery specializing in sourdough. Act as a food blogger with SEO expertise. Write a 500-word blog post about seasonal ingredients for home bakers. Use a warm, encouraging tone. Include 3 actionable tips. Avoid technical jargon."</p>
+                        <div class="example-analysis">
+                            <span class="detected-badge found">Context (high)</span>
+                            <span class="detected-badge found">Role (high)</span>
+                            <span class="detected-badge found">Instruction (high)</span>
+                            <span class="detected-badge found">Specifics (high)</span>
+                            <span class="detected-badge found">Tone (high)</span>
+                            <span class="detected-badge found">Parameters (high)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Tools</h2>
+
+                <div class="card-grid stagger-children">
+                    <a href="guidance.html" class="card card-glow">
+                        <h3 class="card-title">Prompt Builder</h3>
+                        <p class="card-text">Build prompts step by step using guided questions. Perfect for learning frameworks.</p>
+                        <span class="card-link">Build a Prompt</span>
+                    </a>
+
+                    <a href="checklist.html" class="card card-glow">
+                        <h3 class="card-title">Preflight Checklist</h3>
+                        <p class="card-text">Quick quality check before you send. Catch common issues fast.</p>
+                        <span class="card-link">Use Checklist</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/crispe.html">CRISPE Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/react.html">ReAct Method</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="analyzer.html">Prompt Analyzer</a>
+                    <a href="guidance.html">Prompt Builder</a>
+                    <a href="checklist.html">Preflight Checklist</a>
+                    <a href="hallucination.html">Hallucination Spotter</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../pages/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

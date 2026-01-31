@@ -1816,6 +1816,823 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // TOOL PAGE: PROMPT ANALYZER (New Smart Analyzer)
+    // ==========================================
+
+    // Element type definitions with position weights
+    const ELEMENT_TYPES = {
+        context: { id: 'context', name: 'Context', letter: 'C', description: 'Background information about the situation', positionWeight: { early: 1.3, middle: 1.0, late: 0.7 } },
+        role: { id: 'role', name: 'Role/Persona', letter: 'R', description: 'AI persona or expertise assignment', positionWeight: { early: 1.2, middle: 1.0, late: 0.8 } },
+        instruction: { id: 'instruction', name: 'Instructions', letter: 'I', description: 'The main task or request', positionWeight: { early: 1.0, middle: 1.1, late: 0.9 } },
+        specifics: { id: 'specifics', name: 'Specifics/Format', letter: 'S', description: 'Format, length, structure requirements', positionWeight: { early: 0.9, middle: 1.1, late: 1.2 } },
+        parameters: { id: 'parameters', name: 'Parameters/Constraints', letter: 'P', description: 'Rules, boundaries, and constraints', positionWeight: { early: 0.8, middle: 1.0, late: 1.3 } },
+        audience: { id: 'audience', name: 'Audience', letter: 'A', description: 'Target reader or user description', positionWeight: { early: 1.1, middle: 1.0, late: 1.0 } },
+        tone: { id: 'tone', name: 'Tone/Style', letter: 'T', description: 'Emotional quality and writing style', positionWeight: { early: 0.9, middle: 1.1, late: 1.1 } },
+        examples: { id: 'examples', name: 'Examples', letter: 'E', description: 'Sample content or output demonstrations', positionWeight: { early: 0.7, middle: 1.0, late: 1.3 } }
+    };
+
+    // Multi-signal content indicators for each element type
+    const CONTENT_INDICATORS = {
+        context: {
+            signals: [
+                { name: 'first_person_situation', pattern: /\b(I am|I'm|We are|We're|I have|We have)\s+(?!asking|requesting|looking)/i, weight: 0.8, exclusive: true },
+                { name: 'working_on', pattern: /\b(working on|building|creating|developing|launching|running|managing)\s+(?:a|an|the|my|our)?\s*\w+/i, weight: 0.7, exclusive: false },
+                { name: 'temporal_marker', pattern: /\b(currently|recently|right now|at the moment|this week|this month|planning to|about to)\b/i, weight: 0.5, exclusive: false },
+                { name: 'causal_explanation', pattern: /\b(because|since|given that|due to|as a result of|considering that)\b/i, weight: 0.6, exclusive: false },
+                { name: 'problem_statement', pattern: /\b(struggling with|need help with|having trouble|facing|dealing with|challenge is)\b/i, weight: 0.7, exclusive: true },
+                { name: 'domain_background', pattern: /\b(in the \w+ industry|for (a|my|our) \w+ (company|business|team|project))\b/i, weight: 0.6, exclusive: true },
+                { name: 'explicit_label', pattern: /\b(context|background|situation)\s*:/i, weight: 1.0, exclusive: true },
+                { name: 'possessive_domain', pattern: /\b(my|our|the)\s+(brand|product|company|business|project|team|client|customer|audience|market)\b/i, weight: 0.5, exclusive: false }
+            ],
+            structuralBonus: { declarative: 0.2, firstPerson: 0.15, positionEarly: 0.2 }
+        },
+        role: {
+            signals: [
+                { name: 'act_as_directive', pattern: /\b(act as|you are|pretend to be|imagine you('re| are)|behave as|take on the role of)\b/i, weight: 1.0, exclusive: true },
+                { name: 'expertise_words', pattern: /\b(expert|specialist|consultant|advisor|professional|experienced|senior|veteran)\s+(in|with|at)?\b/i, weight: 0.8, exclusive: true },
+                { name: 'capability_framing', pattern: /\b(with expertise in|who specializes in|known for|skilled at|proficient in)\b/i, weight: 0.7, exclusive: true },
+                { name: 'persona_language', pattern: /\b(character|persona|personality|voice of|perspective of|as if you were)\b/i, weight: 0.6, exclusive: true },
+                { name: 'profession_noun', pattern: /\b(a|an)\s+(writer|editor|teacher|coach|mentor|analyst|developer|designer|marketer|strategist|therapist|doctor|lawyer)\b/i, weight: 0.6, exclusive: false }
+            ],
+            structuralBonus: { secondPerson: 0.2, imperative: 0.1, positionEarly: 0.15 }
+        },
+        instruction: {
+            signals: [
+                { name: 'imperative_start', pattern: /^(write|create|generate|explain|analyze|summarize|list|describe|compare|design|draft|develop|build|make|produce|compose|prepare|outline|review|evaluate|assess|calculate|determine|find|identify|suggest|recommend|help|tell|show|give|provide)\b/i, weight: 1.0, exclusive: true },
+                { name: 'request_language', pattern: /\b(I need you to|can you|could you|would you|please|I('d| would) like you to|help me)\b/i, weight: 0.9, exclusive: true },
+                { name: 'task_verbs', pattern: /\b(analyze|summarize|compare|design|evaluate|optimize|implement|translate|convert|transform|rewrite|edit|proofread|revise)\b/i, weight: 0.6, exclusive: false },
+                { name: 'action_sequence', pattern: /\b(first|then|next|after that|finally|step \d|1\.|2\.|3\.)\b/i, weight: 0.5, exclusive: false },
+                { name: 'goal_statement', pattern: /\b(goal is to|objective is|aim to|want to achieve|trying to|need to accomplish)\b/i, weight: 0.7, exclusive: false }
+            ],
+            structuralBonus: { imperative: 0.3, startsWithVerb: 0.2, positionMiddle: 0.1 }
+        },
+        specifics: {
+            signals: [
+                { name: 'numeric_specification', pattern: /\b(\d+)\s*(words?|sentences?|paragraphs?|bullet\s*points?|items?|sections?|pages?|minutes?|characters?)\b/i, weight: 1.0, exclusive: true },
+                { name: 'format_spec', pattern: /\b(as a list|in table format|as JSON|in markdown|bullet points|numbered list|outline format|structured as|formatted as)\b/i, weight: 0.9, exclusive: true },
+                { name: 'structure_words', pattern: /\b(sections?|headers?|headings?|subheadings?|outline|structure|format|layout|template)\b/i, weight: 0.6, exclusive: false },
+                { name: 'length_constraints', pattern: /\b(brief|detailed|comprehensive|concise|short|long|in-depth|thorough|summary|overview)\b/i, weight: 0.5, exclusive: false },
+                { name: 'output_type', pattern: /\b(email|article|report|summary|outline|script|code|essay|memo|proposal|presentation|documentation)\b/i, weight: 0.6, exclusive: false }
+            ],
+            structuralBonus: { declarative: 0.1, positionLate: 0.15 }
+        },
+        parameters: {
+            signals: [
+                { name: 'negative_constraint', pattern: /\b(don't|do not|avoid|exclude|without|never|no \w+|not including|skip|omit)\b/i, weight: 0.9, exclusive: true },
+                { name: 'positive_requirement', pattern: /\b(must include|should have|required|needs to have|make sure to|ensure|always)\b/i, weight: 0.8, exclusive: true },
+                { name: 'boundary_spec', pattern: /\b(maximum|minimum|at least|no more than|at most|limit|between \d+ and \d+|up to)\b/i, weight: 0.9, exclusive: true },
+                { name: 'quality_requirement', pattern: /\b(accurate|factual|cite sources|reference|verified|evidence-based|data-driven|specific|precise)\b/i, weight: 0.6, exclusive: false },
+                { name: 'conditional_rule', pattern: /\b(if|when|unless|only if|in case|provided that|as long as)\b.*\b(then|use|include|avoid)\b/i, weight: 0.7, exclusive: true }
+            ],
+            structuralBonus: { imperative: 0.15, positionLate: 0.2 }
+        },
+        audience: {
+            signals: [
+                { name: 'target_descriptor', pattern: /\b(for (beginners|experts|professionals|executives|managers|students|children|adults|seniors))\b/i, weight: 1.0, exclusive: true },
+                { name: 'aimed_at', pattern: /\b(aimed at|targeted at|intended for|targeting|designed for|meant for|written for)\b/i, weight: 0.9, exclusive: true },
+                { name: 'demographic_markers', pattern: /\b(age \d+|aged \d+|\d+-year-olds|millennials|gen z|baby boomers|young adults|teenagers|kids)\b/i, weight: 0.8, exclusive: true },
+                { name: 'knowledge_level', pattern: /\b(who have no experience|familiar with|new to|experienced in|advanced|intermediate|beginner|novice)\b/i, weight: 0.7, exclusive: true },
+                { name: 'reader_framing', pattern: /\b(the reader|readers|users|audience|viewers|listeners|subscribers|followers)\s+(should|will|can|need|want)\b/i, weight: 0.6, exclusive: true },
+                { name: 'role_audience', pattern: /\b(for (developers|designers|marketers|teachers|parents|business owners|entrepreneurs))\b/i, weight: 0.8, exclusive: true }
+            ],
+            structuralBonus: { declarative: 0.1, positionMiddle: 0.1 }
+        },
+        tone: {
+            signals: [
+                { name: 'tone_words', pattern: /\b(friendly|formal|casual|professional|conversational|academic|playful|serious|humorous|authoritative|warm|cold)\b/i, weight: 0.8, exclusive: false },
+                { name: 'emotional_quality', pattern: /\b(enthusiastic|calm|urgent|relaxed|confident|humble|empathetic|direct|gentle|firm|encouraging|supportive)\b/i, weight: 0.7, exclusive: false },
+                { name: 'style_comparison', pattern: /\b(like a blog post|in academic style|newspaper style|in the style of|sounds like|write like)\b/i, weight: 0.9, exclusive: true },
+                { name: 'voice_descriptors', pattern: /\b(conversational|authoritative|approachable|engaging|persuasive|informative|educational|entertaining)\b/i, weight: 0.6, exclusive: false },
+                { name: 'tone_label', pattern: /\b(tone|voice|style)\s*:/i, weight: 1.0, exclusive: true }
+            ],
+            structuralBonus: { declarative: 0.1, positionLate: 0.1 }
+        },
+        examples: {
+            signals: [
+                { name: 'example_marker', pattern: /\b(for example|such as|like this|for instance|e\.g\.|sample|here's an example)\b/i, weight: 0.9, exclusive: true },
+                { name: 'quoted_sample', pattern: /[""][^""]{10,}[""]/i, weight: 0.8, exclusive: true },
+                { name: 'io_pair', pattern: /\b(input|output)\s*:/i, weight: 1.0, exclusive: true },
+                { name: 'template_indicator', pattern: /\{[^}]+\}|\[[^\]]+\]|<[^>]+>/i, weight: 0.6, exclusive: false },
+                { name: 'here_is_pattern', pattern: /\b(here is|here's|below is|following is|see example|example below)\b/i, weight: 0.8, exclusive: true }
+            ],
+            structuralBonus: { positionLate: 0.2, hasQuotes: 0.2 }
+        }
+    };
+
+    // PromptAnalyzer Class
+    class PromptAnalyzer {
+        constructor() {
+            this.indicators = CONTENT_INDICATORS;
+            this.elementTypes = ELEMENT_TYPES;
+        }
+
+        analyze(prompt, selectedFramework = 'CRISP') {
+            const segments = this.segmentPrompt(prompt);
+            const analyzedSentences = segments.map((segment, index) =>
+                this.analyzeSentence(segment, index, segments.length)
+            );
+            const elementSummary = this.aggregateElementScores(analyzedSentences);
+            const frameworkFit = this.calculateFrameworkFit(elementSummary);
+            const overallScore = this.calculateOverallScore(elementSummary, frameworkFit, selectedFramework);
+            const feedback = this.generateFeedback(elementSummary, frameworkFit, selectedFramework);
+
+            return { prompt, sentences: analyzedSentences, elementSummary, frameworkFit, overallScore, feedback };
+        }
+
+        segmentPrompt(prompt) {
+            const rawSentences = prompt.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(s => s.length > 0);
+            const segments = [];
+            for (const sentence of rawSentences) {
+                if (sentence.length > 150) {
+                    const clauses = sentence.split(/(?:;\s*|:\s*(?=\d|-)|\s+(?:and|but|however|therefore)\s+)/i);
+                    segments.push(...clauses.filter(c => c.trim().length > 5));
+                } else {
+                    segments.push(sentence);
+                }
+            }
+            return segments.length > 0 ? segments : [prompt];
+        }
+
+        analyzeSentence(sentence, index, totalSentences) {
+            const positionRatio = totalSentences > 1 ? index / (totalSentences - 1) : 0.5;
+            const positionZone = positionRatio < 0.3 ? 'early' : positionRatio > 0.7 ? 'late' : 'middle';
+            const structure = this.analyzeSentenceStructure(sentence);
+
+            const elementScores = {};
+            for (const [elementKey, elementData] of Object.entries(this.indicators)) {
+                elementScores[elementKey] = this.scoreForElement(sentence, elementData, structure, positionZone);
+            }
+
+            const sortedElements = Object.entries(elementScores).sort((a, b) => b[1].score - a[1].score);
+            const primaryElement = sortedElements[0][1].score > 20 ? sortedElements[0][0] : null;
+            const secondaryElements = sortedElements.slice(1).filter(([_, data]) => data.score > 30).map(([key]) => key);
+
+            return { text: sentence, index, positionRatio, positionZone, structure, elementScores, primaryElement, secondaryElements };
+        }
+
+        analyzeSentenceStructure(sentence) {
+            const trimmed = sentence.trim();
+            const words = trimmed.split(/\s+/);
+            const firstWord = (words[0] || '').toLowerCase();
+
+            const imperativeVerbs = ['write', 'create', 'generate', 'explain', 'analyze', 'summarize', 'list', 'describe', 'compare', 'design', 'draft', 'develop', 'build', 'make', 'provide', 'give', 'tell', 'show', 'help', 'ensure', 'include', 'avoid', 'use', 'consider', 'focus'];
+            const startsWithImperative = imperativeVerbs.includes(firstWord);
+            const isRequest = /^(can|could|would|will|please|I need|I want|I'd like)/i.test(trimmed);
+            const hasFirstPerson = /\b(I|I'm|I've|I'll|we|we're|we've|my|our|me|us)\b/i.test(sentence);
+            const hasSecondPerson = /\b(you|you're|you've|your|yours)\b/i.test(sentence);
+
+            let type = 'declarative';
+            if (/\?$/.test(trimmed)) type = 'interrogative';
+            else if (/!$/.test(trimmed)) type = 'exclamatory';
+            else if (startsWithImperative || isRequest) type = 'imperative';
+
+            return {
+                type,
+                hasFirstPerson,
+                hasSecondPerson,
+                startsWithVerb: startsWithImperative,
+                wordCount: words.length,
+                hasQuotes: /[""]/.test(sentence),
+                hasNumbers: /\d/.test(sentence)
+            };
+        }
+
+        scoreForElement(sentence, elementData, structure, positionZone) {
+            let totalScore = 0;
+            let maxPossibleScore = 0;
+            const signals = [];
+
+            for (const signal of elementData.signals) {
+                maxPossibleScore += signal.weight * 100;
+                const matches = sentence.match(signal.pattern);
+                if (matches) {
+                    totalScore += signal.weight * 100;
+                    signals.push({ name: signal.name, matched: matches[0], weight: signal.weight, exclusive: signal.exclusive });
+                }
+            }
+
+            if (elementData.structuralBonus) {
+                const bonus = elementData.structuralBonus;
+                if (bonus.declarative && structure.type === 'declarative') totalScore *= (1 + bonus.declarative);
+                if (bonus.imperative && structure.type === 'imperative') totalScore *= (1 + bonus.imperative);
+                if (bonus.firstPerson && structure.hasFirstPerson) totalScore *= (1 + bonus.firstPerson);
+                if (bonus.secondPerson && structure.hasSecondPerson) totalScore *= (1 + bonus.secondPerson);
+                if (bonus.startsWithVerb && structure.startsWithVerb) totalScore *= (1 + bonus.startsWithVerb);
+                if (bonus.hasQuotes && structure.hasQuotes) totalScore *= (1 + bonus.hasQuotes);
+                if (bonus.positionEarly && positionZone === 'early') totalScore *= (1 + bonus.positionEarly);
+                if (bonus.positionMiddle && positionZone === 'middle') totalScore *= (1 + bonus.positionMiddle);
+                if (bonus.positionLate && positionZone === 'late') totalScore *= (1 + bonus.positionLate);
+            }
+
+            const normalizedScore = maxPossibleScore > 0 ? Math.min(100, (totalScore / maxPossibleScore) * 100) : 0;
+            let confidence = 'low';
+            if (normalizedScore > 60 || signals.some(s => s.exclusive && s.weight >= 0.8)) confidence = 'high';
+            else if (normalizedScore > 30 || signals.length >= 2) confidence = 'medium';
+
+            return { score: Math.round(normalizedScore), signals, confidence };
+        }
+
+        aggregateElementScores(analyzedSentences) {
+            const summary = {};
+
+            for (const elementKey of Object.keys(this.indicators)) {
+                const contributingSentences = [];
+                const excerpts = [];
+                let totalWeightedScore = 0;
+                let totalWeight = 0;
+                let highestConfidence = 'low';
+
+                for (const sentence of analyzedSentences) {
+                    const elementScore = sentence.elementScores[elementKey];
+                    if (elementScore.score > 20) {
+                        const positionMultiplier = this.elementTypes[elementKey]?.positionWeight?.[sentence.positionZone] || 1.0;
+                        totalWeightedScore += elementScore.score * positionMultiplier;
+                        totalWeight += positionMultiplier;
+                        contributingSentences.push(sentence.index);
+
+                        for (const signal of elementScore.signals) {
+                            if (signal.matched && !excerpts.find(e => e.text === signal.matched)) {
+                                excerpts.push({ text: signal.matched, signalName: signal.name, sentenceIndex: sentence.index, fullSentence: sentence.text });
+                            }
+                        }
+
+                        if (elementScore.confidence === 'high') highestConfidence = 'high';
+                        else if (elementScore.confidence === 'medium' && highestConfidence === 'low') highestConfidence = 'medium';
+                    }
+                }
+
+                const aggregateScore = totalWeight > 0 ? Math.min(100, Math.round(totalWeightedScore / totalWeight)) : 0;
+                const detected = aggregateScore > 25 || excerpts.length > 0;
+
+                summary[elementKey] = {
+                    detected,
+                    confidence: detected ? highestConfidence : 'none',
+                    score: aggregateScore,
+                    excerpts: excerpts.slice(0, 5),
+                    contributingSentences,
+                    suggestions: detected ? [] : this.getSuggestions(elementKey)
+                };
+            }
+
+            return summary;
+        }
+
+        calculateFrameworkFit(elementSummary) {
+            const frameworksUnique = {
+                CRISP: ['context', 'role', 'instruction', 'specifics', 'parameters'],
+                COSTAR: ['context', 'instruction', 'tone', 'audience', 'specifics'],
+                CRISPE: ['context', 'role', 'instruction', 'specifics', 'parameters', 'examples']
+            };
+
+            const fit = {};
+            for (const [frameworkName, elements] of Object.entries(frameworksUnique)) {
+                let totalScore = 0;
+                let detected = 0;
+                const missing = [];
+
+                for (const element of elements) {
+                    const elementData = elementSummary[element];
+                    if (elementData?.detected) {
+                        totalScore += elementData.score;
+                        detected++;
+                    } else {
+                        missing.push(element);
+                    }
+                }
+
+                fit[frameworkName] = {
+                    score: elements.length > 0 ? Math.round(totalScore / elements.length) : 0,
+                    missingElements: missing,
+                    coverage: `${detected}/${elements.length}`,
+                    coverageRatio: detected / elements.length
+                };
+            }
+
+            return fit;
+        }
+
+        calculateOverallScore(elementSummary, frameworkFit, selectedFramework) {
+            const frameworkScore = (frameworkFit[selectedFramework]?.coverageRatio || 0) * 100;
+            const detectedElements = Object.values(elementSummary).filter(e => e.detected);
+            const avgElementScore = detectedElements.length > 0 ? detectedElements.reduce((sum, e) => sum + e.score, 0) / detectedElements.length : 0;
+
+            let structuralScore = 0;
+            if (elementSummary.instruction?.detected) structuralScore += 50;
+            if (elementSummary.context?.detected) structuralScore += 30;
+            if (elementSummary.role?.detected || elementSummary.audience?.detected) structuralScore += 20;
+
+            return Math.min(100, Math.max(0, Math.round(frameworkScore * 0.50 + avgElementScore * 0.30 + structuralScore * 0.20)));
+        }
+
+        generateFeedback(elementSummary, frameworkFit, selectedFramework) {
+            const feedback = { strengths: [], improvements: [], quickWins: [], missingCritical: [] };
+            const frameworkElements = {
+                CRISP: ['context', 'role', 'instruction', 'specifics', 'parameters'],
+                COSTAR: ['context', 'instruction', 'tone', 'audience', 'specifics'],
+                CRISPE: ['context', 'role', 'instruction', 'specifics', 'parameters', 'examples']
+            };
+
+            const relevantElements = frameworkElements[selectedFramework] || frameworkElements.CRISP;
+            const criticalElements = ['instruction', 'context'];
+
+            // Identify strengths
+            for (const [elementKey, data] of Object.entries(elementSummary)) {
+                if (data.detected) {
+                    const elementType = this.elementTypes[elementKey];
+                    const message = data.confidence === 'high'
+                        ? `Strong ${elementType?.name || elementKey} - clearly defined`
+                        : `${elementType?.name || elementKey} detected but could be more explicit`;
+                    feedback.strengths.push({
+                        element: elementKey,
+                        name: elementType?.name || elementKey,
+                        letter: elementType?.letter || '',
+                        message,
+                        excerpts: data.excerpts.slice(0, 2).map(e => e.text)
+                    });
+                }
+            }
+
+            // Identify improvements
+            for (const elementKey of relevantElements) {
+                const data = elementSummary[elementKey];
+                if (!data?.detected) {
+                    const elementType = this.elementTypes[elementKey];
+                    const isCritical = criticalElements.includes(elementKey);
+                    const suggestion = this.getSuggestions(elementKey);
+
+                    const improvement = {
+                        element: elementKey,
+                        name: elementType?.name || elementKey,
+                        letter: elementType?.letter || '',
+                        priority: isCritical ? 'high' : 'medium',
+                        message: `Add ${elementType?.name || elementKey}`,
+                        tip: suggestion.tip,
+                        example: suggestion.example
+                    };
+
+                    if (isCritical) feedback.missingCritical.push(improvement);
+                    feedback.improvements.push(improvement);
+                } else if (data.confidence === 'low' && relevantElements.includes(elementKey)) {
+                    const elementType = this.elementTypes[elementKey];
+                    const suggestion = this.getSuggestions(elementKey);
+                    feedback.quickWins.push({
+                        element: elementKey,
+                        name: elementType?.name || elementKey,
+                        letter: elementType?.letter || '',
+                        message: `Strengthen your ${elementType?.name || elementKey}`,
+                        tip: suggestion.tip,
+                        currentExcerpt: data.excerpts[0]?.text || null
+                    });
+                }
+            }
+
+            feedback.improvements.sort((a, b) => (a.priority === 'high' ? 0 : 1) - (b.priority === 'high' ? 0 : 1));
+            return feedback;
+        }
+
+        getSuggestions(elementKey) {
+            const suggestions = {
+                context: { tip: 'Add background: "I\'m working on..." or "Context: Our company is..."', example: 'Context: I\'m a marketing manager at a B2B SaaS startup launching our first product.' },
+                role: { tip: 'Define the AI persona: "Act as..." or "You are an expert..."', example: 'Act as a senior content strategist with 10 years of B2B marketing experience.' },
+                instruction: { tip: 'State what you want clearly: Start with "Write...", "Create...", "Analyze..."', example: 'Create a comprehensive content calendar for our Q1 product launch.' },
+                specifics: { tip: 'Define format and length: "Write 500 words as a bulleted list..."', example: 'Format as a table with columns: Topic, Platform, Publish Date, KPIs.' },
+                parameters: { tip: 'Add constraints: "Avoid...", "Must include...", "Maximum of..."', example: 'Must include 3 blog posts per week. Avoid overly technical jargon.' },
+                audience: { tip: 'Specify who this is for: "For beginners who...", "Targeting executives..."', example: 'Target audience: CTOs and engineering leads with limited marketing knowledge.' },
+                tone: { tip: 'Define the voice: "Use a professional but friendly tone..."', example: 'Tone should be authoritative yet approachable, like Harvard Business Review.' },
+                examples: { tip: 'Provide a sample: "Example output: [your example]" or show input/output pairs', example: 'Example: "Weekly Sync: 3 key wins, 2 challenges, 1 ask for next week"' }
+            };
+            return suggestions[elementKey] || { tip: 'Add more detail', example: '' };
+        }
+    }
+
+    // Analyzer Display Class
+    class AnalyzerDisplay {
+        constructor(containerElement) {
+            this.container = containerElement;
+            this.analyzer = new PromptAnalyzer();
+        }
+
+        displayAnalysis(prompt, selectedFramework = 'CRISP') {
+            const results = this.analyzer.analyze(prompt, selectedFramework);
+            this.render(results, selectedFramework);
+            return results;
+        }
+
+        render(results, selectedFramework) {
+            const { overallScore, elementSummary, frameworkFit, feedback } = results;
+
+            this.container.innerHTML = `
+                ${this.renderOverallScore(overallScore)}
+                ${this.renderElementDetection(elementSummary, selectedFramework)}
+                ${this.renderFrameworkCoverage(frameworkFit, selectedFramework)}
+                ${this.renderExcerptHighlights(elementSummary)}
+                ${this.renderStrengths(feedback.strengths)}
+                ${this.renderImprovements(feedback.improvements, feedback.quickWins)}
+                ${this.renderCTA()}
+            `;
+
+            this.container.classList.add('visible');
+        }
+
+        renderOverallScore(score) {
+            const scoreClass = getScoreClass(score);
+            const messages = {
+                'score-excellent': 'Excellent prompt structure! You\'ve covered the key elements.',
+                'score-good': 'Good foundation! Adding a few more elements will strengthen your prompt.',
+                'score-fair': 'Your prompt has some elements but is missing key components.',
+                'score-poor': 'Your prompt needs more structure. Try adding the suggested elements below.'
+            };
+
+            return `
+                <div class="score-main">
+                    <div class="score-circle ${scoreClass}">
+                        <span class="score-value">${score}</span>
+                        <span class="score-label">Overall</span>
+                    </div>
+                    <p class="score-message ${scoreClass}">${messages[scoreClass]}</p>
+                </div>
+            `;
+        }
+
+        renderElementDetection(elementSummary, selectedFramework) {
+            const frameworkElements = {
+                CRISP: ['context', 'role', 'instruction', 'specifics', 'parameters'],
+                COSTAR: ['context', 'instruction', 'tone', 'audience', 'specifics'],
+                CRISPE: ['context', 'role', 'instruction', 'specifics', 'parameters', 'examples']
+            };
+
+            const relevantElements = frameworkElements[selectedFramework];
+
+            const elementsHTML = relevantElements.map(elementKey => {
+                const data = elementSummary[elementKey];
+                const type = ELEMENT_TYPES[elementKey];
+                const statusClass = data?.detected ? 'detected' : 'missing';
+                const confidenceClass = data?.confidence || 'none';
+
+                const icon = data?.detected
+                    ? '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>'
+                    : '<svg class="element-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
+
+                return `
+                    <div class="element-pill ${statusClass} confidence-${confidenceClass}" title="${data?.detected ? 'Detected with ' + confidenceClass + ' confidence' : type?.description || ''}">
+                        <span class="element-letter">${type?.letter || ''}</span>
+                        <span class="element-name">${type?.name || elementKey}</span>
+                        ${icon}
+                    </div>
+                `;
+            }).join('');
+
+            const detectedCount = relevantElements.filter(e => elementSummary[e]?.detected).length;
+
+            return `
+                <div class="framework-elements" id="framework-elements">
+                    <h4>Detected Elements (${selectedFramework})</h4>
+                    <div class="elements-display" id="elements-display">
+                        ${elementsHTML}
+                    </div>
+                    <p class="framework-coverage">${detectedCount}/${relevantElements.length} elements detected</p>
+                </div>
+            `;
+        }
+
+        renderExcerptHighlights(elementSummary) {
+            const allExcerpts = [];
+
+            for (const [elementKey, data] of Object.entries(elementSummary)) {
+                if (data.detected && data.excerpts?.length > 0) {
+                    const type = ELEMENT_TYPES[elementKey];
+                    for (const excerpt of data.excerpts.slice(0, 2)) {
+                        allExcerpts.push({
+                            element: elementKey,
+                            elementName: type?.name || elementKey,
+                            letter: type?.letter || '',
+                            text: excerpt.text,
+                            signal: excerpt.signalName
+                        });
+                    }
+                }
+            }
+
+            if (allExcerpts.length === 0) return '';
+
+            const truncate = (text, max) => text.length <= max ? text : text.substring(0, max - 3) + '...';
+            const formatSignal = (name) => name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+            const excerptsHTML = allExcerpts.slice(0, 6).map(e => `
+                <div class="excerpt-card" data-element="${e.element}">
+                    <span class="excerpt-element-badge">${e.letter}</span>
+                    <div class="excerpt-content">
+                        <span class="excerpt-label">${e.elementName}</span>
+                        <p class="excerpt-text">"${truncate(e.text, 50)}"</p>
+                        ${e.signal ? `<span class="excerpt-signal">Detected: ${formatSignal(e.signal)}</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="excerpts-section">
+                    <h4>What We Detected</h4>
+                    <div class="excerpts-grid">
+                        ${excerptsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        renderStrengths(strengths) {
+            if (strengths.length === 0) return '';
+
+            const truncate = (text, max) => text.length <= max ? text : text.substring(0, max - 3) + '...';
+
+            return `
+                <div class="feedback-section feedback-strengths">
+                    <h4>What You Did Well</h4>
+                    <ul class="feedback-list">
+                        ${strengths.map(s => `
+                            <li>
+                                <span class="element-badge element-badge-success">${s.letter}</span>
+                                <div class="feedback-content">
+                                    <span class="feedback-text">${s.message}</span>
+                                    ${s.excerpts?.length > 0 ? `<span class="feedback-excerpt">"${truncate(s.excerpts[0], 40)}"</span>` : ''}
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        renderImprovements(improvements, quickWins) {
+            if (improvements.length === 0 && quickWins.length === 0) {
+                return `
+                    <div class="feedback-section feedback-perfect">
+                        <h4>Excellent Work!</h4>
+                        <p>Your prompt covers all the key elements. Consider adding examples for even better results.</p>
+                    </div>
+                `;
+            }
+
+            const quickWinsHTML = quickWins.length > 0 ? `
+                <div class="quick-wins">
+                    <h5>Quick Wins</h5>
+                    ${quickWins.slice(0, 2).map(q => `
+                        <div class="quick-win-card">
+                            <span class="element-badge">${q.letter}</span>
+                            <div>
+                                <p class="quick-win-message">${q.message}</p>
+                                <p class="quick-win-tip">${q.tip}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            ` : '';
+
+            const improvementsHTML = improvements.slice(0, 4).map(i => `
+                <div class="feedback-card ${i.priority === 'high' ? 'priority-high' : ''}">
+                    <div class="feedback-card-header">
+                        <span class="element-badge">${i.letter}</span>
+                        <span class="feedback-category">${i.name}</span>
+                        ${i.priority === 'high' ? '<span class="priority-badge">Important</span>' : ''}
+                    </div>
+                    <p class="feedback-tip">${i.tip}</p>
+                    <p class="feedback-example"><strong>Example:</strong> ${i.example}</p>
+                </div>
+            `).join('');
+
+            return `
+                <div class="feedback-section feedback-improvements">
+                    <h4>How to Improve</h4>
+                    ${quickWinsHTML}
+                    <div class="feedback-cards">
+                        ${improvementsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        renderFrameworkCoverage(frameworkFit, selectedFramework) {
+            const selected = frameworkFit[selectedFramework];
+
+            return `
+                <div class="sub-scores">
+                    <div class="sub-score">
+                        <div class="sub-score-bar">
+                            <div class="sub-score-fill ${getScoreClass(selected.coverageRatio * 100)}" style="width: ${selected.coverageRatio * 100}%"></div>
+                        </div>
+                        <span class="sub-score-label">${selectedFramework} Coverage</span>
+                        <span class="sub-score-value">${selected.coverage}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        renderCTA() {
+            return `
+                <div class="feedback-cta">
+                    <p>Want to learn more about these frameworks?</p>
+                    <div class="feedback-cta-links">
+                        <a href="../learn/crisp.html" class="btn btn-outline btn-sm">CRISP Method</a>
+                        <a href="../learn/costar.html" class="btn btn-outline btn-sm">COSTAR Method</a>
+                        <a href="../learn/crispe.html" class="btn btn-outline btn-sm">CRISPE Method</a>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Initialize Analyzer Page
+    const analyzerForm = document.getElementById('analyzer-form');
+    const analyzerPromptInput = document.getElementById('prompt-input');
+    const analysisDisplay = document.getElementById('analysis-display');
+    const frameworkSelector = document.getElementById('framework-selector');
+
+    if (analyzerForm && analyzerPromptInput && analysisDisplay) {
+        const display = new AnalyzerDisplay(analysisDisplay);
+
+        analyzerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const prompt = analyzerPromptInput.value.trim();
+            const selectedFramework = frameworkSelector?.value || 'CRISP';
+
+            if (prompt.length < 10) {
+                showToast('Please enter a longer prompt to analyze', 'error');
+                return;
+            }
+
+            display.displayAnalysis(prompt, selectedFramework);
+        });
+
+        if (frameworkSelector) {
+            frameworkSelector.addEventListener('change', () => {
+                const prompt = analyzerPromptInput.value.trim();
+                const selectedFramework = frameworkSelector.value;
+                if (prompt.length >= 10) {
+                    display.displayAnalysis(prompt, selectedFramework);
+                }
+            });
+        }
+    }
+
+    // ==========================================
+    // TOOL PAGE: PROMPT BUILDER (Guidance)
+    // ==========================================
+
+    const BUILDER_QUESTIONS = {
+        CRISP: [
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I\'m planning a family vacation to Italy with two teenagers...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as an experienced travel agent specializing in family trips...', fullWidth: true },
+            { key: 'instructions', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 7-day itinerary covering Rome and Florence...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Day-by-day format, friendly tone, include estimated costs...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Budget of $5,000. No more than 2 museums per day...' }
+        ],
+        COSTAR: [
+            { key: 'context', letter: 'C', label: 'What background info does the AI need?', placeholder: 'e.g., I\'m hosting a neighborhood potluck for 20 people...' },
+            { key: 'objective', letter: 'O', label: 'What is your goal?', placeholder: 'e.g., Create a warm invitation that gets people excited to attend...', fullWidth: true },
+            { key: 'style', letter: 'S', label: 'What writing style?', placeholder: 'e.g., Friendly, welcoming, like talking to a good neighbor...' },
+            { key: 'tone', letter: 'T', label: 'What emotional tone?', placeholder: 'e.g., Enthusiastic, warm, community-focused...' },
+            { key: 'audience', letter: 'A', label: 'Who is the audience?', placeholder: 'e.g., Neighbors of all ages, families with kids, elderly residents...' },
+            { key: 'response', letter: 'R', label: 'What output format?', placeholder: 'e.g., Short invitation (100-150 words) for a printed flyer...' }
+        ],
+        CRISPE: [
+            { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I\'m a busy parent with two kids who wants to eat healthier...' },
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., Act as a family nutritionist who helps picky eaters...', fullWidth: true },
+            { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 5-day weeknight dinner plan with kid-friendly recipes...' },
+            { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Friendly tone, include prep time, common grocery ingredients...' },
+            { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Under 45 minutes per meal. No seafood (allergies)...' },
+            { key: 'example', letter: 'E', label: 'Example of desired output? (optional)', placeholder: 'e.g., Format like: "Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers"', optional: true }
+        ]
+    };
+
+    const BuilderState = {
+        methodology: 'CRISP',
+        answers: {}
+    };
+
+    function renderBuilderQuestions(methodology) {
+        const container = document.getElementById('guided-questions');
+        if (!container) return;
+
+        const questions = BUILDER_QUESTIONS[methodology];
+        if (!questions) return;
+
+        BuilderState.answers = {};
+
+        let html = '';
+        questions.forEach(q => {
+            const fullWidthClass = q.fullWidth ? ' data-fullwidth="true"' : '';
+            const optionalClass = q.optional ? ' guided-letter-optional' : '';
+            html += `
+                <div class="guided-question" data-element="${q.key}"${fullWidthClass}>
+                    <label for="builder-${q.key}" class="guided-label">
+                        <span class="guided-letter${optionalClass}">${q.letter}</span>
+                        ${q.label}${q.optional ? ' (optional)' : ''}
+                    </label>
+                    <textarea id="builder-${q.key}" class="guided-input" placeholder="${q.placeholder}" rows="2"></textarea>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+
+        container.querySelectorAll('.guided-input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const element = e.target.closest('.guided-question')?.dataset.element;
+                if (element) {
+                    BuilderState.answers[element] = e.target.value;
+                }
+            });
+        });
+    }
+
+    function combineBuilderAnswers() {
+        const outputSection = document.getElementById('output-section');
+        const outputTextarea = document.getElementById('combined-output');
+        if (!outputSection || !outputTextarea) return;
+
+        const methodology = BuilderState.methodology;
+        const answers = BuilderState.answers;
+
+        let parts = [];
+
+        if (methodology === 'CRISP') {
+            if (answers.role?.trim()) parts.push(`Act as ${answers.role.trim()}.`);
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.instructions?.trim()) parts.push(answers.instructions.trim());
+            if (answers.specifics?.trim()) parts.push(answers.specifics.trim());
+            if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
+        } else if (methodology === 'COSTAR') {
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.objective?.trim()) parts.push(`My goal is to ${answers.objective.trim()}.`);
+            if (answers.audience?.trim()) parts.push(`This is for ${answers.audience.trim()}.`);
+            if (answers.style?.trim() || answers.tone?.trim()) {
+                const styleText = [answers.style?.trim(), answers.tone?.trim()].filter(Boolean).join(', ');
+                parts.push(`Use a ${styleText} tone.`);
+            }
+            if (answers.response?.trim()) parts.push(`Format as ${answers.response.trim()}.`);
+        } else if (methodology === 'CRISPE') {
+            if (answers.role?.trim()) parts.push(`Act as ${answers.role.trim()}.`);
+            if (answers.context?.trim()) parts.push(answers.context.trim());
+            if (answers.instruction?.trim()) parts.push(answers.instruction.trim());
+            if (answers.specifics?.trim()) parts.push(answers.specifics.trim());
+            if (answers.parameters?.trim()) parts.push(answers.parameters.trim());
+            if (answers.example?.trim()) parts.push(`Example: ${answers.example.trim()}`);
+        }
+
+        const combined = parts.join('\n\n');
+
+        if (combined.trim()) {
+            outputTextarea.value = combined;
+            outputSection.hidden = false;
+            showToast('Prompt combined! Copy it or send to the Analyzer.', 'success');
+        } else {
+            showToast('Please fill in at least one field.', 'error');
+        }
+    }
+
+    // Initialize Builder Page
+    const methodologySelector = document.getElementById('methodology-selector');
+    const combineBtn = document.getElementById('combine-prompt-btn');
+    const copyBtn = document.getElementById('copy-btn');
+    const guidedQuestionsContainer = document.getElementById('guided-questions');
+
+    if (methodologySelector && guidedQuestionsContainer && combineBtn) {
+        // Initial render
+        renderBuilderQuestions('CRISP');
+
+        // Methodology buttons
+        methodologySelector.querySelectorAll('.methodology-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const method = btn.dataset.method;
+                BuilderState.methodology = method;
+
+                methodologySelector.querySelectorAll('.methodology-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                renderBuilderQuestions(method);
+            });
+        });
+
+        // Combine button
+        combineBtn.addEventListener('click', combineBuilderAnswers);
+
+        // Copy button
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const outputTextarea = document.getElementById('combined-output');
+                if (outputTextarea && outputTextarea.value) {
+                    navigator.clipboard.writeText(outputTextarea.value).then(() => {
+                        showToast('Copied to clipboard!', 'success');
+                    }).catch(() => {
+                        outputTextarea.select();
+                        document.execCommand('copy');
+                        showToast('Copied to clipboard!', 'success');
+                    });
+                }
+            });
+        }
+    }
+
+    // ==========================================
     // TOOL PAGE: PREFLIGHT CHECKLIST
     // ==========================================
     const checklistForm = document.getElementById('checklist-form');

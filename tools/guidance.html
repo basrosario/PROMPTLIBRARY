@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>Prompt Builder - Praxis</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <a href="../learn/index.html" class="nav-link">Learn</a>
+                <a href="index.html" class="nav-link active">AI Readiness</a>
+                <a href="../patterns/index.html" class="nav-link">Patterns</a>
+                <a href="../quiz/index.html" class="nav-link">Quiz</a>
+                <a href="../pages/ai-safety.html" class="nav-link">Safety</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">AI Readiness</a>
+                    <span class="separator">/</span>
+                    <span class="current">Prompt Builder</span>
+                </nav>
+                <h1 class="page-title fade-in">Prompt Builder</h1>
+                <p class="page-subtitle fade-in">Build well-structured prompts step by step using proven frameworks. Answer the questions, and we'll combine them into an effective prompt.</p>
+            </div>
+        </section>
+
+        <!-- Builder Tool -->
+        <section class="section">
+            <div class="container">
+                <div class="tool-container fade-in-up">
+                    <!-- Methodology Selector -->
+                    <div class="guided-mode-panel">
+                        <div class="guided-mode-header">
+                            <h3>Choose Your Framework</h3>
+                            <p>Select a methodology and answer the questions to build your prompt</p>
+                        </div>
+
+                        <div class="methodology-selector" id="methodology-selector">
+                            <button type="button" class="methodology-btn active" data-method="CRISP">
+                                <strong>CRISP</strong>
+                                <span>Context, Role, Instructions, Specifics, Parameters</span>
+                            </button>
+                            <button type="button" class="methodology-btn" data-method="COSTAR">
+                                <strong>COSTAR</strong>
+                                <span>Context, Objective, Style, Tone, Audience, Response</span>
+                            </button>
+                            <button type="button" class="methodology-btn" data-method="CRISPE">
+                                <strong>CRISPE</strong>
+                                <span>Context, Role, Instruction, Specifics, Parameters, Example</span>
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Questions Container -->
+                        <div id="guided-questions" class="guided-questions">
+                            <!-- Questions populated by JavaScript based on selected methodology -->
+                        </div>
+
+                        <button type="button" id="combine-prompt-btn" class="btn btn-primary btn-full">
+                            Combine into Prompt
+                        </button>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div id="output-section" class="output-section" hidden>
+                        <div class="output-header">
+                            <h3>Your Combined Prompt</h3>
+                            <div class="output-actions">
+                                <button type="button" id="copy-btn" class="btn btn-outline btn-sm">
+                                    Copy to Clipboard
+                                </button>
+                                <a href="analyzer.html" id="analyze-btn" class="btn btn-primary btn-sm">
+                                    Analyze This Prompt
+                                </a>
+                            </div>
+                        </div>
+                        <div class="output-content">
+                            <textarea id="combined-output" class="prompt-textarea" rows="8" readonly></textarea>
+                        </div>
+                        <p class="output-tip">You can edit this prompt, then copy it or analyze it with our Prompt Analyzer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Framework Info -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Why Use a Framework?</h2>
+                <p class="section-subtitle fade-in-up">Structured prompts get better results from AI</p>
+
+                <div class="framework-benefits stagger-children">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">1</div>
+                        <h3>Completeness</h3>
+                        <p>Frameworks ensure you don't forget important elements like context or constraints.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">2</div>
+                        <h3>Clarity</h3>
+                        <p>Breaking your request into components forces you to think through what you actually need.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">3</div>
+                        <h3>Consistency</h3>
+                        <p>Using the same structure helps you learn what works and refine your approach over time.</p>
+                    </div>
+                </div>
+
+                <div class="frameworks-overview fade-in-up">
+                    <h3>Learn More About Each Framework</h3>
+                    <div class="framework-cards">
+                        <a href="../learn/crisp.html" class="framework-mini-card">
+                            <strong>CRISP</strong>
+                            <span>Best for task-oriented prompts with clear deliverables</span>
+                        </a>
+                        <a href="../learn/costar.html" class="framework-mini-card">
+                            <strong>COSTAR</strong>
+                            <span>Best for content creation with specific tone and audience</span>
+                        </a>
+                        <a href="../learn/crispe.html" class="framework-mini-card">
+                            <strong>CRISPE</strong>
+                            <span>Best when you have examples of desired output</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Tools -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Tools</h2>
+
+                <div class="card-grid stagger-children">
+                    <a href="analyzer.html" class="card card-glow">
+                        <h3 class="card-title">Prompt Analyzer</h3>
+                        <p class="card-text">Get detailed feedback on any prompt. See what elements are present, what's missing, and how to improve.</p>
+                        <span class="card-link">Analyze a Prompt</span>
+                    </a>
+
+                    <a href="checklist.html" class="card card-glow">
+                        <h3 class="card-title">Preflight Checklist</h3>
+                        <p class="card-text">Quick quality check before you hit enter. Catch common issues and improve your prompts.</p>
+                        <span class="card-link">Use Checklist</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/crispe.html">CRISPE Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/react.html">ReAct Method</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="analyzer.html">Prompt Analyzer</a>
+                    <a href="guidance.html">Prompt Builder</a>
+                    <a href="checklist.html">Preflight Checklist</a>
+                    <a href="hallucination.html">Hallucination Spotter</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../pages/ai-safety.html">AI Safety</a>
+                    <a href="../pages/about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

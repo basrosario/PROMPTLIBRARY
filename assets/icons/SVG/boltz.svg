@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
-  <!-- Box body -->
-  <rect x="64" y="280" width="320" height="200" rx="12" stroke="currentColor" stroke-width="8" fill="currentColor"/>
-  <!-- Box lid -->
-  <path d="M48 280h352c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16z" fill="currentColor"/>
-  <!-- Lightning bolt emerging from box -->
-  <path d="M244 32l-56 136h40l-36 96 76-92h-44l56-140h-36z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
-</svg>
