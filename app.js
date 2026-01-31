@@ -220,16 +220,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const isCombined = this.mode === 'combined';
             const isHero = this.mode === 'hero';
 
-            // Hero mode settings - single large network on left side
+            // Hero mode settings - single large network, alternating sides
             if (isHero) {
                 this.nodesPerCluster = this.isMobile ? 80 : 180; // More nodes for detail
                 this.clusterSpread = this.isMobile ? 160 : 280; // Network radius
                 this.heroOpacity = 0.5; // Slightly more visible
                 this.currentAIIndex = 0;
                 this.lastAISwitch = 0;
-                this.aiSwitchInterval = 13000; // 13 seconds
+                this.aiSwitchInterval = 8000; // 8 seconds
                 this.aiTransitionProgress = 1; // 0-1 for fade transition
-                this.aiTransitionDuration = 2000; // 2s fade for smoother transition
+                this.aiTransitionDuration = 1500; // 1.5s fade
+                this.heroSide = 'left'; // Alternates between 'left' and 'right'
+                this.heroFadeOut = false; // True during fade-out phase
                 // Rotation
                 this.heroRotation = 0;
                 this.heroRotationSpeed = 0.0001; // Very slow rotation
@@ -401,14 +403,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Hero mode: Single large neural network on left side with cycling AI names
+        // Hero mode: Single large neural network with cycling AI names, alternating sides
         initHeroCluster() {
             this.nodes = [];
             this.aiClusters = [];
             this.heroTerms = [];
 
-            // Position cluster on the LEFT side of screen
-            const centerX = this.width * (this.isMobile ? 0.5 : 0.30);
+            // Position cluster based on current side (left or right)
+            const leftPos = this.isMobile ? 0.5 : 0.30;
+            const rightPos = this.isMobile ? 0.5 : 0.70;
+            const centerX = this.width * (this.heroSide === 'left' ? leftPos : rightPos);
             const centerY = this.height * 0.5;
 
             // Create single large cluster
@@ -486,22 +490,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Update hero AI name cycling and rotation
+        // Update hero AI name cycling, rotation, and side switching
         updateHeroAI(time) {
             if (this.mode !== 'hero') return;
 
             const timeSinceSwitch = time - this.lastAISwitch;
+            const fadeOutDuration = this.aiTransitionDuration / 2; // Half time for fade out
+            const fadeInDuration = this.aiTransitionDuration / 2;  // Half time for fade in
 
-            // Check if it's time to switch to next AI
-            if (timeSinceSwitch >= this.aiSwitchInterval) {
-                this.currentAIIndex = (this.currentAIIndex + 1) % AI_NAMES.length;
-                this.lastAISwitch = time;
-                this.aiTransitionProgress = 0;
+            // Check if it's time to start fading out
+            if (!this.heroFadeOut && timeSinceSwitch >= this.aiSwitchInterval - fadeOutDuration) {
+                this.heroFadeOut = true;
             }
 
-            // Update transition progress (for fade effect)
-            if (this.aiTransitionProgress < 1) {
-                this.aiTransitionProgress = Math.min(1, timeSinceSwitch / this.aiTransitionDuration);
+            // Calculate opacity based on phase
+            if (this.heroFadeOut && timeSinceSwitch < this.aiSwitchInterval) {
+                // Fading OUT phase
+                const fadeOutProgress = (timeSinceSwitch - (this.aiSwitchInterval - fadeOutDuration)) / fadeOutDuration;
+                this.aiTransitionProgress = Math.max(0, 1 - fadeOutProgress);
+            } else if (timeSinceSwitch >= this.aiSwitchInterval) {
+                // Time to switch - rebuild network on opposite side
+                this.currentAIIndex = (this.currentAIIndex + 1) % AI_NAMES.length;
+                this.heroSide = this.heroSide === 'left' ? 'right' : 'left';
+                this.lastAISwitch = time;
+                this.heroFadeOut = false;
+                this.aiTransitionProgress = 0;
+
+                // Rebuild the entire network on the new side
+                this.initHeroCluster();
+                this.buildConnections();
+            } else if (this.aiTransitionProgress < 1) {
+                // Fading IN phase
+                this.aiTransitionProgress = Math.min(1, timeSinceSwitch / fadeInDuration);
             }
 
             // Update cluster name
@@ -541,9 +561,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fade in/out transition
             const fadeOpacity = this.aiTransitionProgress * this.heroOpacity * pulse * 1.5; // Brighter label
 
-            // Label position - OUTSIDE the network (top-right of network)
-            const labelAngle = -Math.PI / 4 + this.heroRotation * 0.1; // Slight rotation follow
-            const labelDistance = this.clusterSpread + (this.isMobile ? 80 : 130);
+            // Label position - OUTSIDE the network, direction depends on which side
+            // Left side: label goes to upper-right; Right side: label goes to upper-left
+            const isLeft = this.heroSide === 'left';
+            const baseAngle = isLeft ? -Math.PI / 4 : -3 * Math.PI / 4; // Upper-right or upper-left
+            const labelAngle = baseAngle + this.heroRotation * 0.1; // Slight rotation follow
+            const labelDistance = this.clusterSpread + (this.isMobile ? 40 : 60); // Shortened line
             const labelX = cluster.centerX + Math.cos(labelAngle) * labelDistance;
             const labelY = cluster.centerY + Math.sin(labelAngle) * labelDistance;
 
@@ -571,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const fontSize = this.isMobile ? 20 : 32;
 
             this.ctx.font = `bold ${fontSize}px monospace`;
-            this.ctx.textAlign = 'left';
+            this.ctx.textAlign = isLeft ? 'left' : 'right'; // Align based on side
             this.ctx.textBaseline = 'middle';
 
             // Text glow - subtle red glow
@@ -582,7 +605,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Main text - white with fade
             this.ctx.fillStyle = `rgba(255, 255, 255, ${fadeOpacity})`;
-            this.ctx.fillText(cluster.name, labelX + 10, labelY);
+            const textOffset = isLeft ? 10 : -10;
+            this.ctx.fillText(cluster.name, labelX + textOffset, labelY);
 
             this.ctx.restore();
         }
@@ -602,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = cluster.centerY + Math.sin(rotatedAngle) * term.orbitRadius + verticalWobble;
 
                 const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.15 + 0.85;
-                const opacity = term.opacity * pulse * this.heroOpacity;
+                const opacity = term.opacity * pulse * this.heroOpacity * this.aiTransitionProgress;
 
                 this.ctx.save();
                 this.ctx.font = `${term.fontSize}px monospace`;
@@ -807,8 +831,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const pulse = Math.sin(time * 0.003 + node.pulseOffset) * 0.15 + 0.85;
             let intensity = node.glowIntensity * pulse;
 
-            // Apply hero mode transparency
-            const heroMult = this.mode === 'hero' ? this.heroOpacity : 1;
+            // Apply hero mode transparency (including fade transition)
+            const heroMult = this.mode === 'hero' ? this.heroOpacity * this.aiTransitionProgress : 1;
             intensity *= heroMult;
 
             // Simplified glow using concentric circles instead of expensive gradients
@@ -942,8 +966,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.ctx.lineCap = 'round';
 
-            // Apply hero mode transparency
-            const heroMult = this.mode === 'hero' ? this.heroOpacity : 1;
+            // Apply hero mode transparency (including fade transition)
+            const heroMult = this.mode === 'hero' ? this.heroOpacity * this.aiTransitionProgress : 1;
 
             // Use cached connections - much faster than O(n²) every frame
             for (const conn of this.cachedConnections) {
@@ -1040,8 +1064,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         drawDataPulses() {
-            // Apply hero mode transparency
-            const heroMult = this.mode === 'hero' ? this.heroOpacity : 1;
+            // Apply hero mode transparency (including fade transition)
+            const heroMult = this.mode === 'hero' ? this.heroOpacity * this.aiTransitionProgress : 1;
 
             this.dataPulses.forEach(pulse => {
                 const startNode = this.nodes[pulse.startIdx];
