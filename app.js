@@ -567,34 +567,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.aiClusters[0].name = AI_NAMES[this.currentAIIndex];
             }
 
-            // Update slow rotation
-            this.heroRotation += this.heroRotationSpeed;
-
-            // Update orbiting terms
-            this.heroTerms.forEach(term => {
-                term.angle += term.orbitSpeed;
-            });
+            // All movement disabled - network is completely static
+            // (heroRotation and term angles no longer update)
         }
 
-        // Get rotated position for hero nodes with breathing and floating
+        // Get static position for hero nodes (no movement)
         getHeroNodePosition(node, time) {
             const cluster = this.aiClusters[0];
             if (!cluster) return { x: 0, y: 0 };
 
-            // Calculate floating offset (gentle drift in space)
-            const floatX = Math.sin(time * cluster.floatSpeedX + cluster.floatPhaseX) * cluster.floatAmplitudeX;
-            const floatY = Math.cos(time * cluster.floatSpeedY + cluster.floatPhaseY) * cluster.floatAmplitudeY;
-
-            // Calculate breathing scale (network expands and contracts)
-            const breatheScale = 1 + Math.sin(time * cluster.breatheSpeed + cluster.breathePhase) * cluster.breatheAmplitude;
-
-            // Apply rotation to the node's angle
-            const rotatedAngle = node.angle + this.heroRotation;
-
-            // Apply breathing to radius and floating to position
-            const breathedRadius = node.radius * breatheScale;
-            const x = cluster.baseCenterX + floatX + Math.cos(rotatedAngle) * breathedRadius;
-            const y = cluster.baseCenterY + floatY + Math.sin(rotatedAngle) * breathedRadius;
+            // Static position - no floating, breathing, or rotation
+            const x = cluster.baseCenterX + Math.cos(node.angle) * node.radius;
+            const y = cluster.baseCenterY + Math.sin(node.angle) * node.radius;
             return { x, y };
         }
 
@@ -605,11 +589,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const cluster = this.aiClusters[0];
             const pulse = Math.sin(time * 0.0015) * 0.1 + 0.9;
 
-            // Calculate floating offset (same as nodes for synchronized movement)
-            const floatX = Math.sin(time * cluster.floatSpeedX + cluster.floatPhaseX) * cluster.floatAmplitudeX;
-            const floatY = Math.cos(time * cluster.floatSpeedY + cluster.floatPhaseY) * cluster.floatAmplitudeY;
-            const currentCenterX = cluster.baseCenterX + floatX;
-            const currentCenterY = cluster.baseCenterY + floatY;
+            // Static position - no floating
+            const currentCenterX = cluster.baseCenterX;
+            const currentCenterY = cluster.baseCenterY;
 
             // Fade in/out transition
             const fadeOpacity = this.aiTransitionProgress * this.heroOpacity * pulse * 1.5; // Brighter label
@@ -617,8 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Label position - OUTSIDE the network, direction depends on which side
             // Left side: label goes to upper-right; Right side: label goes to upper-left
             const isLeft = this.heroSide === 'left';
-            const baseAngle = isLeft ? -Math.PI / 4 : -3 * Math.PI / 4; // Upper-right or upper-left
-            const labelAngle = baseAngle + this.heroRotation * 0.1; // Slight rotation follow
+            const labelAngle = isLeft ? -Math.PI / 4 : -3 * Math.PI / 4; // Upper-right or upper-left (no rotation)
             const labelDistance = this.clusterSpread + (this.isMobile ? 40 : 60); // Shortened line
             const labelX = currentCenterX + Math.cos(labelAngle) * labelDistance;
             const labelY = currentCenterY + Math.sin(labelAngle) * labelDistance;
@@ -664,25 +645,20 @@ document.addEventListener('DOMContentLoaded', () => {
             this.ctx.restore();
         }
 
-        // Draw orbiting AI terms around the hero network
+        // Draw static AI terms around the hero network (no movement)
         drawHeroTerms(time) {
             if (!this.heroTerms || this.aiClusters.length === 0) return;
 
             const cluster = this.aiClusters[0];
 
-            // Calculate floating offset (same as nodes for synchronized movement)
-            const floatX = Math.sin(time * cluster.floatSpeedX + cluster.floatPhaseX) * cluster.floatAmplitudeX;
-            const floatY = Math.cos(time * cluster.floatSpeedY + cluster.floatPhaseY) * cluster.floatAmplitudeY;
-            const currentCenterX = cluster.baseCenterX + floatX;
-            const currentCenterY = cluster.baseCenterY + floatY;
+            // Static position - no floating
+            const currentCenterX = cluster.baseCenterX;
+            const currentCenterY = cluster.baseCenterY;
 
             this.heroTerms.forEach(term => {
-                // Calculate position with rotation
-                const rotatedAngle = term.angle + this.heroRotation * 0.3; // Slower follow
-                const verticalWobble = Math.sin(time * term.verticalSpeed + term.verticalOffset) * term.verticalAmplitude;
-
-                const x = currentCenterX + Math.cos(rotatedAngle) * term.orbitRadius;
-                const y = currentCenterY + Math.sin(rotatedAngle) * term.orbitRadius + verticalWobble;
+                // Static position - no rotation or wobble
+                const x = currentCenterX + Math.cos(term.angle) * term.orbitRadius;
+                const y = currentCenterY + Math.sin(term.angle) * term.orbitRadius;
 
                 const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.15 + 0.85;
                 const opacity = term.opacity * pulse * this.heroOpacity * this.aiTransitionProgress;
