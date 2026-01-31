@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <title>FAQ - Praxis</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <a href="../learn/index.html" class="nav-link">Learn</a>
+                <a href="../tools/index.html" class="nav-link">AI Readiness</a>
+                <a href="../patterns/index.html" class="nav-link">Patterns</a>
+                <a href="../quiz/index.html" class="nav-link">Quiz</a>
+                <a href="ai-safety.html" class="nav-link">Safety</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">FAQ</span>
+                </nav>
+                <h1 class="page-title fade-in">Frequently Asked Questions</h1>
+                <p class="page-subtitle fade-in">Common questions about AI, prompting, and getting the most from this resource.</p>
+            </div>
+        </section>
+
+        <!-- Natural Language Disclaimer - IMPORTANT -->
+        <section class="section">
+            <div class="container">
+                <div class="disclaimer-banner fade-in-up">
+                    <h2>Understanding Natural Language AI</h2>
+                    <p class="disclaimer-lead">AI assistants are designed to understand and respond to <strong>natural language</strong>&mdash;the same way you'd talk to a colleague or friend.</p>
+
+                    <div class="disclaimer-content">
+                        <div class="disclaimer-point">
+                            <h3>You Don't Need Special Syntax</h3>
+                            <p>Unlike programming languages or search engines, AI doesn't require specific keywords, operators, or formatting. Just explain what you need in plain, conversational language.</p>
+                        </div>
+
+                        <div class="disclaimer-point">
+                            <h3>Frameworks Are Training Wheels</h3>
+                            <p>Methods like CRISP and COSTAR help you learn <em>what information to include</em>, not <em>how to format it</em>. Once you understand what makes a good prompt, you can communicate naturally without following rigid structures.</p>
+                        </div>
+
+                        <div class="disclaimer-point">
+                            <h3>Context Matters More Than Format</h3>
+                            <p>AI responds better to clear context and specific details than to perfectly structured prompts. A conversational prompt with good information will outperform a rigid template with vague content.</p>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <strong>The Goal:</strong> Learn what information AI needs to help you effectively, then communicate it however feels natural to you.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started FAQs -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Getting Started</h2>
+                <p class="section-subtitle fade-in-up">New to AI? Start here.</p>
+
+                <div class="faq-list stagger-children">
+                    <details class="faq-item">
+                        <summary class="faq-question">What is a prompt?</summary>
+                        <div class="faq-answer">
+                            <p>A prompt is simply the text you send to an AI assistant. It can be a question, instruction, request, or any combination. The quality of your prompt directly influences the quality of the AI's response.</p>
+                            <a href="../learn/prompt-basics.html" class="faq-link">Learn more about prompts →</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Which AI should I use?</summary>
+                        <div class="faq-answer">
+                            <p>The techniques taught here work with any modern AI assistant, including ChatGPT, Claude, Gemini, Copilot, and others. Each has slightly different strengths, but the fundamentals of good prompting are universal.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Do I need technical skills to use AI effectively?</summary>
+                        <div class="faq-answer">
+                            <p>No. AI assistants are designed to understand natural language&mdash;the same way you'd communicate with a person. You don't need coding skills, special formatting, or technical knowledge. Just clear communication.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Where should I start learning?</summary>
+                        <div class="faq-answer">
+                            <p>We recommend starting with <strong>Prompt Basics</strong> to understand core concepts, then moving to the <strong>CRISP Method</strong> as your first framework. From there, explore other methods based on your needs.</p>
+                            <a href="../learn/index.html" class="faq-link">View learning paths →</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prompting Methods FAQs -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Prompting Methods</h2>
+                <p class="section-subtitle fade-in-up">Understanding the frameworks</p>
+
+                <div class="faq-list stagger-children">
+                    <details class="faq-item">
+                        <summary class="faq-question">Which prompting method should I use?</summary>
+                        <div class="faq-answer">
+                            <p><strong>CRISP</strong> is great for everyday tasks and quick requests. <strong>CRISPE</strong> adds examples for creative work. <strong>COSTAR</strong> is ideal for professional content with specific tone and audience. <strong>ReAct</strong> works best for complex, multi-step problems. <strong>Flipped Interaction</strong> is perfect when you're not sure what you need.</p>
+                            <a href="../learn/index.html" class="faq-link">Compare all methods →</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Do I have to memorize these frameworks?</summary>
+                        <div class="faq-answer">
+                            <p>No. The frameworks are learning tools to help you understand what information AI needs. Once you internalize the concepts, you'll naturally include the right details without consciously following a structure. Think of them as training wheels.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Can I combine different methods?</summary>
+                        <div class="faq-answer">
+                            <p>Absolutely. The methods aren't rigid rules&mdash;they're guidelines. Feel free to take elements from different frameworks based on what your task needs. Many effective prompts blend concepts from multiple methods.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">What's the difference between CRISP and CRISPE?</summary>
+                        <div class="faq-answer">
+                            <p>CRISPE adds an "Example" component to the CRISP framework. This is particularly useful for creative tasks where showing the AI an example of what you want is more effective than describing it. It enables few-shot learning.</p>
+                            <a href="../learn/crispe.html" class="faq-link">Learn CRISPE →</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Limitations FAQs -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">AI Limitations & Safety</h2>
+                <p class="section-subtitle fade-in-up">Understanding what AI can and can't do</p>
+
+                <div class="faq-list stagger-children">
+                    <details class="faq-item">
+                        <summary class="faq-question">What is a hallucination?</summary>
+                        <div class="faq-answer">
+                            <p>A hallucination is when AI generates information that sounds plausible but is actually incorrect or made up. This includes fake citations, invented statistics, fictional events, or confident statements about things the AI doesn't actually know. Always verify important information.</p>
+                            <a href="../tools/hallucination.html" class="faq-link">Practice spotting hallucinations →</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Can I trust AI for medical, legal, or financial advice?</summary>
+                        <div class="faq-answer">
+                            <p>No. AI should never replace professional advice in high-stakes domains. It can help you understand concepts, prepare questions, or organize your thoughts, but critical decisions about health, legal matters, and finances require qualified human professionals.</p>
+                            <a href="ai-safety.html" class="faq-link">Learn about AI safety →</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Is my data safe when using AI?</summary>
+                        <div class="faq-answer">
+                            <p>Assume that anything you type into an AI system could be stored or used for training. Never share passwords, personal identifiers, confidential business information, or sensitive data. Check each AI provider's privacy policy for specifics.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Why does AI sometimes give wrong answers confidently?</summary>
+                        <div class="faq-answer">
+                            <p>AI doesn't "know" things the way humans do. It predicts likely text patterns based on training data. When it lacks information or makes errors, it doesn't have uncertainty signals like humans do. This is why verification is essential&mdash;confidence doesn't equal accuracy.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Praxis FAQs -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">About Praxis</h2>
+                <p class="section-subtitle fade-in-up">Questions about this resource</p>
+
+                <div class="faq-list stagger-children">
+                    <details class="faq-item">
+                        <summary class="faq-question">Is Praxis really free?</summary>
+                        <div class="faq-answer">
+                            <p>Yes, completely free. No account required, no premium tiers, no ads, no tracking. We believe AI skills should be accessible to everyone, regardless of budget.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Why doesn't this site use AI-powered features?</summary>
+                        <div class="faq-answer">
+                            <p>We intentionally keep this site simple and self-contained. All tools run locally in your browser&mdash;nothing is sent to external servers. This ensures your privacy and lets you learn without needing an AI account.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">Who created Praxis?</summary>
+                        <div class="faq-answer">
+                            <p>Praxis was created by Basiliso Rosario with the mission of demystifying AI and making effective prompting skills accessible to everyone.</p>
+                            <a href="about.html" class="faq-link">Learn more about the founder →</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">How can I provide feedback or suggestions?</summary>
+                        <div class="faq-answer">
+                            <p>We'd love to hear from you. Reach out via the contact information on our About page with your thoughts, suggestions, or questions.</p>
+                            <a href="about.html" class="faq-link">Contact us →</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-card fade-in-up">
+                    <h2 class="cta-title">Ready to Learn?</h2>
+                    <p class="cta-text">Start with the basics or test your knowledge with our readiness quiz.</p>
+                    <div class="cta-actions">
+                        <a href="../learn/prompt-basics.html" class="btn btn-primary">Start with Basics</a>
+                        <a href="../quiz/index.html" class="btn btn-secondary">Take the Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the art of AI communication through proven methodologies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/crispe.html">CRISPE Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/react.html">ReAct Method</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                    <a href="../learn/flipped-interaction.html">Flipped Interaction</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                    <a href="../tools/guidance.html">Prompt Builder</a>
+                    <a href="../tools/checklist.html">Preflight Checklist</a>
+                    <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="ai-safety.html">AI Safety</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="glossary.html">Glossary</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>
