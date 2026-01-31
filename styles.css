@@ -1722,6 +1722,10 @@ p {
     background: #3B82F6;
 }
 
+.badge-orange {
+    background: #F59E0B;
+}
+
 /* Tool Container */
 .tool-container {
     background: var(--bg-card);
@@ -3113,6 +3117,21 @@ p {
 
 .pattern-when strong {
     color: var(--text-primary);
+}
+
+.pattern-learn-link {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.pattern-learn-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* Info Cards */
@@ -5466,5 +5485,346 @@ body.menu-open {
 
     .scenario-tab .tab-icon {
         display: none;
+    }
+}
+
+/* ============================================
+   Flipped Interaction Page Styles
+   ============================================ */
+
+.comparison-example {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .comparison-example {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.comparison-example .example-result {
+    margin-top: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Trigger Phrases */
+.trigger-phrases {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .trigger-phrases {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.trigger-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+}
+
+.trigger-card:hover {
+    border-color: var(--primary);
+}
+
+.trigger-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.trigger-card p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    margin: 0;
+}
+
+/* Flipped Example Cards */
+.flipped-example {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.flipped-prompt,
+.flipped-questions,
+.flipped-outcome {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.flipped-prompt {
+    border-left: 3px solid var(--primary);
+}
+
+.flipped-questions {
+    border-left: 3px solid #10B981;
+}
+
+.flipped-outcome {
+    border-left: 3px solid #F59E0B;
+}
+
+.flipped-example h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.flipped-prompt p,
+.flipped-outcome p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.flipped-questions ol {
+    margin: 0;
+    padding-left: var(--space-lg);
+    color: var(--text-secondary);
+}
+
+.flipped-questions li {
+    margin-bottom: var(--space-xs);
+}
+
+/* When To Use Grid */
+.when-grid {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .when-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.when-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.when-card.use {
+    border-top: 3px solid #10B981;
+}
+
+.when-card.skip {
+    border-top: 3px solid #EF4444;
+}
+
+.when-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+}
+
+.when-card ul {
+    margin: 0;
+    padding-left: var(--space-lg);
+}
+
+.when-card li {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+}
+
+/* Variation Cards */
+.variation-cards {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .variation-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.variation-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+}
+
+.variation-card:hover {
+    border-color: var(--primary);
+}
+
+.variation-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+}
+
+.variation-card p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.variation-use {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ========================================
+   Technique Detection Badges
+   ======================================== */
+
+.techniques-section {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.techniques-section h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.techniques-section.techniques-empty .techniques-hint {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--border-color);
+}
+
+.techniques-section.techniques-empty .techniques-hint a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.techniques-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.technique-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.technique-badge:hover {
+    border-color: var(--primary);
+}
+
+.technique-badge.confidence-high {
+    border-left: 3px solid #10B981;
+}
+
+.technique-badge.confidence-medium {
+    border-left: 3px solid #F59E0B;
+}
+
+.technique-badge.confidence-low {
+    border-left: 3px solid #6B7280;
+}
+
+.technique-badge .technique-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.technique-badge.confidence-high .technique-icon {
+    color: #10B981;
+}
+
+.technique-badge.confidence-medium .technique-icon {
+    color: #F59E0B;
+}
+
+.technique-badge.confidence-low .technique-icon {
+    color: #6B7280;
+}
+
+.technique-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.technique-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    margin-bottom: 2px;
+}
+
+.technique-desc {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.technique-match {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: var(--space-xs);
+    padding: var(--space-xs);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.technique-learn {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.technique-learn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .techniques-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

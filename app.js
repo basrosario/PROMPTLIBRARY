@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     // ==========================================
+    // SECURITY UTILITIES
+    // ==========================================
+
+    // Escape HTML to prevent XSS when displaying user content
+    const escapeHtml = (str) => {
+        if (!str || typeof str !== 'string') return '';
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    };
+
+    // ==========================================
     // MOBILE MENU TOGGLE
     // ==========================================
     const menuToggle = document.getElementById('menuToggle');
@@ -1859,6 +1871,136 @@ document.addEventListener('DOMContentLoaded', () => {
         examples: { id: 'examples', name: 'Examples', letter: 'E', description: 'Sample content or output demonstrations', positionWeight: { early: 0.7, middle: 1.0, late: 1.3 } }
     };
 
+    // Technique detection patterns for advanced prompting methods
+    const TECHNIQUE_PATTERNS = {
+        flippedInteraction: {
+            id: 'flipped-interaction',
+            name: 'Flipped Interaction Method',
+            description: 'Asking AI to interview you first',
+            learnUrl: 'learn/flipped-interaction.html',
+            signals: [
+                { pattern: /\b(ask me|interview me|question me)\s+(first|before|about)/i, weight: 1.0 },
+                { pattern: /\b(before (you )?(answer|respond|help|give|provide)|first,? ask)\b/i, weight: 0.9 },
+                { pattern: /\b(what (do you|else do you|would you) need to know)\b/i, weight: 0.8 },
+                { pattern: /\b(gather (more )?information|clarify(ing)? questions)\b/i, weight: 0.7 },
+                { pattern: /\b(ask me \d+|ask \d+ questions)\b/i, weight: 1.0 },
+                { pattern: /\b(understand my situation|learn about my)\b/i, weight: 0.6 }
+            ]
+        },
+        chainOfThought: {
+            id: 'chain-of-thought',
+            name: 'Chain of Thought',
+            description: 'Step-by-step reasoning',
+            learnUrl: 'learn/advanced.html',
+            signals: [
+                { pattern: /\b(step[- ]by[- ]step|one step at a time)\b/i, weight: 1.0 },
+                { pattern: /\b(think through|walk me through|walk through)\b/i, weight: 0.9 },
+                { pattern: /\b(show (your |the )?reasoning|explain (your |the )?thinking)\b/i, weight: 0.9 },
+                { pattern: /\b(let'?s think|reason through|work through this)\b/i, weight: 0.8 },
+                { pattern: /\b(before (giving |your )?(final )?answer)\b/i, weight: 0.7 }
+            ]
+        },
+        fewShot: {
+            id: 'few-shot',
+            name: 'Few-Shot Learning',
+            description: 'Providing examples before request',
+            learnUrl: 'learn/advanced.html',
+            signals: [
+                { pattern: /\bexample\s*\d*\s*:/i, weight: 1.0 },
+                { pattern: /\b(input|output)\s*:/i, weight: 0.9 },
+                { pattern: /→|->/, weight: 0.7 },
+                { pattern: /\b(like this|for example|for instance|such as):/i, weight: 0.6 },
+                { pattern: /\b(here('s| is) an example|example format)\b/i, weight: 0.8 }
+            ]
+        },
+        rolePrompting: {
+            id: 'role-prompting',
+            name: 'Role Prompting',
+            description: 'Assigning AI a persona',
+            learnUrl: 'learn/crisp.html',
+            signals: [
+                { pattern: /\b(act as|you are|pretend to be|imagine you('re| are))\b/i, weight: 1.0 },
+                { pattern: /\b(as (a|an) (expert|specialist|professional|senior))\b/i, weight: 0.9 },
+                { pattern: /\b(approach this (like|as)|think like)\b/i, weight: 0.8 },
+                { pattern: /\b(from the perspective of|in the voice of)\b/i, weight: 0.7 }
+            ]
+        },
+        constraintsFirst: {
+            id: 'constraints-first',
+            name: 'Constraints First',
+            description: 'Leading with limitations',
+            learnUrl: 'learn/crisp.html',
+            signals: [
+                { pattern: /^(constraints?|requirements?|rules?|limitations?):/im, weight: 1.0 },
+                { pattern: /\b(must be (under|less than|no more than|at least))\b/i, weight: 0.8 },
+                { pattern: /\b(don'?t|do not|never|avoid|exclude|without)\s+\w+/i, weight: 0.6 },
+                { pattern: /\b(only use|limit(ed)? to|maximum|minimum)\b/i, weight: 0.7 }
+            ]
+        },
+        selfVerification: {
+            id: 'self-verification',
+            name: 'Self-Verification',
+            description: 'Asking AI to check its work',
+            learnUrl: 'learn/advanced.html',
+            signals: [
+                { pattern: /\b(verify|double[- ]?check|review for (errors|accuracy|mistakes))\b/i, weight: 1.0 },
+                { pattern: /\b(are you sure|check (your|the) (answer|work|response))\b/i, weight: 0.9 },
+                { pattern: /\b(confirm (this is|that)|validate (your|the))\b/i, weight: 0.8 },
+                { pattern: /\b(after (you )?(answer|respond),? (verify|check|review))\b/i, weight: 0.9 }
+            ]
+        },
+        audienceSpec: {
+            id: 'audience-spec',
+            name: 'Audience Specification',
+            description: 'Defining who output is for',
+            learnUrl: 'learn/costar.html',
+            signals: [
+                { pattern: /\b(for (beginners|experts|executives|children|professionals|developers|managers))\b/i, weight: 1.0 },
+                { pattern: /\b(target(ing|ed)? (audience|readers|users))\b/i, weight: 0.9 },
+                { pattern: /\b(written for|aimed at|intended for|designed for)\b/i, weight: 0.8 },
+                { pattern: /\b(audience is|readers are|users are)\b/i, weight: 0.9 },
+                { pattern: /\b(who (have|has|are|is) (no experience|familiar|new to))\b/i, weight: 0.7 }
+            ]
+        },
+        formatSpec: {
+            id: 'format-spec',
+            name: 'Format Specification',
+            description: 'Defining output structure',
+            learnUrl: 'learn/crisp.html',
+            signals: [
+                { pattern: /\b(as a (table|list|json|csv|markdown|outline|diagram))\b/i, weight: 1.0 },
+                { pattern: /\b(in (json|xml|yaml|csv|html|markdown) format)\b/i, weight: 1.0 },
+                { pattern: /\b(bullet(ed)? (points?|list)|numbered list|ordered list)\b/i, weight: 0.9 },
+                { pattern: /\b(format(ted)? (as|like|with|using))\b/i, weight: 0.7 },
+                { pattern: /\{[^}]*:[^}]*\}/s, weight: 0.6 }
+            ]
+        },
+        metaPrompting: {
+            id: 'meta-prompting',
+            name: 'Meta-Prompting',
+            description: 'Instructions about how to respond',
+            learnUrl: 'learn/advanced.html',
+            signals: [
+                { pattern: /\b(respond only with|just (give|provide|show|return) me)\b/i, weight: 1.0 },
+                { pattern: /\b(don'?t explain|no (explanation|preamble|introduction|caveats))\b/i, weight: 0.9 },
+                { pattern: /\b(skip (the|any) (intro|introduction|preamble|pleasantries))\b/i, weight: 0.8 },
+                { pattern: /\b(output only|return only|give me only)\b/i, weight: 0.8 }
+            ]
+        },
+        devilsAdvocate: {
+            id: 'devils-advocate',
+            name: "Devil's Advocate",
+            description: 'Challenging or critiquing',
+            learnUrl: 'learn/advanced.html',
+            signals: [
+                { pattern: /\b(devil'?s advocate|argue against|play devil)\b/i, weight: 1.0 },
+                { pattern: /\b(critique|criticize|challenge|poke holes)\b/i, weight: 0.8 },
+                { pattern: /\b(what could go wrong|find (the )?(flaws|weaknesses|problems|issues))\b/i, weight: 0.9 },
+                { pattern: /\b(stress[- ]?test|pressure[- ]?test)\b/i, weight: 0.8 }
+            ]
+        }
+    };
+
     // Multi-signal content indicators for each element type
     const CONTENT_INDICATORS = {
         context: {
@@ -1971,8 +2113,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const frameworkFit = this.calculateFrameworkFit(elementSummary);
             const overallScore = this.calculateOverallScore(elementSummary, frameworkFit, selectedFramework);
             const feedback = this.generateFeedback(elementSummary, frameworkFit, selectedFramework);
+            const techniques = this.detectTechniques(prompt);
 
-            return { prompt, sentences: analyzedSentences, elementSummary, frameworkFit, overallScore, feedback };
+            return { prompt, sentences: analyzedSentences, elementSummary, frameworkFit, overallScore, feedback, techniques };
         }
 
         segmentPrompt(prompt) {
@@ -2263,6 +2406,63 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             return suggestions[elementKey] || { tip: 'Add more detail', example: '' };
         }
+
+        detectTechniques(prompt) {
+            const detectedTechniques = [];
+
+            for (const [techniqueKey, technique] of Object.entries(TECHNIQUE_PATTERNS)) {
+                let totalWeight = 0;
+                let maxWeight = 0;
+                const matchedSignals = [];
+
+                for (const signal of technique.signals) {
+                    maxWeight += signal.weight;
+                    const match = prompt.match(signal.pattern);
+                    if (match) {
+                        totalWeight += signal.weight;
+                        matchedSignals.push({
+                            matched: match[0],
+                            weight: signal.weight
+                        });
+                    }
+                }
+
+                // Calculate confidence based on weighted matches
+                const score = maxWeight > 0 ? (totalWeight / maxWeight) * 100 : 0;
+
+                // Only include if we have meaningful detection (at least one strong signal or multiple weak signals)
+                if (score >= 20 || (matchedSignals.length >= 2 && score >= 15)) {
+                    let confidence = 'low';
+                    if (score >= 60 || matchedSignals.some(s => s.weight >= 1.0)) {
+                        confidence = 'high';
+                    } else if (score >= 35 || matchedSignals.length >= 2) {
+                        confidence = 'medium';
+                    }
+
+                    detectedTechniques.push({
+                        id: technique.id,
+                        key: techniqueKey,
+                        name: technique.name,
+                        description: technique.description,
+                        learnUrl: technique.learnUrl,
+                        score: Math.round(score),
+                        confidence,
+                        matchedSignals
+                    });
+                }
+            }
+
+            // Sort by confidence (high first) then by score
+            const confidenceOrder = { high: 0, medium: 1, low: 2 };
+            detectedTechniques.sort((a, b) => {
+                if (confidenceOrder[a.confidence] !== confidenceOrder[b.confidence]) {
+                    return confidenceOrder[a.confidence] - confidenceOrder[b.confidence];
+                }
+                return b.score - a.score;
+            });
+
+            return detectedTechniques;
+        }
     }
 
     // Analyzer Display Class
@@ -2279,11 +2479,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         render(results, selectedFramework) {
-            const { overallScore, elementSummary, frameworkFit, feedback } = results;
+            const { overallScore, elementSummary, frameworkFit, feedback, techniques } = results;
 
             this.container.innerHTML = `
                 ${this.renderOverallScore(overallScore)}
                 ${this.renderElementDetection(elementSummary, selectedFramework)}
+                ${this.renderTechniquesDetected(techniques)}
                 ${this.renderFrameworkCoverage(frameworkFit, selectedFramework)}
                 ${this.renderExcerptHighlights(elementSummary)}
                 ${this.renderStrengths(feedback.strengths)}
@@ -2355,6 +2556,51 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
+        renderTechniquesDetected(techniques) {
+            if (!techniques || techniques.length === 0) {
+                return `
+                    <div class="techniques-section techniques-empty">
+                        <h4>Prompting Techniques</h4>
+                        <p class="techniques-hint">No advanced techniques detected. Consider using methods like <a href="../learn/flipped-interaction.html">Flipped Interaction</a>, Chain of Thought, or Role Prompting to enhance your prompts.</p>
+                    </div>
+                `;
+            }
+
+            const truncate = (text, max) => text.length <= max ? text : text.substring(0, max - 3) + '...';
+
+            const techniquesHTML = techniques.map(t => {
+                const confidenceClass = `confidence-${t.confidence}`;
+                const icon = t.confidence === 'high'
+                    ? '<svg class="technique-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>'
+                    : '<svg class="technique-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>';
+
+                const matchPreview = t.matchedSignals.length > 0
+                    ? `<span class="technique-match">"${escapeHtml(truncate(t.matchedSignals[0].matched, 30))}"</span>`
+                    : '';
+
+                return `
+                    <div class="technique-badge ${confidenceClass}" data-technique="${escapeHtml(t.id)}">
+                        ${icon}
+                        <div class="technique-info">
+                            <span class="technique-name">${escapeHtml(t.name)}</span>
+                            <span class="technique-desc">${escapeHtml(t.description)}</span>
+                            ${matchPreview}
+                        </div>
+                        <a href="../${escapeHtml(t.learnUrl)}" class="technique-learn" title="Learn more">Learn</a>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="techniques-section">
+                    <h4>Prompting Techniques Detected</h4>
+                    <div class="techniques-grid">
+                        ${techniquesHTML}
+                    </div>
+                </div>
+            `;
+        }
+
         renderExcerptHighlights(elementSummary) {
             const allExcerpts = [];
 
@@ -2379,12 +2625,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const formatSignal = (name) => name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
             const excerptsHTML = allExcerpts.slice(0, 6).map(e => `
-                <div class="excerpt-card" data-element="${e.element}">
-                    <span class="excerpt-element-badge">${e.letter}</span>
+                <div class="excerpt-card" data-element="${escapeHtml(e.element)}">
+                    <span class="excerpt-element-badge">${escapeHtml(e.letter)}</span>
                     <div class="excerpt-content">
-                        <span class="excerpt-label">${e.elementName}</span>
-                        <p class="excerpt-text">"${truncate(e.text, 50)}"</p>
-                        ${e.signal ? `<span class="excerpt-signal">Detected: ${formatSignal(e.signal)}</span>` : ''}
+                        <span class="excerpt-label">${escapeHtml(e.elementName)}</span>
+                        <p class="excerpt-text">"${escapeHtml(truncate(e.text, 50))}"</p>
+                        ${e.signal ? `<span class="excerpt-signal">Detected: ${escapeHtml(formatSignal(e.signal))}</span>` : ''}
                     </div>
                 </div>
             `).join('');
@@ -2410,10 +2656,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="feedback-list">
                         ${strengths.map(s => `
                             <li>
-                                <span class="element-badge element-badge-success">${s.letter}</span>
+                                <span class="element-badge element-badge-success">${escapeHtml(s.letter)}</span>
                                 <div class="feedback-content">
-                                    <span class="feedback-text">${s.message}</span>
-                                    ${s.excerpts?.length > 0 ? `<span class="feedback-excerpt">"${truncate(s.excerpts[0], 40)}"</span>` : ''}
+                                    <span class="feedback-text">${escapeHtml(s.message)}</span>
+                                    ${s.excerpts?.length > 0 ? `<span class="feedback-excerpt">"${escapeHtml(truncate(s.excerpts[0], 40))}"</span>` : ''}
                                 </div>
                             </li>
                         `).join('')}
