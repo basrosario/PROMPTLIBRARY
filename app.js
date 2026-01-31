@@ -1354,6 +1354,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.arc(x, y, pulse.size * 1.2, 0, Math.PI * 2);
                 this.ctx.fillStyle = `rgba(${coreColor}, ${brightness})`;
                 this.ctx.fill();
+
+                // Lightning forks - small white arcs emanating from the data ball
+                if (!this.isMobile && Math.random() > 0.4) {
+                    const forkCount = Math.floor(Math.random() * 3) + 1; // 1-3 forks
+                    for (let f = 0; f < forkCount; f++) {
+                        const startAngle = Math.random() * Math.PI * 2;
+                        const forkLength = pulse.size * (4 + Math.random() * 6);
+                        const segments = 3 + Math.floor(Math.random() * 2); // 3-4 segments
+
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(x, y);
+
+                        let fx = x;
+                        let fy = y;
+                        let angle = startAngle;
+
+                        for (let s = 0; s < segments; s++) {
+                            const segLength = forkLength / segments;
+                            // Add jagged randomness to angle
+                            angle += (Math.random() - 0.5) * 1.2;
+                            fx += Math.cos(angle) * segLength;
+                            fy += Math.sin(angle) * segLength;
+                            this.ctx.lineTo(fx, fy);
+                        }
+
+                        const forkAlpha = brightness * (0.4 + Math.random() * 0.4);
+                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${forkAlpha})`;
+                        this.ctx.lineWidth = 0.5 + Math.random() * 0.5;
+                        this.ctx.stroke();
+
+                        // Occasional secondary branch
+                        if (Math.random() > 0.6) {
+                            const branchPoint = Math.floor(segments / 2);
+                            let bx = x, by = y;
+                            let bAngle = startAngle;
+                            for (let b = 0; b < branchPoint; b++) {
+                                bAngle += (Math.random() - 0.5) * 1.2;
+                                bx += Math.cos(bAngle) * (forkLength / segments);
+                                by += Math.sin(bAngle) * (forkLength / segments);
+                            }
+
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(bx, by);
+                            const branchAngle = bAngle + (Math.random() - 0.5) * 2;
+                            const branchLen = forkLength * 0.4;
+                            this.ctx.lineTo(
+                                bx + Math.cos(branchAngle) * branchLen,
+                                by + Math.sin(branchAngle) * branchLen
+                            );
+                            this.ctx.strokeStyle = `rgba(255, 255, 255, ${forkAlpha * 0.6})`;
+                            this.ctx.lineWidth = 0.3;
+                            this.ctx.stroke();
+                        }
+                    }
+                }
             });
         }
 
