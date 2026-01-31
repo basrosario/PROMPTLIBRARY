@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.heroOpacity = 0.5; // Slightly more visible
                 this.currentAIIndex = 0;
                 this.lastAISwitch = 0;
-                this.aiSwitchInterval = 10000; // 10 seconds
+                this.aiSwitchInterval = 12000; // 12 seconds
                 this.aiTransitionProgress = 1; // 0-1 for fade transition
                 this.aiTransitionDuration = 1500; // 1.5s fade
                 this.heroSide = 'left'; // Alternates between 'left' and 'right'
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.dataPulses = [];
             this.lastPulseSpawn = 0;
             this.pulseSpawnInterval = this.isMobile ? 100 : (isHero ? 2 : 150);
-            this.maxPulses = this.isMobile ? 60 : (isHero ? 3000 : 40);
+            this.maxPulses = this.isMobile ? 60 : (isHero ? 3750 : 40);
 
             // Frame throttling for mobile
             this.lastFrameTime = 0;
@@ -1121,27 +1121,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const brightness = pulse.brightness * heroMult;
 
-                // Trail - red/pink
-                const trailSteps = this.isMobile ? 3 : 6;
+                // Trail - longer and more visible
+                const trailSteps = this.isMobile ? 4 : 12;
                 for (let t = trailSteps; t >= 0; t--) {
-                    const trailProg = pulse.progress - (0.15 * t / trailSteps);
+                    const trailProg = pulse.progress - (0.25 * t / trailSteps);
                     if (trailProg < 0) continue;
 
                     const tx = startPos.x + (endPos.x - startPos.x) * trailProg;
                     const ty = startPos.y + (endPos.y - startPos.y) * trailProg;
-                    const trailAlpha = (1 - t / trailSteps) * brightness * 0.5;
+                    const trailAlpha = (1 - t / trailSteps) * brightness * 0.7;
+                    const trailSize = pulse.size * (0.3 + 0.5 * (1 - t / trailSteps));
 
                     this.ctx.beginPath();
-                    this.ctx.arc(tx, ty, pulse.size * 0.6, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(255, 150, 150, ${trailAlpha})`;
+                    this.ctx.arc(tx, ty, trailSize, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 120, 120, ${trailAlpha})`;
                     this.ctx.fill();
                 }
 
-                // Glow - red
+                // Outer glow - larger and brighter
                 if (!this.isMobile) {
                     this.ctx.beginPath();
+                    this.ctx.arc(x, y, pulse.size * 4, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 60, 60, ${brightness * 0.2})`;
+                    this.ctx.fill();
+
+                    // Inner glow
+                    this.ctx.beginPath();
                     this.ctx.arc(x, y, pulse.size * 2.5, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(255, 80, 80, ${brightness * 0.3})`;
+                    this.ctx.fillStyle = `rgba(255, 100, 100, ${brightness * 0.4})`;
                     this.ctx.fill();
                 }
 
