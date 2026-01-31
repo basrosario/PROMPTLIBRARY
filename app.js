@@ -117,6 +117,34 @@ document.addEventListener('DOMContentLoaded', () => {
         'PERPLEXITY'
     ];
 
+    // Chat scripts for each AI - prompts and responses shown in hero chat overlay
+    const AI_CHAT_SCRIPTS = {
+        'ChatGPT': {
+            prompt: "Hey ChatGPT, can you help me structure this document?",
+            response: "Of course! I'll organize it into clear sections with headers and bullet points..."
+        },
+        'CLAUDE CODE': {
+            prompt: "Claude, can you review this code for bugs?",
+            response: "I'll examine the logic carefully and check for potential issues..."
+        },
+        'GEMINI': {
+            prompt: "Gemini, summarize this research paper for me",
+            response: "Here's a concise summary of the key findings and conclusions..."
+        },
+        'CURSOR.AI': {
+            prompt: "Cursor, help me refactor this function",
+            response: "I'll analyze the structure and suggest cleaner patterns..."
+        },
+        'COPILOT': {
+            prompt: "Hey Copilot, can you see my project files?",
+            response: "Yes, I can see your project. Let me analyze the structure..."
+        },
+        'PERPLEXITY': {
+            prompt: "Perplexity, what are the latest trends in AI?",
+            response: "Based on recent research, the key trends include..."
+        }
+    };
+
     // AI-related terms for floating display - processing terms for each AI cluster
     const AI_TERMS = [
         // Core AI concepts
@@ -255,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.heroOpacity = 0.5; // Slightly more visible
                 this.currentAIIndex = 0;
                 this.lastAISwitch = 0;
-                this.aiSwitchInterval = 12000; // 12 seconds
+                this.aiSwitchInterval = 20000; // 20 seconds
                 this.aiTransitionProgress = 1; // 0-1 for fade transition
                 this.aiTransitionDuration = 1500; // 1.5s fade
                 this.heroSide = 'left'; // Alternates between 'left' and 'right'
@@ -266,6 +294,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Orbiting terms
                 this.heroTerms = [];
                 this.heroTermCount = this.isMobile ? 20 : 50;
+                // Chat animation
+                this.chatContainer = null;
+                this.chatPromptText = null;
+                this.chatResponseText = null;
+                this.chatPromptCursor = null;
+                this.chatResponseCursor = null;
+                this.chatAnimationStarted = false;
+                this.initChatAnimation();
             } else {
                 // Cluster settings - one per AI (cluster mode)
                 this.nodesPerCluster = this.isMobile ? (isCombined ? 20 : 15) : (isCombined ? 35 : 25);
@@ -659,6 +695,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Rebuild the entire network on the new side
                 this.initHeroCluster();
+
+                // Restart chat animation for new AI
+                this.onAISwitch();
                 this.buildConnections();
             } else if (this.aiTransitionProgress < 1) {
                 // Fading IN phase
@@ -672,6 +711,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // All movement disabled - network is completely static
             // (heroRotation and term angles no longer update)
+
+            // Update chat animation
+            this.updateChatAnimation(timeSinceSwitch);
+        }
+
+        // Initialize chat animation elements
+        initChatAnimation() {
+            this.chatContainer = document.querySelector('.chat-container');
+            if (!this.chatContainer) return;
+
+            this.chatPromptText = this.chatContainer.querySelector('.chat-prompt .chat-text');
+            this.chatResponseText = this.chatContainer.querySelector('.chat-response .chat-text');
+            this.chatPromptCursor = this.chatContainer.querySelector('.chat-prompt .chat-cursor');
+            this.chatResponseCursor = this.chatContainer.querySelector('.chat-response .chat-cursor');
+            this.chatResponseBubble = this.chatContainer.querySelector('.chat-response');
+
+            // Start first chat animation
+            this.startChatAnimation();
+        }
+
+        // Start chat animation for current AI
+        startChatAnimation() {
+            if (!this.chatContainer) return;
+
+            const aiName = AI_NAMES[this.currentAIIndex];
+            const script = AI_CHAT_SCRIPTS[aiName];
+            if (!script) return;
+
+            // Reset state
+            this.chatPromptText.textContent = '';
+            this.chatResponseText.textContent = '';
+            this.chatPromptCursor.classList.remove('hidden');
+            this.chatResponseCursor.classList.add('hidden');
+            this.chatResponseBubble.classList.remove('visible');
+            this.chatAnimationStarted = true;
+            this.chatPhase = 'prompt';
+            this.chatCharIndex = 0;
+            this.chatLastCharTime = 0;
+            this.currentScript = script;
+
+            // Show container
+            this.chatContainer.classList.add('visible');
+        }
+
+        // Update chat animation based on time since AI switch
+        updateChatAnimation(timeSinceSwitch) {
+            if (!this.chatContainer || !this.chatAnimationStarted) return;
+
+            const now = performance.now();
+            const typingSpeed = 40; // ms per character
+
+            // Phase timing (within 20 second cycle):
+            // 0-500ms: Wait, then show container
+            // 500-3000ms: Type prompt
+            // 3000-3500ms: Pause
+            // 3500-7000ms: Type response
+            // 7000-17000ms: Display both
+            // 17000-18000ms: Fade out
+            // 18000-20000ms: Hidden during transition
+
+            if (timeSinceSwitch < 500) {
+                // Wait before showing
+                this.chatContainer.classList.remove('visible');
+            } else if (timeSinceSwitch < 3000 && this.chatPhase === 'prompt') {
+                // Type prompt
+                this.chatContainer.classList.add('visible');
+                if (now - this.chatLastCharTime > typingSpeed && this.chatCharIndex < this.currentScript.prompt.length) {
+                    this.chatCharIndex++;
+                    this.chatPromptText.textContent = this.currentScript.prompt.substring(0, this.chatCharIndex);
+                    this.chatLastCharTime = now;
+                }
+                if (this.chatCharIndex >= this.currentScript.prompt.length) {
+                    this.chatPromptCursor.classList.add('hidden');
+                }
+            } else if (timeSinceSwitch >= 3000 && timeSinceSwitch < 3500) {
+                // Pause between prompt and response
+                if (this.chatPhase === 'prompt') {
+                    this.chatPhase = 'pause';
+                    this.chatPromptCursor.classList.add('hidden');
+                }
+            } else if (timeSinceSwitch >= 3500 && timeSinceSwitch < 8000) {
+                // Type response
+                if (this.chatPhase === 'pause') {
+                    this.chatPhase = 'response';
+                    this.chatCharIndex = 0;
+                    this.chatResponseBubble.classList.add('visible');
+                    this.chatResponseCursor.classList.remove('hidden');
+                }
+                if (now - this.chatLastCharTime > typingSpeed && this.chatCharIndex < this.currentScript.response.length) {
+                    this.chatCharIndex++;
+                    this.chatResponseText.textContent = this.currentScript.response.substring(0, this.chatCharIndex);
+                    this.chatLastCharTime = now;
+                }
+                if (this.chatCharIndex >= this.currentScript.response.length) {
+                    this.chatResponseCursor.classList.add('hidden');
+                }
+            } else if (timeSinceSwitch >= 8000 && timeSinceSwitch < 17000) {
+                // Display both - ensure cursors are hidden
+                this.chatPromptCursor.classList.add('hidden');
+                this.chatResponseCursor.classList.add('hidden');
+            } else if (timeSinceSwitch >= 17000 && timeSinceSwitch < this.aiSwitchInterval) {
+                // Fade out before switch
+                this.chatContainer.classList.remove('visible');
+                this.chatAnimationStarted = false;
+            }
+        }
+
+        // Called when AI switches - restart chat animation
+        onAISwitch() {
+            this.startChatAnimation();
         }
 
         // Get static position for hero nodes (no movement)

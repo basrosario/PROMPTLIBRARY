@@ -345,6 +345,96 @@ p {
     z-index: 1;
 }
 
+/* Hero Chat Overlay */
+.hero-chat-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 15;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 500px;
+    width: 90%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.chat-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat-bubble {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.chat-prompt {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    align-self: flex-start;
+    max-width: 85%;
+}
+
+.chat-response {
+    background: linear-gradient(135deg, var(--primary), #4F46E5);
+    color: white;
+    align-self: flex-end;
+    max-width: 85%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-response.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat-cursor {
+    animation: chatBlink 0.7s infinite;
+    color: var(--primary);
+}
+
+.chat-response .chat-cursor {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chat-cursor.hidden {
+    display: none;
+}
+
+@keyframes chatBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Mobile chat adjustments */
+@media (max-width: 768px) {
+    .chat-container {
+        max-width: 90%;
+    }
+
+    .chat-bubble {
+        font-size: 0.875rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+}
+
 /* Floating Particles */
 .hero-particles {
     position: absolute;
@@ -4293,7 +4383,7 @@ body.menu-open {
 .acronym-card.has-flip .card-inner {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 280px;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
@@ -4337,6 +4427,7 @@ body.menu-open {
     justify-content: flex-start;
     padding: var(--space-md);
     z-index: 1;
+    overflow-y: auto;
 }
 
 .acronym-card.has-flip .card-front .acronym-letter {
@@ -4395,6 +4486,7 @@ body.menu-open {
     flex-wrap: wrap;
     gap: var(--space-xs);
     justify-content: center;
+    margin-top: auto;
 }
 
 .acronym-card.has-flip .card-back .flip-tag {
@@ -4419,7 +4511,7 @@ body.menu-open {
 /* Responsive flip cards */
 @media (max-width: 768px) {
     .acronym-card.has-flip .card-inner {
-        height: 180px;
+        height: 260px;
     }
 
     .acronym-card.has-flip .card-front::after {
