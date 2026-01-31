@@ -11,7 +11,7 @@
 ![Built With](https://img.shields.io/badge/Built_With-Claude_Code-06b6d4?style=for-the-badge)
 ![UD/UDL](https://img.shields.io/badge/Built_With-UD%2FUDL_in_Mind-8b5cf6?style=for-the-badge)
 
-<img src="assets/images/plaxishom.png" alt="Praxis Library" width="400">
+<img src="assets/images/praxishome.png" alt="Praxis Library" width="400">
 
 </div>
 
