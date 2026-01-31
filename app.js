@@ -222,14 +222,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hero mode settings - single large network on left side
             if (isHero) {
-                this.nodesPerCluster = this.isMobile ? 60 : 120;
-                this.clusterSpread = this.isMobile ? 180 : 320;
-                this.heroOpacity = 0.4; // Faded/transparent
+                this.nodesPerCluster = this.isMobile ? 80 : 180; // More nodes for detail
+                this.clusterSpread = this.isMobile ? 160 : 280; // Network radius
+                this.heroOpacity = 0.5; // Slightly more visible
                 this.currentAIIndex = 0;
                 this.lastAISwitch = 0;
                 this.aiSwitchInterval = 13000; // 13 seconds
                 this.aiTransitionProgress = 1; // 0-1 for fade transition
-                this.aiTransitionDuration = 1500; // 1.5s fade
+                this.aiTransitionDuration = 2000; // 2s fade for smoother transition
+                // Rotation
+                this.heroRotation = 0;
+                this.heroRotationSpeed = 0.0001; // Very slow rotation
+                // Orbiting terms
+                this.heroTerms = [];
+                this.heroTermCount = this.isMobile ? 8 : 15;
             } else {
                 // Cluster settings - one per AI (cluster mode)
                 this.nodesPerCluster = this.isMobile ? (isCombined ? 20 : 15) : (isCombined ? 35 : 25);
@@ -300,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         buildConnections() {
             this.cachedConnections = [];
             const maxDist = this.maxConnectionDistance;
+            const isHero = this.mode === 'hero';
 
             for (let i = 0; i < this.nodes.length; i++) {
                 for (let j = i + 1; j < this.nodes.length; j++) {
@@ -314,13 +321,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     const dy = posA.y - posB.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < maxDist) {
+                    // Hero mode: reduce connection density for cleaner look
+                    const effectiveMaxDist = isHero ? maxDist * 0.6 : maxDist;
+
+                    if (dist < effectiveMaxDist) {
                         const avgZ = (nodeA.z + nodeB.z) / 2;
+
+                        // Hero mode: much thinner lines
+                        const lineWidth = isHero
+                            ? 0.3 + avgZ * 0.5  // Thinner: 0.3 - 0.8
+                            : 0.5 + avgZ * 1.5; // Normal: 0.5 - 2.0
+
+                        const baseAlpha = isHero
+                            ? (1 - dist / effectiveMaxDist) * (0.08 + avgZ * 0.15) // More subtle
+                            : (1 - dist / maxDist) * (0.15 + avgZ * 0.35);
+
                         this.cachedConnections.push({
                             i, j, dist, avgZ,
-                            // Pre-calculate line properties
-                            lineWidth: 0.5 + avgZ * 1.5,
-                            baseAlpha: (1 - dist / maxDist) * (0.15 + avgZ * 0.35)
+                            lineWidth: lineWidth,
+                            baseAlpha: baseAlpha
                         });
                     }
                 }
@@ -386,10 +405,10 @@ document.addEventListener('DOMContentLoaded', () => {
         initHeroCluster() {
             this.nodes = [];
             this.aiClusters = [];
+            this.heroTerms = [];
 
-            // Position cluster on the LEFT side of screen (25-30% from left edge)
-            // This keeps the center area clear for title and CTA buttons
-            const centerX = this.width * (this.isMobile ? 0.5 : 0.28);
+            // Position cluster on the LEFT side of screen
+            const centerX = this.width * (this.isMobile ? 0.5 : 0.30);
             const centerY = this.height * 0.5;
 
             // Create single large cluster
@@ -403,29 +422,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 nodeCount: this.nodesPerCluster,
                 pulseOffset: 0,
                 // Gentle floating animation
-                floatSpeedX: 0.0001,
-                floatSpeedY: 0.00015,
-                floatAmplitudeX: 15,
-                floatAmplitudeY: 12,
+                floatSpeedX: 0.00008,
+                floatSpeedY: 0.0001,
+                floatAmplitudeX: 10,
+                floatAmplitudeY: 8,
                 floatPhaseX: 0,
                 floatPhaseY: Math.PI / 4
             };
 
-            // Create nodes for the hero cluster - larger spread
-            for (let n = 0; n < this.nodesPerCluster; n++) {
-                const angle = Math.random() * Math.PI * 2;
-                // More varied radius distribution for organic look
-                const radiusBase = 30 + Math.random() * this.clusterSpread;
-                // Some nodes closer to center, some further out
-                const radius = radiusBase * (0.3 + Math.random() * 0.7);
+            // Create nodes in CONCENTRIC RINGS for even distribution (avoids dark center)
+            const ringCount = this.isMobile ? 5 : 7;
+            const nodesCreated = { count: 0 };
 
-                this.nodes.push(this.createNode(angle, radius, 0, n));
+            for (let ring = 0; ring < ringCount; ring++) {
+                // Radius increases with each ring - start from outer edge of minimum
+                const ringRadius = 40 + (ring / (ringCount - 1)) * this.clusterSpread;
+                // More nodes in outer rings (proportional to circumference)
+                const nodesInRing = Math.floor(8 + ring * (this.isMobile ? 8 : 12));
+
+                for (let n = 0; n < nodesInRing && nodesCreated.count < this.nodesPerCluster; n++) {
+                    // Evenly distributed around the ring with slight randomization
+                    const baseAngle = (n / nodesInRing) * Math.PI * 2;
+                    const angle = baseAngle + (Math.random() - 0.5) * 0.3;
+                    // Slight radius variation within the ring
+                    const radius = ringRadius + (Math.random() - 0.5) * 20;
+
+                    this.nodes.push(this.createNode(angle, radius, 0, nodesCreated.count));
+                    nodesCreated.count++;
+                }
             }
 
             this.aiClusters.push(cluster);
+
+            // Initialize orbiting AI terms
+            this.initHeroTerms(centerX, centerY);
         }
 
-        // Update hero AI name cycling
+        // Initialize orbiting terms for hero mode
+        initHeroTerms(centerX, centerY) {
+            const shuffledTerms = [...AI_TERMS].sort(() => Math.random() - 0.5);
+            const selectedTerms = shuffledTerms.slice(0, this.heroTermCount);
+
+            selectedTerms.forEach((term, i) => {
+                // Orbit outside the network
+                const orbitRadius = this.clusterSpread + 60 + Math.random() * 80;
+                const startAngle = (i / this.heroTermCount) * Math.PI * 2 + Math.random() * 0.5;
+
+                this.heroTerms.push({
+                    text: term,
+                    orbitRadius: orbitRadius,
+                    angle: startAngle,
+                    // Orbit speed - some clockwise, some counter-clockwise
+                    orbitSpeed: (0.0002 + Math.random() * 0.0003) * (Math.random() > 0.5 ? 1 : -1),
+                    // Vertical oscillation for 3D effect
+                    verticalOffset: Math.random() * Math.PI * 2,
+                    verticalAmplitude: 15 + Math.random() * 20,
+                    verticalSpeed: 0.0003 + Math.random() * 0.0002,
+                    // Visual properties
+                    opacity: 0.25 + Math.random() * 0.25,
+                    fontSize: this.isMobile ? 10 : 11 + Math.floor(Math.random() * 3),
+                    pulseOffset: i * 0.5
+                });
+            });
+        }
+
+        // Update hero AI name cycling and rotation
         updateHeroAI(time) {
             if (this.mode !== 'hero') return;
 
@@ -447,9 +508,30 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.aiClusters.length > 0) {
                 this.aiClusters[0].name = AI_NAMES[this.currentAIIndex];
             }
+
+            // Update slow rotation
+            this.heroRotation += this.heroRotationSpeed;
+
+            // Update orbiting terms
+            this.heroTerms.forEach(term => {
+                term.angle += term.orbitSpeed;
+            });
         }
 
-        // Draw hero label with fade transition
+        // Get rotated position for hero nodes
+        getHeroNodePosition(node, time) {
+            const cluster = this.aiClusters[0];
+            if (!cluster) return { x: 0, y: 0 };
+
+            // Apply rotation to the node's angle
+            const rotatedAngle = node.angle + this.heroRotation;
+
+            const x = cluster.centerX + Math.cos(rotatedAngle) * node.radius;
+            const y = cluster.centerY + Math.sin(rotatedAngle) * node.radius;
+            return { x, y };
+        }
+
+        // Draw hero label OUTSIDE the network with a connecting line
         drawHeroLabel(time) {
             if (this.aiClusters.length === 0) return;
 
@@ -457,27 +539,88 @@ document.addEventListener('DOMContentLoaded', () => {
             const pulse = Math.sin(time * 0.0015) * 0.1 + 0.9;
 
             // Fade in/out transition
-            const fadeOpacity = this.aiTransitionProgress * this.heroOpacity * pulse;
+            const fadeOpacity = this.aiTransitionProgress * this.heroOpacity * pulse * 1.5; // Brighter label
 
-            // Large, prominent font for hero label
-            const fontSize = this.isMobile ? 24 : 42;
+            // Label position - OUTSIDE the network (top-right of network)
+            const labelAngle = -Math.PI / 4 + this.heroRotation * 0.1; // Slight rotation follow
+            const labelDistance = this.clusterSpread + (this.isMobile ? 80 : 130);
+            const labelX = cluster.centerX + Math.cos(labelAngle) * labelDistance;
+            const labelY = cluster.centerY + Math.sin(labelAngle) * labelDistance;
+
+            // Connection point on network edge
+            const edgeX = cluster.centerX + Math.cos(labelAngle) * (this.clusterSpread * 0.7);
+            const edgeY = cluster.centerY + Math.sin(labelAngle) * (this.clusterSpread * 0.7);
 
             this.ctx.save();
+
+            // Draw connecting line from network to label
+            this.ctx.beginPath();
+            this.ctx.moveTo(edgeX, edgeY);
+            this.ctx.lineTo(labelX, labelY);
+            this.ctx.strokeStyle = `rgba(230, 57, 70, ${fadeOpacity * 0.5})`;
+            this.ctx.lineWidth = 1.5;
+            this.ctx.stroke();
+
+            // Draw small dot at connection point
+            this.ctx.beginPath();
+            this.ctx.arc(edgeX, edgeY, 3, 0, Math.PI * 2);
+            this.ctx.fillStyle = `rgba(230, 57, 70, ${fadeOpacity * 0.8})`;
+            this.ctx.fill();
+
+            // Large, prominent font for hero label
+            const fontSize = this.isMobile ? 20 : 32;
+
             this.ctx.font = `bold ${fontSize}px monospace`;
-            this.ctx.textAlign = 'center';
+            this.ctx.textAlign = 'left';
             this.ctx.textBaseline = 'middle';
 
             // Text glow - subtle red glow
             if (!this.isMobile) {
                 this.ctx.shadowColor = `rgba(230, 57, 70, ${fadeOpacity * 0.8})`;
-                this.ctx.shadowBlur = 25;
+                this.ctx.shadowBlur = 20;
             }
 
-            // Main text - white with reduced opacity for transparency
+            // Main text - white with fade
             this.ctx.fillStyle = `rgba(255, 255, 255, ${fadeOpacity})`;
-            this.ctx.fillText(cluster.name, cluster.centerX, cluster.centerY);
+            this.ctx.fillText(cluster.name, labelX + 10, labelY);
 
             this.ctx.restore();
+        }
+
+        // Draw orbiting AI terms around the hero network
+        drawHeroTerms(time) {
+            if (!this.heroTerms || this.aiClusters.length === 0) return;
+
+            const cluster = this.aiClusters[0];
+
+            this.heroTerms.forEach(term => {
+                // Calculate position with rotation
+                const rotatedAngle = term.angle + this.heroRotation * 0.3; // Slower follow
+                const verticalWobble = Math.sin(time * term.verticalSpeed + term.verticalOffset) * term.verticalAmplitude;
+
+                const x = cluster.centerX + Math.cos(rotatedAngle) * term.orbitRadius;
+                const y = cluster.centerY + Math.sin(rotatedAngle) * term.orbitRadius + verticalWobble;
+
+                const pulse = Math.sin(time * 0.002 + term.pulseOffset) * 0.15 + 0.85;
+                const opacity = term.opacity * pulse * this.heroOpacity;
+
+                this.ctx.save();
+                this.ctx.font = `${term.fontSize}px monospace`;
+                this.ctx.textAlign = 'center';
+                this.ctx.textBaseline = 'middle';
+
+                // Subtle glow
+                if (!this.isMobile) {
+                    this.ctx.shadowColor = `rgba(230, 57, 70, ${opacity * 0.3})`;
+                    this.ctx.shadowBlur = 6;
+                }
+
+                // Text color - muted
+                this.ctx.fillStyle = `rgba(160, 150, 150, ${opacity})`;
+                this.ctx.fillText(term.text, x, y);
+
+                this.ctx.restore();
+            });
         }
 
         // Terms mode: Distributed nodes with floating AI-related terms
@@ -634,8 +777,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cluster mode: calculate from cluster center + angle/radius
             const cluster = this.aiClusters[node.clusterIndex];
-            const x = cluster.centerX + Math.cos(node.angle) * node.radius;
-            const y = cluster.centerY + Math.sin(node.angle) * node.radius;
+
+            // Hero mode: apply global rotation
+            let effectiveAngle = node.angle;
+            if (this.mode === 'hero') {
+                effectiveAngle += this.heroRotation;
+            }
+
+            const x = cluster.centerX + Math.cos(effectiveAngle) * node.radius;
+            const y = cluster.centerY + Math.sin(effectiveAngle) * node.radius;
             return { x, y };
         }
 
@@ -835,14 +985,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Use cached connections instead of recalculating O(n²)
             const conn = this.cachedConnections[Math.floor(Math.random() * this.cachedConnections.length)];
             const reverse = Math.random() > 0.5;
+            const isHero = this.mode === 'hero';
 
             this.dataPulses.push({
                 startIdx: reverse ? conn.j : conn.i,
                 endIdx: reverse ? conn.i : conn.j,
                 progress: 0,
-                speed: 0.008 + Math.random() * 0.012,
-                size: 1.5 + conn.avgZ * 2,
-                brightness: 0.6 + conn.avgZ * 0.4,
+                speed: isHero ? 0.006 + Math.random() * 0.008 : 0.008 + Math.random() * 0.012,
+                // Hero mode: smaller, more delicate pulses
+                size: isHero ? 0.8 + conn.avgZ * 1 : 1.5 + conn.avgZ * 2,
+                brightness: isHero ? 0.4 + conn.avgZ * 0.3 : 0.6 + conn.avgZ * 0.4,
                 z: conn.avgZ
             });
 
@@ -980,7 +1132,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Terms mode: draw floating AI terms only
                 this.drawFloatingTerms(time);
             } else if (this.mode === 'hero') {
-                // Hero mode: draw single cycling AI label
+                // Hero mode: draw orbiting terms and cycling AI label
+                this.drawHeroTerms(time);
                 this.drawHeroLabel(time);
             } else if (this.mode === 'combined') {
                 // Combined mode: draw both floating terms and cluster labels
