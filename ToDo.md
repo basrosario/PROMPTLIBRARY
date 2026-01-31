@@ -55,49 +55,35 @@ All subpages are missing this performance optimization.
 
 ## 3. Inconsistent Badge Labels Across Pages
 
-**Severity:** High (UX Consistency)
-**Description:** The same methods have different badge labels on different pages.
+**Severity:** ~~High (UX Consistency)~~ **RESOLVED**
 
-| Method | index.html | learn/index.html | Individual Page |
-|--------|-----------|------------------|-----------------|
-| CRISP | "Foundation" | "Foundation" (no color) | "Intermediate" (crisp.html) |
-| CRISPE | "Extended" | "Extended" (no color) | "Intermediate" (crispe.html) |
-| COSTAR | "Professional" | "Professional" (no color) | "Intermediate" (costar.html) |
-| ReAct | "Advanced" | "Advanced" (badge-purple) | "Advanced" (react.html, badge-purple) |
-| Prompt Basics | N/A | "Start Here" (badge-green) | "Beginner" (prompt-basics.html, badge-green) |
-| Flipped Interaction | N/A | "Foundation" (badge-red) | "Foundation" (flipped-interaction.html, badge-red) |
-| Advanced Techniques | N/A | "Expert" (badge-purple) | "Advanced" (advanced.html, badge-purple) |
+**FIXED:** Standardized all badges using Progression-Based strategy (Option B):
 
-**Issues:**
-- CRISP is "Foundation" on home but "Intermediate" on its own page
-- CRISPE is "Extended" on home but "Intermediate" on its own page
-- COSTAR is "Professional" on home but "Intermediate" on its own page
-- Prompt Basics is "Start Here" vs "Beginner"
-- Advanced Techniques is "Expert" vs "Advanced"
+| Method | Badge | Color |
+|--------|-------|-------|
+| Prompt Basics | Start Here | badge-green |
+| Flipped Interaction | Foundation | badge-red |
+| CRISP | Foundation | default |
+| CRISPE | Extended | default |
+| COSTAR | Professional | default |
+| ReAct | Advanced | badge-purple |
+| Advanced Techniques | Expert | badge-purple |
+
+All pages now use consistent labels matching the progression path.
 
 ---
 
 ## 4. Inconsistent Badge Color Classes
 
-**Severity:** Medium
-**Description:** Badge colors are not applied consistently.
+**Severity:** ~~Medium~~ **RESOLVED**
 
-**On learn/index.html:**
-- Prompt Basics: `badge-green`
-- Flipped Interaction: `badge-red`
-- CRISP: no color modifier (uses default)
-- CRISPE: no color modifier
-- COSTAR: no color modifier
-- ReAct: `badge-purple`
-- Advanced: `badge-purple`
+**FIXED:** Standardized badge colors across all pages:
+- `badge-green`: Start Here (entry point)
+- `badge-red`: Flipped Interaction (special interactive approach)
+- default (no modifier): Foundation, Extended, Professional
+- `badge-purple`: Advanced, Expert
 
-**On index.html (homepage):**
-- All cards use `card-badge` without color modifiers
-
-**On quiz/index.html:**
-- Beginner: `badge-green`
-- Intermediate: no color modifier
-- Practice: `badge-purple`
+Homepage ReAct card now uses `badge-purple` for consistency.
 
 ---
 
@@ -320,12 +306,10 @@ Also fixed:
 
 ## 16. Duplicate CSS Rule: .btn-sm (Different Values)
 
-**Severity:** High (CSS Override Conflict)
+**Severity:** ~~High (CSS Override Conflict)~~ **RESOLVED**
 **File:** styles.css
 
-The `.btn-sm` class is defined twice with **different values**:
-
-**First definition (line 544):**
+**FIXED:** Removed the duplicate `.btn-sm` definition at line 5794. Kept the canonical definition at line 550 in the button utilities section:
 ```css
 .btn-sm {
     padding: var(--space-sm) var(--space-md);
@@ -333,21 +317,7 @@ The `.btn-sm` class is defined twice with **different values**:
 }
 ```
 
-**Second definition (line 5784):**
-```css
-.btn-sm {
-    padding: var(--space-xs) var(--space-md);
-    font-size: 0.8125rem;
-}
-```
-
-**Differences:**
-| Property | Line 544 | Line 5784 |
-|----------|----------|-----------|
-| padding | `var(--space-sm)` | `var(--space-xs)` |
-| font-size | `0.875rem` (14px) | `0.8125rem` (13px) |
-
-The second definition will always override the first due to CSS cascade rules. This appears unintentional and may cause inconsistent button sizing across different parts of the application.
+The duplicate with tighter spacing (4px padding, 13px font) was removed as it appeared to be an accidental addition.
 
 ---
 
@@ -357,14 +327,14 @@ The second definition will always override the first due to CSS cascade rules. T
 |----------|-------|--------|
 | Missing meta descriptions | 19 pages | ✅ FIXED |
 | Missing CSS preload | 19 pages | ✅ FIXED |
-| Badge label inconsistencies | 5 methods affected | Pending |
-| Badge color inconsistencies | Multiple pages | Pending |
+| Badge label inconsistencies | 5 methods affected | ✅ FIXED |
+| Badge color inconsistencies | Multiple pages | ✅ FIXED |
 | Missing footer canvas | 19 pages | Pending |
 | Missing CTA canvas | 19 pages | Pending |
 | Undefined CSS classes | 2 (btn-full, text-gradient) | ✅ FIXED |
 | CSS selector mismatches | 1 (callout classes in faq.html) | ✅ FIXED |
 | Hardcoded inline colors / CSP violations | 3+ files | ✅ FIXED |
-| Duplicate CSS rules (conflicting) | 1 (.btn-sm) | Pending |
+| Duplicate CSS rules (conflicting) | 1 (.btn-sm) | ✅ FIXED |
 | Inconsistent font-family | 1 (monospace vs var) | ✅ FIXED |
 | Inconsistent breakpoints | 1 (769px vs 768px) | ✅ FIXED |
 
@@ -660,16 +630,16 @@ Create CSS classes for legend badge colors:
 - [x] Fix monospace font-family
 - [ ] Test: Check FAQ callouts render correctly, test at 768px width
 
-### Phase 3 (Badge Harmonization)
-- [ ] Get stakeholder approval on badge naming
-- [ ] Update all badge labels
-- [ ] Update all badge colors
+### Phase 3 (Badge Harmonization) ✅ COMPLETED
+- [x] Get stakeholder approval on badge naming (Option B: Progression-Based)
+- [x] Update all badge labels (Start Here → Foundation → Extended → Professional → Advanced → Expert)
+- [x] Update all badge colors (green=Start Here, default=Foundation-Professional, purple=Advanced/Expert, red=Flipped)
 - [ ] Test: Visual review of all card grids
 
-### Phase 4 (CSS Deduplication)
-- [ ] Analyze .btn-sm usage across site
-- [ ] Decide which definition to keep
-- [ ] Remove duplicate
+### Phase 4 (CSS Deduplication) ✅ COMPLETED
+- [x] Analyze .btn-sm usage across site (tools/guidance.html, tools/index.html)
+- [x] Decide which definition to keep (line 550 - canonical button utilities section)
+- [x] Remove duplicate (removed line 5794 duplicate)
 - [ ] Test: All pages with small buttons
 
 ### Phase 5 (Visual Consistency)

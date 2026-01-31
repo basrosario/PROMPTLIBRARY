@@ -5791,11 +5791,6 @@ body.menu-open {
     margin-left: calc(var(--space-lg) + 23px);
 }
 
-.btn-sm {
-    padding: var(--space-xs) var(--space-md);
-    font-size: 0.8125rem;
-}
-
 @media (min-width: 768px) {
     .readiness-pillars {
         grid-template-columns: repeat(4, 1fr);
