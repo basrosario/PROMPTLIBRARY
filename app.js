@@ -357,14 +357,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (dist < effectiveMaxDist) {
                         const avgZ = (nodeA.z + nodeB.z) / 2;
 
-                        // Hero mode: varied line widths for more definition
-                        const isProminent = Math.random() < 0.15; // 15% of connections are prominent
+                        // Hero mode: varied line widths for more definition - THICKER and MORE VISIBLE
+                        const isProminent = Math.random() < 0.25; // 25% of connections are prominent (was 15%)
                         const lineWidth = isHero
-                            ? (isProminent ? 0.8 + avgZ * 1.0 : 0.3 + avgZ * 0.5)  // Prominent: 0.8-1.8, Normal: 0.3-0.8
+                            ? (isProminent ? 1.2 + avgZ * 1.2 : 0.5 + avgZ * 0.8)  // Prominent: 1.2-2.4, Normal: 0.5-1.3 (THICKER)
                             : 0.5 + avgZ * 1.5; // Normal: 0.5 - 2.0
 
                         const baseAlpha = isHero
-                            ? (1 - dist / effectiveMaxDist) * (isProminent ? 0.15 + avgZ * 0.25 : 0.08 + avgZ * 0.15)
+                            ? (1 - dist / effectiveMaxDist) * (isProminent ? 0.3 + avgZ * 0.4 : 0.15 + avgZ * 0.25)  // MUCH BRIGHTER
                             : (1 - dist / maxDist) * (0.15 + avgZ * 0.35);
 
                         this.cachedConnections.push({
@@ -1046,6 +1046,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.fillStyle = `rgba(255, 150, 150, ${intensity * 0.8})`;
             }
             this.ctx.fill();
+
+            // Technical ring effect - makes nodes look like data processing units
+            if (!this.isMobile && this.mode === 'hero') {
+                // Outer technical ring
+                this.ctx.beginPath();
+                this.ctx.arc(pos.x, pos.y, node.size * 1.2, 0, Math.PI * 2);
+                this.ctx.strokeStyle = `rgba(255, 100, 100, ${intensity * 0.5})`;
+                this.ctx.lineWidth = 0.5;
+                this.ctx.stroke();
+
+                // Inner dashed ring for larger nodes
+                if (node.z > 0.5) {
+                    this.ctx.beginPath();
+                    this.ctx.arc(pos.x, pos.y, node.size * 0.8, 0, Math.PI * 2);
+                    this.ctx.strokeStyle = `rgba(255, 150, 150, ${intensity * 0.6})`;
+                    this.ctx.lineWidth = 0.3;
+                    this.ctx.stroke();
+
+                    // Small accent dots around larger nodes
+                    const dotCount = 4;
+                    for (let d = 0; d < dotCount; d++) {
+                        const angle = (time * 0.001 + d * Math.PI * 2 / dotCount + node.pulseOffset);
+                        const dotX = pos.x + Math.cos(angle) * node.size * 1.5;
+                        const dotY = pos.y + Math.sin(angle) * node.size * 1.5;
+                        this.ctx.beginPath();
+                        this.ctx.arc(dotX, dotY, 0.8, 0, Math.PI * 2);
+                        this.ctx.fillStyle = `rgba(255, 120, 120, ${intensity * 0.4})`;
+                        this.ctx.fill();
+                    }
+                }
+            }
         }
 
         drawClusterLabels(time) {
@@ -1155,20 +1186,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Hero mode (layered network): red/orange color scheme for visibility
                 if (isHero && conn.fromLayer !== undefined) {
-                    // Red-based colors that stand out - vary by layer
+                    // Red-based colors that stand out - vary by layer - BRIGHTER
                     const layerColors = [
-                        [255, 100, 80],  // Red-orange - input
-                        [255, 130, 90],  // Orange
-                        [255, 90, 90],   // Pure red
-                        [255, 110, 130], // Red-pink
-                        [255, 80, 100],  // Deep red
-                        [255, 140, 100], // Light orange
-                        [255, 100, 120]  // Red-magenta - output
+                        [255, 120, 100],  // Red-orange - input
+                        [255, 150, 110],  // Orange
+                        [255, 110, 110],  // Pure red
+                        [255, 130, 150], // Red-pink
+                        [255, 100, 120],  // Deep red
+                        [255, 160, 120], // Light orange
+                        [255, 120, 140]  // Red-magenta - output
                     ];
                     const colorIdx = conn.fromLayer % layerColors.length;
                     const color = layerColors[colorIdx];
-                    const bright = conn.isProminent ? 1 : 0.85;
-                    this.ctx.strokeStyle = `rgba(${Math.min(255, color[0] * bright)}, ${Math.min(255, color[1] * bright)}, ${Math.min(255, color[2] * bright)}, ${alpha})`;
+                    const bright = conn.isProminent ? 1.2 : 1;
+                    // Boost alpha significantly for better visibility
+                    const boostedAlpha = Math.min(1, alpha * 2.5);
+                    this.ctx.strokeStyle = `rgba(${Math.min(255, color[0] * bright)}, ${Math.min(255, color[1] * bright)}, ${Math.min(255, color[2] * bright)}, ${boostedAlpha})`;
                 } else {
                     // Original color scheme for non-hero modes
                     if (conn.avgZ > 0.6) {
@@ -1206,10 +1239,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 startIdx: reverse ? conn.j : conn.i,
                 endIdx: reverse ? conn.i : conn.j,
                 progress: 0,
-                speed: isHero ? 0.015 + Math.random() * 0.02 : 0.008 + Math.random() * 0.012,
-                // Hero mode: smaller data particles
-                size: isHero ? 0.6 + conn.avgZ * 0.6 : 1.5 + conn.avgZ * 2,
-                brightness: isHero ? 0.5 + conn.avgZ * 0.3 : 0.6 + conn.avgZ * 0.4,
+                speed: isHero ? 0.018 + Math.random() * 0.025 : 0.008 + Math.random() * 0.012,
+                // Hero mode: LARGER and more energized data particles
+                size: isHero ? 1.2 + conn.avgZ * 1.0 : 1.5 + conn.avgZ * 2,
+                brightness: isHero ? 0.7 + conn.avgZ * 0.3 : 0.6 + conn.avgZ * 0.4,
                 z: conn.avgZ,
                 isBackprop: reverse && isHero // Different color for backprop
             });
@@ -1296,23 +1329,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.ctx.fill();
                 }
 
-                // Outer glow - larger and brighter
+                // Outer glow - MUCH larger and brighter for energy effect
                 if (!this.isMobile) {
                     this.ctx.beginPath();
-                    this.ctx.arc(x, y, pulse.size * 4, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(${glowColorOuter}, ${brightness * 0.2})`;
+                    this.ctx.arc(x, y, pulse.size * 6, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(${glowColorOuter}, ${brightness * 0.25})`;
                     this.ctx.fill();
 
-                    // Inner glow
+                    // Middle glow
+                    this.ctx.beginPath();
+                    this.ctx.arc(x, y, pulse.size * 4, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(${glowColorInner}, ${brightness * 0.35})`;
+                    this.ctx.fill();
+
+                    // Inner glow - brighter
                     this.ctx.beginPath();
                     this.ctx.arc(x, y, pulse.size * 2.5, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(${glowColorInner}, ${brightness * 0.4})`;
+                    this.ctx.fillStyle = `rgba(${glowColorInner}, ${brightness * 0.5})`;
                     this.ctx.fill();
                 }
 
-                // Core - bright white/tinted
+                // Core - bright white/tinted - larger
                 this.ctx.beginPath();
-                this.ctx.arc(x, y, pulse.size, 0, Math.PI * 2);
+                this.ctx.arc(x, y, pulse.size * 1.2, 0, Math.PI * 2);
                 this.ctx.fillStyle = `rgba(${coreColor}, ${brightness})`;
                 this.ctx.fill();
             });
