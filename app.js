@@ -1355,9 +1355,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.fillStyle = `rgba(${coreColor}, ${brightness})`;
                 this.ctx.fill();
 
-                // Lightning forks - long white arcs between nodes/pillars
-                if (!this.isMobile && Math.random() > 0.5) {
-                    const forkCount = Math.floor(Math.random() * 2) + 1; // 1-2 main forks
+                // Lightning forks - occasional white arcs between nodes/pillars
+                if (!this.isMobile && Math.random() > 0.92) {
+                    const forkCount = 1; // Single fork only
 
                     for (let f = 0; f < forkCount; f++) {
                         // Find a nearby node to arc towards
@@ -1399,8 +1399,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Base position along the path
                             const baseX = x + dx * progress;
                             const baseY = y + dy * progress;
-                            // Add perpendicular jitter (more in middle, less at ends)
-                            const jitterAmount = Math.sin(progress * Math.PI) * (15 + Math.random() * 25);
+                            // Add perpendicular jitter (subtle, more in middle, less at ends)
+                            const jitterAmount = Math.sin(progress * Math.PI) * (5 + Math.random() * 10);
                             const perpAngle = Math.atan2(dy, dx) + Math.PI / 2;
                             const jitterDir = (Math.random() - 0.5) * 2;
                             fx = baseX + Math.cos(perpAngle) * jitterAmount * jitterDir;
@@ -1408,39 +1408,37 @@ document.addEventListener('DOMContentLoaded', () => {
                             this.ctx.lineTo(fx, fy);
                         }
 
-                        const forkAlpha = brightness * (0.5 + Math.random() * 0.4);
+                        const forkAlpha = brightness * (0.25 + Math.random() * 0.2);
                         this.ctx.strokeStyle = `rgba(255, 255, 255, ${forkAlpha})`;
-                        this.ctx.lineWidth = 0.8 + Math.random() * 0.7;
+                        this.ctx.lineWidth = 0.3 + Math.random() * 0.3;
                         this.ctx.stroke();
 
-                        // Add glow effect to lightning
-                        this.ctx.strokeStyle = `rgba(200, 220, 255, ${forkAlpha * 0.3})`;
-                        this.ctx.lineWidth = 3;
+                        // Subtle glow effect
+                        this.ctx.strokeStyle = `rgba(200, 220, 255, ${forkAlpha * 0.15})`;
+                        this.ctx.lineWidth = 1.5;
                         this.ctx.stroke();
 
-                        // Secondary branches along the main fork
-                        const branchCount = Math.floor(Math.random() * 3) + 1;
-                        for (let b = 0; b < branchCount; b++) {
-                            const branchProgress = 0.2 + Math.random() * 0.6;
-                            const bx = x + dx * branchProgress + (Math.random() - 0.5) * 20;
-                            const by = y + dy * branchProgress + (Math.random() - 0.5) * 20;
-                            const branchAngle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 2;
-                            const branchLen = 20 + Math.random() * 40;
-                            const branchSegs = 2 + Math.floor(Math.random() * 2);
+                        // One small secondary branch (50% chance)
+                        if (Math.random() > 0.5) {
+                            const branchProgress = 0.3 + Math.random() * 0.4;
+                            const bx = x + dx * branchProgress + (Math.random() - 0.5) * 8;
+                            const by = y + dy * branchProgress + (Math.random() - 0.5) * 8;
+                            const branchAngle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 1.5;
+                            const branchLen = 10 + Math.random() * 15;
 
                             this.ctx.beginPath();
                             this.ctx.moveTo(bx, by);
 
                             let bbx = bx, bby = by;
-                            for (let bs = 0; bs < branchSegs; bs++) {
-                                const segAngle = branchAngle + (Math.random() - 0.5) * 0.8;
-                                bbx += Math.cos(segAngle) * (branchLen / branchSegs);
-                                bby += Math.sin(segAngle) * (branchLen / branchSegs);
+                            for (let bs = 0; bs < 2; bs++) {
+                                const segAngle = branchAngle + (Math.random() - 0.5) * 0.5;
+                                bbx += Math.cos(segAngle) * (branchLen / 2);
+                                bby += Math.sin(segAngle) * (branchLen / 2);
                                 this.ctx.lineTo(bbx, bby);
                             }
 
-                            this.ctx.strokeStyle = `rgba(255, 255, 255, ${forkAlpha * 0.5})`;
-                            this.ctx.lineWidth = 0.4 + Math.random() * 0.3;
+                            this.ctx.strokeStyle = `rgba(255, 255, 255, ${forkAlpha * 0.4})`;
+                            this.ctx.lineWidth = 0.2 + Math.random() * 0.2;
                             this.ctx.stroke();
                         }
                     }
