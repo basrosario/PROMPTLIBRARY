@@ -472,10 +472,10 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // LAYERED NEURAL NETWORK ARCHITECTURE
-            // Define layers: [input, hidden1, hidden2, hidden3, hidden4, output]
+            // Define layers: [input, hidden1, hidden2, hidden3, hidden4, output] - HALF nodes
             const layerConfig = this.isMobile
-                ? [6, 10, 14, 10, 6]  // Mobile: fewer nodes
-                : [8, 14, 20, 24, 20, 14, 8]; // Desktop: full architecture
+                ? [3, 5, 7, 5, 3]  // Mobile: fewer nodes
+                : [4, 7, 10, 12, 10, 7, 4]; // Desktop: half the nodes
 
             const numLayers = layerConfig.length;
             const networkWidth = this.clusterSpread * 2;
@@ -493,6 +493,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Vertical spacing for nodes in this layer
                 const verticalSpacing = networkHeight / (nodesInLayer + 1);
 
+                // Calculate layer position for sizing (0 at edges, 1 at center)
+                const centerLayer = (numLayers - 1) / 2;
+                const distFromCenter = Math.abs(layer - centerLayer) / centerLayer;
+                const layerSizeMult = 1 - distFromCenter * 0.6; // Center=1, edges=0.4
+
                 for (let n = 0; n < nodesInLayer; n++) {
                     const nodeY = centerY - networkHeight / 2 + (n + 1) * verticalSpacing;
 
@@ -501,6 +506,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const jitterY = (Math.random() - 0.5) * 8;
 
                     const z = 0.5 + Math.random() * 0.5; // Depth for sizing
+
+                    // Size: biggest in center layers, smallest at edges
+                    const baseSize = this.isMobile ? (2 + z * 2) : (3 + z * 4);
 
                     // Create node with absolute position (stored as layered node)
                     const node = {
@@ -514,9 +522,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         clusterIndex: 0,
                         pulseOffset: Math.random() * Math.PI * 2,
                         isLayeredNode: true,
-                        // Required properties for drawNode
-                        size: this.isMobile ? (2 + z * 2) : (3 + z * 4), // Node size
-                        glowIntensity: 0.7 + z * 0.3 // Glow brightness
+                        // Center layers bigger, edge layers smaller
+                        size: baseSize * layerSizeMult,
+                        glowIntensity: 0.25 + z * 0.15 // Reduced glow
                     };
 
                     this.nodes.push(node);
@@ -571,9 +579,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             i: nodeAIndex,
                             j: nodeBIndex,
                             avgZ: avgZ,
-                            baseAlpha: 0.6 + avgZ * 0.35, // Very bright lines
-                            lineWidth: 1.2 + avgZ * 1.8,  // Thicker lines
-                            isProminent: Math.random() > 0.4, // 60% prominent
+                            baseAlpha: 0.8 + avgZ * 0.2, // Very bright lines (0.8-1.0)
+                            lineWidth: 1.5 + avgZ * 2,   // Thicker lines
+                            isProminent: Math.random() > 0.3, // 70% prominent
                             fromLayer: layer,
                             toLayer: layer + 1
                         });
@@ -1145,21 +1153,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.ctx.moveTo(posA.x, posA.y);
                 this.ctx.lineTo(posB.x, posB.y);
 
-                // Hero mode (layered network): varied colors like real NN diagrams
+                // Hero mode (layered network): red/orange color scheme for visibility
                 if (isHero && conn.fromLayer !== undefined) {
-                    // Color based on layer - creates visual depth (brighter colors)
+                    // Red-based colors that stand out - vary by layer
                     const layerColors = [
-                        [120, 200, 255], // Blue - input
-                        [255, 180, 120], // Orange
-                        [180, 255, 180], // Green
-                        [255, 130, 180], // Pink
-                        [220, 180, 255], // Purple
-                        [255, 220, 130], // Gold
-                        [130, 255, 220]  // Cyan - output
+                        [255, 100, 80],  // Red-orange - input
+                        [255, 130, 90],  // Orange
+                        [255, 90, 90],   // Pure red
+                        [255, 110, 130], // Red-pink
+                        [255, 80, 100],  // Deep red
+                        [255, 140, 100], // Light orange
+                        [255, 100, 120]  // Red-magenta - output
                     ];
                     const colorIdx = conn.fromLayer % layerColors.length;
                     const color = layerColors[colorIdx];
-                    const bright = conn.isProminent ? 1 : 0.8; // Dimmer lines still fairly visible
+                    const bright = conn.isProminent ? 1 : 0.85;
                     this.ctx.strokeStyle = `rgba(${Math.min(255, color[0] * bright)}, ${Math.min(255, color[1] * bright)}, ${Math.min(255, color[2] * bright)}, ${alpha})`;
                 } else {
                     // Original color scheme for non-hero modes
