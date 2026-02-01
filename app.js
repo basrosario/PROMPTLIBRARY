@@ -130,155 +130,99 @@ document.addEventListener('DOMContentLoaded', () => {
         'PERPLEXITY'
     ];
 
-    // AI-related terms for floating display - processing terms for each AI cluster
+    // Prompting technique terms for floating display - terms from site methodologies
     const AI_TERMS = [
-        // Core AI concepts
-        'Machine Learning',
-        'Neural Network',
-        'Deep Learning',
-        'NLP',
-        'Computer Vision',
-        'Transformer',
-        'GPT',
-        'Diffusion',
-        'Embedding',
-        'Tokenization',
-        'AI Model',
-        'Intelligence',
-        'Cognition',
-        // Training & optimization
-        'Fine-tuning',
-        'RAG',
-        'Vector DB',
-        'Attention',
-        'Inference',
-        'Training',
-        'Backprop',
-        'Gradient',
-        'Loss Function',
-        'Optimization',
-        'Weight Update',
-        'Learning Rate',
-        // Prompting concepts
-        'Prompt',
-        'Context Window',
-        'Hallucination',
-        'Alignment',
-        'RLHF',
-        'Chain of Thought',
-        'Few-shot',
-        'Zero-shot',
-        'Multimodal',
-        'Reasoning',
-        'System Prompt',
-        'Temperature',
-        'Top-P',
-        'Creativity',
-        // Architecture
-        'Encoder',
-        'Decoder',
-        'Self-Attention',
-        'Feed Forward',
-        'Layer Norm',
-        'Softmax',
-        'Activation',
-        'Dropout',
-        'Batch Size',
-        'Epochs',
-        'Parameters',
-        'Weights',
-        'Bias',
-        // Applications
-        'Classification',
-        'Generation',
-        'Summarization',
-        'Translation',
-        'Q&A',
-        'Sentiment',
-        'Entity',
-        'Intent',
-        'Clustering',
-        'Regression',
-        'Chatbot',
-        'Assistant',
-        'Copilot',
-        // Modern AI
-        'Foundation Model',
-        'LLM',
-        'SLM',
-        'Agent',
-        'Tool Use',
-        'Retrieval',
-        'Grounding',
-        'Safety',
-        'Benchmark',
-        'Eval',
-        'API',
-        'Streaming',
+        // CRISP Method
         'Context',
-        // Data
-        'Dataset',
-        'Preprocessing',
-        'Augmentation',
-        'Labeling',
-        'Annotation',
-        'Corpus',
-        'Token',
-        'Vocab',
-        'Sequence',
-        'Batch',
-        'Synthetic Data',
-        // Capabilities
-        'Understanding',
-        'Knowledge',
-        'Memory',
-        'Prediction',
-        'Analysis',
-        'Synthesis',
+        'Role',
+        'Instructions',
+        'Specifics',
+        'Parameters',
+        // CRISPE Method
+        'Example',
+        'Few-shot Learning',
+        // COSTAR Method
+        'Objective',
+        'Style',
+        'Tone',
+        'Audience',
+        'Response',
+        // ReAct Method
+        'Reasoning',
+        'Acting',
+        'Thought',
+        'Action',
+        'Observation',
+        // Prompting Fundamentals
+        'Prompt',
+        'Framework',
+        'Methodology',
+        'Clarity',
+        'Precision',
+        'Structure',
+        'Format',
+        'Constraints',
+        'Boundaries',
+        // Advanced Techniques
+        'Chain of Thought',
+        'Zero-shot',
+        'Multi-shot',
+        'System Prompt',
+        'Iteration',
+        'Refinement',
+        // Output Control
+        'Temperature',
+        'Creativity',
+        'Accuracy',
+        'Consistency',
+        'Verification',
+        // Best Practices
+        'Pattern',
+        'Template',
+        'Guideline',
+        'Technique',
+        'Best Practice',
+        // Flipped Interaction
+        'Collaboration',
+        'Dialogue',
+        'Feedback',
         'Adaptation',
-        'Learning'
+        // Goals & Results
+        'Output',
+        'Input',
+        'Goal',
+        'Task',
+        'Purpose',
+        'Intent',
+        // Quality
+        'Validation',
+        'Optimization',
+        'Improvement',
+        'Effectiveness',
+        'Efficiency',
+        // Learning Concepts
+        'Praxis',
+        'Theory',
+        'Practice',
+        'Application',
+        'Mastery'
     ];
 
     // === TERM TO GLOSSARY MAPPING ===
-    // Purpose: Maps floating AI terms to glossary page anchors
+    // Purpose: Maps floating prompting terms to glossary page anchors
     // Security: CSP-compliant (no eval, external navigation only)
     // Links floating terms in neural network animation to glossary definitions
     const TERM_GLOSSARY_MAP = {
-        // Core AI concepts
-        'NLP': 'term-nlp',
-        'Transformer': 'term-transformer',
-        'GPT': 'term-gpt',
-        'Tokenization': 'term-token',
-        'AI Model': 'term-model',
-        'Intelligence': 'term-ai',
-        // Training & optimization
-        'Fine-tuning': 'term-fine-tuning',
-        'RAG': 'term-rag',
-        'Training': 'term-training-data',
+        // CRISP/CRISPE terms
+        'Context': 'term-context',
+        'Parameters': 'term-parameters',
+        'Few-shot Learning': 'term-few-shot',
         // Prompting concepts
         'Prompt': 'term-prompt',
-        'Context Window': 'term-context-window',
-        'Hallucination': 'term-hallucination',
-        'Alignment': 'term-alignment',
         'Chain of Thought': 'term-chain-of-thought',
-        'Few-shot': 'term-few-shot',
         'Zero-shot': 'term-zero-shot',
-        'Multimodal': 'term-multimodal',
         'System Prompt': 'term-system-prompt',
-        'Temperature': 'term-temperature',
-        // Architecture
-        'Parameters': 'term-parameters',
-        'Bias': 'term-bias',
-        // Applications
-        'Generation': 'term-generative-ai',
-        'Copilot': 'term-copilot',
-        // Modern AI
-        'LLM': 'term-llm',
-        'Retrieval': 'term-rag',
-        'Grounding': 'term-grounding',
-        'Context': 'term-context',
-        // Data
-        'Token': 'term-token'
+        'Temperature': 'term-temperature'
     };
 
     /**
