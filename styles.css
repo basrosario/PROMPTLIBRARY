@@ -507,17 +507,14 @@ p {
 
 /* ============================================
    CONTENT AREA BADGES
-   Positioned at top edge of white section,
-   right at the dark/white transition line
+   Base styling for badge component
    ============================================ */
 .content-badges {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: calc(-1 * var(--space-2xl) - 0.5rem);
-    margin-bottom: var(--space-lg);
-    padding-top: 0;
+    margin: 1rem 0;
 }
 
 .content-badge {
@@ -526,12 +523,12 @@ p {
     font-size: 0.7rem;
     border-radius: 4px;
     overflow: hidden;
-    background: #374151;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .content-badge .badge-label {
     padding: 0.35rem 0.5rem;
-    background: #374151;
+    background: rgba(255, 255, 255, 0.15);
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -561,12 +558,25 @@ p {
     background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
 }
 
+/* Badges in white content sections - positioned at dark/white transition
+   -------------------------------------------------------------------- */
+.section .content-badges {
+    margin-top: calc(-1 * var(--space-2xl) - 0.5rem);
+    margin-bottom: var(--space-lg);
+}
+
+.section .content-badge {
+    background: #374151;
+}
+
+.section .content-badge .badge-label {
+    background: #374151;
+}
+
 /* Responsive adjustments for content badges */
 @media (max-width: 768px) {
     .content-badges {
         gap: 0.4rem;
-        margin-top: calc(-1 * var(--space-2xl) - 0.25rem);
-        margin-bottom: var(--space-md);
     }
 
     .content-badge {
@@ -576,6 +586,11 @@ p {
     .content-badge .badge-label,
     .content-badge .badge-value {
         padding: 0.25rem 0.4rem;
+    }
+
+    .section .content-badges {
+        margin-top: calc(-1 * var(--space-2xl) - 0.25rem);
+        margin-bottom: var(--space-md);
     }
 }
 
