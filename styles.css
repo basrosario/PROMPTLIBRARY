@@ -526,12 +526,12 @@ p {
     font-size: 0.7rem;
     border-radius: 4px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
+    background: #374151;
 }
 
 .content-badge .badge-label {
     padding: 0.35rem 0.5rem;
-    background: rgba(255, 255, 255, 0.15);
+    background: #374151;
     color: rgba(255, 255, 255, 0.9);
 }
 
