@@ -5536,11 +5536,14 @@ body.menu-open {
    LEARNING MODULE COMPONENTS
    ============================================ */
 
-/* Concept Cards (ReAct visual) */
+/* Concept Cards (ReAct visual equation) */
 .concept-cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
+    justify-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .concept-card {
@@ -5550,6 +5553,7 @@ body.menu-open {
     padding: var(--space-lg);
     text-align: left;
     width: 100%;
+    max-width: 280px;
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
@@ -5588,11 +5592,15 @@ body.menu-open {
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .concept-result {
     background: linear-gradient(135deg, var(--primary) 0%, #FF6B6B 100%);
     border: none;
+    max-width: 320px;
 }
 
 .concept-result h3,
@@ -5916,12 +5924,49 @@ body.menu-open {
    LEARNING MODULE RESPONSIVE
    ============================================ */
 @media (min-width: 768px) {
+    /* Desktop: Reason + Act on top row, = ReAct centered below */
     .concept-cards {
-        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        grid-template-rows: auto auto;
+        gap: var(--space-md) var(--space-lg);
+        align-items: center;
+        justify-items: center;
+    }
+
+    /* Position items in first row */
+    .concept-cards .concept-card:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .concept-cards .concept-operator:first-of-type {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .concept-cards .concept-card:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: center;
+    }
+
+    /* Position items in second row - centered */
+    .concept-cards .concept-operator:last-of-type {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .concept-cards .concept-result {
+        grid-column: 3;
+        grid-row: 2;
+        justify-self: center;
     }
 
     .concept-card {
         width: auto;
+        max-width: 260px;
     }
 
     .loop-steps {
