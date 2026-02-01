@@ -1,8 +1,8 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-01 (Session 6)
-**Last Commit:** `1131dae` - docs: Update About page purpose statement + README header
-**Current Phase:** Phase 1 (In Progress)
+**Last Updated:** 2026-02-01 (Session 9)
+**Last Commit:** `e8032e8` - feat: Add animated gradient to dark card sections
+**Current Phase:** Phase 2 (Ready to Start)
 
 ---
 
@@ -200,7 +200,7 @@ _public_html/
 - [x] Feedback display updated
 - [x] Manual verification passing
 
-### Phase 1: Badge Relocation & Text Updates - IN PROGRESS 🔄
+### Phase 1: Badge Relocation & Text Updates - COMPLETE ✅
 
 | Task | Status | Notes |
 |------|--------|-------|
@@ -226,13 +226,42 @@ _public_html/
 | Build-step enhancement | ✅ Done | Added shadows, improved hover states |
 | Scenario tabs enhancement | ✅ Done | Card wrapper with border and shadow |
 
-### Latest Session Work (2026-02-01 - Session 8)
+### Latest Session Work (2026-02-01 - Session 9)
 
 **Completed Tasks:**
-- Removed Method Recommender from all pages
+- Reinstated Method Recommender as "Method Matcher"
+  - Renamed tools/recommender.html to tools/matcher.html
+  - Updated title to "Method Matcher"
+  - Updated button text to "Find My Match"
+  - Added tool card back to tools/index.html
+  - Restored navigation links on all 24 HTML pages
+
+- Added "Level Up Your Score" section to Prompt Analyzer
+  - Six actionable tip cards with score impact percentages
+  - Interactive gradient accents and hover effects
+  - Tip callout about achieving 100%+ scores
+  - New CSS component: score-tips-grid
+
+- Extended animated gradient to all dark card sections
+  - Applied `darkGradientShift` to .cta-card (10s cycle)
+  - Applied to .family-foundation-section (12s cycle)
+  - Applied to .poem-section (12s cycle, vertical gradient)
+  - Applied to .dedication-section (12s cycle)
+  - All prominent dark areas now have cohesive "living" effect
+
+**Files Modified:**
+- styles.css (CTA card animation, other dark section animations, score-tips-grid)
+- tools/analyzer.html (Level Up Your Score section)
+- tools/matcher.html (renamed from recommender.html)
+- tools/index.html (Method Matcher tool card)
+- All 24 HTML files (Method Matcher navigation links)
+
+### Previous Session Work (2026-02-01 - Session 8)
+
+**Completed Tasks:**
+- Removed Method Recommender from all pages (later reinstated as Method Matcher)
   - Removed from all 24 HTML files (navigation mega-menu and footer)
   - Removed tool card from tools/index.html
-  - Recommender.html file kept but unlinked
 
 - Task 1.15: Visual consistency audit - content sizing improvements
   - Updated info-cards, score-info-grid, coverage-grid, values-grid, safety-principles, risks-grid, caution-grid to use CSS Grid instead of flexbox
@@ -253,11 +282,10 @@ _public_html/
   - Verified semantic colors (green success, amber warning, red error) used consistently
   - No critical inconsistencies found
 
-**Files Modified:**
+**Files Modified (Session 8):**
 - styles.css (CSS Grid for cards, animated gradients for dark areas)
 - tools/index.html (removed Method Recommender card)
 - All 24 HTML files (navigation and footer updates)
-- .claude/HANDOFF.md (documentation update)
 
 ### Previous Session Work (2026-02-01 - Session 7)
 
@@ -524,50 +552,24 @@ Key variables used throughout (defined in styles.css):
      8. Test across all pages using these components
      9. Ensure consistency site-wide
 
-8. **Task 1.16:** Add GitHub badge to all badge bars
-   - **Badge design:**
-     - Style 1: Grey background with white text
-     - Style 2: Black background with white text (alternate/hover)
-     - Text: "Visit our" (label) / "GitHub" (value)
-     - Links to: https://github.com/basrosario/PROMPTLIBRARY
-   - **Placement:** All badge bars site-wide (content-badges AND site-badges-bar)
-   - **Files:**
-     - styles.css (new `.content-badge--github` class)
-     - All 22+ HTML files (add badge to both locations)
-   - **Plan:**
-     1. Create CSS for `.content-badge--github` (grey/white variant)
-     2. Create hover state (black/white variant)
-     3. Add to index.html as template
-     4. Add to all content-badges sections (22 pages)
-     5. Add to all site-badges-bar sections (22 pages)
-     6. Test links on all pages
+8. **Task 1.16:** Add GitHub badge to all badge bars ✅ COMPLETED
+   - CSS `.content-badge--github` with grey/black hover state
+   - Badge text: "Community" / "GitHub"
+   - Links to: https://github.com/basrosario/PROMPTLIBRARY
+   - Added to all content-badges and site-badges-bar sections
 
-9. **Task 1.17:** ADL Accessibility Dashboard (Floating)
-   - **Purpose:** User-controlled accommodations for UD/UDL compliance
-   - **Features:**
-     - **Text Size Control:** 1x (default), 2x, 3x scaling for headers, paragraphs, labels, badges
-     - **Contrast Mode:** Toggle between dark-on-light and light-on-dark
-     - **Dimming Control:** Adjustable brightness/dimming for light sensitivity
-   - **UI Design:**
-     - Floating dashboard button (fixed position)
-     - Expandable panel with controls
-     - Persist user preferences (localStorage)
-   - **Files:**
-     - styles.css (dashboard styles + accessibility CSS variables)
-     - app.js (dashboard logic, preference storage)
-     - All HTML files (add dashboard element)
-   - **Plan:**
-     1. Design dashboard UI (floating button + expandable panel)
-     2. Create CSS variables for text scaling (--text-scale: 1/2/3)
-     3. Create CSS for contrast modes (data-contrast="light"|"dark")
-     4. Create CSS for dimming (--dim-level: 0-100%)
-     5. Build JavaScript for toggle controls and localStorage persistence
-     6. Add dashboard HTML to all pages
-     7. Test across all pages and devices
-   - **Accessibility:**
-     - Dashboard itself must be keyboard navigable
-     - ARIA labels for all controls
-     - Preferences remembered across sessions
+9. **Task 1.17:** ADL Accessibility Dashboard (Floating) ✅ COMPLETED
+   - **Features implemented:**
+     - Text Size Control: 1x (default), 2x (125%), 3x (150%) scaling
+     - High Contrast Mode toggle
+     - Screen Dimming slider (0-50%)
+   - **Components:**
+     - Floating toggle button (bottom-right, cyan theme)
+     - Expandable panel with all controls
+     - Reset to defaults button
+     - localStorage persistence across sessions
+   - **Files:** styles.css (9353-9770), app.js (5894-6070), all 24 HTML files
+   - **Accessibility:** ARIA labels, keyboard navigation, focus states
 
 10. **Task 1.18:** Prompt Analyzer Enhancement - Granular Methodology Scoring ✅ COMPLETED
    - **Purpose:** Improve scoring accuracy with natural language structure analysis
