@@ -5526,7 +5526,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'AI Output',
             'AI Literacy',
             'AI Creativity',
-            'AI Structured Output'
+            'AI Structured Output',
+            'Professional AI Prompt Engineering'
         ];
         const typingSpeed = 70; // milliseconds per character
         const deleteSpeed = 35; // milliseconds per character when deleting
