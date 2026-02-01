@@ -4355,10 +4355,26 @@ p {
 
 /* About Page */
 .about-mission {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 25px;
     padding: var(--space-xl);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
+}
+
+.about-mission-image {
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.about-mission-content {
+    flex: 1;
+    text-align: center;
 }
 
 .about-mission h2 {
@@ -4399,6 +4415,14 @@ p {
     margin-bottom: var(--space-sm);
 }
 
+.about-block p {
+    margin-bottom: 0.5rem;
+}
+
+.about-block p:last-child {
+    margin-bottom: 0;
+}
+
 .creator-section {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -4424,6 +4448,389 @@ p {
     flex-direction: column;
     gap: var(--space-sm);
     margin-top: var(--space-lg);
+}
+
+/* About Page - Enhanced Sections ---- */
+.about-intro {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: var(--space-md);
+}
+
+.about-block-featured {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.about-block-featured::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--primary);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.about-block-centered {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-block-centered p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+/* Family Foundation Section ---- */
+.family-foundation-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-2xl);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.family-foundation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 0%, rgba(230, 57, 70, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.family-foundation-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.01) 2px,
+        rgba(255, 255, 255, 0.01) 4px
+    );
+    pointer-events: none;
+}
+
+.family-foundation-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-xl);
+    background: linear-gradient(135deg, var(--primary) 0%, #c41e3a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 40px rgba(230, 57, 70, 0.4);
+}
+
+.family-foundation-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+}
+
+.family-foundation-section p {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.family-foundation-section p:first-of-type {
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.family-foundation-section p:last-of-type {
+    margin-bottom: 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--space-lg);
+}
+
+.family-foundation-section .highlight-text {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Poem Section ---- */
+.poem-section {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    border: none;
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl) var(--space-2xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.poem-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(230, 57, 70, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.poem-section::after {
+    content: '"';
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 10rem;
+    font-family: Georgia, serif;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.poem-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: var(--space-xl);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+}
+
+.poem-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    margin: var(--space-md) auto 0;
+}
+
+.poem-content {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.poem-stanza {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.poem-stanza:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.poem-stanza p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.poem-author {
+    margin-top: var(--space-2xl);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.poem-author::before {
+    content: '—';
+    margin-right: 0.5rem;
+}
+
+/* Dedication Section ---- */
+.dedication-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-2xl);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.dedication-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 0%, rgba(230, 57, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.dedication-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: var(--space-xl);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+}
+
+.dedication-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    margin: var(--space-md) auto 0;
+}
+
+.dedication-text {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.dedication-text:first-of-type {
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: #fff;
+}
+
+.dedication-text:last-of-type {
+    margin-bottom: var(--space-lg);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dedication-copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* About Page - Responsive ---- */
+@media (max-width: 768px) {
+    .about-mission {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-mission-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-intro {
+        font-size: 1.25rem;
+    }
+
+    .about-block-featured {
+        padding: var(--space-lg);
+    }
+
+    .family-foundation-section {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .family-foundation-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: var(--space-lg);
+    }
+
+    .family-foundation-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .family-foundation-section p {
+        font-size: 1rem;
+    }
+
+    .family-foundation-section p:first-of-type {
+        font-size: 1.25rem;
+    }
+
+    .poem-section {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .poem-section::after {
+        font-size: 6rem;
+        top: 15px;
+        left: 20px;
+    }
+
+    .poem-title {
+        font-size: 1.5rem;
+    }
+
+    .poem-stanza p {
+        font-size: 1rem;
+    }
+
+    .dedication-section {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .dedication-title {
+        font-size: 1.25rem;
+    }
+
+    .dedication-text {
+        font-size: 1rem;
+    }
 }
 
 /* Patterns Preview */
@@ -5479,9 +5886,17 @@ body.menu-open {
     position: relative;
     width: 100%;
     height: 240px;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+}
+
+.acronym-card.has-flip:hover .card-front {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.acronym-card.has-flip .card-front {
+    transition: box-shadow 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -5512,11 +5927,12 @@ body.menu-open {
     justify-content: center;
     padding: var(--space-lg);
     box-sizing: border-box;
+    border: none;
 }
 
 .acronym-card.has-flip .card-front {
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
     z-index: 2;
     overflow: hidden;
 }
@@ -5553,7 +5969,7 @@ body.menu-open {
 
 .acronym-card.has-flip .card-back {
     background: var(--bg-card);
-    border: 1px solid var(--primary);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15), 0 0 0 1px rgba(220, 53, 69, 0.2);
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     justify-content: flex-start;
