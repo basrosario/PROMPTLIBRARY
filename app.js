@@ -3647,7 +3647,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 5-day weeknight dinner plan with kid-friendly recipes...' },
             { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Friendly tone, include prep time, common grocery ingredients...' },
             { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Under 45 minutes per meal. No seafood (allergies)...' },
-            { key: 'example', letter: 'E', label: 'Example of desired output?', placeholder: 'e.g., Format like: "Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers"' }
+            { key: 'example', letter: 'E', label: 'Example of desired output?', placeholder: 'e.g., Format like: Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers' }
         ],
         REACT: [
             { key: 'problem', letter: 'P', label: 'What problem needs to be solved?', placeholder: 'e.g., I need to debug why my website login is failing for some users...', fullWidth: true },
@@ -5396,7 +5396,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'instruction', letter: 'I', label: 'What do you want done? (the task)', placeholder: 'e.g., Create a 5-day weeknight dinner plan with kid-friendly recipes...' },
             { key: 'specifics', letter: 'S', label: 'Format, length, tone? (specifics)', placeholder: 'e.g., Friendly tone, include prep time, common grocery ingredients...' },
             { key: 'parameters', letter: 'P', label: 'Constraints and what to avoid?', placeholder: 'e.g., Under 45 minutes per meal. No seafood (allergies)...' },
-            { key: 'example', letter: 'E', label: 'Example of desired output?', placeholder: 'e.g., Format like: "Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers"' }
+            { key: 'example', letter: 'E', label: 'Example of desired output?', placeholder: 'e.g., Format like: Monday: Veggie Tacos - Prep: 15 min - Hidden veggies: peppers' }
         ],
         REACT: [
             { key: 'problem', letter: 'P', label: 'What problem needs to be solved?', placeholder: 'e.g., I need to debug why my website login is failing for some users...', fullWidth: true },
