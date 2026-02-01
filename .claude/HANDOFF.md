@@ -1,7 +1,7 @@
 # Praxis Project Handoff Document
 
 **Last Updated:** 2026-01-31
-**Last Commit:** `8327e5e` - feat: Phase 1 badge relocation + workflow automation system
+**Last Commit:** `4a220c7` - fix: Move badges from hero to white content area
 **Current Phase:** Phase 1 (In Progress)
 
 ---
@@ -241,7 +241,7 @@ _public_html/
 
 **Badge Placement Pattern:**
 - Home page: Between hero title and hero subtitle (in hero section)
-- All other pages: In dark `.page-hero` section, after `page-subtitle`
+- All other pages: In white content area, at start of first `.section` container (above first h2 or content element)
 
 ### Hero Section (Home Page)
 
