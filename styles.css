@@ -1785,8 +1785,16 @@ p {
 }
 
 .callout.tip {
-    border-left-color: #10B981;
-    background: rgba(16, 185, 129, 0.05);
+    border-left-color: #0d9488;
+    background: rgba(13, 148, 136, 0.15);
+}
+
+.callout.tip p {
+    color: #134e4a;
+}
+
+.callout.tip .callout-title {
+    color: #0f766e;
 }
 
 .callout.warning {
@@ -2008,7 +2016,7 @@ p {
     flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .card-grid > * {
@@ -4322,13 +4330,21 @@ body.menu-open {
 }
 
 .example-card.good {
-    border-left-color: #10B981;
-    background: rgba(16, 185, 129, 0.05);
+    border-left-color: #059669;
+    background: rgba(5, 150, 105, 0.15);
+}
+
+.example-card.good p {
+    color: #065f46;
 }
 
 .example-card.bad {
-    border-left-color: var(--primary);
-    background: rgba(220, 53, 69, 0.05);
+    border-left-color: #B91C1C;
+    background: rgba(185, 28, 28, 0.12);
+}
+
+.example-card.bad p {
+    color: #7f1d1d;
 }
 
 .example-label {
@@ -4342,11 +4358,11 @@ body.menu-open {
 }
 
 .example-card.good .example-label {
-    color: #10B981;
+    color: #047857;
 }
 
 .example-card.bad .example-label {
-    color: var(--primary);
+    color: #B91C1C;
 }
 
 .example-card p {
@@ -4602,7 +4618,7 @@ body.menu-open {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Force single row on desktop */
@@ -5893,7 +5909,7 @@ body.menu-open {
     flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .readiness-pillars > * {
@@ -5949,7 +5965,7 @@ body.menu-open {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-lg);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .tool-cards > * {
