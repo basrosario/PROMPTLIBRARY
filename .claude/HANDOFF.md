@@ -765,6 +765,36 @@ Before committing any changes, verify:
 
 ---
 
+## EXPERIMENTAL: Neural Term Spotlight Animation (Session 9)
+
+### Concept
+A high-quality, high-frame-rate animation that randomly highlights neural network terms with an elaborate "spotlight" effect. Desktop only.
+
+### Timing Pattern (Loop)
+- 25 seconds → 32 seconds → 13 seconds → repeat
+- Each cycle activates 1-2 random terms
+- Multiple terms must be on opposite sides of screen
+
+### Animation Sequence (~6-7 seconds total)
+1. **State 1 (Normal):** Tiny ball connected to text by line
+2. **Ball Pulse Phase (~1.5s):** Ball pulses slowly, fading between red and white, ultimately landing on red
+3. **Line Fill Phase (~3.4s):** Line fills like progress bar from ball toward word
+4. **Word Light Phase (~1s):** Letters light up one by one
+5. **Word Glow Phase (~0.5s):** Word grows 3x, glows bright white
+6. **Reverse Phase (~1s):** Word deflates, animation reverses back to State 1
+
+### Technical Requirements
+- Desktop only (window.innerWidth > 1024)
+- 60fps minimum, smooth easing
+- High-resolution canvas rendering
+- No movement across screen - animation happens in place
+- Spatial distribution: if 2 terms, they must be on opposite halves
+
+### Files
+- `app.js` - HeroNeuralBackground class, NeuralNode class
+
+---
+
 ## CONTACT POINTS
 
 - **Founder:** Basiliso Rosario

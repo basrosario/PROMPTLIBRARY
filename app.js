@@ -1711,6 +1711,15 @@ document.addEventListener('DOMContentLoaded', () => {
             this.highlightPhase = 0;         // 0 = line animating, 1 = word glowing, 2 = fading
             this.highlightTimer = Math.random() * 15000 + 8000; // Random delay 8-23 seconds
             this.highlightDuration = 2500;   // Total highlight animation duration
+
+            // Spotlight animation (elaborate version) - desktop only
+            this.spotlightActive = false;
+            this.spotlightProgress = 0;      // 0 to 1 over full animation
+            this.spotlightPhase = 0;         // 0=pulse, 1=lineFill, 2=letterLight, 3=glow, 4=reverse
+            this.spotlightStartTime = 0;
+            this.letterProgress = 0;         // For letter-by-letter lighting
+            this.wordScale = 1;              // For grow/shrink effect
+            this.wordGlow = 0;               // Glow intensity
         }
 
         update(dt) {
@@ -1758,12 +1767,131 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+
+            // Update spotlight animation (if active)
+            if (this.spotlightActive) {
+                this.updateSpotlight(dt);
+            }
+        }
+
+        /**
+         * Start the spotlight animation on this node
+         */
+        startSpotlight() {
+            if (this.spotlightActive || !this.term) return;
+            this.spotlightActive = true;
+            this.spotlightProgress = 0;
+            this.spotlightPhase = 0;
+            this.letterProgress = 0;
+            this.wordScale = 1;
+            this.wordGlow = 0;
+            // Disable regular highlight while spotlight is active
+            this.isHighlighted = false;
+        }
+
+        /**
+         * Update spotlight animation phases
+         * Total duration ~6.4 seconds (384 frames at 60fps)
+         * Phase timings: pulse=1.5s, lineFill=3.4s, letterLight=0.5s, glow=0.5s, reverse=0.5s
+         */
+        updateSpotlight(dt) {
+            const frameTime = dt * 16.67; // Convert to ms
+            this.spotlightProgress += frameTime;
+
+            // Phase timings in ms
+            const PULSE_DURATION = 1500;
+            const LINE_DURATION = 3400;
+            const LETTER_DURATION = 500;
+            const GLOW_DURATION = 500;
+            const REVERSE_DURATION = 500;
+            const TOTAL = PULSE_DURATION + LINE_DURATION + LETTER_DURATION + GLOW_DURATION + REVERSE_DURATION;
+
+            const p = this.spotlightProgress;
+
+            if (p < PULSE_DURATION) {
+                // Phase 0: Ball pulsing (red/white fade)
+                this.spotlightPhase = 0;
+            } else if (p < PULSE_DURATION + LINE_DURATION) {
+                // Phase 1: Line fill animation
+                this.spotlightPhase = 1;
+            } else if (p < PULSE_DURATION + LINE_DURATION + LETTER_DURATION) {
+                // Phase 2: Letter-by-letter lighting
+                this.spotlightPhase = 2;
+                const letterPhaseProgress = (p - PULSE_DURATION - LINE_DURATION) / LETTER_DURATION;
+                this.letterProgress = letterPhaseProgress;
+            } else if (p < PULSE_DURATION + LINE_DURATION + LETTER_DURATION + GLOW_DURATION) {
+                // Phase 3: Word grows 3x and glows white
+                this.spotlightPhase = 3;
+                const glowPhaseProgress = (p - PULSE_DURATION - LINE_DURATION - LETTER_DURATION) / GLOW_DURATION;
+                this.wordScale = 1 + glowPhaseProgress * 2; // Scale from 1 to 3
+                this.wordGlow = glowPhaseProgress;
+            } else if (p < TOTAL) {
+                // Phase 4: Reverse/deflate back to normal
+                this.spotlightPhase = 4;
+                const reverseProgress = (p - PULSE_DURATION - LINE_DURATION - LETTER_DURATION - GLOW_DURATION) / REVERSE_DURATION;
+                this.wordScale = 3 - reverseProgress * 2; // Scale from 3 back to 1
+                this.wordGlow = 1 - reverseProgress;
+                this.letterProgress = 1 - reverseProgress;
+            } else {
+                // Animation complete
+                this.spotlightActive = false;
+                this.spotlightProgress = 0;
+                this.spotlightPhase = 0;
+                this.letterProgress = 0;
+                this.wordScale = 1;
+                this.wordGlow = 0;
+            }
         }
 
         draw(ctx) {
             const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7;
-            const currentRadius = this.radius * pulse;
-            const currentOpacity = this.opacity * pulse;
+            let currentRadius = this.radius * pulse;
+            let currentOpacity = this.opacity * pulse;
+
+            // Spotlight animation: Ball pulsing phase
+            if (this.spotlightActive && this.spotlightPhase === 0) {
+                // Pulsing between red and white, increasing intensity
+                const pulseProgress = this.spotlightProgress / 1500; // 0 to 1 over 1.5s
+                const fastPulse = Math.sin(pulseProgress * Math.PI * 8); // 4 full pulses
+                const intensityRamp = pulseProgress; // Increasing intensity
+                const redAmount = (fastPulse * 0.5 + 0.5) * intensityRamp; // 0 to 1
+
+                currentRadius = this.radius * (1 + intensityRamp * 0.5);
+                currentOpacity = this.opacity + intensityRamp * 0.4;
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentRadius, 0, Math.PI * 2);
+                const r = 255;
+                const g = Math.round(255 - redAmount * 155);
+                const b = Math.round(255 - redAmount * 185);
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentOpacity})`;
+                ctx.fill();
+
+                // Add glow effect
+                if (intensityRamp > 0.3) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, currentRadius * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(230, 57, 70, ${intensityRamp * 0.15})`;
+                    ctx.fill();
+                }
+                return;
+            }
+
+            // Spotlight active in later phases - keep ball red
+            if (this.spotlightActive && this.spotlightPhase >= 1) {
+                currentRadius = this.radius * 1.3;
+                currentOpacity = this.opacity + 0.4;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentRadius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(230, 57, 70, ${currentOpacity})`;
+                ctx.fill();
+                // Glow
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentRadius * 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(230, 57, 70, 0.12)`;
+                ctx.fill();
+                return;
+            }
 
             // Calculate highlight intensity (peaks at 0.3 progress for dot)
             const dotHighlight = this.isHighlighted ?
@@ -1787,6 +1915,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const pulse = Math.sin(this.pulsePhase) * 0.1 + 0.9;
             const termX = this.x + this.termOffset.x;
             const termY = this.y + this.termOffset.y;
+
+            // === SPOTLIGHT ANIMATION RENDERING ===
+            if (this.spotlightActive) {
+                this.drawSpotlightTerm(ctx, termX, termY);
+                return;
+            }
 
             // Calculate highlight phases:
             // 0-0.3: line glows red from dot to word
@@ -1854,6 +1988,140 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 ctx.fillStyle = `rgba(255, 255, 255, ${this.termOpacity * pulse})`;
             }
+            ctx.textAlign = 'center';
+            ctx.fillText(this.term, termX, termY);
+        }
+
+        /**
+         * Draw spotlight animation for term (elaborate high-quality animation)
+         * Phases: 0=waiting, 1=lineFill, 2=letterLight, 3=glow, 4=reverse
+         */
+        drawSpotlightTerm(ctx, termX, termY) {
+            const PULSE_END = 1500;
+            const LINE_END = PULSE_END + 3400;
+            const LETTER_END = LINE_END + 500;
+            const GLOW_END = LETTER_END + 500;
+            const p = this.spotlightProgress;
+
+            // Phase 1: Line fill animation (progress bar style)
+            if (this.spotlightPhase === 1) {
+                const linePhaseProgress = (p - PULSE_END) / 3400;
+                // Eased progress for smooth animation
+                const easedProgress = 1 - Math.pow(1 - linePhaseProgress, 3);
+
+                // Draw base line (dim)
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(termX, termY);
+                ctx.strokeStyle = `rgba(255, 255, 255, 0.15)`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Draw animated fill line
+                const fillX = this.x + (termX - this.x) * easedProgress;
+                const fillY = this.y + (termY - this.y) * easedProgress;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(fillX, fillY);
+                ctx.strokeStyle = `rgba(230, 57, 70, ${0.6 + easedProgress * 0.4})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Glowing tip
+                ctx.beginPath();
+                ctx.arc(fillX, fillY, 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${0.8})`;
+                ctx.fill();
+
+                // Draw word (dim, waiting to be lit)
+                ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = `rgba(255, 255, 255, 0.2)`;
+                ctx.textAlign = 'center';
+                ctx.fillText(this.term, termX, termY);
+                return;
+            }
+
+            // Draw full red line for phases 2-4
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(termX, termY);
+            ctx.strokeStyle = `rgba(230, 57, 70, 0.8)`;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Phase 2: Letter-by-letter lighting
+            if (this.spotlightPhase === 2) {
+                const letters = this.term.split('');
+                const litCount = Math.floor(this.letterProgress * letters.length);
+
+                ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+
+                // Measure full text for centering
+                const fullWidth = ctx.measureText(this.term).width;
+                let currentX = termX - fullWidth / 2;
+
+                for (let i = 0; i < letters.length; i++) {
+                    const letterWidth = ctx.measureText(letters[i]).width;
+                    const isLit = i < litCount;
+                    const isLighting = i === litCount;
+
+                    if (isLit) {
+                        ctx.fillStyle = `rgba(230, 57, 70, 1)`;
+                    } else if (isLighting) {
+                        const partialProgress = (this.letterProgress * letters.length) % 1;
+                        ctx.fillStyle = `rgba(230, ${57 + (1 - partialProgress) * 198}, ${70 + (1 - partialProgress) * 185}, ${0.3 + partialProgress * 0.7})`;
+                    } else {
+                        ctx.fillStyle = `rgba(255, 255, 255, 0.25)`;
+                    }
+                    ctx.textAlign = 'left';
+                    ctx.fillText(letters[i], currentX, termY);
+                    currentX += letterWidth;
+                }
+                return;
+            }
+
+            // Phase 3 & 4: Word glow and deflate
+            if (this.spotlightPhase === 3 || this.spotlightPhase === 4) {
+                ctx.save();
+                ctx.translate(termX, termY);
+                ctx.scale(this.wordScale, this.wordScale);
+
+                // Outer glow
+                if (this.wordGlow > 0.2) {
+                    ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.wordGlow * 0.3})`;
+                    ctx.fillText(this.term, 0, 0);
+                    ctx.fillText(this.term, 1, 0);
+                    ctx.fillText(this.term, -1, 0);
+                    ctx.fillText(this.term, 0, 1);
+                    ctx.fillText(this.term, 0, -1);
+                }
+
+                // Main text - blend from red to white based on glow
+                const r = 230 + Math.round(this.wordGlow * 25);
+                const g = 57 + Math.round(this.wordGlow * 198);
+                const b = 70 + Math.round(this.wordGlow * 185);
+                ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 1)`;
+                ctx.textAlign = 'center';
+                ctx.fillText(this.term, 0, 0);
+
+                ctx.restore();
+                return;
+            }
+
+            // Phase 0: Just pulsing ball, draw normal dim term
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(termX, termY);
+            ctx.strokeStyle = `rgba(230, 57, 70, 0.4)`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+
+            ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillStyle = `rgba(255, 255, 255, 0.2)`;
             ctx.textAlign = 'center';
             ctx.fillText(this.term, termX, termY);
         }
@@ -1999,6 +2267,13 @@ document.addEventListener('DOMContentLoaded', () => {
             this.floatingTerms = [];
             this.maxTerms = Math.floor((options.maxTerms || 20) * this.termScale);
             this.termSpawnTimer = 0;
+
+            // Spotlight animation system (desktop only, hero section only)
+            this.spotlightEnabled = options.parentSelector === '.hero' && window.innerWidth > 1024;
+            this.spotlightTimingCycle = [25000, 32000, 13000]; // 25s, 32s, 13s loop
+            this.spotlightCycleIndex = 0;
+            this.spotlightTimer = 0;
+            this.spotlightActiveNodes = [];
             this.termSpawnInterval = options.termSpawnInterval || 2000; // Slower spawning for stability
             this.usedTerms = new Set(); // Track which terms are active to avoid duplicates
 
@@ -2370,6 +2645,61 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update pulses
             this.pulses.forEach(pulse => pulse.update(dt));
             this.pulses = this.pulses.filter(p => p.active);
+
+            // Spotlight animation timer (desktop hero only)
+            if (this.spotlightEnabled) {
+                this.spotlightTimer += dt * 16.67; // Convert to ms
+                const currentCycleTime = this.spotlightTimingCycle[this.spotlightCycleIndex];
+
+                if (this.spotlightTimer >= currentCycleTime) {
+                    this.spotlightTimer = 0;
+                    this.spotlightCycleIndex = (this.spotlightCycleIndex + 1) % 3;
+                    this.triggerSpotlight();
+                }
+
+                // Clean up completed spotlight nodes
+                this.spotlightActiveNodes = this.spotlightActiveNodes.filter(n => n.spotlightActive);
+            }
+        }
+
+        /**
+         * Trigger spotlight animation on 1-2 random nodes
+         * Ensures selected nodes are on opposite sides of screen
+         */
+        triggerSpotlight() {
+            // Get nodes with terms that aren't already spotlighting
+            const availableNodes = this.nodes.filter(n =>
+                n.term && !n.spotlightActive && !this.spotlightActiveNodes.includes(n)
+            );
+
+            if (availableNodes.length === 0) return;
+
+            // Randomly decide 1 or 2 terms (70% chance of 2)
+            const count = Math.random() < 0.7 && availableNodes.length >= 2 ? 2 : 1;
+
+            if (count === 1) {
+                const node = availableNodes[Math.floor(Math.random() * availableNodes.length)];
+                node.startSpotlight();
+                this.spotlightActiveNodes.push(node);
+            } else {
+                // Select 2 nodes on opposite sides of screen
+                const midX = this.width / 2;
+                const leftNodes = availableNodes.filter(n => n.x < midX);
+                const rightNodes = availableNodes.filter(n => n.x >= midX);
+
+                if (leftNodes.length > 0 && rightNodes.length > 0) {
+                    const leftNode = leftNodes[Math.floor(Math.random() * leftNodes.length)];
+                    const rightNode = rightNodes[Math.floor(Math.random() * rightNodes.length)];
+                    leftNode.startSpotlight();
+                    rightNode.startSpotlight();
+                    this.spotlightActiveNodes.push(leftNode, rightNode);
+                } else {
+                    // Fallback: just pick one
+                    const node = availableNodes[Math.floor(Math.random() * availableNodes.length)];
+                    node.startSpotlight();
+                    this.spotlightActiveNodes.push(node);
+                }
+            }
         }
 
         draw() {
