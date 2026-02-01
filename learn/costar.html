@@ -94,32 +94,6 @@
         <!-- Acronym Visual -->
         <section class="section">
             <div class="container">
-                <div class="content-badges fade-in-up">
-                    <span class="content-badge content-badge--ai" data-badge-type="ai">
-                        <span class="badge-label">AI for</span>
-                        <span class="badge-value">Everybody</span>
-                    </span>
-                    <span class="content-badge content-badge--udl" data-badge-type="udl">
-                        <span class="badge-label">Built With</span>
-                        <span class="badge-value">UD/UDL</span>
-                    </span>
-                    <span class="content-badge content-badge--security" data-badge-type="security">
-                        <span class="badge-label">Security</span>
-                        <span class="badge-value">A+ 100%</span>
-                    </span>
-                    <span class="content-badge content-badge--performance" data-badge-type="performance">
-                        <span class="badge-label">Performance</span>
-                        <span class="badge-value">100%</span>
-                    </span>
-                    <span class="content-badge content-badge--claude" data-badge-type="claude">
-                        <span class="badge-label">AI Assisted Building</span>
-                        <span class="badge-value">Claude Code</span>
-                    </span>
-                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
-                        <span class="badge-label">Community</span>
-                        <span class="badge-value">GitHub</span>
-                    </a>
-                </div>
                 <div class="acronym-cards six-items stagger-children">
                     <div class="acronym-card has-flip">
                         <div class="card-inner">
@@ -225,14 +199,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Reminder Note -->
-                <div class="method-reminder fade-in-up">
-                    <div class="reminder-icon">i</div>
-                    <div class="reminder-content">
-                        <strong>Think of these as a checklist, not a template.</strong> You don't write "<strong>Objective</strong>: ..." in your prompt. Instead, make sure your natural request <em>includes</em> your objective. The method ensures you don't forget important elements.
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -242,301 +208,354 @@
                 <h2 class="section-title fade-in-up">Why COSTAR?</h2>
                 <p class="section-subtitle fade-in-up">The framework that puts your audience first</p>
 
-                <div class="content-block fade-in-up">
-                    <p>COSTAR excels when <strong>audience matters</strong>. Unlike CRISP, which focuses on the task, COSTAR ensures your output is tailored to who will receive it.</p>
-                </div>
-
-                <div class="info-cards stagger-children">
-                    <div class="info-card">
-                        <h3>Professional Communications</h3>
-                        <p>Emails, reports, and presentations that need to connect with specific recipients.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Marketing & Sales</h3>
-                        <p>Content that must persuade and resonate with target demographics.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>User Documentation</h3>
-                        <p>Guides and help content written for specific user groups.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Published Content</h3>
-                        <p>Blog posts, articles, and content that will be shared publicly.</p>
-                    </div>
-                </div>
-
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">COSTAR vs. CRISP</div>
                     <p><strong>CRISP</strong> uses <strong>Parameters</strong> for output constraints. <strong>COSTAR</strong> splits this into <strong>Audience</strong> and <strong>Response</strong> for more <strong>nuanced control</strong>. Choose COSTAR when the <strong>recipient</strong> significantly affects how you should write.</p>
                 </div>
+
+                <div class="method-reminder fade-in-up">
+                    <div class="reminder-icon">i</div>
+                    <div class="reminder-content">
+                        <strong>Think of these as a checklist, not a template.</strong> You don't write "<strong>Objective</strong>: ..." in your prompt. Instead, make sure your natural request <em>includes</em> your objective. The method ensures you don't forget important elements.
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- C - Context -->
+        <!-- === ACCORDION CONTROLS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">C - Context</h2>
-                <p class="section-subtitle fade-in-up">Provide the background the AI needs to understand your situation</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Include relevant details about your business, project, or circumstances. The more context you provide, the more tailored and relevant the output will be.</p>
+                <div class="accordion-controls">
+                    <button class="accordion-controls-btn" id="expand-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                        Expand All
+                    </button>
+                    <button class="accordion-controls-btn" id="collapse-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <path d="M18 15l-6-6-6 6"/>
+                        </svg>
+                        Collapse All
+                    </button>
                 </div>
 
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Effective Context Example</div>
-                    <p>"I'm organizing our neighborhood's annual summer potluck. Last year we had some issues with too many desserts and not enough main dishes. This year I want to coordinate better so we have a balanced meal."</p>
-                </div>
-            </div>
-        </section>
+                <!-- C - Context -->
+                <details class="learn-accordion" id="context">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">C</span>
+                            Context
+                            <span class="learn-accordion-subtitle">Provide the background the AI needs to understand your situation</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Include relevant details about your business, project, or circumstances. The more context you provide, the more tailored and relevant the output will be.</p>
+                        </div>
 
-        <!-- O - Objective -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">O - Objective</h2>
-                <p class="section-subtitle fade-in-up">State your goal clearly and the action you want</p>
-
-                <div class="content-block fade-in-up">
-                    <p>What outcome do you want from this content? What should the reader think, feel, or do after engaging with it?</p>
-                </div>
-
-                <div class="objective-cards stagger-children">
-                    <div class="objective-card">
-                        <h3>Inform</h3>
-                        <p>"Help readers understand the new policy changes"</p>
-                    </div>
-                    <div class="objective-card">
-                        <h3>Persuade</h3>
-                        <p>"Encourage neighbors to bring a variety of dishes"</p>
-                    </div>
-                    <div class="objective-card">
-                        <h3>Instruct</h3>
-                        <p>"Guide users through the onboarding process"</p>
-                    </div>
-                    <div class="objective-card">
-                        <h3>Engage</h3>
-                        <p>"Build excitement about our upcoming product launch"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- S - Style -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">S - Style</h2>
-                <p class="section-subtitle fade-in-up">Define the writing approach and voice</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Style refers to the writing approach. You can reference known styles or describe the characteristics you want.</p>
-                </div>
-
-                <div class="style-cards stagger-children">
-                    <div class="style-card">
-                        <h3>Reference Styles</h3>
-                        <p>"Write like The Economist" or "In the style of Harvard Business Review"</p>
-                    </div>
-                    <div class="style-card">
-                        <h3>Characteristic Styles</h3>
-                        <p>"Concise and data-driven" or "Narrative and story-based"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- T - Tone -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">T - Tone</h2>
-                <p class="section-subtitle fade-in-up">The emotional quality of your writing</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Tone is how your content "feels" to the reader. Consider the spectrum of options for your context.</p>
-                </div>
-
-                <div class="tone-cards stagger-children">
-                    <div class="tone-card">
-                        <div class="tone-spectrum-item">
-                            <span class="tone-end">Formal</span>
-                            <div class="tone-bar"></div>
-                            <span class="tone-end">Casual</span>
+                        <div class="example-card good">
+                            <div class="example-label">Effective Context Example</div>
+                            <p>"I'm organizing our neighborhood's annual summer potluck. Last year we had some issues with too many desserts and not enough main dishes. This year I want to coordinate better so we have a balanced meal."</p>
                         </div>
                     </div>
-                    <div class="tone-card">
-                        <div class="tone-spectrum-item">
-                            <span class="tone-end">Serious</span>
-                            <div class="tone-bar"></div>
-                            <span class="tone-end">Playful</span>
+                </details>
+
+                <!-- O - Objective -->
+                <details class="learn-accordion" id="objective">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">O</span>
+                            Objective
+                            <span class="learn-accordion-subtitle">State your goal clearly and the action you want</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>What outcome do you want from this content? What should the reader think, feel, or do after engaging with it?</p>
+                        </div>
+
+                        <div class="objective-cards stagger-children">
+                            <div class="objective-card">
+                                <h3>Inform</h3>
+                                <p>"Help readers understand the new policy changes"</p>
+                            </div>
+                            <div class="objective-card">
+                                <h3>Persuade</h3>
+                                <p>"Encourage neighbors to bring a variety of dishes"</p>
+                            </div>
+                            <div class="objective-card">
+                                <h3>Instruct</h3>
+                                <p>"Guide users through the onboarding process"</p>
+                            </div>
+                            <div class="objective-card">
+                                <h3>Engage</h3>
+                                <p>"Build excitement about our upcoming product launch"</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="tone-card">
-                        <div class="tone-spectrum-item">
-                            <span class="tone-end">Reserved</span>
-                            <div class="tone-bar"></div>
-                            <span class="tone-end">Enthusiastic</span>
+                </details>
+
+                <!-- S - Style -->
+                <details class="learn-accordion" id="style">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">S</span>
+                            Style
+                            <span class="learn-accordion-subtitle">Define the writing approach and voice</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Style refers to the writing approach. You can reference known styles or describe the characteristics you want.</p>
+                        </div>
+
+                        <div class="style-cards stagger-children">
+                            <div class="style-card">
+                                <h3>Reference Styles</h3>
+                                <p>"Write like The Economist" or "In the style of Harvard Business Review"</p>
+                            </div>
+                            <div class="style-card">
+                                <h3>Characteristic Styles</h3>
+                                <p>"Concise and data-driven" or "Narrative and story-based"</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="tone-card">
-                        <div class="tone-spectrum-item">
-                            <span class="tone-end">Authoritative</span>
-                            <div class="tone-bar"></div>
-                            <span class="tone-end">Collaborative</span>
+                </details>
+
+                <!-- T - Tone -->
+                <details class="learn-accordion" id="tone">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">T</span>
+                            Tone
+                            <span class="learn-accordion-subtitle">The emotional quality of your writing</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Tone is how your content "feels" to the reader. Consider the spectrum of options for your context.</p>
+                        </div>
+
+                        <div class="tone-cards stagger-children">
+                            <div class="tone-card">
+                                <div class="tone-spectrum-item">
+                                    <span class="tone-end">Formal</span>
+                                    <div class="tone-bar"></div>
+                                    <span class="tone-end">Casual</span>
+                                </div>
+                            </div>
+                            <div class="tone-card">
+                                <div class="tone-spectrum-item">
+                                    <span class="tone-end">Serious</span>
+                                    <div class="tone-bar"></div>
+                                    <span class="tone-end">Playful</span>
+                                </div>
+                            </div>
+                            <div class="tone-card">
+                                <div class="tone-spectrum-item">
+                                    <span class="tone-end">Reserved</span>
+                                    <div class="tone-bar"></div>
+                                    <span class="tone-end">Enthusiastic</span>
+                                </div>
+                            </div>
+                            <div class="tone-card">
+                                <div class="tone-spectrum-item">
+                                    <span class="tone-end">Authoritative</span>
+                                    <div class="tone-bar"></div>
+                                    <span class="tone-end">Collaborative</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Tone Example</div>
+                            <p>"Use an empathetic and reassuring tone. We're delivering news about service changes, so acknowledge potential concerns while focusing on benefits."</p>
                         </div>
                     </div>
-                </div>
+                </details>
 
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Tone Example</div>
-                    <p>"Use an empathetic and reassuring tone. We're delivering news about service changes, so acknowledge potential concerns while focusing on benefits."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- A - Audience -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">A - Audience</h2>
-                <p class="section-subtitle fade-in-up">Who will read this? Their characteristics shape everything.</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Define your audience in detail. The better you describe them, the more the AI can tailor content to their needs, expectations, and level of understanding.</p>
-                </div>
-
-                <div class="audience-cards stagger-children">
-                    <div class="audience-card">
-                        <h3>Knowledge Level</h3>
-                        <p>Technical experts vs. general audience</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>Role/Position</h3>
-                        <p>Executives vs. end users vs. developers</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>Relationship</h3>
-                        <p>Existing customers vs. prospects vs. partners</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>Concerns</h3>
-                        <p>What questions or objections might they have?</p>
-                    </div>
-                </div>
-
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Audience Definition Example</div>
-                    <p>"The audience is my neighbors - a mix of families with kids, retirees, and young professionals. They're busy people who want easy recipes. Some have dietary restrictions we need to consider."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- R - Response -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">R - Response</h2>
-                <p class="section-subtitle fade-in-up">Specify the format and structure of your output</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Define exactly what form the output should take. Be specific about format, length, and required elements.</p>
-                </div>
-
-                <div class="response-cards stagger-children">
-                    <div class="response-card">
-                        <h3>Format</h3>
-                        <p>Email, report, blog post, script, outline</p>
-                    </div>
-                    <div class="response-card">
-                        <h3>Length</h3>
-                        <p>Word count, page count, time to read</p>
-                    </div>
-                    <div class="response-card">
-                        <h3>Structure</h3>
-                        <p>Headers, bullet points, numbered lists</p>
-                    </div>
-                    <div class="response-card">
-                        <h3>Elements</h3>
-                        <p>Include summary, CTA, examples, data</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Complete Example -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Complete COSTAR Example</h2>
-                <p class="section-subtitle fade-in-up">See all six components working together</p>
-
-                <div class="example-card complete-example costar-example">
-                    <div class="example-prompt">
-                        <span class="example-element" data-element="C">I'm the marketing director at a B2B software company launching a new analytics platform next quarter.</span>
-                        <span class="example-element" data-element="O">Create a product launch announcement that generates buzz, drives demo requests, and positions us as innovators.</span>
-                        <span class="example-element" data-element="S">Use a confident, forward-thinking voice with data points and customer success language.</span>
-                        <span class="example-element" data-element="T">Professional yet exciting, emphasizing innovation and business impact.</span>
-                        <span class="example-element" data-element="A">Marketing managers and business analysts at mid-market companies who are evaluating analytics tools.</span>
-                        <span class="example-element" data-element="R">A 500-word blog announcement with headline, 3 key benefits, one customer quote, and CTA for demo signup.</span>
-                    </div>
-                    <div class="example-legend">
-                        <span class="legend-item"><span class="legend-badge legend-badge--context">C</span> Context</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--objective">O</span> Objective</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--style">S</span> Style</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--tone">T</span> Tone</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--audience">A</span> Audience</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--response">R</span> Response</span>
-                    </div>
-                </div>
-
-                <!-- Old scenario tabs removed -->
-                <div class="callout tip fade-in-up mt-xl">
-                    <div class="callout-title">Audience-First Thinking</div>
-                    <p>COSTAR puts your audience at the center. Notice how knowing the readers (executives, engineers, customers) shapes how you write&mdash;even when that information isn't explicitly labeled.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Two Approaches -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Two Approaches, Same Results</h2>
-                <p class="section-subtitle fade-in-up">COSTAR labels are a checklist—natural language delivers the same information</p>
-
-                <div class="content-block fade-in-up">
-                    <p>COSTAR's six elements are a mental checklist. Once you know what to include, you can write naturally. Both approaches give the AI exactly what it needs.</p>
-                </div>
-
-                <div class="approach-comparison stagger-children">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>With COSTAR Labels</h3>
+                <!-- A - Audience -->
+                <details class="learn-accordion" id="audience">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">A</span>
+                            Audience
+                            <span class="learn-accordion-subtitle">Who will read this? Their characteristics shape everything.</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Define your audience in detail. The better you describe them, the more the AI can tailor content to their needs, expectations, and level of understanding.</p>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p><strong>Context:</strong> Our customer support team is overwhelmed with repetitive questions about our refund policy.</p>
-                                <p><strong>Objective:</strong> Create an FAQ section that reduces support tickets by answering common questions upfront.</p>
-                                <p><strong>Style:</strong> Clear, direct, and easy to scan quickly.</p>
-                                <p><strong>Tone:</strong> Helpful and reassuring, not defensive.</p>
-                                <p><strong>Audience:</strong> Frustrated customers who want fast answers.</p>
-                                <p><strong>Response:</strong> 5 FAQ items with questions as headers and 2-3 sentence answers each.</p>
+
+                        <div class="audience-cards stagger-children">
+                            <div class="audience-card">
+                                <h3>Knowledge Level</h3>
+                                <p>Technical experts vs. general audience</p>
+                            </div>
+                            <div class="audience-card">
+                                <h3>Role/Position</h3>
+                                <p>Executives vs. end users vs. developers</p>
+                            </div>
+                            <div class="audience-card">
+                                <h3>Relationship</h3>
+                                <p>Existing customers vs. prospects vs. partners</p>
+                            </div>
+                            <div class="audience-card">
+                                <h3>Concerns</h3>
+                                <p>What questions or objections might they have?</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Audience Definition Example</div>
+                            <p>"The audience is my neighbors - a mix of families with kids, retirees, and young professionals. They're busy people who want easy recipes. Some have dietary restrictions we need to consider."</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- R - Response -->
+                <details class="learn-accordion" id="response">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">R</span>
+                            Response
+                            <span class="learn-accordion-subtitle">Specify the format and structure of your output</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Define exactly what form the output should take. Be specific about format, length, and required elements.</p>
+                        </div>
+
+                        <div class="response-cards stagger-children">
+                            <div class="response-card">
+                                <h3>Format</h3>
+                                <p>Email, report, blog post, script, outline</p>
+                            </div>
+                            <div class="response-card">
+                                <h3>Length</h3>
+                                <p>Word count, page count, time to read</p>
+                            </div>
+                            <div class="response-card">
+                                <h3>Structure</h3>
+                                <p>Headers, bullet points, numbered lists</p>
+                            </div>
+                            <div class="response-card">
+                                <h3>Elements</h3>
+                                <p>Include summary, CTA, examples, data</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Complete COSTAR Example (Static Content) -->
+                <div class="static-content-block fade-in-up" id="complete-example">
+                    <h3 class="static-content-title">Complete COSTAR Example</h3>
+                    <p class="static-content-subtitle">See all six components working together</p>
+
+                    <div class="example-card complete-example costar-example">
+                        <div class="example-prompt">
+                            <span class="example-element" data-element="C">I'm the marketing director at a B2B software company launching a new analytics platform next quarter.</span>
+                            <span class="example-element" data-element="O">Create a product launch announcement that generates buzz, drives demo requests, and positions us as innovators.</span>
+                            <span class="example-element" data-element="S">Use a confident, forward-thinking voice with data points and customer success language.</span>
+                            <span class="example-element" data-element="T">Professional yet exciting, emphasizing innovation and business impact.</span>
+                            <span class="example-element" data-element="A">Marketing managers and business analysts at mid-market companies who are evaluating analytics tools.</span>
+                            <span class="example-element" data-element="R">A 500-word blog announcement with headline, 3 key benefits, one customer quote, and CTA for demo signup.</span>
+                        </div>
+                        <div class="example-legend">
+                            <span class="legend-item"><span class="legend-badge legend-badge--context">C</span> Context</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--objective">O</span> Objective</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--style">S</span> Style</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--tone">T</span> Tone</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--audience">A</span> Audience</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--response">R</span> Response</span>
+                        </div>
+                    </div>
+
+                    <div class="callout tip mt-xl">
+                        <div class="callout-title">Audience-First Thinking</div>
+                        <p>COSTAR puts your audience at the center. Notice how knowing the readers (executives, engineers, customers) shapes how you write&mdash;even when that information isn't explicitly labeled.</p>
+                    </div>
+                </div>
+
+                <!-- Two Approaches (Static Content) -->
+                <div class="static-content-block fade-in-up" id="two-approaches">
+                    <h3 class="static-content-title">Two Approaches, Same Results</h3>
+                    <p class="static-content-subtitle">COSTAR labels are a checklist—natural language delivers the same information</p>
+
+                    <div class="content-block">
+                        <p>COSTAR's six elements are a mental checklist. Once you know what to include, you can write naturally. Both approaches give the AI exactly what it needs.</p>
+                    </div>
+
+                    <div class="approach-comparison stagger-children">
+                        <div class="approach-card">
+                            <div class="approach-header approach-labeled">
+                                <h3>With COSTAR Labels</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p><strong>Context:</strong> Our customer support team is overwhelmed with repetitive questions about our refund policy.</p>
+                                    <p><strong>Objective:</strong> Create an FAQ section that reduces support tickets by answering common questions upfront.</p>
+                                    <p><strong>Style:</strong> Clear, direct, and easy to scan quickly.</p>
+                                    <p><strong>Tone:</strong> Helpful and reassuring, not defensive.</p>
+                                    <p><strong>Audience:</strong> Frustrated customers who want fast answers.</p>
+                                    <p><strong>Response:</strong> 5 FAQ items with questions as headers and 2-3 sentence answers each.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="approach-vs">
+                            <span>=</span>
+                        </div>
+
+                        <div class="approach-card">
+                            <div class="approach-header approach-natural">
+                                <h3>Natural Language</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p>Our support team is getting swamped with the same refund questions over and over. I need to create an FAQ section to handle the most common ones so customers can self-serve. Can you write 5 FAQ items? Use the questions as headers with 2-3 sentence answers. Keep it clear and easy to scan—these are frustrated customers who just want fast answers. The tone should be helpful, not defensive.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="approach-vs">
-                        <span>=</span>
+                    <div class="callout tip">
+                        <div class="callout-title">The Labels Are Optional</div>
+                        <p>COSTAR helps you remember to specify context, objective, style, tone, audience, and response format. Once that's second nature, write however feels most comfortable. The AI understands intent, not just structure.</p>
                     </div>
-
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>Natural Language</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>Our support team is getting swamped with the same refund questions over and over. I need to create an FAQ section to handle the most common ones so customers can self-serve. Can you write 5 FAQ items? Use the questions as headers with 2-3 sentence answers. Keep it clear and easy to scan—these are frustrated customers who just want fast answers. The tone should be helpful, not defensive.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">The Labels Are Optional</div>
-                    <p>COSTAR helps you remember to specify context, objective, style, tone, audience, and response format. Once that's second nature, write however feels most comfortable. The AI understands intent, not just structure.</p>
                 </div>
             </div>
         </section>

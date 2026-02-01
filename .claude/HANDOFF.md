@@ -1,8 +1,8 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-01 (Session 9)
-**Last Commit:** `e8032e8` - feat: Add animated gradient to dark card sections
-**Current Phase:** Phase 2 (Ready to Start)
+**Last Updated:** 2026-02-01 (Session 10)
+**Last Commit:** `d0ee6a6` - feat: Add format toggle to Prompt Builder (labeled vs natural)
+**Current Phase:** Phase 2 (In Progress)
 
 ---
 
@@ -226,7 +226,53 @@ _public_html/
 | Build-step enhancement | ✅ Done | Added shadows, improved hover states |
 | Scenario tabs enhancement | ✅ Done | Card wrapper with border and shadow |
 
-### Latest Session Work (2026-02-01 - Session 9)
+### Latest Session Work (2026-02-01 - Session 10)
+
+**Phase 2: Natural Language Content Updates - STARTED**
+
+**Completed Tasks:**
+- Fixed ReAct equation card layout
+  - Changed from 2-row CSS Grid to left-aligned flexbox
+  - All three cards (Reason + Act = ReAct) now display on same horizontal line
+  - Cards left-aligned with rest of page content
+
+- Added "Two Approaches, Same Results" sections to all methodology pages
+  - prompt-basics.html: Email-to-colleague example
+  - crisp.html: Product launch announcement example
+  - crispe.html: Workshop agenda design example
+  - costar.html: Customer support FAQ example
+  - react.html: Build vs buy CRM decision example
+  - Side-by-side comparison showing labeled format vs natural language
+
+- Implemented Prompt Builder format toggle (guidance.html)
+  - Toggle between "Natural Language" and "Labeled Format" output
+  - BuilderState updated to track outputFormat preference
+  - combineBuilderAnswers() rewritten to support both formats
+  - Hint text updates dynamically based on selected format
+  - CSP-compliant implementation (no inline scripts/styles)
+
+- Added approach-comparison CSS component
+  - .approach-comparison grid layout
+  - .approach-column with colored headers (natural=green, labeled=blue)
+  - .approach-header, .approach-example styling
+  - Responsive design for mobile
+
+**Files Modified:**
+- styles.css (concept-cards flexbox fix, format-toggle component, approach-comparison component)
+- app.js (BuilderState.outputFormat, combineBuilderAnswers() rewrite, format toggle event listeners)
+- tools/guidance.html (format toggle HTML)
+- learn/prompt-basics.html (Two Approaches section)
+- learn/crisp.html (Two Approaches section)
+- learn/crispe.html (Two Approaches section)
+- learn/costar.html (Two Approaches section)
+- learn/react.html (Two Ways to Request ReAct section)
+
+**Commits:**
+- `540c17d` to `d0ee6a6` - Multiple commits for Phase 2 work
+
+---
+
+### Previous Session Work (2026-02-01 - Session 9)
 
 **Completed Tasks:**
 - Reinstated Method Recommender as "Method Matcher"
@@ -375,12 +421,13 @@ _public_html/
 - `styles.css` - Back-to-top bar height reduction, border fixes
 - New pages: `pages/chatgpt-guide.html`, `pages/replit-guide.html`, `pages/ide-guide.html`
 
-### Phase 2: Natural Language Content - PENDING
-- Update learning pages with NL examples
-- First task: Update prompt-basics.html with email example
-  - Example: Professional email with friendly tone
-  - Context: Casual conversation to colleague
-  - Content: Process instructions
+### Phase 2: Natural Language Content - IN PROGRESS ✅
+- [x] Added "Two Approaches, Same Results" sections to all methodology pages
+  - prompt-basics.html, crisp.html, crispe.html, costar.html, react.html
+  - Side-by-side comparison of labeled vs natural language formats
+- [x] Prompt Builder format toggle (labeled vs natural language output)
+- [x] ReAct equation card layout fix (left-aligned flexbox)
+- [ ] Additional Phase 2 tasks pending
 
 ### Phases 3-7: PENDING
 

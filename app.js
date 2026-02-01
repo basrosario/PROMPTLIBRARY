@@ -65,6 +65,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
+    // LEARN PAGE ACCORDION CONTROLS
+    // Expand All / Collapse All functionality
+    // ==========================================
+    const expandAllBtn = document.getElementById('expand-all-accordions');
+    const collapseAllBtn = document.getElementById('collapse-all-accordions');
+
+    if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+            const accordions = document.querySelectorAll('.learn-accordion');
+            accordions.forEach(accordion => {
+                accordion.setAttribute('open', '');
+            });
+        });
+    }
+
+    if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', () => {
+            const accordions = document.querySelectorAll('.learn-accordion');
+            accordions.forEach(accordion => {
+                accordion.removeAttribute('open');
+            });
+        });
+    }
+
+    // Deep link support for accordions
+    // If URL has a hash, open the accordion containing that element
+    const hash = window.location.hash;
+    if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            const parentAccordion = targetElement.closest('.learn-accordion');
+            if (parentAccordion) {
+                parentAccordion.setAttribute('open', '');
+                // Scroll to element after a brief delay for accordion to open
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    }
+
+    // ==========================================
     // HEADER SCROLL EFFECT
     // ==========================================
     let headerTicking = false;
@@ -4516,17 +4558,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Multi-signal content indicators for each element type
+    // ---- PATTERN LEGEND ----
+    // weight: 0.0-1.0 (signal strength, 1.0 = definitive match)
+    // exclusive: true = strong standalone signal, false = needs corroboration
+    // Verb tenses: patterns include run/ran/running variations for natural language
     const CONTENT_INDICATORS = {
         context: {
             signals: [
+                // First person with verb tenses: am/is/was + verb-ing, or simple present/past
                 { name: 'first_person_situation', pattern: /\b(I am|I'm|We are|We're|I have|We have)\s+(?!asking|requesting|looking)/i, weight: 0.8, exclusive: true },
-                { name: 'working_on', pattern: /\b(working on|building|creating|developing|launching|running|managing)\s+(?:a|an|the|my|our)?\s*\w+/i, weight: 0.7, exclusive: false },
+                // NEW: "I run/ran/own/operate/have/work at" patterns for natural context
+                { name: 'i_verb_business', pattern: /\b(I|we)\s+(run|ran|own|owned|operate|operated|have|had|started|founded|work at|work for|manage|managed)\s+(a|an|the|my|our|this)?\s*\w+/i, weight: 0.9, exclusive: true },
+                // Working on with expanded verbs
+                { name: 'working_on', pattern: /\b(working on|building|creating|developing|launching|running|managing|preparing|organizing|planning)\s+(?:a|an|the|my|our)?\s*\w+/i, weight: 0.7, exclusive: false },
                 { name: 'temporal_marker', pattern: /\b(currently|recently|right now|at the moment|this week|this month|planning to|about to)\b/i, weight: 0.5, exclusive: false },
                 { name: 'causal_explanation', pattern: /\b(because|since|given that|due to|as a result of|considering that)\b/i, weight: 0.6, exclusive: false },
                 { name: 'problem_statement', pattern: /\b(struggling with|need help with|having trouble|facing|dealing with|challenge is)\b/i, weight: 0.7, exclusive: true },
                 { name: 'domain_background', pattern: /\b(in the \w+ industry|for (a|my|our) \w+ (company|business|team|project))\b/i, weight: 0.6, exclusive: true },
                 { name: 'explicit_label', pattern: /\b(context|background|situation)\s*:/i, weight: 1.0, exclusive: true },
-                { name: 'possessive_domain', pattern: /\b(my|our|the)\s+(brand|product|company|business|project|team|client|customer|audience|market)\b/i, weight: 0.5, exclusive: false }
+                // Expanded possessive domain with more business types
+                { name: 'possessive_domain', pattern: /\b(my|our|the)\s+(brand|product|company|business|project|team|client|customer|audience|market|shop|store|website|blog|channel|practice|agency|firm)\b/i, weight: 0.5, exclusive: false },
+                // NEW: Business/establishment types (bakery, restaurant, etc.)
+                { name: 'business_type', pattern: /\b(a|an|the|my|our|small|local)\s+\w*\s*(bakery|restaurant|cafe|shop|store|boutique|salon|studio|agency|clinic|practice|firm|startup|business|company)\b/i, weight: 0.7, exclusive: true },
+                // NEW: Specialization context
+                { name: 'specializing_in', pattern: /\b(specializ(e|es|ed|ing) in|focus(es|ed|ing)? on|known for|expert in)\s+\w+/i, weight: 0.6, exclusive: false }
             ],
             structuralBonus: { declarative: 0.2, firstPerson: 0.15, positionEarly: 0.2 }
         },
@@ -4535,10 +4590,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'act_as_directive', pattern: /\b(act as|you are|pretend to be|imagine you('re| are)|behave as|take on the role of)\b/i, weight: 1.0, exclusive: true },
                 { name: 'approach_like', pattern: /\b(approach this like|approach this as|think like|write like|respond like|answer like)\b/i, weight: 1.0, exclusive: true },
                 { name: 'want_you_to_be', pattern: /\b(want you to|need you to|like you to)\s+(be|act|approach|think|write|respond)\b/i, weight: 0.9, exclusive: true },
-                { name: 'expertise_words', pattern: /\b(expert|specialist|consultant|advisor|professional|experienced|senior|veteran)\s*(in|with|at|who)?\b/i, weight: 0.8, exclusive: true },
+                // Added "expertise" to expertise_words
+                { name: 'expertise_words', pattern: /\b(expert|expertise|specialist|consultant|advisor|professional|experienced|senior|veteran)\s*(in|with|at|who)?\b/i, weight: 0.8, exclusive: true },
                 { name: 'capability_framing', pattern: /\b(with expertise in|who specializes in|who understands|known for|skilled at|proficient in)\b/i, weight: 0.7, exclusive: true },
                 { name: 'persona_language', pattern: /\b(character|persona|personality|voice of|perspective of|as if you were)\b/i, weight: 0.6, exclusive: true },
-                { name: 'profession_noun', pattern: /\b(a|an)\s+(writer|editor|teacher|coach|mentor|analyst|developer|designer|marketer|strategist|therapist|doctor|lawyer|consultant)\b/i, weight: 0.6, exclusive: false }
+                // Expanded profession list with blogger, chef, photographer, etc.
+                { name: 'profession_noun', pattern: /\b(a|an)\s+(writer|editor|teacher|coach|mentor|analyst|developer|designer|marketer|strategist|therapist|doctor|lawyer|consultant|blogger|chef|photographer|journalist|copywriter|nutritionist|trainer|instructor|planner|coordinator|architect|scientist)\b/i, weight: 0.6, exclusive: false }
             ],
             structuralBonus: { secondPerson: 0.2, imperative: 0.1, positionEarly: 0.15 }
         },
@@ -4555,25 +4612,36 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         specifics: {
             signals: [
-                { name: 'numeric_specification', pattern: /\b(\d+)\s*(words?|sentences?|paragraphs?|bullet\s*points?|items?|sections?|pages?|minutes?|characters?|hashtags?)\b/i, weight: 1.0, exclusive: true },
-                { name: 'written_numbers', pattern: /\b(one|two|three|four|five|six|seven|eight|nine|ten)\s*(to\s*(one|two|three|four|five|six|seven|eight|nine|ten)\s*)?(words?|sentences?|paragraphs?|bullet\s*points?|items?|sections?|hashtags?)\b/i, weight: 1.0, exclusive: true },
-                { name: 'exactly_spec', pattern: /\b(exactly|precisely|only|just)\s+(\d+|one|two|three|four|five)\s*(words?|sentences?|paragraphs?|sections?|points?|items?)\b/i, weight: 1.0, exclusive: true },
+                // FIXED: Allow hyphen OR space between number and unit (500-word, 500 words)
+                { name: 'numeric_specification', pattern: /\b(\d+)[\s-]*(words?|sentences?|paragraphs?|bullet\s*points?|items?|sections?|pages?|minutes?|characters?|hashtags?|tips?|steps?|points?|examples?|ideas?)\b/i, weight: 1.0, exclusive: true },
+                // FIXED: Added tips, steps, points, examples, ideas to written numbers
+                { name: 'written_numbers', pattern: /\b(one|two|three|four|five|six|seven|eight|nine|ten)\s*(to\s*(one|two|three|four|five|six|seven|eight|nine|ten)\s*)?(words?|sentences?|paragraphs?|bullet\s*points?|items?|sections?|hashtags?|tips?|steps?|points?|examples?|ideas?)\b/i, weight: 1.0, exclusive: true },
+                { name: 'exactly_spec', pattern: /\b(exactly|precisely|only|just)\s+(\d+|one|two|three|four|five)\s*(words?|sentences?|paragraphs?|sections?|points?|items?|tips?|steps?)\b/i, weight: 1.0, exclusive: true },
                 { name: 'format_spec', pattern: /\b(as a list|in table format|as JSON|in markdown|bullet points|numbered list|outline format|structured as|formatted as)\b/i, weight: 0.9, exclusive: true },
                 { name: 'structure_words', pattern: /\b(sections?|headers?|headings?|subheadings?|outline|structure|format|layout|template)\b/i, weight: 0.6, exclusive: false },
                 { name: 'length_constraints', pattern: /\b(brief|detailed|comprehensive|concise|short|long|in-depth|thorough|summary|overview|under \d+ words)\b/i, weight: 0.5, exclusive: false },
-                { name: 'output_type', pattern: /\b(email|article|report|summary|outline|script|code|essay|memo|proposal|presentation|documentation|LinkedIn post|blog post|social media post|tweet)\b/i, weight: 0.6, exclusive: false }
+                { name: 'output_type', pattern: /\b(email|article|report|summary|outline|script|code|essay|memo|proposal|presentation|documentation|LinkedIn post|blog post|social media post|tweet)\b/i, weight: 0.6, exclusive: false },
+                // NEW: Tone words for CRISP (maps tone to specifics)
+                { name: 'tone_specification', pattern: /\b(friendly|formal|casual|professional|conversational|academic|playful|serious|humorous|authoritative|warm|cold|encouraging|supportive|enthusiastic|calm|urgent|relaxed)\s*(tone|voice|style)?\b/i, weight: 0.7, exclusive: false },
+                // NEW: "Use a X tone" pattern
+                { name: 'use_tone', pattern: /\buse\s+(a|an)?\s*(friendly|formal|casual|professional|warm|encouraging|supportive|conversational|enthusiastic)\s*(tone|voice|style)?\b/i, weight: 0.8, exclusive: true }
             ],
             structuralBonus: { declarative: 0.1, positionLate: 0.15 }
         },
         parameters: {
             signals: [
                 { name: 'negative_constraint', pattern: /\b(don't|do not|avoid|exclude|without|never|no \w+|not including|skip|omit)\b/i, weight: 0.9, exclusive: true },
-                { name: 'avoid_specific', pattern: /\b(avoid|don't use|do not use)\s+(buzzwords?|jargon|emojis?|clichés?|slang)\b/i, weight: 0.9, exclusive: true },
+                // EXPANDED: More jargon/style terms
+                { name: 'avoid_specific', pattern: /\b(avoid|don't use|do not use)\s+(\w+\s+)?(buzzwords?|jargon|emojis?|clichés?|slang|fluff|filler|technical\s+(terms?|language|jargon))\b/i, weight: 0.9, exclusive: true },
                 { name: 'words_like', pattern: /\b(buzzwords? like|words? like|terms? like|phrases? like)\s*["']?[\w\s]+["']?\b/i, weight: 0.8, exclusive: true },
-                { name: 'positive_requirement', pattern: /\b(must include|should have|required|needs to have|make sure to|ensure|always|include)\b/i, weight: 0.8, exclusive: true },
+                // EXPANDED: Added "include" standalone with higher confidence
+                { name: 'positive_requirement', pattern: /\b(must include|should have|required|needs to have|make sure to|ensure|always)\b/i, weight: 0.8, exclusive: true },
+                // NEW: Standalone "include X" at start of sentence
+                { name: 'include_directive', pattern: /\binclude\s+(\d+|a|an|the|some|several)\s+\w+/i, weight: 0.85, exclusive: true },
                 { name: 'boundary_spec', pattern: /\b(maximum|minimum|at least|no more than|at most|limit|between \d+ and \d+|up to|under \d+ words|keep.+under)\b/i, weight: 0.9, exclusive: true },
                 { name: 'keep_constraint', pattern: /\b(keep\s+(it|the|total|length|word count).+(under|below|short|brief|concise))\b/i, weight: 0.8, exclusive: true },
-                { name: 'quality_requirement', pattern: /\b(accurate|factual|cite sources|reference|verified|evidence-based|data-driven|specific|precise)\b/i, weight: 0.6, exclusive: false },
+                // EXPANDED: More quality/style requirements
+                { name: 'quality_requirement', pattern: /\b(accurate|factual|cite sources|reference|verified|evidence-based|data-driven|specific|precise|actionable|practical|clear|simple)\b/i, weight: 0.6, exclusive: false },
                 { name: 'conditional_rule', pattern: /\b(if|when|unless|only if|in case|provided that|as long as)\b.*\b(then|use|include|avoid)\b/i, weight: 0.7, exclusive: true }
             ],
             structuralBonus: { imperative: 0.15, positionLate: 0.2 }
@@ -4612,6 +4680,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // PromptAnalyzer Class
+    // ---- DEBUG MODE ----
+    // Enable debug logging in browser console: window.ANALYZER_DEBUG = true
+    // This will log signal matches and aggregation results for troubleshooting
+    // Disable with: window.ANALYZER_DEBUG = false
     class PromptAnalyzer {
         constructor() {
             this.indicators = CONTENT_INDICATORS;
@@ -4703,15 +4775,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scoreForElement(sentence, elementData, structure, positionZone) {
             let totalScore = 0;
-            let maxPossibleScore = 0;
+            let matchedSignalScore = 0;
             const signals = [];
+            let hasStrongExclusive = false;
 
             for (const signal of elementData.signals) {
-                maxPossibleScore += signal.weight * 100;
                 const matches = sentence.match(signal.pattern);
                 if (matches) {
-                    totalScore += signal.weight * 100;
+                    const signalScore = signal.weight * 100;
+                    totalScore += signalScore;
+                    matchedSignalScore += signalScore;
                     signals.push({ name: signal.name, matched: matches[0], weight: signal.weight, exclusive: signal.exclusive });
+                    // Track if we have a strong exclusive signal (weight >= 0.7)
+                    if (signal.exclusive && signal.weight >= 0.7) {
+                        hasStrongExclusive = true;
+                    }
                 }
             }
 
@@ -4728,16 +4806,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (bonus.positionLate && positionZone === 'late') totalScore *= (1 + bonus.positionLate);
             }
 
-            const normalizedScore = maxPossibleScore > 0 ? Math.min(100, (totalScore / maxPossibleScore) * 100) : 0;
-            let confidence = 'low';
-            if (normalizedScore > 60 || signals.some(s => s.exclusive && s.weight >= 0.8)) confidence = 'high';
-            else if (normalizedScore > 30 || signals.length >= 2) confidence = 'medium';
+            // FIXED SCORING: Use matched signal score as base, not normalized against all possible
+            // A single strong exclusive match should score high, not get diluted
+            let finalScore;
+            if (hasStrongExclusive) {
+                // Strong exclusive match: use the matched score directly (capped at 100)
+                finalScore = Math.min(100, totalScore);
+            } else if (signals.length >= 2) {
+                // Multiple weaker signals: average them with bonus
+                finalScore = Math.min(100, (totalScore / signals.length) * 1.2);
+            } else if (signals.length === 1) {
+                // Single weak signal: use its score
+                finalScore = Math.min(100, totalScore * 0.8);
+            } else {
+                finalScore = 0;
+            }
 
-            return { score: Math.round(normalizedScore), signals, confidence };
+            let confidence = 'low';
+            if (hasStrongExclusive || finalScore > 60) confidence = 'high';
+            else if (finalScore > 30 || signals.length >= 2) confidence = 'medium';
+
+            // Debug logging (enable via console: window.ANALYZER_DEBUG = true)
+            if (typeof window !== 'undefined' && window.ANALYZER_DEBUG && signals.length > 0) {
+                console.log(`[Analyzer Debug] Sentence: "${sentence.substring(0, 50)}..."`);
+                console.log(`  Signals matched:`, signals.map(s => `${s.name}(${s.weight})`).join(', '));
+                console.log(`  Score: ${Math.round(finalScore)}, Confidence: ${confidence}, StrongExclusive: ${hasStrongExclusive}`);
+            }
+
+            return { score: Math.round(finalScore), signals, confidence };
         }
 
         aggregateElementScores(analyzedSentences) {
             const summary = {};
+            // ---- THRESHOLD LEGEND ----
+            // SENTENCE_SCORE_THRESHOLD: Minimum score for a sentence to contribute (was 20, now 15)
+            // DETECTION_THRESHOLD: Minimum aggregate score to mark element as detected (was 25, now 20)
+            const SENTENCE_SCORE_THRESHOLD = 15;
+            const DETECTION_THRESHOLD = 20;
 
             for (const elementKey of Object.keys(this.indicators)) {
                 const contributingSentences = [];
@@ -4748,7 +4853,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 for (const sentence of analyzedSentences) {
                     const elementScore = sentence.elementScores[elementKey];
-                    if (elementScore.score > 20) {
+                    if (elementScore.score > SENTENCE_SCORE_THRESHOLD) {
                         const positionMultiplier = this.elementTypes[elementKey]?.positionWeight?.[sentence.positionZone] || 1.0;
                         totalWeightedScore += elementScore.score * positionMultiplier;
                         totalWeight += positionMultiplier;
@@ -4766,7 +4871,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const aggregateScore = totalWeight > 0 ? Math.min(100, Math.round(totalWeightedScore / totalWeight)) : 0;
-                const detected = aggregateScore > 25 || excerpts.length > 0;
+                const detected = aggregateScore > DETECTION_THRESHOLD || excerpts.length > 0;
+
+                // Debug logging for aggregation (enable via console: window.ANALYZER_DEBUG = true)
+                if (typeof window !== 'undefined' && window.ANALYZER_DEBUG) {
+                    console.log(`[Aggregate] ${elementKey.toUpperCase()}: score=${aggregateScore}, detected=${detected}, excerpts=${excerpts.length}, confidence=${highestConfidence}`);
+                    if (excerpts.length > 0) {
+                        console.log(`  Excerpts:`, excerpts.map(e => `"${e.text}" (${e.signalName})`).join(', '));
+                    }
+                }
 
                 summary[elementKey] = {
                     detected,
@@ -5739,16 +5852,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // QUIZ: OPERATIONAL READINESS
-    // Version 2.0 - 10 balanced questions with pillar tracking
+    // QUIZ: AI READINESS - LEVEL-BASED
+    // Version 3.0 - 40 questions across 4 levels
+    // Level 1 (Q1-10): Good - Basic prompting
+    // Level 2 (Q11-20): Pro - Methodology knowledge
+    // Level 3 (Q21-30): Expert - Advanced details
+    // Level 4 (Q31-40): Master - IDEs, APIs, combining methods
     // ==========================================
     const quizContainer = document.getElementById('readiness-quiz');
 
     if (quizContainer) {
-        // 10 Questions with progressive difficulty and pillar mapping
-        // All options balanced in length, plausible distractors, varied correct positions
+        // 40 Questions across 4 levels based on Praxis site content
         const questions = [
-            // Q1: Basics / Communicate
+            // ============================================
+            // LEVEL 1: GOOD (Q1-10) - Basic Prompting
+            // ============================================
             {
                 question: "What's the most important first step when preparing to use AI for a task?",
                 options: [
@@ -5758,10 +5876,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Think about how to verify the AI's eventual output"
                 ],
                 correct: 1,
-                difficulty: "basics",
-                pillar: "communicate"
+                level: 1
             },
-            // Q2: Basics / Think
             {
                 question: "Which statement about AI accuracy is correct?",
                 options: [
@@ -5771,62 +5887,155 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Premium AI subscriptions eliminate accuracy issues"
                 ],
                 correct: 2,
-                difficulty: "basics",
-                pillar: "think"
+                level: 1
             },
-            // Q3: CRISP / Communicate
             {
-                question: "In the CRISP framework, 'Parameters' refers to:",
+                question: "Why does providing context in a prompt matter?",
+                options: [
+                    "It makes the prompt longer which improves quality",
+                    "It helps the AI understand your specific situation",
+                    "It's required by most AI platforms to work",
+                    "It prevents the AI from asking follow-up questions"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "What is a 'hallucination' in AI terms?",
+                options: [
+                    "When AI refuses to answer your question",
+                    "When AI generates false information confidently",
+                    "When AI takes too long to respond",
+                    "When AI misunderstands your language"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "A good prompt should include:",
+                options: [
+                    "As many words as possible for clarity",
+                    "Technical jargon to sound professional",
+                    "Clear instructions about what you want",
+                    "Multiple unrelated questions at once"
+                ],
+                correct: 2,
+                level: 1
+            },
+            {
+                question: "When AI gives you an answer with specific statistics, you should:",
+                options: [
+                    "Trust it if the AI sounds confident",
+                    "Verify the information from other sources",
+                    "Assume it's accurate if the AI is reputable",
+                    "Only trust round numbers like 50% or 100%"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "What makes natural language prompting effective?",
+                options: [
+                    "Using formal academic language only",
+                    "AI understands conversational requests well",
+                    "Natural language is processed faster",
+                    "It requires less computing power"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "If AI output isn't what you wanted, the best approach is to:",
+                options: [
+                    "Accept it and work with what you got",
+                    "Refine your prompt with more specific details",
+                    "Try a completely different AI platform",
+                    "Report the AI for giving wrong answers"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "Why is specifying tone in a prompt helpful?",
+                options: [
+                    "It makes the AI work harder on the response",
+                    "It shapes how the content reads and feels",
+                    "It's required for the AI to respond",
+                    "It reduces the response length"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "The main purpose of prompting frameworks like CRISP is to:",
+                options: [
+                    "Make AI responses longer and more detailed",
+                    "Provide structure for including key information",
+                    "Bypass AI safety restrictions",
+                    "Make prompts work on all AI platforms equally"
+                ],
+                correct: 1,
+                level: 1
+            },
+
+            // ============================================
+            // LEVEL 2: PRO (Q11-20) - Methodology Knowledge
+            // ============================================
+            {
+                question: "What does CRISP stand for?",
+                options: [
+                    "Context, Role, Instructions, Specifics, Parameters",
+                    "Clear, Relevant, Informative, Structured, Precise",
+                    "Create, Review, Iterate, Submit, Perfect",
+                    "Concise, Rational, Intelligent, Simple, Practical"
+                ],
+                correct: 0,
+                level: 2
+            },
+            {
+                question: "In CRISP, 'Parameters' refers to:",
                 options: [
                     "Technical settings like temperature and tokens",
                     "The AI's internal configuration and version",
-                    "Constraints like format, length, and requirements",
+                    "Constraints like format, length, and what to avoid",
                     "Variables the AI uses during text generation"
                 ],
                 correct: 2,
-                difficulty: "crisp",
-                pillar: "communicate"
+                level: 2
             },
-            // Q4: CRISP / Iterate
             {
-                question: "Your prompt returns content that's too formal and wordy. The best approach is to:",
+                question: "How does CRISPE differ from CRISP?",
                 options: [
-                    "Add 'be casual' at the end of your prompt",
-                    "Generate multiple responses and pick the best",
-                    "Switch to a different AI model for casual content",
-                    "Rewrite the prompt specifying tone and length upfront"
-                ],
-                correct: 3,
-                difficulty: "crisp",
-                pillar: "iterate"
-            },
-            // Q5: CRISPE / Communicate
-            {
-                question: "In CRISPE, assigning a Role to the AI helps because it:",
-                options: [
-                    "Sets the expertise level and perspective for responses",
-                    "Gives the AI permission to access special knowledge",
-                    "Makes the AI more confident in its answers",
-                    "Unlocks advanced capabilities within the model"
+                    "CRISPE adds 'Examples' to demonstrate desired output",
+                    "CRISPE removes the Role element",
+                    "CRISPE is for coding tasks only",
+                    "CRISPE uses numbered steps instead of letters"
                 ],
                 correct: 0,
-                difficulty: "crispe",
-                pillar: "communicate"
+                level: 2
             },
-            // Q6: CRISPE / Communicate
             {
-                question: "Few-shot prompting (providing examples) is most valuable when:",
+                question: "When is CRISPE better suited than CRISP?",
                 options: [
-                    "You want the AI to be more creative and original",
-                    "The AI doesn't understand your topic area well",
-                    "You need output in a specific format or style",
-                    "Your prompt is too short and needs more content"
+                    "For quick, simple tasks",
+                    "When you need precise format replication",
+                    "For casual conversation with AI",
+                    "When you don't know what you want"
                 ],
-                correct: 2,
-                difficulty: "crispe",
-                pillar: "communicate"
+                correct: 1,
+                level: 2
             },
-            // Q7: COSTAR / Think
+            {
+                question: "What unique element does COSTAR include that CRISP doesn't?",
+                options: [
+                    "Context",
+                    "Audience",
+                    "Specifics",
+                    "Instructions"
+                ],
+                correct: 1,
+                level: 2
+            },
             {
                 question: "Why does COSTAR specifically include 'Audience' as an element?",
                 options: [
@@ -5836,10 +6045,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     "To comply with accessibility standards in outputs"
                 ],
                 correct: 1,
-                difficulty: "costar",
-                pillar: "think"
+                level: 2
             },
-            // Q8: COSTAR / Spot
+            {
+                question: "In CRISPE, assigning a Role to the AI helps because it:",
+                options: [
+                    "Sets the expertise level and perspective for responses",
+                    "Gives the AI permission to access special knowledge",
+                    "Makes the AI more confident in its answers",
+                    "Unlocks advanced capabilities within the model"
+                ],
+                correct: 0,
+                level: 2
+            },
             {
                 question: "AI output includes technical jargon for a beginner audience. This happened because:",
                 options: [
@@ -5849,23 +6067,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     "The AI couldn't simplify the complex concepts enough"
                 ],
                 correct: 2,
-                difficulty: "costar",
-                pillar: "spot"
+                level: 2
             },
-            // Q9: Advanced / Spot
             {
-                question: "AI states a specific statistic with confidence. Your best response is to:",
+                question: "Your prompt returns content that's too formal and wordy. The best approach is to:",
                 options: [
-                    "Trust it if the AI expressed high certainty",
-                    "Verify it—AI can confidently fabricate details",
-                    "Assume it's outdated and search for newer data",
-                    "Ask the AI to cite the source for validation"
+                    "Add 'be casual' at the end of your prompt",
+                    "Generate multiple responses and pick the best",
+                    "Switch to a different AI model for casual content",
+                    "Rewrite the prompt specifying tone and length upfront"
                 ],
-                correct: 1,
-                difficulty: "advanced",
-                pillar: "spot"
+                correct: 3,
+                level: 2
             },
-            // Q10: Advanced / Iterate
+            {
+                question: "Which framework is described as 'leaner' and better for quick tasks?",
+                options: [
+                    "CRISPE",
+                    "COSTAR",
+                    "CRISP",
+                    "ReAct"
+                ],
+                correct: 2,
+                level: 2
+            },
+
+            // ============================================
+            // LEVEL 3: EXPERT (Q21-30) - Advanced Details
+            // ============================================
             {
                 question: "Chain-of-thought prompting improves AI output by:",
                 options: [
@@ -5875,41 +6104,277 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Revealing reasoning steps for easier verification"
                 ],
                 correct: 3,
-                difficulty: "advanced",
-                pillar: "iterate"
+                level: 3
+            },
+            {
+                question: "What phrase triggers Chain-of-Thought reasoning?",
+                options: [
+                    "'Answer quickly'",
+                    "'Let's think step by step'",
+                    "'Be more creative'",
+                    "'Use your best judgment'"
+                ],
+                correct: 1,
+                level: 3
+            },
+            {
+                question: "Few-shot prompting (providing examples) is most valuable when:",
+                options: [
+                    "You want the AI to be more creative and original",
+                    "The AI doesn't understand your topic area well",
+                    "You need output in a specific format or style",
+                    "Your prompt is too short and needs more content"
+                ],
+                correct: 2,
+                level: 3
+            },
+            {
+                question: "How many examples are typically recommended for few-shot learning?",
+                options: [
+                    "1 example only",
+                    "2-5 examples",
+                    "10-15 examples",
+                    "As many as possible"
+                ],
+                correct: 1,
+                level: 3
+            },
+            {
+                question: "What is the ReAct method?",
+                options: [
+                    "A way to react emotionally to AI responses",
+                    "Alternating between Reasoning and Acting steps",
+                    "A method for reactive programming with AI",
+                    "Reacting to user feedback in real-time"
+                ],
+                correct: 1,
+                level: 3
+            },
+            {
+                question: "The ReAct loop consists of which three phases?",
+                options: [
+                    "Read, Edit, Approve",
+                    "Request, Evaluate, Accept",
+                    "Thought, Action, Observation",
+                    "Review, Analyze, Complete"
+                ],
+                correct: 2,
+                level: 3
+            },
+            {
+                question: "When is ReAct most useful?",
+                options: [
+                    "For simple, straightforward tasks",
+                    "When you need quick one-word answers",
+                    "For complex problems requiring multiple steps",
+                    "When creativity is more important than accuracy"
+                ],
+                correct: 2,
+                level: 3
+            },
+            {
+                question: "What is the Flipped Interaction method?",
+                options: [
+                    "Asking AI to write prompts for you",
+                    "Having AI interview you before giving advice",
+                    "Reversing the order of prompt elements",
+                    "Using opposite meanings in prompts"
+                ],
+                correct: 1,
+                level: 3
+            },
+            {
+                question: "Why does Flipped Interaction produce better results?",
+                options: [
+                    "It confuses the AI into trying harder",
+                    "It forces specificity before solutions",
+                    "It's faster than normal prompting",
+                    "It uses less AI processing power"
+                ],
+                correct: 1,
+                level: 3
+            },
+            {
+                question: "A limitation of Role Prompting is that it:",
+                options: [
+                    "Only works with certain AI models",
+                    "Requires paid subscriptions to use",
+                    "Doesn't give AI knowledge it doesn't have",
+                    "Makes responses too short"
+                ],
+                correct: 2,
+                level: 3
+            },
+
+            // ============================================
+            // LEVEL 4: MASTER (Q31-40) - IDEs, APIs, Combining Methods
+            // ============================================
+            {
+                question: "What is Cursor?",
+                options: [
+                    "A text cursor for typing",
+                    "An AI-first code editor built on VS Code",
+                    "A mouse pointer customization tool",
+                    "A database management system"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "What is an IDE?",
+                options: [
+                    "Internet Data Exchange",
+                    "Integrated Development Environment",
+                    "Intelligent Design Editor",
+                    "Internal Document Engine"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "Which AI coding assistant is built by Anthropic?",
+                options: [
+                    "GitHub Copilot",
+                    "Codeium",
+                    "Claude Code",
+                    "Amazon CodeWhisperer"
+                ],
+                correct: 2,
+                level: 4
+            },
+            {
+                question: "When combining CRISP with Chain-of-Thought, you should:",
+                options: [
+                    "Only use one method at a time, never combine",
+                    "Add 'think step by step' to your CRISP prompt",
+                    "Replace all CRISP elements with reasoning steps",
+                    "Use CRISP for simple tasks and CoT for complex ones only"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "Constrained Output Formats (like JSON) are essential for:",
+                options: [
+                    "Making responses look professional",
+                    "Programmatic use of AI outputs",
+                    "Reducing AI response time",
+                    "Improving AI creativity"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "How can you use ReAct for debugging code with AI?",
+                options: [
+                    "Ask AI to rewrite all the code from scratch",
+                    "Request diagnostic steps with Thought, Action, Observation",
+                    "Only share error messages, not context",
+                    "Let AI guess what the problem might be"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "When using AI in VS Code or Cursor, prompting skills help you:",
+                options: [
+                    "Type faster with autocomplete",
+                    "Get better code suggestions and explanations",
+                    "Change the editor's color theme",
+                    "Install extensions automatically"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "Prompt chaining means:",
+                options: [
+                    "Using very long prompts",
+                    "Linking multiple prompts where output feeds the next",
+                    "Chaining words together without spaces",
+                    "Repeating the same prompt multiple times"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "For complex multi-step tasks, the most effective approach is to:",
+                options: [
+                    "Write one very detailed prompt",
+                    "Break it into smaller prompts and combine methods",
+                    "Let AI figure out the steps on its own",
+                    "Only use the simplest prompting framework"
+                ],
+                correct: 1,
+                level: 4
+            },
+            {
+                question: "A 'Master' level prompter would likely:",
+                options: [
+                    "Only use templates from the internet",
+                    "Combine frameworks, use IDEs, and verify AI outputs",
+                    "Trust AI completely without verification",
+                    "Avoid using advanced techniques"
+                ],
+                correct: 1,
+                level: 4
             }
         ];
 
+        // Level definitions
+        const LEVELS = {
+            1: { name: 'Good', range: [0, 9], color: 'level-good', emoji: '👍' },
+            2: { name: 'Pro', range: [10, 19], color: 'level-pro', emoji: '⭐' },
+            3: { name: 'Expert', range: [20, 29], color: 'level-expert', emoji: '🎯' },
+            4: { name: 'Master', range: [30, 39], color: 'level-master', emoji: '🏆' }
+        };
+
+        // Game Rules: 3 strikes and you're out!
+        const MAX_STRIKES = 3;
+
         let currentQuestion = 0;
         let quizScore = 0;
-        let pillarScores = {
-            communicate: { correct: 0, total: 0 },
-            think: { correct: 0, total: 0 },
-            spot: { correct: 0, total: 0 },
-            iterate: { correct: 0, total: 0 }
-        };
+        let strikes = 0;
 
-        const pillarNames = {
-            communicate: "Communicate Clearly",
-            think: "Think Critically",
-            spot: "Spot Problems",
-            iterate: "Iterate & Improve"
-        };
+        function getCurrentLevel() {
+            if (currentQuestion < 10) return 1;
+            if (currentQuestion < 20) return 2;
+            if (currentQuestion < 30) return 3;
+            return 4;
+        }
+
+        function getStrikesDisplay() {
+            const remaining = MAX_STRIKES - strikes;
+            return '❤️'.repeat(remaining) + '🖤'.repeat(strikes);
+        }
 
         function renderQuestion() {
+            // Check if game is over (all questions answered OR reached Master)
             if (currentQuestion >= questions.length) {
-                showQuizResults();
+                showQuizResults(true); // true = completed all questions (Master!)
                 return;
             }
 
             const q = questions[currentQuestion];
+            const currentLevel = getCurrentLevel();
+            const levelInfo = LEVELS[currentLevel];
             const progressWidth = (currentQuestion / questions.length) * 100;
+
             quizContainer.innerHTML = `
+                <div class="quiz-level-indicator ${levelInfo.color}">
+                    <span class="level-emoji">${levelInfo.emoji}</span>
+                    <span class="level-name">Level ${currentLevel}: ${levelInfo.name}</span>
+                    <span class="level-questions">Q${(currentQuestion % 10) + 1}/10</span>
+                </div>
+                <div class="quiz-strikes">
+                    <span class="strikes-label">Lives:</span>
+                    <span class="strikes-hearts">${getStrikesDisplay()}</span>
+                </div>
                 <div class="quiz-progress">
                     <div class="quiz-progress-fill" data-width="${progressWidth}"></div>
                 </div>
                 <div class="quiz-question">
-                    <span class="question-number">Question ${currentQuestion + 1} of ${questions.length}</span>
+                    <span class="question-number">Question ${currentQuestion + 1} of 40</span>
                     <h3>${q.question}</h3>
                 </div>
                 <div class="quiz-options">
@@ -5933,78 +6398,101 @@ document.addEventListener('DOMContentLoaded', () => {
         function selectAnswer(index) {
             const q = questions[currentQuestion];
             const buttons = quizContainer.querySelectorAll('.quiz-option');
+            const isCorrect = index === q.correct;
 
             buttons.forEach((btn, i) => {
                 btn.disabled = true;
                 if (i === q.correct) {
                     btn.classList.add('correct');
-                } else if (i === index && i !== q.correct) {
+                } else if (i === index && !isCorrect) {
                     btn.classList.add('incorrect');
                 }
             });
 
-            // Track pillar scores
-            pillarScores[q.pillar].total++;
-            if (index === q.correct) {
+            // Track score
+            if (isCorrect) {
                 quizScore++;
-                pillarScores[q.pillar].correct++;
+            } else {
+                strikes++;
+                // Update strikes display immediately
+                const strikesEl = quizContainer.querySelector('.strikes-hearts');
+                if (strikesEl) {
+                    strikesEl.textContent = getStrikesDisplay();
+                }
+            }
+
+            // Check if game over (3 strikes)
+            if (strikes >= MAX_STRIKES) {
+                setTimeout(() => {
+                    showQuizResults(false); // false = game over by strikes
+                }, 1500);
+                return;
             }
 
             setTimeout(() => {
                 currentQuestion++;
                 renderQuestion();
-            }, 1500);
+            }, 1200);
         }
 
-        function showQuizResults() {
-            const percent = Math.round((quizScore / questions.length) * 100);
-            let level, message, recommendedPath;
+        function showQuizResults(completedAll) {
+            // Determine achieved level based on how far they got
+            const currentLevel = getCurrentLevel();
+            let achievedLevel = currentLevel;
+            let message = '';
+            let recommendedPath = '../learn/prompt-basics.html';
 
-            if (percent >= 90) {
-                level = 'Expert';
-                message = 'Excellent! You have mastered AI prompting. Explore advanced patterns to stay sharp.';
+            // If they got 3 strikes, they achieved the PREVIOUS level (or none)
+            if (!completedAll && strikes >= MAX_STRIKES) {
+                // They failed at their current level, so achieved level is one below
+                achievedLevel = currentLevel > 1 ? currentLevel - 1 : 0;
+            }
+
+            // Set messages based on achieved level
+            if (completedAll && currentQuestion >= 40) {
+                achievedLevel = 4;
+                message = '🎉 Congratulations! You are a TRUE MASTER of AI prompting!';
                 recommendedPath = '../patterns/index.html';
-            } else if (percent >= 70) {
-                level = 'Proficient';
-                message = 'Strong skills! Review advanced techniques like ReAct and chain-of-thought to reach expert level.';
-                recommendedPath = '../learn/advanced.html';
-            } else if (percent >= 50) {
-                level = 'Intermediate';
-                message = 'Good foundation! Study COSTAR and CRISPE frameworks to improve your structured prompting.';
-                recommendedPath = '../learn/costar.html';
-            } else {
-                level = 'Beginner';
-                message = 'Great starting point! Begin with Prompt Basics and work up to the CRISP method.';
+            } else if (achievedLevel === 0) {
+                message = 'Keep learning! Study the basics and try again.';
                 recommendedPath = '../learn/prompt-basics.html';
+            } else if (achievedLevel === 1) {
+                message = 'Good foundation! Learn the methodologies to reach Pro level.';
+                recommendedPath = '../learn/crisp.html';
+            } else if (achievedLevel === 2) {
+                message = 'Pro skills! Study advanced techniques to reach Expert level.';
+                recommendedPath = '../learn/advanced.html';
+            } else if (achievedLevel === 3) {
+                message = 'Expert level! Master IDEs and APIs to reach Master level.';
+                recommendedPath = '../pages/ide-guide.html';
             }
 
-            // Build pillar breakdown HTML
-            let pillarBreakdown = '<div class="pillar-results"><h4>Performance by Skill Area</h4>';
-            for (const [key, scores] of Object.entries(pillarScores)) {
-                if (scores.total > 0) {
-                    pillarBreakdown += `
-                        <div class="pillar-result">
-                            <span class="pillar-name">${pillarNames[key]}</span>
-                            <span class="pillar-score">${scores.correct}/${scores.total}</span>
-                        </div>
-                    `;
-                }
-            }
-            pillarBreakdown += '</div>';
+            const levelInfo = achievedLevel > 0 ? LEVELS[achievedLevel] : { name: 'Learner', color: 'level-learner', emoji: '📚' };
+
+            // Build game over message
+            const gameOverMsg = completedAll
+                ? '<div class="quiz-complete-badge">🏆 QUIZ COMPLETE! 🏆</div>'
+                : `<div class="quiz-gameover-badge">Game Over! Stopped at Question ${currentQuestion + 1}</div>`;
 
             // === QUIZ RESULTS DISPLAY ===
             // Security: CSP-compliant (no inline onclick, uses event listener)
             // OWASP: No user input in output, recommendedPath is from hardcoded array
             quizContainer.innerHTML = `
                 <div class="quiz-results">
-                    <div class="result-score">${quizScore}/${questions.length}</div>
-                    <div class="result-percent">${percent}%</div>
-                    <div class="result-level">${level} Level</div>
+                    ${gameOverMsg}
+                    <div class="result-level-badge ${levelInfo.color}">
+                        <span class="result-emoji">${levelInfo.emoji}</span>
+                        <span class="result-level-name">${levelInfo.name}</span>
+                    </div>
+                    <div class="result-score">${quizScore} correct</div>
+                    <div class="result-strikes-final">
+                        <span>Final Lives: ${getStrikesDisplay()}</span>
+                    </div>
                     <p class="result-message">${message}</p>
-                    ${pillarBreakdown}
+                    ${achievedLevel < 4 ? '<p class="result-challenge">Can you reach Master level? Try again!</p>' : ''}
                     <div class="result-actions">
-                        <button class="btn btn-primary" id="quiz-retake-btn">Retake Quiz</button>
-                        <a href="${recommendedPath}" class="btn btn-secondary">Start Learning</a>
+                        <button class="btn btn-primary" id="quiz-retake-btn">${achievedLevel < 4 ? 'Try Again' : 'Play Again'}</button>
+                        <a href="${recommendedPath}" class="btn btn-secondary">Study & Improve</a>
                     </div>
                 </div>
             `;

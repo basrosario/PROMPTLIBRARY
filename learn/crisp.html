@@ -94,32 +94,6 @@
         <!-- Acronym Visual -->
         <section class="section">
             <div class="container">
-                <div class="content-badges fade-in-up">
-                    <span class="content-badge content-badge--ai" data-badge-type="ai">
-                        <span class="badge-label">AI for</span>
-                        <span class="badge-value">Everybody</span>
-                    </span>
-                    <span class="content-badge content-badge--udl" data-badge-type="udl">
-                        <span class="badge-label">Built With</span>
-                        <span class="badge-value">UD/UDL</span>
-                    </span>
-                    <span class="content-badge content-badge--security" data-badge-type="security">
-                        <span class="badge-label">Security</span>
-                        <span class="badge-value">A+ 100%</span>
-                    </span>
-                    <span class="content-badge content-badge--performance" data-badge-type="performance">
-                        <span class="badge-label">Performance</span>
-                        <span class="badge-value">100%</span>
-                    </span>
-                    <span class="content-badge content-badge--claude" data-badge-type="claude">
-                        <span class="badge-label">AI Assisted Building</span>
-                        <span class="badge-value">Claude Code</span>
-                    </span>
-                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
-                        <span class="badge-label">Community</span>
-                        <span class="badge-value">GitHub</span>
-                    </a>
-                </div>
                 <div class="acronym-cards stagger-children">
                     <div class="acronym-card has-flip">
                         <div class="card-inner">
@@ -210,14 +184,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Reminder Note -->
-                <div class="method-reminder fade-in-up">
-                    <div class="reminder-icon">i</div>
-                    <div class="reminder-content">
-                        <strong>Write naturally.</strong> You don't need to label sections with "Context:" or "Role:" - AI understands natural language. These elements simply show <em>what information</em> helps AI give you the best results.
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -226,29 +192,6 @@
             <div class="container">
                 <h2 class="section-title fade-in-up">Why Use CRISP?</h2>
                 <p class="section-subtitle fade-in-up">A lean framework designed for efficiency and clarity</p>
-
-                <div class="content-block fade-in-up">
-                    <p>CRISP is designed for <strong>efficiency and clarity</strong>. It's the ideal starting point for anyone learning structured prompting, and remains useful even as you master more advanced techniques.</p>
-                </div>
-
-                <div class="info-cards stagger-children">
-                    <div class="info-card">
-                        <h3>Quick & Focused</h3>
-                        <p>Get actionable outputs for everyday tasks without extensive setup.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Easy to Remember</h3>
-                        <p>A simple 5-letter framework you can memorize and apply immediately.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Consistent Results</h3>
-                        <p>Structure leads to predictability. Same approach, reliable outcomes.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Great Foundation</h3>
-                        <p>Master CRISP first, then graduate to CRISPE or COSTAR for complex needs.</p>
-                    </div>
-                </div>
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">CRISP vs. Other Methods</div>
@@ -259,251 +202,293 @@
                     <div class="callout-title">Better Use Cases for CRISP</div>
                     <p>Great for <strong>quick emails</strong> and <strong>general tasks</strong>. Better suited for flexible content than exact structure replication. Use CRISP when <strong>specific structured output</strong> is not required. For tasks needing precise format replication, <a href="crispe.html">CRISPE</a> is a better fit.</p>
                 </div>
+
+                <div class="method-reminder fade-in-up">
+                    <div class="reminder-icon">i</div>
+                    <div class="reminder-content">
+                        <strong>Write naturally.</strong> You don't need to label sections with "Context:" or "Role:" - AI understands natural language. These elements simply show <em>what information</em> helps AI give you the best results.
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- C - Context -->
+        <!-- CRISP Elements - Accordion Section -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">C - Context</h2>
-                <p class="section-subtitle fade-in-up">Set the stage with background information</p>
+                <h2 class="section-title fade-in-up">CRISP Elements in Detail</h2>
+                <p class="section-subtitle fade-in-up">Click each element to explore what it means and how to use it</p>
 
-                <div class="content-block fade-in-up">
-                    <p>Context tells the AI about your situation, background, and relevant details that will shape the response. The more relevant context you provide, the more tailored the output.</p>
+                <!-- Accordion Controls -->
+                <div class="accordion-controls">
+                    <button class="accordion-controls-btn" id="expand-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                        Expand All
+                    </button>
+                    <button class="accordion-controls-btn" id="collapse-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+                        Collapse All
+                    </button>
                 </div>
 
-                <div class="info-cards stagger-children">
-                    <div class="info-card">
-                        <h3>Who You Are</h3>
-                        <p>"I'm a parent planning my child's 10th birthday party"</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>The Situation</h3>
-                        <p>"The party is in two weeks with 15 kids attending"</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Relevant Background</h3>
-                        <p>"My child loves dinosaurs and we have a backyard"</p>
-                    </div>
-                </div>
-
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Effective Context Example</div>
-                    <p>"I'm helping my elderly mother downsize from her home of 40 years. She's moving to a smaller apartment and we need to decide what to keep, donate, or pass on to family."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- R - Role -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">R - Role</h2>
-                <p class="section-subtitle fade-in-up">Define the persona for the AI to adopt</p>
-
-                <div class="content-block fade-in-up">
-                    <p>The role tells the AI who to be. By assigning a persona, you activate domain-specific knowledge and get responses shaped by that expertise.</p>
-                </div>
-
-                <div class="verb-grid stagger-children">
-                    <div class="verb-card">
-                        <h3>Expert Roles</h3>
-                        <p>Nutritionist, Personal trainer, Financial advisor</p>
-                    </div>
-                    <div class="verb-card">
-                        <h3>Professional Roles</h3>
-                        <p>Teacher, Chef, Travel agent, Interior designer</p>
-                    </div>
-                    <div class="verb-card">
-                        <h3>Creative Roles</h3>
-                        <p>Storyteller, Party planner, Gift idea expert</p>
-                    </div>
-                    <div class="verb-card">
-                        <h3>Advisory Roles</h3>
-                        <p>Life coach, Parenting expert, Career counselor</p>
-                    </div>
-                </div>
-
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Effective Role Example</div>
-                    <p>"Act as an experienced travel agent who specializes in family-friendly vacations"</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- I - Instructions -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">I - Instructions</h2>
-                <p class="section-subtitle fade-in-up">Provide specific guidelines for how to complete the task</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Instructions are the specific guidelines for how to complete the task. Think of these as the "rules" for the output. What should be included? Excluded? How should it be organized?</p>
-                </div>
-
-                <div class="instruction-cards stagger-children">
-                    <div class="instruction-card">
-                        <h3>What to Include</h3>
-                        <p>"Include estimated costs, time needed, and a shopping list"</p>
-                    </div>
-                    <div class="instruction-card">
-                        <h3>What to Avoid</h3>
-                        <p>"Avoid recipes with nuts due to allergies"</p>
-                    </div>
-                    <div class="instruction-card">
-                        <h3>How to Structure</h3>
-                        <p>"Organize by morning, afternoon, and evening activities"</p>
-                    </div>
-                    <div class="instruction-card">
-                        <h3>Priority/Focus</h3>
-                        <p>"Focus on options that work for all ages"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- S - Specifics -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">S - Specifics</h2>
-                <p class="section-subtitle fade-in-up">Define format, length, tone, and scope of the output</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Specifics tell the AI exactly how you want the output shaped. This includes format, length, tone, and scope. The more specific you are, the closer the output matches your needs.</p>
-                </div>
-
-                <div class="style-cards stagger-children">
-                    <div class="style-card">
-                        <h3>Format</h3>
-                        <p>Bullet points, numbered list, table, paragraph, JSON</p>
-                    </div>
-                    <div class="style-card">
-                        <h3>Length</h3>
-                        <p>50 words, 3 paragraphs, one page, 5 bullet points</p>
-                    </div>
-                    <div class="style-card">
-                        <h3>Tone</h3>
-                        <p>Formal, casual, urgent, friendly, professional</p>
-                    </div>
-                    <div class="style-card">
-                        <h3>Scope</h3>
-                        <p>High-level overview, detailed analysis, executive summary</p>
-                    </div>
-                </div>
-
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Specifics Example</div>
-                    <p>"Write 3 bullet points, under 50 words each, in a professional but approachable tone. Focus on key benefits only."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- P - Parameters -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">P - Parameters</h2>
-                <p class="section-subtitle fade-in-up">Set constraints and specifications that bound the output</p>
-
-                <div class="content-block fade-in-up">
-                    <p>Parameters are the constraints and specifications that give the output its final shape. These are the measurable, concrete boundaries for the response.</p>
-                </div>
-
-                <div class="param-cards stagger-children">
-                    <div class="param-card">
-                        <h3>Length</h3>
-                        <p>"300 words", "2 paragraphs", "one page maximum"</p>
-                    </div>
-                    <div class="param-card">
-                        <h3>Format</h3>
-                        <p>"Bullet points", "numbered list", "table format"</p>
-                    </div>
-                    <div class="param-card">
-                        <h3>Sections</h3>
-                        <p>"5 sections with headers", "intro/body/conclusion"</p>
-                    </div>
-                    <div class="param-card">
-                        <h3>Special Requirements</h3>
-                        <p>"Include citations", "add examples for each point"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Complete Example -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Complete CRISP Example</h2>
-                <p class="section-subtitle fade-in-up">See all five components working together</p>
-
-                <div class="example-card complete-example">
-                    <div class="example-prompt">
-                        <span class="example-element" data-element="C">I'm a project manager at a tech startup preparing for our quarterly planning meeting.</span>
-                        <span class="example-element" data-element="R">Act as a strategic planning consultant with experience in agile methodologies.</span>
-                        <span class="example-element" data-element="I">Create a quarterly planning template that covers goals, milestones, resource allocation, and risk assessment.</span>
-                        <span class="example-element" data-element="S">Format as a structured document with clear headings, bullet points, and a timeline table.</span>
-                        <span class="example-element" data-element="P">Keep it to 2 pages maximum. Focus on actionable items. Avoid jargon.</span>
-                    </div>
-                    <div class="example-legend">
-                        <span class="legend-item"><span class="legend-badge legend-badge--context">C</span> Context</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--role">R</span> Role</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--instruction">I</span> Instruction</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--specifics">S</span> Specifics</span>
-                        <span class="legend-item"><span class="legend-badge legend-badge--parameters">P</span> Parameters</span>
-                    </div>
-                </div>
-
-
-                <div class="callout tip fade-in-up mt-xl">
-                    <div class="callout-title">Notice</div>
-                    <p>No labels needed! Each element flows naturally into the next. The AI understands from context what you need.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Two Approaches -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Two Approaches, Same Results</h2>
-                <p class="section-subtitle fade-in-up">CRISP labels are training wheels—natural language works just as well</p>
-
-                <div class="content-block fade-in-up">
-                    <p>The CRISP labels help you remember each component, but you don't need them in your actual prompts. Here's the same request written both ways—both produce excellent results.</p>
-                </div>
-
-                <div class="approach-comparison stagger-children">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>With CRISP Labels</h3>
+                <!-- C - Context -->
+                <details class="learn-accordion" id="context">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">C</span>
+                            Context
+                            <span class="learn-accordion-subtitle">Set the stage with background information</span>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Context tells the AI about your situation, background, and relevant details that will shape the response. The more relevant context you provide, the more tailored the output.</p>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p><strong>Context:</strong> I'm launching a new product next month and need help with the announcement.</p>
-                                <p><strong>Role:</strong> Act as a marketing communications specialist.</p>
-                                <p><strong>Instruction:</strong> Write an internal announcement email to get the sales team excited.</p>
-                                <p><strong>Specifics:</strong> Enthusiastic but professional tone, highlight key selling points.</p>
-                                <p><strong>Parameters:</strong> 200 words max, include 3 bullet points of key features.</p>
+
+                        <div class="info-cards stagger-children">
+                            <div class="info-card">
+                                <h3>Who You Are</h3>
+                                <p>"I'm a parent planning my child's 10th birthday party"</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>The Situation</h3>
+                                <p>"The party is in two weeks with 15 kids attending"</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Relevant Background</h3>
+                                <p>"My child loves dinosaurs and we have a backyard"</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Effective Context Example</div>
+                            <p>"I'm helping my elderly mother downsize from her home of 40 years. She's moving to a smaller apartment and we need to decide what to keep, donate, or pass on to family."</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- R - Role -->
+                <details class="learn-accordion" id="role">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">R</span>
+                            Role
+                            <span class="learn-accordion-subtitle">Define the persona for the AI to adopt</span>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>The role tells the AI who to be. By assigning a persona, you activate domain-specific knowledge and get responses shaped by that expertise.</p>
+                        </div>
+
+                        <div class="verb-grid stagger-children">
+                            <div class="verb-card">
+                                <h3>Expert Roles</h3>
+                                <p>Nutritionist, Personal trainer, Financial advisor</p>
+                            </div>
+                            <div class="verb-card">
+                                <h3>Professional Roles</h3>
+                                <p>Teacher, Chef, Travel agent, Interior designer</p>
+                            </div>
+                            <div class="verb-card">
+                                <h3>Creative Roles</h3>
+                                <p>Storyteller, Party planner, Gift idea expert</p>
+                            </div>
+                            <div class="verb-card">
+                                <h3>Advisory Roles</h3>
+                                <p>Life coach, Parenting expert, Career counselor</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Effective Role Example</div>
+                            <p>"Act as an experienced travel agent who specializes in family-friendly vacations"</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- I - Instructions -->
+                <details class="learn-accordion" id="instructions">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">I</span>
+                            Instructions
+                            <span class="learn-accordion-subtitle">Provide specific guidelines for the task</span>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Instructions are the specific guidelines for how to complete the task. Think of these as the "rules" for the output. What should be included? Excluded? How should it be organized?</p>
+                        </div>
+
+                        <div class="instruction-cards stagger-children">
+                            <div class="instruction-card">
+                                <h3>What to Include</h3>
+                                <p>"Include estimated costs, time needed, and a shopping list"</p>
+                            </div>
+                            <div class="instruction-card">
+                                <h3>What to Avoid</h3>
+                                <p>"Avoid recipes with nuts due to allergies"</p>
+                            </div>
+                            <div class="instruction-card">
+                                <h3>How to Structure</h3>
+                                <p>"Organize by morning, afternoon, and evening activities"</p>
+                            </div>
+                            <div class="instruction-card">
+                                <h3>Priority/Focus</h3>
+                                <p>"Focus on options that work for all ages"</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- S - Specifics -->
+                <details class="learn-accordion" id="specifics">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">S</span>
+                            Specifics
+                            <span class="learn-accordion-subtitle">Define format, length, tone, and scope</span>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Specifics tell the AI exactly how you want the output shaped. This includes format, length, tone, and scope. The more specific you are, the closer the output matches your needs.</p>
+                        </div>
+
+                        <div class="style-cards stagger-children">
+                            <div class="style-card">
+                                <h3>Format</h3>
+                                <p>Bullet points, numbered list, table, paragraph, JSON</p>
+                            </div>
+                            <div class="style-card">
+                                <h3>Length</h3>
+                                <p>50 words, 3 paragraphs, one page, 5 bullet points</p>
+                            </div>
+                            <div class="style-card">
+                                <h3>Tone</h3>
+                                <p>Formal, casual, urgent, friendly, professional</p>
+                            </div>
+                            <div class="style-card">
+                                <h3>Scope</h3>
+                                <p>High-level overview, detailed analysis, executive summary</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Specifics Example</div>
+                            <p>"Write 3 bullet points, under 50 words each, in a professional but approachable tone. Focus on key benefits only."</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- P - Parameters -->
+                <details class="learn-accordion" id="parameters">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            <span class="learn-accordion-letter">P</span>
+                            Parameters
+                            <span class="learn-accordion-subtitle">Set constraints and boundaries</span>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="content-block">
+                            <p>Parameters are the constraints and specifications that give the output its final shape. These are the measurable, concrete boundaries for the response.</p>
+                        </div>
+
+                        <div class="param-cards stagger-children">
+                            <div class="param-card">
+                                <h3>Length</h3>
+                                <p>"300 words", "2 paragraphs", "one page maximum"</p>
+                            </div>
+                            <div class="param-card">
+                                <h3>Format</h3>
+                                <p>"Bullet points", "numbered list", "table format"</p>
+                            </div>
+                            <div class="param-card">
+                                <h3>Sections</h3>
+                                <p>"5 sections with headers", "intro/body/conclusion"</p>
+                            </div>
+                            <div class="param-card">
+                                <h3>Special Requirements</h3>
+                                <p>"Include citations", "add examples for each point"</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Complete CRISP Example (Static Content) -->
+                <div class="static-content-block fade-in-up" id="complete-example">
+                    <h3 class="static-content-title">Complete CRISP Example</h3>
+                    <p class="static-content-subtitle">See all five components working together</p>
+
+                    <div class="example-card complete-example">
+                        <div class="example-prompt">
+                            <span class="example-element" data-element="C">I'm a project manager at a tech startup preparing for our quarterly planning meeting.</span>
+                            <span class="example-element" data-element="R">Act as a strategic planning consultant with experience in agile methodologies.</span>
+                            <span class="example-element" data-element="I">Create a quarterly planning template that covers goals, milestones, resource allocation, and risk assessment.</span>
+                            <span class="example-element" data-element="S">Format as a structured document with clear headings, bullet points, and a timeline table.</span>
+                            <span class="example-element" data-element="P">Keep it to 2 pages maximum. Focus on actionable items. Avoid jargon.</span>
+                        </div>
+                        <div class="example-legend">
+                            <span class="legend-item"><span class="legend-badge legend-badge--context">C</span> Context</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--role">R</span> Role</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--instruction">I</span> Instruction</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--specifics">S</span> Specifics</span>
+                            <span class="legend-item"><span class="legend-badge legend-badge--parameters">P</span> Parameters</span>
+                        </div>
+                    </div>
+
+                    <div class="callout tip mt-xl">
+                        <div class="callout-title">Notice</div>
+                        <p>No labels needed! Each element flows naturally into the next. The AI understands from context what you need.</p>
+                    </div>
+                </div>
+
+                <!-- Two Approaches (Static Content) -->
+                <div class="static-content-block fade-in-up" id="two-approaches">
+                    <h3 class="static-content-title">Two Approaches, Same Results</h3>
+                    <p class="static-content-subtitle">Labels vs natural language—both work equally well</p>
+
+                    <div class="content-block">
+                        <p>The CRISP labels help you remember each component, but you don't need them in your actual prompts. Here's the same request written both ways—both produce excellent results.</p>
+                    </div>
+
+                    <div class="approach-comparison stagger-children">
+                        <div class="approach-card">
+                            <div class="approach-header approach-labeled">
+                                <h3>With CRISP Labels</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p><strong>Context:</strong> I'm launching a new product next month and need help with the announcement.</p>
+                                    <p><strong>Role:</strong> Act as a marketing communications specialist.</p>
+                                    <p><strong>Instruction:</strong> Write an internal announcement email to get the sales team excited.</p>
+                                    <p><strong>Specifics:</strong> Enthusiastic but professional tone, highlight key selling points.</p>
+                                    <p><strong>Parameters:</strong> 200 words max, include 3 bullet points of key features.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="approach-vs">
+                            <span>=</span>
+                        </div>
+
+                        <div class="approach-card">
+                            <div class="approach-header approach-natural">
+                                <h3>Natural Language</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p>I'm launching a new product next month and need to get our sales team excited about it. Can you help me write an internal announcement email? I'd like it to be enthusiastic but still professional—we want them pumped but not over the top. Focus on the key selling points they'll need to know. Keep it around 200 words and include 3 bullet points covering the main features.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="approach-vs">
-                        <span>=</span>
+                    <div class="callout tip">
+                        <div class="callout-title">Use What Works for You</div>
+                        <p>Labels can help when you're learning or when you want to double-check you've covered all bases. But once you're comfortable, natural conversation flows just as effectively. The AI understands both equally well.</p>
                     </div>
-
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>Natural Language</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>I'm launching a new product next month and need to get our sales team excited about it. Can you help me write an internal announcement email? I'd like it to be enthusiastic but still professional—we want them pumped but not over the top. Focus on the key selling points they'll need to know. Keep it around 200 words and include 3 bullet points covering the main features.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">Use What Works for You</div>
-                    <p>Labels can help when you're learning or when you want to double-check you've covered all bases. But once you're comfortable, natural conversation flows just as effectively. The AI understands both equally well.</p>
                 </div>
             </div>
         </section>

@@ -94,32 +94,6 @@
         <!-- Concept Visual -->
         <section class="section">
             <div class="container">
-                <div class="content-badges fade-in-up">
-                    <span class="content-badge content-badge--ai" data-badge-type="ai">
-                        <span class="badge-label">AI for</span>
-                        <span class="badge-value">Everybody</span>
-                    </span>
-                    <span class="content-badge content-badge--udl" data-badge-type="udl">
-                        <span class="badge-label">Built With</span>
-                        <span class="badge-value">UD/UDL</span>
-                    </span>
-                    <span class="content-badge content-badge--security" data-badge-type="security">
-                        <span class="badge-label">Security</span>
-                        <span class="badge-value">A+ 100%</span>
-                    </span>
-                    <span class="content-badge content-badge--performance" data-badge-type="performance">
-                        <span class="badge-label">Performance</span>
-                        <span class="badge-value">100%</span>
-                    </span>
-                    <span class="content-badge content-badge--claude" data-badge-type="claude">
-                        <span class="badge-label">AI Assisted Building</span>
-                        <span class="badge-value">Claude Code</span>
-                    </span>
-                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
-                        <span class="badge-label">Community</span>
-                        <span class="badge-value">GitHub</span>
-                    </a>
-                </div>
                 <div class="concept-cards stagger-children">
                     <div class="concept-card">
                         <h3>Reason</h3>
@@ -145,25 +119,6 @@
                 <h2 class="section-title fade-in-up">What is ReAct?</h2>
                 <p class="section-subtitle fade-in-up">A prompting paradigm where AI alternates between thinking and acting</p>
 
-                <div class="content-block fade-in-up">
-                    <p>ReAct (Reasoning + Acting) is a prompting paradigm where the AI alternates between <strong>thinking through a problem</strong> and <strong>taking actions</strong>. This creates a transparent chain of thought that you can follow and verify.</p>
-                </div>
-
-                <div class="info-cards stagger-children">
-                    <div class="info-card">
-                        <h3>Explicit Reasoning</h3>
-                        <p>The AI shows its work, explaining why it's making each decision.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Interleaved Actions</h3>
-                        <p>Reasoning leads to concrete actions, which produce new information for more reasoning.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Verifiable Process</h3>
-                        <p>You can check each step, catch errors early, and understand the full logic.</p>
-                    </div>
-                </div>
-
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">When to Use ReAct</div>
                     <p>Use <strong>ReAct</strong> for <strong>complex problems</strong> where the solution isn't obvious, when you need to <strong>verify reasoning</strong>, or when the task requires <strong>multiple steps</strong> with decisions along the way.</p>
@@ -171,182 +126,233 @@
             </div>
         </section>
 
-        <!-- The ReAct Loop -->
+        <!-- === ACCORDION CONTROLS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The ReAct Loop</h2>
-                <p class="section-subtitle fade-in-up">A repeating cycle of thought, action, and observation</p>
-
-                <div class="loop-steps stagger-children">
-                    <div class="loop-step-card">
-                        <span class="step-number">1</span>
-                        <h3>Thought</h3>
-                        <p>Analyze the current state and decide what to do next</p>
-                    </div>
-                    <div class="loop-step-card">
-                        <span class="step-number">2</span>
-                        <h3>Action</h3>
-                        <p>Take a specific action based on the reasoning</p>
-                    </div>
-                    <div class="loop-step-card">
-                        <span class="step-number">3</span>
-                        <h3>Observation</h3>
-                        <p>Note the result of the action, then loop back</p>
-                    </div>
+                <div class="accordion-controls">
+                    <button class="accordion-controls-btn" id="expand-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                        Expand All
+                    </button>
+                    <button class="accordion-controls-btn" id="collapse-all-accordions" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <path d="M18 15l-6-6-6 6"/>
+                        </svg>
+                        Collapse All
+                    </button>
                 </div>
 
-                <div class="content-block fade-in-up">
-                    <p>This loop continues until the problem is solved. Each iteration builds on the previous one, creating a clear trail of logic.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How to Prompt -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">How to Prompt for ReAct</h2>
-                <p class="section-subtitle fade-in-up">Structure your prompt to encourage explicit reasoning</p>
-
-                <div class="template-card fade-in-up">
-                    <h3>ReAct Prompt Template</h3>
-                    <div class="template-content">
-                        <p><strong>Task:</strong> [Your problem or question]</p>
-                        <p><strong>Instructions:</strong> Solve this step by step. For each step:</p>
-                        <ol>
-                            <li><strong>Thought:</strong> Explain your reasoning about what to do next</li>
-                            <li><strong>Action:</strong> Describe the action you're taking</li>
-                            <li><strong>Observation:</strong> Note the result and what it tells you</li>
-                        </ol>
-                        <p>Continue until you reach the solution.</p>
-                    </div>
-                </div>
-
-                <div class="example-card good fade-in-up">
-                    <div class="example-label">Example Prompt</div>
-                    <p>"I need to debug why our API is returning 500 errors intermittently. Walk me through your diagnostic process step by step. For each step, share your reasoning (Thought), what you would check or do (Action), and what the result tells us (Observation). Continue until you identify the likely cause."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ReAct in Action -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">ReAct in Action</h2>
-                <p class="section-subtitle fade-in-up">See how a ReAct-style response looks for debugging</p>
-
-                <div class="react-example-flow stagger-children">
-                    <div class="react-step-card thought">
-                        <span class="react-label">Thought 1</span>
-                        <p>Intermittent 500 errors suggest the issue isn't with the code logic itself (which would fail consistently), but likely related to resources, connections, or external dependencies.</p>
-                    </div>
-                    <div class="react-step-card action">
-                        <span class="react-label">Action 1</span>
-                        <p>Check the error logs for timestamps and look for patterns. Are errors clustered at certain times?</p>
-                    </div>
-                    <div class="react-step-card observation">
-                        <span class="react-label">Observation 1</span>
-                        <p>Errors spike between 9-10 AM and 2-3 PM, which corresponds to peak usage times. The errors include "connection timeout" messages.</p>
-                    </div>
-                    <div class="react-step-card thought">
-                        <span class="react-label">Thought 2</span>
-                        <p>Connection timeouts during peak usage suggests either database connection pool exhaustion or rate-limiting from an external service.</p>
-                    </div>
-                    <div class="react-step-card action">
-                        <span class="react-label">Action 2</span>
-                        <p>Examine the stack traces to identify which service call is timing out - database or external API?</p>
-                    </div>
-                    <div class="react-step-card observation">
-                        <span class="react-label">Observation 2</span>
-                        <p>The timeouts are occurring on calls to our payment processor API, not the database.</p>
-                    </div>
-                    <div class="react-step-card conclusion">
-                        <span class="react-label">Conclusion</span>
-                        <p>The payment processor is likely rate-limiting our requests during peak times. Implement request queuing and consider upgrading our API tier.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Better Use Cases -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Better Use Cases for ReAct</h2>
-
-                <div class="use-case-grid stagger-children">
-                    <div class="use-case-card">
-                        <h3>Debugging & Troubleshooting</h3>
-                        <p>Work through issues systematically, testing hypotheses and narrowing down causes.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Research & Analysis</h3>
-                        <p>Explore a topic by gathering information, synthesizing findings, and drawing conclusions.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Decision Making</h3>
-                        <p>Evaluate options, consider trade-offs, and arrive at a reasoned recommendation.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Complex Calculations</h3>
-                        <p>Break down multi-step problems, showing work at each stage.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Planning & Strategy</h3>
-                        <p>Consider constraints, evaluate approaches, and build a step-by-step plan.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Code Review</h3>
-                        <p>Systematically analyze code, explain reasoning, and provide justified feedback.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Two Approaches -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Two Ways to Request ReAct</h2>
-                <p class="section-subtitle fade-in-up">You can ask for step-by-step reasoning with or without explicit labels</p>
-
-                <div class="content-block fade-in-up">
-                    <p>ReAct is about how the AI thinks, not how you format your prompt. Both explicit instructions and natural requests produce the same transparent reasoning process.</p>
-                </div>
-
-                <div class="approach-comparison stagger-children">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>Explicit ReAct Request</h3>
+                <!-- The ReAct Loop -->
+                <details class="learn-accordion" id="react-loop">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            The ReAct Loop
+                            <span class="learn-accordion-subtitle">A repeating cycle of thought, action, and observation</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="loop-steps stagger-children">
+                            <div class="loop-step-card">
+                                <span class="step-number">1</span>
+                                <h3>Thought</h3>
+                                <p>Analyze the current state and decide what to do next</p>
+                            </div>
+                            <div class="loop-step-card">
+                                <span class="step-number">2</span>
+                                <h3>Action</h3>
+                                <p>Take a specific action based on the reasoning</p>
+                            </div>
+                            <div class="loop-step-card">
+                                <span class="step-number">3</span>
+                                <h3>Observation</h3>
+                                <p>Note the result of the action, then loop back</p>
+                            </div>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>Use the ReAct framework to help me decide whether to build or buy a CRM system for my small business.</p>
-                                <p><strong>For each step:</strong></p>
-                                <p>1. State your thought process</p>
-                                <p>2. Take an action (analyze, compare, research)</p>
-                                <p>3. Observe the result</p>
-                                <p>4. Repeat until you reach a conclusion</p>
+
+                        <div class="content-block">
+                            <p>This loop continues until the problem is solved. Each iteration builds on the previous one, creating a clear trail of logic.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- How to Prompt -->
+                <details class="learn-accordion" id="how-to-prompt">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            How to Prompt for ReAct
+                            <span class="learn-accordion-subtitle">Structure your prompt to encourage explicit reasoning</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="template-card">
+                            <h3>ReAct Prompt Template</h3>
+                            <div class="template-content">
+                                <p><strong>Task:</strong> [Your problem or question]</p>
+                                <p><strong>Instructions:</strong> Solve this step by step. For each step:</p>
+                                <ol>
+                                    <li><strong>Thought:</strong> Explain your reasoning about what to do next</li>
+                                    <li><strong>Action:</strong> Describe the action you're taking</li>
+                                    <li><strong>Observation:</strong> Note the result and what it tells you</li>
+                                </ol>
+                                <p>Continue until you reach the solution.</p>
+                            </div>
+                        </div>
+
+                        <div class="example-card good">
+                            <div class="example-label">Example Prompt</div>
+                            <p>"I need to debug why our API is returning 500 errors intermittently. Walk me through your diagnostic process step by step. For each step, share your reasoning (Thought), what you would check or do (Action), and what the result tells us (Observation). Continue until you identify the likely cause."</p>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- ReAct in Action -->
+                <details class="learn-accordion" id="react-in-action">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            ReAct in Action
+                            <span class="learn-accordion-subtitle">See how a ReAct-style response looks for debugging</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="react-example-flow stagger-children">
+                            <div class="react-step-card thought">
+                                <span class="react-label">Thought 1</span>
+                                <p>Intermittent 500 errors suggest the issue isn't with the code logic itself (which would fail consistently), but likely related to resources, connections, or external dependencies.</p>
+                            </div>
+                            <div class="react-step-card action">
+                                <span class="react-label">Action 1</span>
+                                <p>Check the error logs for timestamps and look for patterns. Are errors clustered at certain times?</p>
+                            </div>
+                            <div class="react-step-card observation">
+                                <span class="react-label">Observation 1</span>
+                                <p>Errors spike between 9-10 AM and 2-3 PM, which corresponds to peak usage times. The errors include "connection timeout" messages.</p>
+                            </div>
+                            <div class="react-step-card thought">
+                                <span class="react-label">Thought 2</span>
+                                <p>Connection timeouts during peak usage suggests either database connection pool exhaustion or rate-limiting from an external service.</p>
+                            </div>
+                            <div class="react-step-card action">
+                                <span class="react-label">Action 2</span>
+                                <p>Examine the stack traces to identify which service call is timing out - database or external API?</p>
+                            </div>
+                            <div class="react-step-card observation">
+                                <span class="react-label">Observation 2</span>
+                                <p>The timeouts are occurring on calls to our payment processor API, not the database.</p>
+                            </div>
+                            <div class="react-step-card conclusion">
+                                <span class="react-label">Conclusion</span>
+                                <p>The payment processor is likely rate-limiting our requests during peak times. Implement request queuing and consider upgrading our API tier.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Better Use Cases -->
+                <details class="learn-accordion" id="use-cases">
+                    <summary class="learn-accordion-header">
+                        <span class="learn-accordion-title">
+                            Better Use Cases for ReAct
+                            <span class="learn-accordion-subtitle">When to apply this powerful reasoning pattern</span>
+                        </span>
+                        <span class="learn-accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="learn-accordion-content">
+                        <div class="use-case-grid stagger-children">
+                            <div class="use-case-card">
+                                <h3>Debugging & Troubleshooting</h3>
+                                <p>Work through issues systematically, testing hypotheses and narrowing down causes.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h3>Research & Analysis</h3>
+                                <p>Explore a topic by gathering information, synthesizing findings, and drawing conclusions.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h3>Decision Making</h3>
+                                <p>Evaluate options, consider trade-offs, and arrive at a reasoned recommendation.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h3>Complex Calculations</h3>
+                                <p>Break down multi-step problems, showing work at each stage.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h3>Planning & Strategy</h3>
+                                <p>Consider constraints, evaluate approaches, and build a step-by-step plan.</p>
+                            </div>
+                            <div class="use-case-card">
+                                <h3>Code Review</h3>
+                                <p>Systematically analyze code, explain reasoning, and provide justified feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Two Ways to Request ReAct (Static Content) -->
+                <div class="static-content-block fade-in-up" id="two-approaches">
+                    <h3 class="static-content-title">Two Ways to Request ReAct</h3>
+                    <p class="static-content-subtitle">You can ask for step-by-step reasoning with or without explicit labels</p>
+
+                    <div class="content-block">
+                        <p>ReAct is about how the AI thinks, not how you format your prompt. Both explicit instructions and natural requests produce the same transparent reasoning process.</p>
+                    </div>
+
+                    <div class="approach-comparison stagger-children">
+                        <div class="approach-card">
+                            <div class="approach-header approach-labeled">
+                                <h3>Explicit ReAct Request</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p>Use the ReAct framework to help me decide whether to build or buy a CRM system for my small business.</p>
+                                    <p><strong>For each step:</strong></p>
+                                    <p>1. State your thought process</p>
+                                    <p>2. Take an action (analyze, compare, research)</p>
+                                    <p>3. Observe the result</p>
+                                    <p>4. Repeat until you reach a conclusion</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="approach-vs">
+                            <span>=</span>
+                        </div>
+
+                        <div class="approach-card">
+                            <div class="approach-header approach-natural">
+                                <h3>Natural Language</h3>
+                            </div>
+                            <div class="approach-content">
+                                <div class="approach-prompt">
+                                    <p>I'm trying to decide whether to build a custom CRM or buy an existing solution for my small business. Can you think through this with me step by step? Walk me through your reasoning, consider the trade-offs, and show your work so I can follow your logic. I want to understand how you arrive at your recommendation.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="approach-vs">
-                        <span>=</span>
+                    <div class="callout tip">
+                        <div class="callout-title">Focus on What You Want</div>
+                        <p>Phrases like "think through this step by step," "show your reasoning," or "explain how you arrived at that" naturally trigger ReAct-style responses. You don't need to name the framework to use it.</p>
                     </div>
-
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>Natural Language</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>I'm trying to decide whether to build a custom CRM or buy an existing solution for my small business. Can you think through this with me step by step? Walk me through your reasoning, consider the trade-offs, and show your work so I can follow your logic. I want to understand how you arrive at your recommendation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">Focus on What You Want</div>
-                    <p>Phrases like "think through this step by step," "show your reasoning," or "explain how you arrived at that" naturally trigger ReAct-style responses. You don't need to name the framework to use it.</p>
                 </div>
             </div>
         </section>

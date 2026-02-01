@@ -196,7 +196,7 @@ p {
 }
 
 .section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
 }
 
 /* ============================================
@@ -2423,7 +2423,7 @@ p {
    LEARN / CONTENT PAGES
    ============================================ */
 .content-block {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
 }
 
 .content-block h2 {
@@ -4308,6 +4308,240 @@ p {
     color: var(--primary);
 }
 
+/* Level-Based Quiz Styling
+   -------------------------------------------- */
+.quiz-level-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.quiz-level-indicator .level-emoji {
+    font-size: 1.25rem;
+}
+
+.quiz-level-indicator .level-name {
+    flex-grow: 1;
+}
+
+.quiz-level-indicator .level-questions {
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Level Colors */
+.level-good {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.level-pro {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.level-expert {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));
+    color: #A855F7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.level-master {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.level-learner {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.15), rgba(107, 114, 128, 0.05));
+    color: #6B7280;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* Level Results Badge */
+.result-level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.result-level-badge .result-emoji {
+    font-size: 2rem;
+}
+
+/* Level Results Breakdown */
+.level-results {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    text-align: left;
+}
+
+.level-results h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.level-result {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.level-result:last-child {
+    border-bottom: none;
+}
+
+.level-result-emoji {
+    font-size: 1.25rem;
+}
+
+.level-result-name {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.level-result-score {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.level-result-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+}
+
+.level-result.passed .level-result-status {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+}
+
+.level-result.not-passed .level-result-status {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--primary);
+}
+
+/* Quiz Strikes (Lives) Display
+   -------------------------------------------- */
+.quiz-strikes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-size: 0.875rem;
+}
+
+.strikes-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.strikes-hearts {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+/* Quiz Game Over Badge */
+.quiz-gameover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(220, 53, 69, 0.05));
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    border-radius: var(--radius-lg);
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.quiz-gameover-badge .gameover-emoji {
+    font-size: 1.5rem;
+}
+
+/* Quiz Complete Badge (Master achieved) */
+.quiz-complete-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05));
+    border: 2px solid rgba(245, 158, 11, 0.5);
+    border-radius: var(--radius-lg);
+    color: #F59E0B;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.quiz-complete-badge .complete-emoji {
+    font-size: 1.5rem;
+}
+
+/* Result Strikes Display */
+.result-strikes-final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    font-size: 1rem;
+}
+
+.result-strikes-final .strikes-label {
+    color: var(--text-muted);
+}
+
+.result-strikes-final .strikes-hearts {
+    font-size: 1.5rem;
+}
+
+/* Challenge Message */
+.result-challenge {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: var(--space-lg) 0;
+    padding: var(--space-md);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(220, 53, 69, 0.02));
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary);
+}
+
 /* Patterns */
 .pattern-filter {
     display: flex;
@@ -5585,7 +5819,7 @@ body.menu-open {
     font-size: 1rem;
     color: var(--text-secondary);
     margin-top: calc(-1 * var(--space-sm));
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
 }
 
 /* ============================================
@@ -5795,8 +6029,8 @@ body.menu-open {
 .approach-comparison {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    margin-top: var(--space-xl);
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
 }
 
 @media (min-width: 768px) {
@@ -6126,6 +6360,38 @@ body.menu-open {
 /* ============================================
    ACRONYM CARDS (CRISP, CRISPE, COSTAR)
    ============================================ */
+
+/* ---- CARDS-TO-SECTION GAP LEGEND ----
+ * Controls spacing between methodology cards and "Why Use X?" section
+ *
+ * AFFECTED PAGES:
+ *   - learn/crisp.html   (.acronym-cards → "Why Use CRISP?")
+ *   - learn/crispe.html  (.acronym-cards → "Why Use CRISPE?")
+ *   - learn/costar.html  (.acronym-cards → "Why Use COSTAR?")
+ *   - learn/react.html   (.concept-cards → "What is ReAct?")
+ *
+ * SPACING VALUES (--space-* variables):
+ *   --space-xs: 4px   | --space-sm: 8px   | --space-md: 16px
+ *   --space-lg: 24px  | --space-xl: 32px  | --space-2xl: 48px
+ *
+ * GAP CONTROLS:
+ *   [A] Cards section bottom padding (below the cards)
+ *   [B] Following section top padding (above "Why Use X?")
+ *   Total visible gap = [A] + [B]
+ * ------------------------------------ */
+
+/* [A] Cards Section Bottom Padding ---- */
+.section:has(.acronym-cards),
+.section:has(.concept-cards) {
+    padding-bottom: var(--space-md);  /* 16px - Adjust to control gap below cards */
+}
+
+/* [B] Following Section Top Padding ---- */
+.section:has(.acronym-cards) + .section,
+.section:has(.concept-cards) + .section {
+    padding-top: var(--space-md);  /* 16px - Adjust to control gap above "Why Use X?" */
+}
+
 .acronym-cards {
     display: flex;
     flex-wrap: wrap;
@@ -6706,7 +6972,7 @@ body.menu-open {
     display: flex;
     align-items: flex-start;
     gap: var(--space-md);
-    margin-top: var(--space-xl);
+    margin-top: var(--space-lg);
     padding: var(--space-md) var(--space-lg);
     background: #1a1a1a;
     border: 1px solid #333333;
@@ -9038,6 +9304,214 @@ body.menu-open {
 
 .accordion-item.accordion-dark[open] {
     background: #111111;
+}
+
+/* Accordion Controls - Expand/Collapse All
+   -------------------------------------------- */
+.accordion-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.accordion-controls-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.accordion-controls-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--bg-secondary);
+}
+
+.accordion-controls-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Learn Page Accordion Variant
+   -------------------------------------------- */
+.learn-accordion-section {
+    margin-top: var(--space-lg);
+}
+
+.learn-accordion {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-left: 5px solid var(--primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+/* Subtle divider between accordions */
+.learn-accordion + .learn-accordion::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--space-md) / 2);
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.learn-accordion:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.learn-accordion[open] {
+    border-color: var(--primary);
+}
+
+.learn-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--space-xl);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    transition: var(--transition-fast);
+    background: transparent;
+}
+
+.learn-accordion-header::-webkit-details-marker {
+    display: none;
+}
+
+.learn-accordion-header::after {
+    content: '+';
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(220, 38, 38, 0.1);
+}
+
+.learn-accordion[open] .learn-accordion-header::after {
+    content: '−';
+}
+
+.learn-accordion-header:hover {
+    color: var(--primary);
+}
+
+.learn-accordion-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.learn-accordion-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+}
+
+.learn-accordion-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: var(--space-sm);
+}
+
+.learn-accordion-content {
+    padding: 0 var(--space-xl) var(--space-xl);
+}
+
+/* Ensure existing content components work inside accordions */
+.learn-accordion-content .info-cards,
+.learn-accordion-content .param-cards,
+.learn-accordion-content .content-block,
+.learn-accordion-content .example-card,
+.learn-accordion-content .callout,
+.learn-accordion-content .approach-comparison {
+    margin-top: var(--space-lg);
+}
+
+.learn-accordion-content .info-cards:first-child,
+.learn-accordion-content .param-cards:first-child,
+.learn-accordion-content .content-block:first-child {
+    margin-top: 0;
+}
+
+/* Special styling for accordion with sections that have different backgrounds */
+.learn-accordion.accordion-alt {
+    background: var(--bg-secondary);
+}
+
+/* Static Content Block
+   For content that was previously in accordions but now displayed statically
+   -------------------------------------------- */
+.static-content-block {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.static-content-block:first-of-type {
+    margin-top: var(--space-lg);
+}
+
+.static-content-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 var(--space-xs) 0;
+}
+
+.static-content-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0 0 var(--space-lg) 0;
+}
+
+.static-content-block .example-card,
+.static-content-block .content-block,
+.static-content-block .approach-comparison,
+.static-content-block .callout {
+    margin-top: var(--space-lg);
+}
+
+.static-content-block .content-block:first-of-type {
+    margin-top: 0;
 }
 
 /* ============================================
