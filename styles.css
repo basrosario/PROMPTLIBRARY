@@ -5726,7 +5726,7 @@ body.menu-open {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 5px;
+    width: 7px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
@@ -5953,25 +5953,27 @@ body.menu-open {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 5px;
+    width: 7px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
-/* Red card variant - darker accent */
+/* Red card variant - thicker darker accent */
 .acronym-card.has-flip.accent-red .card-front::before {
-    background: rgba(0, 0, 0, 0.15);
+    width: 8px;
+    background: rgba(0, 0, 0, 0.12);
 }
 
-/* White card variant - subtle white accent */
+/* White card variant - visible white accent */
 .acronym-card.has-flip.accent-white .card-front::before {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.05);
+    width: 7px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: inset -1px 0 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Black/dark card variant - prominent red accent */
+/* Black/dark card variant - prominent red accent (30% wider) */
 .acronym-card.has-flip.accent-dark .card-front::before {
-    width: 6px;
+    width: 8px;
     background: var(--primary);
 }
 
