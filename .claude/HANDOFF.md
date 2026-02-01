@@ -543,7 +543,37 @@ Key variables used throughout (defined in styles.css):
      5. Allow scores to exceed 100% for exceptional prompts
    - **Files:** app.js (PROMPT ANALYZER section), tools/analyzer.html (scoring display)
 
-11. **Phase 2:** Update `prompt-basics.html`
+11. **Task 1.19:** Site-Wide Visual Continuity Audit
+   - **Purpose:** Ensure consistent fonts, colors, themes, and sizes across all site content
+   - **Scope Areas:**
+     - **Fonts:** Consistent font families, weights, and styles across all pages
+     - **Colors:** Unified color palette usage (primary red, secondary colors, grays)
+     - **Themes:** Dark/light section consistency, background treatments
+     - **Sizes:** Consistent heading sizes, text sizes, spacing, and component dimensions
+   - **Audit Checklist:**
+     - [ ] Font family consistency (headings vs body text)
+     - [ ] Heading hierarchy sizes (h1, h2, h3, h4)
+     - [ ] Body text sizes and line heights
+     - [ ] Badge/label text sizes
+     - [ ] Color usage follows established palette
+     - [ ] Background color consistency between sections
+     - [ ] Spacing/padding consistency (cards, sections, containers)
+     - [ ] Component sizes match across similar elements
+   - **Standards to enforce:**
+     - CSS variables for all colors and sizes
+     - No magic numbers - use defined spacing scale
+     - Badge aesthetic (red/white/black) as reference
+     - WCAG AA color contrast maintained
+   - **Files:** styles.css (CSS variables, component styles), all HTML pages (structural consistency)
+   - **Plan:**
+     1. Document current CSS variable usage
+     2. Audit all pages for inconsistent styling
+     3. Identify elements not using CSS variables
+     4. Create missing CSS variables where needed
+     5. Update inconsistent components
+     6. Test across all pages and screen sizes
+
+12. **Phase 2:** Update `prompt-basics.html`
    - Add email example (professional, friendly tone, colleague context)
 
 ---

@@ -5380,7 +5380,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Access the full codebase and documentation',
                 'Connect with other AI literacy advocates',
                 'Star the repo to show your support'
-            ]
+            ],
+            link: 'https://github.com/basrosario/PROMPTLIBRARY',
+            linkText: 'Visit GitHub Repository'
         }
     };
 
@@ -5416,9 +5418,20 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(feature => `<li>${escapeHtml(feature)}</li>`)
             .join('');
 
+        // Build optional link HTML
+        const linkHtml = content.link ? `
+            <a href="${escapeHtml(content.link)}" target="_blank" rel="noopener noreferrer" class="badge-lightbox-link">
+                ${escapeHtml(content.linkText || 'Learn More')}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+            </a>
+        ` : '';
+
         lightboxContent.innerHTML = `
             <p class="badge-lightbox-description">${content.description}</p>
             <ul class="badge-lightbox-features">${featuresHtml}</ul>
+            ${linkHtml}
         `;
 
         // Show lightbox
