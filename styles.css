@@ -933,7 +933,7 @@ p {
     border: none;
     border-radius: 0;
     margin: 0;
-    padding: 0.48rem 0;
+    padding: 0.38rem 0;
     outline: none;
     cursor: pointer;
     display: flex;
@@ -965,14 +965,14 @@ p {
 }
 
 .back-to-top-bar .back-to-top-arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     stroke: #1a1a1a;
 }
 
 .back-to-top-bar .back-to-top-text {
     color: #1a1a1a;
-    font-size: 0.8rem;
+    font-size: 0.64rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -1004,14 +1004,14 @@ p {
 /* Badges stretch to fill all available space */
 .site-badges-bar .content-badge {
     flex: 1;
-    font-size: 0.65rem;
+    font-size: 0.52rem;
     border-radius: 0;
     justify-content: center;
 }
 
 /* Badge labels - white background with black text for readability */
 .site-badges-bar .content-badge .badge-label {
-    padding: 0.6rem 0.8rem;
+    padding: 0.48rem 0.64rem;
     text-align: center;
     white-space: nowrap;
     flex: 1;
@@ -1019,18 +1019,18 @@ p {
     background: #ffffff;
     color: #1a1a1a;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     letter-spacing: 0.02em;
 }
 
 /* Badge values - keep colored backgrounds with larger text */
 .site-badges-bar .content-badge .badge-value {
-    padding: 0.6rem 0.8rem;
+    padding: 0.48rem 0.64rem;
     text-align: center;
     white-space: nowrap;
     flex: 1;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.64rem;
     font-weight: 700;
     letter-spacing: 0.02em;
 }
@@ -1038,17 +1038,17 @@ p {
 /* Tablet: Slightly smaller text */
 @media (max-width: 900px) {
     .site-badges-bar .content-badge {
-        font-size: 0.6rem;
+        font-size: 0.48rem;
     }
 
     .site-badges-bar .content-badge .badge-label {
-        padding: 0.5rem 0.5rem;
-        font-size: 0.65rem;
+        padding: 0.4rem 0.4rem;
+        font-size: 0.52rem;
     }
 
     .site-badges-bar .content-badge .badge-value {
-        padding: 0.5rem 0.5rem;
-        font-size: 0.7rem;
+        padding: 0.4rem 0.4rem;
+        font-size: 0.56rem;
     }
 }
 
@@ -1063,13 +1063,13 @@ p {
     }
 
     .site-badges-bar .content-badge .badge-label {
-        padding: 0.4rem 0.3rem;
-        font-size: 0.55rem;
+        padding: 0.32rem 0.24rem;
+        font-size: 0.44rem;
     }
 
     .site-badges-bar .content-badge .badge-value {
-        padding: 0.4rem 0.3rem;
-        font-size: 0.6rem;
+        padding: 0.32rem 0.24rem;
+        font-size: 0.48rem;
     }
 }
 
