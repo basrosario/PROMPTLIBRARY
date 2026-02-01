@@ -2372,6 +2372,7 @@ p {
 .callout.tip {
     border-left-color: #DC3545;
     background: #1a1a1a;
+    color: #e5e7eb;
 }
 
 .callout.tip p {
