@@ -84,6 +84,29 @@ html {
     scroll-behavior: smooth;
 }
 
+/* === ANCHOR SCROLL OFFSET ===
+   Purpose: Ensures anchor-linked content appears below sticky header
+   Applied globally to all elements with IDs (anchor targets)
+   Standard: Content must align with its header, not hidden behind nav
+   -------------------------------------------- */
+:target {
+    scroll-margin-top: 100px; /* Accounts for header + breathing room */
+}
+
+/* Specific anchor targets for better control */
+[id^="section-"] {
+    scroll-margin-top: 100px;
+}
+
+/* Glossary page anchors - extra offset for sticky A-Z nav */
+[id^="letter-"] {
+    scroll-margin-top: 160px; /* Header (70px) + sticky nav (~56px) + breathing room */
+}
+
+[id^="term-"] {
+    scroll-margin-top: 160px; /* Same as letter sections for consistency */
+}
+
 body {
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -601,6 +624,254 @@ p {
     .section .content-badges {
         margin-top: calc(-1 * var(--space-2xl) + 0.35rem);
         margin-bottom: var(--space-md);
+    }
+}
+
+/* ==============================================
+   BADGE LIGHTBOX
+   Purpose: Modal popup with badge information
+   Security: External stylesheet only (CSP compliant)
+   ============================================== */
+
+/* Smoked Glass Overlay
+   -------------------------------------------- */
+.badge-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.badge-lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Lightbox Modal Container
+   -------------------------------------------- */
+.badge-lightbox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-width: 480px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.badge-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Lightbox Header
+   -------------------------------------------- */
+.badge-lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.badge-lightbox-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.badge-lightbox-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* Badge-specific icon backgrounds */
+.badge-lightbox-icon--ai {
+    background: linear-gradient(135deg, #DC3545 0%, #FF6B6B 100%);
+}
+
+.badge-lightbox-icon--udl {
+    background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+}
+
+.badge-lightbox-icon--security {
+    background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+}
+
+.badge-lightbox-icon--performance {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+}
+
+.badge-lightbox-icon--claude {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
+
+/* Close Button
+   -------------------------------------------- */
+.badge-lightbox-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.badge-lightbox-close:hover {
+    background: #e5e7eb;
+    transform: scale(1.05);
+}
+
+.badge-lightbox-close:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.badge-lightbox-close svg {
+    width: 18px;
+    height: 18px;
+    stroke: #6b7280;
+    stroke-width: 2;
+}
+
+/* Lightbox Content
+   -------------------------------------------- */
+.badge-lightbox-content {
+    padding: 1.5rem;
+}
+
+.badge-lightbox-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #374151;
+    margin: 0 0 1rem 0;
+}
+
+.badge-lightbox-description:last-child {
+    margin-bottom: 0;
+}
+
+.badge-lightbox-highlight {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Feature List in Lightbox
+   -------------------------------------------- */
+.badge-lightbox-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.badge-lightbox-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.badge-lightbox-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #22C55E;
+    font-weight: 700;
+}
+
+.badge-lightbox-features li:last-child {
+    margin-bottom: 0;
+}
+
+/* Make badges clickable when lightbox is enabled
+   -------------------------------------------- */
+.content-badge[data-badge-type] {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-badge[data-badge-type]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.content-badge[data-badge-type]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Site badges bar - clickable styles
+   -------------------------------------------- */
+.site-badges-bar .content-badge[data-badge-type] {
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.site-badges-bar .content-badge[data-badge-type]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for lightbox
+   -------------------------------------------- */
+@media (max-width: 480px) {
+    .badge-lightbox {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .badge-lightbox-header {
+        padding: 1rem 1.25rem;
+    }
+
+    .badge-lightbox-title {
+        font-size: 1rem;
+    }
+
+    .badge-lightbox-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .badge-lightbox-content {
+        padding: 1.25rem;
+    }
+
+    .badge-lightbox-description {
+        font-size: 0.9375rem;
     }
 }
 
@@ -7462,12 +7733,27 @@ body.menu-open {
    GLOSSARY PAGE STYLES
    ============================================ */
 
+/* Glossary Navigation - Sticky A-Z Menu
+   Purpose: Floating navigation that follows user while scrolling
+   Left-aligned for site consistency
+   -------------------------------------------- */
 .glossary-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    /* Sticky positioning for floating navigation */
+    position: sticky;
+    top: 70px; /* Below the header */
+    z-index: 100;
+    background: var(--bg-secondary);
+    padding: var(--space-md) 0;
+    /* Left alignment */
+    margin-left: 0;
+    margin-right: auto;
+    /* Visual separator when stuck */
+    border-bottom: 1px solid transparent;
 }
 
 .glossary-nav a {

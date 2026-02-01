@@ -239,6 +239,61 @@ document.addEventListener('DOMContentLoaded', () => {
         'Learning'
     ];
 
+    // === TERM TO GLOSSARY MAPPING ===
+    // Purpose: Maps floating AI terms to glossary page anchors
+    // Security: CSP-compliant (no eval, external navigation only)
+    // Links floating terms in neural network animation to glossary definitions
+    const TERM_GLOSSARY_MAP = {
+        // Core AI concepts
+        'NLP': 'term-nlp',
+        'Transformer': 'term-transformer',
+        'GPT': 'term-gpt',
+        'Tokenization': 'term-token',
+        'AI Model': 'term-model',
+        'Intelligence': 'term-ai',
+        // Training & optimization
+        'Fine-tuning': 'term-fine-tuning',
+        'RAG': 'term-rag',
+        'Training': 'term-training-data',
+        // Prompting concepts
+        'Prompt': 'term-prompt',
+        'Context Window': 'term-context-window',
+        'Hallucination': 'term-hallucination',
+        'Alignment': 'term-alignment',
+        'Chain of Thought': 'term-chain-of-thought',
+        'Few-shot': 'term-few-shot',
+        'Zero-shot': 'term-zero-shot',
+        'Multimodal': 'term-multimodal',
+        'System Prompt': 'term-system-prompt',
+        'Temperature': 'term-temperature',
+        // Architecture
+        'Parameters': 'term-parameters',
+        'Bias': 'term-bias',
+        // Applications
+        'Generation': 'term-generative-ai',
+        'Copilot': 'term-copilot',
+        // Modern AI
+        'LLM': 'term-llm',
+        'Retrieval': 'term-rag',
+        'Grounding': 'term-grounding',
+        'Context': 'term-context',
+        // Data
+        'Token': 'term-token'
+    };
+
+    /**
+     * Gets the glossary URL for a given AI term
+     * @param {string} term - The AI term text
+     * @returns {string|null} - The glossary URL with anchor, or null if no mapping exists
+     */
+    function getGlossaryUrl(term) {
+        const anchor = TERM_GLOSSARY_MAP[term];
+        if (anchor) {
+            return `pages/glossary.html#${anchor}`;
+        }
+        return null;
+    }
+
     // Neural Network class - Each AI gets its own active cluster
     class NeuralNetwork {
         constructor(canvas, options = {}) {
@@ -329,6 +384,80 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
             document.addEventListener('visibilitychange', this.visibilityHandler);
+
+            // === TERM CLICK DETECTION ===
+            // Purpose: Enable clicking floating terms to navigate to glossary
+            // Security: CSP-compliant (no inline handlers, safe navigation)
+            this.canvas.addEventListener('click', (e) => this.handleTermClick(e));
+            this.canvas.addEventListener('mousemove', (e) => this.handleTermHover(e));
+        }
+
+        /**
+         * Gets the term at a given canvas position
+         * @param {number} x - X coordinate relative to canvas
+         * @param {number} y - Y coordinate relative to canvas
+         * @returns {Object|null} - The term object if found, null otherwise
+         */
+        getTermAtPosition(x, y) {
+            // Check floating terms in reverse order (top rendered last)
+            for (let i = this.floatingTerms.length - 1; i >= 0; i--) {
+                const term = this.floatingTerms[i];
+                const termX = term.currentX !== undefined ? term.currentX : term.x;
+                const termY = term.currentY !== undefined ? term.currentY : term.y;
+                const fontSize = term.fontSize || 14;
+
+                // Measure text width for accurate hit detection
+                this.ctx.font = `${fontSize}px monospace`;
+                const textWidth = this.ctx.measureText(term.text).width;
+                const textHeight = fontSize;
+
+                // Hit box with padding for easier clicking
+                const padding = 8;
+                const left = termX - textWidth / 2 - padding;
+                const right = termX + textWidth / 2 + padding;
+                const top = termY - textHeight / 2 - padding;
+                const bottom = termY + textHeight / 2 + padding;
+
+                if (x >= left && x <= right && y >= top && y <= bottom) {
+                    return term;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Handles click events on the canvas to detect term clicks
+         * @param {MouseEvent} e - The click event
+         */
+        handleTermClick(e) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const term = this.getTermAtPosition(x, y);
+            if (term) {
+                const glossaryUrl = getGlossaryUrl(term.text);
+                if (glossaryUrl) {
+                    window.location.href = glossaryUrl;
+                }
+            }
+        }
+
+        /**
+         * Handles mouse movement to show pointer cursor over clickable terms
+         * @param {MouseEvent} e - The mousemove event
+         */
+        handleTermHover(e) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const term = this.getTermAtPosition(x, y);
+            if (term && getGlossaryUrl(term.text)) {
+                this.canvas.style.cursor = 'pointer';
+            } else {
+                this.canvas.style.cursor = 'default';
+            }
         }
 
         resize() {
@@ -1986,6 +2115,106 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }, { threshold: 0.1 });
                 this.observer.observe(parentSection);
+            }
+
+            // === TERM CLICK DETECTION (Hero Background) ===
+            // Purpose: Enable clicking floating terms to navigate to glossary
+            // Security: CSP-compliant (no inline handlers, safe navigation)
+            this.canvas.addEventListener('click', (e) => this.handleTermClick(e));
+            this.canvas.addEventListener('mousemove', (e) => this.handleTermHover(e));
+        }
+
+        /**
+         * Gets the node/term at a given canvas position (accounts for DPI scaling)
+         * @param {number} x - X coordinate relative to canvas
+         * @param {number} y - Y coordinate relative to canvas
+         * @returns {Object|null} - The node with a term if found, null otherwise
+         */
+        getTermAtPosition(x, y) {
+            // Check nodes in reverse order (later drawn = on top)
+            for (let i = this.nodes.length - 1; i >= 0; i--) {
+                const node = this.nodes[i];
+                if (!node.term) continue;
+
+                // Term position relative to node
+                const termX = node.x + node.termOffset.x;
+                const termY = node.y + node.termOffset.y;
+
+                // Measure text width for accurate hit detection
+                this.ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                const textWidth = this.ctx.measureText(node.term).width;
+                const textHeight = 11;
+
+                // Hit box with padding for easier clicking
+                const padding = 10;
+                const left = termX - textWidth / 2 - padding;
+                const right = termX + textWidth / 2 + padding;
+                const top = termY - textHeight / 2 - padding;
+                const bottom = termY + textHeight / 2 + padding;
+
+                if (x >= left && x <= right && y >= top && y <= bottom) {
+                    return node;
+                }
+            }
+
+            // Also check floatingTerms array if present
+            if (this.floatingTerms) {
+                for (let i = this.floatingTerms.length - 1; i >= 0; i--) {
+                    const term = this.floatingTerms[i];
+                    const termX = term.displayX !== undefined ? term.displayX : term.x;
+                    const termY = term.displayY !== undefined ? term.displayY : term.y;
+
+                    this.ctx.font = '12px monospace';
+                    const textWidth = this.ctx.measureText(term.term).width;
+                    const textHeight = 12;
+
+                    const padding = 10;
+                    const left = termX - textWidth / 2 - padding;
+                    const right = termX + textWidth / 2 + padding;
+                    const top = termY - textHeight / 2 - padding;
+                    const bottom = termY + textHeight / 2 + padding;
+
+                    if (x >= left && x <= right && y >= top && y <= bottom) {
+                        return term;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        /**
+         * Handles click events on the canvas to detect term clicks
+         * @param {MouseEvent} e - The click event
+         */
+        handleTermClick(e) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const node = this.getTermAtPosition(x, y);
+            if (node && node.term) {
+                const glossaryUrl = getGlossaryUrl(node.term);
+                if (glossaryUrl) {
+                    window.location.href = glossaryUrl;
+                }
+            }
+        }
+
+        /**
+         * Handles mouse movement to show pointer cursor over clickable terms
+         * @param {MouseEvent} e - The mousemove event
+         */
+        handleTermHover(e) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const node = this.getTermAtPosition(x, y);
+            if (node && node.term && getGlossaryUrl(node.term)) {
+                this.canvas.style.cursor = 'pointer';
+            } else {
+                this.canvas.style.cursor = 'default';
             }
         }
 
@@ -5066,6 +5295,189 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // ==========================================
+    // BADGE LIGHTBOX
+    // Purpose: Display badge information in modal popup
+    // Security: CSP-compliant (no inline handlers)
+    // ==========================================
+
+    // Badge content definitions
+    const BADGE_CONTENT = {
+        ai: {
+            title: 'AI for Everybody',
+            icon: '♿',
+            iconClass: 'badge-lightbox-icon--ai',
+            description: '<span class="badge-lightbox-highlight">Praxis believes AI literacy should be accessible to everyone</span>, regardless of technical background, experience level, or learning style.',
+            features: [
+                'Plain language explanations of complex AI concepts',
+                'Multiple learning pathways for different skill levels',
+                'Free, open-source educational resources',
+                'No prerequisites or technical jargon barriers',
+                'Designed for diverse learning needs and abilities'
+            ]
+        },
+        udl: {
+            title: 'Built With UD/UDL',
+            icon: '📐',
+            iconClass: 'badge-lightbox-icon--udl',
+            description: 'This site follows <span class="badge-lightbox-highlight">Universal Design (UD)</span> and <span class="badge-lightbox-highlight">Universal Design for Learning (UDL)</span> principles to ensure content is accessible and effective for all learners.',
+            features: [
+                'Multiple means of engagement (interactive tools, examples)',
+                'Multiple means of representation (text, visual, structured)',
+                'Multiple means of action and expression',
+                'WCAG AA accessibility compliance',
+                'Keyboard navigation and screen reader support'
+            ]
+        },
+        security: {
+            title: 'Security A+ 100%',
+            icon: '🔒',
+            iconClass: 'badge-lightbox-icon--security',
+            description: 'Praxis maintains the <span class="badge-lightbox-highlight">highest security standards</span> with an A+ rating from security scanners and strict Content Security Policy enforcement.',
+            features: [
+                'Strict Content Security Policy (CSP) headers',
+                'No inline scripts or styles (XSS prevention)',
+                'No external resources or third-party tracking',
+                'All resources loaded from same origin',
+                'Regular security audits and best practices'
+            ]
+        },
+        performance: {
+            title: 'Performance 100%',
+            icon: '⚡',
+            iconClass: 'badge-lightbox-icon--performance',
+            description: 'This site achieves a <span class="badge-lightbox-highlight">perfect 100% Lighthouse performance score</span>, ensuring fast load times and smooth interactions on all devices.',
+            features: [
+                'Optimized CSS and JavaScript delivery',
+                'No render-blocking resources',
+                'Efficient animations using requestAnimationFrame',
+                'Minimal DOM complexity and reflows',
+                'Fast time-to-interactive on mobile and desktop'
+            ]
+        },
+        claude: {
+            title: 'AI Assisted Building',
+            icon: '🤖',
+            iconClass: 'badge-lightbox-icon--claude',
+            description: 'This site was built with assistance from <span class="badge-lightbox-highlight">Claude Code</span>, demonstrating practical AI collaboration in web development.',
+            features: [
+                'AI-assisted code generation and review',
+                'Human oversight and quality control',
+                'Best practices in AI-human collaboration',
+                'Transparent about AI involvement',
+                'Practical example of AI augmenting human work'
+            ]
+        }
+    };
+
+    // Get lightbox elements
+    const lightboxOverlay = document.querySelector('.badge-lightbox-overlay');
+    const lightbox = document.querySelector('.badge-lightbox');
+    const lightboxClose = document.querySelector('.badge-lightbox-close');
+    const lightboxTitle = document.querySelector('.badge-lightbox-title');
+    const lightboxContent = document.querySelector('.badge-lightbox-content');
+
+    // Track the element that opened the lightbox for focus restoration
+    let lastFocusedElement = null;
+
+    /**
+     * Opens the badge lightbox with specified content
+     * @param {string} badgeType - The badge type key (ai, udl, security, performance, claude)
+     */
+    function openBadgeLightbox(badgeType) {
+        const content = BADGE_CONTENT[badgeType];
+        if (!content || !lightbox || !lightboxOverlay) return;
+
+        // Store the currently focused element
+        lastFocusedElement = document.activeElement;
+
+        // Populate lightbox content
+        lightboxTitle.innerHTML = `
+            <span class="badge-lightbox-icon ${content.iconClass}">${content.icon}</span>
+            ${escapeHtml(content.title)}
+        `;
+
+        // Build features list HTML
+        const featuresHtml = content.features
+            .map(feature => `<li>${escapeHtml(feature)}</li>`)
+            .join('');
+
+        lightboxContent.innerHTML = `
+            <p class="badge-lightbox-description">${content.description}</p>
+            <ul class="badge-lightbox-features">${featuresHtml}</ul>
+        `;
+
+        // Show lightbox
+        lightboxOverlay.classList.add('active');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus the close button for accessibility
+        if (lightboxClose) {
+            lightboxClose.focus();
+        }
+    }
+
+    /**
+     * Closes the badge lightbox
+     */
+    function closeBadgeLightbox() {
+        if (!lightbox || !lightboxOverlay) return;
+
+        lightboxOverlay.classList.remove('active');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // Restore focus to the element that opened the lightbox
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+            lastFocusedElement = null;
+        }
+    }
+
+    // Initialize badge lightbox if elements exist
+    if (lightbox && lightboxOverlay) {
+        // Add click handlers to all badges with data-badge-type
+        document.querySelectorAll('.content-badge[data-badge-type]').forEach(badge => {
+            badge.setAttribute('tabindex', '0');
+            badge.setAttribute('role', 'button');
+            badge.setAttribute('aria-haspopup', 'dialog');
+
+            badge.addEventListener('click', () => {
+                const badgeType = badge.dataset.badgeType;
+                openBadgeLightbox(badgeType);
+            });
+
+            badge.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const badgeType = badge.dataset.badgeType;
+                    openBadgeLightbox(badgeType);
+                }
+            });
+        });
+
+        // Close button handler
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeBadgeLightbox);
+        }
+
+        // Close on overlay click
+        lightboxOverlay.addEventListener('click', closeBadgeLightbox);
+
+        // Prevent clicks inside lightbox from closing it
+        lightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeBadgeLightbox();
+            }
+        });
+    }
 
     // ==========================================
     // KEYBOARD SHORTCUTS

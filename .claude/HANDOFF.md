@@ -60,6 +60,26 @@ Content-Security-Policy:
 - Skip links for main content
 - ARIA labels where semantic HTML insufficient
 
+### 4a. Anchor Link Standards (Content Visibility)
+
+**Rule:** Anchor-linked content must always be visible below sticky headers/navigation.
+
+| Context | scroll-margin-top | Use Case |
+|---------|-------------------|----------|
+| Standard pages | `100px` | Header clearance |
+| Glossary/sub-nav pages | `160px` | Header + sticky nav clearance |
+
+**ID Naming Conventions:**
+- `id="letter-X"` - Glossary letter sections (A, B, C...)
+- `id="term-X"` - Glossary term definitions
+- `id="section-X"` - Generic page sections
+
+**CSS Implementation (in styles.css):**
+```css
+:target { scroll-margin-top: 100px; }
+[id^="letter-"], [id^="term-"] { scroll-margin-top: 160px; }
+```
+
 ### 5. Code Notation Standards (NO SURPRISES)
 
 **All code must be well-documented with clear section markers.**
@@ -339,12 +359,18 @@ Key variables used throughout (defined in styles.css):
 
 ## NEXT STEPS (In Order)
 
-1. **Task 1.9:** Badge lightbox popups
+1. **Task 1.9:** Badge lightbox popups ✅ COMPLETED
    - Smoked glass type background
    - Information regarding each badge focus
+   - Added to all 23 HTML pages
 
-2. **Task 1.10:** Animation term glossary links
+2. **Task 1.10:** Animation term glossary links ✅ COMPLETED
    - Link floating AI terms to glossary
+   - Added IDs to all glossary terms (term-ai, term-llm, term-hallucination, etc.)
+   - Created TERM_GLOSSARY_MAP object mapping AI_TERMS to glossary anchors
+   - Added click detection for NeuralNetwork and HeroNeuralBackground classes
+   - Cursor changes to pointer on hover over clickable terms
+   - Click navigates to glossary page with anchor to specific term
 
 3. **Task 1.11:** Acronym card accent styling
    - **Red cards:** Add thicker left-side accent (10% black, cap-style)
@@ -449,7 +475,34 @@ Key variables used throughout (defined in styles.css):
      5. Add to all site-badges-bar sections (22 pages)
      6. Test links on all pages
 
-9. **Phase 2:** Update `prompt-basics.html`
+9. **Task 1.17:** ADL Accessibility Dashboard (Floating)
+   - **Purpose:** User-controlled accommodations for UD/UDL compliance
+   - **Features:**
+     - **Text Size Control:** 1x (default), 2x, 3x scaling for headers, paragraphs, labels, badges
+     - **Contrast Mode:** Toggle between dark-on-light and light-on-dark
+     - **Dimming Control:** Adjustable brightness/dimming for light sensitivity
+   - **UI Design:**
+     - Floating dashboard button (fixed position)
+     - Expandable panel with controls
+     - Persist user preferences (localStorage)
+   - **Files:**
+     - styles.css (dashboard styles + accessibility CSS variables)
+     - app.js (dashboard logic, preference storage)
+     - All HTML files (add dashboard element)
+   - **Plan:**
+     1. Design dashboard UI (floating button + expandable panel)
+     2. Create CSS variables for text scaling (--text-scale: 1/2/3)
+     3. Create CSS for contrast modes (data-contrast="light"|"dark")
+     4. Create CSS for dimming (--dim-level: 0-100%)
+     5. Build JavaScript for toggle controls and localStorage persistence
+     6. Add dashboard HTML to all pages
+     7. Test across all pages and devices
+   - **Accessibility:**
+     - Dashboard itself must be keyboard navigable
+     - ARIA labels for all controls
+     - Preferences remembered across sessions
+
+10. **Phase 2:** Update `prompt-basics.html`
    - Add email example (professional, friendly tone, colleague context)
 
 ---
