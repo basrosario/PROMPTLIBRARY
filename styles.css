@@ -1318,6 +1318,52 @@ p {
     animation: btn-secondary-pulse 0.6s ease-in-out;
 }
 
+/* === DARK GRADIENT ANIMATION ===
+   Subtle animated gradient for dark backgrounds
+   Creates a "living" effect without JavaScript
+   -------------------------------------------- */
+@keyframes darkGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Applied to dark elements for subtle motion */
+.dark-gradient-animated {
+    background: linear-gradient(
+        135deg,
+        #1a1a1a 0%,
+        #252525 25%,
+        #1f1f1f 50%,
+        #2a2a2a 75%,
+        #1a1a1a 100%
+    );
+    background-size: 200% 200%;
+    animation: darkGradientShift 8s ease infinite;
+}
+
+/* Site badges bar - animated dark gradient */
+.site-badges-bar {
+    background: linear-gradient(
+        90deg,
+        #1a1a1a 0%,
+        #242830 25%,
+        #1e232a 50%,
+        #242830 75%,
+        #1a1a1a 100%
+    );
+    background-size: 200% 100%;
+    animation: darkGradientShift 12s ease infinite;
+}
+
+/* Note: Callout tip animations are defined in the CALLOUT section below */
+
 .hero-subtitle {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
@@ -2432,10 +2478,18 @@ p {
    Pattern: Red → White → Black (repeating)
    -------------------------------------------- */
 
-/* Default/Base: Black background (3rd in pattern) */
+/* Default/Base: Black background with animated gradient (3rd in pattern) */
 .callout.tip {
     border-left-color: #DC3545;
-    background: #1a1a1a;
+    background: linear-gradient(
+        135deg,
+        #1a1a1a 0%,
+        #222222 40%,
+        #1e1e1e 60%,
+        #1a1a1a 100%
+    );
+    background-size: 200% 200%;
+    animation: darkGradientShift 10s ease infinite;
     color: #e5e7eb;
 }
 
@@ -2453,9 +2507,11 @@ p {
     font-weight: 700;
 }
 
-/* 1st in pattern (1st, 4th, 7th...): Solid Red */
+/* 1st in pattern (1st, 4th, 7th...): Solid Red - no animation */
 .callout.tip:nth-of-type(3n+1) {
     background: #DC3545;
+    background-size: auto;
+    animation: none;
     border-left-color: #a71d2a;
     color: #ffffff;
 }
@@ -2475,9 +2531,11 @@ p {
     text-decoration-thickness: 2px;
 }
 
-/* 2nd in pattern (2nd, 5th, 8th...): White background */
+/* 2nd in pattern (2nd, 5th, 8th...): White background - no animation */
 .callout.tip:nth-of-type(3n+2) {
     background: #ffffff;
+    background-size: auto;
+    animation: none;
     border-left-color: #DC3545;
     color: #1a1a1a;
 }
@@ -4177,20 +4235,19 @@ p {
 }
 
 /* Info Cards - horizontal scroll on mobile */
+/* Info Cards - grid layout for consistent full-width sizing */
 .info-cards, .score-info-grid, .coverage-grid, .values-grid,
 .safety-principles, .risks-grid, .caution-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    justify-content: flex-start;
 }
 
+/* Legacy flex support for specific layouts that need it */
 .info-cards > *, .score-info-grid > *, .coverage-grid > *, .values-grid > *,
 .safety-principles > *, .risks-grid > *, .caution-grid > * {
-    flex: 1 1 200px;
-    min-width: 150px;
-    max-width: 300px;
+    min-width: 0; /* Prevent grid blowout */
 }
 
 .info-card, .score-info-card, .coverage-card, .value-card,
@@ -5350,9 +5407,8 @@ body.menu-open {
 
 /* Concept Cards (ReAct visual) */
 .concept-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-md);
 }
 
@@ -5361,9 +5417,8 @@ body.menu-open {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
-    text-align: center;
+    text-align: left;
     width: 100%;
-    max-width: 280px;
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
@@ -5729,13 +5784,11 @@ body.menu-open {
    ============================================ */
 @media (min-width: 768px) {
     .concept-cards {
-        flex-direction: row;
-        justify-content: flex-start;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .concept-card {
         width: auto;
-        flex: 0 1 200px;
     }
 
     .loop-steps {
@@ -8125,16 +8178,22 @@ body.menu-open {
         padding: 2px 6px;
     }
 
-    /* Smaller info cards - allow flexible sizing */
+    /* Smaller info cards - 2 columns on mobile */
+    .info-cards,
+    .coverage-grid,
+    .values-grid,
+    .safety-principles,
+    .risks-grid,
+    .caution-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .info-cards > *,
     .coverage-grid > *,
     .values-grid > *,
     .safety-principles > *,
     .risks-grid > *,
     .caution-grid > * {
-        flex: 1 1 45%;
-        min-width: 0;
-        max-width: 100%;
         padding: var(--space-sm);
     }
 

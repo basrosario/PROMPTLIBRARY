@@ -226,7 +226,40 @@ _public_html/
 | Build-step enhancement | ✅ Done | Added shadows, improved hover states |
 | Scenario tabs enhancement | ✅ Done | Card wrapper with border and shadow |
 
-### Latest Session Work (2026-02-01 - Session 7)
+### Latest Session Work (2026-02-01 - Session 8)
+
+**Completed Tasks:**
+- Removed Method Recommender from all pages
+  - Removed from all 24 HTML files (navigation mega-menu and footer)
+  - Removed tool card from tools/index.html
+  - Recommender.html file kept but unlinked
+
+- Task 1.15: Visual consistency audit - content sizing improvements
+  - Updated info-cards, score-info-grid, coverage-grid, values-grid, safety-principles, risks-grid, caution-grid to use CSS Grid instead of flexbox
+  - Removed max-width: 300px constraint allowing cards to fill available space
+  - Updated concept-cards to use CSS Grid (removed max-width: 280px constraint)
+  - All grids now use `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))` for responsive full-width cards
+
+- Applied animated gradient to dark areas site-wide
+  - Added `darkGradientShift` keyframe animation
+  - Applied to site-badges-bar (horizontal gradient, 12s cycle)
+  - Applied to black callout boxes (.callout.tip) with vertical gradient (10s cycle)
+  - Red and white callout variants explicitly disable animation
+  - Creates subtle "living" background effect without JavaScript
+
+- Task 1.19: Site-wide visual continuity audit
+  - Reviewed CSS variable usage for fonts, colors, spacing
+  - Confirmed consistent typographic scale (1rem base, 0.875rem small, standard heading hierarchy)
+  - Verified semantic colors (green success, amber warning, red error) used consistently
+  - No critical inconsistencies found
+
+**Files Modified:**
+- styles.css (CSS Grid for cards, animated gradients for dark areas)
+- tools/index.html (removed Method Recommender card)
+- All 24 HTML files (navigation and footer updates)
+- .claude/HANDOFF.md (documentation update)
+
+### Previous Session Work (2026-02-01 - Session 7)
 
 **Completed Tasks:**
 - Task 1.18: Prompt Analyzer Enhancement - Granular Methodology Scoring
