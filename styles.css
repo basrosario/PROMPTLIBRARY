@@ -3479,7 +3479,7 @@ p {
     flex-wrap: wrap;
     gap: var(--space-md);
     margin-top: var(--space-lg);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .info-cards > *, .score-info-grid > *, .coverage-grid > *, .values-grid > *,
@@ -4200,7 +4200,7 @@ body.menu-open {
 .concept-cards {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-md);
 }
 
@@ -4558,7 +4558,7 @@ body.menu-open {
 @media (min-width: 768px) {
     .concept-cards {
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .concept-card {
