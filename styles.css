@@ -727,7 +727,7 @@ p {
 }
 
 .hero-title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: white;
     line-height: 1.1;
@@ -1806,7 +1806,7 @@ p {
     h2 { font-size: 2rem; }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .hero-subtitle {
@@ -1889,7 +1889,7 @@ p {
     }
 
     .hero-title {
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
 
     .cards-grid {
@@ -4475,7 +4475,7 @@ body.menu-open {
 }
 
 .cta-text {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.92);
     margin-bottom: var(--space-lg);
     max-width: 400px;
     margin-left: auto;
