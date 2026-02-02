@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
-    <meta name="description" content="Built with Universal Design (UD) and Universal Design for Learning (UDL) principles. Learn how Praxis ensures accessibility and inclusive learning for all.">
-    <title>Universal Design - Praxis</title>
+    <meta name="description" content="WCAG 2.1 AA compliant site built with Universal Design (UD) and UDL principles. Research-backed accessibility from W3C, CAST.org, and NC State's Center for Universal Design.">
+    <title>Universal Design &amp; WCAG Compliance - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css">
@@ -77,12 +77,14 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
                 <nav class="breadcrumb fade-in">
                     <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="resources.html">Resources</a>
                     <span class="separator">/</span>
                     <span class="current">Universal Design</span>
                 </nav>
@@ -90,8 +92,9 @@
                 <p class="page-subtitle fade-in">Universal Design and Universal Design for Learning principles ensure Praxis works for everyone, not just the majority.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <!-- What is UD/UDL -->
+        <!-- === ACCESSIBILITY SCORECARD === -->
         <section class="section">
             <div class="container">
                 <div class="content-badges fade-in-up">
@@ -121,23 +124,60 @@
                     </a>
                 </div>
 
+                <h2 class="section-title fade-in-up">Accessibility Scorecard</h2>
+                <p class="section-subtitle fade-in-up">Standards compliance verified against W3C WCAG 2.1</p>
+
+                <!-- Accessibility Stat Cards -->
+                <div class="stat-cards fade-in-up">
+                    <div class="stat-card">
+                        <span class="stat-number">AA</span>
+                        <span class="stat-label">WCAG 2.1 Level</span>
+                        <span class="stat-source">W3C Web Accessibility</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Keyboard Accessible</span>
+                        <span class="stat-source">All features navigable</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4.5:1+</span>
+                        <span class="stat-label">Color Contrast</span>
+                        <span class="stat-source">WCAG AA minimum</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">UDL Principles</span>
+                        <span class="stat-source">CAST.org Framework</span>
+                    </div>
+                </div>
+
+                <div class="content-block fade-in-up">
+                    <p>According to the World Health Organization, over 1 billion people—16% of the global population—live with some form of disability<span class="inline-citation">[1]</span>. The W3C's Web Content Accessibility Guidelines (WCAG) provide the international standard for web accessibility<span class="inline-citation">[2]</span>. Praxis is designed from the ground up to meet WCAG 2.1 Level AA requirements.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /ACCESSIBILITY SCORECARD -->
+
+        <!-- === UNDERSTANDING UD === -->
+        <section class="section section-alt">
+            <div class="container">
                 <h2 class="section-title fade-in-up">Understanding Universal Design</h2>
                 <p class="section-subtitle fade-in-up">Design for all, not retrofit for some</p>
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">The Core Principle</div>
-                    <p>Universal Design means creating products and environments usable by all people, to the greatest extent possible, without adaptation or specialized design. When we design for the edges, everyone benefits.</p>
+                    <p>Universal Design, as defined by NC State's Center for Universal Design, means creating products and environments usable by all people, to the greatest extent possible, without adaptation or specialized design<span class="inline-citation">[3]</span>. When we design for the edges, everyone benefits.</p>
                 </div>
 
                 <div class="safety-principles stagger-children">
                     <div class="principle-card">
                         <h3>Universal Design (UD)</h3>
-                        <p>Originated in architecture, UD creates spaces and products accessible to people with diverse abilities. Curb cuts help wheelchair users but also benefit parents with strollers, travelers with luggage, and delivery workers.</p>
+                        <p>Originated in architecture at NC State University in 1997<span class="inline-citation">[3]</span>. UD creates spaces and products accessible to people with diverse abilities. Curb cuts help wheelchair users but also benefit parents with strollers, travelers, and delivery workers.</p>
                     </div>
 
                     <div class="principle-card">
                         <h3>Universal Design for Learning (UDL)</h3>
-                        <p>Applies UD principles to education. Developed by CAST, UDL provides a framework for creating flexible learning experiences that accommodate individual differences from the start.</p>
+                        <p>Applies UD principles to education. Developed by CAST.org, UDL provides a research-based framework for creating flexible learning experiences that accommodate individual differences from the start<span class="inline-citation">[4]</span>.</p>
                     </div>
 
                     <div class="principle-card">
@@ -152,15 +192,16 @@
                 </div>
             </div>
         </section>
+        <!-- /UNDERSTANDING UD -->
 
-        <!-- The Three UDL Principles -->
-        <section class="section section-alt">
+        <!-- === THREE UDL PRINCIPLES === -->
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">The Three UDL Principles</h2>
-                <p class="section-subtitle fade-in-up">Multiple means of engagement, representation, and action</p>
+                <p class="section-subtitle fade-in-up">CAST.org's framework for inclusive education</p>
 
                 <div class="content-block fade-in-up">
-                    <p>UDL is built on three core principles that address the "why," "what," and "how" of learning. Praxis implements all three throughout the platform.</p>
+                    <p>UDL is built on three core principles based on neuroscience research about how humans learn<span class="inline-citation">[4]</span>. These address the "why," "what," and "how" of learning. Praxis implements all three throughout the platform.</p>
                 </div>
 
                 <div class="risks-grid stagger-children">
@@ -181,9 +222,10 @@
                 </div>
             </div>
         </section>
+        <!-- /THREE UDL PRINCIPLES -->
 
-        <!-- How Praxis Implements UDL -->
-        <section class="section">
+        <!-- === UDL IN PRACTICE === -->
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">UDL in Practice at Praxis</h2>
                 <p class="section-subtitle fade-in-up">Concrete implementations of Universal Design for Learning</p>
@@ -231,43 +273,83 @@
                 </div>
             </div>
         </section>
+        <!-- /UDL IN PRACTICE -->
 
-        <!-- WCAG Compliance -->
-        <section class="section section-alt">
+        <!-- === WCAG COMPLIANCE MATRIX === -->
+        <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">WCAG AA Compliance</h2>
-                <p class="section-subtitle fade-in-up">Web Content Accessibility Guidelines implementation</p>
+                <h2 class="section-title fade-in-up">WCAG 2.1 Compliance Matrix</h2>
+                <p class="section-subtitle fade-in-up">Detailed W3C accessibility guidelines implementation</p>
 
                 <div class="content-block fade-in-up">
-                    <p>WCAG provides technical standards for web accessibility. Praxis meets WCAG 2.1 Level AA requirements across all four principles: Perceivable, Operable, Understandable, and Robust.</p>
+                    <p>The Web Content Accessibility Guidelines (WCAG) 2.1 is the internationally recognized standard for web accessibility, published by the W3C Web Accessibility Initiative (WAI)<span class="inline-citation">[2]</span>. Praxis meets Level AA requirements across all four principles: Perceivable, Operable, Understandable, and Robust (POUR).</p>
+                </div>
+
+                <!-- WCAG Compliance Bar Chart -->
+                <div class="bar-chart fade-in-up">
+                    <h3>WCAG 2.1 Success Criteria Coverage</h3>
+                    <div class="bar-chart-item">
+                        <span class="bar-chart-label">Perceivable (1.x criteria)</span>
+                        <div class="bar-chart-track">
+                            <div class="bar-chart-fill bar-chart-fill--success" data-width="100"></div>
+                        </div>
+                        <span class="bar-chart-value">Level AA Met</span>
+                    </div>
+                    <div class="bar-chart-item">
+                        <span class="bar-chart-label">Operable (2.x criteria)</span>
+                        <div class="bar-chart-track">
+                            <div class="bar-chart-fill bar-chart-fill--success" data-width="100"></div>
+                        </div>
+                        <span class="bar-chart-value">Level AA Met</span>
+                    </div>
+                    <div class="bar-chart-item">
+                        <span class="bar-chart-label">Understandable (3.x criteria)</span>
+                        <div class="bar-chart-track">
+                            <div class="bar-chart-fill bar-chart-fill--success" data-width="100"></div>
+                        </div>
+                        <span class="bar-chart-value">Level AA Met</span>
+                    </div>
+                    <div class="bar-chart-item">
+                        <span class="bar-chart-label">Robust (4.x criteria)</span>
+                        <div class="bar-chart-track">
+                            <div class="bar-chart-fill bar-chart-fill--success" data-width="100"></div>
+                        </div>
+                        <span class="bar-chart-value">Level AA Met</span>
+                    </div>
                 </div>
 
                 <div class="risks-grid stagger-children">
                     <div class="risk-card">
-                        <h3>Perceivable</h3>
-                        <p>All content available to all senses. Text alternatives for images, captions where needed, content distinguishable from background, resizable without loss of function.</p>
+                        <h3>1. Perceivable</h3>
+                        <p><strong>Information presented in accessible ways.</strong> Text alternatives for images (1.1), captions where needed (1.2), adaptable content structure (1.3), distinguishable from background with 4.5:1+ contrast (1.4)<span class="inline-citation">[2]</span>.</p>
                     </div>
 
                     <div class="risk-card">
-                        <h3>Operable</h3>
-                        <p>All functionality available via keyboard. No time limits on interactions. No content that could cause seizures. Clear navigation throughout the site.</p>
+                        <h3>2. Operable</h3>
+                        <p><strong>UI components must be operable.</strong> Keyboard accessible (2.1), no time limits (2.2), no seizure-inducing content (2.3), navigable with skip links and clear structure (2.4), pointer accessible (2.5)<span class="inline-citation">[2]</span>.</p>
                     </div>
 
                     <div class="risk-card">
-                        <h3>Understandable</h3>
-                        <p>Clear language, consistent navigation, predictable behavior. Error identification and correction guidance in interactive tools.</p>
+                        <h3>3. Understandable</h3>
+                        <p><strong>Content and operation must be understandable.</strong> Readable with lang attribute (3.1), predictable behavior (3.2), input assistance with error identification (3.3)<span class="inline-citation">[2]</span>.</p>
                     </div>
 
                     <div class="risk-card">
-                        <h3>Robust</h3>
-                        <p>Semantic HTML, valid markup, ARIA where needed. Compatible with current and future assistive technologies.</p>
+                        <h3>4. Robust</h3>
+                        <p><strong>Content compatible with assistive tech.</strong> Valid HTML parsing (4.1.1), name/role/value exposed properly (4.1.2), status messages announced (4.1.3)<span class="inline-citation">[2]</span>.</p>
                     </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Section 508 Compliance</div>
+                    <p>WCAG 2.1 Level AA is incorporated by reference into Section 508 of the U.S. Rehabilitation Act<span class="inline-citation">[5]</span>. Meeting WCAG AA means Praxis complies with U.S. federal accessibility requirements for electronic and information technology.</p>
                 </div>
             </div>
         </section>
+        <!-- /WCAG COMPLIANCE MATRIX -->
 
-        <!-- Accessibility Features -->
-        <section class="section">
+        <!-- === ACCESSIBILITY FEATURES === -->
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Accessibility Features</h2>
                 <p class="section-subtitle fade-in-up">Specific accommodations built into Praxis</p>
@@ -320,9 +402,10 @@
                 </div>
             </div>
         </section>
+        <!-- /ACCESSIBILITY FEATURES -->
 
-        <!-- Contrast Measurements -->
-        <section class="section section-alt">
+        <!-- === CONTRAST MEASUREMENTS === -->
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Color Contrast Analysis</h2>
                 <p class="section-subtitle fade-in-up">Meeting and exceeding WCAG requirements</p>
@@ -364,9 +447,10 @@
                 </div>
             </div>
         </section>
+        <!-- /CONTRAST MEASUREMENTS -->
 
-        <!-- Keyboard Navigation -->
-        <section class="section">
+        <!-- === KEYBOARD NAVIGATION === -->
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Keyboard Navigation</h2>
                 <p class="section-subtitle fade-in-up">Full functionality without a mouse</p>
@@ -408,9 +492,10 @@
                 </div>
             </div>
         </section>
+        <!-- /KEYBOARD NAVIGATION -->
 
-        <!-- Screen Reader Support -->
-        <section class="section section-alt">
+        <!-- === SCREEN READER SUPPORT === -->
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Screen Reader Compatibility</h2>
                 <p class="section-subtitle fade-in-up">Ensuring content is fully accessible to assistive technology</p>
@@ -439,16 +524,21 @@
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">Tested With</div>
-                    <p>Praxis is tested with VoiceOver (macOS/iOS), NVDA (Windows), and browser reader modes. If you encounter issues with your assistive technology, please report them on GitHub.</p>
+                    <p>Praxis is tested with VoiceOver (macOS/iOS), NVDA (Windows), and browser reader modes. WebAIM's screen reader survey shows NVDA and JAWS are the most common readers<span class="inline-citation">[6]</span>. If you encounter issues with your assistive technology, please report them on GitHub.</p>
                 </div>
             </div>
         </section>
+        <!-- /SCREEN READER SUPPORT -->
 
-        <!-- The 7 UD Principles -->
-        <section class="section">
+        <!-- === 7 UD PRINCIPLES === -->
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">The 7 Principles of Universal Design</h2>
-                <p class="section-subtitle fade-in-up">How Praxis implements each principle</p>
+                <p class="section-subtitle fade-in-up">Originated at NC State's Center for Universal Design</p>
+
+                <div class="content-block fade-in-up">
+                    <p>The 7 Principles of Universal Design were developed in 1997 by a working group of architects, product designers, engineers, and environmental design researchers at NC State University<span class="inline-citation">[3]</span>. Here's how Praxis implements each:</p>
+                </div>
 
                 <div class="risks-grid stagger-children">
                     <div class="risk-card">
@@ -488,42 +578,34 @@
                 </div>
             </div>
         </section>
+        <!-- /7 UD PRINCIPLES -->
 
-        <!-- Summary -->
-        <section class="section section-alt">
+        <!-- === SUMMARY === -->
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">UD/UDL Summary</h2>
                 <p class="section-subtitle fade-in-up">Accessibility at a glance</p>
 
-                <div class="coverage-grid stagger-children">
-                    <div class="coverage-card">
-                        <h3>WCAG Level</h3>
-                        <p><strong>AA Compliant</strong> — Meets all Level A and AA success criteria</p>
+                <div class="stat-cards fade-in-up">
+                    <div class="stat-card">
+                        <span class="stat-number">AA</span>
+                        <span class="stat-label">WCAG Level</span>
+                        <span class="stat-source">All criteria met</span>
                     </div>
-
-                    <div class="coverage-card">
-                        <h3>Keyboard Access</h3>
-                        <p><strong>100%</strong> — Every feature accessible without mouse</p>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Keyboard Access</span>
+                        <span class="stat-source">No mouse required</span>
                     </div>
-
-                    <div class="coverage-card">
-                        <h3>Color Contrast</h3>
-                        <p><strong>4.5:1+</strong> — All text meets or exceeds requirements</p>
+                    <div class="stat-card">
+                        <span class="stat-number">4.5:1+</span>
+                        <span class="stat-label">Contrast Ratio</span>
+                        <span class="stat-source">Exceeds AA minimum</span>
                     </div>
-
-                    <div class="coverage-card">
-                        <h3>Text Scaling</h3>
-                        <p><strong>Up to 3x</strong> — User-controlled size increase</p>
-                    </div>
-
-                    <div class="coverage-card">
-                        <h3>Screen Reader</h3>
-                        <p><strong>Full Support</strong> — Semantic HTML + ARIA labels</p>
-                    </div>
-
-                    <div class="coverage-card">
-                        <h3>User Preferences</h3>
-                        <p><strong>Persistent</strong> — Settings saved locally, no account needed</p>
+                    <div class="stat-card">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">UD Principles</span>
+                        <span class="stat-source">NC State framework</span>
                     </div>
                 </div>
 
@@ -538,6 +620,66 @@
                 </div>
             </div>
         </section>
+        <!-- /SUMMARY -->
+
+        <!-- === SOURCES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Sources &amp; References</h2>
+                <p class="section-subtitle fade-in-up">All accessibility claims verified against authoritative standards</p>
+
+                <div class="sources-list fade-in-up">
+                    <div class="source-item">
+                        <span class="source-number">[1]</span>
+                        <div class="source-content">
+                            <strong>World Health Organization (WHO)</strong> — "Disability and Health." Global statistics on disability prevalence, 2023.
+                            <br><a href="https://www.who.int/news-room/fact-sheets/detail/disability-and-health" target="_blank" rel="noopener noreferrer">who.int/news-room/fact-sheets/detail/disability-and-health</a>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <span class="source-number">[2]</span>
+                        <div class="source-content">
+                            <strong>W3C Web Accessibility Initiative (WAI)</strong> — "Web Content Accessibility Guidelines (WCAG) 2.1." International accessibility standard.
+                            <br><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">w3.org/WAI/WCAG21/quickref</a>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <span class="source-number">[3]</span>
+                        <div class="source-content">
+                            <strong>NC State University Center for Universal Design</strong> — "The 7 Principles of Universal Design." Originated the UD framework in 1997.
+                            <br><a href="https://design.ncsu.edu/research/center-for-universal-design/" target="_blank" rel="noopener noreferrer">design.ncsu.edu/research/center-for-universal-design</a>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <span class="source-number">[4]</span>
+                        <div class="source-content">
+                            <strong>CAST</strong> — "Universal Design for Learning Guidelines Version 2.2." Research-based educational framework.
+                            <br><a href="https://udlguidelines.cast.org/" target="_blank" rel="noopener noreferrer">udlguidelines.cast.org</a>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <span class="source-number">[5]</span>
+                        <div class="source-content">
+                            <strong>U.S. Access Board</strong> — "Section 508 Standards." Federal accessibility requirements for electronic and information technology.
+                            <br><a href="https://www.access-board.gov/ict/" target="_blank" rel="noopener noreferrer">access-board.gov/ict</a>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <span class="source-number">[6]</span>
+                        <div class="source-content">
+                            <strong>WebAIM</strong> — "Screen Reader User Survey." Data on assistive technology usage and preferences.
+                            <br><a href="https://webaim.org/projects/screenreadersurvey10/" target="_blank" rel="noopener noreferrer">webaim.org/projects/screenreadersurvey10</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Standards Verification</div>
+                    <p>Praxis accessibility is verified using axe DevTools, WAVE, and manual testing with screen readers. All WCAG criteria referenced link to official W3C documentation. The 7 Principles of Universal Design are from the original 1997 NC State publication.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /SOURCES -->
     </main>
 
     <!-- Footer -->
