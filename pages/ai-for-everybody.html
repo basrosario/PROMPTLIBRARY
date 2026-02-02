@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <meta name="description" content="AI for Everybody - Praxis's commitment to making AI education accessible to all learners regardless of background, ability, or experience level.">
+    <title>AI for Everybody - Praxis</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <div class="nav-item has-dropdown">
+                    <a href="../learn/index.html" class="nav-link">Learn</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Methodologies</h4>
+                            <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                            <a href="../learn/crisp.html">CRISP Method</a>
+                            <a href="../learn/crispe.html">CRISPE Method</a>
+                            <a href="../learn/costar.html">COSTAR Method</a>
+                            <a href="../learn/react.html">ReAct Method</a>
+                            <a href="../learn/flipped-interaction.html">Flipped Interaction Method</a>
+                            <a href="../learn/advanced.html">Advanced Techniques</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../tools/index.html" class="nav-link">AI Readiness</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Tools</h4>
+                            <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                            <a href="../tools/guidance.html">Prompt Builder</a>
+                            <a href="../tools/matcher.html">Method Matcher</a>
+                            <a href="../tools/checklist.html">Preflight Checklist</a>
+                            <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                            <a href="ai-safety.html">AI Safety</a>
+                            <a href="../quiz/index.html">Readiness Quiz</a>
+                            <a href="../patterns/index.html">Patterns Library</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="chatgpt-guide.html" class="nav-link active">Resources</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Explore</h4>
+                            <a href="chatgpt-guide.html">ChatGPT Guide</a>
+                            <a href="replit-guide.html">Replit Guide</a>
+                            <a href="ide-guide.html">IDE Guide</a>
+                            <a href="faq.html">FAQ</a>
+                            <a href="glossary.html">Glossary</a>
+                            <a href="security.html">Security</a>
+                            <a href="about.html">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">AI for Everybody</span>
+                </nav>
+                <h1 class="page-title fade-in">AI for Everybody</h1>
+                <p class="page-subtitle fade-in">True AI innovation means empowering people of all backgrounds to unlock their potential through accessible, inclusive education.</p>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="section">
+            <div class="container">
+                <div class="content-badges fade-in-up">
+                    <span class="content-badge content-badge--ai" data-badge-type="ai">
+                        <span class="badge-label">AI for</span>
+                        <span class="badge-value">Everybody</span>
+                    </span>
+                    <span class="content-badge content-badge--udl" data-badge-type="udl">
+                        <span class="badge-label">Built With</span>
+                        <span class="badge-value">UD/UDL</span>
+                    </span>
+                    <span class="content-badge content-badge--security" data-badge-type="security">
+                        <span class="badge-label">Security</span>
+                        <span class="badge-value">A+ 100%</span>
+                    </span>
+                    <span class="content-badge content-badge--performance" data-badge-type="performance">
+                        <span class="badge-label">Performance</span>
+                        <span class="badge-value">100%</span>
+                    </span>
+                    <span class="content-badge content-badge--claude" data-badge-type="claude">
+                        <span class="badge-label">AI Assisted Building</span>
+                        <span class="badge-value">Claude Code</span>
+                    </span>
+                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+                        <span class="badge-label">Community</span>
+                        <span class="badge-value">GitHub</span>
+                    </a>
+                </div>
+
+                <h2 class="section-title fade-in-up">Our Philosophy</h2>
+                <p class="section-subtitle fade-in-up">Democratizing AI knowledge for everyone</p>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">The Vision</div>
+                    <p>"True innovation in AI isn't just about companies adopting AI as a new technology—it's about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential." — Bas</p>
+                </div>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>No Prerequisites Required</h3>
+                        <p>You don't need a computer science degree or technical background. Praxis starts from first principles and builds understanding step by step. If you can have a conversation, you can learn to prompt effectively.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Free and Open</h3>
+                        <p>All content is completely free. No paywalls, no premium tiers, no email gates. Knowledge about AI should be accessible to everyone, regardless of economic circumstances.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Multiple Learning Paths</h3>
+                        <p>Visual learners can explore interactive cards. Readers can dive into detailed explanations. Practical learners can use hands-on tools. Everyone finds their own path to understanding.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Real-World Focus</h3>
+                        <p>Every concept is grounded in practical application. Whether you're a student, professional, creative, or curious explorer—you'll find relevant examples that connect to your world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who This Is For -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Who Praxis Serves</h2>
+                <p class="section-subtitle fade-in-up">AI literacy for every background and skill level</p>
+
+                <div class="content-block fade-in-up">
+                    <p>AI isn't just for tech companies and developers. It's becoming an essential skill across every profession and walk of life. Praxis is designed to meet you where you are.</p>
+                </div>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>Complete Beginners</h3>
+                        <p>Never used ChatGPT or any AI? Start with Prompt Basics. We explain what AI is, how it works conceptually, and guide your first interactions step by step.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Casual Users</h3>
+                        <p>Already chatting with AI but want better results? Learn structured methodologies like CRISP and COSTAR to transform vague outputs into exactly what you need.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Professionals</h3>
+                        <p>Using AI at work and need to level up? Master advanced techniques like Chain-of-Thought, Few-Shot learning, and ReAct for complex professional tasks.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Educators</h3>
+                        <p>Teaching others about AI? Praxis provides frameworks, examples, and tools you can use directly in your curriculum. All content is freely available for educational use.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Developers</h3>
+                        <p>Building with AI APIs? The IDE Guide and advanced patterns cover integrating AI into development workflows with tools like Cursor, VS Code, and Claude Code.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Curious Minds</h3>
+                        <p>Just want to understand what all the AI hype is about? Browse the Glossary with 190+ terms, explore FAQs, and satisfy your curiosity without pressure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breaking Barriers -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Breaking Down Barriers</h2>
+                <p class="section-subtitle fade-in-up">Addressing common obstacles to AI adoption</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Many people feel excluded from AI. They think it's "not for them" or that they're "not technical enough." We designed Praxis specifically to demolish these barriers.</p>
+                </div>
+
+                <div class="risks-grid stagger-children">
+                    <div class="risk-card">
+                        <h3>"I'm Not Technical"</h3>
+                        <p><strong>Reality:</strong> You don't need to be. AI tools like ChatGPT and Claude understand natural language—the same language you use every day. If you can explain what you want to a colleague, you can explain it to AI.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>"It's Too Complicated"</h3>
+                        <p><strong>Reality:</strong> We break everything into digestible pieces. The CRISP method has just 5 components. You can learn effective prompting in the time it takes to watch a TV episode.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>"I'm Too Old"</h3>
+                        <p><strong>Reality:</strong> Age is irrelevant. AI tools require wisdom and life experience to use well. Your decades of knowledge are an asset, not a limitation. Clear thinking beats technical skills.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>"I'll Break Something"</h3>
+                        <p><strong>Reality:</strong> You can't break AI by prompting it incorrectly. The worst that happens is an unhelpful response. Experiment freely—that's how learning happens.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>"I Can't Afford It"</h3>
+                        <p><strong>Reality:</strong> Praxis is 100% free. Many AI tools have free tiers. You can start learning and practicing without spending anything.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>"I Don't Have Time"</h3>
+                        <p><strong>Reality:</strong> Our tools are designed for busy people. The Method Matcher takes 30 seconds. The Prompt Analyzer gives instant feedback. Learn in moments, not hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Principles -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Our Learning Principles</h2>
+                <p class="section-subtitle fade-in-up">How we make complex concepts accessible</p>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>Plain Language First</h3>
+                        <p>No jargon without explanation. Every technical term is defined in context. The glossary provides instant lookups for any unfamiliar concept.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Show, Don't Just Tell</h3>
+                        <p>Every concept includes concrete examples. See bad prompts transformed into good ones. Watch methodologies applied to real scenarios.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Progressive Complexity</h3>
+                        <p>Start simple, add depth gradually. Prompt Basics → CRISP → CRISPE → COSTAR → Advanced Techniques. Each level builds on the last.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Practice Over Theory</h3>
+                        <p>Interactive tools let you apply concepts immediately. Analyze your own prompts, build new ones, match methods to your tasks.</p>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Learn by Doing</div>
+                    <p>The best way to learn prompting is to practice. Use our tools to experiment, make mistakes, and improve. There's no penalty for trying—every attempt teaches you something.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stats -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">What You'll Find</h2>
+                <p class="section-subtitle fade-in-up">Comprehensive resources for every stage of your AI journey</p>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>6 Methodologies</h3>
+                        <p>From basic prompting to advanced techniques like ReAct and Flipped Interaction. Each methodology includes when to use it, how it works, and complete examples.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>6 Interactive Tools</h3>
+                        <p>Prompt Analyzer, Builder, Method Matcher, Preflight Checklist, Hallucination Spotter, and Readiness Quiz. Practice and refine your skills hands-on.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>190+ Glossary Terms</h3>
+                        <p>Comprehensive A-Z coverage of AI concepts, from AGI to Zero-Shot Learning. Look up any term you encounter in your AI journey.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>9 Prompt Patterns</h3>
+                        <p>Reusable patterns for common tasks. Copy, adapt, and use immediately in your own work.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>40-Question Quiz</h3>
+                        <p>Test your knowledge across 4 levels: Good, Pro, Expert, and Master. See where you stand and what to learn next.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>3 Platform Guides</h3>
+                        <p>Specific guidance for ChatGPT, Replit, and AI-powered IDEs. Learn the nuances of each platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Commitment -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Accessibility Commitment</h2>
+                <p class="section-subtitle fade-in-up">Built for all abilities and preferences</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Making AI accessible means making Praxis itself accessible. We've implemented comprehensive accommodations to ensure everyone can use this resource effectively.</p>
+                </div>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>Visual Accessibility</h3>
+                        <p>High contrast mode, adjustable text sizes (1x, 2x, 3x), screen dimming controls. WCAG AA compliant color contrast throughout.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Keyboard Navigation</h3>
+                        <p>Every feature accessible via keyboard. Skip links, logical tab order, visible focus indicators. No mouse required.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Screen Reader Support</h3>
+                        <p>Semantic HTML, ARIA labels, proper heading hierarchy. Tested with common screen readers to ensure full content access.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>User Preferences</h3>
+                        <p>Settings persist in localStorage on your device. Your accommodations stay active across sessions without accounts or tracking.</p>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Accessibility Panel</div>
+                    <p>Click the accessibility icon (person in circle) in the bottom-right corner to access text scaling, high contrast mode, and screen dimming controls. Your preferences are saved automatically.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Movement -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Join the Movement</h2>
+                <p class="section-subtitle fade-in-up">AI literacy is a shared mission</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Praxis is open source. We believe AI education should be collaborative, transparent, and community-driven. Here's how you can participate:</p>
+                </div>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>Learn and Share</h3>
+                        <p>Use Praxis to improve your own AI skills, then share what you learn with others. Teaching reinforces learning.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Contribute</h3>
+                        <p>Found an error? Have a suggestion? The GitHub repository welcomes contributions. Every improvement helps everyone.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Spread the Word</h3>
+                        <p>Know someone intimidated by AI? Share Praxis with them. The more people who understand AI, the better our collective future.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Give Feedback</h3>
+                        <p>Your experience matters. What's confusing? What's helpful? Feedback shapes future improvements.</p>
+                    </div>
+                </div>
+
+                <div class="cta-card fade-in-up">
+                    <canvas id="cta-neural-bg" class="neural-canvas-secondary"></canvas>
+                    <h2 class="cta-title">Start Your Journey</h2>
+                    <p class="cta-text">AI is for everybody—including you. Begin with the basics and progress at your own pace.</p>
+                    <div class="cta-actions">
+                        <a href="../learn/prompt-basics.html" class="btn btn-primary">Start Learning</a>
+                        <a href="../tools/analyzer.html" class="btn btn-secondary">Try the Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the Art of AI Communication theory through proven methodologies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/crispe.html">CRISPE Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/react.html">ReAct Method</a>
+                    <a href="../learn/flipped-interaction.html">Flipped Interaction</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                    <a href="../tools/guidance.html">Prompt Builder</a>
+                    <a href="../tools/matcher.html">Method Matcher</a>
+                    <a href="../tools/checklist.html">Preflight Checklist</a>
+                    <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="ai-safety.html">AI Safety</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="chatgpt-guide.html">ChatGPT Guide</a>
+                    <a href="replit-guide.html">Replit Guide</a>
+                    <a href="ide-guide.html">IDE Guide</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="glossary.html">Glossary</a>
+                    <a href="security.html">Security</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+                <p class="footer-quote">"True innovation in AI isn't just about companies adopting AI as a new technology—it's about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential." <span class="footer-quote-author">— Bas</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Site Badges Bar -->
+    <div class="site-badges-bar">
+        <span class="content-badge content-badge--ai" data-badge-type="ai">
+            <span class="badge-label">AI for</span>
+            <span class="badge-value">Everybody</span>
+        </span>
+        <span class="content-badge content-badge--udl" data-badge-type="udl">
+            <span class="badge-label">Built With</span>
+            <span class="badge-value">UD/UDL</span>
+        </span>
+        <span class="content-badge content-badge--security" data-badge-type="security">
+            <span class="badge-label">Security</span>
+            <span class="badge-value">A+ 100%</span>
+        </span>
+        <span class="content-badge content-badge--performance" data-badge-type="performance">
+            <span class="badge-label">Performance</span>
+            <span class="badge-value">100%</span>
+        </span>
+        <span class="content-badge content-badge--claude" data-badge-type="claude">
+            <span class="badge-label">AI Assisted Building</span>
+            <span class="badge-value">Claude Code</span>
+        </span>
+        <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+            <span class="badge-label">Community</span>
+            <span class="badge-value">GitHub</span>
+        </a>
+    </div>
+
+    <!-- Badge Lightbox -->
+    <div class="badge-lightbox-overlay" aria-hidden="true"></div>
+    <div class="badge-lightbox" role="dialog" aria-modal="true" aria-labelledby="badge-lightbox-title">
+        <header class="badge-lightbox-header">
+            <h2 class="badge-lightbox-title" id="badge-lightbox-title"></h2>
+            <button class="badge-lightbox-close" aria-label="Close dialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </header>
+        <div class="badge-lightbox-content"></div>
+    </div>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <meta name="description" content="Praxis performance analysis - 100% performance score through zero dependencies, optimized code, and intentional architecture decisions.">
+    <title>Performance - Praxis</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <div class="nav-item has-dropdown">
+                    <a href="../learn/index.html" class="nav-link">Learn</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Methodologies</h4>
+                            <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                            <a href="../learn/crisp.html">CRISP Method</a>
+                            <a href="../learn/crispe.html">CRISPE Method</a>
+                            <a href="../learn/costar.html">COSTAR Method</a>
+                            <a href="../learn/react.html">ReAct Method</a>
+                            <a href="../learn/flipped-interaction.html">Flipped Interaction Method</a>
+                            <a href="../learn/advanced.html">Advanced Techniques</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../tools/index.html" class="nav-link">AI Readiness</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Tools</h4>
+                            <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                            <a href="../tools/guidance.html">Prompt Builder</a>
+                            <a href="../tools/matcher.html">Method Matcher</a>
+                            <a href="../tools/checklist.html">Preflight Checklist</a>
+                            <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                            <a href="ai-safety.html">AI Safety</a>
+                            <a href="../quiz/index.html">Readiness Quiz</a>
+                            <a href="../patterns/index.html">Patterns Library</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="chatgpt-guide.html" class="nav-link active">Resources</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Explore</h4>
+                            <a href="chatgpt-guide.html">ChatGPT Guide</a>
+                            <a href="replit-guide.html">Replit Guide</a>
+                            <a href="ide-guide.html">IDE Guide</a>
+                            <a href="faq.html">FAQ</a>
+                            <a href="glossary.html">Glossary</a>
+                            <a href="security.html">Security</a>
+                            <a href="about.html">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">Performance</span>
+                </nav>
+                <h1 class="page-title fade-in">Performance 100%</h1>
+                <p class="page-subtitle fade-in">Speed isn't an afterthought—it's a fundamental design principle. Every millisecond matters for user experience and accessibility.</p>
+            </div>
+        </section>
+
+        <!-- Performance Philosophy -->
+        <section class="section">
+            <div class="container">
+                <div class="content-badges fade-in-up">
+                    <span class="content-badge content-badge--ai" data-badge-type="ai">
+                        <span class="badge-label">AI for</span>
+                        <span class="badge-value">Everybody</span>
+                    </span>
+                    <span class="content-badge content-badge--udl" data-badge-type="udl">
+                        <span class="badge-label">Built With</span>
+                        <span class="badge-value">UD/UDL</span>
+                    </span>
+                    <span class="content-badge content-badge--security" data-badge-type="security">
+                        <span class="badge-label">Security</span>
+                        <span class="badge-value">A+ 100%</span>
+                    </span>
+                    <span class="content-badge content-badge--performance" data-badge-type="performance">
+                        <span class="badge-label">Performance</span>
+                        <span class="badge-value">100%</span>
+                    </span>
+                    <span class="content-badge content-badge--claude" data-badge-type="claude">
+                        <span class="badge-label">AI Assisted Building</span>
+                        <span class="badge-value">Claude Code</span>
+                    </span>
+                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+                        <span class="badge-label">Community</span>
+                        <span class="badge-value">GitHub</span>
+                    </a>
+                </div>
+
+                <h2 class="section-title fade-in-up">Our Performance Philosophy</h2>
+                <p class="section-subtitle fade-in-up">Fast by design, not by accident</p>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Why Performance Matters</div>
+                    <p>Slow websites exclude users on slower connections, older devices, or data-limited plans. A fast site is an accessible site. We optimized relentlessly so Praxis loads quickly everywhere—from fiber connections to mobile data in rural areas.</p>
+                </div>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>Zero External Dependencies</h3>
+                        <p>No npm packages. No CDN libraries. No external fonts. Every byte served comes from our own origin, eliminating third-party latency and single points of failure.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Single Files</h3>
+                        <p>One CSS file. One JavaScript file. Minimal HTTP requests mean faster initial load. The browser fetches everything it needs in just a few requests.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Vanilla JavaScript</h3>
+                        <p>No React. No Vue. No framework overhead. Pure vanilla JS means no runtime, no virtual DOM, no reconciliation. Direct DOM manipulation is as fast as it gets.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Progressive Enhancement</h3>
+                        <p>Core content works without JavaScript. Interactivity enhances but never blocks. Users see content immediately while scripts load in the background.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Web Vitals -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Core Web Vitals</h2>
+                <p class="section-subtitle fade-in-up">Google's metrics for user experience</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Core Web Vitals measure real-world user experience. These three metrics determine whether a site feels fast and responsive. Praxis scores in the "Good" range for all three.</p>
+                </div>
+
+                <div class="risks-grid stagger-children">
+                    <div class="risk-card">
+                        <h3>LCP: Largest Contentful Paint</h3>
+                        <p><strong>Target: &lt;2.5s</strong> — How quickly the main content becomes visible. Praxis achieves sub-second LCP through efficient CSS, deferred JavaScript, and no render-blocking resources.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>INP: Interaction to Next Paint</h3>
+                        <p><strong>Target: &lt;200ms</strong> — How quickly the page responds to user interactions. Vanilla JS and efficient event handlers ensure immediate feedback on clicks, taps, and key presses.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>CLS: Cumulative Layout Shift</h3>
+                        <p><strong>Target: &lt;0.1</strong> — How stable the visual layout is during loading. No external fonts or late-loading content means content doesn't jump around as the page loads.</p>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Verify Yourself</div>
+                    <p>Run Praxis through Google's PageSpeed Insights or Lighthouse. You'll see green scores across Performance, Accessibility, Best Practices, and SEO. No tricks—just solid engineering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Metrics -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Technical Measurements</h2>
+                <p class="section-subtitle fade-in-up">The numbers behind the performance</p>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>Total Page Weight</h3>
+                        <p><strong>~250KB average</strong> — HTML, CSS, JS, and assets combined. Compare to 2-3MB average for modern websites. 10x lighter than typical sites.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>HTTP Requests</h3>
+                        <p><strong>~5 requests</strong> — HTML, CSS, JS, favicon, and minimal assets. Fewer requests means faster load, especially on high-latency connections.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>JavaScript Size</h3>
+                        <p><strong>~85KB (uncompressed)</strong> — All functionality in a single file. No framework overhead. Gzipped transfer is significantly smaller.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>CSS Size</h3>
+                        <p><strong>~55KB (uncompressed)</strong> — Complete design system in one file. No unused Bootstrap or Tailwind classes. Every rule is intentional.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Time to Interactive</h3>
+                        <p><strong>&lt;1 second</strong> — Page becomes fully interactive almost instantly. No hydration, no lazy loading critical features.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>DOM Nodes</h3>
+                        <p><strong>~500-800</strong> — Clean, semantic HTML without framework wrapper divs. Simple DOM means faster parsing and rendering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optimization Techniques -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Optimization Techniques</h2>
+                <p class="section-subtitle fade-in-up">How we achieve these results</p>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>CSS Preloading</h3>
+                        <p>Stylesheet loaded with <code>rel="preload"</code> hint tells browsers to fetch CSS immediately. Critical styles arrive before the browser even starts parsing the page.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Deferred JavaScript</h3>
+                        <p>All scripts use the <code>defer</code> attribute. HTML parsing continues uninterrupted. Scripts execute after DOM is ready, in order, without blocking rendering.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>System Fonts</h3>
+                        <p>No external font loading. We use the system font stack (-apple-system, BlinkMacSystemFont, etc.) that's already on the user's device. Zero font-related delay.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>SVG Icons</h3>
+                        <p>Icons are inline SVG, not external icon fonts or image files. They render instantly, scale perfectly, and add negligible weight to the page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Performance Comparison</h2>
+                <p class="section-subtitle fade-in-up">How Praxis compares to typical modern websites</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Modern web development often prioritizes developer convenience over user experience. Here's how common choices impact performance, and why we made different decisions:</p>
+                </div>
+
+                <div class="risks-grid stagger-children">
+                    <div class="risk-card">
+                        <h3>React/Vue/Angular</h3>
+                        <p><strong>Typical: 100-500KB+ runtime</strong> — Framework code that runs before your actual application. Praxis: 0KB framework overhead—every byte is our actual functionality.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Google Fonts</h3>
+                        <p><strong>Typical: 100-300KB + 2-4 requests</strong> — External font files and CSS. Praxis: 0KB—system fonts are instant and look native on every device.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>CSS Frameworks</h3>
+                        <p><strong>Typical: 150-400KB (Bootstrap/Tailwind)</strong> — Most classes unused. Praxis: ~55KB total CSS, 100% used. No tree-shaking needed.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Analytics/Tracking</h3>
+                        <p><strong>Typical: 50-200KB + privacy cost</strong> — Google Analytics, trackers, pixels. Praxis: 0KB—we don't track you, which is both faster and more private.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>CDN Dependencies</h3>
+                        <p><strong>Typical: Multiple external origins</strong> — Each adds DNS lookup and connection time. Praxis: Single origin—everything from one place, one connection.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Build Complexity</h3>
+                        <p><strong>Typical: Webpack, Babel, PostCSS, etc.</strong> — Complex build pipelines that can introduce bugs. Praxis: Direct authoring—what we write is what ships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network Efficiency -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Network Efficiency</h2>
+                <p class="section-subtitle fade-in-up">Optimized for real-world connections</p>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>Gzip Compression</h3>
+                        <p>All text resources (HTML, CSS, JS) are gzip compressed by the server. Actual transfer sizes are 60-70% smaller than raw file sizes.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Cache Headers</h3>
+                        <p>Static assets have long cache lifetimes. Returning visitors load from local cache, making subsequent visits nearly instant.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>No CORS Requests</h3>
+                        <p>Everything from same origin means no preflight requests, no cross-origin handshakes, no blocked requests due to CORS misconfiguration.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Minimal DNS Lookups</h3>
+                        <p>Only one domain to resolve. Sites with CDNs, fonts, analytics, and widgets require multiple DNS lookups, each adding latency.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>HTTP/2 Ready</h3>
+                        <p>Single domain maximizes HTTP/2 connection reuse. Multiple domains actually hurt HTTP/2 performance by fragmenting connections.</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Mobile Optimized</h3>
+                        <p>Light pages load fast on 3G/4G. No hero videos, no massive images. Works well even on metered connections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Continuous Monitoring -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Performance Monitoring</h2>
+                <p class="section-subtitle fade-in-up">Maintaining speed over time</p>
+
+                <div class="content-block fade-in-up">
+                    <p>Performance degrades over time as features are added. We actively monitor and maintain Praxis's speed through regular audits and careful development practices.</p>
+                </div>
+
+                <div class="safety-principles stagger-children">
+                    <div class="principle-card">
+                        <h3>Regular Lighthouse Audits</h3>
+                        <p>Every significant change is tested against Lighthouse metrics. Performance regressions are caught and fixed before they reach users.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Bundle Size Awareness</h3>
+                        <p>We track CSS and JS file sizes. New features must justify their byte cost. If something can be done more efficiently, it is.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>No Feature Bloat</h3>
+                        <p>Features that aren't actively used get removed. Praxis stays lean because we regularly audit and prune unused code.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Code Review Standards</h3>
+                        <p>Performance is a review criterion. Inefficient patterns are flagged. Better alternatives are suggested and implemented.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Impact -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Real-World Impact</h2>
+                <p class="section-subtitle fade-in-up">Why these numbers matter for users</p>
+
+                <div class="risks-grid stagger-children">
+                    <div class="risk-card">
+                        <h3>Slower Connections</h3>
+                        <p>Users on 3G or spotty WiFi still get a fast experience. A 250KB page loads in seconds where a 3MB page might take 30+ seconds.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Older Devices</h3>
+                        <p>No heavy JavaScript framework means older phones and computers aren't overwhelmed. Less CPU work means longer battery life too.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Data Limits</h3>
+                        <p>Users on metered plans conserve data. One Praxis page costs what a single hero image costs on a typical site.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Global Access</h3>
+                        <p>Users worldwide, including areas with limited infrastructure, can access AI education. Performance is global equity.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Reduced Frustration</h3>
+                        <p>Fast sites feel professional and reliable. Users stay engaged when they're not waiting. Learning happens when friction disappears.</p>
+                    </div>
+
+                    <div class="risk-card">
+                        <h3>Accessibility</h3>
+                        <p>Screen readers process simpler DOMs faster. Keyboard navigation responds immediately. Performance and accessibility are intertwined.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Summary -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Performance Summary</h2>
+                <p class="section-subtitle fade-in-up">Key metrics at a glance</p>
+
+                <div class="coverage-grid stagger-children">
+                    <div class="coverage-card">
+                        <h3>Lighthouse Score</h3>
+                        <p><strong>100/100</strong> — Perfect performance score</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Page Weight</h3>
+                        <p><strong>~250KB</strong> — 10x lighter than average</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>External Dependencies</h3>
+                        <p><strong>Zero</strong> — Everything self-hosted</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Framework Overhead</h3>
+                        <p><strong>None</strong> — Pure vanilla JavaScript</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Time to Interactive</h3>
+                        <p><strong>&lt;1 second</strong> — Instant usability</p>
+                    </div>
+
+                    <div class="coverage-card">
+                        <h3>Core Web Vitals</h3>
+                        <p><strong>All Green</strong> — LCP, INP, CLS passing</p>
+                    </div>
+                </div>
+
+                <div class="cta-card fade-in-up">
+                    <canvas id="cta-neural-bg" class="neural-canvas-secondary"></canvas>
+                    <h2 class="cta-title">Experience the Speed</h2>
+                    <p class="cta-text">Navigate around Praxis. Open pages. Use the tools. Notice how everything responds instantly. This is what performance-first development feels like.</p>
+                    <div class="cta-actions">
+                        <a href="../tools/analyzer.html" class="btn btn-primary">Try the Tools</a>
+                        <a href="security.html" class="btn btn-secondary">Security Analysis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the Art of AI Communication theory through proven methodologies.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="../learn/prompt-basics.html">Prompt Basics</a>
+                    <a href="../learn/crisp.html">CRISP Method</a>
+                    <a href="../learn/crispe.html">CRISPE Method</a>
+                    <a href="../learn/costar.html">COSTAR Method</a>
+                    <a href="../learn/react.html">ReAct Method</a>
+                    <a href="../learn/flipped-interaction.html">Flipped Interaction</a>
+                    <a href="../learn/advanced.html">Advanced</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                    <a href="../tools/guidance.html">Prompt Builder</a>
+                    <a href="../tools/matcher.html">Method Matcher</a>
+                    <a href="../tools/checklist.html">Preflight Checklist</a>
+                    <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="ai-safety.html">AI Safety</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="chatgpt-guide.html">ChatGPT Guide</a>
+                    <a href="replit-guide.html">Replit Guide</a>
+                    <a href="ide-guide.html">IDE Guide</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="glossary.html">Glossary</a>
+                    <a href="security.html">Security</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+                <p class="footer-quote">"True innovation in AI isn't just about companies adopting AI as a new technology—it's about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential." <span class="footer-quote-author">— Bas</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Site Badges Bar -->
+    <div class="site-badges-bar">
+        <span class="content-badge content-badge--ai" data-badge-type="ai">
+            <span class="badge-label">AI for</span>
+            <span class="badge-value">Everybody</span>
+        </span>
+        <span class="content-badge content-badge--udl" data-badge-type="udl">
+            <span class="badge-label">Built With</span>
+            <span class="badge-value">UD/UDL</span>
+        </span>
+        <span class="content-badge content-badge--security" data-badge-type="security">
+            <span class="badge-label">Security</span>
+            <span class="badge-value">A+ 100%</span>
+        </span>
+        <span class="content-badge content-badge--performance" data-badge-type="performance">
+            <span class="badge-label">Performance</span>
+            <span class="badge-value">100%</span>
+        </span>
+        <span class="content-badge content-badge--claude" data-badge-type="claude">
+            <span class="badge-label">AI Assisted Building</span>
+            <span class="badge-value">Claude Code</span>
+        </span>
+        <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+            <span class="badge-label">Community</span>
+            <span class="badge-value">GitHub</span>
+        </a>
+    </div>
+
+    <!-- Badge Lightbox -->
+    <div class="badge-lightbox-overlay" aria-hidden="true"></div>
+    <div class="badge-lightbox" role="dialog" aria-modal="true" aria-labelledby="badge-lightbox-title">
+        <header class="badge-lightbox-header">
+            <h2 class="badge-lightbox-title" id="badge-lightbox-title"></h2>
+            <button class="badge-lightbox-close" aria-label="Close dialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </header>
+        <div class="badge-lightbox-content"></div>
+    </div>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

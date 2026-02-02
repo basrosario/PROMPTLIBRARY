@@ -6616,7 +6616,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Free, open-source educational resources',
                 'No prerequisites or technical jargon barriers',
                 'Designed for diverse learning needs and abilities'
-            ]
+            ],
+            link: 'pages/ai-for-everybody.html',
+            linkText: 'Learn About Our Mission'
         },
         udl: {
             title: 'Built With UD/UDL',
@@ -6629,7 +6631,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Multiple means of action and expression',
                 'WCAG AA accessibility compliance',
                 'Keyboard navigation and screen reader support'
-            ]
+            ],
+            link: 'pages/universal-design.html',
+            linkText: 'View UD/UDL Implementation'
         },
         security: {
             title: 'Security A+ 100%',
@@ -6658,7 +6662,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Efficient animations using requestAnimationFrame',
                 'Minimal DOM complexity and reflows',
                 'Fast time-to-interactive on mobile and desktop'
-            ]
+            ],
+            link: 'pages/performance.html',
+            linkText: 'View Performance Analysis'
         },
         claude: {
             title: 'AI Assisted Building',
@@ -6671,7 +6677,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Best practices in AI-human collaboration',
                 'Transparent about AI involvement',
                 'Practical example of AI augmenting human work'
-            ]
+            ],
+            link: 'pages/ai-assisted-building.html',
+            linkText: 'Learn How We Built This'
         },
         github: {
             title: 'Community',
@@ -8082,6 +8090,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'page-about', title: 'About Praxis', category: 'Resources', subcategory: 'Site Info', keywords: ['about', 'praxis', 'mission', 'founder', 'why praxis'], excerpt: 'Learn about Praxis, its mission to make AI accessible to everyone, and the founder\'s vision for AI education.', url: 'pages/about.html' },
         { id: 'page-ai-safety', title: 'AI Safety', category: 'Resources', subcategory: 'AI Safety', keywords: ['ai safety', 'responsible ai', 'limitations', 'risks', 'best practices'], excerpt: 'Understand AI limitations, risks, and best practices for responsible use. Essential knowledge for effective AI interaction.', url: 'pages/ai-safety.html' },
         { id: 'page-security', title: 'Security Analysis', category: 'Resources', subcategory: 'Security', keywords: ['security', 'csp', 'owasp', 'hardening', 'content security policy', 'xss', 'privacy', 'defense in depth'], excerpt: 'Comprehensive security analysis and hardening practices. Learn about our A+ CSP rating and continuous security as a practice.', url: 'pages/security.html' },
+        { id: 'page-ai-for-everybody', title: 'AI for Everybody', category: 'Resources', subcategory: 'Philosophy', keywords: ['accessibility', 'inclusive', 'everyone', 'learning', 'no prerequisites', 'free', 'open'], excerpt: 'Our mission to make AI literacy accessible to everyone regardless of background, ability, or experience level.', url: 'pages/ai-for-everybody.html' },
+        { id: 'page-universal-design', title: 'Universal Design (UD/UDL)', category: 'Resources', subcategory: 'Accessibility', keywords: ['ud', 'udl', 'universal design', 'universal design for learning', 'wcag', 'accessibility', 'inclusive'], excerpt: 'How Praxis implements Universal Design and Universal Design for Learning principles for accessible education.', url: 'pages/universal-design.html' },
+        { id: 'page-performance', title: 'Performance Analysis', category: 'Resources', subcategory: 'Technical', keywords: ['performance', 'lighthouse', 'speed', 'optimization', 'core web vitals', 'fast', 'efficient'], excerpt: 'Technical breakdown of how Praxis achieves 100% Lighthouse performance through zero dependencies and optimization.', url: 'pages/performance.html' },
+        { id: 'page-ai-assisted-building', title: 'AI Assisted Building', category: 'Resources', subcategory: 'Technical', keywords: ['claude', 'claude code', 'ai assisted', 'development', 'collaboration', 'human-ai'], excerpt: 'How Praxis was built with Claude Code - demonstrating practical human-AI collaboration in software development.', url: 'pages/ai-assisted-building.html' },
         { id: 'page-glossary', title: 'AI Glossary', category: 'Resources', subcategory: 'Reference', keywords: ['glossary', 'definitions', 'terms', 'vocabulary', 'dictionary'], excerpt: 'Key terms and concepts for understanding AI and effective prompting. Your reference for AI terminology.', url: 'pages/glossary.html' },
         { id: 'page-faq', title: 'Frequently Asked Questions', category: 'Resources', subcategory: 'Reference', keywords: ['faq', 'questions', 'help', 'answers', 'common questions'], excerpt: 'Common questions about AI, prompting, and getting the most from this resource. Find answers quickly.', url: 'pages/faq.html' },
         { id: 'page-patterns', title: 'Prompt Patterns Library', category: 'Resources', subcategory: 'Reference', keywords: ['patterns', 'library', 'templates', 'reusable', 'frameworks'], excerpt: 'Reusable frameworks for common tasks. Patterns to understand and adapt, not templates to copy.', url: 'patterns/index.html' }
