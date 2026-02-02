@@ -7535,4 +7535,288 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================
+    // SITE SEARCH INDEX
+    // Comprehensive searchable index of all site content
+    // Categories: Learn, Tools, Glossary, Patterns, FAQ, Resources
+    // ==========================================
+
+    /**
+     * PRAXIS_SEARCH_INDEX
+     * Complete searchable index of site content
+     * Each entry contains: id, title, category, subcategory, keywords, excerpt, url
+     */
+    const PRAXIS_SEARCH_INDEX = [
+        // ==========================================
+        // GLOSSARY TERMS (48 entries)
+        // ==========================================
+        // Letter A
+        { id: 'term-ai', title: 'AI (Artificial Intelligence)', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['ai', 'artificial intelligence', 'machine learning', 'computer systems', 'automation'], excerpt: 'Computer systems designed to perform tasks that typically require human intelligence, such as understanding language, recognizing patterns, making decisions, and generating content.', url: 'pages/glossary.html#term-ai' },
+        { id: 'term-ai-readiness', title: 'AI Readiness', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['ai readiness', 'skills', 'knowledge', 'preparation', 'competency'], excerpt: 'The skills, knowledge, and mindset needed to use AI tools effectively and responsibly. Includes understanding both capabilities and limitations.', url: 'pages/glossary.html#term-ai-readiness' },
+        { id: 'term-alignment', title: 'Alignment', category: 'Glossary', subcategory: 'AI Safety', keywords: ['alignment', 'safety', 'values', 'human values', 'ethics'], excerpt: 'The challenge of ensuring AI systems behave in ways that match human values and intentions. A key concern in AI safety research.', url: 'pages/glossary.html#term-alignment' },
+        // Letter B
+        { id: 'term-bias', title: 'Bias', category: 'Glossary', subcategory: 'AI Safety', keywords: ['bias', 'fairness', 'discrimination', 'training data', 'prejudice'], excerpt: 'Systematic errors or unfair preferences in AI outputs that reflect biases in training data or system design. Can affect fairness across different groups or perspectives.', url: 'pages/glossary.html#term-bias' },
+        // Letter C
+        { id: 'term-chain-of-thought', title: 'Chain-of-Thought (CoT)', category: 'Glossary', subcategory: 'Techniques', keywords: ['chain of thought', 'cot', 'reasoning', 'step by step', 'thinking'], excerpt: 'A prompting technique that encourages AI to show its reasoning process step-by-step, leading to more accurate and transparent responses for complex problems.', url: 'pages/glossary.html#term-chain-of-thought' },
+        { id: 'term-claude', title: 'Claude', category: 'Glossary', subcategory: 'AI Assistants', keywords: ['claude', 'anthropic', 'ai assistant', 'chatbot'], excerpt: 'An AI assistant created by Anthropic, designed to be helpful, harmless, and honest. Known for nuanced reasoning and longer context handling.', url: 'pages/glossary.html#term-claude' },
+        { id: 'term-context', title: 'Context', category: 'Glossary', subcategory: 'Prompting', keywords: ['context', 'background', 'information', 'situation'], excerpt: 'Background information provided to AI that helps it understand your situation and needs. Essential for getting relevant, accurate responses.', url: 'pages/glossary.html#term-context' },
+        { id: 'term-context-window', title: 'Context Window', category: 'Glossary', subcategory: 'Technical', keywords: ['context window', 'tokens', 'memory', 'conversation length'], excerpt: 'The amount of text (measured in tokens) that an AI can process at once. Determines how much conversation history and reference material the AI can consider.', url: 'pages/glossary.html#term-context-window' },
+        { id: 'term-copilot', title: 'Copilot', category: 'Glossary', subcategory: 'AI Assistants', keywords: ['copilot', 'microsoft', 'github', 'code completion'], excerpt: 'Microsoft\'s AI assistant integrated into their products. Originally focused on code completion (GitHub Copilot), now extended to general assistance across Microsoft 365.', url: 'pages/glossary.html#term-copilot' },
+        { id: 'term-costar', title: 'COSTAR', category: 'Glossary', subcategory: 'Frameworks', keywords: ['costar', 'framework', 'methodology', 'context', 'objective', 'style', 'tone', 'audience', 'response'], excerpt: 'A prompting framework: Context, Objective, Style, Tone, Audience, Response. Ideal for professional content creation with specific voice and audience requirements.', url: 'pages/glossary.html#term-costar' },
+        { id: 'term-crisp', title: 'CRISP', category: 'Glossary', subcategory: 'Frameworks', keywords: ['crisp', 'framework', 'methodology', 'context', 'role', 'instructions', 'specifics', 'parameters'], excerpt: 'A prompting framework: Context, Role, Instructions, Specifics, Parameters. A versatile method for everyday AI tasks and requests.', url: 'pages/glossary.html#term-crisp' },
+        { id: 'term-crispe', title: 'CRISPE', category: 'Glossary', subcategory: 'Frameworks', keywords: ['crispe', 'framework', 'methodology', 'example', 'few-shot'], excerpt: 'An extension of CRISP that adds Examples for few-shot learning. Particularly useful for creative tasks where showing is better than telling.', url: 'pages/glossary.html#term-crispe' },
+        // Letter F
+        { id: 'term-few-shot', title: 'Few-Shot Learning', category: 'Glossary', subcategory: 'Techniques', keywords: ['few-shot', 'examples', 'learning', 'pattern', 'demonstration'], excerpt: 'A technique where you provide a few examples in your prompt to help AI understand the pattern or format you want. More effective than describing alone for complex outputs.', url: 'pages/glossary.html#term-few-shot' },
+        { id: 'term-fine-tuning', title: 'Fine-Tuning', category: 'Glossary', subcategory: 'Technical', keywords: ['fine-tuning', 'training', 'specialized', 'custom model'], excerpt: 'The process of training a pre-existing AI model on additional, specialized data to improve its performance for specific tasks or domains.', url: 'pages/glossary.html#term-fine-tuning' },
+        { id: 'term-flipped-interaction', title: 'Flipped Interaction', category: 'Glossary', subcategory: 'Frameworks', keywords: ['flipped interaction', 'interview', 'questions', 'personalized'], excerpt: 'A method where you ask AI to ask you questions before providing advice. Leads to more personalized and relevant responses for complex situations.', url: 'pages/glossary.html#term-flipped-interaction' },
+        // Letter G
+        { id: 'term-gemini', title: 'Gemini', category: 'Glossary', subcategory: 'AI Assistants', keywords: ['gemini', 'google', 'multimodal', 'bard'], excerpt: 'Google\'s family of AI models, designed for multimodal capabilities (text, images, code, audio). Powers Google\'s AI features across their products.', url: 'pages/glossary.html#term-gemini' },
+        { id: 'term-generative-ai', title: 'Generative AI', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['generative ai', 'gen ai', 'content creation', 'image generation'], excerpt: 'AI systems that can create new content (text, images, code, music) rather than just analyzing existing data. Includes chatbots, image generators, and coding assistants.', url: 'pages/glossary.html#term-generative-ai' },
+        { id: 'term-gpt', title: 'GPT (Generative Pre-trained Transformer)', category: 'Glossary', subcategory: 'Technical', keywords: ['gpt', 'transformer', 'openai', 'chatgpt', 'language model'], excerpt: 'A type of large language model architecture developed by OpenAI. The technology behind ChatGPT and many other AI assistants.', url: 'pages/glossary.html#term-gpt' },
+        { id: 'term-grounding', title: 'Grounding', category: 'Glossary', subcategory: 'Techniques', keywords: ['grounding', 'accuracy', 'verification', 'sources', 'rag'], excerpt: 'Connecting AI outputs to verified information sources to reduce hallucinations and increase accuracy. Often involves retrieval-augmented generation (RAG).', url: 'pages/glossary.html#term-grounding' },
+        // Letter H
+        { id: 'term-hallucination', title: 'Hallucination', category: 'Glossary', subcategory: 'AI Safety', keywords: ['hallucination', 'fabrication', 'incorrect', 'fake', 'false information'], excerpt: 'When AI generates information that sounds plausible but is actually incorrect or fabricated. Includes fake citations, invented statistics, and fictional events.', url: 'pages/glossary.html#term-hallucination' },
+        { id: 'term-hitl', title: 'Human-in-the-Loop (HITL)', category: 'Glossary', subcategory: 'AI Safety', keywords: ['human in the loop', 'hitl', 'oversight', 'review', 'approval'], excerpt: 'A design approach where humans review, approve, or modify AI outputs before they\'re acted upon. Critical for high-stakes decisions and quality control.', url: 'pages/glossary.html#term-hitl' },
+        // Letter L
+        { id: 'term-llm', title: 'Large Language Model (LLM)', category: 'Glossary', subcategory: 'Technical', keywords: ['llm', 'large language model', 'ai model', 'neural network'], excerpt: 'An AI system trained on massive amounts of text data to understand and generate human language. The technology powering most modern AI assistants.', url: 'pages/glossary.html#term-llm' },
+        { id: 'term-latency', title: 'Latency', category: 'Glossary', subcategory: 'Technical', keywords: ['latency', 'delay', 'response time', 'speed'], excerpt: 'The time delay between sending a prompt and receiving a response. Affected by model size, server load, and prompt complexity.', url: 'pages/glossary.html#term-latency' },
+        // Letter M
+        { id: 'term-model', title: 'Model', category: 'Glossary', subcategory: 'Technical', keywords: ['model', 'ai model', 'trained system', 'neural network'], excerpt: 'The trained AI system that processes inputs and generates outputs. Different models have different capabilities, sizes, and specializations.', url: 'pages/glossary.html#term-model' },
+        { id: 'term-multimodal', title: 'Multimodal', category: 'Glossary', subcategory: 'Technical', keywords: ['multimodal', 'images', 'audio', 'video', 'multiple formats'], excerpt: 'AI systems that can process and generate multiple types of content (text, images, audio, video) rather than just text.', url: 'pages/glossary.html#term-multimodal' },
+        // Letter N
+        { id: 'term-natural-language', title: 'Natural Language', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['natural language', 'human language', 'conversational', 'plain english'], excerpt: 'Human language as we naturally speak and write it. AI assistants are designed to understand natural language, so you don\'t need special syntax or formatting.', url: 'pages/glossary.html#term-natural-language' },
+        { id: 'term-nlp', title: 'Natural Language Processing (NLP)', category: 'Glossary', subcategory: 'Technical', keywords: ['nlp', 'natural language processing', 'text analysis', 'language understanding'], excerpt: 'The field of AI focused on enabling computers to understand, interpret, and generate human language.', url: 'pages/glossary.html#term-nlp' },
+        // Letter P
+        { id: 'term-parameters', title: 'Parameters', category: 'Glossary', subcategory: 'Prompting', keywords: ['parameters', 'constraints', 'specifications', 'settings'], excerpt: 'In prompting: constraints and specifications that shape the AI\'s output (length, format, style). In AI models: the internal values learned during training that determine behavior.', url: 'pages/glossary.html#term-parameters' },
+        { id: 'term-prompt', title: 'Prompt', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['prompt', 'input', 'question', 'instruction', 'request'], excerpt: 'The text input you send to an AI assistant. Can be a question, instruction, request, or any combination. The quality of your prompt influences the quality of the response.', url: 'pages/glossary.html#term-prompt' },
+        { id: 'term-prompt-chaining', title: 'Prompt Chaining', category: 'Glossary', subcategory: 'Techniques', keywords: ['prompt chaining', 'sequential', 'multi-step', 'workflow'], excerpt: 'Breaking complex tasks into multiple sequential prompts, where each builds on the previous output. Useful for multi-step workflows.', url: 'pages/glossary.html#term-prompt-chaining' },
+        { id: 'term-prompt-engineering', title: 'Prompt Engineering', category: 'Glossary', subcategory: 'Core Concepts', keywords: ['prompt engineering', 'crafting prompts', 'optimization', 'techniques'], excerpt: 'The practice of crafting effective prompts to get better results from AI systems. Includes techniques, frameworks, and iterative refinement.', url: 'pages/glossary.html#term-prompt-engineering' },
+        { id: 'term-prompt-injection', title: 'Prompt Injection', category: 'Glossary', subcategory: 'AI Safety', keywords: ['prompt injection', 'security', 'attack', 'malicious', 'vulnerability'], excerpt: 'A security concern where malicious instructions are hidden in content that AI processes, potentially causing unintended behavior.', url: 'pages/glossary.html#term-prompt-injection' },
+        // Letter R
+        { id: 'term-rag', title: 'RAG (Retrieval-Augmented Generation)', category: 'Glossary', subcategory: 'Techniques', keywords: ['rag', 'retrieval', 'augmented', 'external sources', 'knowledge base'], excerpt: 'A technique that combines AI generation with information retrieval from external sources, improving accuracy and reducing hallucinations.', url: 'pages/glossary.html#term-rag' },
+        { id: 'term-react', title: 'ReAct', category: 'Glossary', subcategory: 'Frameworks', keywords: ['react', 'reasoning', 'acting', 'step by step', 'transparent'], excerpt: 'A prompting framework combining Reasoning and Acting. AI thinks through problems step-by-step, showing its reasoning process transparently.', url: 'pages/glossary.html#term-react' },
+        { id: 'term-role-prompting', title: 'Role Prompting', category: 'Glossary', subcategory: 'Techniques', keywords: ['role prompting', 'persona', 'expertise', 'act as', 'pretend'], excerpt: 'Assigning AI a specific persona, expertise, or perspective to shape its responses. For example, asking it to respond "as a senior developer" or "as a patient teacher."', url: 'pages/glossary.html#term-role-prompting' },
+        // Letter S
+        { id: 'term-self-consistency', title: 'Self-Consistency', category: 'Glossary', subcategory: 'Techniques', keywords: ['self-consistency', 'verification', 'multiple answers', 'accuracy'], excerpt: 'A technique where AI generates multiple responses and selects the most common answer. Helps improve accuracy for reasoning tasks.', url: 'pages/glossary.html#term-self-consistency' },
+        { id: 'term-system-prompt', title: 'System Prompt', category: 'Glossary', subcategory: 'Technical', keywords: ['system prompt', 'instructions', 'behavior', 'configuration'], excerpt: 'Instructions given to AI before a conversation that set context, persona, or behavior guidelines. Often hidden from users but shapes all responses.', url: 'pages/glossary.html#term-system-prompt' },
+        // Letter T
+        { id: 'term-temperature', title: 'Temperature', category: 'Glossary', subcategory: 'Technical', keywords: ['temperature', 'creativity', 'randomness', 'deterministic'], excerpt: 'A setting that controls how creative or random AI responses are. Lower values produce more focused, deterministic outputs; higher values produce more varied, creative outputs.', url: 'pages/glossary.html#term-temperature' },
+        { id: 'term-token', title: 'Token', category: 'Glossary', subcategory: 'Technical', keywords: ['token', 'tokenization', 'words', 'characters', 'pricing'], excerpt: 'The basic unit AI uses to process text. Roughly 4 characters or 0.75 words in English. Context windows and pricing are often measured in tokens.', url: 'pages/glossary.html#term-token' },
+        { id: 'term-training-data', title: 'Training Data', category: 'Glossary', subcategory: 'Technical', keywords: ['training data', 'dataset', 'learning', 'corpus'], excerpt: 'The text, images, and other content used to teach an AI model. The quality and scope of training data significantly affects AI capabilities and biases.', url: 'pages/glossary.html#term-training-data' },
+        { id: 'term-transformer', title: 'Transformer', category: 'Glossary', subcategory: 'Technical', keywords: ['transformer', 'architecture', 'attention', 'neural network'], excerpt: 'The neural network architecture behind most modern AI assistants. Introduced in 2017, it revolutionized language processing through attention mechanisms.', url: 'pages/glossary.html#term-transformer' },
+        // Letter Z
+        { id: 'term-zero-shot', title: 'Zero-Shot Learning', category: 'Glossary', subcategory: 'Techniques', keywords: ['zero-shot', 'no examples', 'direct instruction', 'generalization'], excerpt: 'When AI performs a task without being given examples in the prompt. Relies entirely on the AI\'s pre-trained knowledge and clear instructions.', url: 'pages/glossary.html#term-zero-shot' },
+
+        // ==========================================
+        // LEARN PAGES - Methodologies & Concepts
+        // ==========================================
+        // Prompt Basics
+        { id: 'learn-prompt-basics', title: 'Prompt Basics', category: 'Learn', subcategory: 'Fundamentals', keywords: ['prompt basics', 'fundamentals', 'beginner', 'introduction', 'getting started', 'foundation'], excerpt: 'Learn the fundamental principles of effective AI prompting. Perfect for beginners starting their journey with AI communication.', url: 'learn/prompt-basics.html' },
+        { id: 'learn-what-is-prompt', title: 'What is a Prompt?', category: 'Learn', subcategory: 'Fundamentals', keywords: ['what is prompt', 'definition', 'input', 'instruction'], excerpt: 'A prompt is the text input you send to an AI. Learn how to structure your requests for better AI responses.', url: 'learn/prompt-basics.html#what-is-prompt' },
+        { id: 'learn-prompt-anatomy', title: 'Anatomy of a Prompt', category: 'Learn', subcategory: 'Fundamentals', keywords: ['anatomy', 'structure', 'components', 'parts', 'elements'], excerpt: 'Understand the key components that make up an effective prompt: context, task, format, and constraints.', url: 'learn/prompt-basics.html#anatomy' },
+
+        // CRISP Method
+        { id: 'learn-crisp', title: 'CRISP Method', category: 'Learn', subcategory: 'Frameworks', keywords: ['crisp', 'method', 'framework', 'context', 'role', 'instructions', 'specifics', 'parameters'], excerpt: 'Context, Role, Instructions, Specifics, Parameters. The essential framework for clear, effective prompts.', url: 'learn/crisp.html' },
+        { id: 'learn-crisp-context', title: 'CRISP: Context', category: 'Learn', subcategory: 'CRISP Framework', keywords: ['context', 'background', 'situation', 'setting', 'crisp'], excerpt: 'Set the stage with background information. Help AI understand your situation and what you\'re trying to achieve.', url: 'learn/crisp.html#context' },
+        { id: 'learn-crisp-role', title: 'CRISP: Role', category: 'Learn', subcategory: 'CRISP Framework', keywords: ['role', 'persona', 'expertise', 'act as', 'crisp'], excerpt: 'Define the persona for the AI to adopt. Assign expertise or perspective to shape responses appropriately.', url: 'learn/crisp.html#role' },
+        { id: 'learn-crisp-instructions', title: 'CRISP: Instructions', category: 'Learn', subcategory: 'CRISP Framework', keywords: ['instructions', 'task', 'action', 'what to do', 'crisp'], excerpt: 'Provide specific guidelines for the task. Tell AI exactly what you want it to accomplish.', url: 'learn/crisp.html#instructions' },
+        { id: 'learn-crisp-specifics', title: 'CRISP: Specifics', category: 'Learn', subcategory: 'CRISP Framework', keywords: ['specifics', 'details', 'format', 'length', 'tone', 'crisp'], excerpt: 'Define format, length, tone, and scope. Add the details that shape how the output should look and sound.', url: 'learn/crisp.html#specifics' },
+        { id: 'learn-crisp-parameters', title: 'CRISP: Parameters', category: 'Learn', subcategory: 'CRISP Framework', keywords: ['parameters', 'constraints', 'boundaries', 'limits', 'rules', 'crisp'], excerpt: 'Set constraints and boundaries. Define what to include, exclude, or avoid in the response.', url: 'learn/crisp.html#parameters' },
+
+        // CRISPE Method
+        { id: 'learn-crispe', title: 'CRISPE Method', category: 'Learn', subcategory: 'Frameworks', keywords: ['crispe', 'method', 'framework', 'example', 'few-shot', 'creative'], excerpt: 'CRISP plus Example for few-shot learning. Particularly useful for creative tasks where showing is better than telling.', url: 'learn/crispe.html' },
+        { id: 'learn-crispe-example', title: 'CRISPE: Example', category: 'Learn', subcategory: 'CRISPE Framework', keywords: ['example', 'demonstration', 'sample', 'few-shot', 'crispe'], excerpt: 'Provide examples to show AI the format or style you want. Demonstrations help achieve consistent, patterned outputs.', url: 'learn/crispe.html#example' },
+
+        // COSTAR Method
+        { id: 'learn-costar', title: 'COSTAR Method', category: 'Learn', subcategory: 'Frameworks', keywords: ['costar', 'method', 'framework', 'professional', 'content creation', 'audience'], excerpt: 'Context, Objective, Style, Tone, Audience, Response. Ideal for professional content creation with specific voice and audience requirements.', url: 'learn/costar.html' },
+        { id: 'learn-costar-objective', title: 'COSTAR: Objective', category: 'Learn', subcategory: 'COSTAR Framework', keywords: ['objective', 'goal', 'purpose', 'outcome', 'costar'], excerpt: 'Define the specific goal or outcome you want. Be clear about what success looks like.', url: 'learn/costar.html#objective' },
+        { id: 'learn-costar-style', title: 'COSTAR: Style', category: 'Learn', subcategory: 'COSTAR Framework', keywords: ['style', 'writing style', 'formal', 'casual', 'costar'], excerpt: 'Specify the writing style: formal, casual, technical, conversational. Match the content to its purpose.', url: 'learn/costar.html#style' },
+        { id: 'learn-costar-tone', title: 'COSTAR: Tone', category: 'Learn', subcategory: 'COSTAR Framework', keywords: ['tone', 'voice', 'emotion', 'attitude', 'costar'], excerpt: 'Set the emotional tone: professional, friendly, urgent, encouraging. Shape how the message feels.', url: 'learn/costar.html#tone' },
+        { id: 'learn-costar-audience', title: 'COSTAR: Audience', category: 'Learn', subcategory: 'COSTAR Framework', keywords: ['audience', 'target', 'reader', 'user', 'costar'], excerpt: 'Identify who will receive the content. Tailor language and complexity to your audience.', url: 'learn/costar.html#audience' },
+        { id: 'learn-costar-response', title: 'COSTAR: Response', category: 'Learn', subcategory: 'COSTAR Framework', keywords: ['response', 'format', 'output', 'structure', 'costar'], excerpt: 'Define the desired response format: list, paragraph, table, JSON. Specify exactly how output should be structured.', url: 'learn/costar.html#response' },
+
+        // ReAct Method
+        { id: 'learn-react', title: 'ReAct Method', category: 'Learn', subcategory: 'Frameworks', keywords: ['react', 'method', 'reasoning', 'acting', 'step by step', 'transparent thinking'], excerpt: 'Reasoning + Acting. For complex tasks requiring transparent, verifiable thinking processes. AI shows its work.', url: 'learn/react.html' },
+        { id: 'learn-react-reasoning', title: 'ReAct: Reasoning', category: 'Learn', subcategory: 'ReAct Framework', keywords: ['reasoning', 'thinking', 'analysis', 'logic', 'react'], excerpt: 'The thinking phase where AI analyzes the problem, considers options, and plans its approach.', url: 'learn/react.html#reasoning' },
+        { id: 'learn-react-acting', title: 'ReAct: Acting', category: 'Learn', subcategory: 'ReAct Framework', keywords: ['acting', 'action', 'execution', 'doing', 'react'], excerpt: 'The action phase where AI executes based on its reasoning. Clear connection between thought and action.', url: 'learn/react.html#acting' },
+
+        // Flipped Interaction
+        { id: 'learn-flipped-interaction', title: 'Flipped Interaction Method', category: 'Learn', subcategory: 'Frameworks', keywords: ['flipped interaction', 'interview', 'questions first', 'personalized', 'clarification'], excerpt: 'Let AI interview you first. Prevent generic advice by having AI ask clarifying questions before responding.', url: 'learn/flipped-interaction.html' },
+        { id: 'learn-flipped-why', title: 'Why Flipped Interaction Works', category: 'Learn', subcategory: 'Flipped Interaction', keywords: ['why flipped', 'benefits', 'personalized', 'relevant'], excerpt: 'AI can\'t give great advice without understanding your situation. Flipping the interaction ensures relevant, tailored responses.', url: 'learn/flipped-interaction.html#why-it-works' },
+        { id: 'learn-flipped-trigger', title: 'How to Trigger Flipped Interaction', category: 'Learn', subcategory: 'Flipped Interaction', keywords: ['trigger', 'how to', 'ask questions', 'before answering'], excerpt: 'Simple prompts like "Before answering, ask me 5 questions to understand my situation better" activate this pattern.', url: 'learn/flipped-interaction.html#how-to-trigger' },
+
+        // Advanced Techniques
+        { id: 'learn-advanced', title: 'Advanced Techniques', category: 'Learn', subcategory: 'Expert', keywords: ['advanced', 'techniques', 'expert', 'chain of thought', 'few-shot', 'self-consistency'], excerpt: 'Chain-of-thought, few-shot learning, and expert-level strategies for maximum AI performance.', url: 'learn/advanced.html' },
+        { id: 'learn-chain-of-thought', title: 'Chain-of-Thought Prompting', category: 'Learn', subcategory: 'Advanced Techniques', keywords: ['chain of thought', 'step by step', 'reasoning', 'think through'], excerpt: 'Encourage AI to think step-by-step through complex problems. Improves accuracy for math, logic, and analysis.', url: 'learn/advanced.html#chain-of-thought' },
+        { id: 'learn-few-shot-learning', title: 'Few-Shot Learning', category: 'Learn', subcategory: 'Advanced Techniques', keywords: ['few-shot', 'examples', 'demonstrations', 'pattern matching'], excerpt: 'Provide 2-5 examples to help AI understand the pattern you want. More effective than description for complex formats.', url: 'learn/advanced.html#few-shot-learning' },
+        { id: 'learn-self-consistency-technique', title: 'Self-Consistency Technique', category: 'Learn', subcategory: 'Advanced Techniques', keywords: ['self-consistency', 'multiple answers', 'verification', 'accuracy'], excerpt: 'Ask AI to solve problems multiple ways and compare. Helps catch errors and improve accuracy.', url: 'learn/advanced.html#self-consistency' },
+
+        // ==========================================
+        // TOOLS (6 entries)
+        // ==========================================
+        { id: 'tool-analyzer', title: 'Prompt Analyzer', category: 'Tools', subcategory: 'Analysis', keywords: ['analyzer', 'score', 'evaluate', 'check', 'test', 'prompt quality', 'feedback'], excerpt: 'Analyze your prompts against CRISP, COSTAR, and CRISPE frameworks. Get scores and suggestions for improvement.', url: 'tools/analyzer.html' },
+        { id: 'tool-builder', title: 'Prompt Builder', category: 'Tools', subcategory: 'Creation', keywords: ['builder', 'create', 'construct', 'guided', 'step by step', 'generate prompt'], excerpt: 'Build structured prompts step-by-step with guided questions. Choose your framework and get a ready-to-use prompt.', url: 'tools/guidance.html' },
+        { id: 'tool-matcher', title: 'Method Matcher', category: 'Tools', subcategory: 'Recommendation', keywords: ['matcher', 'recommend', 'which method', 'choose', 'find'], excerpt: 'Describe your task and get a recommendation for which prompting method to use. Find the right framework for your needs.', url: 'tools/matcher.html' },
+        { id: 'tool-checklist', title: 'Preflight Checklist', category: 'Tools', subcategory: 'Review', keywords: ['checklist', 'preflight', 'verify', 'before sending', 'review prompt'], excerpt: 'Review your prompt before sending. Check for context, clarity, specificity, and potential issues.', url: 'tools/checklist.html' },
+        { id: 'tool-hallucination', title: 'Hallucination Spotter', category: 'Tools', subcategory: 'Practice', keywords: ['hallucination', 'spotter', 'fact check', 'verify', 'fake', 'fabrication'], excerpt: 'Practice identifying AI hallucinations. Learn to spot fake citations, invented facts, and fabricated information.', url: 'tools/hallucination.html' },
+        { id: 'tool-quiz', title: 'AI Readiness Quiz', category: 'Tools', subcategory: 'Assessment', keywords: ['quiz', 'test', 'assessment', 'readiness', 'knowledge check', 'level'], excerpt: '40 questions across 4 levels: Good, Pro, Expert, Master. Test your AI prompting knowledge from basics to advanced.', url: 'quiz/index.html' },
+
+        // ==========================================
+        // PATTERNS (9 entries)
+        // ==========================================
+        { id: 'pattern-cot', title: 'Chain of Thought Pattern', category: 'Patterns', subcategory: 'Reasoning', keywords: ['chain of thought', 'step by step', 'reasoning pattern', 'think through'], excerpt: 'Encourage step-by-step reasoning by asking AI to "think through" problems before answering. Best for math, logic, debugging.', url: 'patterns/index.html#chain-of-thought' },
+        { id: 'pattern-few-shot', title: 'Few-Shot Learning Pattern', category: 'Patterns', subcategory: 'Output', keywords: ['few-shot', 'examples pattern', 'input output', 'demonstration'], excerpt: 'Provide 2-5 examples of the input-output format you want before your actual request. Best for consistent formatting.', url: 'patterns/index.html#few-shot' },
+        { id: 'pattern-role', title: 'Role Prompting Pattern', category: 'Patterns', subcategory: 'Role', keywords: ['role prompting', 'persona', 'act as', 'you are'], excerpt: 'Assign AI a specific role or expertise to shape its responses and vocabulary. Best for technical writing and specialized content.', url: 'patterns/index.html#role-prompting' },
+        { id: 'pattern-structured', title: 'Structured Output Pattern', category: 'Patterns', subcategory: 'Output', keywords: ['structured output', 'json', 'table', 'format', 'outline'], excerpt: 'Define the exact format you want (JSON, table, outline) before the request. Best for data extraction and consistent reports.', url: 'patterns/index.html#structured-output' },
+        { id: 'pattern-self-consistency', title: 'Self-Consistency Pattern', category: 'Patterns', subcategory: 'Reasoning', keywords: ['self-consistency', 'verify', 'multiple ways', 'check work'], excerpt: 'Ask AI to verify its own work or approach a problem multiple ways and compare. Best for math and fact-checking.', url: 'patterns/index.html#self-consistency' },
+        { id: 'pattern-chaining', title: 'Prompt Chaining Pattern', category: 'Patterns', subcategory: 'Reasoning', keywords: ['prompt chaining', 'sequential', 'multi-step', 'workflow'], excerpt: 'Break complex tasks into sequential prompts where each output feeds the next input. Best for long documents and research.', url: 'patterns/index.html#prompt-chaining' },
+        { id: 'pattern-devils-advocate', title: 'Devil\'s Advocate Pattern', category: 'Patterns', subcategory: 'Role', keywords: ['devils advocate', 'critique', 'weakness', 'counter argument'], excerpt: 'Ask AI to argue against a position or find weaknesses in an idea. Best for decision making and risk assessment.', url: 'patterns/index.html#devils-advocate' },
+        { id: 'pattern-constraints', title: 'Constraints First Pattern', category: 'Patterns', subcategory: 'Output', keywords: ['constraints first', 'limitations', 'requirements', 'boundaries'], excerpt: 'State limitations and requirements before the main request to frame the response. Best for length control and audience targeting.', url: 'patterns/index.html#constraints-first' },
+        { id: 'pattern-flipped', title: 'Flipped Interaction Pattern', category: 'Patterns', subcategory: 'Interaction', keywords: ['flipped interaction pattern', 'interview', 'ask questions first'], excerpt: 'Ask AI to interview you first before giving advice. Prevents generic responses. Best for personalized advice and strategic planning.', url: 'patterns/index.html#flipped-interaction' },
+
+        // ==========================================
+        // FAQ (19 entries)
+        // ==========================================
+        // Getting Started
+        { id: 'faq-what-is-prompt', title: 'What is a prompt?', category: 'FAQ', subcategory: 'Getting Started', keywords: ['what is prompt', 'definition', 'prompt meaning'], excerpt: 'A prompt is the text you send to an AI assistant. It can be a question, instruction, request, or any combination.', url: 'pages/faq.html#getting-started' },
+        { id: 'faq-which-ai', title: 'Which AI should I use?', category: 'FAQ', subcategory: 'Getting Started', keywords: ['which ai', 'chatgpt', 'claude', 'gemini', 'best ai'], excerpt: 'The techniques taught here work with any modern AI assistant. Each has different strengths, but prompting fundamentals are universal.', url: 'pages/faq.html#getting-started' },
+        { id: 'faq-technical-skills', title: 'Do I need technical skills?', category: 'FAQ', subcategory: 'Getting Started', keywords: ['technical skills', 'coding', 'beginner', 'no experience'], excerpt: 'No. AI assistants understand natural language. You don\'t need coding skills or technical knowledge—just clear communication.', url: 'pages/faq.html#getting-started' },
+        { id: 'faq-where-start', title: 'Where should I start learning?', category: 'FAQ', subcategory: 'Getting Started', keywords: ['where to start', 'begin', 'first steps', 'learning path'], excerpt: 'Start with Prompt Basics to understand core concepts, then move to CRISP Method as your first framework.', url: 'pages/faq.html#getting-started' },
+        // Prompting Methods
+        { id: 'faq-which-method', title: 'Which prompting method should I use?', category: 'FAQ', subcategory: 'Prompting Methods', keywords: ['which method', 'choose method', 'crisp vs costar', 'best method'], excerpt: 'CRISP for everyday tasks, CRISPE for creative work with examples, COSTAR for professional content, ReAct for complex problems.', url: 'pages/faq.html#prompting-methods' },
+        { id: 'faq-memorize-frameworks', title: 'Do I have to memorize these frameworks?', category: 'FAQ', subcategory: 'Prompting Methods', keywords: ['memorize', 'remember', 'learn frameworks', 'training wheels'], excerpt: 'No. Frameworks are learning tools. Once you internalize the concepts, you\'ll naturally include the right details without following a structure.', url: 'pages/faq.html#prompting-methods' },
+        { id: 'faq-combine-methods', title: 'Can I combine different methods?', category: 'FAQ', subcategory: 'Prompting Methods', keywords: ['combine methods', 'mix frameworks', 'hybrid approach'], excerpt: 'Absolutely. The methods aren\'t rigid rules—they\'re guidelines. Take elements from different frameworks based on what your task needs.', url: 'pages/faq.html#prompting-methods' },
+        { id: 'faq-crisp-vs-crispe', title: 'What\'s the difference between CRISP and CRISPE?', category: 'FAQ', subcategory: 'Prompting Methods', keywords: ['crisp vs crispe', 'difference', 'example component'], excerpt: 'CRISPE adds an "Example" component for few-shot learning. Useful for creative tasks where showing examples is more effective than describing.', url: 'pages/faq.html#prompting-methods' },
+        // AI Limitations & Safety
+        { id: 'faq-hallucination', title: 'What is a hallucination?', category: 'FAQ', subcategory: 'AI Limitations', keywords: ['hallucination', 'fake information', 'incorrect', 'fabrication'], excerpt: 'When AI generates plausible but incorrect or made-up information. Includes fake citations, invented statistics, and fictional events.', url: 'pages/faq.html#ai-limitations' },
+        { id: 'faq-professional-advice', title: 'Can I trust AI for medical, legal, or financial advice?', category: 'FAQ', subcategory: 'AI Safety', keywords: ['medical advice', 'legal advice', 'financial advice', 'professional help'], excerpt: 'No. AI should never replace professional advice in high-stakes domains. Use it to prepare questions, but critical decisions require qualified human professionals.', url: 'pages/faq.html#ai-limitations' },
+        { id: 'faq-data-safety', title: 'Is my data safe when using AI?', category: 'FAQ', subcategory: 'AI Safety', keywords: ['data safety', 'privacy', 'security', 'confidential'], excerpt: 'Assume anything you type could be stored or used for training. Never share passwords, personal identifiers, or confidential business information.', url: 'pages/faq.html#ai-limitations' },
+        { id: 'faq-confident-wrong', title: 'Why does AI sometimes give wrong answers confidently?', category: 'FAQ', subcategory: 'AI Limitations', keywords: ['confident wrong', 'incorrect confident', 'why wrong'], excerpt: 'AI predicts likely text patterns—it doesn\'t "know" things like humans. When it lacks information, it doesn\'t have uncertainty signals. Verification is essential.', url: 'pages/faq.html#ai-limitations' },
+        // About Praxis
+        { id: 'faq-is-free', title: 'Is Praxis really free?', category: 'FAQ', subcategory: 'About Praxis', keywords: ['free', 'cost', 'pricing', 'no account'], excerpt: 'Yes, completely free. No account required, no premium tiers, no ads, no tracking. AI skills should be accessible to everyone.', url: 'pages/faq.html#about-praxis' },
+        { id: 'faq-uses-ai', title: 'Does this site use AI?', category: 'FAQ', subcategory: 'About Praxis', keywords: ['site uses ai', 'built with ai', 'ai generated'], excerpt: 'Absolutely! The content and tools were developed with AI assistants. But interactive tools work locally—nothing you type is transmitted anywhere.', url: 'pages/faq.html#about-praxis' },
+        { id: 'faq-who-created', title: 'Who created Praxis?', category: 'FAQ', subcategory: 'About Praxis', keywords: ['creator', 'founder', 'who made', 'basiliso'], excerpt: 'Praxis was created by Basiliso Rosario with the mission of demystifying AI and making effective prompting skills accessible to everyone.', url: 'pages/faq.html#about-praxis' },
+
+        // ==========================================
+        // RESOURCES (3 entries)
+        // ==========================================
+        { id: 'resource-chatgpt', title: 'ChatGPT Guide', category: 'Resources', subcategory: 'AI Platforms', keywords: ['chatgpt', 'openai', 'guide', 'how to use chatgpt'], excerpt: 'Complete guide to using ChatGPT effectively. Tips, features, and best practices for OpenAI\'s popular AI assistant.', url: 'pages/chatgpt-guide.html' },
+        { id: 'resource-replit', title: 'Replit Guide', category: 'Resources', subcategory: 'Development Tools', keywords: ['replit', 'coding', 'online ide', 'ai coding'], excerpt: 'Learn to use Replit\'s AI-powered coding environment. Build, run, and deploy code with AI assistance.', url: 'pages/replit-guide.html' },
+        { id: 'resource-ide', title: 'IDE Guide', category: 'Resources', subcategory: 'Development Tools', keywords: ['ide', 'cursor', 'vs code', 'github copilot', 'ai coding assistant'], excerpt: 'Use AI coding assistants in Cursor, VS Code, and other development tools. Level up your development workflow with AI.', url: 'pages/ide-guide.html' },
+
+        // ==========================================
+        // ADDITIONAL PAGES
+        // ==========================================
+        { id: 'page-about', title: 'About Praxis', category: 'Resources', subcategory: 'Site Info', keywords: ['about', 'praxis', 'mission', 'founder', 'why praxis'], excerpt: 'Learn about Praxis, its mission to make AI accessible to everyone, and the founder\'s vision for AI education.', url: 'pages/about.html' },
+        { id: 'page-ai-safety', title: 'AI Safety', category: 'Resources', subcategory: 'AI Safety', keywords: ['ai safety', 'responsible ai', 'limitations', 'risks', 'best practices'], excerpt: 'Understand AI limitations, risks, and best practices for responsible use. Essential knowledge for effective AI interaction.', url: 'pages/ai-safety.html' },
+        { id: 'page-glossary', title: 'AI Glossary', category: 'Resources', subcategory: 'Reference', keywords: ['glossary', 'definitions', 'terms', 'vocabulary', 'dictionary'], excerpt: 'Key terms and concepts for understanding AI and effective prompting. Your reference for AI terminology.', url: 'pages/glossary.html' },
+        { id: 'page-faq', title: 'Frequently Asked Questions', category: 'Resources', subcategory: 'Reference', keywords: ['faq', 'questions', 'help', 'answers', 'common questions'], excerpt: 'Common questions about AI, prompting, and getting the most from this resource. Find answers quickly.', url: 'pages/faq.html' },
+        { id: 'page-patterns', title: 'Prompt Patterns Library', category: 'Resources', subcategory: 'Reference', keywords: ['patterns', 'library', 'templates', 'reusable', 'frameworks'], excerpt: 'Reusable frameworks for common tasks. Patterns to understand and adapt, not templates to copy.', url: 'patterns/index.html' }
+    ];
+
+    /**
+     * Search function that queries the index
+     * @param {string} query - The search query
+     * @param {Object} options - Search options
+     * @returns {Array} - Grouped search results by category
+     */
+    function searchPraxis(query, options = {}) {
+        if (!query || query.trim().length < 2) return [];
+
+        const searchTerms = query.toLowerCase().trim().split(/\s+/);
+        const results = [];
+
+        PRAXIS_SEARCH_INDEX.forEach(entry => {
+            let score = 0;
+            const titleLower = entry.title.toLowerCase();
+            const excerptLower = entry.excerpt.toLowerCase();
+            const keywordsLower = entry.keywords.join(' ').toLowerCase();
+
+            searchTerms.forEach(term => {
+                // Title matches (highest weight)
+                if (titleLower.includes(term)) {
+                    score += titleLower === term ? 100 : 50;
+                }
+                // Keyword matches (high weight)
+                if (keywordsLower.includes(term)) {
+                    score += 30;
+                }
+                // Excerpt matches (medium weight)
+                if (excerptLower.includes(term)) {
+                    score += 10;
+                }
+                // Category/subcategory matches
+                if (entry.category.toLowerCase().includes(term)) {
+                    score += 15;
+                }
+                if (entry.subcategory.toLowerCase().includes(term)) {
+                    score += 15;
+                }
+            });
+
+            if (score > 0) {
+                results.push({ ...entry, score });
+            }
+        });
+
+        // Sort by score descending
+        results.sort((a, b) => b.score - a.score);
+
+        // Group by category
+        const grouped = {};
+        const categoryOrder = ['Learn', 'Tools', 'Glossary', 'Patterns', 'FAQ', 'Resources'];
+
+        results.forEach(result => {
+            if (!grouped[result.category]) {
+                grouped[result.category] = [];
+            }
+            grouped[result.category].push(result);
+        });
+
+        // Convert to ordered array
+        const orderedResults = [];
+        categoryOrder.forEach(cat => {
+            if (grouped[cat] && grouped[cat].length > 0) {
+                orderedResults.push({
+                    category: cat,
+                    results: grouped[cat].slice(0, options.maxPerCategory || 5)
+                });
+            }
+        });
+
+        return orderedResults;
+    }
+
+    /**
+     * Get all results for a specific category
+     * @param {string} category - The category to filter by
+     * @returns {Array} - All entries in that category
+     */
+    function getByCategory(category) {
+        return PRAXIS_SEARCH_INDEX.filter(entry =>
+            entry.category.toLowerCase() === category.toLowerCase()
+        );
+    }
+
+    /**
+     * Get entry by ID
+     * @param {string} id - The entry ID
+     * @returns {Object|null} - The matching entry or null
+     */
+    function getById(id) {
+        return PRAXIS_SEARCH_INDEX.find(entry => entry.id === id) || null;
+    }
+
+    // Expose search functions globally for use by search UI
+    window.PraxisSearch = {
+        search: searchPraxis,
+        getByCategory: getByCategory,
+        getById: getById,
+        index: PRAXIS_SEARCH_INDEX,
+        totalEntries: PRAXIS_SEARCH_INDEX.length
+    };
+
+    // Log search index stats in console for debugging
+    console.log(`[Praxis Search] Index loaded: ${PRAXIS_SEARCH_INDEX.length} entries`);
 });

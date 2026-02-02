@@ -1,8 +1,8 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-01 (Session 10)
-**Last Commit:** `d0ee6a6` - feat: Add format toggle to Prompt Builder (labeled vs natural)
-**Current Phase:** Phase 2 (In Progress)
+**Last Updated:** 2026-02-01 (Session 11)
+**Last Commit:** `d66bcfe` - feat: Level-based quiz with 3-strikes game mechanic + analyzer docs
+**Current Phase:** Phase 4 COMPLETE → Ready for Phase 5 (Search UI)
 
 ---
 
@@ -226,9 +226,59 @@ _public_html/
 | Build-step enhancement | ✅ Done | Added shadows, improved hover states |
 | Scenario tabs enhancement | ✅ Done | Card wrapper with border and shadow |
 
-### Latest Session Work (2026-02-01 - Session 10)
+### Latest Session Work (2026-02-01 - Session 11)
 
-**Phase 2: Natural Language Content Updates - STARTED**
+**Quiz Redesign - COMPLETED (User Request)**
+
+- Redesigned AI Readiness Quiz as level-based progression system
+  - 40 questions across 4 levels (10 each):
+    - Level 1: Good - Basic prompting concepts, AI limitations
+    - Level 2: Pro - CRISP, CRISPE, COSTAR frameworks
+    - Level 3: Expert - Chain-of-Thought, Few-Shot, ReAct, Flipped Interaction
+    - Level 4: Master - Combining methods, IDE usage, APIs, advanced reasoning
+  - All questions based on actual site content
+
+- Implemented 3-strikes game mechanic
+  - Quiz ends after 3 wrong answers
+  - Lives displayed as hearts (❤️❤️❤️ → ❤️❤️🖤 → ❤️🖤🖤 → Game Over)
+  - Shows achieved level based on progress before game over
+  - User restarts from beginning to try reaching Master
+
+- Added CSS for quiz game elements
+  - `.quiz-strikes` - Lives display container
+  - `.strikes-label`, `.strikes-hearts` - Hearts styling
+  - `.quiz-gameover-badge` - Red-themed game over message
+  - `.quiz-complete-badge` - Gold-themed Master achievement
+  - `.result-strikes-final` - Results screen hearts display
+  - `.result-challenge` - "Can you reach Master level?" message
+
+**Analyzer Documentation - COMPLETED**
+
+- Created `.claude/scorer-algorithm.md`
+  - Comprehensive documentation of Prompt Analyzer scoring system
+  - Covers: Signal Detection, Sentence-Level Scoring, Aggregation, Framework Fit
+  - Includes pattern tables, threshold values, debug mode instructions
+
+- Fixed Example Analysis scores in analyzer.html
+  - Basic Prompt: 26 (was showing incorrect score)
+  - Better Prompt: 74 (accurate to analyzer output)
+  - Enhanced Prompt: 100 (reflects perfect score)
+
+**Files Modified:**
+- app.js (40 quiz questions, 3-strikes logic, level progression)
+- styles.css (quiz game element styling)
+- quiz/index.html (updated subtitle, level descriptions, continue learning cards)
+- tools/analyzer.html (fixed example scores)
+- .claude/scorer-algorithm.md (new documentation file)
+
+**Commits:**
+- `d66bcfe` - feat: Level-based quiz with 3-strikes game mechanic + analyzer docs
+
+---
+
+### Previous Session Work (2026-02-01 - Session 10)
+
+**Phase 2: Natural Language Content Updates - COMPLETED**
 
 **Completed Tasks:**
 - Fixed ReAct equation card layout
@@ -421,15 +471,47 @@ _public_html/
 - `styles.css` - Back-to-top bar height reduction, border fixes
 - New pages: `pages/chatgpt-guide.html`, `pages/replit-guide.html`, `pages/ide-guide.html`
 
-### Phase 2: Natural Language Content - IN PROGRESS ✅
+### Phase 2: Natural Language Content - COMPLETED ✅
 - [x] Added "Two Approaches, Same Results" sections to all methodology pages
   - prompt-basics.html, crisp.html, crispe.html, costar.html, react.html
   - Side-by-side comparison of labeled vs natural language formats
 - [x] Prompt Builder format toggle (labeled vs natural language output)
 - [x] ReAct equation card layout fix (left-aligned flexbox)
-- [ ] Additional Phase 2 tasks pending
 
-### Phases 3-7: PENDING
+### Additional Completed Work (Not in Phase Plan)
+- [x] AI Readiness Quiz redesign (40 questions, 4 levels, 3-strikes mechanic)
+- [x] Scorer algorithm documentation (.claude/scorer-algorithm.md)
+- [x] Analyzer example scores fixed (26, 74, 100)
+
+### Phase 1 Remaining Items (Pending)
+- [ ] 1.9 Badge lightbox popups (smoked glass effect)
+- [ ] 1.10 Animation term glossary links
+
+### Phase 3: Accordion Content Structure - COMPLETED ✅
+- [x] Accordion CSS component (details/summary based)
+- [x] learn/crisp.html - C, R, I, S, P accordions
+- [x] learn/crispe.html - C, R, I, S, P, E accordions
+- [x] learn/costar.html - C, O, S, T, A, R accordions
+- [x] learn/advanced.html - Technique accordions
+- [x] Expand All / Collapse All controls
+- [x] Deep link support
+- [x] Keyboard accessibility
+
+### Phase 4: Search Tags & Metadata - COMPLETED ✅
+- [x] Search index schema defined (id, title, category, subcategory, keywords, excerpt, url)
+- [x] 48 Glossary terms indexed (A-Z definitions)
+- [x] 25+ Learn page sections indexed (all methodologies + subsections)
+- [x] 6 Tools indexed (Analyzer, Builder, Matcher, Checklist, Hallucination, Quiz)
+- [x] 9 Patterns indexed (Chain of Thought, Few-Shot, Role, etc.)
+- [x] 15+ FAQ entries indexed (Getting Started, Methods, Safety, About)
+- [x] 6 Resource pages indexed (Guides + site info)
+- [x] Search API exposed via window.PraxisSearch
+- [x] Total: 107+ searchable entries
+
+### Phases 5-7: PENDING
+- **Phase 5:** Search UI Implementation (NEXT - Cmd+K modal)
+- **Phase 6:** Developer Tooling
+- **Phase 7:** Full Site Audit
 
 ---
 
@@ -520,18 +602,37 @@ Key variables used throughout (defined in styles.css):
 
 ## NEXT STEPS (In Order)
 
-1. **Task 1.9:** Badge lightbox popups ✅ COMPLETED
+### Phase 1 Remaining (Low Priority)
+1. **Task 1.9:** Badge lightbox popups - PENDING
    - Smoked glass type background
    - Information regarding each badge focus
-   - Added to all 23 HTML pages
 
-2. **Task 1.10:** Animation term glossary links ✅ COMPLETED
-   - Link floating AI terms to glossary
-   - Added IDs to all glossary terms (term-ai, term-llm, term-hallucination, etc.)
-   - Created TERM_GLOSSARY_MAP object mapping AI_TERMS to glossary anchors
-   - Added click detection for NeuralNetwork and HeroNeuralBackground classes
-   - Cursor changes to pointer on hover over clickable terms
-   - Click navigates to glossary page with anchor to specific term
+2. **Task 1.10:** Animation term glossary links - PENDING
+   - Link floating AI terms to glossary definitions
+
+### Ready for Phase 5: Search UI Implementation
+**Goal:** Build client-side search with category grouping
+
+**Features:**
+- [ ] Search modal triggered by Cmd+K / Ctrl+K or search icon
+- [ ] Input with placeholder "Search Praxis..."
+- [ ] Results grouped by category (Learn, Tools, Glossary, Patterns, FAQ, Resources)
+- [ ] Keyboard navigation (arrows, Enter)
+- [ ] Highlighted matches in excerpts
+- [ ] Close on Escape, click outside, or X button
+- [ ] Focus trap for accessibility
+- [ ] Mobile-friendly positioning
+
+**Search API (Already Built):**
+```javascript
+window.PraxisSearch.search('query')  // Returns grouped results
+window.PraxisSearch.getByCategory('Glossary')  // Filter by category
+window.PraxisSearch.totalEntries  // 107+ entries
+```
+
+### After Phase 5
+- **Phase 6:** Developer Tooling (validators, link checker)
+- **Phase 7:** Full Site Audit
 
 2a. **Task 1.10a:** Navigation menu reorganization ✅ COMPLETED
    - Moved Patterns Library, Readiness Quiz, AI Safety from Resources to AI Readiness
