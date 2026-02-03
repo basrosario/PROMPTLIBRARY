@@ -20908,13 +20908,14 @@ html[data-text-scale="3"] {
    ========================================== */
 
 /* --- React Cycle Visualization ---
-   Circular loop showing Thought → Action → Observation */
+   Circular loop showing Thought → Action → Observation → Loop */
 .react-cycle {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
+    min-height: 450px;
     margin: 0 auto;
-    padding: var(--space-3xl) 0;
+    padding: var(--space-3xl) var(--space-xl);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20997,6 +20998,16 @@ html[data-text-scale="3"] {
     transform: translateX(-50%) scale(1.05);
 }
 
+.react-cycle__node--loop {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.react-cycle__node--loop:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
 .react-cycle__node-icon {
     width: 40px;
     height: 40px;
@@ -21055,6 +21066,12 @@ html[data-text-scale="3"] {
     transform: rotate(-135deg);
 }
 
+.react-cycle__arrow--4 {
+    top: 30%;
+    left: 25%;
+    transform: rotate(-45deg);
+}
+
 .react-cycle__caption {
     text-align: center;
     margin-top: var(--space-lg);
@@ -21099,8 +21116,9 @@ html[data-text-scale="3"] {
 /* --- Animated ReAct Cycle ---
    Interactive cycling animation with extending message boxes */
 .react-cycle--animated {
-    padding: var(--space-3xl) var(--space-xl);
-    max-width: 800px;
+    padding: var(--space-3xl) var(--space-2xl);
+    max-width: 1000px;
+    min-height: 500px;
 }
 
 .react-cycle--animated .react-cycle__node {
@@ -21130,6 +21148,11 @@ html[data-text-scale="3"] {
 .react-cycle--animated .react-cycle__node--observation.is-active {
     box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15), 0 8px 24px rgba(34, 197, 94, 0.25);
     border-color: #22c55e;
+}
+
+.react-cycle--animated .react-cycle__node--loop.is-active {
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15), 0 8px 24px rgba(168, 85, 247, 0.25);
+    border-color: #a855f7;
 }
 
 /* Message Box Extensions */
@@ -21221,6 +21244,27 @@ html[data-text-scale="3"] {
     background: linear-gradient(90deg, #22c55e, transparent);
 }
 
+/* Loop message - extends left */
+.react-cycle__node--loop .react-cycle__message {
+    top: 50%;
+    right: calc(100% + 50px);
+    left: auto;
+    transform: translateY(-50%) scale(0.8);
+    border-color: #a855f7;
+}
+
+.react-cycle__node--loop .react-cycle__message.is-visible {
+    transform: translateY(-50%) scale(1);
+}
+
+.react-cycle__node--loop .react-cycle__message::before {
+    right: -50px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #a855f7, transparent);
+}
+
 .react-cycle__message-title {
     font-size: 0.8125rem;
     font-weight: 700;
@@ -21246,6 +21290,10 @@ html[data-text-scale="3"] {
 
 .react-cycle__node--observation .react-cycle__message-title {
     color: #22c55e;
+}
+
+.react-cycle__node--loop .react-cycle__message-title {
+    color: #a855f7;
 }
 
 .react-cycle__message-text {
@@ -21274,6 +21322,7 @@ html[data-text-scale="3"] {
 .react-cycle__arrow--1 { --arrow-rotation: 45deg; }
 .react-cycle__arrow--2 { --arrow-rotation: 135deg; }
 .react-cycle__arrow--3 { --arrow-rotation: -135deg; }
+.react-cycle__arrow--4 { --arrow-rotation: -45deg; }
 
 /* Cycle indicator dots */
 .react-cycle__indicators {
@@ -21299,6 +21348,7 @@ html[data-text-scale="3"] {
 .react-cycle__indicator--thought.is-active { background: #3b82f6; }
 .react-cycle__indicator--action.is-active { background: #f97316; }
 .react-cycle__indicator--observation.is-active { background: #22c55e; }
+.react-cycle__indicator--loop.is-active { background: #a855f7; }
 
 /* Mobile responsive for animated cycle */
 @media (max-width: 992px) {
@@ -21327,6 +21377,15 @@ html[data-text-scale="3"] {
     }
 
     .react-cycle__node--observation .react-cycle__message::before {
+        right: -20px;
+        width: 20px;
+    }
+
+    .react-cycle__node--loop .react-cycle__message {
+        right: calc(100% + 20px);
+    }
+
+    .react-cycle__node--loop .react-cycle__message::before {
         right: -20px;
         width: 20px;
     }

@@ -10935,7 +10935,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messages: [],
         arrows: [],
         indicators: [],
-        steps: ['thought', 'action', 'observation'],
+        steps: ['thought', 'action', 'observation', 'loop'],
         currentIndex: 0,
         cycleTimer: null,
         messageTimer: null,
@@ -10943,10 +10943,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Timing configuration (milliseconds)
         timing: {
-            messageShow: 2500,      // How long message is visible
-            messageHide: 500,       // Transition time for message hide
-            betweenSteps: 800,      // Pause between steps
-            totalCycleDuration: 4000 // Total time per step
+            messageShow: 3500,      // How long message is visible (3.5 seconds)
+            messageHide: 400,       // Transition time for message hide
+            betweenSteps: 500,      // Pause between steps
+            totalCycleDuration: 4500 // Total time per step
         },
 
         init() {
@@ -10969,10 +10969,15 @@ document.addEventListener('DOMContentLoaded', () => {
             this.arrows = [
                 this.container.querySelector('[data-arrow="1"]'),
                 this.container.querySelector('[data-arrow="2"]'),
-                this.container.querySelector('[data-arrow="3"]')
+                this.container.querySelector('[data-arrow="3"]'),
+                this.container.querySelector('[data-arrow="4"]')
             ].filter(Boolean);
 
-            if (this.nodes.length < 3) return;
+            if (this.nodes.length < 4) return;
+
+            // Start immediately if already visible
+            this.isActive = true;
+            this.start();
 
             // Set up intersection observer to start/stop animation
             this.setupObserver();
@@ -11005,7 +11010,7 @@ document.addEventListener('DOMContentLoaded', () => {
         start() {
             if (this.cycleTimer) return;
 
-            // Start the cycle
+            // Start the cycle immediately
             this.runStep();
         },
 
