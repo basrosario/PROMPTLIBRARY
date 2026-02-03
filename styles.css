@@ -77,6 +77,35 @@
 }
 
 /* ============================================
+   iPHONE SAFE AREA SUPPORT
+   For iPhone 14 Pro, 15 Pro, and newer with Dynamic Island
+   ============================================ */
+
+/* Safe area inset fallbacks */
+:root {
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
+/* Ensure minimum touch target of 44x44px for iOS HIG compliance */
+@media (max-width: 768px) {
+    button,
+    [role="button"],
+    .btn,
+    .nav-link,
+    .menu-toggle,
+    input[type="submit"],
+    input[type="button"],
+    a.pillar-card,
+    .tool-card a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ============================================
    RESET & BASE
    ============================================ */
 *, *::before, *::after {
@@ -223,6 +252,9 @@ p {
     right: 0;
     z-index: 1000;
     padding: var(--space-md);
+    padding-top: calc(var(--space-md) + var(--safe-area-inset-top));
+    padding-left: calc(var(--space-md) + var(--safe-area-inset-left));
+    padding-right: calc(var(--space-md) + var(--safe-area-inset-right));
     background: transparent;
     transition: background var(--transition-normal),
                 backdrop-filter var(--transition-normal);
@@ -944,6 +976,7 @@ p {
     border-radius: 0;
     margin: 0;
     padding: 0.38rem 0;
+    padding-bottom: calc(0.38rem + var(--safe-area-inset-bottom));
     outline: none;
     cursor: pointer;
     display: flex;
@@ -958,6 +991,7 @@ p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    min-height: 44px;
     /* Hidden by default - slides up when scrolling */
     transform: translateY(100%);
     opacity: 0;
@@ -1566,6 +1600,9 @@ p {
    ============================================ */
 .footer {
     padding: var(--space-2xl) var(--space-md);
+    padding-bottom: calc(var(--space-2xl) + var(--safe-area-inset-bottom));
+    padding-left: calc(var(--space-md) + var(--safe-area-inset-left));
+    padding-right: calc(var(--space-md) + var(--safe-area-inset-right));
     background: var(--bg-dark);
     color: white;
     position: relative;
@@ -5562,16 +5599,20 @@ p {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 60px;
+    top: calc(60px + var(--safe-area-inset-top));
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(13, 17, 23, 0.98);
     padding: var(--space-xl);
+    padding-bottom: calc(var(--space-xl) + var(--safe-area-inset-bottom));
+    padding-left: calc(var(--space-xl) + var(--safe-area-inset-left));
+    padding-right: calc(var(--space-xl) + var(--safe-area-inset-right));
     gap: var(--space-md);
     z-index: 999;
     animation: slideDown 0.3s ease;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 @keyframes slideDown {
@@ -5586,9 +5627,18 @@ p {
 }
 
 .nav.active .nav-link {
-    font-size: 1.25rem;
-    padding: var(--space-md) 0;
+    font-size: 1.125rem;
+    padding: var(--space-md) var(--space-sm);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.nav.active .nav-link:active {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Prevent body scroll when menu is open */
@@ -11286,17 +11336,20 @@ html[data-text-scale="3"] {
    -------------------------------------------- */
 @media (max-width: 480px) {
     .adl-toggle {
-        bottom: 80px;
-        right: 12px;
-        width: 44px;
-        height: 44px;
+        bottom: calc(80px + var(--safe-area-inset-bottom));
+        right: calc(12px + var(--safe-area-inset-right));
+        width: 48px;
+        height: 48px;
     }
 
     .adl-panel {
-        bottom: 135px;
-        right: 12px;
-        left: 12px;
+        bottom: calc(140px + var(--safe-area-inset-bottom));
+        right: calc(12px + var(--safe-area-inset-right));
+        left: calc(12px + var(--safe-area-inset-left));
         width: auto;
+        max-height: 60vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -12664,115 +12717,6 @@ html[data-text-scale="3"] {
         margin-left: var(--space-2xl);
     }
 }
-
-/* === MOBILE SWIPE NAVIGATION === */
-/* Touch swipe indicators for page navigation */
-
-.swipe-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.swipe-indicator--visible {
-    opacity: 1;
-}
-
-.swipe-hint {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(var(--primary-rgb, 79, 70, 229), 0.15);
-    backdrop-filter: blur(4px);
-    border-radius: var(--radius);
-}
-
-.swipe-hint--prev {
-    left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.swipe-hint--next {
-    right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.swipe-hint__arrow {
-    font-size: 1.5rem;
-    color: var(--primary);
-    font-weight: 300;
-    animation: swipe-pulse 1.5s ease-in-out infinite;
-}
-
-.swipe-hint--prev .swipe-hint__arrow {
-    animation-name: swipe-pulse-left;
-}
-
-.swipe-hint--next .swipe-hint__arrow {
-    animation-name: swipe-pulse-right;
-}
-
-@keyframes swipe-pulse-left {
-    0%, 100% {
-        transform: translateX(0);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translateX(-5px);
-        opacity: 1;
-    }
-}
-
-@keyframes swipe-pulse-right {
-    0%, 100% {
-        transform: translateX(0);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translateX(5px);
-        opacity: 1;
-    }
-}
-
-/* Page transition effect */
-.page-transitioning {
-    opacity: 0.7;
-    transition: opacity 0.15s ease;
-}
-
-/* Hide swipe indicators on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-    .swipe-indicator {
-        display: none;
-    }
-}
-
-/* Adjust swipe hint size for smaller screens */
-@media (max-width: 375px) {
-    .swipe-hint {
-        width: 32px;
-        height: 64px;
-    }
-
-    .swipe-hint__arrow {
-        font-size: 1.25rem;
-    }
-}
-
-/* /MOBILE SWIPE NAVIGATION */
 
 /* ============================================
    PERSONA ARCHITECT TOOL
@@ -16099,12 +16043,37 @@ html[data-text-scale="3"] {
     background: rgba(220, 53, 69, 0.9);
 }
 
-/* Reduced motion */
+/* Reduced motion - comprehensive accessibility support */
 @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
     .parallax-bg {
         top: 0;
         height: 100%;
         background-attachment: scroll;
+    }
+
+    .fade-in,
+    .fade-in-up,
+    .slide-up {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animated-card--lift:hover,
+    .animated-card--glow:hover,
+    .pillar-card:hover {
+        transform: none;
+    }
+
+    html {
+        scroll-behavior: auto;
     }
 }
 
@@ -17255,12 +17224,33 @@ html[data-text-scale="3"] {
     margin-bottom: var(--space-lg);
 }
 
+.split-section__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    background: rgba(220, 53, 69, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-sm);
+}
+
+.split-section__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
 @media (min-width: 768px) {
     .split-section {
         grid-template-columns: 1fr 1fr;
     }
 
-    .split-section--reverse .split-section__media {
+    .split-section--reverse .split-section__media,
+    .split-section--reverse .split-section__visual {
         order: 2;
     }
 
@@ -22946,19 +22936,31 @@ html[data-text-scale="3"] {
 .feature-list__item--positive {
     background: rgba(34, 197, 94, 0.05);
     border: 1px solid rgba(34, 197, 94, 0.15);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
 }
 
 .feature-list__item--positive svg {
     color: #22c55e;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    stroke: #22c55e;
 }
 
 .feature-list__item--neutral {
     background: rgba(100, 116, 139, 0.05);
     border: 1px solid rgba(100, 116, 139, 0.15);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
 }
 
 .feature-list__item--neutral svg {
     color: var(--text-secondary);
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    stroke: var(--text-secondary);
 }
 
 /* === TECHNIQUE DEMO ===
@@ -23089,6 +23091,77 @@ html[data-text-scale="3"] {
     display: none;
 }
 
+/* === PILLAR GRID ===
+   Grid layouts for pillar cards */
+.pillar-grid {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.pillar-grid--2 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.pillar-grid--3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (min-width: 900px) {
+    .pillar-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pillar-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* === PILLAR CARD ICON ===
+   Icon container for pillar cards */
+.pillar-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.pillar-card__icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--primary);
+    flex-shrink: 0;
+}
+
+.pillar-card__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.pillar-card__text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.pillar-card__tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary);
+    background: rgba(220, 53, 69, 0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+}
+
 /* === PILLAR CARD CLICKABLE ===
    Interactive variant for navigation */
 .pillar-card--clickable {
@@ -23109,6 +23182,18 @@ html[data-text-scale="3"] {
 
 .pillar-card--clickable:hover .pillar-card__icon svg {
     color: white;
+    stroke: white;
+}
+
+/* === PILLAR CARD FEATURED ===
+   Enhanced styling for prominent cards */
+.pillar-card--featured {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--surface) 100%);
+    border-color: rgba(220, 53, 69, 0.2);
+}
+
+.pillar-card--featured:hover {
+    border-color: var(--primary);
 }
 
 /* === SPLIT SECTION REVERSE ===
@@ -23123,8 +23208,79 @@ html[data-text-scale="3"] {
     }
 }
 
+/* === SPLIT SECTION VISUAL ===
+   Visual container - alias for split-section__media */
+.split-section__visual {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.split-section__visual img {
+    width: 100%;
+    height: auto;
+}
+
 /* === SPLIT SECTION CENTER ===
    Centered alignment for hero-style splits */
 .split-section--center {
     align-items: center;
+}
+
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   iPhone 14 Pro+ and modern mobile devices
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Reduce backdrop-filter usage on mobile for performance */
+    .header.scrolled {
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+    }
+
+    /* Disable complex shadows on hover for mobile */
+    .pillar-card:hover,
+    .tool-card:hover,
+    .card:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Improve scroll performance */
+    .nav.active,
+    .adl-panel,
+    .badge-lightbox {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
+    /* Optimize transform animations */
+    .fade-in-up {
+        transform: translateY(10px);
+    }
+
+    /* Reduce parallax effects on mobile */
+    [data-parallax] {
+        transform: none !important;
+    }
+}
+
+/* iPhone 14 Pro / 15 Pro specific (393px width) */
+@media (max-width: 393px) {
+    .container {
+        padding-left: calc(var(--space-md) + var(--safe-area-inset-left));
+        padding-right: calc(var(--space-md) + var(--safe-area-inset-right));
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .pillar-card,
+    .tool-card {
+        padding: var(--space-md);
+    }
 }
