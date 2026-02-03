@@ -90,7 +90,7 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -106,6 +106,7 @@
                 <p class="page-subtitle fade-in">Let the AI interview you first. Get personalized advice instead of generic responses by reversing who asks the questions.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
         <!-- === CONTENT BADGES === -->
         <section class="section">
@@ -140,32 +141,90 @@
         </section>
         <!-- /CONTENT BADGES -->
 
-        <!-- === THE FLIP === -->
-        <section class="section section-alt">
+        <!-- === THE BIG IDEA === -->
+        <section class="section section-ambient section-alt">
+            <canvas class="section-ambient__canvas" data-ambient="particles"></canvas>
             <div class="container">
-                <h2 class="section-title fade-in-up">The Flip</h2>
-                <p class="section-subtitle fade-in-up">Reverse who asks the questions</p>
-
-                <div class="concept-cards fade-in-up">
-                    <div class="concept-card">
-                        <h3>Traditional</h3>
-                        <p>You ask, AI answers immediately</p>
+                <div class="split-section split-section--center fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Real Experts Ask First</h2>
+                        <p class="split-section__text">When you visit a doctor, they don't immediately prescribe medicine. A consultant doesn't start with solutions. A coach doesn't give advice on day one.</p>
+                        <p class="split-section__text"><strong>They ask questions.</strong> Because context changes everything.</p>
+                        <p class="split-section__text">Flipped Interaction activates this same expert pattern in AI. Instead of getting generic advice from a rushed response, you get personalized recommendations from a system that actually understands your situation.</p>
                     </div>
-                    <div class="concept-operator">→</div>
-                    <div class="concept-card concept-result">
-                        <h3>Flipped</h3>
-                        <p>AI interviews you, then answers with context</p>
+                    <div class="split-section__visual">
+                        <div class="flip-visualization">
+                            <div class="flip-visualization__card flip-visualization__card--before">
+                                <div class="flip-visualization__label">Traditional</div>
+                                <div class="flip-visualization__flow">
+                                    <span class="flip-visualization__you">You</span>
+                                    <span class="flip-visualization__arrow">Ask</span>
+                                    <span class="flip-visualization__ai">AI</span>
+                                </div>
+                                <div class="flip-visualization__result flip-visualization__result--generic">Generic Answer</div>
+                            </div>
+                            <div class="flip-visualization__divider">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </div>
+                            <div class="flip-visualization__card flip-visualization__card--after">
+                                <div class="flip-visualization__label">Flipped</div>
+                                <div class="flip-visualization__flow">
+                                    <span class="flip-visualization__ai">AI</span>
+                                    <span class="flip-visualization__arrow">Asks</span>
+                                    <span class="flip-visualization__you">You</span>
+                                </div>
+                                <div class="flip-visualization__result flip-visualization__result--tailored">Tailored Advice</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <!-- /THE BIG IDEA -->
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">🧠</span>
-                        <span class="science-box__title">Why This Works</span>
+        <!-- === WHY IT WORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Why This Works</h2>
+                <p class="section-subtitle fade-in-up">The psychology and mechanics behind the flip</p>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Context Discovery</h3>
+                        <p class="pillar-card__text">AI questions surface information you didn't know was relevant. The interview process reveals hidden constraints, preferences, and requirements that would never appear in a standard prompt.</p>
                     </div>
-                    <p class="science-box__content">
-                        Real experts—doctors, consultants, coaches—never give advice without first understanding your situation. They ask questions because context changes everything. When you flip the interaction, you activate this same expert pattern in the AI, forcing it to gather the specific information needed before jumping to solutions. The result: personalized advice instead of generic tips.
-                    </p>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Forced Depth</h3>
+                        <p class="pillar-card__text">The AI can't give a shallow response because it hasn't gathered enough context yet. This structurally prevents the "here are 10 generic tips" problem that plagues standard interactions.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Expert Pattern</h3>
+                        <p class="pillar-card__text">By mimicking the consultation process of real experts, you activate more sophisticated reasoning patterns in the AI. It shifts from "answer mode" to "diagnostic mode."</p>
+                    </div>
                 </div>
 
                 <div class="stat-cards fade-in-up">
@@ -187,40 +246,72 @@
                 </div>
             </div>
         </section>
-        <!-- /THE FLIP -->
+        <!-- /WHY IT WORKS -->
 
         <!-- === THE COMPARISON === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
                 <p class="section-subtitle fade-in-up">Same goal, dramatically different results</p>
 
-                <div class="approach-comparison fade-in-up">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>Traditional Approach</h3>
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 19l-7-7 7-7"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Traditional Approach</h3>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Your Prompt</span>
                                 <p>"Help me improve my team's productivity."</p>
                             </div>
-                            <p class="example-result">Result: Generic advice about time management, meetings, and tools that may not apply to your situation at all.</p>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">AI Response</span>
+                                <p>Generic advice about time management, meetings, and tools that may not apply to your situation at all. "Have you tried the Pomodoro technique?"</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Generic, one-size-fits-all</span>
                         </div>
                     </div>
 
-                    <div class="approach-vs">
-                        <span>vs</span>
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
                     </div>
 
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>Flipped Interaction</h3>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Flipped Interaction</h3>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Your Prompt</span>
                                 <p>"I want to improve my team's productivity. Before giving advice, ask me 5-7 questions about my team, our challenges, and what we've already tried."</p>
                             </div>
-                            <p class="example-result">Result: Targeted recommendations based on your team size, remote/in-office setup, specific bottlenecks, and past attempts.</p>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">AI Response</span>
+                                <p>Targeted recommendations based on your team size (8 people), remote-first setup, async communication issues, and failed attempts with Slack channels.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Personalized, actionable</span>
                         </div>
                     </div>
                 </div>
@@ -229,41 +320,66 @@
         <!-- /THE COMPARISON -->
 
         <!-- === HOW IT WORKS === -->
-        <section class="section section-alt">
+        <section class="section section-ambient">
+            <canvas class="section-ambient__canvas" data-ambient="grid"></canvas>
             <div class="container">
-                <h2 class="section-title fade-in-up">How It Works</h2>
-                <p class="section-subtitle fade-in-up">The flipped interaction flow</p>
+                <h2 class="section-title fade-in-up">The Four-Step Flow</h2>
+                <p class="section-subtitle fade-in-up">From goal to personalized guidance</p>
 
-                <div class="learning-path fade-in-up">
-                    <div class="path-node path-node--active">
-                        <span class="path-node__marker">1</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">State Your Goal</h3>
-                            <p class="path-node__desc">Tell the AI what you're trying to accomplish. Be clear about the end result you want, but don't try to provide all context upfront.</p>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">State Your Goal</h3>
+                            <p class="element-timeline__text">Tell the AI what you're trying to accomplish. Be clear about the end result you want, but don't try to provide all context upfront. That's the AI's job to discover.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"I want to improve my content marketing strategy..."</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="path-node">
-                        <span class="path-node__marker">2</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Request the Interview</h3>
-                            <p class="path-node__desc">Ask the AI to interview you before giving advice. Specify the number of questions (5-7 works well) and optionally the areas to cover.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Request the Interview</h3>
+                            <p class="element-timeline__text">Ask the AI to interview you before giving advice. Specify the number of questions (5-7 works well) and optionally the areas you want covered.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"...before giving recommendations, ask me 5-6 focused questions about my business, audience, and current efforts."</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="path-node">
-                        <span class="path-node__marker">3</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Answer Thoughtfully</h3>
-                            <p class="path-node__desc">Respond to each question with specifics about your situation. The more context you provide, the better the eventual advice.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Answer Thoughtfully</h3>
+                            <p class="element-timeline__text">Respond to each question with specifics about your situation. The more context you provide, the better the eventual advice. This is where the magic happens.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Key Insight</span>
+                                <p>The AI's questions often reveal aspects of your situation you hadn't considered sharing.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="path-node">
-                        <span class="path-node__marker">4</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Receive Tailored Advice</h3>
-                            <p class="path-node__desc">Now the AI has the context it needs. Its recommendations will directly address your constraints, goals, and situation.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Receive Tailored Advice</h3>
+                            <p class="element-timeline__text">Now the AI has the context it needs. Its recommendations will directly address your constraints, goals, and specific situation instead of offering generic tips.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Result</span>
+                                <p>Actionable, personalized guidance that acknowledges your real constraints.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -272,114 +388,225 @@
         <!-- /HOW IT WORKS -->
 
         <!-- === TRIGGER PHRASES === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">How to Trigger It</h2>
+                <h2 class="section-title fade-in-up">How to Trigger the Flip</h2>
                 <p class="section-subtitle fade-in-up">Phrases that activate interview mode</p>
 
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">💬</div>
-                        <h3 class="use-case-card__title">Direct Request</h3>
-                        <p class="use-case-card__desc">"Before you answer, ask me questions to understand my situation."</p>
+                <div class="progressive-build fade-in-up">
+                    <div class="progressive-build__item">
+                        <div class="progressive-build__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="progressive-build__content">
+                            <h3 class="progressive-build__title">Direct Request</h3>
+                            <p class="progressive-build__text">"Before you answer, ask me questions to understand my situation."</p>
+                            <span class="progressive-build__tag">Clear and simple</span>
+                        </div>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔢</div>
-                        <h3 class="use-case-card__title">Numbered Questions</h3>
-                        <p class="use-case-card__desc">"Ask me 5 clarifying questions before providing recommendations."</p>
+                    <div class="progressive-build__item">
+                        <div class="progressive-build__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <line x1="12" y1="11" x2="12" y2="17"/>
+                                <line x1="9" y1="14" x2="15" y2="14"/>
+                            </svg>
+                        </div>
+                        <div class="progressive-build__content">
+                            <h3 class="progressive-build__title">Numbered Questions</h3>
+                            <p class="progressive-build__text">"Ask me 5 clarifying questions before providing recommendations."</p>
+                            <span class="progressive-build__tag">Controlled scope</span>
+                        </div>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔍</div>
-                        <h3 class="use-case-card__title">Information Gathering</h3>
-                        <p class="use-case-card__desc">"What do you need to know about my situation to give me good advice?"</p>
+                    <div class="progressive-build__item">
+                        <div class="progressive-build__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <div class="progressive-build__content">
+                            <h3 class="progressive-build__title">Information Gathering</h3>
+                            <p class="progressive-build__text">"What do you need to know about my situation to give me good advice?"</p>
+                            <span class="progressive-build__tag">Open-ended</span>
+                        </div>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">👔</div>
-                        <h3 class="use-case-card__title">Expert Frame</h3>
-                        <p class="use-case-card__desc">"Interview me like a consultant would before proposing solutions."</p>
+                    <div class="progressive-build__item">
+                        <div class="progressive-build__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="progressive-build__content">
+                            <h3 class="progressive-build__title">Expert Frame</h3>
+                            <p class="progressive-build__text">"Interview me like a consultant would before proposing solutions."</p>
+                            <span class="progressive-build__tag">Role-based</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Pro Tip</div>
-                    <p>Specify the number of questions and optionally the areas to cover. This keeps the interview focused and efficient. "Ask me 5 questions about my team structure, current tools, and main blockers" is more effective than just "ask me some questions."</p>
+                    <div class="callout-title">Pro Tip: Be Specific</div>
+                    <p>Specify the number of questions and optionally the areas to cover. "Ask me 5 questions about my team structure, current tools, and main blockers" is more effective than just "ask me some questions."</p>
                 </div>
             </div>
         </section>
         <!-- /TRIGGER PHRASES -->
 
         <!-- === WHEN TO USE === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">When to Use Flipped Interaction</h2>
                 <p class="section-subtitle fade-in-up">Best for personalized advice and complex situations</p>
 
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🎯</div>
-                        <h3 class="use-case-card__title">Personalized Advice</h3>
-                        <p class="use-case-card__desc">When generic tips won't cut it and you need recommendations for your specific situation.</p>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Personalized Advice</strong>
+                                    <p>When generic tips won't cut it and you need recommendations for your specific situation.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Complex Problems</strong>
+                                    <p>Multi-factor challenges where the right answer depends on many variables you might not think to share.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Unique Constraints</strong>
+                                    <p>When your budget, timeline, team, or resources make standard solutions impractical.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Unknown Unknowns</strong>
+                                    <p>When you're not sure what information is relevant—let the AI figure out what to ask.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🧩</div>
-                        <h3 class="use-case-card__title">Complex Problems</h3>
-                        <p class="use-case-card__desc">Multi-factor challenges where the right answer depends on many variables you might not think to share.</p>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Simple Factual Questions</strong>
+                                    <p>"What's the capital of France" doesn't need an interview first.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Full Context Provided</strong>
+                                    <p>When you've already specified everything the AI needs to know.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Speed Over Depth</strong>
+                                    <p>When you need a quick answer and personalization isn't worth the extra time.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🚧</div>
-                        <h3 class="use-case-card__title">Unique Constraints</h3>
-                        <p class="use-case-card__desc">When your budget, timeline, team, or resources make standard solutions impractical.</p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">❓</div>
-                        <h3 class="use-case-card__title">Unknown Unknowns</h3>
-                        <p class="use-case-card__desc">When you're not sure what information is relevant—let the AI figure out what to ask.</p>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">Skip It When</div>
-                    <p>For simple factual questions, tasks with all context provided, or when speed matters more than personalization. A question like "what's the capital of France" doesn't need an interview first.</p>
                 </div>
             </div>
         </section>
         <!-- /WHEN TO USE -->
 
         <!-- === VARIATIONS === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Variations</h2>
-                <p class="section-subtitle fade-in-up">Adapt the technique to different contexts</p>
+                <h2 class="section-title fade-in-up">Variations of the Flip</h2>
+                <p class="section-subtitle fade-in-up">Adapt the technique to different professional contexts</p>
 
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🩺</div>
-                        <h3 class="use-case-card__title">The Diagnostic</h3>
-                        <p class="use-case-card__desc">"Act as a consultant. Diagnose my problem before prescribing solutions." Best for troubleshooting and problem-solving.</p>
+                <div class="pillar-grid pillar-grid--2 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Diagnostic</h3>
+                        <p class="pillar-card__text">"Act as a consultant. Diagnose my problem before prescribing solutions."</p>
+                        <span class="pillar-card__tag">Best for troubleshooting and problem-solving</span>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📋</div>
-                        <h3 class="use-case-card__title">The Intake Form</h3>
-                        <p class="use-case-card__desc">"Ask me the questions you'd put on an intake form for a new client." Best for professional services and consulting scenarios.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Intake Form</h3>
+                        <p class="pillar-card__text">"Ask me the questions you'd put on an intake form for a new client."</p>
+                        <span class="pillar-card__tag">Best for professional services scenarios</span>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📞</div>
-                        <h3 class="use-case-card__title">The Discovery Call</h3>
-                        <p class="use-case-card__desc">"Conduct a discovery call to understand my needs before proposing solutions." Best for sales and solutions design.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Discovery Call</h3>
+                        <p class="pillar-card__text">"Conduct a discovery call to understand my needs before proposing solutions."</p>
+                        <span class="pillar-card__tag">Best for sales and solutions design</span>
                     </div>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📝</div>
-                        <h3 class="use-case-card__title">Requirements Gathering</h3>
-                        <p class="use-case-card__desc">"You're a business analyst. Gather requirements before drafting the specification." Best for technical and product work.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Requirements Gathering</h3>
+                        <p class="pillar-card__text">"You're a business analyst. Gather requirements before drafting the specification."</p>
+                        <span class="pillar-card__tag">Best for technical and product work</span>
                     </div>
                 </div>
             </div>
@@ -387,50 +614,84 @@
         <!-- /VARIATIONS -->
 
         <!-- === REAL EXAMPLE === -->
-        <section class="section section-alt">
+        <section class="section section-ambient">
+            <canvas class="section-ambient__canvas" data-ambient="particles"></canvas>
             <div class="container">
                 <h2 class="section-title fade-in-up">Flipped Interaction in Action</h2>
                 <p class="section-subtitle fade-in-up">A complete example from prompt to personalized advice</p>
 
-                <div class="react-example-flow fade-in-up">
-                    <div class="react-step-card thought">
-                        <span class="react-label">Your Prompt</span>
-                        <p>"I need help with our content marketing strategy. Before giving recommendations, interview me about our business, audience, current efforts, and goals. Ask 5-6 focused questions."</p>
+                <div class="element-timeline element-timeline--conversation fade-in-up">
+                    <div class="element-timeline__item element-timeline__item--user">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Your Opening Prompt</h3>
+                            <p class="element-timeline__text">"I need help with our content marketing strategy. Before giving recommendations, interview me about our business, audience, current efforts, and goals. Ask 5-6 focused questions."</p>
+                        </div>
                     </div>
-                    <div class="react-step-card action">
-                        <span class="react-label">AI's Questions</span>
-                        <p>1. What does your company do, and what's your main product or service?<br>
-                        2. Who is your target audience, and what's their biggest pain point?<br>
-                        3. What content are you currently producing, and on which channels?<br>
-                        4. What's working well, and what's underperforming?<br>
-                        5. What's your primary goal: brand awareness, lead generation, or retention?<br>
-                        6. What resources do you have for content?</p>
+
+                    <div class="element-timeline__item element-timeline__item--ai">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">AI's Questions</h3>
+                            <ol class="element-timeline__list">
+                                <li>What does your company do, and what's your main product or service?</li>
+                                <li>Who is your target audience, and what's their biggest pain point?</li>
+                                <li>What content are you currently producing, and on which channels?</li>
+                                <li>What's working well, and what's underperforming?</li>
+                                <li>What's your primary goal: brand awareness, lead generation, or retention?</li>
+                                <li>What resources (time, budget, team) do you have for content?</li>
+                            </ol>
+                        </div>
                     </div>
-                    <div class="react-step-card observation">
-                        <span class="react-label">Your Answers</span>
-                        <p>You share specifics: B2B SaaS, targeting CTOs, currently only doing LinkedIn posts, getting engagement but no leads, goal is lead generation, small team with limited time.</p>
+
+                    <div class="element-timeline__item element-timeline__item--user">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Your Answers</h3>
+                            <p class="element-timeline__text">You share specifics: B2B SaaS for project management, targeting CTOs at mid-size tech companies, currently only doing LinkedIn posts, getting engagement but no leads, goal is lead generation, small team with limited time for content creation.</p>
+                        </div>
                     </div>
-                    <div class="react-step-card conclusion">
-                        <span class="react-label">Tailored Advice</span>
-                        <p>Instead of generic "post consistently" advice, you get: specific content formats for CTOs, a realistic cadence for a small team, LinkedIn-to-gated-content strategy for lead capture, and measurable next steps.</p>
+
+                    <div class="element-timeline__item element-timeline__item--result">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Tailored Strategy</h3>
+                            <p class="element-timeline__text">Instead of generic "post consistently" advice, you get: specific content formats CTOs actually read (case studies, data-driven posts), a realistic bi-weekly cadence for a small team, a LinkedIn-to-gated-whitepaper strategy for capturing leads, and concrete first steps you can start this week.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">✓</span>
-                        <span class="science-box__title">The Difference</span>
-                    </div>
-                    <p class="science-box__content">
-                        Without the interview, you'd get advice like "create valuable content and post regularly." After the interview, you get a strategy designed for your specific business model, audience, resource constraints, and goals. Same question, completely different value.
-                    </p>
+                <div class="callout success fade-in-up">
+                    <div class="callout-title">The Difference</div>
+                    <p>Without the interview, you'd get advice like "create valuable content and post regularly." After the interview, you get a strategy designed for your specific business model, audience, resource constraints, and goals. Same question, completely different value.</p>
                 </div>
             </div>
         </section>
         <!-- /REAL EXAMPLE -->
 
         <!-- === WHERE IT FITS === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Where Flipped Interaction Fits</h2>
                 <p class="section-subtitle fade-in-up">A collaborative approach that complements other frameworks</p>
@@ -467,46 +728,74 @@
         <!-- /WHERE IT FITS -->
 
         <!-- === CONTINUE LEARNING === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Continue Your Journey</h2>
                 <p class="section-subtitle fade-in-up">Explore related frameworks and techniques</p>
 
                 <a href="react.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">🔄</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                            <path d="M21 3v9h-9"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Reasoning Framework</span>
                         <span class="evolution-callout__title">ReAct Framework</span>
                         <span class="evolution-callout__desc">When you need visible step-by-step reasoning with thought, action, and observation cycles.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
 
                 <a href="costar.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">👥</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Audience-First Framework</span>
                         <span class="evolution-callout__title">COSTAR Framework</span>
                         <span class="evolution-callout__desc">When who you're writing for matters as much as what you're writing.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
 
                 <a href="advanced.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">🚀</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Advanced Techniques</span>
                         <span class="evolution-callout__title">Chain of Thought, Meta-Prompting & More</span>
                         <span class="evolution-callout__desc">Powerful techniques for complex tasks: reasoning chains, self-correction, and prompt optimization.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
             </div>
         </section>
         <!-- /CONTINUE LEARNING -->
 
-        <!-- CTA -->
-        <section class="section">
+        <!-- === CTA === -->
+        <section class="section section-alt">
             <div class="container">
                 <div class="cta-card fade-in-up">
                     <canvas id="cta-neural-bg" class="neural-canvas-secondary"></canvas>
@@ -519,6 +808,7 @@
                 </div>
             </div>
         </section>
+        <!-- /CTA -->
     </main>
 
     <!-- Footer -->

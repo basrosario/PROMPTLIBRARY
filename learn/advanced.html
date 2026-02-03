@@ -90,7 +90,7 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -106,6 +106,7 @@
                 <p class="page-subtitle fade-in">Power tools for complex tasks. Chain-of-thought reasoning, few-shot learning, and meta-prompting for maximum AI capability.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
         <!-- === CONTENT BADGES === -->
         <section class="section">
@@ -141,47 +142,88 @@
         <!-- /CONTENT BADGES -->
 
         <!-- === YOUR TOOLKIT === -->
-        <section class="section section-alt">
+        <section class="section section-ambient section-alt">
+            <canvas class="section-ambient__canvas" data-ambient="grid"></canvas>
             <div class="container">
                 <h2 class="section-title fade-in-up">Your Advanced Toolkit</h2>
                 <p class="section-subtitle fade-in-up">Six techniques that unlock AI's full potential</p>
 
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔗</div>
-                        <h3 class="use-case-card__title">Chain-of-Thought</h3>
-                        <p class="use-case-card__desc">Make AI show its reasoning step by step for complex problems.</p>
-                    </div>
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <a href="#chain-of-thought" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="18" cy="18" r="3"/>
+                                <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Chain-of-Thought</h3>
+                        <p class="pillar-card__text">Make AI show its reasoning step by step for complex problems.</p>
+                        <span class="pillar-card__tag">Reasoning</span>
+                    </a>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📚</div>
-                        <h3 class="use-case-card__title">Few-Shot Learning</h3>
-                        <p class="use-case-card__desc">Teach through examples instead of lengthy explanations.</p>
-                    </div>
+                    <a href="#few-shot" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                <line x1="8" y1="7" x2="16" y2="7"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Few-Shot Learning</h3>
+                        <p class="pillar-card__text">Teach through examples instead of lengthy explanations.</p>
+                        <span class="pillar-card__tag">Examples</span>
+                    </a>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🎭</div>
-                        <h3 class="use-case-card__title">Role Prompting</h3>
-                        <p class="use-case-card__desc">Assign personas to activate different thinking modes.</p>
-                    </div>
+                    <a href="#role-prompting" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="5"/>
+                                <path d="M20 21a8 8 0 1 0-16 0"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Role Prompting</h3>
+                        <p class="pillar-card__text">Assign personas to activate different thinking modes.</p>
+                        <span class="pillar-card__tag">Personas</span>
+                    </a>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📋</div>
-                        <h3 class="use-case-card__title">Constrained Output</h3>
-                        <p class="use-case-card__desc">Define exact formats for programmatic use.</p>
-                    </div>
+                    <a href="#constrained-output" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Constrained Output</h3>
+                        <p class="pillar-card__text">Define exact formats for programmatic use.</p>
+                        <span class="pillar-card__tag">Structure</span>
+                    </a>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">✓</div>
-                        <h3 class="use-case-card__title">Self-Consistency</h3>
-                        <p class="use-case-card__desc">Have AI verify and improve its own work.</p>
-                    </div>
+                    <a href="#self-consistency" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Self-Consistency</h3>
+                        <p class="pillar-card__text">Have AI verify and improve its own work.</p>
+                        <span class="pillar-card__tag">Verification</span>
+                    </a>
 
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">⛓️</div>
-                        <h3 class="use-case-card__title">Prompt Chaining</h3>
-                        <p class="use-case-card__desc">Break complex tasks into connected steps.</p>
-                    </div>
+                    <a href="#prompt-chaining" class="pillar-card pillar-card--clickable">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Prompt Chaining</h3>
+                        <p class="pillar-card__text">Break complex tasks into connected steps.</p>
+                        <span class="pillar-card__tag">Workflow</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -190,70 +232,48 @@
         <!-- === CHAIN OF THOUGHT === -->
         <section class="section" id="chain-of-thought">
             <div class="container">
-                <h2 class="section-title fade-in-up">Chain-of-Thought Prompting</h2>
-                <p class="section-subtitle fade-in-up">Encourage explicit step-by-step reasoning</p>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 1</span>
+                        <h2 class="split-section__title">Chain-of-Thought Prompting</h2>
+                        <p class="split-section__text">When you ask AI to "think step by step," you're activating a different processing mode. Instead of jumping straight to an answer, the model generates intermediate reasoning tokens that it then uses as context for subsequent steps.</p>
+                        <p class="split-section__text">This dramatically reduces errors on multi-step problems because <strong>each step constrains the next</strong>. The visible reasoning also lets you catch errors mid-process.</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">🧠</span>
-                        <span class="science-box__title">Why This Works</span>
-                    </div>
-                    <p class="science-box__content">
-                        When you ask AI to "think step by step," you're activating a different processing mode. Instead of jumping straight to an answer, the model generates intermediate reasoning tokens that it then uses as context for subsequent steps. This dramatically reduces errors on multi-step problems because each step constrains the next.
-                    </p>
-                </div>
-
-                <div class="stat-cards fade-in-up">
-                    <div class="stat-card">
-                        <span class="stat-number">40%</span>
-                        <span class="stat-label">accuracy boost</span>
-                        <span class="stat-description">On math and logic problems with chain-of-thought prompting</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">words to trigger</span>
-                        <span class="stat-description">"Let's think step by step" activates reasoning mode</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">Easy</span>
-                        <span class="stat-label">to verify</span>
-                        <span class="stat-description">Visible reasoning lets you catch errors mid-process</span>
-                    </div>
-                </div>
-
-                <div class="approach-comparison fade-in-up">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>Without CoT</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>"What's 15% of 847?"</p>
+                        <div class="stat-cards stat-cards--compact fade-in-up">
+                            <div class="stat-card stat-card--small">
+                                <span class="stat-number">40%</span>
+                                <span class="stat-label">accuracy boost</span>
                             </div>
-                            <p class="example-result">Answer: 127.05 (no work shown, can't verify)</p>
-                        </div>
-                    </div>
-
-                    <div class="approach-vs">
-                        <span>vs</span>
-                    </div>
-
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>With CoT</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>"What's 15% of 847? Think through this step by step."</p>
+                            <div class="stat-card stat-card--small">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">words to trigger</span>
                             </div>
-                            <p class="example-result">10% of 847 = 84.7. 5% = half of that = 42.35. So 15% = 84.7 + 42.35 = 127.05</p>
+                        </div>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="technique-demo">
+                            <div class="technique-demo__header">
+                                <span class="technique-demo__label">Example</span>
+                            </div>
+                            <div class="technique-demo__content">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Prompt</span>
+                                    <p>"What's 15% of 847? Think through this step by step."</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Response</span>
+                                    <p>10% of 847 = 84.7<br>
+                                    5% = half of that = 42.35<br>
+                                    15% = 84.7 + 42.35 = <strong>127.05</strong></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">Trigger Phrases</div>
-                    <p>"Let's think step by step" • "Walk through this step by step" • "Show your reasoning" • "Before giving your final answer, work through the logic" • "Explain your thought process as you solve this"</p>
+                    <p>"Let's think step by step" / "Walk through this step by step" / "Show your reasoning" / "Before giving your final answer, work through the logic" / "Explain your thought process as you solve this"</p>
                 </div>
             </div>
         </section>
@@ -262,55 +282,46 @@
         <!-- === FEW-SHOT LEARNING === -->
         <section class="section section-alt" id="few-shot">
             <div class="container">
-                <h2 class="section-title fade-in-up">Few-Shot Learning</h2>
-                <p class="section-subtitle fade-in-up">Teach through examples, not explanations</p>
+                <div class="split-section split-section--reverse fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 2</span>
+                        <h2 class="split-section__title">Few-Shot Learning</h2>
+                        <p class="split-section__text">Examples are more powerful than descriptions because they implicitly communicate countless details you might forget to specify. Format, length, tone, level of detail, edge case handling—all transmitted through good examples.</p>
+                        <p class="split-section__text">The AI pattern-matches your examples and extends that pattern to new inputs. <strong>2-5 examples</strong> is usually ideal—enough to establish pattern without wasting tokens.</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">📖</span>
-                        <span class="science-box__title">Why This Works</span>
+                        <div class="stat-cards stat-cards--compact fade-in-up">
+                            <div class="stat-card stat-card--small">
+                                <span class="stat-number">2-5</span>
+                                <span class="stat-label">examples ideal</span>
+                            </div>
+                            <div class="stat-card stat-card--small">
+                                <span class="stat-number">50%</span>
+                                <span class="stat-label">better format match</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="science-box__content">
-                        Examples are more powerful than descriptions because they implicitly communicate countless details you might forget to specify. Format, length, tone, level of detail, edge case handling—all of these get transmitted through good examples. The AI pattern-matches your examples and extends that pattern to new inputs.
-                    </p>
-                </div>
-
-                <div class="stat-cards fade-in-up">
-                    <div class="stat-card">
-                        <span class="stat-number">2-5</span>
-                        <span class="stat-label">examples ideal</span>
-                        <span class="stat-description">Enough to establish pattern, not so many it's wasteful</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">50%</span>
-                        <span class="stat-label">better format match</span>
-                        <span class="stat-description">Compared to describing format in words</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">Implicit</span>
-                        <span class="stat-label">communication</span>
-                        <span class="stat-description">Transmits style, tone, detail level automatically</span>
-                    </div>
-                </div>
-
-                <div class="react-example-flow fade-in-up">
-                    <div class="react-step-card thought">
-                        <span class="react-label">Task</span>
-                        <p>Convert technical feature descriptions into user-friendly bullet points.</p>
-                    </div>
-                    <div class="react-step-card action">
-                        <span class="react-label">Example 1</span>
-                        <p><strong>Input:</strong> "256-bit AES encryption for data at rest and in transit"<br>
-                        <strong>Output:</strong> "Bank-level security protects your data everywhere"</p>
-                    </div>
-                    <div class="react-step-card observation">
-                        <span class="react-label">Example 2</span>
-                        <p><strong>Input:</strong> "OAuth 2.0 integration with SAML support"<br>
-                        <strong>Output:</strong> "Single sign-on with your existing company login"</p>
-                    </div>
-                    <div class="react-step-card conclusion">
-                        <span class="react-label">Your Input</span>
-                        <p>Now the AI understands: simplify jargon, focus on benefit, keep it short. Just provide your technical feature and get a user-friendly translation.</p>
+                    <div class="split-section__visual">
+                        <div class="technique-demo technique-demo--examples">
+                            <div class="technique-demo__header">
+                                <span class="technique-demo__label">Few-Shot Pattern</span>
+                            </div>
+                            <div class="technique-demo__content">
+                                <div class="technique-demo__example">
+                                    <span class="technique-demo__tag">Example 1</span>
+                                    <p><strong>In:</strong> "256-bit AES encryption"<br>
+                                    <strong>Out:</strong> "Bank-level security protects your data"</p>
+                                </div>
+                                <div class="technique-demo__example">
+                                    <span class="technique-demo__tag">Example 2</span>
+                                    <p><strong>In:</strong> "OAuth 2.0 with SAML"<br>
+                                    <strong>Out:</strong> "Single sign-on with your company login"</p>
+                                </div>
+                                <div class="technique-demo__example technique-demo__example--new">
+                                    <span class="technique-demo__tag">Your Input</span>
+                                    <p>Now AI understands the pattern: simplify jargon, focus on benefit, keep it short.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -328,107 +339,150 @@
                 <h2 class="section-title fade-in-up">Role Prompting</h2>
                 <p class="section-subtitle fade-in-up">Assign personas to activate different thinking modes</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">🎭</span>
-                        <span class="science-box__title">Why This Works</span>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 3</span>
+                        <h3 class="split-section__subtitle">Why Roles Work</h3>
+                        <p class="split-section__text">Different roles activate different patterns of thinking in the AI. A "devil's advocate" role surfaces objections. A "teacher" role produces clearer explanations. A "senior engineer" role goes deeper on technical details.</p>
+                        <p class="split-section__text">You're not giving the AI new knowledge—you're directing <strong>how it applies what it already knows</strong>.</p>
                     </div>
-                    <p class="science-box__content">
-                        Different roles activate different patterns of thinking in the AI. A "devil's advocate" role surfaces objections and weaknesses. A "teacher" role produces clearer explanations. A "senior engineer" role goes deeper on technical details. You're not giving the AI new knowledge—you're directing how it applies what it already knows.
-                    </p>
-                </div>
-
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">⚖️</div>
-                        <h3 class="use-case-card__title">The Critic</h3>
-                        <p class="use-case-card__desc">"Act as a devil's advocate and find weaknesses in this plan."<br><em>Best for: Stress-testing ideas</em></p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔬</div>
-                        <h3 class="use-case-card__title">The Expert</h3>
-                        <p class="use-case-card__desc">"You are a senior data scientist with 15 years of experience."<br><em>Best for: Technical depth</em></p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">👩‍🏫</div>
-                        <h3 class="use-case-card__title">The Teacher</h3>
-                        <p class="use-case-card__desc">"Explain this as if teaching a bright high school student."<br><em>Best for: Accessible explanations</em></p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">✏️</div>
-                        <h3 class="use-case-card__title">The Editor</h3>
-                        <p class="use-case-card__desc">"Review this text as a strict editor for The New York Times."<br><em>Best for: Quality improvement</em></p>
+                    <div class="split-section__visual">
+                        <div class="callout warning">
+                            <div class="callout-title">Limitations</div>
+                            <p>Roles influence style and approach, but don't give the AI knowledge it doesn't have. A "legal expert" role doesn't make the AI a lawyer. Always verify important information with authoritative sources.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="callout warning fade-in-up">
-                    <div class="callout-title">Limitations</div>
-                    <p>Roles influence style and approach, but don't give the AI knowledge it doesn't have. A "legal expert" role doesn't make the AI a lawyer. Always verify important information with authoritative sources.</p>
+                <div class="pillar-grid pillar-grid--2 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Critic</h3>
+                        <p class="pillar-card__text">"Act as a devil's advocate and find weaknesses in this plan."</p>
+                        <span class="pillar-card__tag">Best for stress-testing ideas</span>
+                    </div>
+
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Expert</h3>
+                        <p class="pillar-card__text">"You are a senior data scientist with 15 years of experience."</p>
+                        <span class="pillar-card__tag">Best for technical depth</span>
+                    </div>
+
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Teacher</h3>
+                        <p class="pillar-card__text">"Explain this as if teaching a bright high school student."</p>
+                        <span class="pillar-card__tag">Best for accessible explanations</span>
+                    </div>
+
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">The Editor</h3>
+                        <p class="pillar-card__text">"Review this text as a strict editor for The New York Times."</p>
+                        <span class="pillar-card__tag">Best for quality improvement</span>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- /ROLE PROMPTING -->
 
         <!-- === CONSTRAINED OUTPUT === -->
-        <section class="section section-alt" id="constrained-output">
+        <section class="section section-ambient section-alt" id="constrained-output">
+            <canvas class="section-ambient__canvas" data-ambient="particles"></canvas>
             <div class="container">
                 <h2 class="section-title fade-in-up">Constrained Output Formats</h2>
                 <p class="section-subtitle fade-in-up">Define exact structure for programmatic use</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">📋</span>
-                        <span class="science-box__title">Why This Works</span>
-                    </div>
-                    <p class="science-box__content">
-                        When you need to parse AI output with code, inconsistent formatting breaks everything. By defining exact output structure and explicitly requesting "no additional text," you get reliable, machine-readable responses. This is essential for automation, APIs, and any workflow where AI output feeds into other systems.
-                    </p>
-                </div>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 4</span>
+                        <h3 class="split-section__subtitle">When Structure Matters</h3>
+                        <p class="split-section__text">When you need to parse AI output with code, inconsistent formatting breaks everything. By defining exact output structure and explicitly requesting "no additional text," you get reliable, machine-readable responses.</p>
+                        <p class="split-section__text">This is essential for <strong>automation, APIs, and any workflow</strong> where AI output feeds into other systems.</p>
 
-                <div class="approach-comparison fade-in-up">
-                    <div class="approach-card">
-                        <div class="approach-header approach-labeled">
-                            <h3>JSON Format</h3>
+                        <div class="callout tip">
+                            <div class="callout-title">Enforcement Tip</div>
+                            <p>End your prompt with: "Return your analysis in exactly this format, with no additional text or explanation." This prevents conversational fluff that breaks parsing.</p>
                         </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>{<br>
-                                &nbsp;&nbsp;"summary": "...",<br>
-                                &nbsp;&nbsp;"key_points": ["..."],<br>
-                                &nbsp;&nbsp;"sentiment": "positive|negative|neutral",<br>
-                                &nbsp;&nbsp;"confidence": 0.0-1.0<br>
-                                }</p>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="comparison-panel fade-in-up">
+                            <div class="comparison-panel__side comparison-panel__side--after">
+                                <div class="comparison-panel__header">
+                                    <span class="comparison-panel__icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        </svg>
+                                    </span>
+                                    <h3 class="comparison-panel__title">JSON Format</h3>
+                                </div>
+                                <div class="comparison-panel__content">
+                                    <div class="comparison-panel__result">
+                                        <code>{
+  "summary": "...",
+  "key_points": ["..."],
+  "sentiment": "positive",
+  "confidence": 0.92
+}</code>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-panel__divider">
+                                <span>OR</span>
+                            </div>
+
+                            <div class="comparison-panel__side comparison-panel__side--after">
+                                <div class="comparison-panel__header">
+                                    <span class="comparison-panel__icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="8" y1="6" x2="21" y2="6"/>
+                                            <line x1="8" y1="12" x2="21" y2="12"/>
+                                            <line x1="8" y1="18" x2="21" y2="18"/>
+                                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                                        </svg>
+                                    </span>
+                                    <h3 class="comparison-panel__title">Structured Text</h3>
+                                </div>
+                                <div class="comparison-panel__content">
+                                    <div class="comparison-panel__result">
+                                        <code>TITLE: ...
+CATEGORY: ...
+PRIORITY: High/Med/Low
+ACTION ITEMS:
+- Item 1
+- Item 2</code>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="approach-vs">
-                        <span>or</span>
-                    </div>
-
-                    <div class="approach-card">
-                        <div class="approach-header approach-natural">
-                            <h3>Structured Text</h3>
-                        </div>
-                        <div class="approach-content">
-                            <div class="approach-prompt">
-                                <p>TITLE: ...<br>
-                                CATEGORY: ...<br>
-                                PRIORITY: High/Medium/Low<br>
-                                ACTION ITEMS:<br>
-                                - Item 1<br>
-                                - Item 2</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">Enforcement Tip</div>
-                    <p>End your prompt with: "Return your analysis in exactly this format, with no additional text or explanation." This prevents the AI from adding conversational fluff that breaks parsing.</p>
                 </div>
             </div>
         </section>
@@ -440,39 +494,56 @@
                 <h2 class="section-title fade-in-up">Self-Consistency Checking</h2>
                 <p class="section-subtitle fade-in-up">Have AI verify and improve its own work</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">✓</span>
-                        <span class="science-box__title">Why This Works</span>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 5</span>
+                        <h3 class="split-section__subtitle">Built-In Quality Control</h3>
+                        <p class="split-section__text">AI can catch errors when prompted to review its own output. This works because generation and evaluation are different processes—the AI might miss something while generating but catch it when specifically looking for problems.</p>
+                        <p class="split-section__text">For critical tasks, adding a self-check step <strong>significantly improves reliability</strong>.</p>
                     </div>
-                    <p class="science-box__content">
-                        AI can catch errors when prompted to review its own output. This works because generation and evaluation are different processes—the AI might miss something while generating but catch it when specifically looking for problems. For critical tasks, adding a self-check step significantly improves reliability.
-                    </p>
-                </div>
-
-                <div class="use-case-grid fade-in-up">
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔄</div>
-                        <h3 class="use-case-card__title">Review and Revise</h3>
-                        <p class="use-case-card__desc">"After generating your response, review it for accuracy and completeness. If you find any errors, correct them."</p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔢</div>
-                        <h3 class="use-case-card__title">Multiple Approaches</h3>
-                        <p class="use-case-card__desc">"Solve this problem using two different methods, then compare your answers to verify."</p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">📊</div>
-                        <h3 class="use-case-card__title">Confidence Rating</h3>
-                        <p class="use-case-card__desc">"Rate your confidence in each claim (High/Medium/Low) and explain any uncertainties."</p>
-                    </div>
-
-                    <div class="use-case-card">
-                        <div class="use-case-card__icon">🔍</div>
-                        <h3 class="use-case-card__title">Assumption Check</h3>
-                        <p class="use-case-card__desc">"List the assumptions you made in this analysis and note which might be incorrect."</p>
+                    <div class="split-section__visual">
+                        <div class="progressive-build">
+                            <div class="progressive-build__item">
+                                <div class="progressive-build__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                                        <path d="M21 3v9h-9"/>
+                                    </svg>
+                                </div>
+                                <div class="progressive-build__content">
+                                    <h3 class="progressive-build__title">Review and Revise</h3>
+                                    <p class="progressive-build__text">"After generating your response, review it for accuracy. Correct any errors."</p>
+                                </div>
+                            </div>
+                            <div class="progressive-build__item">
+                                <div class="progressive-build__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="8" y1="6" x2="21" y2="6"/>
+                                        <line x1="8" y1="12" x2="21" y2="12"/>
+                                        <line x1="8" y1="18" x2="21" y2="18"/>
+                                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div class="progressive-build__content">
+                                    <h3 class="progressive-build__title">Multiple Approaches</h3>
+                                    <p class="progressive-build__text">"Solve this using two different methods, then compare answers to verify."</p>
+                                </div>
+                            </div>
+                            <div class="progressive-build__item">
+                                <div class="progressive-build__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 20h9"/>
+                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="progressive-build__content">
+                                    <h3 class="progressive-build__title">Confidence Rating</h3>
+                                    <p class="progressive-build__text">"Rate your confidence in each claim (High/Medium/Low) and explain uncertainties."</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -485,85 +556,114 @@
                 <h2 class="section-title fade-in-up">Prompt Chaining</h2>
                 <p class="section-subtitle fade-in-up">Break complex tasks into connected steps</p>
 
-                <div class="science-box fade-in-up">
-                    <div class="science-box__header">
-                        <span class="science-box__icon">⛓️</span>
-                        <span class="science-box__title">Why This Works</span>
-                    </div>
-                    <p class="science-box__content">
-                        Complex tasks work better as a series of focused steps rather than one giant prompt. Each step gets the AI's full attention, you can verify intermediate results before proceeding, and when something goes wrong, you know exactly which step failed. Think of it as assembly-line production for AI tasks.
-                    </p>
-                </div>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">Technique 6</span>
+                        <h3 class="split-section__subtitle">Assembly-Line AI</h3>
+                        <p class="split-section__text">Complex tasks work better as a series of focused steps rather than one giant prompt. Each step gets the AI's full attention, you can verify intermediate results, and when something goes wrong, you know exactly which step failed.</p>
+                        <p class="split-section__text">Think of it as <strong>assembly-line production</strong> for AI tasks.</p>
 
-                <div class="learning-path fade-in-up">
-                    <div class="path-node path-node--active">
-                        <span class="path-node__marker">1</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Research</h3>
-                            <p class="path-node__desc">"List all factors to consider for [topic]"<br>Output: A comprehensive list of factors and considerations.</p>
+                        <div class="callout tip">
+                            <div class="callout-title">Benefits</div>
+                            <p><strong>Focused attention:</strong> Each step gets full context. <strong>Verifiable:</strong> Check outputs before proceeding. <strong>Debuggable:</strong> Know exactly where issues occur. <strong>Reusable:</strong> Good chains work for similar tasks.</p>
                         </div>
                     </div>
-
-                    <div class="path-node">
-                        <span class="path-node__marker">2</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Analyze</h3>
-                            <p class="path-node__desc">"Given these factors: [output 1], analyze the implications"<br>Output: Analysis connecting the factors to outcomes.</p>
+                    <div class="split-section__visual">
+                        <div class="element-timeline fade-in-up">
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">1</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Research</h3>
+                                    <p class="element-timeline__text">"List all factors to consider for [topic]"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">2</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Analyze</h3>
+                                    <p class="element-timeline__text">"Given these factors, analyze the implications"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">3</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Synthesize</h3>
+                                    <p class="element-timeline__text">"Based on analysis, recommend a course of action"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">4</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Refine</h3>
+                                    <p class="element-timeline__text">"Review recommendations and add implementation steps"</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="path-node">
-                        <span class="path-node__marker">3</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Synthesize</h3>
-                            <p class="path-node__desc">"Based on this analysis: [output 2], recommend a course of action"<br>Output: Justified recommendations tied to analysis.</p>
-                        </div>
-                    </div>
-
-                    <div class="path-node">
-                        <span class="path-node__marker">4</span>
-                        <div class="path-node__content">
-                            <h3 class="path-node__title">Refine</h3>
-                            <p class="path-node__desc">Optionally: "Review these recommendations and add implementation steps"<br>Output: Actionable final deliverable.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">Benefits</div>
-                    <p><strong>Focused attention:</strong> Each step gets full context. <strong>Verifiable:</strong> Check outputs before proceeding. <strong>Debuggable:</strong> Know exactly where issues occur. <strong>Reusable:</strong> Good chains work for similar tasks.</p>
                 </div>
             </div>
         </section>
         <!-- /PROMPT CHAINING -->
 
-        <!-- === COMBINE TECHNIQUES === -->
-        <section class="section">
+        <!-- === COMBINING TECHNIQUES === -->
+        <section class="section section-ambient">
+            <canvas class="section-ambient__canvas" data-ambient="grid"></canvas>
             <div class="container">
                 <h2 class="section-title fade-in-up">Combining Techniques</h2>
                 <p class="section-subtitle fade-in-up">The real power comes from mixing methods</p>
 
-                <div class="react-example-flow fade-in-up">
-                    <div class="react-step-card thought">
-                        <span class="react-label">Chain-of-Thought + Role</span>
-                        <p>"You are a senior financial analyst. Walk through your reasoning step by step to evaluate this investment opportunity."</p>
+                <div class="element-timeline element-timeline--conversation fade-in-up">
+                    <div class="element-timeline__item element-timeline__item--user">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="18" cy="18" r="3"/>
+                                <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Chain-of-Thought + Role</h3>
+                            <p class="element-timeline__text">"You are a senior financial analyst. Walk through your reasoning step by step to evaluate this investment opportunity."</p>
+                        </div>
                     </div>
-                    <div class="react-step-card action">
-                        <span class="react-label">Few-Shot + Constrained Output</span>
-                        <p>"Here are two examples of properly formatted responses: [examples]. Return your analysis in exactly this JSON format."</p>
+
+                    <div class="element-timeline__item element-timeline__item--ai">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Few-Shot + Constrained Output</h3>
+                            <p class="element-timeline__text">"Here are two examples of properly formatted responses: [examples]. Return your analysis in exactly this JSON format."</p>
+                        </div>
                     </div>
-                    <div class="react-step-card observation">
-                        <span class="react-label">Chaining + Self-Check</span>
-                        <p>"Step 1: Research. Step 2: Analyze. Step 3: Recommend. Step 4: Review your recommendation for any errors."</p>
-                    </div>
-                    <div class="react-step-card conclusion">
-                        <span class="react-label">All Together</span>
-                        <p>Expert role + explicit reasoning + format examples + structured output + verification = maximum reliability for complex tasks.</p>
+
+                    <div class="element-timeline__item element-timeline__item--result">
+                        <div class="element-timeline__marker">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Maximum Reliability</h3>
+                            <p class="element-timeline__text">Expert role + explicit reasoning + format examples + structured output + verification = the most reliable results for complex tasks.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /COMBINE TECHNIQUES -->
+        <!-- /COMBINING TECHNIQUES -->
 
         <!-- === CONTINUE LEARNING === -->
         <section class="section section-alt">
@@ -572,39 +672,66 @@
                 <p class="section-subtitle fade-in-up">Explore related frameworks and build on these foundations</p>
 
                 <a href="react.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">🔄</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                            <path d="M21 3v9h-9"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Reasoning Framework</span>
                         <span class="evolution-callout__title">ReAct Framework</span>
                         <span class="evolution-callout__desc">Structured thought-action-observation cycles for complex problem-solving with transparent reasoning.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
 
                 <a href="flipped-interaction.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">🔀</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Collaborative Technique</span>
                         <span class="evolution-callout__title">Flipped Interaction</span>
                         <span class="evolution-callout__desc">Let AI interview you first to gather context before providing personalized advice.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
 
                 <a href="../foundations/index.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">📚</span>
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation Hub</span>
                         <span class="evolution-callout__title">Master the Fundamentals</span>
                         <span class="evolution-callout__desc">Review CRISP, CRISPE, and COSTAR frameworks that form the foundation for advanced techniques.</span>
                     </div>
-                    <span class="evolution-callout__arrow">→</span>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
             </div>
         </section>
         <!-- /CONTINUE LEARNING -->
 
-        <!-- CTA -->
+        <!-- === CTA === -->
         <section class="section">
             <div class="container">
                 <div class="cta-card fade-in-up">
@@ -618,6 +745,7 @@
                 </div>
             </div>
         </section>
+        <!-- /CTA -->
     </main>
 
     <!-- Footer -->
