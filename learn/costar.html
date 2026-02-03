@@ -6,7 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
     <meta name="description" content="Master COSTAR: Context, Objective, Style, Tone, Audience, Response. A professional prompting framework for tailored AI outputs in any communication style.">
-    <title>COSTAR Method - Praxis</title>
+    <title>COSTAR Framework - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css">
@@ -23,13 +23,13 @@
                     <a href="index.html" class="nav-link active">Learn</a>
                     <div class="mega-menu">
                         <div class="mega-menu-section">
-                            <h4>Methodologies</h4>
+                            <h4>Frameworks</h4>
                             <a href="prompt-basics.html">Prompt Basics</a>
-                            <a href="crisp.html">CRISP Method</a>
-                            <a href="crispe.html">CRISPE Method</a>
-                            <a href="costar.html">COSTAR Method</a>
-                            <a href="react.html">ReAct Method</a>
-                            <a href="flipped-interaction.html">Flipped Interaction Method</a>
+                            <a href="crisp.html">CRISP Framework</a>
+                            <a href="crispe.html">CRISPE Framework</a>
+                            <a href="costar.html">COSTAR Framework</a>
+                            <a href="react.html">ReAct Framework</a>
+                            <a href="flipped-interaction.html">Flipped Interaction Framework</a>
                             <a href="advanced.html">Advanced Techniques</a>
                         </div>
                     </div>
@@ -39,14 +39,27 @@
                     <div class="mega-menu">
                         <div class="mega-menu-section">
                             <h4>Tools</h4>
+                            <a href="../quiz/index.html">Readiness Quiz</a>
                             <a href="../tools/analyzer.html">Prompt Analyzer</a>
                             <a href="../tools/guidance.html">Prompt Builder</a>
-                            <a href="../tools/matcher.html">Method Matcher</a>
+                            <a href="../tools/matcher.html">Framework Matcher</a>
                             <a href="../tools/checklist.html">Preflight Checklist</a>
-                            <a href="../tools/hallucination.html">Hallucination Spotter</a>
-                            <a href="../quiz/index.html">Readiness Quiz</a>
+                            <a href="../tools/persona.html">Persona Architect</a>
                             <a href="../patterns/index.html">Patterns Library</a>
                             <a href="../pages/ai-safety.html">AI Safety</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../neurodivergence/index.html" class="nav-link">AI + Neurodivergence</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>AI by Neurotype</h4>
+                            <a href="../neurodivergence/adhd.html">AI for ADHD</a>
+                            <a href="../neurodivergence/autism.html">AI for Autism</a>
+                            <a href="../neurodivergence/dyslexia.html">AI for Dyslexia</a>
+                            <a href="../neurodivergence/tools.html">AI Tools Finder</a>
+                            <a href="../neurodivergence/resources.html">Resources</a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +90,7 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -86,497 +99,564 @@
                     <span class="separator">/</span>
                     <a href="index.html">Learn</a>
                     <span class="separator">/</span>
-                    <span class="current">COSTAR Method</span>
+                    <span class="current">COSTAR Framework</span>
                 </nav>
-                <div class="card-badge">Professional</div>
-                <h1 class="page-title fade-in">The COSTAR Method</h1>
-                <p class="page-subtitle fade-in">A comprehensive framework that emphasizes audience awareness and output format. Ideal for professional content creation.</p>
+                <div class="hero-badge">
+                    <svg class="hero-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span class="hero-badge__text">Audience-First Framework</span>
+                </div>
+                <h1 class="page-title fade-in">The COSTAR Framework</h1>
+                <p class="page-subtitle fade-in">Know your audience. Shape your message. Get results. COSTAR puts audience awareness at the center of every prompt.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <!-- Acronym Visual -->
+        <!-- === AUDIENCE-CENTERED VISUAL === -->
         <section class="section">
             <div class="container">
-                <div class="acronym-cards six-items stagger-children">
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">C</span>
-                                <h3>Context</h3>
-                                <p>Background information</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Context Example</div>
-                                <div class="flip-example">"Our company just acquired a smaller competitor. We need to communicate this to employees before the press release goes out tomorrow."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Situation</span>
-                                    <span class="flip-tag">Urgency</span>
-                                    <span class="flip-tag">Stakes</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="audience-center-visual fade-in-up">
+                    <div class="audience-center-visual__hub">
+                        <span class="audience-center-visual__label">Your Audience</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
                     </div>
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">O</span>
-                                <h3>Objective</h3>
-                                <p>What you want to achieve</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Objective Example</div>
-                                <div class="flip-example">"Write an internal announcement that explains the acquisition, addresses job security concerns, and generates excitement about growth opportunities."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Primary goal</span>
-                                    <span class="flip-tag">Secondary goals</span>
-                                </div>
-                            </div>
+                    <div class="audience-center-visual__spokes">
+                        <div class="audience-spoke" data-element="C">
+                            <span class="audience-spoke__letter">C</span>
+                            <span class="audience-spoke__label">Context</span>
                         </div>
-                    </div>
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">S</span>
-                                <h3>Style</h3>
-                                <p>Writing style or voice</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Style Example</div>
-                                <div class="flip-example">"Write in the CEO's voice - direct, transparent, and optimistic. Use short paragraphs and bullet points for key information."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Voice</span>
-                                    <span class="flip-tag">Format</span>
-                                </div>
-                            </div>
+                        <div class="audience-spoke" data-element="O">
+                            <span class="audience-spoke__letter">O</span>
+                            <span class="audience-spoke__label">Objective</span>
                         </div>
-                    </div>
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">T</span>
-                                <h3>Tone</h3>
-                                <p>Emotional quality</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Tone Example</div>
-                                <div class="flip-example">"Confident but not dismissive of concerns. Empathetic about uncertainty while emphasizing stability."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Primary emotion</span>
-                                    <span class="flip-tag">Balance</span>
-                                </div>
-                            </div>
+                        <div class="audience-spoke" data-element="S">
+                            <span class="audience-spoke__letter">S</span>
+                            <span class="audience-spoke__label">Style</span>
                         </div>
-                    </div>
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">A</span>
-                                <h3>Audience</h3>
-                                <p>Who will receive this</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Audience Example</div>
-                                <div class="flip-example">"All employees across both companies - mix of tenures, roles, and likely anxiety levels about job security."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Who they are</span>
-                                    <span class="flip-tag">Their concerns</span>
-                                </div>
-                            </div>
+                        <div class="audience-spoke" data-element="T">
+                            <span class="audience-spoke__letter">T</span>
+                            <span class="audience-spoke__label">Tone</span>
                         </div>
-                    </div>
-                    <div class="acronym-card has-flip">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <span class="acronym-letter">R</span>
-                                <h3>Response</h3>
-                                <p>Format of the output</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="flip-header">Response Example</div>
-                                <div class="flip-example">"Email format: Subject line, opening hook, 3 key points with headers, FAQ section, and closing with next steps."</div>
-                                <div class="flip-tags">
-                                    <span class="flip-tag">Structure</span>
-                                    <span class="flip-tag">Components</span>
-                                </div>
-                            </div>
+                        <div class="audience-spoke audience-spoke--highlight" data-element="A">
+                            <span class="audience-spoke__letter">A</span>
+                            <span class="audience-spoke__label">Audience</span>
+                        </div>
+                        <div class="audience-spoke" data-element="R">
+                            <span class="audience-spoke__letter">R</span>
+                            <span class="audience-spoke__label">Response</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /AUDIENCE-CENTERED VISUAL -->
 
-        <!-- Why COSTAR -->
+        <!-- === WHY AUDIENCE MATTERS === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Why COSTAR?</h2>
-                <p class="section-subtitle fade-in-up">The framework that puts your audience first</p>
-
-                <div class="callout tip fade-in-up">
-                    <div class="callout-title">COSTAR vs. CRISP</div>
-                    <p><strong>CRISP</strong> uses <strong>Parameters</strong> for output constraints. <strong>COSTAR</strong> splits this into <strong>Audience</strong> and <strong>Response</strong> for more <strong>nuanced control</strong>. Choose COSTAR when the <strong>recipient</strong> significantly affects how you should write.</p>
-                </div>
-
-                <div class="method-reminder fade-in-up">
-                    <div class="reminder-icon">i</div>
-                    <div class="reminder-content">
-                        <strong>Think of these as a checklist, not a template.</strong> You don't write "<strong>Objective</strong>: ..." in your prompt. Instead, make sure your natural request <em>includes</em> your objective. The method ensures you don't forget important elements.
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">The Key Insight</span>
+                        <h2 class="section-title">Why Audience Changes Everything</h2>
+                        <p class="section-intro">The same information communicated to executives, engineers, or customers requires completely different approaches—not just different words, but different structure, depth, and emphasis.</p>
+                        <div class="feature-list feature-list--check">
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Calibrated Complexity</span>
+                                    <span class="feature-list__text">Match vocabulary and depth to your reader's expertise</span>
+                                </div>
+                            </div>
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Addressed Concerns</span>
+                                    <span class="feature-list__text">Anticipate what your audience worries about most</span>
+                                </div>
+                            </div>
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Resonant Appeals</span>
+                                    <span class="feature-list__text">Frame benefits in terms that matter to them</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__media">
+                        <div class="stats-highlight">
+                            <div class="stats-highlight__item">
+                                <span class="stats-highlight__number">3x</span>
+                                <span class="stats-highlight__label">More Effective</span>
+                                <span class="stats-highlight__desc">Audience-adapted content achieves outcomes 3x more often</span>
+                            </div>
+                            <div class="stats-highlight__item">
+                                <span class="stats-highlight__number counter-number" data-count="6">0</span>
+                                <span class="stats-highlight__label">Elements</span>
+                                <span class="stats-highlight__desc">Context, Objective, Style, Tone, Audience, Response</span>
+                            </div>
+                            <div class="stats-highlight__item">
+                                <span class="stats-highlight__number">A</span>
+                                <span class="stats-highlight__label">Key Differentiator</span>
+                                <span class="stats-highlight__desc">Explicit Audience element sets COSTAR apart</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHY AUDIENCE MATTERS -->
 
-        <!-- === ACCORDION CONTROLS === -->
+        <!-- === THE SIX ELEMENTS === -->
         <section class="section">
             <div class="container">
-                <div class="accordion-controls">
-                    <button class="accordion-controls-btn" id="expand-all-accordions" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                        Expand All
-                    </button>
-                    <button class="accordion-controls-btn" id="collapse-all-accordions" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                            <path d="M18 15l-6-6-6 6"/>
-                        </svg>
-                        Collapse All
-                    </button>
+                <div class="section-header">
+                    <span class="section-eyebrow">Framework Components</span>
+                    <h2 class="section-title">The Six Elements</h2>
+                    <p class="section-subtitle">Each element shapes how your content reaches its intended audience</p>
                 </div>
 
-                <!-- C - Context -->
-                <details class="learn-accordion" id="context">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">C</span>
-                            Context
-                            <span class="learn-accordion-subtitle">Provide the background the AI needs to understand your situation</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>Include relevant details about your business, project, or circumstances. The more context you provide, the more tailored and relevant the output will be.</p>
-                        </div>
-
-                        <div class="example-card good">
-                            <div class="example-label">Effective Context Example</div>
-                            <p>"I'm organizing our neighborhood's annual summer potluck. Last year we had some issues with too many desserts and not enough main dishes. This year I want to coordinate better so we have a balanced meal."</p>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- O - Objective -->
-                <details class="learn-accordion" id="objective">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">O</span>
-                            Objective
-                            <span class="learn-accordion-subtitle">State your goal clearly and the action you want</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>What outcome do you want from this content? What should the reader think, feel, or do after engaging with it?</p>
-                        </div>
-
-                        <div class="objective-cards stagger-children">
-                            <div class="objective-card">
-                                <h3>Inform</h3>
-                                <p>"Help readers understand the new policy changes"</p>
-                            </div>
-                            <div class="objective-card">
-                                <h3>Persuade</h3>
-                                <p>"Encourage neighbors to bring a variety of dishes"</p>
-                            </div>
-                            <div class="objective-card">
-                                <h3>Instruct</h3>
-                                <p>"Guide users through the onboarding process"</p>
-                            </div>
-                            <div class="objective-card">
-                                <h3>Engage</h3>
-                                <p>"Build excitement about our upcoming product launch"</p>
+                <div class="costar-elements">
+                    <div class="costar-element" id="context">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">C</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Context</h3>
+                                <span class="costar-element__subtitle">Background information</span>
                             </div>
                         </div>
-                    </div>
-                </details>
-
-                <!-- S - Style -->
-                <details class="learn-accordion" id="style">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">S</span>
-                            Style
-                            <span class="learn-accordion-subtitle">Define the writing approach and voice</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>Style refers to the writing approach. You can reference known styles or describe the characteristics you want.</p>
-                        </div>
-
-                        <div class="style-cards stagger-children">
-                            <div class="style-card">
-                                <h3>Reference Styles</h3>
-                                <p>"Write like The Economist" or "In the style of Harvard Business Review"</p>
-                            </div>
-                            <div class="style-card">
-                                <h3>Characteristic Styles</h3>
-                                <p>"Concise and data-driven" or "Narrative and story-based"</p>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- T - Tone -->
-                <details class="learn-accordion" id="tone">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">T</span>
-                            Tone
-                            <span class="learn-accordion-subtitle">The emotional quality of your writing</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>Tone is how your content "feels" to the reader. Consider the spectrum of options for your context.</p>
-                        </div>
-
-                        <div class="tone-cards stagger-children">
-                            <div class="tone-card">
-                                <div class="tone-spectrum-item">
-                                    <span class="tone-end">Formal</span>
-                                    <div class="tone-bar"></div>
-                                    <span class="tone-end">Casual</span>
-                                </div>
-                            </div>
-                            <div class="tone-card">
-                                <div class="tone-spectrum-item">
-                                    <span class="tone-end">Serious</span>
-                                    <div class="tone-bar"></div>
-                                    <span class="tone-end">Playful</span>
-                                </div>
-                            </div>
-                            <div class="tone-card">
-                                <div class="tone-spectrum-item">
-                                    <span class="tone-end">Reserved</span>
-                                    <div class="tone-bar"></div>
-                                    <span class="tone-end">Enthusiastic</span>
-                                </div>
-                            </div>
-                            <div class="tone-card">
-                                <div class="tone-spectrum-item">
-                                    <span class="tone-end">Authoritative</span>
-                                    <div class="tone-bar"></div>
-                                    <span class="tone-end">Collaborative</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="example-card good">
-                            <div class="example-label">Tone Example</div>
-                            <p>"Use an empathetic and reassuring tone. We're delivering news about service changes, so acknowledge potential concerns while focusing on benefits."</p>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- A - Audience -->
-                <details class="learn-accordion" id="audience">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">A</span>
-                            Audience
-                            <span class="learn-accordion-subtitle">Who will read this? Their characteristics shape everything.</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>Define your audience in detail. The better you describe them, the more the AI can tailor content to their needs, expectations, and level of understanding.</p>
-                        </div>
-
-                        <div class="audience-cards stagger-children">
-                            <div class="audience-card">
-                                <h3>Knowledge Level</h3>
-                                <p>Technical experts vs. general audience</p>
-                            </div>
-                            <div class="audience-card">
-                                <h3>Role/Position</h3>
-                                <p>Executives vs. end users vs. developers</p>
-                            </div>
-                            <div class="audience-card">
-                                <h3>Relationship</h3>
-                                <p>Existing customers vs. prospects vs. partners</p>
-                            </div>
-                            <div class="audience-card">
-                                <h3>Concerns</h3>
-                                <p>What questions or objections might they have?</p>
-                            </div>
-                        </div>
-
-                        <div class="example-card good">
-                            <div class="example-label">Audience Definition Example</div>
-                            <p>"The audience is my neighbors - a mix of families with kids, retirees, and young professionals. They're busy people who want easy recipes. Some have dietary restrictions we need to consider."</p>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- R - Response -->
-                <details class="learn-accordion" id="response">
-                    <summary class="learn-accordion-header">
-                        <span class="learn-accordion-title">
-                            <span class="learn-accordion-letter">R</span>
-                            Response
-                            <span class="learn-accordion-subtitle">Specify the format and structure of your output</span>
-                        </span>
-                        <span class="learn-accordion-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="learn-accordion-content">
-                        <div class="content-block">
-                            <p>Define exactly what form the output should take. Be specific about format, length, and required elements.</p>
-                        </div>
-
-                        <div class="response-cards stagger-children">
-                            <div class="response-card">
-                                <h3>Format</h3>
-                                <p>Email, report, blog post, script, outline</p>
-                            </div>
-                            <div class="response-card">
-                                <h3>Length</h3>
-                                <p>Word count, page count, time to read</p>
-                            </div>
-                            <div class="response-card">
-                                <h3>Structure</h3>
-                                <p>Headers, bullet points, numbered lists</p>
-                            </div>
-                            <div class="response-card">
-                                <h3>Elements</h3>
-                                <p>Include summary, CTA, examples, data</p>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- Complete COSTAR Example (Static Content) -->
-                <div class="static-content-block fade-in-up" id="complete-example">
-                    <h3 class="static-content-title">Complete COSTAR Example</h3>
-                    <p class="static-content-subtitle">See all six components working together</p>
-
-                    <div class="example-card complete-example costar-example">
-                        <div class="example-prompt">
-                            <span class="example-element" data-element="C">I'm the marketing director at a B2B software company launching a new analytics platform next quarter.</span>
-                            <span class="example-element" data-element="O">Create a product launch announcement that generates buzz, drives demo requests, and positions us as innovators.</span>
-                            <span class="example-element" data-element="S">Use a confident, forward-thinking voice with data points and customer success language.</span>
-                            <span class="example-element" data-element="T">Professional yet exciting, emphasizing innovation and business impact.</span>
-                            <span class="example-element" data-element="A">Marketing managers and business analysts at mid-market companies who are evaluating analytics tools.</span>
-                            <span class="example-element" data-element="R">A 500-word blog announcement with headline, 3 key benefits, one customer quote, and CTA for demo signup.</span>
-                        </div>
-                        <div class="example-legend">
-                            <span class="legend-item"><span class="legend-badge legend-badge--context">C</span> Context</span>
-                            <span class="legend-item"><span class="legend-badge legend-badge--objective">O</span> Objective</span>
-                            <span class="legend-item"><span class="legend-badge legend-badge--style">S</span> Style</span>
-                            <span class="legend-item"><span class="legend-badge legend-badge--tone">T</span> Tone</span>
-                            <span class="legend-item"><span class="legend-badge legend-badge--audience">A</span> Audience</span>
-                            <span class="legend-item"><span class="legend-badge legend-badge--response">R</span> Response</span>
+                        <p class="costar-element__desc">Provide the situation, background, and relevant details that frame your request.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"Our company just acquired a smaller competitor. We need to communicate this before the press release."</p>
                         </div>
                     </div>
 
-                    <div class="callout tip mt-xl">
-                        <div class="callout-title">Audience-First Thinking</div>
-                        <p>COSTAR puts your audience at the center. Notice how knowing the readers (executives, engineers, customers) shapes how you write&mdash;even when that information isn't explicitly labeled.</p>
-                    </div>
-                </div>
-
-                <!-- Two Approaches (Static Content) -->
-                <div class="static-content-block fade-in-up" id="two-approaches">
-                    <h3 class="static-content-title">Two Approaches, Same Results</h3>
-                    <p class="static-content-subtitle">COSTAR labels are a checklist—natural language delivers the same information</p>
-
-                    <div class="content-block">
-                        <p>COSTAR's six elements are a mental checklist. Once you know what to include, you can write naturally. Both approaches give the AI exactly what it needs.</p>
-                    </div>
-
-                    <div class="approach-comparison stagger-children">
-                        <div class="approach-card">
-                            <div class="approach-header approach-labeled">
-                                <h3>With COSTAR Labels</h3>
-                            </div>
-                            <div class="approach-content">
-                                <div class="approach-prompt">
-                                    <p><strong>Context:</strong> Our customer support team is overwhelmed with repetitive questions about our refund policy.</p>
-                                    <p><strong>Objective:</strong> Create an FAQ section that reduces support tickets by answering common questions upfront.</p>
-                                    <p><strong>Style:</strong> Clear, direct, and easy to scan quickly.</p>
-                                    <p><strong>Tone:</strong> Helpful and reassuring, not defensive.</p>
-                                    <p><strong>Audience:</strong> Frustrated customers who want fast answers.</p>
-                                    <p><strong>Response:</strong> 5 FAQ items with questions as headers and 2-3 sentence answers each.</p>
-                                </div>
+                    <div class="costar-element" id="objective">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">O</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Objective</h3>
+                                <span class="costar-element__subtitle">What you want to achieve</span>
                             </div>
                         </div>
-
-                        <div class="approach-vs">
-                            <span>=</span>
-                        </div>
-
-                        <div class="approach-card">
-                            <div class="approach-header approach-natural">
-                                <h3>Natural Language</h3>
-                            </div>
-                            <div class="approach-content">
-                                <div class="approach-prompt">
-                                    <p>Our support team is getting swamped with the same refund questions over and over. I need to create an FAQ section to handle the most common ones so customers can self-serve. Can you write 5 FAQ items? Use the questions as headers with 2-3 sentence answers. Keep it clear and easy to scan—these are frustrated customers who just want fast answers. The tone should be helpful, not defensive.</p>
-                                </div>
-                            </div>
+                        <p class="costar-element__desc">Define your primary goal and any secondary outcomes you're hoping for.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"Write an announcement that explains the acquisition and addresses job security concerns."</p>
                         </div>
                     </div>
 
-                    <div class="callout tip">
-                        <div class="callout-title">The Labels Are Optional</div>
-                        <p>COSTAR helps you remember to specify context, objective, style, tone, audience, and response format. Once that's second nature, write however feels most comfortable. The AI understands intent, not just structure.</p>
+                    <div class="costar-element" id="style">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">S</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Style</h3>
+                                <span class="costar-element__subtitle">Writing style or voice</span>
+                            </div>
+                        </div>
+                        <p class="costar-element__desc">Specify the writing approach, format conventions, or brand voice to follow.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"Write in the CEO's voice—direct, transparent, and optimistic."</p>
+                        </div>
+                    </div>
+
+                    <div class="costar-element" id="tone">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">T</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Tone</h3>
+                                <span class="costar-element__subtitle">Emotional quality</span>
+                            </div>
+                        </div>
+                        <p class="costar-element__desc">Define the emotional register—the feeling you want readers to have.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"Confident but not dismissive. Empathetic about uncertainty while emphasizing stability."</p>
+                        </div>
+                    </div>
+
+                    <div class="costar-element costar-element--highlight" id="audience">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">A</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Audience</h3>
+                                <span class="costar-element__subtitle">Who will receive this</span>
+                            </div>
+                            <span class="costar-element__badge">Key Element</span>
+                        </div>
+                        <p class="costar-element__desc">Describe who will read this—their knowledge level, concerns, and what they care about.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"All employees—mix of tenures, roles, and likely anxiety levels about job security."</p>
+                        </div>
+                    </div>
+
+                    <div class="costar-element" id="response">
+                        <div class="costar-element__header">
+                            <span class="costar-element__letter">R</span>
+                            <div class="costar-element__titles">
+                                <h3 class="costar-element__title">Response</h3>
+                                <span class="costar-element__subtitle">Format of the output</span>
+                            </div>
+                        </div>
+                        <p class="costar-element__desc">Specify the structure, length, and format you need the output to take.</p>
+                        <div class="costar-element__example">
+                            <span class="costar-element__example-label">Example</span>
+                            <p>"Email format: Subject line, opening hook, 3 key points with headers, FAQ section."</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE SIX ELEMENTS -->
 
-        <!-- Continue Learning -->
+        <!-- === AUDIENCE TRANSFORMATION === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="cta-card fade-in-up">
-                    <canvas id="cta-neural-bg" class="neural-canvas-secondary"></canvas>
-                    <h2 class="cta-title">Continue Learning</h2>
-                    <p class="cta-text">Explore more advanced prompting frameworks and techniques.</p>
-                    <div class="cta-actions">
-                        <a href="react.html" class="btn btn-primary">Learn ReAct</a>
-                        <a href="advanced.html" class="btn btn-secondary">Advanced Techniques</a>
+                <div class="section-header">
+                    <span class="section-eyebrow">See It In Action</span>
+                    <h2 class="section-title">Same Topic, Different Audiences</h2>
+                    <p class="section-subtitle">Watch how the same information transforms based on who's reading</p>
+                </div>
+
+                <div class="audience-transform">
+                    <div class="audience-transform__source">
+                        <span class="audience-transform__source-label">The Topic</span>
+                        <p class="audience-transform__source-topic">New AI feature launch for your product</p>
+                        <p class="audience-transform__source-desc">See how the same message adapts for different stakeholder groups</p>
+                    </div>
+
+                    <div class="audience-transform__outputs">
+                        <div class="audience-output fade-in-up">
+                            <div class="audience-output__header">
+                                <div class="audience-output__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="audience-output__title">For Executives</h4>
+                                    <span class="audience-output__subtitle">Strategic leadership focus</span>
+                                </div>
+                            </div>
+                            <p class="audience-output__text">"AI-powered insights drive 40% faster decision-making. ROI projection: $2.3M annually in efficiency gains."</p>
+                            <div class="audience-output__traits">
+                                <span class="audience-output__trait">Bottom-line focused</span>
+                                <span class="audience-output__trait">High-level metrics</span>
+                                <span class="audience-output__trait">Strategic framing</span>
+                            </div>
+                        </div>
+
+                        <div class="audience-output fade-in-up">
+                            <div class="audience-output__header">
+                                <div class="audience-output__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="16,18 22,12 16,6"/>
+                                        <polyline points="8,6 2,12 8,18"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="audience-output__title">For Engineers</h4>
+                                    <span class="audience-output__subtitle">Technical implementation</span>
+                                </div>
+                            </div>
+                            <p class="audience-output__text">"New ML pipeline processes 10K requests/second with 99.9% uptime. API documentation and sandbox available."</p>
+                            <div class="audience-output__traits">
+                                <span class="audience-output__trait">Technical specs</span>
+                                <span class="audience-output__trait">Performance metrics</span>
+                                <span class="audience-output__trait">Implementation details</span>
+                            </div>
+                        </div>
+
+                        <div class="audience-output fade-in-up">
+                            <div class="audience-output__header">
+                                <div class="audience-output__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="audience-output__title">For Customers</h4>
+                                    <span class="audience-output__subtitle">End-user perspective</span>
+                                </div>
+                            </div>
+                            <p class="audience-output__text">"Get instant recommendations tailored to your preferences. Save time and discover exactly what you need, faster."</p>
+                            <div class="audience-output__traits">
+                                <span class="audience-output__trait">Benefit-focused</span>
+                                <span class="audience-output__trait">Simple language</span>
+                                <span class="audience-output__trait">Personal value</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /AUDIENCE TRANSFORMATION -->
+
+        <!-- === COMPLETE EXAMPLE === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Full Example</span>
+                    <h2 class="section-title">Complete COSTAR Prompt</h2>
+                    <p class="section-subtitle">See all six components working together</p>
+                </div>
+
+                <div class="prompt-builder-preview fade-in-up">
+                    <div class="prompt-builder-preview__header">
+                        <span class="prompt-builder-preview__title">Full COSTAR Prompt</span>
+                    </div>
+                    <div class="prompt-builder-preview__content">
+                        <div class="prompt-segment prompt-segment--c">
+                            <span class="prompt-segment__label">C</span>
+                            <span class="prompt-segment__text">Our company just acquired a smaller competitor. We need to communicate this before the press release tomorrow.</span>
+                        </div>
+                        <div class="prompt-segment prompt-segment--o">
+                            <span class="prompt-segment__label">O</span>
+                            <span class="prompt-segment__text">Write an announcement that explains the acquisition and addresses job security concerns proactively.</span>
+                        </div>
+                        <div class="prompt-segment prompt-segment--s">
+                            <span class="prompt-segment__label">S</span>
+                            <span class="prompt-segment__text">Write in the CEO's voice—direct, transparent, and optimistic about the future.</span>
+                        </div>
+                        <div class="prompt-segment prompt-segment--t">
+                            <span class="prompt-segment__label">T</span>
+                            <span class="prompt-segment__text">Confident but empathetic. Acknowledge uncertainty while emphasizing stability and opportunity.</span>
+                        </div>
+                        <div class="prompt-segment prompt-segment--a">
+                            <span class="prompt-segment__label">A</span>
+                            <span class="prompt-segment__text">All employees—mix of tenures, roles, and likely anxiety levels about job security.</span>
+                        </div>
+                        <div class="prompt-segment prompt-segment--r">
+                            <span class="prompt-segment__label">R</span>
+                            <span class="prompt-segment__text">Email format: Subject line, opening hook, 3 key points with headers, and a brief FAQ section.</span>
+                        </div>
+                    </div>
+                    <div class="prompt-builder-preview__footer">
+                        <div class="prompt-legend">
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--c"></span>Context</span>
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--o"></span>Objective</span>
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--s"></span>Style</span>
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--t"></span>Tone</span>
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--a"></span>Audience</span>
+                            <span class="prompt-legend__item"><span class="prompt-legend__dot prompt-legend__dot--r"></span>Response</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPLETE EXAMPLE -->
+
+        <!-- === WHEN TO USE === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Best Fit</span>
+                    <h2 class="section-title">When to Use COSTAR</h2>
+                    <p class="section-subtitle">COSTAR excels when audience awareness is critical to success</p>
+                </div>
+
+                <div class="use-case-grid">
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Stakeholder Communications</h3>
+                        <p class="use-case-card__desc">Messages that need to resonate with specific groups or personas.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Executive Briefings</h3>
+                        <p class="use-case-card__desc">High-stakes communication requiring precise tone and framing.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Marketing Content</h3>
+                        <p class="use-case-card__desc">Copy that speaks directly to your target market's needs and desires.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Internal Announcements</h3>
+                        <p class="use-case-card__desc">Company-wide communications that address diverse concerns.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Customer Support</h3>
+                        <p class="use-case-card__desc">Responses tailored to customer knowledge and emotional state.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12,2 2,7 12,12 22,7 12,2"/>
+                                <polyline points="2,17 12,22 22,17"/>
+                                <polyline points="2,12 12,17 22,12"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Training Materials</h3>
+                        <p class="use-case-card__desc">Content calibrated to learner expertise and learning goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === OTHER FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Alternatives</span>
+                    <h2 class="section-title">Consider Other Frameworks When...</h2>
+                </div>
+
+                <div class="alternative-cards">
+                    <a href="crisp.html" class="alternative-card fade-in-up">
+                        <div class="alternative-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="alternative-card__content">
+                            <span class="alternative-card__trigger">Audience isn't critical</span>
+                            <h4 class="alternative-card__title">CRISP Framework</h4>
+                            <p class="alternative-card__desc">Simpler, faster approach for everyday tasks where audience is less critical.</p>
+                        </div>
+                        <svg class="alternative-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12,5 19,12 12,19"/>
+                        </svg>
+                    </a>
+
+                    <a href="crispe.html" class="alternative-card fade-in-up">
+                        <div class="alternative-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="16"/>
+                                <line x1="8" y1="12" x2="16" y2="12"/>
+                            </svg>
+                        </div>
+                        <div class="alternative-card__content">
+                            <span class="alternative-card__trigger">You need exact format control</span>
+                            <h4 class="alternative-card__title">CRISPE Framework</h4>
+                            <p class="alternative-card__desc">Uses examples to show the AI exactly what format you want.</p>
+                        </div>
+                        <svg class="alternative-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12,5 19,12 12,19"/>
+                        </svg>
+                    </a>
+
+                    <a href="react.html" class="alternative-card fade-in-up">
+                        <div class="alternative-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="alternative-card__content">
+                            <span class="alternative-card__trigger">You need step-by-step reasoning</span>
+                            <h4 class="alternative-card__title">ReAct Framework</h4>
+                            <p class="alternative-card__desc">For complex problems requiring reasoning, action, and tool use.</p>
+                        </div>
+                        <svg class="alternative-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12,5 19,12 12,19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- /OTHER FRAMEWORKS -->
+
+        <!-- === SOURCES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <section class="citations-section fade-in-up">
+                    <h3 class="citations-title">Sources</h3>
+                    <ol class="citations-list">
+                        <li class="citation-item">
+                            <a href="https://hai.stanford.edu/research" target="_blank" rel="noopener noreferrer">[1] Stanford HAI - Audience-Adapted Communication Research - 2025</a>
+                        </li>
+                        <li class="citation-item">
+                            <a href="https://hcii.cmu.edu/research" target="_blank" rel="noopener noreferrer">[2] Carnegie Mellon HCI - Effective Communication Patterns - 2025</a>
+                        </li>
+                        <li class="citation-item">
+                            <a href="https://www.si.umich.edu/research" target="_blank" rel="noopener noreferrer">[3] University of Michigan - Prompt Engineering Best Practices - 2025</a>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+        </section>
+        <!-- /SOURCES -->
+
+        <!-- === CTA === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Practice COSTAR</h2>
+                        <p class="cta-corporate__text">Build audience-focused prompts with our interactive tools or find the right framework for your task.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Try Prompt Builder</a>
+                            <a href="../tools/matcher.html" class="btn btn-secondary">Framework Matcher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA -->
     </main>
 
     <!-- Footer -->
@@ -586,16 +666,16 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
-                    <p>Master the Art of AI Communication theory through proven methodologies.</p>
+                    <p>Master the Art of AI Communication theory through proven frameworks.</p>
                 </div>
 
                 <div class="footer-links">
                     <h4>Learn</h4>
                     <a href="prompt-basics.html">Prompt Basics</a>
-                    <a href="crisp.html">CRISP Method</a>
-                    <a href="crispe.html">CRISPE Method</a>
-                    <a href="costar.html">COSTAR Method</a>
-                    <a href="react.html">ReAct Method</a>
+                    <a href="crisp.html">CRISP Framework</a>
+                    <a href="crispe.html">CRISPE Framework</a>
+                    <a href="costar.html">COSTAR Framework</a>
+                    <a href="react.html">ReAct Framework</a>
                     <a href="flipped-interaction.html">Flipped Interaction</a>
                     <a href="advanced.html">Advanced</a>
                 </div>
@@ -604,7 +684,7 @@
                     <h4>AI Readiness</h4>
                     <a href="../tools/analyzer.html">Prompt Analyzer</a>
                     <a href="../tools/guidance.html">Prompt Builder</a>
-                    <a href="../tools/matcher.html">Method Matcher</a>
+                    <a href="../tools/matcher.html">Framework Matcher</a>
                     <a href="../tools/checklist.html">Preflight Checklist</a>
                     <a href="../tools/hallucination.html">Hallucination Spotter</a>
                     <a href="../quiz/index.html">Readiness Quiz</a>
@@ -643,37 +723,7 @@
         <span class="back-to-top-text">Back to Top</span>
     </button>
 
-    <!-- Site Badges Bar -->
-    <div class="site-badges-bar">
-        <span class="content-badge content-badge--ai" data-badge-type="ai">
-            <span class="badge-label">AI for</span>
-            <span class="badge-value">Everybody</span>
-        </span>
-        <span class="content-badge content-badge--udl" data-badge-type="udl">
-            <span class="badge-label">Built With</span>
-            <span class="badge-value">UD/UDL</span>
-        </span>
-        <span class="content-badge content-badge--security" data-badge-type="security">
-            <span class="badge-label">Security</span>
-            <span class="badge-value">A+ 100%</span>
-        </span>
-        <span class="content-badge content-badge--performance" data-badge-type="performance">
-            <span class="badge-label">Performance</span>
-            <span class="badge-value">100%</span>
-        </span>
-        <span class="content-badge content-badge--claude" data-badge-type="claude">
-            <span class="badge-label">AI Assisted Building</span>
-            <span class="badge-value">Claude Code</span>
-        </span>
-        <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
-            <span class="badge-label">Community</span>
-            <span class="badge-value">GitHub</span>
-        </a>
-    </div>
-
-    <!-- =============================================
-         BADGE LIGHTBOX - Modal popup for badge info
-         ============================================= -->
+    <!-- Badge Lightbox -->
     <div class="badge-lightbox-overlay" aria-hidden="true"></div>
     <div class="badge-lightbox" role="dialog" aria-modal="true" aria-labelledby="badge-lightbox-title">
         <header class="badge-lightbox-header">
@@ -686,12 +736,8 @@
         </header>
         <div class="badge-lightbox-content"></div>
     </div>
-    <!-- /BADGE LIGHTBOX -->
 
-    <!-- =============================================
-         ACCESSIBILITY DASHBOARD (ADL)
-         User-controlled accommodations for UD/UDL
-         ============================================= -->
+    <!-- Accessibility Dashboard -->
     <div class="adl-dim-overlay" aria-hidden="true"></div>
     <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -733,6 +779,21 @@
                 </label>
             </div>
         </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
         <div class="adl-control">
             <span class="adl-label">Screen Dimming</span>
             <div class="adl-range-wrapper">
@@ -742,7 +803,6 @@
         </div>
         <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
     </div>
-    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>
