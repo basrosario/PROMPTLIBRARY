@@ -1372,8 +1372,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.ctx.shadowBlur = 12;
                 }
 
-                // Text color - dark gray/red for visibility on light backgrounds
-                this.ctx.fillStyle = `rgba(80, 60, 65, ${opacity})`;
+                // Text color - darker for visibility on light backgrounds
+                this.ctx.fillStyle = `rgba(45, 30, 35, ${opacity})`;
                 this.ctx.fillText(term.text, term.currentX, term.currentY);
 
                 this.ctx.restore();
