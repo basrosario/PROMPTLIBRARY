@@ -1757,13 +1757,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pathname.endsWith('/_public_html')
     );
 
+    // Mobile detection - skip heavy canvas animations entirely on mobile
+    const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
+
     // Main hero canvas on index page - hero mode with single large network cycling through AI names
-    if (mainCanvas && isMainPage) {
+    // SKIP ON MOBILE for performance - canvas animations freeze mobile browsers
+    if (mainCanvas && isMainPage && !isMobileDevice) {
         neuralNetworks.push(new NeuralNetwork(mainCanvas, {
             mode: 'hero',  // Single large network on left, cycles AI names every 15 seconds
             showTerms: true
         }));
-    } else if (mainCanvas) {
+    } else if (mainCanvas && !isMobileDevice) {
         // ALL other pages - terms mode with floating AI terminology only (NO AI names)
         neuralNetworks.push(new NeuralNetwork(mainCanvas, {
             mode: 'terms'
@@ -1772,7 +1776,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Secondary canvases (CTA cards, footer) - terms mode with floating AI terms
     // Skip on mobile for better performance
-    const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
     if (!isMobileDevice) {
         document.querySelectorAll('.neural-canvas-secondary').forEach(canvas => {
             neuralNetworks.push(new NeuralNetwork(canvas, {
@@ -3106,17 +3109,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Store all neural background instances for cleanup
     const neuralBackgrounds = [];
 
-    // Initialize hero neural background on main page
+    // Mobile detection for performance optimization
+    const isMobileForAnimations = window.innerWidth < 768 || 'ontouchstart' in window;
+
+    // Initialize hero neural background on main page (desktop only)
+    // Mobile skips heavy canvas animations for better performance
     const heroNeuralCanvas = document.getElementById('hero-neural-bg');
-    if (heroNeuralCanvas && isMainPage) {
+    if (heroNeuralCanvas && isMainPage && !isMobileForAnimations) {
         neuralBackgrounds.push(new HeroNeuralBackground(heroNeuralCanvas, {
             parentSelector: '.hero'
         }));
     }
 
-    // Initialize page-hero neural background on internal pages
+    // Initialize page-hero neural background on internal pages (desktop only)
     const pageHeroCanvas = document.getElementById('page-hero-neural-bg');
-    if (pageHeroCanvas) {
+    if (pageHeroCanvas && !isMobileForAnimations) {
         neuralBackgrounds.push(new HeroNeuralBackground(pageHeroCanvas, {
             parentSelector: '.page-hero',
             maxTerms: 12,
@@ -3125,9 +3132,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
-    // Initialize footer neural background
+    // Initialize footer neural background (desktop only)
     const footerNeuralCanvas = document.getElementById('footer-neural-bg');
-    if (footerNeuralCanvas) {
+    if (footerNeuralCanvas && !isMobileForAnimations) {
         neuralBackgrounds.push(new HeroNeuralBackground(footerNeuralCanvas, {
             parentSelector: '.footer',
             maxTerms: 10,
@@ -3136,9 +3143,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
-    // Initialize CTA neural background
+    // Initialize CTA neural background (desktop only)
     const ctaNeuralCanvas = document.getElementById('cta-neural-bg');
-    if (ctaNeuralCanvas) {
+    if (ctaNeuralCanvas && !isMobileForAnimations) {
         neuralBackgrounds.push(new HeroNeuralBackground(ctaNeuralCanvas, {
             parentSelector: '.cta-card',
             maxTerms: 6,
