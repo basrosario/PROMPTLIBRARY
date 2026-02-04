@@ -16417,11 +16417,12 @@ html[data-text-scale="3"] {
     align-items: center;
     gap: var(--space-sm);
     padding: var(--space-md) var(--space-lg);
-    margin-top: 45px;
+    margin: 45px var(--space-md) 0 var(--space-md);
     background: linear-gradient(135deg, var(--primary), #b91c1c);
     color: white;
     font-weight: 600;
     font-size: 1rem;
+    border-radius: var(--radius-md);
 }
 
 .journey-preview__header svg {
