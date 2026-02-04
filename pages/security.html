@@ -166,7 +166,7 @@
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">Security as a Practice</div>
-                    <p>Security isn't something you do once and forget. According to NIST's Cybersecurity Framework, effective security requires continuous monitoring, assessment, and improvement<span class="inline-citation">[1]</span>. Praxis was designed with security as a core principle, not a bolt-on addition.</p>
+                    <p>Security isn't something you do once and forget. Effective security requires continuous monitoring, assessment, and improvement. Praxis was designed with security as a core principle, not a bolt-on addition.</p>
                 </div>
             </div>
         </section>
@@ -179,7 +179,7 @@
                 <p class="section-subtitle fade-in-up">Multiple security layers as recommended by NIST SP 800-53</p>
 
                 <div class="content-block fade-in-up">
-                    <p>The defense-in-depth model, as defined by NIST Special Publication 800-53, recommends implementing multiple overlapping security controls so that if one fails, others remain<span class="inline-citation">[2]</span>. Here's how Praxis implements this principle:</p>
+                    <p>The defense-in-depth model recommends implementing multiple overlapping security controls so that if one fails, others remain. Here's how Praxis implements this principle:</p>
                 </div>
 
                 <div class="safety-principles stagger-children">
@@ -195,7 +195,7 @@
 
                     <div class="principle-card">
                         <h3>Zero Trust Architecture</h3>
-                        <p>Following NIST SP 800-207 guidelines<span class="inline-citation">[3]</span>, we assume no external resource is trustworthy. All styles, scripts, and assets are self-hosted with no third-party dependencies.</p>
+                        <p>We assume no external resource is trustworthy. All styles, scripts, and assets are self-hosted with no third-party dependencies.</p>
                     </div>
 
                     <div class="principle-card">
@@ -214,7 +214,7 @@
                 <p class="section-subtitle fade-in-up">A+ rated CSP verified against Mozilla Observatory standards</p>
 
                 <div class="content-block fade-in-up">
-                    <p>Content Security Policy (CSP) is a browser security mechanism that helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks. According to NIST's Web Services Security Guidelines, CSP is one of the most effective mitigations against XSS attacks<span class="inline-citation">[4]</span>.</p>
+                    <p>Content Security Policy (CSP) is a browser security mechanism that helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks. CSP is one of the most effective mitigations against XSS attacks.</p>
                 </div>
 
                 <!-- CSP Directive Compliance Chart -->
@@ -273,7 +273,7 @@
                     <details class="faq-item" open>
                         <summary class="faq-question">default-src 'none' - Block Everything by Default</summary>
                         <div class="faq-answer">
-                            <p>This is the most restrictive default policy possible. Every resource type must be explicitly allowed. This follows the principle of deny-by-default recommended by CISA<span class="inline-citation">[5]</span>.</p>
+                            <p>This is the most restrictive default policy possible. Every resource type must be explicitly allowed. This follows the principle of deny-by-default.</p>
                             <p><strong>Effect:</strong> Prevents any unexpected content from loading, including scripts, styles, images, fonts, and connections unless explicitly permitted.</p>
                         </div>
                     </details>
@@ -282,7 +282,7 @@
                         <summary class="faq-question">script-src 'self' - No External JavaScript</summary>
                         <div class="faq-answer">
                             <p>Only scripts from our own domain are allowed. No inline scripts, no eval(), no external JavaScript files from CDNs.</p>
-                            <p><strong>XSS Prevention:</strong> According to CMU CERT/CC security research, strict CSP that blocks inline scripts can prevent the majority of XSS attacks<span class="inline-citation">[6]</span>.</p>
+                            <p><strong>XSS Prevention:</strong> Strict CSP that blocks inline scripts can prevent the majority of XSS attacks.</p>
                         </div>
                     </details>
 
@@ -320,7 +320,7 @@
 
                 <div class="callout warning fade-in-up">
                     <div class="callout-title">Why This Matters</div>
-                    <p>According to CISA and NIST, Cross-Site Scripting (XSS) remains a critical web application security risk<span class="inline-citation">[7]</span>. Most websites allow inline scripts and styles for convenience. We chose the harder path: refactoring all code to work with strict CSP. The result is a site that's practically immune to XSS attacks.</p>
+                    <p>Cross-Site Scripting (XSS) remains a critical web application security risk. Most websites allow inline scripts and styles for convenience. We chose the harder path: refactoring all code to work with strict CSP. The result is a site that's practically immune to XSS attacks.</p>
                 </div>
             </div>
         </section>
@@ -333,7 +333,7 @@
                 <p class="section-subtitle fade-in-up">Security posture aligned with NIST Cybersecurity Framework 2.0</p>
 
                 <div class="content-block fade-in-up">
-                    <p>NIST's Cybersecurity Framework 2.0, released February 2024, provides updated guidance for managing cybersecurity risk across organizations of all sizes<span class="inline-citation">[7]</span>. Praxis implements security-by-design principles that eliminate entire categories of vulnerabilities.</p>
+                    <p>Modern cybersecurity frameworks emphasize managing risk across organizations of all sizes. Praxis implements security-by-design principles that eliminate entire categories of vulnerabilities.</p>
                 </div>
 
                 <!-- Security Coverage Bar Chart -->
@@ -378,7 +378,7 @@
 
                 <!-- Attack Surface Comparison - Visual Cards -->
                 <h3 class="section-title fade-in-up" style="margin-top: var(--space-xl);">Attack Surface Comparison</h3>
-                <p class="section-subtitle fade-in-up">CISA identifies supply chain attacks as a top threat vector for 2025<span class="inline-citation">[8]</span></p>
+                <p class="section-subtitle fade-in-up">Supply chain attacks are a top threat vector in modern web security</p>
 
                 <div class="approach-comparison stagger-children">
                     <div class="approach-card">
@@ -452,7 +452,7 @@
                 <p class="section-subtitle fade-in-up">We can't leak what we don't collect</p>
 
                 <div class="content-block fade-in-up">
-                    <p>Privacy by Design, as formalized by Dr. Ann Cavoukian and endorsed by international privacy authorities, establishes that privacy should be embedded into technology from the start<span class="inline-citation">[8]</span>. Praxis implements all seven foundational principles:</p>
+                    <p>Privacy by Design establishes that privacy should be embedded into technology from the start. Praxis implements all seven foundational principles:</p>
                 </div>
 
                 <div class="stat-cards fade-in-up">
