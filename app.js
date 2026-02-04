@@ -1362,18 +1362,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const opacity = term.opacity * pulse;
 
                 this.ctx.save();
-                this.ctx.font = `${term.fontSize}px monospace`;
+                this.ctx.font = `600 ${term.fontSize}px system-ui, -apple-system, sans-serif`;
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
 
                 // Subtle text glow - red tint
                 if (!this.isMobile) {
-                    this.ctx.shadowColor = `rgba(230, 57, 70, ${opacity * 0.4})`;
-                    this.ctx.shadowBlur = 8;
+                    this.ctx.shadowColor = `rgba(220, 53, 69, ${opacity * 0.6})`;
+                    this.ctx.shadowBlur = 12;
                 }
 
-                // Text color - soft white/gray (25% brighter)
-                this.ctx.fillStyle = `rgba(225, 213, 213, ${opacity})`;
+                // Text color - dark gray/red for visibility on light backgrounds
+                this.ctx.fillStyle = `rgba(80, 60, 65, ${opacity})`;
                 this.ctx.fillText(term.text, term.currentX, term.currentY);
 
                 this.ctx.restore();
