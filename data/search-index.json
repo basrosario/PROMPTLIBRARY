@@ -1,0 +1,3981 @@
+[
+  {
+    "id": "term-accuracy",
+    "title": "Accuracy",
+    "category": "Glossary",
+    "subcategory": "Metrics",
+    "keywords": [
+      "accuracy",
+      "metrics",
+      "evaluation",
+      "correct predictions"
+    ],
+    "excerpt": "A metric measuring how often a model's predictions are correct. Calculated as the ratio of correct predictions to total predictions.",
+    "url": "pages/glossary.html#term-accuracy"
+  },
+  {
+    "id": "term-activation-function",
+    "title": "Activation Function",
+    "category": "Glossary",
+    "subcategory": "Neural Networks",
+    "keywords": [
+      "activation",
+      "relu",
+      "sigmoid",
+      "tanh",
+      "non-linearity"
+    ],
+    "excerpt": "A mathematical function applied to neurons that introduces non-linearity, enabling neural networks to learn complex patterns.",
+    "url": "pages/glossary.html#term-activation-function"
+  },
+  {
+    "id": "term-adversarial-attack",
+    "title": "Adversarial Attack",
+    "category": "Glossary",
+    "subcategory": "Security",
+    "keywords": [
+      "adversarial",
+      "attack",
+      "security",
+      "vulnerability"
+    ],
+    "excerpt": "Deliberate attempts to deceive AI systems by providing specially crafted inputs that cause incorrect predictions or harmful outputs.",
+    "url": "pages/glossary.html#term-adversarial-attack"
+  },
+  {
+    "id": "term-agent",
+    "title": "AI Agent",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "agent",
+      "autonomous",
+      "actions",
+      "tools",
+      "agentic"
+    ],
+    "excerpt": "An AI system that can perceive its environment, make decisions, and take actions to achieve goals using tools and external systems.",
+    "url": "pages/glossary.html#term-agent"
+  },
+  {
+    "id": "term-ai",
+    "title": "AI (Artificial Intelligence)",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "ai",
+      "artificial intelligence",
+      "machine learning"
+    ],
+    "excerpt": "Computer systems designed to perform tasks that typically require human intelligence, such as understanding language and making decisions.",
+    "url": "pages/glossary.html#term-ai"
+  },
+  {
+    "id": "term-ai-ethics",
+    "title": "AI Ethics",
+    "category": "Glossary",
+    "subcategory": "Ethics",
+    "keywords": [
+      "ethics",
+      "fairness",
+      "transparency",
+      "accountability"
+    ],
+    "excerpt": "The study of moral principles guiding AI development and use, covering fairness, transparency, privacy, and societal impact.",
+    "url": "pages/glossary.html#term-ai-ethics"
+  },
+  {
+    "id": "term-ai-readiness",
+    "title": "AI Readiness",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "ai readiness",
+      "skills",
+      "preparation"
+    ],
+    "excerpt": "The skills, knowledge, and mindset needed to use AI tools effectively and responsibly.",
+    "url": "pages/glossary.html#term-ai-readiness"
+  },
+  {
+    "id": "term-alignment",
+    "title": "Alignment",
+    "category": "Glossary",
+    "subcategory": "Safety",
+    "keywords": [
+      "alignment",
+      "safety",
+      "values",
+      "human values"
+    ],
+    "excerpt": "Ensuring AI systems behave in ways that match human values and intentions. A key concern in AI safety research.",
+    "url": "pages/glossary.html#term-alignment"
+  },
+  {
+    "id": "term-algorithm",
+    "title": "Algorithm",
+    "category": "Glossary",
+    "subcategory": "Fundamentals",
+    "keywords": [
+      "algorithm",
+      "procedure",
+      "rules",
+      "steps"
+    ],
+    "excerpt": "A step-by-step procedure for solving a problem. In AI, algorithms define how models learn from data and make predictions.",
+    "url": "pages/glossary.html#term-algorithm"
+  },
+  {
+    "id": "term-annotation",
+    "title": "Annotation",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "annotation",
+      "labeling",
+      "data labeling",
+      "training data"
+    ],
+    "excerpt": "The process of labeling data to create training datasets for supervised learning.",
+    "url": "pages/glossary.html#term-annotation"
+  },
+  {
+    "id": "term-anthropic",
+    "title": "Anthropic",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "anthropic",
+      "claude",
+      "ai company",
+      "safety"
+    ],
+    "excerpt": "An AI safety company that created Claude, focused on developing safe and beneficial AI systems.",
+    "url": "pages/glossary.html#term-anthropic"
+  },
+  {
+    "id": "term-api",
+    "title": "API",
+    "category": "Glossary",
+    "subcategory": "Technical",
+    "keywords": [
+      "api",
+      "interface",
+      "integration",
+      "endpoint"
+    ],
+    "excerpt": "Application Programming Interface - protocols allowing applications to communicate and integrate AI capabilities.",
+    "url": "pages/glossary.html#term-api"
+  },
+  {
+    "id": "term-attention",
+    "title": "Attention Mechanism",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "attention",
+      "self-attention",
+      "transformer",
+      "focus"
+    ],
+    "excerpt": "A technique allowing models to focus on relevant parts of input when producing output. Foundation of transformer architecture.",
+    "url": "pages/glossary.html#term-attention"
+  },
+  {
+    "id": "term-autogen",
+    "title": "AutoGen",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "autogen",
+      "microsoft",
+      "multi-agent",
+      "agents",
+      "collaboration"
+    ],
+    "excerpt": "Microsoft's framework for building multi-agent AI applications with collaborative AI agents.",
+    "url": "pages/glossary.html#term-autogen"
+  },
+  {
+    "id": "term-autoencoder",
+    "title": "Autoencoder",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "autoencoder",
+      "compression",
+      "representation",
+      "reconstruction"
+    ],
+    "excerpt": "A neural network that learns to compress data into smaller representations and reconstruct it.",
+    "url": "pages/glossary.html#term-autoencoder"
+  },
+  {
+    "id": "term-autoregressive",
+    "title": "Autoregressive Model",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "autoregressive",
+      "generation",
+      "sequential",
+      "token by token"
+    ],
+    "excerpt": "A model generating output one element at a time, using previous outputs to predict the next. How LLMs generate text.",
+    "url": "pages/glossary.html#term-autoregressive"
+  },
+  {
+    "id": "term-backpropagation",
+    "title": "Backpropagation",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "backpropagation",
+      "gradient",
+      "training",
+      "learning"
+    ],
+    "excerpt": "The fundamental algorithm for training neural networks by calculating and propagating error signals backward.",
+    "url": "pages/glossary.html#term-backpropagation"
+  },
+  {
+    "id": "term-batch",
+    "title": "Batch",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "batch",
+      "batch processing",
+      "training batch"
+    ],
+    "excerpt": "A subset of training data processed together in one iteration, improving training efficiency.",
+    "url": "pages/glossary.html#term-batch"
+  },
+  {
+    "id": "term-batch-size",
+    "title": "Batch Size",
+    "category": "Glossary",
+    "subcategory": "Hyperparameters",
+    "keywords": [
+      "batch size",
+      "hyperparameter",
+      "training"
+    ],
+    "excerpt": "The number of training examples processed together before updating model weights.",
+    "url": "pages/glossary.html#term-batch-size"
+  },
+  {
+    "id": "term-beam-search",
+    "title": "Beam Search",
+    "category": "Glossary",
+    "subcategory": "Generation",
+    "keywords": [
+      "beam search",
+      "decoding",
+      "generation",
+      "search"
+    ],
+    "excerpt": "A search algorithm maintaining multiple candidate sequences during text generation.",
+    "url": "pages/glossary.html#term-beam-search"
+  },
+  {
+    "id": "term-benchmark",
+    "title": "Benchmark",
+    "category": "Glossary",
+    "subcategory": "Evaluation",
+    "keywords": [
+      "benchmark",
+      "evaluation",
+      "comparison",
+      "MMLU"
+    ],
+    "excerpt": "A standardized test used to evaluate and compare AI model performance.",
+    "url": "pages/glossary.html#term-benchmark"
+  },
+  {
+    "id": "term-bert",
+    "title": "BERT",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "bert",
+      "bidirectional",
+      "encoder",
+      "google"
+    ],
+    "excerpt": "Bidirectional Encoder Representations from Transformers - an influential language model processing text bidirectionally.",
+    "url": "pages/glossary.html#term-bert"
+  },
+  {
+    "id": "term-bias",
+    "title": "Bias",
+    "category": "Glossary",
+    "subcategory": "Ethics",
+    "keywords": [
+      "bias",
+      "fairness",
+      "discrimination"
+    ],
+    "excerpt": "Systematic errors or unfair preferences in AI outputs reflecting biases in training data or system design.",
+    "url": "pages/glossary.html#term-bias"
+  },
+  {
+    "id": "term-black-box",
+    "title": "Black Box",
+    "category": "Glossary",
+    "subcategory": "Interpretability",
+    "keywords": [
+      "black box",
+      "opaque",
+      "unexplainable"
+    ],
+    "excerpt": "A system whose internal workings are not visible or understandable. Many AI models are considered black boxes.",
+    "url": "pages/glossary.html#term-black-box"
+  },
+  {
+    "id": "term-bpe",
+    "title": "BPE (Byte Pair Encoding)",
+    "category": "Glossary",
+    "subcategory": "Tokenization",
+    "keywords": [
+      "bpe",
+      "tokenization",
+      "subword",
+      "encoding"
+    ],
+    "excerpt": "A tokenization algorithm breaking text into subword units by iteratively merging frequent character pairs.",
+    "url": "pages/glossary.html#term-bpe"
+  },
+  {
+    "id": "term-catastrophic-forgetting",
+    "title": "Catastrophic Forgetting",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "catastrophic forgetting",
+      "continual learning",
+      "memory"
+    ],
+    "excerpt": "The tendency of neural networks to forget previously learned information when trained on new data.",
+    "url": "pages/glossary.html#term-catastrophic-forgetting"
+  },
+  {
+    "id": "term-chain-of-thought",
+    "title": "Chain-of-Thought (CoT)",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "chain of thought",
+      "cot",
+      "reasoning",
+      "step by step"
+    ],
+    "excerpt": "A prompting technique encouraging AI to show its reasoning process step-by-step for more accurate responses.",
+    "url": "pages/glossary.html#term-chain-of-thought"
+  },
+  {
+    "id": "term-chat-completion",
+    "title": "Chat Completion",
+    "category": "Glossary",
+    "subcategory": "API",
+    "keywords": [
+      "chat completion",
+      "api",
+      "messages",
+      "conversation"
+    ],
+    "excerpt": "An API endpoint where models generate conversational responses from a list of messages.",
+    "url": "pages/glossary.html#term-chat-completion"
+  },
+  {
+    "id": "term-chatgpt",
+    "title": "ChatGPT",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "chatgpt",
+      "openai",
+      "conversational",
+      "chatbot"
+    ],
+    "excerpt": "OpenAI's conversational AI product that popularized LLMs and sparked widespread public interest in AI.",
+    "url": "pages/glossary.html#term-chatgpt"
+  },
+  {
+    "id": "term-classification",
+    "title": "Classification",
+    "category": "Glossary",
+    "subcategory": "ML Tasks",
+    "keywords": [
+      "classification",
+      "categories",
+      "labels",
+      "prediction"
+    ],
+    "excerpt": "A machine learning task assigning input data to predefined categories like spam detection or sentiment analysis.",
+    "url": "pages/glossary.html#term-classification"
+  },
+  {
+    "id": "term-claude",
+    "title": "Claude",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "claude",
+      "anthropic",
+      "ai assistant"
+    ],
+    "excerpt": "An AI assistant by Anthropic, designed to be helpful, harmless, and honest with strong reasoning capabilities.",
+    "url": "pages/glossary.html#term-claude"
+  },
+  {
+    "id": "term-clustering",
+    "title": "Clustering",
+    "category": "Glossary",
+    "subcategory": "ML Tasks",
+    "keywords": [
+      "clustering",
+      "unsupervised",
+      "grouping",
+      "similarity"
+    ],
+    "excerpt": "An unsupervised learning technique grouping similar data points together without predefined labels.",
+    "url": "pages/glossary.html#term-clustering"
+  },
+  {
+    "id": "term-cnn",
+    "title": "CNN (Convolutional Neural Network)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "cnn",
+      "convolutional",
+      "images",
+      "computer vision"
+    ],
+    "excerpt": "A neural network architecture designed for processing images using convolutional layers.",
+    "url": "pages/glossary.html#term-cnn"
+  },
+  {
+    "id": "term-code-generation",
+    "title": "Code Generation",
+    "category": "Glossary",
+    "subcategory": "Applications",
+    "keywords": [
+      "code generation",
+      "programming",
+      "copilot",
+      "coding"
+    ],
+    "excerpt": "AI models that write programming code from natural language descriptions, powering tools like GitHub Copilot.",
+    "url": "pages/glossary.html#term-code-generation"
+  },
+  {
+    "id": "term-cohere",
+    "title": "Cohere",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "cohere",
+      "enterprise",
+      "embeddings",
+      "command"
+    ],
+    "excerpt": "An enterprise AI company providing LLMs for text generation, embeddings, and search with strong RAG capabilities.",
+    "url": "pages/glossary.html#term-cohere"
+  },
+  {
+    "id": "term-computer-vision",
+    "title": "Computer Vision",
+    "category": "Glossary",
+    "subcategory": "Fields",
+    "keywords": [
+      "computer vision",
+      "images",
+      "visual",
+      "recognition"
+    ],
+    "excerpt": "The AI field enabling machines to interpret visual information from images and videos.",
+    "url": "pages/glossary.html#term-computer-vision"
+  },
+  {
+    "id": "term-constitutional-ai",
+    "title": "Constitutional AI",
+    "category": "Glossary",
+    "subcategory": "Safety",
+    "keywords": [
+      "constitutional ai",
+      "anthropic",
+      "principles",
+      "alignment"
+    ],
+    "excerpt": "Anthropic's approach where models are trained to follow a set of principles guiding their behavior.",
+    "url": "pages/glossary.html#term-constitutional-ai"
+  },
+  {
+    "id": "term-context",
+    "title": "Context",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "context",
+      "background",
+      "information"
+    ],
+    "excerpt": "Background information provided to AI that helps it understand your situation and needs.",
+    "url": "pages/glossary.html#term-context"
+  },
+  {
+    "id": "term-context-window",
+    "title": "Context Window",
+    "category": "Glossary",
+    "subcategory": "Technical",
+    "keywords": [
+      "context window",
+      "tokens",
+      "memory",
+      "length"
+    ],
+    "excerpt": "The amount of text (in tokens) an AI can process at once, ranging from 4K to 200K+ tokens.",
+    "url": "pages/glossary.html#term-context-window"
+  },
+  {
+    "id": "term-copilot",
+    "title": "Copilot",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "copilot",
+      "microsoft",
+      "github",
+      "code"
+    ],
+    "excerpt": "Microsoft's AI assistant for code completion and general assistance across their products.",
+    "url": "pages/glossary.html#term-copilot"
+  },
+  {
+    "id": "term-costar",
+    "title": "COSTAR",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "costar",
+      "framework",
+      "methodology",
+      "professional"
+    ],
+    "excerpt": "A prompting framework: Context, Objective, Style, Tone, Audience, Response for professional content.",
+    "url": "pages/glossary.html#term-costar"
+  },
+  {
+    "id": "term-crisp",
+    "title": "CRISP",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "crisp",
+      "framework",
+      "methodology",
+      "general"
+    ],
+    "excerpt": "A prompting framework: Context, Role, Instructions, Specifics, Parameters for everyday AI tasks.",
+    "url": "pages/glossary.html#term-crisp"
+  },
+  {
+    "id": "term-crispe",
+    "title": "CRISPE",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "crispe",
+      "framework",
+      "examples",
+      "few-shot"
+    ],
+    "excerpt": "CRISP extended with Examples for few-shot learning in creative tasks.",
+    "url": "pages/glossary.html#term-crispe"
+  },
+  {
+    "id": "term-cross-attention",
+    "title": "Cross-Attention",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "cross-attention",
+      "encoder-decoder",
+      "multimodal"
+    ],
+    "excerpt": "Attention where queries come from one sequence and keys/values from another, used in multimodal systems.",
+    "url": "pages/glossary.html#term-cross-attention"
+  },
+  {
+    "id": "term-cursor",
+    "title": "Cursor",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "cursor",
+      "ide",
+      "code editor",
+      "ai coding"
+    ],
+    "excerpt": "An AI-powered code editor built on VS Code, designed for AI-first development.",
+    "url": "pages/glossary.html#term-cursor"
+  },
+  {
+    "id": "term-dall-e",
+    "title": "DALL-E",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "dall-e",
+      "image generation",
+      "openai",
+      "text to image"
+    ],
+    "excerpt": "OpenAI's image generation model creating images from text descriptions.",
+    "url": "pages/glossary.html#term-dall-e"
+  },
+  {
+    "id": "term-data-augmentation",
+    "title": "Data Augmentation",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "data augmentation",
+      "training data",
+      "expansion"
+    ],
+    "excerpt": "Techniques to expand training datasets by creating modified versions of existing data.",
+    "url": "pages/glossary.html#term-data-augmentation"
+  },
+  {
+    "id": "term-dataset",
+    "title": "Dataset",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "dataset",
+      "training data",
+      "collection"
+    ],
+    "excerpt": "A collection of data used for training, validating, or testing AI models.",
+    "url": "pages/glossary.html#term-dataset"
+  },
+  {
+    "id": "term-decoder",
+    "title": "Decoder",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "decoder",
+      "generation",
+      "output",
+      "transformer"
+    ],
+    "excerpt": "The neural network component that generates output from encoded representations.",
+    "url": "pages/glossary.html#term-decoder"
+  },
+  {
+    "id": "term-deep-learning",
+    "title": "Deep Learning",
+    "category": "Glossary",
+    "subcategory": "Fields",
+    "keywords": [
+      "deep learning",
+      "neural networks",
+      "layers",
+      "ai"
+    ],
+    "excerpt": "A subset of machine learning using neural networks with many layers to learn complex patterns.",
+    "url": "pages/glossary.html#term-deep-learning"
+  },
+  {
+    "id": "term-deepmind",
+    "title": "DeepMind",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "deepmind",
+      "google",
+      "alphago",
+      "gemini",
+      "alphafold"
+    ],
+    "excerpt": "Google's AI research lab known for AlphaGo, AlphaFold, and Gemini, pioneering reinforcement learning and scientific AI.",
+    "url": "pages/glossary.html#term-deepmind"
+  },
+  {
+    "id": "term-deepseek",
+    "title": "DeepSeek",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "deepseek",
+      "chinese",
+      "efficient",
+      "open model"
+    ],
+    "excerpt": "A Chinese AI company known for efficient, high-performing open models at lower computational costs.",
+    "url": "pages/glossary.html#term-deepseek"
+  },
+  {
+    "id": "term-deepfake",
+    "title": "Deepfake",
+    "category": "Glossary",
+    "subcategory": "Risks",
+    "keywords": [
+      "deepfake",
+      "synthetic media",
+      "fake",
+      "manipulation"
+    ],
+    "excerpt": "AI-generated synthetic media where a person's likeness is manipulated, raising misinformation concerns.",
+    "url": "pages/glossary.html#term-deepfake"
+  },
+  {
+    "id": "term-delimiter",
+    "title": "Delimiter",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "delimiter",
+      "separator",
+      "structure",
+      "xml"
+    ],
+    "excerpt": "Characters used in prompts to clearly separate different sections, like triple backticks or XML tags.",
+    "url": "pages/glossary.html#term-delimiter"
+  },
+  {
+    "id": "term-diffusion-model",
+    "title": "Diffusion Model",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "diffusion",
+      "image generation",
+      "stable diffusion"
+    ],
+    "excerpt": "A generative architecture creating content by gradually removing noise, powering leading image generators.",
+    "url": "pages/glossary.html#term-diffusion-model"
+  },
+  {
+    "id": "term-dimensionality-reduction",
+    "title": "Dimensionality Reduction",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "dimensionality reduction",
+      "features",
+      "compression"
+    ],
+    "excerpt": "Techniques to reduce the number of features in data while preserving important information.",
+    "url": "pages/glossary.html#term-dimensionality-reduction"
+  },
+  {
+    "id": "term-distillation",
+    "title": "Knowledge Distillation",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "distillation",
+      "compression",
+      "teacher",
+      "student"
+    ],
+    "excerpt": "Transferring knowledge from a large teacher model to a smaller student model.",
+    "url": "pages/glossary.html#term-distillation"
+  },
+  {
+    "id": "term-dpo",
+    "title": "DPO (Direct Preference Optimization)",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "dpo",
+      "preference",
+      "alignment",
+      "rlhf alternative"
+    ],
+    "excerpt": "A simpler alternative to RLHF that directly optimizes models using preference data.",
+    "url": "pages/glossary.html#term-dpo"
+  },
+  {
+    "id": "term-dropout",
+    "title": "Dropout",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "dropout",
+      "regularization",
+      "overfitting"
+    ],
+    "excerpt": "A regularization technique randomly deactivating neurons during training to prevent overfitting.",
+    "url": "pages/glossary.html#term-dropout"
+  },
+  {
+    "id": "term-embedding",
+    "title": "Embedding",
+    "category": "Glossary",
+    "subcategory": "Representation",
+    "keywords": [
+      "embedding",
+      "vector",
+      "representation",
+      "semantic"
+    ],
+    "excerpt": "A dense vector representation of data where similar items have similar vectors.",
+    "url": "pages/glossary.html#term-embedding"
+  },
+  {
+    "id": "term-emergent-abilities",
+    "title": "Emergent Abilities",
+    "category": "Glossary",
+    "subcategory": "Phenomena",
+    "keywords": [
+      "emergent",
+      "scaling",
+      "capabilities",
+      "abilities"
+    ],
+    "excerpt": "Capabilities appearing in large AI models that weren't present in smaller versions.",
+    "url": "pages/glossary.html#term-emergent-abilities"
+  },
+  {
+    "id": "term-encoder",
+    "title": "Encoder",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "encoder",
+      "representation",
+      "input",
+      "bert"
+    ],
+    "excerpt": "A neural network component transforming input into compressed representations.",
+    "url": "pages/glossary.html#term-encoder"
+  },
+  {
+    "id": "term-endpoint",
+    "title": "Endpoint",
+    "category": "Glossary",
+    "subcategory": "API",
+    "keywords": [
+      "endpoint",
+      "api",
+      "url",
+      "service"
+    ],
+    "excerpt": "A specific URL where an API can be accessed for different AI functions.",
+    "url": "pages/glossary.html#term-endpoint"
+  },
+  {
+    "id": "term-epoch",
+    "title": "Epoch",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "epoch",
+      "training",
+      "iteration",
+      "pass"
+    ],
+    "excerpt": "One complete pass through the entire training dataset during model training.",
+    "url": "pages/glossary.html#term-epoch"
+  },
+  {
+    "id": "term-evaluation",
+    "title": "Evaluation",
+    "category": "Glossary",
+    "subcategory": "Process",
+    "keywords": [
+      "evaluation",
+      "testing",
+      "metrics",
+      "performance"
+    ],
+    "excerpt": "Measuring model performance using metrics, benchmarks, and human assessment.",
+    "url": "pages/glossary.html#term-evaluation"
+  },
+  {
+    "id": "term-explainability",
+    "title": "Explainability (XAI)",
+    "category": "Glossary",
+    "subcategory": "Transparency",
+    "keywords": [
+      "explainability",
+      "xai",
+      "interpretability",
+      "transparency"
+    ],
+    "excerpt": "The ability to understand and explain how AI models make decisions.",
+    "url": "pages/glossary.html#term-explainability"
+  },
+  {
+    "id": "term-extraction",
+    "title": "Information Extraction",
+    "category": "Glossary",
+    "subcategory": "NLP Tasks",
+    "keywords": [
+      "extraction",
+      "ner",
+      "entities",
+      "structured"
+    ],
+    "excerpt": "Using AI to identify and extract specific information from unstructured text.",
+    "url": "pages/glossary.html#term-extraction"
+  },
+  {
+    "id": "term-f1-score",
+    "title": "F1 Score",
+    "category": "Glossary",
+    "subcategory": "Metrics",
+    "keywords": [
+      "f1",
+      "precision",
+      "recall",
+      "metrics"
+    ],
+    "excerpt": "A metric combining precision and recall into a single score for classification evaluation.",
+    "url": "pages/glossary.html#term-f1-score"
+  },
+  {
+    "id": "term-feature",
+    "title": "Feature",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "feature",
+      "input",
+      "variable",
+      "attribute"
+    ],
+    "excerpt": "An individual measurable property of data used as input to a model.",
+    "url": "pages/glossary.html#term-feature"
+  },
+  {
+    "id": "term-feedforward",
+    "title": "Feedforward Neural Network",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "feedforward",
+      "mlp",
+      "neural network"
+    ],
+    "excerpt": "A neural network where information flows in one direction from input to output.",
+    "url": "pages/glossary.html#term-feedforward"
+  },
+  {
+    "id": "term-few-shot",
+    "title": "Few-Shot Learning",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "few-shot",
+      "examples",
+      "in-context"
+    ],
+    "excerpt": "Providing examples in prompts to help AI understand desired patterns or formats.",
+    "url": "pages/glossary.html#term-few-shot"
+  },
+  {
+    "id": "term-fine-tuning",
+    "title": "Fine-Tuning",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "fine-tuning",
+      "customization",
+      "specialized"
+    ],
+    "excerpt": "Training a pre-existing model on specialized data to improve specific task performance.",
+    "url": "pages/glossary.html#term-fine-tuning"
+  },
+  {
+    "id": "term-flipped-interaction",
+    "title": "Flipped Interaction",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "flipped interaction",
+      "interview",
+      "questions"
+    ],
+    "excerpt": "A method where AI asks clarifying questions before providing advice.",
+    "url": "pages/glossary.html#term-flipped-interaction"
+  },
+  {
+    "id": "term-foundation-model",
+    "title": "Foundation Model",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "foundation model",
+      "base model",
+      "pre-trained"
+    ],
+    "excerpt": "A large AI model trained on broad data that can be adapted to many downstream tasks.",
+    "url": "pages/glossary.html#term-foundation-model"
+  },
+  {
+    "id": "term-function-calling",
+    "title": "Function Calling",
+    "category": "Glossary",
+    "subcategory": "Capabilities",
+    "keywords": [
+      "function calling",
+      "tools",
+      "api",
+      "actions"
+    ],
+    "excerpt": "LLM capability to generate structured output for calling external functions or APIs.",
+    "url": "pages/glossary.html#term-function-calling"
+  },
+  {
+    "id": "term-gan",
+    "title": "GAN (Generative Adversarial Network)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "gan",
+      "generator",
+      "discriminator",
+      "adversarial"
+    ],
+    "excerpt": "A neural network with two competing networks: a generator and a discriminator.",
+    "url": "pages/glossary.html#term-gan"
+  },
+  {
+    "id": "term-gemini",
+    "title": "Gemini",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "gemini",
+      "google",
+      "multimodal"
+    ],
+    "excerpt": "Google's multimodal AI models that can process text, images, audio, and video.",
+    "url": "pages/glossary.html#term-gemini"
+  },
+  {
+    "id": "term-generative-ai",
+    "title": "Generative AI",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "generative ai",
+      "gen ai",
+      "creation"
+    ],
+    "excerpt": "AI systems that create new content rather than just analyzing existing data.",
+    "url": "pages/glossary.html#term-generative-ai"
+  },
+  {
+    "id": "term-gpu",
+    "title": "GPU",
+    "category": "Glossary",
+    "subcategory": "Hardware",
+    "keywords": [
+      "gpu",
+      "graphics",
+      "nvidia",
+      "computation"
+    ],
+    "excerpt": "Graphics Processing Units that excel at parallel computations needed for AI training.",
+    "url": "pages/glossary.html#term-gpu"
+  },
+  {
+    "id": "term-gpt",
+    "title": "GPT",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "gpt",
+      "openai",
+      "transformer",
+      "chatgpt"
+    ],
+    "excerpt": "OpenAI's Generative Pre-trained Transformer series powering ChatGPT.",
+    "url": "pages/glossary.html#term-gpt"
+  },
+  {
+    "id": "term-grok",
+    "title": "Grok",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "grok",
+      "xai",
+      "elon musk",
+      "twitter",
+      "x"
+    ],
+    "excerpt": "An AI assistant by xAI integrated with X (Twitter), known for real-time information access.",
+    "url": "pages/glossary.html#term-grok"
+  },
+  {
+    "id": "term-gradient",
+    "title": "Gradient",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "gradient",
+      "derivative",
+      "optimization"
+    ],
+    "excerpt": "A vector indicating direction and magnitude of change needed to reduce model error.",
+    "url": "pages/glossary.html#term-gradient"
+  },
+  {
+    "id": "term-gradient-descent",
+    "title": "Gradient Descent",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "gradient descent",
+      "optimization",
+      "sgd",
+      "adam"
+    ],
+    "excerpt": "The optimization algorithm training neural networks by adjusting weights to reduce error.",
+    "url": "pages/glossary.html#term-gradient-descent"
+  },
+  {
+    "id": "term-grounding",
+    "title": "Grounding",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "grounding",
+      "accuracy",
+      "verification",
+      "sources"
+    ],
+    "excerpt": "Connecting AI outputs to verified sources to reduce hallucinations.",
+    "url": "pages/glossary.html#term-grounding"
+  },
+  {
+    "id": "term-guardrails",
+    "title": "Guardrails",
+    "category": "Glossary",
+    "subcategory": "Safety",
+    "keywords": [
+      "guardrails",
+      "safety",
+      "constraints",
+      "filters"
+    ],
+    "excerpt": "Safety mechanisms constraining AI behavior to prevent harmful outputs.",
+    "url": "pages/glossary.html#term-guardrails"
+  },
+  {
+    "id": "term-hallucination",
+    "title": "Hallucination",
+    "category": "Glossary",
+    "subcategory": "Limitations",
+    "keywords": [
+      "hallucination",
+      "fabrication",
+      "incorrect",
+      "false"
+    ],
+    "excerpt": "When AI generates plausible-sounding but incorrect or fabricated information.",
+    "url": "pages/glossary.html#term-hallucination"
+  },
+  {
+    "id": "term-hidden-layer",
+    "title": "Hidden Layer",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "hidden layer",
+      "neural network",
+      "deep"
+    ],
+    "excerpt": "Layers between input and output in neural networks that learn complex representations.",
+    "url": "pages/glossary.html#term-hidden-layer"
+  },
+  {
+    "id": "term-hellaswag",
+    "title": "HellaSwag",
+    "category": "Glossary",
+    "subcategory": "Benchmarks",
+    "keywords": [
+      "hellaswag",
+      "benchmark",
+      "commonsense",
+      "reasoning"
+    ],
+    "excerpt": "A benchmark testing commonsense natural language inference and reasoning capabilities.",
+    "url": "pages/glossary.html#term-hellaswag"
+  },
+  {
+    "id": "term-hitl",
+    "title": "Human-in-the-Loop (HITL)",
+    "category": "Glossary",
+    "subcategory": "Safety",
+    "keywords": [
+      "human in the loop",
+      "hitl",
+      "oversight",
+      "review"
+    ],
+    "excerpt": "A design approach where humans review AI outputs before they're acted upon.",
+    "url": "pages/glossary.html#term-hitl"
+  },
+  {
+    "id": "term-hugging-face",
+    "title": "Hugging Face",
+    "category": "Glossary",
+    "subcategory": "Platforms",
+    "keywords": [
+      "hugging face",
+      "hub",
+      "models",
+      "transformers"
+    ],
+    "excerpt": "A platform for sharing AI models, datasets, and the popular Transformers library.",
+    "url": "pages/glossary.html#term-hugging-face"
+  },
+  {
+    "id": "term-humaneval",
+    "title": "HumanEval",
+    "category": "Glossary",
+    "subcategory": "Benchmarks",
+    "keywords": [
+      "humaneval",
+      "benchmark",
+      "code",
+      "programming"
+    ],
+    "excerpt": "A benchmark evaluating code generation capabilities of LLMs with programming problems and tests.",
+    "url": "pages/glossary.html#term-humaneval"
+  },
+  {
+    "id": "term-hyperparameter",
+    "title": "Hyperparameter",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "hyperparameter",
+      "configuration",
+      "tuning"
+    ],
+    "excerpt": "Configuration settings controlling training rather than learned from data.",
+    "url": "pages/glossary.html#term-hyperparameter"
+  },
+  {
+    "id": "term-image-generation",
+    "title": "Image Generation",
+    "category": "Glossary",
+    "subcategory": "Applications",
+    "keywords": [
+      "image generation",
+      "text to image",
+      "visual"
+    ],
+    "excerpt": "AI systems creating images from text descriptions using diffusion or GAN models.",
+    "url": "pages/glossary.html#term-image-generation"
+  },
+  {
+    "id": "term-in-context-learning",
+    "title": "In-Context Learning",
+    "category": "Glossary",
+    "subcategory": "Capabilities",
+    "keywords": [
+      "in-context learning",
+      "examples",
+      "prompt"
+    ],
+    "excerpt": "An LLM's ability to learn from examples in the prompt without weight updates.",
+    "url": "pages/glossary.html#term-in-context-learning"
+  },
+  {
+    "id": "term-inference",
+    "title": "Inference",
+    "category": "Glossary",
+    "subcategory": "Process",
+    "keywords": [
+      "inference",
+      "prediction",
+      "running",
+      "deployment"
+    ],
+    "excerpt": "Running a trained model to generate predictions on new data.",
+    "url": "pages/glossary.html#term-inference"
+  },
+  {
+    "id": "term-instruction-tuning",
+    "title": "Instruction Tuning",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "instruction tuning",
+      "following",
+      "helpful"
+    ],
+    "excerpt": "Fine-tuning LLMs to better follow user instructions and requests.",
+    "url": "pages/glossary.html#term-instruction-tuning"
+  },
+  {
+    "id": "term-interpretability",
+    "title": "Interpretability",
+    "category": "Glossary",
+    "subcategory": "Transparency",
+    "keywords": [
+      "interpretability",
+      "understanding",
+      "trust"
+    ],
+    "excerpt": "The degree to which humans can understand how a model makes decisions.",
+    "url": "pages/glossary.html#term-interpretability"
+  },
+  {
+    "id": "term-jailbreak",
+    "title": "Jailbreak",
+    "category": "Glossary",
+    "subcategory": "Security",
+    "keywords": [
+      "jailbreak",
+      "bypass",
+      "safety",
+      "attack"
+    ],
+    "excerpt": "Attempts to bypass AI safety restrictions through crafted prompts.",
+    "url": "pages/glossary.html#term-jailbreak"
+  },
+  {
+    "id": "term-json",
+    "title": "JSON",
+    "category": "Glossary",
+    "subcategory": "Technical",
+    "keywords": [
+      "json",
+      "format",
+      "structured",
+      "data"
+    ],
+    "excerpt": "A structured data format commonly used for API responses and LLM structured output.",
+    "url": "pages/glossary.html#term-json"
+  },
+  {
+    "id": "term-json-mode",
+    "title": "JSON Mode",
+    "category": "Glossary",
+    "subcategory": "API",
+    "keywords": [
+      "json mode",
+      "structured output",
+      "format"
+    ],
+    "excerpt": "An API setting constraining model output to valid JSON format.",
+    "url": "pages/glossary.html#term-json-mode"
+  },
+  {
+    "id": "term-knowledge-cutoff",
+    "title": "Knowledge Cutoff",
+    "category": "Glossary",
+    "subcategory": "Limitations",
+    "keywords": [
+      "knowledge cutoff",
+      "training date",
+      "outdated"
+    ],
+    "excerpt": "The date beyond which an AI model has no training data about events.",
+    "url": "pages/glossary.html#term-knowledge-cutoff"
+  },
+  {
+    "id": "term-knowledge-graph",
+    "title": "Knowledge Graph",
+    "category": "Glossary",
+    "subcategory": "Data Structures",
+    "keywords": [
+      "knowledge graph",
+      "entities",
+      "relationships",
+      "facts"
+    ],
+    "excerpt": "A structured representation of facts as interconnected entities and relationships.",
+    "url": "pages/glossary.html#term-knowledge-graph"
+  },
+  {
+    "id": "term-kv-cache",
+    "title": "KV Cache",
+    "category": "Glossary",
+    "subcategory": "Optimization",
+    "keywords": [
+      "kv cache",
+      "key value",
+      "memory",
+      "speed"
+    ],
+    "excerpt": "An optimization storing computed key-value vectors to speed up text generation.",
+    "url": "pages/glossary.html#term-kv-cache"
+  },
+  {
+    "id": "term-label",
+    "title": "Label",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "label",
+      "annotation",
+      "ground truth",
+      "supervised"
+    ],
+    "excerpt": "The correct answer associated with training data in supervised learning.",
+    "url": "pages/glossary.html#term-label"
+  },
+  {
+    "id": "term-latency",
+    "title": "Latency",
+    "category": "Glossary",
+    "subcategory": "Performance",
+    "keywords": [
+      "latency",
+      "delay",
+      "response time",
+      "speed"
+    ],
+    "excerpt": "The time delay between sending a prompt and receiving a response.",
+    "url": "pages/glossary.html#term-latency"
+  },
+  {
+    "id": "term-learning-rate",
+    "title": "Learning Rate",
+    "category": "Glossary",
+    "subcategory": "Hyperparameters",
+    "keywords": [
+      "learning rate",
+      "step size",
+      "training"
+    ],
+    "excerpt": "A hyperparameter controlling how much weights are adjusted during training.",
+    "url": "pages/glossary.html#term-learning-rate"
+  },
+  {
+    "id": "term-langchain",
+    "title": "LangChain",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "langchain",
+      "framework",
+      "chains",
+      "agents",
+      "tools"
+    ],
+    "excerpt": "A popular framework for building applications with LLMs, providing abstractions for chains, agents, and memory.",
+    "url": "pages/glossary.html#term-langchain"
+  },
+  {
+    "id": "term-llamaindex",
+    "title": "LlamaIndex",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "llamaindex",
+      "rag",
+      "retrieval",
+      "indexing",
+      "data"
+    ],
+    "excerpt": "A data framework for connecting LLMs to external data sources, specializing in indexing and RAG.",
+    "url": "pages/glossary.html#term-llamaindex"
+  },
+  {
+    "id": "term-llama",
+    "title": "Llama",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "llama",
+      "meta",
+      "open source",
+      "open weights"
+    ],
+    "excerpt": "Meta's open-weight family of large language models enabling widespread use.",
+    "url": "pages/glossary.html#term-llama"
+  },
+  {
+    "id": "term-llm",
+    "title": "Large Language Model (LLM)",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "llm",
+      "large language model",
+      "gpt",
+      "claude"
+    ],
+    "excerpt": "An AI system trained on massive text data to understand and generate human language.",
+    "url": "pages/glossary.html#term-llm"
+  },
+  {
+    "id": "term-lora",
+    "title": "LoRA",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "lora",
+      "fine-tuning",
+      "efficient",
+      "low rank"
+    ],
+    "excerpt": "Low-Rank Adaptation - a parameter-efficient fine-tuning technique.",
+    "url": "pages/glossary.html#term-lora"
+  },
+  {
+    "id": "term-loss-function",
+    "title": "Loss Function",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "loss function",
+      "error",
+      "objective",
+      "cost"
+    ],
+    "excerpt": "A function measuring how wrong a model's predictions are during training.",
+    "url": "pages/glossary.html#term-loss-function"
+  },
+  {
+    "id": "term-lstm",
+    "title": "LSTM",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "lstm",
+      "recurrent",
+      "sequence",
+      "memory"
+    ],
+    "excerpt": "Long Short-Term Memory - a recurrent architecture for capturing long-range dependencies.",
+    "url": "pages/glossary.html#term-lstm"
+  },
+  {
+    "id": "term-machine-learning",
+    "title": "Machine Learning (ML)",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "machine learning",
+      "ml",
+      "learning",
+      "patterns"
+    ],
+    "excerpt": "A branch of AI where systems learn patterns from data rather than being explicitly programmed.",
+    "url": "pages/glossary.html#term-machine-learning"
+  },
+  {
+    "id": "term-midjourney",
+    "title": "Midjourney",
+    "category": "Glossary",
+    "subcategory": "Products",
+    "keywords": [
+      "midjourney",
+      "image generation",
+      "art",
+      "creative"
+    ],
+    "excerpt": "A popular AI image generation service known for artistic, stylized outputs.",
+    "url": "pages/glossary.html#term-midjourney"
+  },
+  {
+    "id": "term-mistral",
+    "title": "Mistral",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "mistral",
+      "french",
+      "efficient",
+      "mixtral"
+    ],
+    "excerpt": "A French AI company known for efficient, high-performance open models.",
+    "url": "pages/glossary.html#term-mistral"
+  },
+  {
+    "id": "term-mixture-of-experts",
+    "title": "MoE (Mixture of Experts)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "moe",
+      "mixture of experts",
+      "sparse",
+      "efficient"
+    ],
+    "excerpt": "An architecture where different expert sub-networks specialize in different inputs.",
+    "url": "pages/glossary.html#term-mixture-of-experts"
+  },
+  {
+    "id": "term-mmlu",
+    "title": "MMLU",
+    "category": "Glossary",
+    "subcategory": "Benchmarks",
+    "keywords": [
+      "mmlu",
+      "benchmark",
+      "evaluation",
+      "multitask"
+    ],
+    "excerpt": "Massive Multitask Language Understanding - a benchmark testing models on 57 subjects.",
+    "url": "pages/glossary.html#term-mmlu"
+  },
+  {
+    "id": "term-model",
+    "title": "Model",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "model",
+      "ai model",
+      "trained",
+      "neural network"
+    ],
+    "excerpt": "The trained AI system that processes inputs and generates outputs.",
+    "url": "pages/glossary.html#term-model"
+  },
+  {
+    "id": "term-model-collapse",
+    "title": "Model Collapse",
+    "category": "Glossary",
+    "subcategory": "Risks",
+    "keywords": [
+      "model collapse",
+      "synthetic data",
+      "degradation"
+    ],
+    "excerpt": "A degradation phenomenon where models trained on AI-generated data lose diversity and quality.",
+    "url": "pages/glossary.html#term-model-collapse"
+  },
+  {
+    "id": "term-model-card",
+    "title": "Model Card",
+    "category": "Glossary",
+    "subcategory": "Documentation",
+    "keywords": [
+      "model card",
+      "documentation",
+      "limitations",
+      "ethics"
+    ],
+    "excerpt": "Documentation describing a model's use, limitations, and ethical considerations.",
+    "url": "pages/glossary.html#term-model-card"
+  },
+  {
+    "id": "term-multi-head-attention",
+    "title": "Multi-Head Attention",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "multi-head",
+      "attention",
+      "parallel",
+      "transformer"
+    ],
+    "excerpt": "Running multiple attention operations in parallel, each focusing on different aspects.",
+    "url": "pages/glossary.html#term-multi-head-attention"
+  },
+  {
+    "id": "term-multimodal",
+    "title": "Multimodal",
+    "category": "Glossary",
+    "subcategory": "Capabilities",
+    "keywords": [
+      "multimodal",
+      "images",
+      "audio",
+      "video",
+      "vision"
+    ],
+    "excerpt": "AI systems processing and generating multiple content types (text, images, audio, video).",
+    "url": "pages/glossary.html#term-multimodal"
+  },
+  {
+    "id": "term-named-entity-recognition",
+    "title": "Named Entity Recognition (NER)",
+    "category": "Glossary",
+    "subcategory": "NLP Tasks",
+    "keywords": [
+      "ner",
+      "entities",
+      "extraction",
+      "names"
+    ],
+    "excerpt": "An NLP task identifying and classifying named entities (people, places, organizations).",
+    "url": "pages/glossary.html#term-named-entity-recognition"
+  },
+  {
+    "id": "term-natural-language",
+    "title": "Natural Language",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "natural language",
+      "human language",
+      "conversational"
+    ],
+    "excerpt": "Human language as we naturally speak and write it, which AI assistants understand.",
+    "url": "pages/glossary.html#term-natural-language"
+  },
+  {
+    "id": "term-neural-network",
+    "title": "Neural Network",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "neural network",
+      "neurons",
+      "layers",
+      "deep"
+    ],
+    "excerpt": "A computing system inspired by biological brains, the foundation of modern AI.",
+    "url": "pages/glossary.html#term-neural-network"
+  },
+  {
+    "id": "term-next-token-prediction",
+    "title": "Next Token Prediction",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "next token",
+      "prediction",
+      "autoregressive",
+      "language model"
+    ],
+    "excerpt": "The core LLM training objective: predict the next token given previous tokens.",
+    "url": "pages/glossary.html#term-next-token-prediction"
+  },
+  {
+    "id": "term-nlp",
+    "title": "Natural Language Processing (NLP)",
+    "category": "Glossary",
+    "subcategory": "Fields",
+    "keywords": [
+      "nlp",
+      "language",
+      "text",
+      "understanding"
+    ],
+    "excerpt": "The AI field enabling computers to understand and generate human language.",
+    "url": "pages/glossary.html#term-nlp"
+  },
+  {
+    "id": "term-normalization",
+    "title": "Normalization",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "normalization",
+      "layer norm",
+      "batch norm",
+      "stability"
+    ],
+    "excerpt": "Techniques to standardize inputs or layer outputs for stable training.",
+    "url": "pages/glossary.html#term-normalization"
+  },
+  {
+    "id": "term-one-shot",
+    "title": "One-Shot Learning",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "one-shot",
+      "single example",
+      "demonstration"
+    ],
+    "excerpt": "Providing a single example in a prompt to demonstrate desired output format.",
+    "url": "pages/glossary.html#term-one-shot"
+  },
+  {
+    "id": "term-open-source",
+    "title": "Open Source / Open Weight",
+    "category": "Glossary",
+    "subcategory": "Licensing",
+    "keywords": [
+      "open source",
+      "open weight",
+      "public",
+      "download"
+    ],
+    "excerpt": "AI models with publicly available weights that can be downloaded and run locally.",
+    "url": "pages/glossary.html#term-open-source"
+  },
+  {
+    "id": "term-openai",
+    "title": "OpenAI",
+    "category": "Glossary",
+    "subcategory": "Companies",
+    "keywords": [
+      "openai",
+      "gpt",
+      "chatgpt",
+      "company"
+    ],
+    "excerpt": "The AI company behind GPT models, ChatGPT, and DALL-E.",
+    "url": "pages/glossary.html#term-openai"
+  },
+  {
+    "id": "term-optimization",
+    "title": "Optimization",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "optimization",
+      "training",
+      "weights",
+      "gradient"
+    ],
+    "excerpt": "The process of adjusting model parameters to minimize loss during training.",
+    "url": "pages/glossary.html#term-optimization"
+  },
+  {
+    "id": "term-output-layer",
+    "title": "Output Layer",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "output layer",
+      "final layer",
+      "predictions"
+    ],
+    "excerpt": "The final layer of a neural network producing the model's predictions.",
+    "url": "pages/glossary.html#term-output-layer"
+  },
+  {
+    "id": "term-overfitting",
+    "title": "Overfitting",
+    "category": "Glossary",
+    "subcategory": "Problems",
+    "keywords": [
+      "overfitting",
+      "memorization",
+      "generalization"
+    ],
+    "excerpt": "When a model performs well on training data but poorly on new data.",
+    "url": "pages/glossary.html#term-overfitting"
+  },
+  {
+    "id": "term-parameters",
+    "title": "Parameters",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "parameters",
+      "weights",
+      "billions",
+      "size"
+    ],
+    "excerpt": "The learned weights in AI models. LLMs have billions of parameters.",
+    "url": "pages/glossary.html#term-parameters"
+  },
+  {
+    "id": "term-peft",
+    "title": "PEFT",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "peft",
+      "parameter efficient",
+      "lora",
+      "fine-tuning"
+    ],
+    "excerpt": "Parameter-Efficient Fine-Tuning techniques training only a subset of parameters.",
+    "url": "pages/glossary.html#term-peft"
+  },
+  {
+    "id": "term-perplexity",
+    "title": "Perplexity",
+    "category": "Glossary",
+    "subcategory": "Metrics",
+    "keywords": [
+      "perplexity",
+      "metric",
+      "evaluation",
+      "surprise"
+    ],
+    "excerpt": "A metric measuring how \"surprised\" a language model is by text.",
+    "url": "pages/glossary.html#term-perplexity"
+  },
+  {
+    "id": "term-persona",
+    "title": "Persona",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "persona",
+      "role",
+      "character",
+      "style"
+    ],
+    "excerpt": "A specific character or role assigned to AI through prompting.",
+    "url": "pages/glossary.html#term-persona"
+  },
+  {
+    "id": "term-positional-encoding",
+    "title": "Positional Encoding",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "positional encoding",
+      "position",
+      "rope",
+      "order"
+    ],
+    "excerpt": "A technique injecting position information into transformers.",
+    "url": "pages/glossary.html#term-positional-encoding"
+  },
+  {
+    "id": "term-ppo",
+    "title": "PPO (Proximal Policy Optimization)",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "ppo",
+      "reinforcement learning",
+      "rlhf",
+      "policy"
+    ],
+    "excerpt": "A reinforcement learning algorithm commonly used in RLHF to train language models.",
+    "url": "pages/glossary.html#term-ppo"
+  },
+  {
+    "id": "term-precision",
+    "title": "Precision",
+    "category": "Glossary",
+    "subcategory": "Metrics",
+    "keywords": [
+      "precision",
+      "metrics",
+      "fp16",
+      "quantization"
+    ],
+    "excerpt": "In metrics: proportion of positive predictions that are correct. In computing: numerical format.",
+    "url": "pages/glossary.html#term-precision"
+  },
+  {
+    "id": "term-pre-training",
+    "title": "Pre-Training",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "pre-training",
+      "foundation",
+      "base",
+      "initial"
+    ],
+    "excerpt": "Initial training where models learn general language understanding from vast text.",
+    "url": "pages/glossary.html#term-pre-training"
+  },
+  {
+    "id": "term-prompt",
+    "title": "Prompt",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "prompt",
+      "input",
+      "instruction",
+      "request"
+    ],
+    "excerpt": "The text input sent to an AI including context, instructions, and constraints.",
+    "url": "pages/glossary.html#term-prompt"
+  },
+  {
+    "id": "term-prompt-chaining",
+    "title": "Prompt Chaining",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "prompt chaining",
+      "sequential",
+      "multi-step",
+      "workflow"
+    ],
+    "excerpt": "Breaking complex tasks into sequential prompts building on each other.",
+    "url": "pages/glossary.html#term-prompt-chaining"
+  },
+  {
+    "id": "term-prompt-engineering",
+    "title": "Prompt Engineering",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "prompt engineering",
+      "crafting",
+      "optimization"
+    ],
+    "excerpt": "The practice of crafting effective prompts using techniques and frameworks.",
+    "url": "pages/glossary.html#term-prompt-engineering"
+  },
+  {
+    "id": "term-prompt-injection",
+    "title": "Prompt Injection",
+    "category": "Glossary",
+    "subcategory": "Security",
+    "keywords": [
+      "prompt injection",
+      "security",
+      "vulnerability",
+      "attack"
+    ],
+    "excerpt": "A security vulnerability where malicious instructions cause unintended behavior.",
+    "url": "pages/glossary.html#term-prompt-injection"
+  },
+  {
+    "id": "term-prompt-template",
+    "title": "Prompt Template",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "template",
+      "pattern",
+      "reusable",
+      "structure"
+    ],
+    "excerpt": "A reusable prompt structure with placeholders for variable content.",
+    "url": "pages/glossary.html#term-prompt-template"
+  },
+  {
+    "id": "term-qlora",
+    "title": "QLoRA",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "qlora",
+      "quantized",
+      "lora",
+      "efficient"
+    ],
+    "excerpt": "Quantized LoRA enabling fine-tuning on consumer GPUs.",
+    "url": "pages/glossary.html#term-qlora"
+  },
+  {
+    "id": "term-quantization",
+    "title": "Quantization",
+    "category": "Glossary",
+    "subcategory": "Optimization",
+    "keywords": [
+      "quantization",
+      "4-bit",
+      "8-bit",
+      "compression"
+    ],
+    "excerpt": "Reducing weight precision to decrease memory usage and increase speed.",
+    "url": "pages/glossary.html#term-quantization"
+  },
+  {
+    "id": "term-query",
+    "title": "Query",
+    "category": "Glossary",
+    "subcategory": "Concepts",
+    "keywords": [
+      "query",
+      "search",
+      "question",
+      "attention"
+    ],
+    "excerpt": "In RAG/search: the user's question. In attention: one of the QKV vectors.",
+    "url": "pages/glossary.html#term-query"
+  },
+  {
+    "id": "term-question-answering",
+    "title": "Question Answering (QA)",
+    "category": "Glossary",
+    "subcategory": "NLP Tasks",
+    "keywords": [
+      "question answering",
+      "qa",
+      "answers",
+      "reading"
+    ],
+    "excerpt": "An NLP task where models answer questions based on context or knowledge.",
+    "url": "pages/glossary.html#term-question-answering"
+  },
+  {
+    "id": "term-rag",
+    "title": "RAG (Retrieval-Augmented Generation)",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "rag",
+      "retrieval",
+      "augmented",
+      "knowledge"
+    ],
+    "excerpt": "Combining AI generation with information retrieval for accurate, grounded responses.",
+    "url": "pages/glossary.html#term-rag"
+  },
+  {
+    "id": "term-rate-limit",
+    "title": "Rate Limit",
+    "category": "Glossary",
+    "subcategory": "API",
+    "keywords": [
+      "rate limit",
+      "throttling",
+      "api",
+      "quota"
+    ],
+    "excerpt": "Restrictions on API usage measured in requests or tokens per minute.",
+    "url": "pages/glossary.html#term-rate-limit"
+  },
+  {
+    "id": "term-react",
+    "title": "ReAct",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "react",
+      "reasoning",
+      "acting",
+      "agents"
+    ],
+    "excerpt": "A framework combining Reasoning and Acting for transparent problem-solving.",
+    "url": "pages/glossary.html#term-react"
+  },
+  {
+    "id": "term-recall",
+    "title": "Recall",
+    "category": "Glossary",
+    "subcategory": "Metrics",
+    "keywords": [
+      "recall",
+      "sensitivity",
+      "metrics",
+      "completeness"
+    ],
+    "excerpt": "A metric measuring the proportion of actual positives correctly identified.",
+    "url": "pages/glossary.html#term-recall"
+  },
+  {
+    "id": "term-red-team",
+    "title": "Red Team",
+    "category": "Glossary",
+    "subcategory": "Safety",
+    "keywords": [
+      "red team",
+      "testing",
+      "security",
+      "adversarial"
+    ],
+    "excerpt": "A group testing AI systems by attempting to find vulnerabilities and bypass safety.",
+    "url": "pages/glossary.html#term-red-team"
+  },
+  {
+    "id": "term-regression",
+    "title": "Regression",
+    "category": "Glossary",
+    "subcategory": "ML Tasks",
+    "keywords": [
+      "regression",
+      "prediction",
+      "continuous",
+      "values"
+    ],
+    "excerpt": "A machine learning task predicting continuous values rather than categories.",
+    "url": "pages/glossary.html#term-regression"
+  },
+  {
+    "id": "term-regularization",
+    "title": "Regularization",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "regularization",
+      "overfitting",
+      "dropout",
+      "constraints"
+    ],
+    "excerpt": "Techniques preventing overfitting by adding constraints during training.",
+    "url": "pages/glossary.html#term-regularization"
+  },
+  {
+    "id": "term-reinforcement-learning",
+    "title": "Reinforcement Learning (RL)",
+    "category": "Glossary",
+    "subcategory": "Learning Types",
+    "keywords": [
+      "reinforcement learning",
+      "rl",
+      "rewards",
+      "agents"
+    ],
+    "excerpt": "Learning where agents learn by receiving rewards or penalties for actions.",
+    "url": "pages/glossary.html#term-reinforcement-learning"
+  },
+  {
+    "id": "term-rlhf",
+    "title": "RLHF",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "rlhf",
+      "human feedback",
+      "alignment",
+      "preferences"
+    ],
+    "excerpt": "Reinforcement Learning from Human Feedback for aligning models with preferences.",
+    "url": "pages/glossary.html#term-rlhf"
+  },
+  {
+    "id": "term-rnn",
+    "title": "RNN (Recurrent Neural Network)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "rnn",
+      "recurrent",
+      "sequence",
+      "temporal"
+    ],
+    "excerpt": "A neural network processing sequences by maintaining hidden state.",
+    "url": "pages/glossary.html#term-rnn"
+  },
+  {
+    "id": "term-role-prompting",
+    "title": "Role Prompting",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "role prompting",
+      "persona",
+      "act as",
+      "expertise"
+    ],
+    "excerpt": "Assigning AI a specific persona or expertise to shape responses.",
+    "url": "pages/glossary.html#term-role-prompting"
+  },
+  {
+    "id": "term-rope",
+    "title": "RoPE (Rotary Position Embedding)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "rope",
+      "rotary",
+      "position",
+      "encoding"
+    ],
+    "excerpt": "A positional encoding technique enabling better length generalization.",
+    "url": "pages/glossary.html#term-rope"
+  },
+  {
+    "id": "term-sampling",
+    "title": "Sampling",
+    "category": "Glossary",
+    "subcategory": "Generation",
+    "keywords": [
+      "sampling",
+      "generation",
+      "random",
+      "selection"
+    ],
+    "excerpt": "The process of selecting the next token during text generation.",
+    "url": "pages/glossary.html#term-sampling"
+  },
+  {
+    "id": "term-scaling-laws",
+    "title": "Scaling Laws",
+    "category": "Glossary",
+    "subcategory": "Research",
+    "keywords": [
+      "scaling laws",
+      "size",
+      "compute",
+      "data"
+    ],
+    "excerpt": "Empirical relationships showing how performance improves with scale.",
+    "url": "pages/glossary.html#term-scaling-laws"
+  },
+  {
+    "id": "term-self-attention",
+    "title": "Self-Attention",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "self-attention",
+      "attention",
+      "transformer",
+      "context"
+    ],
+    "excerpt": "Attention where a sequence attends to itself, the core transformer operation.",
+    "url": "pages/glossary.html#term-self-attention"
+  },
+  {
+    "id": "term-self-consistency",
+    "title": "Self-Consistency",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "self-consistency",
+      "multiple",
+      "voting",
+      "reasoning"
+    ],
+    "excerpt": "Generating multiple reasoning paths and selecting the most common answer.",
+    "url": "pages/glossary.html#term-self-consistency"
+  },
+  {
+    "id": "term-semantic-kernel",
+    "title": "Semantic Kernel",
+    "category": "Glossary",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "semantic kernel",
+      "microsoft",
+      "sdk",
+      "plugins",
+      "enterprise"
+    ],
+    "excerpt": "Microsoft's open-source SDK for building AI applications with LLMs and plugin architecture.",
+    "url": "pages/glossary.html#term-semantic-kernel"
+  },
+  {
+    "id": "term-semantic-search",
+    "title": "Semantic Search",
+    "category": "Glossary",
+    "subcategory": "Applications",
+    "keywords": [
+      "semantic search",
+      "meaning",
+      "embeddings",
+      "similarity"
+    ],
+    "excerpt": "Search based on meaning rather than keyword matching using embeddings.",
+    "url": "pages/glossary.html#term-semantic-search"
+  },
+  {
+    "id": "term-sentiment-analysis",
+    "title": "Sentiment Analysis",
+    "category": "Glossary",
+    "subcategory": "NLP Tasks",
+    "keywords": [
+      "sentiment",
+      "emotion",
+      "positive",
+      "negative"
+    ],
+    "excerpt": "Determining the emotional tone of text (positive, negative, neutral).",
+    "url": "pages/glossary.html#term-sentiment-analysis"
+  },
+  {
+    "id": "term-sft",
+    "title": "SFT (Supervised Fine-Tuning)",
+    "category": "Glossary",
+    "subcategory": "Training",
+    "keywords": [
+      "sft",
+      "supervised",
+      "fine-tuning",
+      "instruction"
+    ],
+    "excerpt": "Training models on labeled examples of desired behavior before RLHF.",
+    "url": "pages/glossary.html#term-sft"
+  },
+  {
+    "id": "term-softmax",
+    "title": "Softmax",
+    "category": "Glossary",
+    "subcategory": "Functions",
+    "keywords": [
+      "softmax",
+      "probability",
+      "normalization",
+      "distribution"
+    ],
+    "excerpt": "A function converting raw scores into probabilities that sum to 1.",
+    "url": "pages/glossary.html#term-softmax"
+  },
+  {
+    "id": "term-stable-diffusion",
+    "title": "Stable Diffusion",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "stable diffusion",
+      "image",
+      "open source",
+      "stability"
+    ],
+    "excerpt": "An open-source text-to-image model from Stability AI.",
+    "url": "pages/glossary.html#term-stable-diffusion"
+  },
+  {
+    "id": "term-streaming",
+    "title": "Streaming",
+    "category": "Glossary",
+    "subcategory": "API",
+    "keywords": [
+      "streaming",
+      "incremental",
+      "real-time",
+      "response"
+    ],
+    "excerpt": "Receiving AI output incrementally as it's generated for better UX.",
+    "url": "pages/glossary.html#term-streaming"
+  },
+  {
+    "id": "term-summarization",
+    "title": "Summarization",
+    "category": "Glossary",
+    "subcategory": "NLP Tasks",
+    "keywords": [
+      "summarization",
+      "condensing",
+      "summary",
+      "tldr"
+    ],
+    "excerpt": "Condensing longer text into shorter summaries (extractive or abstractive).",
+    "url": "pages/glossary.html#term-summarization"
+  },
+  {
+    "id": "term-supervised-learning",
+    "title": "Supervised Learning",
+    "category": "Glossary",
+    "subcategory": "Learning Types",
+    "keywords": [
+      "supervised",
+      "labeled",
+      "training",
+      "examples"
+    ],
+    "excerpt": "Learning from labeled examples where correct answers are provided.",
+    "url": "pages/glossary.html#term-supervised-learning"
+  },
+  {
+    "id": "term-sycophancy",
+    "title": "Sycophancy",
+    "category": "Glossary",
+    "subcategory": "Limitations",
+    "keywords": [
+      "sycophancy",
+      "agreeable",
+      "flattery",
+      "bias"
+    ],
+    "excerpt": "When AI excessively agrees with users rather than providing accurate information.",
+    "url": "pages/glossary.html#term-sycophancy"
+  },
+  {
+    "id": "term-synthetic-data",
+    "title": "Synthetic Data",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "synthetic data",
+      "generated",
+      "artificial",
+      "training"
+    ],
+    "excerpt": "Artificially generated data used when real data is scarce or sensitive.",
+    "url": "pages/glossary.html#term-synthetic-data"
+  },
+  {
+    "id": "term-system-prompt",
+    "title": "System Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "system prompt",
+      "instructions",
+      "configuration",
+      "behavior"
+    ],
+    "excerpt": "Instructions given before conversation that shape all AI responses.",
+    "url": "pages/glossary.html#term-system-prompt"
+  },
+  {
+    "id": "term-temperature",
+    "title": "Temperature",
+    "category": "Glossary",
+    "subcategory": "Parameters",
+    "keywords": [
+      "temperature",
+      "creativity",
+      "randomness",
+      "sampling"
+    ],
+    "excerpt": "A parameter controlling randomness in outputs. Lower = focused, higher = creative.",
+    "url": "pages/glossary.html#term-temperature"
+  },
+  {
+    "id": "term-text-generation",
+    "title": "Text Generation",
+    "category": "Glossary",
+    "subcategory": "Applications",
+    "keywords": [
+      "text generation",
+      "writing",
+      "content",
+      "creation"
+    ],
+    "excerpt": "The AI task of producing human-like text from prompts.",
+    "url": "pages/glossary.html#term-text-generation"
+  },
+  {
+    "id": "term-throughput",
+    "title": "Throughput",
+    "category": "Glossary",
+    "subcategory": "Performance",
+    "keywords": [
+      "throughput",
+      "tokens per second",
+      "speed",
+      "capacity"
+    ],
+    "excerpt": "The rate at which a system processes requests, measured in tokens per second.",
+    "url": "pages/glossary.html#term-throughput"
+  },
+  {
+    "id": "term-token",
+    "title": "Token",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "token",
+      "word piece",
+      "unit",
+      "tokenization"
+    ],
+    "excerpt": "The basic unit AI uses to process text, roughly 4 characters in English.",
+    "url": "pages/glossary.html#term-token"
+  },
+  {
+    "id": "term-tokenization",
+    "title": "Tokenization",
+    "category": "Glossary",
+    "subcategory": "Process",
+    "keywords": [
+      "tokenization",
+      "splitting",
+      "bpe",
+      "sentencepiece"
+    ],
+    "excerpt": "Breaking text into tokens for model processing using algorithms like BPE.",
+    "url": "pages/glossary.html#term-tokenization"
+  },
+  {
+    "id": "term-top-k",
+    "title": "Top-K Sampling",
+    "category": "Glossary",
+    "subcategory": "Parameters",
+    "keywords": [
+      "top-k",
+      "sampling",
+      "generation",
+      "filtering"
+    ],
+    "excerpt": "A generation strategy limiting token selection to the K most probable options.",
+    "url": "pages/glossary.html#term-top-k"
+  },
+  {
+    "id": "term-top-p",
+    "title": "Top-P (Nucleus Sampling)",
+    "category": "Glossary",
+    "subcategory": "Parameters",
+    "keywords": [
+      "top-p",
+      "nucleus",
+      "sampling",
+      "probability"
+    ],
+    "excerpt": "Sampling from tokens until cumulative probability reaches P, adapting to context.",
+    "url": "pages/glossary.html#term-top-p"
+  },
+  {
+    "id": "term-training",
+    "title": "Training",
+    "category": "Glossary",
+    "subcategory": "Process",
+    "keywords": [
+      "training",
+      "learning",
+      "optimization",
+      "compute"
+    ],
+    "excerpt": "Teaching a model by exposing it to data and adjusting parameters to reduce error.",
+    "url": "pages/glossary.html#term-training"
+  },
+  {
+    "id": "term-training-data",
+    "title": "Training Data",
+    "category": "Glossary",
+    "subcategory": "Data",
+    "keywords": [
+      "training data",
+      "corpus",
+      "dataset",
+      "sources"
+    ],
+    "excerpt": "The content used to teach AI models, affecting capabilities and biases.",
+    "url": "pages/glossary.html#term-training-data"
+  },
+  {
+    "id": "term-transfer-learning",
+    "title": "Transfer Learning",
+    "category": "Glossary",
+    "subcategory": "Techniques",
+    "keywords": [
+      "transfer learning",
+      "pre-trained",
+      "adaptation",
+      "domain"
+    ],
+    "excerpt": "Using knowledge from one task to improve performance on another.",
+    "url": "pages/glossary.html#term-transfer-learning"
+  },
+  {
+    "id": "term-transformer",
+    "title": "Transformer",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "transformer",
+      "attention",
+      "architecture",
+      "2017"
+    ],
+    "excerpt": "The revolutionary architecture using self-attention that powers modern AI.",
+    "url": "pages/glossary.html#term-transformer"
+  },
+  {
+    "id": "term-tree-of-thought",
+    "title": "Tree-of-Thought",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "tree of thought",
+      "reasoning",
+      "exploration",
+      "branches"
+    ],
+    "excerpt": "A prompting technique exploring multiple reasoning paths simultaneously.",
+    "url": "pages/glossary.html#term-tree-of-thought"
+  },
+  {
+    "id": "term-underfitting",
+    "title": "Underfitting",
+    "category": "Glossary",
+    "subcategory": "Problems",
+    "keywords": [
+      "underfitting",
+      "simple",
+      "capacity",
+      "poor"
+    ],
+    "excerpt": "When a model is too simple to capture patterns, performing poorly on all data.",
+    "url": "pages/glossary.html#term-underfitting"
+  },
+  {
+    "id": "term-unsupervised-learning",
+    "title": "Unsupervised Learning",
+    "category": "Glossary",
+    "subcategory": "Learning Types",
+    "keywords": [
+      "unsupervised",
+      "unlabeled",
+      "patterns",
+      "clustering"
+    ],
+    "excerpt": "Learning from unlabeled data, discovering patterns without explicit guidance.",
+    "url": "pages/glossary.html#term-unsupervised-learning"
+  },
+  {
+    "id": "term-user-prompt",
+    "title": "User Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "user prompt",
+      "input",
+      "message",
+      "request"
+    ],
+    "excerpt": "The input provided by users in conversation, distinct from system prompts.",
+    "url": "pages/glossary.html#term-user-prompt"
+  },
+  {
+    "id": "term-validation",
+    "title": "Validation",
+    "category": "Glossary",
+    "subcategory": "Evaluation",
+    "keywords": [
+      "validation",
+      "testing",
+      "held-out",
+      "tuning"
+    ],
+    "excerpt": "Testing model performance on data not used in training.",
+    "url": "pages/glossary.html#term-validation"
+  },
+  {
+    "id": "term-vector",
+    "title": "Vector",
+    "category": "Glossary",
+    "subcategory": "Math",
+    "keywords": [
+      "vector",
+      "embedding",
+      "numbers",
+      "representation"
+    ],
+    "excerpt": "An ordered list of numbers representing data in mathematical space.",
+    "url": "pages/glossary.html#term-vector"
+  },
+  {
+    "id": "term-vector-database",
+    "title": "Vector Database",
+    "category": "Glossary",
+    "subcategory": "Infrastructure",
+    "keywords": [
+      "vector database",
+      "embeddings",
+      "search",
+      "pinecone"
+    ],
+    "excerpt": "A database optimized for storing and searching high-dimensional vectors.",
+    "url": "pages/glossary.html#term-vector-database"
+  },
+  {
+    "id": "term-vision-language-model",
+    "title": "Vision-Language Model (VLM)",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "vlm",
+      "vision",
+      "multimodal",
+      "images"
+    ],
+    "excerpt": "AI models processing both images and text for visual understanding.",
+    "url": "pages/glossary.html#term-vision-language-model"
+  },
+  {
+    "id": "term-weight",
+    "title": "Weight",
+    "category": "Glossary",
+    "subcategory": "Core Concepts",
+    "keywords": [
+      "weight",
+      "parameter",
+      "learned",
+      "neural network"
+    ],
+    "excerpt": "The numerical parameters learned during training that determine model behavior.",
+    "url": "pages/glossary.html#term-weight"
+  },
+  {
+    "id": "term-whisper",
+    "title": "Whisper",
+    "category": "Glossary",
+    "subcategory": "Models",
+    "keywords": [
+      "whisper",
+      "speech",
+      "transcription",
+      "audio",
+      "openai"
+    ],
+    "excerpt": "OpenAI's speech recognition model for high-accuracy audio transcription.",
+    "url": "pages/glossary.html#term-whisper"
+  },
+  {
+    "id": "term-word-embedding",
+    "title": "Word Embedding",
+    "category": "Glossary",
+    "subcategory": "Representation",
+    "keywords": [
+      "word embedding",
+      "word2vec",
+      "glove",
+      "vectors"
+    ],
+    "excerpt": "Dense vector representations of words where similar words have similar vectors.",
+    "url": "pages/glossary.html#term-word-embedding"
+  },
+  {
+    "id": "term-xai",
+    "title": "XAI (Explainable AI)",
+    "category": "Glossary",
+    "subcategory": "Transparency",
+    "keywords": [
+      "xai",
+      "explainable",
+      "interpretable",
+      "understanding"
+    ],
+    "excerpt": "The field focused on making AI decisions understandable to humans.",
+    "url": "pages/glossary.html#term-xai"
+  },
+  {
+    "id": "term-xml-tags",
+    "title": "XML Tags (in Prompting)",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "xml",
+      "tags",
+      "structure",
+      "delimiter"
+    ],
+    "excerpt": "Using XML-style tags to structure prompts and delineate sections clearly.",
+    "url": "pages/glossary.html#term-xml-tags"
+  },
+  {
+    "id": "term-yolo",
+    "title": "YOLO (You Only Look Once)",
+    "category": "Glossary",
+    "subcategory": "Architecture",
+    "keywords": [
+      "yolo",
+      "object detection",
+      "real-time",
+      "computer vision"
+    ],
+    "excerpt": "A real-time object detection algorithm processing images in a single pass for fast detection.",
+    "url": "pages/glossary.html#term-yolo"
+  },
+  {
+    "id": "term-zero-shot",
+    "title": "Zero-Shot Learning",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "zero-shot",
+      "no examples",
+      "instruction",
+      "generalization"
+    ],
+    "excerpt": "Performing tasks without examples, relying on pre-trained knowledge.",
+    "url": "pages/glossary.html#term-zero-shot"
+  },
+  {
+    "id": "term-zero-shot-cot",
+    "title": "Zero-Shot Chain-of-Thought",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": [
+      "zero-shot cot",
+      "step by step",
+      "reasoning",
+      "simple"
+    ],
+    "excerpt": "Adding \"Let's think step by step\" to trigger reasoning without examples.",
+    "url": "pages/glossary.html#term-zero-shot-cot"
+  },
+  {
+    "id": "learn-prompt-basics",
+    "title": "Prompt Basics",
+    "category": "Learn",
+    "subcategory": "Fundamentals",
+    "keywords": [
+      "prompt basics",
+      "fundamentals",
+      "beginner",
+      "introduction",
+      "getting started",
+      "foundation"
+    ],
+    "excerpt": "Learn the fundamental principles of effective AI prompting. Perfect for beginners starting their journey with AI communication.",
+    "url": "learn/prompt-basics.html"
+  },
+  {
+    "id": "learn-what-is-prompt",
+    "title": "What is a Prompt?",
+    "category": "Learn",
+    "subcategory": "Fundamentals",
+    "keywords": [
+      "what is prompt",
+      "definition",
+      "input",
+      "instruction"
+    ],
+    "excerpt": "A prompt is the text input you send to an AI. Learn how to structure your requests for better AI responses.",
+    "url": "learn/prompt-basics.html#what-is-prompt"
+  },
+  {
+    "id": "learn-prompt-anatomy",
+    "title": "Anatomy of a Prompt",
+    "category": "Learn",
+    "subcategory": "Fundamentals",
+    "keywords": [
+      "anatomy",
+      "structure",
+      "components",
+      "parts",
+      "elements"
+    ],
+    "excerpt": "Understand the key components that make up an effective prompt: context, task, format, and constraints.",
+    "url": "learn/prompt-basics.html#anatomy"
+  },
+  {
+    "id": "learn-crisp",
+    "title": "CRISP Method",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "crisp",
+      "method",
+      "framework",
+      "context",
+      "role",
+      "instructions",
+      "specifics",
+      "parameters"
+    ],
+    "excerpt": "Context, Role, Instructions, Specifics, Parameters. The essential framework for clear, effective prompts.",
+    "url": "learn/crisp.html"
+  },
+  {
+    "id": "learn-crisp-context",
+    "title": "CRISP: Context",
+    "category": "Learn",
+    "subcategory": "CRISP Framework",
+    "keywords": [
+      "context",
+      "background",
+      "situation",
+      "setting",
+      "crisp"
+    ],
+    "excerpt": "Set the stage with background information. Help AI understand your situation and what you're trying to achieve.",
+    "url": "learn/crisp.html#context"
+  },
+  {
+    "id": "learn-crisp-role",
+    "title": "CRISP: Role",
+    "category": "Learn",
+    "subcategory": "CRISP Framework",
+    "keywords": [
+      "role",
+      "persona",
+      "expertise",
+      "act as",
+      "crisp"
+    ],
+    "excerpt": "Define the persona for the AI to adopt. Assign expertise or perspective to shape responses appropriately.",
+    "url": "learn/crisp.html#role"
+  },
+  {
+    "id": "learn-crisp-instructions",
+    "title": "CRISP: Instructions",
+    "category": "Learn",
+    "subcategory": "CRISP Framework",
+    "keywords": [
+      "instructions",
+      "task",
+      "action",
+      "what to do",
+      "crisp"
+    ],
+    "excerpt": "Provide specific guidelines for the task. Tell AI exactly what you want it to accomplish.",
+    "url": "learn/crisp.html#instructions"
+  },
+  {
+    "id": "learn-crisp-specifics",
+    "title": "CRISP: Specifics",
+    "category": "Learn",
+    "subcategory": "CRISP Framework",
+    "keywords": [
+      "specifics",
+      "details",
+      "format",
+      "length",
+      "tone",
+      "crisp"
+    ],
+    "excerpt": "Define format, length, tone, and scope. Add the details that shape how the output should look and sound.",
+    "url": "learn/crisp.html#specifics"
+  },
+  {
+    "id": "learn-crisp-parameters",
+    "title": "CRISP: Parameters",
+    "category": "Learn",
+    "subcategory": "CRISP Framework",
+    "keywords": [
+      "parameters",
+      "constraints",
+      "boundaries",
+      "limits",
+      "rules",
+      "crisp"
+    ],
+    "excerpt": "Set constraints and boundaries. Define what to include, exclude, or avoid in the response.",
+    "url": "learn/crisp.html#parameters"
+  },
+  {
+    "id": "learn-crispe",
+    "title": "CRISPE Method",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "crispe",
+      "method",
+      "framework",
+      "example",
+      "few-shot",
+      "creative"
+    ],
+    "excerpt": "CRISP plus Example for few-shot learning. Particularly useful for creative tasks where showing is better than telling.",
+    "url": "learn/crispe.html"
+  },
+  {
+    "id": "learn-crispe-example",
+    "title": "CRISPE: Example",
+    "category": "Learn",
+    "subcategory": "CRISPE Framework",
+    "keywords": [
+      "example",
+      "demonstration",
+      "sample",
+      "few-shot",
+      "crispe"
+    ],
+    "excerpt": "Provide examples to show AI the format or style you want. Demonstrations help achieve consistent, patterned outputs.",
+    "url": "learn/crispe.html#example"
+  },
+  {
+    "id": "learn-costar",
+    "title": "COSTAR Method",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "costar",
+      "method",
+      "framework",
+      "professional",
+      "content creation",
+      "audience"
+    ],
+    "excerpt": "Context, Objective, Style, Tone, Audience, Response. Ideal for professional content creation with specific voice and audience requirements.",
+    "url": "learn/costar.html"
+  },
+  {
+    "id": "learn-costar-objective",
+    "title": "COSTAR: Objective",
+    "category": "Learn",
+    "subcategory": "COSTAR Framework",
+    "keywords": [
+      "objective",
+      "goal",
+      "purpose",
+      "outcome",
+      "costar"
+    ],
+    "excerpt": "Define the specific goal or outcome you want. Be clear about what success looks like.",
+    "url": "learn/costar.html#objective"
+  },
+  {
+    "id": "learn-costar-style",
+    "title": "COSTAR: Style",
+    "category": "Learn",
+    "subcategory": "COSTAR Framework",
+    "keywords": [
+      "style",
+      "writing style",
+      "formal",
+      "casual",
+      "costar"
+    ],
+    "excerpt": "Specify the writing style: formal, casual, technical, conversational. Match the content to its purpose.",
+    "url": "learn/costar.html#style"
+  },
+  {
+    "id": "learn-costar-tone",
+    "title": "COSTAR: Tone",
+    "category": "Learn",
+    "subcategory": "COSTAR Framework",
+    "keywords": [
+      "tone",
+      "voice",
+      "emotion",
+      "attitude",
+      "costar"
+    ],
+    "excerpt": "Set the emotional tone: professional, friendly, urgent, encouraging. Shape how the message feels.",
+    "url": "learn/costar.html#tone"
+  },
+  {
+    "id": "learn-costar-audience",
+    "title": "COSTAR: Audience",
+    "category": "Learn",
+    "subcategory": "COSTAR Framework",
+    "keywords": [
+      "audience",
+      "target",
+      "reader",
+      "user",
+      "costar"
+    ],
+    "excerpt": "Identify who will receive the content. Tailor language and complexity to your audience.",
+    "url": "learn/costar.html#audience"
+  },
+  {
+    "id": "learn-costar-response",
+    "title": "COSTAR: Response",
+    "category": "Learn",
+    "subcategory": "COSTAR Framework",
+    "keywords": [
+      "response",
+      "format",
+      "output",
+      "structure",
+      "costar"
+    ],
+    "excerpt": "Define the desired response format: list, paragraph, table, JSON. Specify exactly how output should be structured.",
+    "url": "learn/costar.html#response"
+  },
+  {
+    "id": "learn-react",
+    "title": "ReAct Method",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "react",
+      "method",
+      "reasoning",
+      "acting",
+      "step by step",
+      "transparent thinking"
+    ],
+    "excerpt": "Reasoning + Acting. For complex tasks requiring transparent, verifiable thinking processes. AI shows its work.",
+    "url": "learn/react.html"
+  },
+  {
+    "id": "learn-react-reasoning",
+    "title": "ReAct: Reasoning",
+    "category": "Learn",
+    "subcategory": "ReAct Framework",
+    "keywords": [
+      "reasoning",
+      "thinking",
+      "analysis",
+      "logic",
+      "react"
+    ],
+    "excerpt": "The thinking phase where AI analyzes the problem, considers options, and plans its approach.",
+    "url": "learn/react.html#reasoning"
+  },
+  {
+    "id": "learn-react-acting",
+    "title": "ReAct: Acting",
+    "category": "Learn",
+    "subcategory": "ReAct Framework",
+    "keywords": [
+      "acting",
+      "action",
+      "execution",
+      "doing",
+      "react"
+    ],
+    "excerpt": "The action phase where AI executes based on its reasoning. Clear connection between thought and action.",
+    "url": "learn/react.html#acting"
+  },
+  {
+    "id": "learn-flipped-interaction",
+    "title": "Flipped Interaction Method",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "flipped interaction",
+      "interview",
+      "questions first",
+      "personalized",
+      "clarification"
+    ],
+    "excerpt": "Let AI interview you first. Prevent generic advice by having AI ask clarifying questions before responding.",
+    "url": "learn/flipped-interaction.html"
+  },
+  {
+    "id": "learn-flipped-why",
+    "title": "Why Flipped Interaction Works",
+    "category": "Learn",
+    "subcategory": "Flipped Interaction",
+    "keywords": [
+      "why flipped",
+      "benefits",
+      "personalized",
+      "relevant"
+    ],
+    "excerpt": "AI can't give great advice without understanding your situation. Flipping the interaction ensures relevant, tailored responses.",
+    "url": "learn/flipped-interaction.html#why-it-works"
+  },
+  {
+    "id": "learn-flipped-trigger",
+    "title": "How to Trigger Flipped Interaction",
+    "category": "Learn",
+    "subcategory": "Flipped Interaction",
+    "keywords": [
+      "trigger",
+      "how to",
+      "ask questions",
+      "before answering"
+    ],
+    "excerpt": "Simple prompts like \"Before answering, ask me 5 questions to understand my situation better\" activate this pattern.",
+    "url": "learn/flipped-interaction.html#how-to-trigger"
+  },
+  {
+    "id": "learn-advanced",
+    "title": "Advanced Techniques",
+    "category": "Learn",
+    "subcategory": "Expert",
+    "keywords": [
+      "advanced",
+      "techniques",
+      "expert",
+      "chain of thought",
+      "few-shot",
+      "self-consistency"
+    ],
+    "excerpt": "Chain-of-thought, few-shot learning, and expert-level strategies for maximum AI performance.",
+    "url": "learn/advanced.html"
+  },
+  {
+    "id": "learn-chain-of-thought",
+    "title": "Chain-of-Thought Prompting",
+    "category": "Learn",
+    "subcategory": "Advanced Techniques",
+    "keywords": [
+      "chain of thought",
+      "step by step",
+      "reasoning",
+      "think through"
+    ],
+    "excerpt": "Encourage AI to think step-by-step through complex problems. Improves accuracy for math, logic, and analysis.",
+    "url": "learn/advanced.html#chain-of-thought"
+  },
+  {
+    "id": "learn-few-shot-learning",
+    "title": "Few-Shot Learning",
+    "category": "Learn",
+    "subcategory": "Advanced Techniques",
+    "keywords": [
+      "few-shot",
+      "examples",
+      "demonstrations",
+      "pattern matching"
+    ],
+    "excerpt": "Provide 2-5 examples to help AI understand the pattern you want. More effective than description for complex formats.",
+    "url": "learn/advanced.html#few-shot-learning"
+  },
+  {
+    "id": "learn-self-consistency-technique",
+    "title": "Self-Consistency Technique",
+    "category": "Learn",
+    "subcategory": "Advanced Techniques",
+    "keywords": [
+      "self-consistency",
+      "multiple answers",
+      "verification",
+      "accuracy"
+    ],
+    "excerpt": "Ask AI to solve problems multiple ways and compare. Helps catch errors and improve accuracy.",
+    "url": "learn/advanced.html#self-consistency"
+  },
+  {
+    "id": "tool-analyzer",
+    "title": "Prompt Analyzer",
+    "category": "Tools",
+    "subcategory": "Analysis",
+    "keywords": [
+      "analyzer",
+      "score",
+      "evaluate",
+      "check",
+      "test",
+      "prompt quality",
+      "feedback"
+    ],
+    "excerpt": "Analyze your prompts against CRISP, COSTAR, and CRISPE frameworks. Get scores and suggestions for improvement.",
+    "url": "tools/analyzer.html"
+  },
+  {
+    "id": "tool-builder",
+    "title": "Prompt Builder",
+    "category": "Tools",
+    "subcategory": "Creation",
+    "keywords": [
+      "builder",
+      "create",
+      "construct",
+      "guided",
+      "step by step",
+      "generate prompt"
+    ],
+    "excerpt": "Build structured prompts step-by-step with guided questions. Choose your framework and get a ready-to-use prompt.",
+    "url": "tools/guidance.html"
+  },
+  {
+    "id": "tool-matcher",
+    "title": "Method Matcher",
+    "category": "Tools",
+    "subcategory": "Recommendation",
+    "keywords": [
+      "matcher",
+      "recommend",
+      "which method",
+      "choose",
+      "find"
+    ],
+    "excerpt": "Describe your task and get a recommendation for which prompting method to use. Find the right framework for your needs.",
+    "url": "tools/matcher.html"
+  },
+  {
+    "id": "tool-checklist",
+    "title": "Preflight Checklist",
+    "category": "Tools",
+    "subcategory": "Review",
+    "keywords": [
+      "checklist",
+      "preflight",
+      "verify",
+      "before sending",
+      "review prompt"
+    ],
+    "excerpt": "Review your prompt before sending. Check for context, clarity, specificity, and potential issues.",
+    "url": "tools/checklist.html"
+  },
+  {
+    "id": "tool-hallucination",
+    "title": "Hallucination Spotter",
+    "category": "Tools",
+    "subcategory": "Practice",
+    "keywords": [
+      "hallucination",
+      "spotter",
+      "fact check",
+      "verify",
+      "fake",
+      "fabrication"
+    ],
+    "excerpt": "Practice identifying AI hallucinations. Learn to spot fake citations, invented facts, and fabricated information.",
+    "url": "tools/hallucination.html"
+  },
+  {
+    "id": "tool-persona",
+    "title": "Persona Architect",
+    "category": "Tools",
+    "subcategory": "Creation",
+    "keywords": [
+      "persona",
+      "role",
+      "character",
+      "tone",
+      "expertise",
+      "voice",
+      "custom ai"
+    ],
+    "excerpt": "Design custom AI personas with sliders for expertise, tone, detail level, and creativity. Generate ready-to-use role prompts.",
+    "url": "tools/persona.html"
+  },
+  {
+    "id": "tool-temperature",
+    "title": "Temperature Visualizer",
+    "category": "Tools",
+    "subcategory": "Learning",
+    "keywords": [
+      "temperature",
+      "top-p",
+      "randomness",
+      "creativity",
+      "settings",
+      "parameters"
+    ],
+    "excerpt": "Understand temperature and top-p settings through visual analogies. Learn when to use strict vs creative AI responses.",
+    "url": "tools/temperature.html"
+  },
+  {
+    "id": "tool-bias",
+    "title": "Bias Radar",
+    "category": "Tools",
+    "subcategory": "Analysis",
+    "keywords": [
+      "bias",
+      "loaded language",
+      "neutral",
+      "presupposition",
+      "leading questions"
+    ],
+    "excerpt": "Scan prompts for biased or loaded language. Get suggestions for neutral rewrites and improve prompt fairness.",
+    "url": "tools/bias.html"
+  },
+  {
+    "id": "tool-specificity",
+    "title": "Specificity Slider",
+    "category": "Tools",
+    "subcategory": "Practice",
+    "keywords": [
+      "specificity",
+      "vague",
+      "clarity",
+      "game",
+      "clarification",
+      "detail"
+    ],
+    "excerpt": "Card-based game where you improve vague prompts by adding clarification cards. Build your specificity skills while having fun.",
+    "url": "tools/specificity.html"
+  },
+  {
+    "id": "tool-jailbreak",
+    "title": "Jailbreak Defender",
+    "category": "Tools",
+    "subcategory": "Practice",
+    "keywords": [
+      "jailbreak",
+      "safety",
+      "filter",
+      "harmful",
+      "malicious",
+      "game",
+      "defense"
+    ],
+    "excerpt": "Timed reaction game where you act as an AI safety filter. Quickly identify and block harmful prompts while accepting legitimate ones.",
+    "url": "tools/jailbreak.html"
+  },
+  {
+    "id": "tool-quiz",
+    "title": "AI Readiness Quiz",
+    "category": "Tools",
+    "subcategory": "Assessment",
+    "keywords": [
+      "quiz",
+      "test",
+      "assessment",
+      "readiness",
+      "knowledge check",
+      "level"
+    ],
+    "excerpt": "40 questions across 4 levels: Good, Pro, Expert, Master. Test your AI prompting knowledge from basics to advanced.",
+    "url": "quiz/index.html"
+  },
+  {
+    "id": "pattern-cot",
+    "title": "Chain of Thought Pattern",
+    "category": "Patterns",
+    "subcategory": "Reasoning",
+    "keywords": [
+      "chain of thought",
+      "step by step",
+      "reasoning pattern",
+      "think through"
+    ],
+    "excerpt": "Encourage step-by-step reasoning by asking AI to \"think through\" problems before answering. Best for math, logic, debugging.",
+    "url": "patterns/index.html#chain-of-thought"
+  },
+  {
+    "id": "pattern-few-shot",
+    "title": "Few-Shot Learning Pattern",
+    "category": "Patterns",
+    "subcategory": "Output",
+    "keywords": [
+      "few-shot",
+      "examples pattern",
+      "input output",
+      "demonstration"
+    ],
+    "excerpt": "Provide 2-5 examples of the input-output format you want before your actual request. Best for consistent formatting.",
+    "url": "patterns/index.html#few-shot"
+  },
+  {
+    "id": "pattern-role",
+    "title": "Role Prompting Pattern",
+    "category": "Patterns",
+    "subcategory": "Role",
+    "keywords": [
+      "role prompting",
+      "persona",
+      "act as",
+      "you are"
+    ],
+    "excerpt": "Assign AI a specific role or expertise to shape its responses and vocabulary. Best for technical writing and specialized content.",
+    "url": "patterns/index.html#role-prompting"
+  },
+  {
+    "id": "pattern-structured",
+    "title": "Structured Output Pattern",
+    "category": "Patterns",
+    "subcategory": "Output",
+    "keywords": [
+      "structured output",
+      "json",
+      "table",
+      "format",
+      "outline"
+    ],
+    "excerpt": "Define the exact format you want (JSON, table, outline) before the request. Best for data extraction and consistent reports.",
+    "url": "patterns/index.html#structured-output"
+  },
+  {
+    "id": "pattern-self-consistency",
+    "title": "Self-Consistency Pattern",
+    "category": "Patterns",
+    "subcategory": "Reasoning",
+    "keywords": [
+      "self-consistency",
+      "verify",
+      "multiple ways",
+      "check work"
+    ],
+    "excerpt": "Ask AI to verify its own work or approach a problem multiple ways and compare. Best for math and fact-checking.",
+    "url": "patterns/index.html#self-consistency"
+  },
+  {
+    "id": "pattern-chaining",
+    "title": "Prompt Chaining Pattern",
+    "category": "Patterns",
+    "subcategory": "Reasoning",
+    "keywords": [
+      "prompt chaining",
+      "sequential",
+      "multi-step",
+      "workflow"
+    ],
+    "excerpt": "Break complex tasks into sequential prompts where each output feeds the next input. Best for long documents and research.",
+    "url": "patterns/index.html#prompt-chaining"
+  },
+  {
+    "id": "pattern-devils-advocate",
+    "title": "Devil's Advocate Pattern",
+    "category": "Patterns",
+    "subcategory": "Role",
+    "keywords": [
+      "devils advocate",
+      "critique",
+      "weakness",
+      "counter argument"
+    ],
+    "excerpt": "Ask AI to argue against a position or find weaknesses in an idea. Best for decision making and risk assessment.",
+    "url": "patterns/index.html#devils-advocate"
+  },
+  {
+    "id": "pattern-constraints",
+    "title": "Constraints First Pattern",
+    "category": "Patterns",
+    "subcategory": "Output",
+    "keywords": [
+      "constraints first",
+      "limitations",
+      "requirements",
+      "boundaries"
+    ],
+    "excerpt": "State limitations and requirements before the main request to frame the response. Best for length control and audience targeting.",
+    "url": "patterns/index.html#constraints-first"
+  },
+  {
+    "id": "pattern-flipped",
+    "title": "Flipped Interaction Pattern",
+    "category": "Patterns",
+    "subcategory": "Interaction",
+    "keywords": [
+      "flipped interaction pattern",
+      "interview",
+      "ask questions first"
+    ],
+    "excerpt": "Ask AI to interview you first before giving advice. Prevents generic responses. Best for personalized advice and strategic planning.",
+    "url": "patterns/index.html#flipped-interaction"
+  },
+  {
+    "id": "faq-what-is-prompt",
+    "title": "What is a prompt?",
+    "category": "FAQ",
+    "subcategory": "Getting Started",
+    "keywords": [
+      "what is prompt",
+      "definition",
+      "prompt meaning"
+    ],
+    "excerpt": "A prompt is the text you send to an AI assistant. It can be a question, instruction, request, or any combination.",
+    "url": "pages/faq.html#getting-started"
+  },
+  {
+    "id": "faq-which-ai",
+    "title": "Which AI should I use?",
+    "category": "FAQ",
+    "subcategory": "Getting Started",
+    "keywords": [
+      "which ai",
+      "chatgpt",
+      "claude",
+      "gemini",
+      "best ai"
+    ],
+    "excerpt": "The techniques taught here work with any modern AI assistant. Each has different strengths, but prompting fundamentals are universal.",
+    "url": "pages/faq.html#getting-started"
+  },
+  {
+    "id": "faq-technical-skills",
+    "title": "Do I need technical skills?",
+    "category": "FAQ",
+    "subcategory": "Getting Started",
+    "keywords": [
+      "technical skills",
+      "coding",
+      "beginner",
+      "no experience"
+    ],
+    "excerpt": "No. AI assistants understand natural language. You don't need coding skills or technical knowledge—just clear communication.",
+    "url": "pages/faq.html#getting-started"
+  },
+  {
+    "id": "faq-where-start",
+    "title": "Where should I start learning?",
+    "category": "FAQ",
+    "subcategory": "Getting Started",
+    "keywords": [
+      "where to start",
+      "begin",
+      "first steps",
+      "learning path"
+    ],
+    "excerpt": "Start with Prompt Basics to understand core concepts, then move to CRISP Method as your first framework.",
+    "url": "pages/faq.html#getting-started"
+  },
+  {
+    "id": "faq-which-method",
+    "title": "Which prompting method should I use?",
+    "category": "FAQ",
+    "subcategory": "Prompting Methods",
+    "keywords": [
+      "which method",
+      "choose method",
+      "crisp vs costar",
+      "best method"
+    ],
+    "excerpt": "CRISP for everyday tasks, CRISPE for creative work with examples, COSTAR for professional content, ReAct for complex problems.",
+    "url": "pages/faq.html#prompting-methods"
+  },
+  {
+    "id": "faq-memorize-frameworks",
+    "title": "Do I have to memorize these frameworks?",
+    "category": "FAQ",
+    "subcategory": "Prompting Methods",
+    "keywords": [
+      "memorize",
+      "remember",
+      "learn frameworks",
+      "training wheels"
+    ],
+    "excerpt": "No. Frameworks are learning tools. Once you internalize the concepts, you'll naturally include the right details without following a structure.",
+    "url": "pages/faq.html#prompting-methods"
+  },
+  {
+    "id": "faq-combine-methods",
+    "title": "Can I combine different methods?",
+    "category": "FAQ",
+    "subcategory": "Prompting Methods",
+    "keywords": [
+      "combine methods",
+      "mix frameworks",
+      "hybrid approach"
+    ],
+    "excerpt": "Absolutely. The methods aren't rigid rules—they're guidelines. Take elements from different frameworks based on what your task needs.",
+    "url": "pages/faq.html#prompting-methods"
+  },
+  {
+    "id": "faq-crisp-vs-crispe",
+    "title": "What's the difference between CRISP and CRISPE?",
+    "category": "FAQ",
+    "subcategory": "Prompting Methods",
+    "keywords": [
+      "crisp vs crispe",
+      "difference",
+      "example component"
+    ],
+    "excerpt": "CRISPE adds an \"Example\" component for few-shot learning. Useful for creative tasks where showing examples is more effective than describing.",
+    "url": "pages/faq.html#prompting-methods"
+  },
+  {
+    "id": "faq-hallucination",
+    "title": "What is a hallucination?",
+    "category": "FAQ",
+    "subcategory": "AI Limitations",
+    "keywords": [
+      "hallucination",
+      "fake information",
+      "incorrect",
+      "fabrication"
+    ],
+    "excerpt": "When AI generates plausible but incorrect or made-up information. Includes fake citations, invented statistics, and fictional events.",
+    "url": "pages/faq.html#ai-limitations"
+  },
+  {
+    "id": "faq-professional-advice",
+    "title": "Can I trust AI for medical, legal, or financial advice?",
+    "category": "FAQ",
+    "subcategory": "AI Safety",
+    "keywords": [
+      "medical advice",
+      "legal advice",
+      "financial advice",
+      "professional help"
+    ],
+    "excerpt": "No. AI should never replace professional advice in high-stakes domains. Use it to prepare questions, but critical decisions require qualified human professionals.",
+    "url": "pages/faq.html#ai-limitations"
+  },
+  {
+    "id": "faq-data-safety",
+    "title": "Is my data safe when using AI?",
+    "category": "FAQ",
+    "subcategory": "AI Safety",
+    "keywords": [
+      "data safety",
+      "privacy",
+      "security",
+      "confidential"
+    ],
+    "excerpt": "Assume anything you type could be stored or used for training. Never share passwords, personal identifiers, or confidential business information.",
+    "url": "pages/faq.html#ai-limitations"
+  },
+  {
+    "id": "faq-confident-wrong",
+    "title": "Why does AI sometimes give wrong answers confidently?",
+    "category": "FAQ",
+    "subcategory": "AI Limitations",
+    "keywords": [
+      "confident wrong",
+      "incorrect confident",
+      "why wrong"
+    ],
+    "excerpt": "AI predicts likely text patterns—it doesn't \"know\" things like humans. When it lacks information, it doesn't have uncertainty signals. Verification is essential.",
+    "url": "pages/faq.html#ai-limitations"
+  },
+  {
+    "id": "faq-is-free",
+    "title": "Is Praxis really free?",
+    "category": "FAQ",
+    "subcategory": "About Praxis",
+    "keywords": [
+      "free",
+      "cost",
+      "pricing",
+      "no account"
+    ],
+    "excerpt": "Yes, completely free. No account required, no premium tiers, no ads, no tracking. AI skills should be accessible to everyone.",
+    "url": "pages/faq.html#about-praxis"
+  },
+  {
+    "id": "faq-uses-ai",
+    "title": "Does this site use AI?",
+    "category": "FAQ",
+    "subcategory": "About Praxis",
+    "keywords": [
+      "site uses ai",
+      "built with ai",
+      "ai generated"
+    ],
+    "excerpt": "Absolutely! The content and tools were developed with AI assistants. But interactive tools work locally—nothing you type is transmitted anywhere.",
+    "url": "pages/faq.html#about-praxis"
+  },
+  {
+    "id": "faq-who-created",
+    "title": "Who created Praxis?",
+    "category": "FAQ",
+    "subcategory": "About Praxis",
+    "keywords": [
+      "creator",
+      "founder",
+      "who made",
+      "basiliso"
+    ],
+    "excerpt": "Praxis was created by Basiliso Rosario with the mission of demystifying AI and making effective prompting skills accessible to everyone.",
+    "url": "pages/faq.html#about-praxis"
+  },
+  {
+    "id": "resource-chatgpt",
+    "title": "ChatGPT Guide",
+    "category": "Resources",
+    "subcategory": "AI Platforms",
+    "keywords": [
+      "chatgpt",
+      "openai",
+      "guide",
+      "how to use chatgpt",
+      "llm",
+      "prompting"
+    ],
+    "excerpt": "Comprehensive guide to using ChatGPT effectively. Features, prompting techniques, and best practices for all skill levels.",
+    "url": "pages/chatgpt-guide.html"
+  },
+  {
+    "id": "page-resources",
+    "title": "Resources Hub",
+    "category": "Resources",
+    "subcategory": "Overview",
+    "keywords": [
+      "resources",
+      "guides",
+      "references",
+      "documentation",
+      "hub",
+      "getting started"
+    ],
+    "excerpt": "Explore all Praxis resources: getting started guides, AI glossary, FAQ, and documentation about our mission and implementation.",
+    "url": "pages/resources.html"
+  },
+  {
+    "id": "page-about",
+    "title": "About Praxis",
+    "category": "Resources",
+    "subcategory": "Site Info",
+    "keywords": [
+      "about",
+      "praxis",
+      "mission",
+      "founder",
+      "why praxis"
+    ],
+    "excerpt": "Learn about Praxis, its mission to make AI accessible to everyone, and the founder's vision for AI education.",
+    "url": "pages/about.html"
+  },
+  {
+    "id": "page-ai-safety",
+    "title": "AI Safety",
+    "category": "Resources",
+    "subcategory": "AI Safety",
+    "keywords": [
+      "ai safety",
+      "responsible ai",
+      "limitations",
+      "risks",
+      "best practices"
+    ],
+    "excerpt": "Understand AI limitations, risks, and best practices for responsible use. Essential knowledge for effective AI interaction.",
+    "url": "pages/ai-safety.html"
+  },
+  {
+    "id": "page-security",
+    "title": "Security Analysis",
+    "category": "Resources",
+    "subcategory": "Security",
+    "keywords": [
+      "security",
+      "csp",
+      "owasp",
+      "hardening",
+      "content security policy",
+      "xss",
+      "privacy",
+      "defense in depth"
+    ],
+    "excerpt": "Comprehensive security analysis and hardening practices. Learn about our A+ CSP rating and continuous security as a practice.",
+    "url": "pages/security.html"
+  },
+  {
+    "id": "page-ai-for-everybody",
+    "title": "AI for Everybody",
+    "category": "Resources",
+    "subcategory": "Philosophy",
+    "keywords": [
+      "accessibility",
+      "inclusive",
+      "everyone",
+      "learning",
+      "no prerequisites",
+      "free",
+      "open"
+    ],
+    "excerpt": "Our mission to make AI literacy accessible to everyone regardless of background, ability, or experience level.",
+    "url": "pages/ai-for-everybody.html"
+  },
+  {
+    "id": "page-universal-design",
+    "title": "Universal Design (UD/UDL)",
+    "category": "Resources",
+    "subcategory": "Accessibility",
+    "keywords": [
+      "ud",
+      "udl",
+      "universal design",
+      "universal design for learning",
+      "wcag",
+      "accessibility",
+      "inclusive"
+    ],
+    "excerpt": "How Praxis implements Universal Design and Universal Design for Learning principles for accessible education.",
+    "url": "pages/universal-design.html"
+  },
+  {
+    "id": "page-performance",
+    "title": "Performance Analysis",
+    "category": "Resources",
+    "subcategory": "Technical",
+    "keywords": [
+      "performance",
+      "lighthouse",
+      "speed",
+      "optimization",
+      "core web vitals",
+      "fast",
+      "efficient"
+    ],
+    "excerpt": "Technical breakdown of how Praxis achieves 100% Lighthouse performance through zero dependencies and optimization.",
+    "url": "pages/performance.html"
+  },
+  {
+    "id": "page-ai-assisted-building",
+    "title": "AI Assisted Building",
+    "category": "Resources",
+    "subcategory": "Technical",
+    "keywords": [
+      "claude",
+      "claude code",
+      "ai assisted",
+      "development",
+      "collaboration",
+      "human-ai"
+    ],
+    "excerpt": "How Praxis was built with Claude Code - demonstrating practical human-AI collaboration in software development.",
+    "url": "pages/ai-assisted-building.html"
+  },
+  {
+    "id": "page-glossary",
+    "title": "AI Glossary",
+    "category": "Resources",
+    "subcategory": "Reference",
+    "keywords": [
+      "glossary",
+      "definitions",
+      "terms",
+      "vocabulary",
+      "dictionary"
+    ],
+    "excerpt": "Key terms and concepts for understanding AI and effective prompting. Your reference for AI terminology.",
+    "url": "pages/glossary.html"
+  },
+  {
+    "id": "page-faq",
+    "title": "Frequently Asked Questions",
+    "category": "Resources",
+    "subcategory": "Reference",
+    "keywords": [
+      "faq",
+      "questions",
+      "help",
+      "answers",
+      "common questions"
+    ],
+    "excerpt": "Common questions about AI, prompting, and getting the most from this resource. Find answers quickly.",
+    "url": "pages/faq.html"
+  },
+  {
+    "id": "page-patterns",
+    "title": "Prompt Patterns Library",
+    "category": "Resources",
+    "subcategory": "Reference",
+    "keywords": [
+      "patterns",
+      "library",
+      "templates",
+      "reusable",
+      "frameworks"
+    ],
+    "excerpt": "Reusable frameworks for common tasks. Patterns to understand and adapt, not templates to copy.",
+    "url": "patterns/index.html"
+  }
+]
