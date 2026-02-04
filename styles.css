@@ -19427,11 +19427,14 @@ html[data-text-scale="3"] {
    Before/after comparison for prompts */
 .comparison-panels {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
+    align-items: stretch;
 }
 
 .comparison-panel {
+    display: flex;
+    flex-direction: column;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--bg-card);
@@ -19471,6 +19474,9 @@ html[data-text-scale="3"] {
 
 .comparison-panel__content {
     padding: var(--space-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .comparison-panel__prompt {
@@ -19486,6 +19492,7 @@ html[data-text-scale="3"] {
     border-radius: var(--radius-md);
     font-size: 0.875rem;
     color: var(--text-secondary);
+    margin-top: auto;
 }
 
 .comparison-panel__result--positive {
