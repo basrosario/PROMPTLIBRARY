@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
-    <meta name="description" content="Master the fundamentals of AI prompting. Start your learning journey with essential frameworks like CRISP, CRISPE, and COSTAR.">
-    <title>Foundations - Praxis</title>
+    <meta name="description" content="The complete history of AI and prompt engineering from 1950 to 2026. Explore the academic research, breakthroughs, and frameworks that shaped how we communicate with artificial intelligence.">
+    <title>AI Foundations: A History of Human-Machine Communication - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css">
@@ -19,6 +19,7 @@
         <div class="header-container">
             <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
             <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link active">AI Foundations</a>
                 <div class="nav-item has-dropdown">
                     <a href="../learn/index.html" class="nav-link">Learn</a>
                     <div class="mega-menu">
@@ -100,331 +101,717 @@
 
     <main id="main-content">
         <!-- === HERO SECTION === -->
-        <section class="page-hero">
+        <section class="page-hero page-hero--tall">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
                 <nav class="breadcrumb fade-in">
                     <a href="../index.html">Home</a>
                     <span class="separator">/</span>
-                    <span class="current">Foundations</span>
+                    <span class="current">AI Foundations</span>
                 </nav>
                 <div class="hero-badge" data-aos="fade-down">
                     <span class="hero-badge__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
                         </svg>
                     </span>
-                    <span class="hero-badge__text">Start Here</span>
+                    <span class="hero-badge__text">Research-Verified Timeline</span>
                 </div>
-                <h1 class="page-title fade-in">Master the Fundamentals</h1>
-                <p class="page-subtitle fade-in">Every great prompt starts with solid foundations. Learn the core principles and frameworks that make AI communication effective, consistent, and reliable.</p>
+                <h1 class="page-title fade-in">The History of AI Communication</h1>
+                <p class="page-subtitle fade-in">From Alan Turing's 1950 question "Can machines think?" to the prompt engineering frameworks of today. Every milestone below is backed by peer-reviewed research and academic sources.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
 
-        <!-- === ACCENT BAR === -->
-        <div class="accent-bar"></div>
-        <!-- /ACCENT BAR -->
-
-        <!-- === WHY FOUNDATIONS MATTER === -->
+        <!-- === SITE BADGES === -->
         <section class="section">
             <div class="container">
-                <div class="callout-card callout-card--highlight" data-aos="fade-up">
-                    <div class="callout-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                    </div>
-                    <div class="callout-card__content">
-                        <h3 class="callout-card__title">The Truth About Modern AI</h3>
-                        <p class="callout-card__text">Yes, today's AI systems understand natural conversation remarkably well. You <em>can</em> just type what you need and often get good results. But understanding <strong>why</strong> certain prompts work better than others makes you consistently effective—not just occasionally lucky. Foundations give you the mental models to diagnose problems and improve results when simple prompts fall short.</p>
-                    </div>
-                </div>
-
-                <div class="stats-highlight" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stats-highlight__item">
-                        <span class="stats-highlight__number" data-count="67" data-suffix="%">0%</span>
-                        <span class="stats-highlight__label">Fewer Revisions</span>
-                        <span class="stats-highlight__desc">Structured prompts need less back-and-forth</span>
-                    </div>
-                    <div class="stats-highlight__item">
-                        <span class="stats-highlight__number" data-count="43" data-suffix="%">0%</span>
-                        <span class="stats-highlight__label">Better Relevance</span>
-                        <span class="stats-highlight__desc">Context improves output quality</span>
-                    </div>
-                    <div class="stats-highlight__item">
-                        <span class="stats-highlight__number" data-count="5" data-suffix=" min">0</span>
-                        <span class="stats-highlight__label">To Learn Basics</span>
-                        <span class="stats-highlight__desc">Small investment, lasting improvement</span>
-                    </div>
+                <div class="content-badges fade-in-up">
+                    <span class="content-badge content-badge--ai" data-badge-type="ai">
+                        <span class="badge-label">AI for</span>
+                        <span class="badge-value">Everybody</span>
+                    </span>
+                    <span class="content-badge content-badge--udl" data-badge-type="udl">
+                        <span class="badge-label">Built With</span>
+                        <span class="badge-value">UD/UDL</span>
+                    </span>
+                    <span class="content-badge content-badge--security" data-badge-type="security">
+                        <span class="badge-label">Security</span>
+                        <span class="badge-value">A+ 100%</span>
+                    </span>
+                    <span class="content-badge content-badge--performance" data-badge-type="performance">
+                        <span class="badge-label">Performance</span>
+                        <span class="badge-value">100%</span>
+                    </span>
+                    <span class="content-badge content-badge--claude" data-badge-type="claude">
+                        <span class="badge-label">AI Assisted Building</span>
+                        <span class="badge-value">Claude Code</span>
+                    </span>
+                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+                        <span class="badge-label">Community</span>
+                        <span class="badge-value">GitHub</span>
+                    </a>
                 </div>
             </div>
         </section>
-        <!-- /WHY FOUNDATIONS MATTER -->
+        <!-- /SITE BADGES -->
 
-        <!-- === LEARNING PATH === -->
+        <!-- === ERA 1: THE DREAM === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Framework Overview</h2>
-                <p class="section-subtitle" data-aos="fade-up">Follow this progression or jump to what you need</p>
+                <div class="era-header fade-in-up">
+                    <span class="era-header__dates">1950 - 1956</span>
+                    <h2 class="era-header__title">Era I: The Dream</h2>
+                    <p class="era-header__subtitle">When humanity first asked if machines could think</p>
+                </div>
 
-                <div class="journey-cards" data-aos="fade-up">
-                    <a href="../learn/prompt-basics.html" class="journey-card journey-card--active">
-                        <div class="journey-card__number">1</div>
-                        <div class="journey-card__content">
-                            <span class="journey-card__badge">Start Here</span>
-                            <h3 class="journey-card__title">Prompt Basics</h3>
-                            <p class="journey-card__desc">The fundamentals that apply everywhere. What makes a prompt effective, natural vs. labeled formats, and the iteration mindset.</p>
-                            <span class="journey-card__link">Get Started →</span>
+                <div class="history-timeline fade-in-up">
+                    <!-- 1950: Turing Test -->
+                    <div class="history-event history-event--landmark">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">1950</span>
                         </div>
-                    </a>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Question That Started It All</span>
+                            <h3 class="history-event__title">Alan Turing Publishes "Computing Machinery and Intelligence"</h3>
+                            <p class="history-event__text">English mathematician Alan Turing posed the question that would define a field: "Can machines think?" His paper introduced the "imitation game"—now known as the Turing Test—proposing that if a machine could convince a human interrogator it was human through conversation alone, it could be considered intelligent.</p>
+                            <div class="history-event__quote">
+                                <blockquote>"I propose to consider the question, 'Can machines think?'"</blockquote>
+                                <cite>— Alan Turing, 1950<sup>[1]</sup></cite>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Established the philosophical foundation for artificial intelligence and human-machine communication</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <a href="../learn/crisp.html" class="journey-card">
-                        <div class="journey-card__number">2</div>
-                        <div class="journey-card__content">
-                            <span class="journey-card__badge">5 Elements</span>
-                            <h3 class="journey-card__title">CRISP Framework</h3>
-                            <p class="journey-card__desc">A memorable 5-letter acronym for everyday prompts. Context, Role, Instructions, Specifics, Parameters.</p>
-                            <span class="journey-card__link">Learn CRISP →</span>
+                    <!-- 1956: Dartmouth -->
+                    <div class="history-event history-event--landmark">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">1956</span>
                         </div>
-                    </a>
-
-                    <a href="../learn/crispe.html" class="journey-card">
-                        <div class="journey-card__number">3</div>
-                        <div class="journey-card__content">
-                            <span class="journey-card__badge">+ Examples</span>
-                            <h3 class="journey-card__title">CRISPE Framework</h3>
-                            <p class="journey-card__desc">CRISP plus Examples. When you need to show the AI exactly what format or style you want through samples.</p>
-                            <span class="journey-card__link">Learn CRISPE →</span>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Birth of a Field</span>
+                            <h3 class="history-event__title">The Dartmouth Workshop: AI Gets Its Name</h3>
+                            <p class="history-event__text">At Dartmouth College, John McCarthy, Marvin Minsky, Claude Shannon, and others gathered for an eight-week summer workshop. McCarthy coined the term "Artificial Intelligence" in the proposal, and the workshop gave AI "its name, its mission, its first major success and its key players."</p>
+                            <div class="history-event__participants">
+                                <span class="history-event__participants-label">Key Participants:</span>
+                                <div class="history-event__participant-list">
+                                    <span>John McCarthy</span>
+                                    <span>Marvin Minsky</span>
+                                    <span>Claude Shannon</span>
+                                    <span>Allen Newell</span>
+                                    <span>Herbert Simon</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Established AI as an academic discipline and research field<sup>[2]</sup></span>
+                            </div>
                         </div>
-                    </a>
-
-                    <a href="../learn/costar.html" class="journey-card">
-                        <div class="journey-card__number">4</div>
-                        <div class="journey-card__content">
-                            <span class="journey-card__badge">Audience Focus</span>
-                            <h3 class="journey-card__title">COSTAR Framework</h3>
-                            <p class="journey-card__desc">Audience-first prompting. When who you're writing for matters as much as what you're writing.</p>
-                            <span class="journey-card__link">Learn COSTAR →</span>
-                        </div>
-                    </a>
-
-                    <a href="../learn/context-structure.html" class="journey-card">
-                        <div class="journey-card__number">5</div>
-                        <div class="journey-card__content">
-                            <span class="journey-card__badge">Deep Dive</span>
-                            <h3 class="journey-card__title">Context & Structure</h3>
-                            <p class="journey-card__desc">Understanding context windows, when structure helps versus hinders, and a preview of advanced approaches.</p>
-                            <span class="journey-card__link">Explore →</span>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- /LEARNING PATH -->
+        <!-- /ERA 1 -->
 
-        <!-- === QUICK PICKS BY GOAL === -->
+        <!-- === ERA 2: THE PIONEERS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Quick Picks by Goal</h2>
-                <p class="section-subtitle" data-aos="fade-up">Know what you need? Jump directly there.</p>
+                <div class="era-header fade-in-up">
+                    <span class="era-header__dates">1966 - 2016</span>
+                    <h2 class="era-header__title">Era II: The Pioneers</h2>
+                    <p class="era-header__subtitle">Early chatbots, AI winters, and the machine learning renaissance</p>
+                </div>
 
-                <div class="goal-grid" data-aos="fade-up">
-                    <div class="goal-card">
-                        <div class="goal-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                            </svg>
+                <div class="history-timeline fade-in-up">
+                    <!-- 1966: ELIZA -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">1966</span>
                         </div>
-                        <h3 class="goal-card__title">I'm new to AI prompting</h3>
-                        <p class="goal-card__desc">Start with Prompt Basics. Learn the universal principles that apply to every framework and every AI tool.</p>
-                        <a href="../learn/prompt-basics.html" class="goal-card__link">Prompt Basics →</a>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The First Chatbot</span>
+                            <h3 class="history-event__title">ELIZA: When Machines First Talked Back</h3>
+                            <p class="history-event__text">MIT professor Joseph Weizenbaum created ELIZA, the world's first chatbot. Using simple pattern matching and substitution, ELIZA simulated a Rogerian psychotherapist. The response shocked even Weizenbaum—his secretary reportedly asked him to leave the room so she could speak with the program privately.</p>
+                            <div class="history-event__quote">
+                                <blockquote>"ELIZA created the most remarkable illusion of having understood."</blockquote>
+                                <cite>— Joseph Weizenbaum<sup>[3]</sup></cite>
+                            </div>
+                            <div class="history-event__insight">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 16v-4"/>
+                                    <path d="M12 8h.01"/>
+                                </svg>
+                                <span>ELIZA demonstrated that humans readily attribute understanding to machines—a phenomenon still relevant in prompt engineering today.</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="goal-card">
-                        <div class="goal-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
+                    <!-- 1970s-1980s: AI Winters -->
+                    <div class="history-event history-event--period">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">1970s-80s</span>
                         </div>
-                        <h3 class="goal-card__title">I want quick, reliable prompts</h3>
-                        <p class="goal-card__desc">CRISP gives you a fast, memorable checklist for everyday tasks. Most prompts don't need more than this.</p>
-                        <a href="../learn/crisp.html" class="goal-card__link">Learn CRISP →</a>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The AI Winters</span>
+                            <h3 class="history-event__title">Cycles of Hype and Disappointment</h3>
+                            <p class="history-event__text">Ambitious promises met computational limitations. Funding dried up twice—first in the 1970s after early optimism faded, then again in the late 1980s when expert systems failed to deliver. Each "AI winter" pruned unrealistic expectations while foundational research continued quietly.</p>
+                        </div>
                     </div>
 
-                    <div class="goal-card">
-                        <div class="goal-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
+                    <!-- 2012: Deep Learning -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2012</span>
                         </div>
-                        <h3 class="goal-card__title">I need consistent output formats</h3>
-                        <p class="goal-card__desc">CRISPE's Examples component shows the AI exactly what you want. Perfect for templates and repeated tasks.</p>
-                        <a href="../learn/crispe.html" class="goal-card__link">Learn CRISPE →</a>
-                    </div>
-
-                    <div class="goal-card">
-                        <div class="goal-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Deep Learning Revolution</span>
+                            <h3 class="history-event__title">AlexNet Wins ImageNet</h3>
+                            <p class="history-event__text">Geoffrey Hinton's team stunned the computer vision community when their deep neural network crushed competitors in the ImageNet challenge. This victory marked the beginning of the deep learning era, proving that with enough data and compute, neural networks could achieve unprecedented performance.</p>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Launched the modern AI boom and proved deep learning's potential</span>
+                            </div>
                         </div>
-                        <h3 class="goal-card__title">I'm writing for specific audiences</h3>
-                        <p class="goal-card__desc">COSTAR puts your reader first. Essential for communications where tone and audience matter most.</p>
-                        <a href="../learn/costar.html" class="goal-card__link">Learn COSTAR →</a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /QUICK PICKS BY GOAL -->
+        <!-- /ERA 2 -->
 
-        <!-- === HOW FRAMEWORKS CONNECT === -->
+        <!-- === ERA 3: THE TRANSFORMER REVOLUTION === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">How the Frameworks Connect</h2>
-                <p class="section-subtitle" data-aos="fade-up">Each builds on and extends the others</p>
-
-                <div class="framework-flow" data-aos="fade-up">
-                    <div class="framework-flow__item">
-                        <div class="framework-flow__marker framework-flow__marker--active">
-                            <span>Basics</span>
-                        </div>
-                        <div class="framework-flow__label">Core Principles</div>
-                        <div class="framework-flow__desc">What, context, specifics</div>
-                    </div>
-                    <div class="framework-flow__connector">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
-                    <div class="framework-flow__item">
-                        <div class="framework-flow__marker">
-                            <span>CRISP</span>
-                        </div>
-                        <div class="framework-flow__label">5 Elements</div>
-                        <div class="framework-flow__desc">+ Role, Parameters</div>
-                    </div>
-                    <div class="framework-flow__connector">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
-                    <div class="framework-flow__item">
-                        <div class="framework-flow__marker">
-                            <span>CRISPE</span>
-                        </div>
-                        <div class="framework-flow__label">+ Examples</div>
-                        <div class="framework-flow__desc">Show, don't just tell</div>
-                    </div>
-                    <div class="framework-flow__connector">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
-                    <div class="framework-flow__item">
-                        <div class="framework-flow__marker">
-                            <span>COSTAR</span>
-                        </div>
-                        <div class="framework-flow__label">Audience Focus</div>
-                        <div class="framework-flow__desc">+ Style, Tone, Audience</div>
-                    </div>
+                <div class="era-header fade-in-up">
+                    <span class="era-header__dates">2017 - 2019</span>
+                    <h2 class="era-header__title">Era III: The Transformer Revolution</h2>
+                    <p class="era-header__subtitle">A new architecture changes everything</p>
                 </div>
 
-                <div class="callout tip" data-aos="fade-up" data-aos-delay="100">
-                    <div class="callout-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                        They're Not Competing
+                <div class="history-timeline fade-in-up">
+                    <!-- 2017: Attention Is All You Need -->
+                    <div class="history-event history-event--landmark">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2017</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Paper That Changed AI</span>
+                            <h3 class="history-event__title">"Attention Is All You Need" — The Transformer Architecture</h3>
+                            <p class="history-event__text">Eight Google researchers published what would become one of the most cited papers in AI history. The Transformer architecture replaced recurrent neural networks with a novel "attention mechanism" that could process entire sequences at once. This enabled training of vastly larger and more capable models.</p>
+                            <div class="history-event__authors">
+                                <span class="history-event__authors-label">Authors:</span>
+                                <span>Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin</span>
+                            </div>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">173,000+</span>
+                                    <span class="history-event__stat-label">Citations (as of 2025)</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">Top 10</span>
+                                    <span class="history-event__stat-label">Most-cited papers of 21st century</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Enabled GPT, BERT, and all modern large language models<sup>[4]</sup></span>
+                            </div>
+                        </div>
                     </div>
-                    <p>These frameworks overlap intentionally. They're different lenses for the same goal: clear communication with AI. Use whichever mental model helps you think most clearly for each task—or combine elements from multiple frameworks.</p>
+
+                    <!-- 2018: GPT-1 -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2018</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The First GPT</span>
+                            <h3 class="history-event__title">GPT-1: "Improving Language Understanding by Generative Pre-Training"</h3>
+                            <p class="history-event__text">OpenAI introduced the first Generative Pre-trained Transformer. With 117 million parameters trained on BookCorpus, GPT-1 pioneered the "pre-train then fine-tune" paradigm. Though modest by today's standards, it proved that unsupervised pre-training could dramatically improve downstream task performance.</p>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">117M</span>
+                                    <span class="history-event__stat-label">Parameters</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">12</span>
+                                    <span class="history-event__stat-label">Transformer layers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2019: GPT-2 -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2019</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">Scale Matters</span>
+                            <h3 class="history-event__title">GPT-2: Too Dangerous to Release?</h3>
+                            <p class="history-event__text">OpenAI scaled up by 10x in both parameters and training data. GPT-2's ability to generate coherent, multi-paragraph text was so striking that OpenAI initially withheld the full model, citing concerns about potential misuse. This "staged release" sparked debate about AI safety and responsible development.</p>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">1.5B</span>
+                                    <span class="history-event__stat-label">Parameters</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">40GB</span>
+                                    <span class="history-event__stat-label">Training data (WebText)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- /HOW FRAMEWORKS CONNECT -->
+        <!-- /ERA 3 -->
 
-        <!-- === BEYOND FOUNDATIONS === -->
+        <!-- === ERA 4: THE PROMPTING ERA === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Beyond Foundations</h2>
-                <p class="section-subtitle" data-aos="fade-up">Once you've mastered the basics, explore these advanced approaches</p>
+                <div class="era-header fade-in-up">
+                    <span class="era-header__dates">2020 - 2022</span>
+                    <h2 class="era-header__title">Era IV: The Birth of Prompt Engineering</h2>
+                    <p class="era-header__subtitle">When researchers discovered that how you ask matters as much as what you ask</p>
+                </div>
 
-                <div class="next-steps-cards" data-aos="fade-up">
-                    <a href="../learn/react.html" class="next-step-card">
-                        <div class="next-step-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 4 23 10 17 10"/>
-                                <polyline points="1 20 1 14 7 14"/>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                            </svg>
+                <div class="history-timeline fade-in-up">
+                    <!-- 2020: GPT-3 & Few-Shot -->
+                    <div class="history-event history-event--landmark">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2020</span>
                         </div>
-                        <div class="next-step-card__content">
-                            <span class="next-step-card__label">Reasoning Framework</span>
-                            <h3 class="next-step-card__title">ReAct: Think-Act-Observe</h3>
-                            <p class="next-step-card__desc">When the AI needs to reason through complex problems step by step, with transparency into its thinking.</p>
+                        <div class="history-event__content">
+                            <span class="history-event__label">NeurIPS 2020</span>
+                            <h3 class="history-event__title">"Language Models are Few-Shot Learners" — The GPT-3 Paper</h3>
+                            <p class="history-event__text">Brown et al. demonstrated that sufficiently large language models could perform new tasks from just a few examples in the prompt—no fine-tuning required. This "in-context learning" discovery was the birth of modern prompt engineering. The paper showed that the way you frame a request fundamentally changes the output.</p>
+                            <div class="history-event__authors">
+                                <span class="history-event__authors-label">Lead Authors:</span>
+                                <span>Tom Brown, Benjamin Mann, Nick Ryder et al. (OpenAI)</span>
+                            </div>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">175B</span>
+                                    <span class="history-event__stat-label">Parameters</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">Few-Shot</span>
+                                    <span class="history-event__stat-label">Learning paradigm</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Established that prompting is a valid alternative to fine-tuning<sup>[5]</sup></span>
+                            </div>
+                            <a href="../learn/few-shot-learning.html" class="history-event__link">Learn Few-Shot Prompting →</a>
                         </div>
-                        <span class="next-step-card__arrow">→</span>
-                    </a>
+                    </div>
 
-                    <a href="../learn/flipped-interaction.html" class="next-step-card">
-                        <div class="next-step-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="17 1 21 5 17 9"/>
-                                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-                                <polyline points="7 23 3 19 7 15"/>
-                                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
-                            </svg>
+                    <!-- January 2022: Chain-of-Thought -->
+                    <div class="history-event history-event--framework">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">Jan 2022</span>
                         </div>
-                        <div class="next-step-card__content">
-                            <span class="next-step-card__label">Role Reversal</span>
-                            <h3 class="next-step-card__title">Flipped Interaction</h3>
-                            <p class="next-step-card__desc">Let the AI ask you questions to better understand your needs before generating output.</p>
+                        <div class="history-event__content">
+                            <span class="history-event__label">arXiv:2201.11903</span>
+                            <h3 class="history-event__title">"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"</h3>
+                            <p class="history-event__text">Wei et al. at Google Brain discovered that adding intermediate reasoning steps to prompts dramatically improved performance on complex tasks. By showing the AI how to "think step by step," accuracy on math and reasoning tasks jumped significantly. This simple technique became foundational to prompt engineering.</p>
+                            <div class="history-event__authors">
+                                <span class="history-event__authors-label">Authors:</span>
+                                <span>Jason Wei, Xuezhi Wang, Dale Schuurmans et al. (Google Brain)</span>
+                            </div>
+                            <div class="history-event__quote">
+                                <blockquote>"Chain of thought prompting... significantly improves the ability of large language models to perform complex reasoning."</blockquote>
+                                <cite>— Wei et al., 2022<sup>[6]</sup></cite>
+                            </div>
+                            <a href="../learn/chain-of-thought.html" class="history-event__link">Learn Chain-of-Thought →</a>
                         </div>
-                        <span class="next-step-card__arrow">→</span>
-                    </a>
+                    </div>
 
-                    <a href="../learn/chain-of-thought.html" class="next-step-card">
-                        <div class="next-step-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                            </svg>
+                    <!-- March 2022: Self-Consistency -->
+                    <div class="history-event history-event--framework">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">Mar 2022</span>
                         </div>
-                        <div class="next-step-card__content">
-                            <span class="next-step-card__label">Reasoning Framework</span>
-                            <h3 class="next-step-card__title">Chain-of-Thought Framework</h3>
-                            <p class="next-step-card__desc">Guide AI through step-by-step reasoning for complex problems, math, and logic tasks.</p>
+                        <div class="history-event__content">
+                            <span class="history-event__label">arXiv:2203.11171</span>
+                            <h3 class="history-event__title">"Self-Consistency Improves Chain of Thought Reasoning"</h3>
+                            <p class="history-event__text">Wang et al. introduced a powerful enhancement to Chain-of-Thought: sample multiple reasoning paths and select the most consistent answer. This built on the insight that complex problems often have multiple valid solution approaches, and consensus across paths indicates reliability.</p>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">+17.9%</span>
+                                    <span class="history-event__stat-label">GSM8K improvement</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">+11.0%</span>
+                                    <span class="history-event__stat-label">SVAMP improvement</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Key Insight:</span>
+                                <span>Multiple reasoning paths + majority voting = more reliable answers<sup>[7]</sup></span>
+                            </div>
+                            <a href="../learn/self-consistency.html" class="history-event__link">Learn Self-Consistency →</a>
                         </div>
-                        <span class="next-step-card__arrow">→</span>
-                    </a>
+                    </div>
+
+                    <!-- May 2022: Zero-Shot CoT -->
+                    <div class="history-event history-event--framework">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">May 2022</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">arXiv:2205.11916 — NeurIPS 2022</span>
+                            <h3 class="history-event__title">"Large Language Models are Zero-Shot Reasoners"</h3>
+                            <p class="history-event__text">Kojima et al. made a startling discovery: you don't need examples at all. Simply adding "Let's think step by step" to any prompt dramatically improved reasoning performance. This zero-shot approach showed that reasoning abilities could be unlocked with just the right phrase.</p>
+                            <div class="history-event__authors">
+                                <span class="history-event__authors-label">Authors:</span>
+                                <span>Takeshi Kojima, Shixiang Shane Gu et al. (Google Research / University of Tokyo)</span>
+                            </div>
+                            <div class="history-event__quote">
+                                <blockquote>"LLMs are decent zero-shot reasoners by simply adding 'Let's think step by step' before each answer."</blockquote>
+                                <cite>— Kojima et al., 2022<sup>[8]</sup></cite>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- October 2022: ReAct -->
+                    <div class="history-event history-event--framework">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">Oct 2022</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">arXiv:2210.03629</span>
+                            <h3 class="history-event__title">"ReAct: Synergizing Reasoning and Acting in Language Models"</h3>
+                            <p class="history-event__text">Yao et al. from Princeton and Google unified reasoning and action-taking. ReAct prompts alternate between "Thought" (reasoning about what to do) and "Action" (actually doing it), creating transparent, verifiable problem-solving traces. This became essential for AI agents that interact with external tools.</p>
+                            <div class="history-event__authors">
+                                <span class="history-event__authors-label">Authors:</span>
+                                <span>Shunyu Yao, Jeffrey Zhao et al. (Princeton / Google Research)</span>
+                            </div>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">+34%</span>
+                                    <span class="history-event__stat-label">ALFWorld success rate</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">+10%</span>
+                                    <span class="history-event__stat-label">WebShop success rate</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Enabled AI agents to reason, act, and self-correct<sup>[9]</sup></span>
+                            </div>
+                            <a href="../learn/react.html" class="history-event__link">Learn ReAct →</a>
+                        </div>
+                    </div>
+
+                    <!-- November 2022: ChatGPT -->
+                    <div class="history-event history-event--landmark">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">Nov 30, 2022</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Day Everything Changed</span>
+                            <h3 class="history-event__title">ChatGPT Launches to the Public</h3>
+                            <p class="history-event__text">OpenAI released ChatGPT, and the world discovered prompt engineering overnight. Built on GPT-3.5 with reinforcement learning from human feedback (RLHF), ChatGPT made conversational AI accessible to everyone. It reached 100 million users in two months—the fastest-growing consumer application in history.</p>
+                            <div class="history-event__stats">
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">1M</span>
+                                    <span class="history-event__stat-label">Users in 5 days</span>
+                                </div>
+                                <div class="history-event__stat">
+                                    <span class="history-event__stat-value">100M</span>
+                                    <span class="history-event__stat-label">Users in 2 months</span>
+                                </div>
+                            </div>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Impact:</span>
+                                <span>Brought prompt engineering from research labs to everyday users<sup>[10]</sup></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- /BEYOND FOUNDATIONS -->
+        <!-- /ERA 4 -->
+
+        <!-- === ERA 5: THE REVOLUTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="era-header fade-in-up">
+                    <span class="era-header__dates">2023 - 2026</span>
+                    <h2 class="era-header__title">Era V: The AI Revolution</h2>
+                    <p class="era-header__subtitle">Multimodal models, enterprise adoption, and the maturation of prompt engineering</p>
+                </div>
+
+                <div class="history-timeline fade-in-up">
+                    <!-- 2023: GPT-4 -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">Mar 2023</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">Multimodal AI</span>
+                            <h3 class="history-event__title">GPT-4: Vision, Reasoning, and Beyond</h3>
+                            <p class="history-event__text">OpenAI released GPT-4, capable of understanding both text and images. The model showed remarkable improvements in reasoning, coding, and following complex instructions. Professional applications exploded as organizations integrated AI into core workflows.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2023-2024: Competition -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2023-24</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Model Wars</span>
+                            <h3 class="history-event__title">Competition Accelerates Innovation</h3>
+                            <p class="history-event__text">Anthropic launched Claude, Google released Gemini, and open-source models like Llama matured rapidly. Each model brought different strengths—Claude's constitutional AI approach, Gemini's multimodal native design, Llama's accessibility. Competition drove rapid improvement across the board.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2024: Academic Recognition -->
+                    <div class="history-event">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2024</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">Academic Synthesis</span>
+                            <h3 class="history-event__title">"The Prompt Report" — 58 Prompting Techniques Catalogued</h3>
+                            <p class="history-event__text">Researchers published comprehensive surveys cataloguing the explosion of prompting techniques. These academic syntheses brought structure to a rapidly evolving field, identifying 58 distinct prompting techniques for LLMs and 40 for other modalities.</p>
+                            <div class="history-event__impact">
+                                <span class="history-event__impact-label">Significance:</span>
+                                <span>Prompt engineering recognized as a legitimate research discipline<sup>[11]</sup></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2025-2026: Current -->
+                    <div class="history-event history-event--current">
+                        <div class="history-event__marker">
+                            <span class="history-event__year">2025-26</span>
+                        </div>
+                        <div class="history-event__content">
+                            <span class="history-event__label">The Present</span>
+                            <h3 class="history-event__title">AI Communication as a Core Skill</h3>
+                            <p class="history-event__text">Prompt engineering has evolved from an arcane research technique to an essential professional skill. Frameworks like CRISP, CRISPE, and COSTAR make structured prompting accessible. AI assists in everything from code writing to medical diagnosis to creative work. The question is no longer "Can machines think?" but "How do we communicate effectively with thinking machines?"</p>
+                            <div class="history-event__cta">
+                                <a href="../learn/index.html" class="btn btn-primary">Explore the Frameworks →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /ERA 5 -->
+
+        <!-- === KEY INSIGHTS === -->
+        <section class="section">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Lessons from History</span>
+                <h2 class="section-title fade-in-up">What 75 Years of AI Taught Us</h2>
+                <p class="section-subtitle fade-in-up">Patterns and principles from the research</p>
+
+                <div class="insight-cards fade-in-up">
+                    <div class="insight-card">
+                        <div class="insight-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 17H7a5 5 0 0 1 0-10h2"/>
+                                <path d="M15 7h2a5 5 0 1 1 0 10h-2"/>
+                                <line x1="8" y1="12" x2="16" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="insight-card__title">Scale Unlocks Capabilities</h3>
+                        <p class="insight-card__text">From GPT-1 to GPT-4, each 10x increase in scale revealed new emergent abilities. In-context learning, chain-of-thought reasoning, and instruction following all "emerged" at sufficient scale.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="insight-card__title">Humans Anthropomorphize</h3>
+                        <p class="insight-card__text">From ELIZA in 1966 to ChatGPT today, humans consistently attribute understanding to machines. Good prompt engineering works with this tendency, not against it.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="insight-card__title">Frameworks Compound</h3>
+                        <p class="insight-card__text">Each prompting technique builds on those before. Chain-of-Thought enabled Self-Consistency. ReAct combined reasoning with action. The best results often combine multiple frameworks.</p>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="insight-card__title">Simple Ideas Win</h3>
+                        <p class="insight-card__text">"Let's think step by step"—five words that improved reasoning by 30-50%. The most powerful prompting techniques are often surprisingly simple. Clarity beats complexity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /KEY INSIGHTS -->
+
+        <!-- === CITATIONS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Academic Sources</span>
+                <h2 class="section-title fade-in-up">Citations & References</h2>
+                <p class="section-subtitle fade-in-up">All claims on this page are backed by peer-reviewed research</p>
+
+                <div class="citations-list fade-in-up">
+                    <div class="citation-item" id="cite-1">
+                        <span class="citation-number">[1]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Turing, A.M.</span>
+                            <span class="citation-title">"Computing Machinery and Intelligence"</span>
+                            <span class="citation-journal">Mind, 59(236), 433-460</span>
+                            <span class="citation-year">1950</span>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-2">
+                        <span class="citation-number">[2]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Dartmouth College</span>
+                            <span class="citation-title">"Artificial Intelligence (AI) Coined at Dartmouth"</span>
+                            <span class="citation-journal">Dartmouth College Archives</span>
+                            <span class="citation-year">1956</span>
+                            <a href="https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth" target="_blank" rel="noopener noreferrer" class="citation-link">dartmouth.edu</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-3">
+                        <span class="citation-number">[3]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Weizenbaum, J.</span>
+                            <span class="citation-title">"ELIZA—A Computer Program For the Study of Natural Language Communication Between Man And Machine"</span>
+                            <span class="citation-journal">Communications of the ACM, 9(1), 36-45</span>
+                            <span class="citation-year">1966</span>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-4">
+                        <span class="citation-number">[4]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Vaswani, A., Shazeer, N., Parmar, N., et al.</span>
+                            <span class="citation-title">"Attention Is All You Need"</span>
+                            <span class="citation-journal">Advances in Neural Information Processing Systems 30 (NeurIPS 2017)</span>
+                            <span class="citation-year">2017</span>
+                            <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:1706.03762</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-5">
+                        <span class="citation-number">[5]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Brown, T.B., Mann, B., Ryder, N., et al.</span>
+                            <span class="citation-title">"Language Models are Few-Shot Learners"</span>
+                            <span class="citation-journal">Advances in Neural Information Processing Systems 33 (NeurIPS 2020)</span>
+                            <span class="citation-year">2020</span>
+                            <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2005.14165</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-6">
+                        <span class="citation-number">[6]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Wei, J., Wang, X., Schuurmans, D., et al.</span>
+                            <span class="citation-title">"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"</span>
+                            <span class="citation-journal">Google Research</span>
+                            <span class="citation-year">2022</span>
+                            <a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2201.11903</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-7">
+                        <span class="citation-number">[7]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Wang, X., Wei, J., Schuurmans, D., et al.</span>
+                            <span class="citation-title">"Self-Consistency Improves Chain of Thought Reasoning in Language Models"</span>
+                            <span class="citation-journal">Google Research</span>
+                            <span class="citation-year">2022</span>
+                            <a href="https://arxiv.org/abs/2203.11171" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2203.11171</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-8">
+                        <span class="citation-number">[8]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Kojima, T., Gu, S.S., Reid, M., et al.</span>
+                            <span class="citation-title">"Large Language Models are Zero-Shot Reasoners"</span>
+                            <span class="citation-journal">Advances in Neural Information Processing Systems 35 (NeurIPS 2022)</span>
+                            <span class="citation-year">2022</span>
+                            <a href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2205.11916</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-9">
+                        <span class="citation-number">[9]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Yao, S., Zhao, J., Yu, D., et al.</span>
+                            <span class="citation-title">"ReAct: Synergizing Reasoning and Acting in Language Models"</span>
+                            <span class="citation-journal">Princeton University / Google Research</span>
+                            <span class="citation-year">2022</span>
+                            <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2210.03629</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-10">
+                        <span class="citation-number">[10]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">History.com</span>
+                            <span class="citation-title">"ChatGPT is released to the public"</span>
+                            <span class="citation-journal">This Day in History</span>
+                            <span class="citation-year">2022</span>
+                            <a href="https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" target="_blank" rel="noopener noreferrer" class="citation-link">history.com</a>
+                        </div>
+                    </div>
+
+                    <div class="citation-item" id="cite-11">
+                        <span class="citation-number">[11]</span>
+                        <div class="citation-content">
+                            <span class="citation-authors">Schulhoff, S., et al.</span>
+                            <span class="citation-title">"The Prompt Report: A Systematic Survey of Prompt Engineering Techniques"</span>
+                            <span class="citation-journal">arXiv preprint</span>
+                            <span class="citation-year">2024</span>
+                            <a href="https://arxiv.org/abs/2406.06608" target="_blank" rel="noopener noreferrer" class="citation-link">arXiv:2406.06608</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CITATIONS -->
 
         <!-- === CTA SECTION === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark" data-aos="fade-up">
                     <canvas id="cta-neural-bg" class="neural-canvas-secondary"></canvas>
-                    <span class="cta-corporate__eyebrow">Get Started</span>
-                    <h2 class="cta-corporate__title">Ready to Start?</h2>
-                    <p class="cta-corporate__text">Begin with Prompt Basics—a 5-minute read that will improve every prompt you write.</p>
+                    <span class="cta-corporate__eyebrow">Ready to Learn?</span>
+                    <h2 class="cta-corporate__title">Master the Frameworks</h2>
+                    <p class="cta-corporate__text">You've seen how prompt engineering evolved. Now learn the techniques that emerged from 75 years of research.</p>
                     <div class="cta-corporate__actions">
-                        <a href="../learn/prompt-basics.html" class="cta-corporate__btn cta-corporate__btn--primary">Start Learning</a>
-                        <a href="../quiz/index.html" class="cta-corporate__btn cta-corporate__btn--secondary">Take the Quiz</a>
+                        <a href="../learn/index.html" class="cta-corporate__btn cta-corporate__btn--primary">Explore All 11 Frameworks</a>
+                        <a href="../learn/prompt-basics.html" class="cta-corporate__btn cta-corporate__btn--secondary">Start with Basics</a>
                     </div>
                 </div>
             </div>

@@ -3266,19 +3266,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // SCROLL-REVEAL BACK-TO-TOP BAR
     // Shows on scroll, hides after 2.5s of no scrolling
+    // Docks to static position when at bottom of page
     // ==========================================
     let scrollTimeout = null;
 
     function showScrollBars() {
-        if (backToTopBar) backToTopBar.classList.add('is-visible');
+        if (backToTopBar) {
+            backToTopBar.classList.add('is-visible');
+            backToTopBar.classList.remove('is-docked');
+        }
     }
 
     function hideScrollBars() {
-        if (backToTopBar) backToTopBar.classList.remove('is-visible');
+        if (backToTopBar) {
+            backToTopBar.classList.remove('is-visible');
+            backToTopBar.classList.remove('is-docked');
+        }
+    }
+
+    function dockScrollBars() {
+        if (backToTopBar) {
+            backToTopBar.classList.add('is-docked');
+            backToTopBar.classList.remove('is-visible');
+        }
+    }
+
+    function isAtBottom() {
+        // Check if scrolled to bottom (within 50px threshold)
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.scrollY;
+        const clientHeight = window.innerHeight;
+        return scrollTop + clientHeight >= scrollHeight - 50;
     }
 
     function handleScroll() {
         const currentScrollY = window.scrollY;
+
+        // Check if at bottom of page - dock the bar
+        if (isAtBottom()) {
+            dockScrollBars();
+            // Clear any hide timeout when docked
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = null;
+            }
+            return;
+        }
 
         // Only show bars if scrolled down at least 100px
         if (currentScrollY > 100) {
