@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <meta name="description" content="Master the Prompt Chaining Framework: Break complex tasks into connected steps for focused, verifiable, debuggable AI workflows.">
+    <title>Prompt Chaining Framework - Praxis</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <div class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link active">Learn</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Prompt Basics</h4>
+                            <a href="prompt-basics.html">Prompt Basics</a>
+                        </div>
+                        <div class="mega-menu-section">
+                            <h4>Foundation</h4>
+                            <a href="crisp.html">CRISP Framework</a>
+                            <a href="crispe.html">CRISPE Framework</a>
+                            <a href="costar.html">COSTAR Framework</a>
+                            <a href="react.html">ReAct Framework</a>
+                            <a href="flipped-interaction.html">Flipped Interaction</a>
+                            <a href="chain-of-thought.html">Chain-of-Thought</a>
+                            <a href="few-shot-learning.html">Few-Shot Learning</a>
+                            <a href="role-prompting.html">Role Prompting</a>
+                            <a href="constrained-output.html">Constrained Output</a>
+                            <a href="self-consistency.html">Self-Consistency</a>
+                            <a href="prompt-chaining.html">Prompt Chaining</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../tools/index.html" class="nav-link">AI Readiness</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Tools</h4>
+                            <a href="../quiz/index.html">Readiness Quiz</a>
+                            <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                            <a href="../tools/guidance.html">Prompt Builder</a>
+                            <a href="../tools/matcher.html">Framework Matcher</a>
+                            <a href="../tools/checklist.html">Preflight Checklist</a>
+                            <a href="../tools/persona.html">Persona Architect</a>
+                            <a href="../patterns/index.html">Patterns Library</a>
+                            <a href="../pages/ai-safety.html">AI Safety</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../neurodivergence/index.html" class="nav-link">AI + Neurodivergence</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>AI by Neurotype</h4>
+                            <a href="../neurodivergence/adhd.html">AI for ADHD</a>
+                            <a href="../neurodivergence/autism.html">AI for Autism</a>
+                            <a href="../neurodivergence/dyslexia.html">AI for Dyslexia</a>
+                            <a href="../neurodivergence/tools.html">AI Tools Finder</a>
+                            <a href="../neurodivergence/resources.html">Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../pages/resources.html" class="nav-link">Resources</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Explore</h4>
+                            <a href="../pages/chatgpt-guide.html">ChatGPT Guide</a>
+                            <a href="../pages/faq.html">FAQ</a>
+                            <a href="../pages/glossary.html">Glossary</a>
+                            <a href="../pages/security.html">Security</a>
+                            <a href="../pages/performance.html">Performance</a>
+                            <a href="../pages/ai-for-everybody.html">AI for Everybody</a>
+                            <a href="../pages/universal-design.html">Universal Design</a>
+                            <a href="../pages/ai-assisted-building.html">AI Assisted</a>
+                            <a href="../pages/about.html">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- === HERO SECTION === -->
+        <section class="page-hero">
+            <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">Prompt Chaining</span>
+                </nav>
+                <div class="hero-badge">
+                    <svg class="hero-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <circle cx="18" cy="18" r="3"/>
+                        <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                    </svg>
+                    <span class="hero-badge__text">Foundation Framework</span>
+                </div>
+                <h1 class="page-title fade-in">Prompt Chaining Framework</h1>
+                <p class="page-subtitle fade-in">Break complex tasks into connected steps. Assembly-line production for AI workflows.</p>
+            </div>
+        </section>
+        <!-- /HERO SECTION -->
+
+        <!-- === CONTENT BADGES === -->
+        <section class="section">
+            <div class="container">
+                <div class="content-badges fade-in-up">
+                    <span class="content-badge content-badge--ai" data-badge-type="ai">
+                        <span class="badge-label">AI for</span>
+                        <span class="badge-value">Everybody</span>
+                    </span>
+                    <span class="content-badge content-badge--udl" data-badge-type="udl">
+                        <span class="badge-label">Built With</span>
+                        <span class="badge-value">UD/UDL</span>
+                    </span>
+                    <span class="content-badge content-badge--security" data-badge-type="security">
+                        <span class="badge-label">Security</span>
+                        <span class="badge-value">A+ 100%</span>
+                    </span>
+                    <span class="content-badge content-badge--performance" data-badge-type="performance">
+                        <span class="badge-label">Performance</span>
+                        <span class="badge-value">100%</span>
+                    </span>
+                    <span class="content-badge content-badge--claude" data-badge-type="claude">
+                        <span class="badge-label">AI Assisted Building</span>
+                        <span class="badge-value">Claude Code</span>
+                    </span>
+                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+                        <span class="badge-label">Community</span>
+                        <span class="badge-value">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- /CONTENT BADGES -->
+
+        <!-- === WHY PROMPT CHAINING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">Why This Framework</span>
+                        <h2 class="section-title">Assembly-Line AI</h2>
+                        <p class="section-intro">Complex tasks work better as a series of focused steps rather than one giant prompt. Each step gets the AI's full attention, you can verify intermediate results, and when something goes wrong, you know exactly which step failed.</p>
+                        <div class="feature-list feature-list--check">
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Focused Attention</span>
+                                    <span class="feature-list__text">Each step gets the AI's full context window</span>
+                                </div>
+                            </div>
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Verifiable Outputs</span>
+                                    <span class="feature-list__text">Check intermediate results before proceeding</span>
+                                </div>
+                            </div>
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Debuggable Process</span>
+                                    <span class="feature-list__text">Know exactly where issues occur</span>
+                                </div>
+                            </div>
+                            <div class="feature-list__item">
+                                <span class="feature-list__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20,6 9,17 4,12"/>
+                                    </svg>
+                                </span>
+                                <div class="feature-list__content">
+                                    <span class="feature-list__title">Reusable Chains</span>
+                                    <span class="feature-list__text">Good chains work for similar tasks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__media">
+                        <div class="element-timeline fade-in-up">
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">1</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Research</h3>
+                                    <p class="element-timeline__text">"List all factors to consider for [topic]"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">2</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Analyze</h3>
+                                    <p class="element-timeline__text">"Given these factors, analyze the implications"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">3</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Synthesize</h3>
+                                    <p class="element-timeline__text">"Based on analysis, recommend a course of action"</p>
+                                </div>
+                            </div>
+                            <div class="element-timeline__item">
+                                <div class="element-timeline__marker">
+                                    <span class="element-timeline__number">4</span>
+                                </div>
+                                <div class="element-timeline__content">
+                                    <h3 class="element-timeline__title">Refine</h3>
+                                    <p class="element-timeline__text">"Review recommendations and add implementation steps"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHY PROMPT CHAINING -->
+
+        <!-- === CHAIN PATTERNS === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">How to Use It</span>
+                    <h2 class="section-title">Common Chain Patterns</h2>
+                    <p class="section-subtitle">Choose the pattern that fits your workflow</p>
+                </div>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Linear Chain</h3>
+                        <p class="pillar-card__text">Step 1 → Step 2 → Step 3. Each step builds on the previous output.</p>
+                        <span class="pillar-card__tag">Sequential tasks</span>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Parallel Chain</h3>
+                        <p class="pillar-card__text">Multiple prompts run independently, then merge results at the end.</p>
+                        <span class="pillar-card__tag">Independent sub-tasks</span>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                                <path d="M21 3v9h-9"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Iterative Chain</h3>
+                        <p class="pillar-card__text">Repeat steps until quality threshold is met. Built-in refinement loop.</p>
+                        <span class="pillar-card__tag">Quality refinement</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CHAIN PATTERNS -->
+
+        <!-- === WHEN TO USE === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Best Fit</span>
+                    <h2 class="section-title">When to Use Prompt Chaining</h2>
+                    <p class="section-subtitle">Ideal for complex, multi-stage workflows</p>
+                </div>
+
+                <div class="use-case-grid">
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Long Documents</h3>
+                        <p class="use-case-card__desc">Research, outline, draft, then edit in separate focused steps.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Code Projects</h3>
+                        <p class="use-case-card__desc">Plan architecture, write code, then review and test separately.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Research Tasks</h3>
+                        <p class="use-case-card__desc">Gather sources, extract key points, synthesize findings.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 20h9"/>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Content Creation</h3>
+                        <p class="use-case-card__desc">Brainstorm, outline, write, format, and proofread as chain.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Data Analysis</h3>
+                        <p class="use-case-card__desc">Clean data, analyze patterns, generate insights, create reports.</p>
+                    </div>
+                    <div class="use-case-card fade-in-up">
+                        <div class="use-case-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-card__title">Meeting Workflows</h3>
+                        <p class="use-case-card__desc">Create agenda, summarize notes, extract action items, draft follow-ups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore frameworks that complement Prompt Chaining</p>
+
+                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="6" cy="6" r="3"/>
+                            <circle cx="18" cy="18" r="3"/>
+                            <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Reasoning Framework</span>
+                        <span class="evolution-callout__title">Chain-of-Thought Framework</span>
+                        <span class="evolution-callout__desc">Use CoT within each chain step for complex reasoning tasks.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="react.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                            <path d="M21 3v9h-9"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Action Framework</span>
+                        <span class="evolution-callout__title">ReAct Framework</span>
+                        <span class="evolution-callout__desc">Combine with ReAct for chains that need external actions and observations.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Verification Framework</span>
+                        <span class="evolution-callout__title">Self-Consistency Framework</span>
+                        <span class="evolution-callout__desc">Add verification steps to your chain for critical outputs.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === SOURCES === -->
+        <section class="section citations-section">
+            <div class="container">
+                <h2>Sources</h2>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <a href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener noreferrer">AI Index Report 2024 - Stanford Human-Centered AI Institute</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- /SOURCES -->
+
+        <!-- === CTA === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Build Your First Chain</h2>
+                        <p class="cta-corporate__text">Use our Prompt Builder to create multi-step workflows.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../tools/analyzer.html" class="btn btn-secondary">Analyze a Prompt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the Art of AI Communication theory through proven frameworks.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Framework</a>
+                    <a href="crispe.html">CRISPE Framework</a>
+                    <a href="costar.html">COSTAR Framework</a>
+                    <a href="react.html">ReAct Framework</a>
+                    <a href="flipped-interaction.html">Flipped Interaction</a>
+                    <a href="prompt-chaining.html">Prompt Chaining</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                    <a href="../tools/guidance.html">Prompt Builder</a>
+                    <a href="../tools/matcher.html">Framework Matcher</a>
+                    <a href="../tools/checklist.html">Preflight Checklist</a>
+                    <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="../pages/ai-safety.html">AI Safety</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/chatgpt-guide.html">ChatGPT Guide</a>
+                    <a href="../pages/faq.html">FAQ</a>
+                    <a href="../pages/glossary.html">Glossary</a>
+                    <a href="../pages/security.html">Security</a>
+                    <a href="../pages/performance.html">Performance</a>
+                    <a href="../pages/ai-for-everybody.html">AI for Everybody</a>
+                    <a href="../pages/universal-design.html">Universal Design</a>
+                    <a href="../pages/ai-assisted-building.html">AI Assisted</a>
+                    <a href="../pages/about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+                <p class="footer-quote">"True innovation in AI isn't just about companies adopting AI as a new technology—it's about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential." <span class="footer-quote-author">— Bas</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Badge Lightbox -->
+    <div class="badge-lightbox-overlay" aria-hidden="true"></div>
+    <div class="badge-lightbox" role="dialog" aria-modal="true" aria-labelledby="badge-lightbox-title">
+        <header class="badge-lightbox-header">
+            <h2 class="badge-lightbox-title" id="badge-lightbox-title"></h2>
+            <button class="badge-lightbox-close" aria-label="Close dialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </header>
+        <div class="badge-lightbox-content"></div>
+    </div>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

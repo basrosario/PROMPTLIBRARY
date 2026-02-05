@@ -3221,62 +3221,98 @@
     "url": "learn/flipped-interaction.html#how-to-trigger"
   },
   {
-    "id": "learn-advanced",
-    "title": "Advanced Techniques",
-    "category": "Learn",
-    "subcategory": "Expert",
-    "keywords": [
-      "advanced",
-      "techniques",
-      "expert",
-      "chain of thought",
-      "few-shot",
-      "self-consistency"
-    ],
-    "excerpt": "Chain-of-thought, few-shot learning, and expert-level strategies for maximum AI performance.",
-    "url": "learn/advanced.html"
-  },
-  {
     "id": "learn-chain-of-thought",
-    "title": "Chain-of-Thought Prompting",
+    "title": "Chain-of-Thought Framework",
     "category": "Learn",
-    "subcategory": "Advanced Techniques",
+    "subcategory": "Frameworks",
     "keywords": [
       "chain of thought",
       "step by step",
       "reasoning",
-      "think through"
+      "think through",
+      "cot",
+      "framework"
     ],
     "excerpt": "Encourage AI to think step-by-step through complex problems. Improves accuracy for math, logic, and analysis.",
-    "url": "learn/advanced.html#chain-of-thought"
+    "url": "learn/chain-of-thought.html"
   },
   {
     "id": "learn-few-shot-learning",
-    "title": "Few-Shot Learning",
+    "title": "Few-Shot Learning Framework",
     "category": "Learn",
-    "subcategory": "Advanced Techniques",
+    "subcategory": "Frameworks",
     "keywords": [
       "few-shot",
       "examples",
       "demonstrations",
-      "pattern matching"
+      "pattern matching",
+      "framework"
     ],
     "excerpt": "Provide 2-5 examples to help AI understand the pattern you want. More effective than description for complex formats.",
-    "url": "learn/advanced.html#few-shot-learning"
+    "url": "learn/few-shot-learning.html"
   },
   {
-    "id": "learn-self-consistency-technique",
-    "title": "Self-Consistency Technique",
+    "id": "learn-role-prompting",
+    "title": "Role Prompting Framework",
     "category": "Learn",
-    "subcategory": "Advanced Techniques",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "role prompting",
+      "persona",
+      "expert",
+      "character",
+      "act as",
+      "framework"
+    ],
+    "excerpt": "Assign AI a specific role or persona to shape its responses. Useful for expert knowledge and consistent tone.",
+    "url": "learn/role-prompting.html"
+  },
+  {
+    "id": "learn-constrained-output",
+    "title": "Constrained Output Framework",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "constrained output",
+      "format",
+      "structured",
+      "json",
+      "template",
+      "framework"
+    ],
+    "excerpt": "Define exact output formats, lengths, and structures. Essential for integrating AI outputs into workflows.",
+    "url": "learn/constrained-output.html"
+  },
+  {
+    "id": "learn-self-consistency",
+    "title": "Self-Consistency Framework",
+    "category": "Learn",
+    "subcategory": "Frameworks",
     "keywords": [
       "self-consistency",
       "multiple answers",
       "verification",
-      "accuracy"
+      "accuracy",
+      "framework"
     ],
     "excerpt": "Ask AI to solve problems multiple ways and compare. Helps catch errors and improve accuracy.",
-    "url": "learn/advanced.html#self-consistency"
+    "url": "learn/self-consistency.html"
+  },
+  {
+    "id": "learn-prompt-chaining",
+    "title": "Prompt Chaining Framework",
+    "category": "Learn",
+    "subcategory": "Frameworks",
+    "keywords": [
+      "prompt chaining",
+      "workflow",
+      "pipeline",
+      "sequential",
+      "multi-step",
+      "framework"
+    ],
+    "excerpt": "Break complex tasks into sequential prompts where each builds on previous outputs. Essential for complex workflows.",
+    "url": "learn/prompt-chaining.html"
   },
   {
     "id": "tool-analyzer",
