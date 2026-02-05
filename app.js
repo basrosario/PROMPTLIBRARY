@@ -6722,7 +6722,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: '<span class="badge-lightbox-highlight">Praxis believes AI literacy should be accessible to everyone</span>, regardless of technical background, experience level, or learning style.',
             features: [
                 'Plain language explanations of complex AI concepts',
-                'Multiple learning pathways for different skill levels',
+                'Multiple approach options for different skill levels',
                 'Free, open-source educational resources',
                 'No prerequisites or technical jargon barriers',
                 'Designed for diverse learning needs and abilities'
@@ -7604,7 +7604,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // PROMPT THEORY Category
         { title: 'Prompt Basics', desc: 'Fundamental concepts of AI prompting and how to communicate effectively with AI', url: 'learn/prompt-basics.html', category: 'Prompt Theory', keywords: ['basics', 'fundamentals', 'introduction', 'beginner', 'prompting', 'communication'] },
-        { title: 'Learning Hub', desc: 'Overview of all prompting methodologies and learning paths', url: 'learn/index.html', category: 'Prompt Theory', keywords: ['learning', 'hub', 'overview', 'methodologies', 'path', 'start'] },
+        { title: 'Learning Hub', desc: 'Overview of all prompting methodologies and frameworks', url: 'learn/index.html', category: 'Prompt Theory', keywords: ['learning', 'hub', 'overview', 'methodologies', 'frameworks', 'start'] },
 
         // PATTERNS Category
         { title: 'Patterns Library', desc: 'Common prompt patterns organized by use case and task type', url: 'patterns/index.html', category: 'Patterns', keywords: ['patterns', 'library', 'templates', 'use-case', 'task', 'collection'] },
@@ -10351,6 +10351,82 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     MiniFrameworkFinder.init();
+
+    // ==========================================
+    // JOURNEY FRAMEWORK SELECTOR
+    // Interactive framework picker for Learn page
+    // ==========================================
+    const JourneySelector = {
+        init() {
+            const container = document.querySelector('.journey-selector');
+            if (!container) return;
+
+            this.container = container;
+            this.detailPanel = document.querySelector('.journey-detail');
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // Event delegation for button clicks
+            this.container.addEventListener('click', (e) => {
+                const btn = e.target.closest('.journey-selector__btn');
+                if (!btn) return;
+                this.selectFramework(btn);
+            });
+
+            // Keyboard navigation
+            this.container.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.navigateWithArrows(e.key === 'ArrowRight' ? 1 : -1);
+                }
+            });
+        },
+
+        selectFramework(btn) {
+            const frameworkId = btn.dataset.framework;
+
+            // Update active state on buttons
+            this.container.querySelectorAll('.journey-selector__btn').forEach(b => {
+                b.classList.remove('is-active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-pressed', 'true');
+
+            // Show corresponding panel with animation
+            if (this.detailPanel) {
+                const panels = this.detailPanel.querySelectorAll('[data-framework-panel]');
+                panels.forEach(panel => {
+                    if (panel.dataset.frameworkPanel === frameworkId) {
+                        panel.hidden = false;
+                        // Re-trigger animation
+                        panel.style.animation = 'none';
+                        panel.offsetHeight; // Force reflow
+                        panel.style.animation = '';
+                    } else {
+                        panel.hidden = true;
+                    }
+                });
+            }
+        },
+
+        navigateWithArrows(direction) {
+            const buttons = Array.from(this.container.querySelectorAll('.journey-selector__btn'));
+            const activeBtn = this.container.querySelector('.journey-selector__btn.is-active');
+            const currentIndex = buttons.indexOf(activeBtn);
+            let newIndex = currentIndex + direction;
+
+            // Wrap around
+            if (newIndex < 0) newIndex = buttons.length - 1;
+            if (newIndex >= buttons.length) newIndex = 0;
+
+            buttons[newIndex].focus();
+            this.selectFramework(buttons[newIndex]);
+        }
+    };
+
+    JourneySelector.init();
 
     // === AI READINESS CYCLING ANIMATION ===
     // Auto-cycles through readiness areas with hover pause

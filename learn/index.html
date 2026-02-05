@@ -25,6 +25,7 @@
                         <div class="mega-menu-section">
                             <h4>Prompt Basics</h4>
                             <a href="prompt-basics.html">Prompt Basics</a>
+                            <a href="facts-fictions.html">Facts & Fictions</a>
                         </div>
                         <div class="mega-menu-section">
                             <h4>Foundation</h4>
@@ -121,7 +122,7 @@
             <div class="container">
                 <div class="split-section split-section--stretch" data-aos="fade-up">
                     <div class="split-section__content">
-                        <span class="split-section__eyebrow">Your Journey Begins</span>
+                        <span class="split-section__eyebrow">Choose Your Learning Path</span>
                         <h2 class="split-section__title">Start Here</h2>
                         <p class="split-section__text">Master AI communication through a progressive learning path. Each framework builds on the last—from foundational concepts to advanced techniques that unlock AI's full potential.</p>
                         <div class="feature-list feature-list--check">
@@ -161,6 +162,9 @@
                         </div>
                         <a href="prompt-basics.html" class="btn btn-primary">Begin with Prompt Basics</a>
                     </div>
+                    <div class="split-section__divider">
+                        <span class="split-section__or">OR</span>
+                    </div>
                     <div class="split-section__media">
                         <div class="journey-preview">
                             <div class="journey-preview__header">
@@ -169,46 +173,133 @@
                                     <path d="M2 17l10 5 10-5"/>
                                     <path d="M2 12l10 5 10-5"/>
                                 </svg>
-                                <span>Your Learning Path</span>
+                                <span>Choose A Framework</span>
                             </div>
-                            <div class="journey-preview__steps">
-                                <div class="journey-preview__step journey-preview__step--start">
-                                    <span class="journey-preview__number">1</span>
-                                    <span class="journey-preview__label">Basics</span>
-                                </div>
-                                <div class="journey-preview__connector"></div>
-                                <div class="journey-preview__step journey-preview__step--step2">
-                                    <span class="journey-preview__number">2</span>
-                                    <span class="journey-preview__label">CRISP</span>
-                                </div>
-                                <div class="journey-preview__connector"></div>
-                                <div class="journey-preview__step journey-preview__step--step3">
-                                    <span class="journey-preview__number">3</span>
-                                    <span class="journey-preview__label">CRISPE</span>
-                                </div>
-                                <div class="journey-preview__connector"></div>
-                                <div class="journey-preview__step journey-preview__step--step4">
-                                    <span class="journey-preview__number">4</span>
-                                    <span class="journey-preview__label">COSTAR</span>
-                                </div>
-                                <div class="journey-preview__connector"></div>
-                                <div class="journey-preview__step journey-preview__step--end">
-                                    <span class="journey-preview__number">5</span>
-                                    <span class="journey-preview__label">Advanced</span>
-                                </div>
+                            <!-- Framework Selector Grid -->
+                            <div class="journey-selector">
+                                <button class="journey-selector__btn is-active" data-framework="1" aria-pressed="true">
+                                    <span class="journey-selector__num">1</span>
+                                    <span class="journey-selector__label">CRISP</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="2" aria-pressed="false">
+                                    <span class="journey-selector__num">2</span>
+                                    <span class="journey-selector__label">CRISPE</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="3" aria-pressed="false">
+                                    <span class="journey-selector__num">3</span>
+                                    <span class="journey-selector__label">COSTAR</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="4" aria-pressed="false">
+                                    <span class="journey-selector__num">4</span>
+                                    <span class="journey-selector__label">Flipped</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="5" aria-pressed="false">
+                                    <span class="journey-selector__num">5</span>
+                                    <span class="journey-selector__label">ReAct</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="6" aria-pressed="false">
+                                    <span class="journey-selector__num">6</span>
+                                    <span class="journey-selector__label">CoT</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="7" aria-pressed="false">
+                                    <span class="journey-selector__num">7</span>
+                                    <span class="journey-selector__label">Few-Shot</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="8" aria-pressed="false">
+                                    <span class="journey-selector__num">8</span>
+                                    <span class="journey-selector__label">Role</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="9" aria-pressed="false">
+                                    <span class="journey-selector__num">9</span>
+                                    <span class="journey-selector__label">Constrain</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="10" aria-pressed="false">
+                                    <span class="journey-selector__num">10</span>
+                                    <span class="journey-selector__label">Verify</span>
+                                </button>
+                                <button class="journey-selector__btn" data-framework="11" aria-pressed="false">
+                                    <span class="journey-selector__num">11</span>
+                                    <span class="journey-selector__label">Chaining</span>
+                                </button>
                             </div>
-                            <div class="journey-preview__stats">
-                                <div class="journey-preview__stat">
-                                    <span class="journey-preview__stat-number">12</span>
-                                    <span class="journey-preview__stat-label">Frameworks</span>
+                            <!-- Framework Detail Panel -->
+                            <div class="journey-detail" aria-live="polite">
+                                <div class="journey-detail__content" data-framework-panel="1">
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">CRISP Framework</h3>
+                                    <p class="journey-detail__acronym">Context · Role · Instructions · Specifics · Parameters</p>
+                                    <p class="journey-detail__desc">The essential structure for clear, effective prompts. Start here to build your foundation.</p>
+                                    <a href="crisp.html" class="journey-detail__link">Learn CRISP →</a>
                                 </div>
-                                <div class="journey-preview__stat">
-                                    <span class="journey-preview__stat-number">25+</span>
-                                    <span class="journey-preview__stat-label">Techniques</span>
+                                <div class="journey-detail__content" data-framework-panel="2" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">CRISPE Framework</h3>
+                                    <p class="journey-detail__acronym">CRISP + Examples</p>
+                                    <p class="journey-detail__desc">Add few-shot learning for consistent, predictable outputs across repeated tasks.</p>
+                                    <a href="crispe.html" class="journey-detail__link">Learn CRISPE →</a>
                                 </div>
-                                <div class="journey-preview__stat">
-                                    <span class="journey-preview__stat-number">∞</span>
-                                    <span class="journey-preview__stat-label">Possibilities</span>
+                                <div class="journey-detail__content" data-framework-panel="3" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">COSTAR Framework</h3>
+                                    <p class="journey-detail__acronym">Context · Objective · Style · Tone · Audience · Response</p>
+                                    <p class="journey-detail__desc">Perfect for professional content where audience awareness matters most.</p>
+                                    <a href="costar.html" class="journey-detail__link">Learn COSTAR →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="4" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Flipped Interaction</h3>
+                                    <p class="journey-detail__acronym">Let AI Ask First</p>
+                                    <p class="journey-detail__desc">Prevent generic advice by having AI ask clarifying questions before responding.</p>
+                                    <a href="flipped-interaction.html" class="journey-detail__link">Learn Flipped →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="5" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">ReAct Framework</h3>
+                                    <p class="journey-detail__acronym">Reasoning + Acting</p>
+                                    <p class="journey-detail__desc">For complex tasks requiring transparent, step-by-step verifiable thinking processes.</p>
+                                    <a href="react.html" class="journey-detail__link">Learn ReAct →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="6" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Chain-of-Thought</h3>
+                                    <p class="journey-detail__acronym">Step-by-Step Reasoning</p>
+                                    <p class="journey-detail__desc">Make AI thinking visible. Force step-by-step reasoning for complex problems.</p>
+                                    <a href="chain-of-thought.html" class="journey-detail__link">Learn CoT →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="7" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Few-Shot Learning</h3>
+                                    <p class="journey-detail__acronym">Teaching by Example</p>
+                                    <p class="journey-detail__desc">Show AI what you want through examples. Pattern matching for consistent outputs.</p>
+                                    <a href="few-shot-learning.html" class="journey-detail__link">Learn Few-Shot →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="8" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Role Prompting</h3>
+                                    <p class="journey-detail__acronym">Persona Assignment</p>
+                                    <p class="journey-detail__desc">Give AI an expert identity. Access specialized knowledge and perspectives.</p>
+                                    <a href="role-prompting.html" class="journey-detail__link">Learn Role Prompting →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="9" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Constrained Output</h3>
+                                    <p class="journey-detail__acronym">Structured Formats</p>
+                                    <p class="journey-detail__desc">Control AI output structure. Get JSON, tables, or custom formats reliably.</p>
+                                    <a href="constrained-output.html" class="journey-detail__link">Learn Constrained →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="10" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Self-Consistency</h3>
+                                    <p class="journey-detail__acronym">Built-in Quality Control</p>
+                                    <p class="journey-detail__desc">Have AI verify its own work. Multiple approaches for reliable outputs.</p>
+                                    <a href="self-consistency.html" class="journey-detail__link">Learn Self-Consistency →</a>
+                                </div>
+                                <div class="journey-detail__content" data-framework-panel="11" hidden>
+                                    <span class="journey-detail__badge">Foundation</span>
+                                    <h3 class="journey-detail__title">Prompt Chaining</h3>
+                                    <p class="journey-detail__acronym">Assembly-Line AI</p>
+                                    <p class="journey-detail__desc">Break complex tasks into connected steps. Focused, verifiable workflows.</p>
+                                    <a href="prompt-chaining.html" class="journey-detail__link">Learn Chaining →</a>
                                 </div>
                             </div>
                             <div class="journey-preview__quote">
@@ -242,7 +333,7 @@
 
                     <a href="crispe.html" class="framework-card">
                         <div class="framework-card__header">
-                            <span class="framework-card__badge framework-card__badge--extended">Extended</span>
+                            <span class="framework-card__badge framework-card__badge--foundation">Foundation</span>
                             <span class="framework-card__elements">6 elements</span>
                         </div>
                         <h3 class="framework-card__title">CRISPE</h3>
@@ -253,7 +344,7 @@
 
                     <a href="costar.html" class="framework-card">
                         <div class="framework-card__header">
-                            <span class="framework-card__badge framework-card__badge--professional">Professional</span>
+                            <span class="framework-card__badge framework-card__badge--foundation">Foundation</span>
                             <span class="framework-card__elements">6 elements</span>
                         </div>
                         <h3 class="framework-card__title">COSTAR</h3>
@@ -264,7 +355,7 @@
 
                     <a href="flipped-interaction.html" class="framework-card">
                         <div class="framework-card__header">
-                            <span class="framework-card__badge framework-card__badge--interactive">Interactive</span>
+                            <span class="framework-card__badge framework-card__badge--foundation">Foundation</span>
                             <span class="framework-card__elements">3 phases</span>
                         </div>
                         <h3 class="framework-card__title">Flipped Interaction</h3>
@@ -275,7 +366,7 @@
 
                     <a href="react.html" class="framework-card">
                         <div class="framework-card__header">
-                            <span class="framework-card__badge framework-card__badge--advanced">Advanced</span>
+                            <span class="framework-card__badge framework-card__badge--foundation">Foundation</span>
                             <span class="framework-card__elements">3 cycles</span>
                         </div>
                         <h3 class="framework-card__title">ReAct</h3>

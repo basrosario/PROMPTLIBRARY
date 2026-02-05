@@ -2915,6 +2915,24 @@
     "url": "learn/prompt-basics.html#anatomy"
   },
   {
+    "id": "learn-facts-fictions",
+    "title": "Facts & Fictions",
+    "category": "Learn",
+    "subcategory": "Fundamentals",
+    "keywords": [
+      "facts",
+      "fictions",
+      "myths",
+      "misconceptions",
+      "debunked",
+      "research",
+      "verified",
+      "truth"
+    ],
+    "excerpt": "Research-backed truths about AI capabilities, prompt engineering, and common misconceptions from MIT, Stanford, Wharton, and government sources.",
+    "url": "learn/facts-fictions.html"
+  },
+  {
     "id": "learn-crisp",
     "title": "CRISP Method",
     "category": "Learn",
@@ -3667,7 +3685,7 @@
       "where to start",
       "begin",
       "first steps",
-      "learning path"
+      "framework selection"
     ],
     "excerpt": "Start with Prompt Basics to understand core concepts, then move to CRISP Method as your first framework.",
     "url": "pages/faq.html#getting-started"

@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
+    <meta name="description" content="Separate AI fact from fiction. Research-backed truths about AI capabilities, prompt engineering, and common misconceptions from MIT, Stanford, Wharton, and government sources.">
+    <title>Facts & Fictions - AI Myths Debunked - Praxis</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
+            <nav class="nav" id="nav">
+                <div class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link active">Learn</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Prompt Basics</h4>
+                            <a href="prompt-basics.html">Prompt Basics</a>
+                            <a href="facts-fictions.html">Facts & Fictions</a>
+                        </div>
+                        <div class="mega-menu-section">
+                            <h4>Foundation</h4>
+                            <a href="crisp.html">CRISP Framework</a>
+                            <a href="crispe.html">CRISPE Framework</a>
+                            <a href="costar.html">COSTAR Framework</a>
+                            <a href="react.html">ReAct Framework</a>
+                            <a href="flipped-interaction.html">Flipped Interaction</a>
+                            <a href="chain-of-thought.html">Chain-of-Thought</a>
+                            <a href="few-shot-learning.html">Few-Shot Learning</a>
+                            <a href="role-prompting.html">Role Prompting</a>
+                            <a href="constrained-output.html">Constrained Output</a>
+                            <a href="self-consistency.html">Self-Consistency</a>
+                            <a href="prompt-chaining.html">Prompt Chaining</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../tools/index.html" class="nav-link">AI Readiness</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Tools</h4>
+                            <a href="../quiz/index.html">Readiness Quiz</a>
+                            <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                            <a href="../tools/guidance.html">Prompt Builder</a>
+                            <a href="../tools/matcher.html">Framework Matcher</a>
+                            <a href="../tools/checklist.html">Preflight Checklist</a>
+                            <a href="../tools/persona.html">Persona Architect</a>
+                            <a href="../patterns/index.html">Patterns Library</a>
+                            <a href="../pages/ai-safety.html">AI Safety</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../neurodivergence/index.html" class="nav-link">AI + Neurodivergence</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>AI by Neurotype</h4>
+                            <a href="../neurodivergence/adhd.html">AI for ADHD</a>
+                            <a href="../neurodivergence/autism.html">AI for Autism</a>
+                            <a href="../neurodivergence/dyslexia.html">AI for Dyslexia</a>
+                            <a href="../neurodivergence/tools.html">AI Tools Finder</a>
+                            <a href="../neurodivergence/resources.html">Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    <a href="../pages/resources.html" class="nav-link">Resources</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-section">
+                            <h4>Explore</h4>
+                            <a href="../pages/chatgpt-guide.html">ChatGPT Guide</a>
+                            <a href="../pages/faq.html">FAQ</a>
+                            <a href="../pages/glossary.html">Glossary</a>
+                            <a href="../pages/security.html">Security</a>
+                            <a href="../pages/performance.html">Performance</a>
+                            <a href="../pages/ai-for-everybody.html">AI for Everybody</a>
+                            <a href="../pages/universal-design.html">Universal Design</a>
+                            <a href="../pages/ai-assisted-building.html">AI Assisted</a>
+                            <a href="../pages/about.html">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- === HERO SECTION === -->
+        <section class="page-hero">
+            <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
+            <div class="container">
+                <nav class="breadcrumb fade-in">
+                    <a href="../index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="index.html">Learn</a>
+                    <span class="separator">/</span>
+                    <span class="current">Facts & Fictions</span>
+                </nav>
+                <div class="hero-badge">
+                    <svg class="hero-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <span class="hero-badge__text">Research-Verified</span>
+                </div>
+                <h1 class="page-title fade-in">Facts & Fictions</h1>
+                <p class="page-subtitle fade-in">Separate AI myth from reality. Every claim below is backed by peer-reviewed research from universities and government institutions.</p>
+            </div>
+        </section>
+        <!-- /HERO SECTION -->
+
+        <!-- === SITE BADGES & INTRO === -->
+        <section class="section">
+            <div class="container">
+                <div class="content-badges fade-in-up">
+                    <span class="content-badge content-badge--ai" data-badge-type="ai">
+                        <span class="badge-label">AI for</span>
+                        <span class="badge-value">Everybody</span>
+                    </span>
+                    <span class="content-badge content-badge--udl" data-badge-type="udl">
+                        <span class="badge-label">Built With</span>
+                        <span class="badge-value">UD/UDL</span>
+                    </span>
+                    <span class="content-badge content-badge--security" data-badge-type="security">
+                        <span class="badge-label">Security</span>
+                        <span class="badge-value">A+ 100%</span>
+                    </span>
+                    <span class="content-badge content-badge--performance" data-badge-type="performance">
+                        <span class="badge-label">Performance</span>
+                        <span class="badge-value">100%</span>
+                    </span>
+                    <span class="content-badge content-badge--claude" data-badge-type="claude">
+                        <span class="badge-label">AI Assisted Building</span>
+                        <span class="badge-value">Claude Code</span>
+                    </span>
+                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
+                        <span class="badge-label">Community</span>
+                        <span class="badge-value">GitHub</span>
+                    </a>
+                </div>
+                <div class="highlight-box highlight-box--info fade-in-up">
+                    <div class="highlight-box__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-box__content">
+                        <p class="highlight-box__title">Why This Page Exists</p>
+                        <p>Misconceptions about AI capabilities spread quickly. This page presents <strong>only verified facts</strong> from peer-reviewed research at institutions including MIT, Stanford, UC Berkeley, Wharton, and government agencies like NIST and the FTC. Each myth and its corresponding reality is backed by published academic research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /SITE BADGES & INTRO -->
+
+        <!-- === RESEARCH HIGHLIGHTS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">By The Numbers</span>
+                <h2 class="section-title fade-in-up">Research Highlights</h2>
+                <p class="section-subtitle fade-in-up">Key findings from academic studies cited on this page</p>
+
+                <div class="research-stats-grid fade-in-up">
+                    <div class="research-stat-card">
+                        <div class="research-stat-card__value">106</div>
+                        <div class="research-stat-card__label">Experiments analyzed</div>
+                        <div class="research-stat-card__source">Nature Human Behaviour meta-analysis</div>
+                    </div>
+                    <div class="research-stat-card">
+                        <div class="research-stat-card__value">60%</div>
+                        <div class="research-stat-card__label">Accuracy swing</div>
+                        <div class="research-stat-card__source">Question-level variation from phrasing</div>
+                    </div>
+                    <div class="research-stat-card">
+                        <div class="research-stat-card__value">8,214</div>
+                        <div class="research-stat-card__label">Study participants</div>
+                        <div class="research-stat-card__source">Creativity meta-analysis (Holzner, 2025)</div>
+                    </div>
+                    <div class="research-stat-card">
+                        <div class="research-stat-card__value">100×</div>
+                        <div class="research-stat-card__label">Tests per question</div>
+                        <div class="research-stat-card__source">Wharton variability study</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /RESEARCH HIGHLIGHTS -->
+
+        <!-- === AI CAPABILITY MYTHS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Understanding AI</span>
+                <h2 class="section-title fade-in-up">AI Capability Myths</h2>
+                <p class="section-subtitle fade-in-up">Common misconceptions about what AI can and cannot do</p>
+
+                <div class="myth-fact-grid fade-in-up">
+                    <!-- Myth 1 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">01</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI tools are intelligent and think like humans</h3>
+                            <p class="myth-fact-card__text">Many believe that AI systems like ChatGPT possess human-like understanding, reasoning, and comprehension of meaning.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI operates on pattern matching, not understanding</h3>
+                            <p class="myth-fact-card__text">Generative AI systems lack human cognition. They operate similarly to predictive text, arranging frequently co-occurring words rather than thinking or evaluating like humans do.</p>
+                            <span class="myth-fact-card__source">UC Colorado Springs Library; MIT Press Open Mind (2024)</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 2 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">02</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI chatbots are search engines that find information</h3>
+                            <p class="myth-fact-card__text">Users often treat ChatGPT and similar tools like Google, expecting them to locate and retrieve accurate information from the internet.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI generates text, it doesn't retrieve facts</h3>
+                            <p class="myth-fact-card__text">"Google is a website finding machine and ChatGPT is a paraphrase machine." These tools generate responses by rearranging words from training data, unlike search engines.</p>
+                            <span class="myth-fact-card__source">UC Colorado Springs Library Research Guide</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 3 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">03</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI will replace all human labor</h3>
+                            <p class="myth-fact-card__text">Headlines proclaim that AI will eliminate most jobs and make human workers obsolete across all industries.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI automates tasks, not entire jobs</h3>
+                            <p class="myth-fact-card__text">Professionals remain essential for data quality checks, bias mitigation, and stakeholder presentations—functions requiring judgment. AI handles routine tasks.</p>
+                            <span class="myth-fact-card__source">University of Minnesota Carlson School</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 4 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">04</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">Better AI models always perform more reliably</h3>
+                            <p class="myth-fact-card__text">As AI models improve on benchmarks, they should naturally become more trustworthy and predictable in real-world use.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">More capable models can be less predictable</h3>
+                            <p class="myth-fact-card__text">"More capable models tend to perform worse in high-stakes situations" due to misalignment with human expectations. They don't show patterns of expertise like humans.</p>
+                            <span class="myth-fact-card__source">MIT News (July 2024)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /AI CAPABILITY MYTHS -->
+
+        <!-- === PROMPTING MYTHS === -->
+        <section class="section">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Prompting Research</span>
+                <h2 class="section-title fade-in-up">Prompt Engineering Myths</h2>
+                <p class="section-subtitle fade-in-up">Research-tested truths about prompting techniques</p>
+
+                <div class="myth-fact-grid fade-in-up">
+                    <!-- Myth 5 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">05</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">Universal prompting techniques work everywhere</h3>
+                            <p class="myth-fact-card__text">Techniques like politeness, specific phrasing, or formatting should produce reliable improvements across all questions and models.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">Prompting effects are inconsistent and context-dependent</h3>
+                            <p class="myth-fact-card__text">Individual questions showed swings up to 60 percentage points depending on phrasing, but these differences often cancelled out across datasets.</p>
+                            <span class="myth-fact-card__source">Wharton Generative AI Labs (2024)</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 6 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">06</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">Chain-of-Thought prompting universally improves results</h3>
+                            <p class="myth-fact-card__text">Asking AI to "think step by step" should always produce better, more accurate answers across all scenarios.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">Chain-of-Thought effectiveness varies by model and task</h3>
+                            <p class="myth-fact-card__text">Improvements were modest (2.9%–13.5%). Response times increased 20–80%. CoT can help harder problems while causing errors on easier questions.</p>
+                            <span class="myth-fact-card__source">Wharton GenAI Labs - "Decreasing Value of CoT"</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 7 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">07</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI models give consistent answers to the same question</h3>
+                            <p class="myth-fact-card__text">Running the same prompt should produce the same or very similar results each time.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI produces substantial hidden variability</h3>
+                            <p class="myth-fact-card__text">Testing GPT-4o 100 times per question revealed substantial variability. Traditional benchmarks likely overestimate reliability.</p>
+                            <span class="myth-fact-card__source">Wharton Generative AI Labs (2024)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /PROMPTING MYTHS -->
+
+        <!-- === PRODUCTIVITY MYTHS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Meta-Analysis 2019-2025</span>
+                <h2 class="section-title fade-in-up">AI Productivity Myths</h2>
+                <p class="section-subtitle fade-in-up">What meta-analyses of 2019-2025 research actually show</p>
+
+                <div class="myth-fact-grid fade-in-up">
+                    <!-- Myth 8 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">08</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI reliably boosts productivity for everyone</h3>
+                            <p class="myth-fact-card__text">AI should improve work output across most contexts and user types uniformly.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">Productivity gains are highly variable</h3>
+                            <p class="myth-fact-card__text">37 software studies found code-quality regressions often offset gains. AI delivered 35% gains for novices but almost none for experienced workers.</p>
+                            <span class="myth-fact-card__source">California Management Review / UC Berkeley (2025)</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 9 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">09</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">Human-AI collaboration always outperforms either alone</h3>
+                            <p class="myth-fact-card__text">Teams combining humans and AI should consistently outperform either working independently.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">Human-AI teams often underperform solo work</h3>
+                            <p class="myth-fact-card__text">106 experiments found human-AI combinations "perform worse than the better of the two working solo" except for open-ended creative tasks.</p>
+                            <span class="myth-fact-card__source">Nature Human Behaviour (Vaccaro et al., 2024)</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 10 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">10</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI has surpassed human creativity</h3>
+                            <p class="myth-fact-card__text">Generative AI produces more creative and novel outputs than humans working alone.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">No significant creativity gap exists</h3>
+                            <p class="myth-fact-card__text">8,214 participants showed no creativity gap. AI use caused "dramatic declines in idea diversity"—a homogenization effect undermining innovation.</p>
+                            <span class="myth-fact-card__source">UC Berkeley (Holzner et al., 2025)</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 11 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">11</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">Higher automation reduces errors</h3>
+                            <p class="myth-fact-card__text">Automating decisions with AI should decrease both cognitive load and mistake rates.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">High reliability creates dangerous blind spots</h3>
+                            <p class="myth-fact-card__text">74 studies found users become over-trusting with reliable AI, causing "12% increase in commission errors" and slower anomaly detection.</p>
+                            <span class="myth-fact-card__source">UC Berkeley (Goddard et al.)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /PRODUCTIVITY MYTHS -->
+
+        <!-- === AI BEHAVIOR MYTHS === -->
+        <section class="section">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Model Behavior</span>
+                <h2 class="section-title fade-in-up">AI Behavior Myths</h2>
+                <p class="section-subtitle fade-in-up">Understanding how AI actually operates</p>
+
+                <div class="myth-fact-grid fade-in-up">
+                    <!-- Myth 12 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">12</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI chatbots reliably find quality academic sources</h3>
+                            <p class="myth-fact-card__text">AI can help locate and cite credible academic research and documentation.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI frequently fabricates citations</h3>
+                            <p class="myth-fact-card__text">Chatbots "hallucinate" citations for nonexistent materials. Lawyers were fined for citing fake case law. Researchers found AI misrepresented their own work.</p>
+                            <span class="myth-fact-card__source">UC Colorado Springs; Van Dis et al. (2023) Nature</span>
+                        </div>
+                    </div>
+
+                    <!-- Myth 13 -->
+                    <div class="myth-fact-card">
+                        <div class="myth-fact-card__header">
+                            <span class="myth-fact-card__number">13</span>
+                        </div>
+                        <div class="myth-fact-card__fiction">
+                            <span class="myth-fact-badge myth-fact-badge--fiction">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Fiction
+                            </span>
+                            <h3 class="myth-fact-card__title">AI provides objective, unbiased responses</h3>
+                            <p class="myth-fact-card__text">AI systems are neutral arbiters that provide balanced, objective information.</p>
+                        </div>
+                        <div class="myth-fact-card__divider">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                        <div class="myth-fact-card__fact">
+                            <span class="myth-fact-badge myth-fact-badge--fact">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Fact
+                            </span>
+                            <h3 class="myth-fact-card__title">AI exhibits sycophancy and amplifies user opinions</h3>
+                            <p class="myth-fact-card__text">LLMs affirm user assumptions due to optimization that rewards agreeableness—a behavior called "sycophancy." They match patterns, not meaning.</p>
+                            <span class="myth-fact-card__source">MIT News (2024); NIH PMC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /AI BEHAVIOR MYTHS -->
+
+        <!-- === GOVERNMENT WARNINGS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Official Sources</span>
+                <h2 class="section-title fade-in-up">Government Warnings</h2>
+                <p class="section-subtitle fade-in-up">Official guidance from the Federal Trade Commission and NIST</p>
+
+                <div class="gov-warning-grid fade-in-up">
+                    <!-- FTC Warning Card -->
+                    <div class="gov-warning-card">
+                        <div class="gov-warning-card__header">
+                            <div class="gov-warning-card__icon gov-warning-card__icon--ftc">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="gov-warning-card__title-group">
+                                <span class="gov-warning-card__agency">Federal Trade Commission</span>
+                                <h3 class="gov-warning-card__title">Operation AI Comply</h3>
+                            </div>
+                        </div>
+                        <div class="gov-warning-card__content">
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>Fake Reviews</strong>
+                                    <p>AI tools can generate fake reviews, betraying customer trust and violating FTC rules.</p>
+                                </div>
+                            </div>
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>False AI Claims</strong>
+                                    <p>Using AI during development is not the same as offering a product "with AI inside."</p>
+                                </div>
+                            </div>
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>AI Accuracy Issues</strong>
+                                    <p>AI tools can be inaccurate, biased, and discriminatory by design.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NIST Warning Card -->
+                    <div class="gov-warning-card">
+                        <div class="gov-warning-card__header">
+                            <div class="gov-warning-card__icon gov-warning-card__icon--nist">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="3" y1="9" x2="21" y2="9"/>
+                                    <line x1="9" y1="21" x2="9" y2="9"/>
+                                </svg>
+                            </div>
+                            <div class="gov-warning-card__title-group">
+                                <span class="gov-warning-card__agency">National Institute of Standards</span>
+                                <h3 class="gov-warning-card__title">AI Risk Framework</h3>
+                            </div>
+                        </div>
+                        <div class="gov-warning-card__content">
+                            <p class="gov-warning-card__intro">Three categories of AI bias to manage:</p>
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon gov-warning-item__icon--info">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <line x1="12" y1="16" x2="12" y2="12"/>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>Systemic Bias</strong>
+                                    <p>Historical patterns embedded in training data</p>
+                                </div>
+                            </div>
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon gov-warning-item__icon--info">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <line x1="12" y1="16" x2="12" y2="12"/>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>Computational Bias</strong>
+                                    <p>Technical choices in model development</p>
+                                </div>
+                            </div>
+                            <div class="gov-warning-item">
+                                <span class="gov-warning-item__icon gov-warning-item__icon--info">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <line x1="12" y1="16" x2="12" y2="12"/>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                                    </svg>
+                                </span>
+                                <div class="gov-warning-item__text">
+                                    <strong>Human Bias</strong>
+                                    <p>Biases introduced through human decisions in AI design</p>
+                                </div>
+                            </div>
+                            <div class="gov-warning-card__note">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                All three types "can occur in the absence of prejudice, partiality, or discriminatory intent."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /GOVERNMENT WARNINGS -->
+
+        <!-- === KEY TAKEAWAYS === -->
+        <section class="section">
+            <div class="container">
+                <span class="section-eyebrow fade-in-up">Summary</span>
+                <h2 class="section-title fade-in-up">Key Takeaways</h2>
+                <div class="feature-grid fade-in-up">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Verify AI outputs</h3>
+                        <p class="feature-text">AI generates plausible text, not verified facts. Always fact-check important claims.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Context matters</h3>
+                        <p class="feature-text">Prompting techniques work differently across models and tasks. Test what works for your use case.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Humans remain essential</h3>
+                        <p class="feature-text">AI augments human work but cannot replace judgment, creativity, and critical thinking.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Beware over-reliance</h3>
+                        <p class="feature-text">High AI reliability creates blind spots. Maintain critical oversight even when AI seems accurate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /KEY TAKEAWAYS -->
+
+        <!-- === SOURCES === -->
+        <section class="section citations-section">
+            <div class="container">
+                <h2>Sources</h2>
+                <p>All facts on this page are sourced from peer-reviewed academic research and official government publications:</p>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <a href="https://news.mit.edu/2024/large-language-models-dont-behave-like-people-0723" target="_blank" rel="noopener noreferrer">Large Language Models Don't Behave Like People - MIT News (July 2024)</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/" target="_blank" rel="noopener noreferrer">Prompt Engineering is Complicated and Contingent - Wharton Generative AI Labs</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/" target="_blank" rel="noopener noreferrer">The Decreasing Value of Chain of Thought in Prompting - Wharton Generative AI Labs</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://cmr.berkeley.edu/2025/10/seven-myths-about-ai-and-productivity-what-the-evidence-really-says/" target="_blank" rel="noopener noreferrer">Seven Myths About AI and Productivity - California Management Review / UC Berkeley (2025)</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://libguides.uccs.edu/c.php?g=1357807&p=10026003" target="_blank" rel="noopener noreferrer">AI Myths Vs. Reality - UC Colorado Springs Library</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths" target="_blank" rel="noopener noreferrer">Debunking 5 Artificial Intelligence Myths - University of Minnesota Carlson School</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00160/124234/The-Limitations-of-Large-Language-Models-for" target="_blank" rel="noopener noreferrer">The Limitations of Large Language Models - MIT Press Open Mind (2024)</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://www.ftc.gov/business-guidance/blog/2024/09/operation-ai-comply-continuing-crackdown-overpromises-ai-related-lies" target="_blank" rel="noopener noreferrer">Operation AI Comply - Federal Trade Commission (September 2024)</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">AI Risk Management Framework - NIST</a>
+                    </li>
+                    <li class="citation-item">
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7660373/" target="_blank" rel="noopener noreferrer">Why We Need to Bust Some Myths about AI - NIH PMC</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- /SOURCES -->
+
+        <!-- === CTA === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Learn Effective Prompting</h2>
+                        <p class="cta-corporate__text">Now that you know what AI can and cannot do, learn the frameworks that actually work.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="prompt-basics.html" class="btn btn-primary">Start with Basics</a>
+                            <a href="crisp.html" class="btn btn-secondary">Try CRISP Framework</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">&lt;/Praxis <span>Library</span>&gt;</a>
+                    <p>Master the Art of AI Communication theory through proven frameworks.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learn</h4>
+                    <a href="prompt-basics.html">Prompt Basics</a>
+                    <a href="crisp.html">CRISP Framework</a>
+                    <a href="crispe.html">CRISPE Framework</a>
+                    <a href="costar.html">COSTAR Framework</a>
+                    <a href="react.html">ReAct Framework</a>
+                    <a href="flipped-interaction.html">Flipped Interaction</a>
+                    <a href="index.html">View All 12</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>AI Readiness</h4>
+                    <a href="../tools/analyzer.html">Prompt Analyzer</a>
+                    <a href="../tools/guidance.html">Prompt Builder</a>
+                    <a href="../tools/matcher.html">Framework Matcher</a>
+                    <a href="../tools/checklist.html">Preflight Checklist</a>
+                    <a href="../tools/hallucination.html">Hallucination Spotter</a>
+                    <a href="../quiz/index.html">Readiness Quiz</a>
+                    <a href="../patterns/index.html">Patterns Library</a>
+                    <a href="../pages/ai-safety.html">AI Safety</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="../pages/chatgpt-guide.html">ChatGPT Guide</a>
+                    <a href="../pages/faq.html">FAQ</a>
+                    <a href="../pages/glossary.html">Glossary</a>
+                    <a href="../pages/security.html">Security</a>
+                    <a href="../pages/performance.html">Performance</a>
+                    <a href="../pages/ai-for-everybody.html">AI for Everybody</a>
+                    <a href="../pages/universal-design.html">Universal Design</a>
+                    <a href="../pages/ai-assisted-building.html">AI Assisted</a>
+                    <a href="../pages/about.html">About</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>AI for Everybody</p>
+                <p class="footer-quote">"True innovation in AI isn't just about companies adopting AI as a new technology—it's about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential." <span class="footer-quote-author">— Bas</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Badge Lightbox -->
+    <div class="badge-lightbox-overlay" aria-hidden="true"></div>
+    <div class="badge-lightbox" role="dialog" aria-modal="true" aria-labelledby="badge-lightbox-title">
+        <header class="badge-lightbox-header">
+            <h2 class="badge-lightbox-title" id="badge-lightbox-title"></h2>
+            <button class="badge-lightbox-close" aria-label="Close dialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </header>
+        <div class="badge-lightbox-content"></div>
+    </div>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>
