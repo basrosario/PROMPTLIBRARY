@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Self-Debugging prompting techniques - strategies for having AI identify, explain, and fix bugs in generated or existing code.">
+    <title>Self-Debugging | Praxis | Prompt Engineering Library</title>
+    <link rel="preconnect" href="/" crossorigin>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- === SKIP LINK === -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="../../../index.html" class="logo" aria-label="Praxis Home">
+                <span class="logo-symbol">⬡</span> Praxis
+            </a>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="../../../index.html">Home</a></li>
+                <li><a href="../../../learn/index.html" class="active">Learn</a></li>
+                <li><a href="../../../patterns/index.html">Patterns</a></li>
+                <li><a href="../../../glossary.html">Glossary</a></li>
+                <li><a href="../../../about.html">About</a></li>
+                <li><a href="../../../quiz/index.html" class="nav-cta">Practice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- === MAIN CONTENT === -->
+    <main id="main-content">
+        <!-- === HERO === -->
+        <section class="hero hero--secondary" aria-labelledby="page-title">
+            <div class="hero__content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../../index.html">Home</a></li>
+                        <li><a href="../../index.html">Learn</a></li>
+                        <li><a href="#">Code</a></li>
+                        <li><span aria-current="page">Self-Debugging</span></li>
+                    </ol>
+                </nav>
+                <h1 id="page-title" class="hero__title">Self-Debugging</h1>
+                <p class="hero__subtitle">AI-Assisted Bug Identification and Fixing</p>
+
+                <div class="content-badges">
+                    <span class="badge badge--framework">Code Framework</span>
+                    <span class="badge badge--time">12 min read</span>
+                    <span class="badge badge--level">Intermediate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- === INTRO SECTION === -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <div class="container">
+                <h2 id="intro-heading">Debugging with AI Assistance</h2>
+                <p class="lead-text">Self-Debugging is a prompting technique where AI models identify, explain, and fix bugs in code. This approach leverages the model's ability to trace logic, interpret errors, and reason about expected vs actual behavior—turning debugging from a hunt into a conversation.</p>
+
+                <div class="highlight-box highlight-box--insight">
+                    <h3>Core Insight</h3>
+                    <p>Models can often spot bugs they would have created. The fresh perspective of re-examining code for errors, combined with explicit bug-finding instructions, activates different reasoning patterns than initial generation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === DEBUGGING STRATEGIES === -->
+        <section class="content-section content-section--alt" aria-labelledby="strategies-heading">
+            <div class="container">
+                <h2 id="strategies-heading">Debugging Strategies</h2>
+                <p>Different debugging approaches suit different situations. Choose based on what information you have available.</p>
+
+                <div class="comparison-tabs" role="tablist" aria-label="Debugging strategy comparison">
+                    <button role="tab" aria-selected="true" aria-controls="panel-error" id="tab-error" class="comparison-tabs__tab comparison-tabs__tab--active">Error-Driven</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-trace" id="tab-trace" class="comparison-tabs__tab">Trace-Based</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-explain" id="tab-explain" class="comparison-tabs__tab">Explanation</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-test" id="tab-test" class="comparison-tabs__tab">Test-Driven</button>
+                </div>
+
+                <div id="panel-error" role="tabpanel" aria-labelledby="tab-error" class="comparison-tabs__panel comparison-tabs__panel--active">
+                    <h3>Error-Driven Debugging</h3>
+                    <p>Start with an error message and work backward to find the root cause.</p>
+                    <div class="example-box">
+                        <p><strong>Prompt structure:</strong></p>
+                        <p>"This code produces the following error: [error message]</p>
+                        <p>Here is the code: [code]</p>
+                        <p>Please:</p>
+                        <ol>
+                            <li>Explain what this error means</li>
+                            <li>Identify the line(s) causing the error</li>
+                            <li>Explain why the error occurs</li>
+                            <li>Provide the corrected code"</li>
+                        </ol>
+                    </div>
+                    <p><strong>Best for:</strong> Runtime errors, exceptions, compile errors, type mismatches.</p>
+                </div>
+
+                <div id="panel-trace" role="tabpanel" aria-labelledby="tab-trace" class="comparison-tabs__panel" hidden>
+                    <h3>Trace-Based Debugging</h3>
+                    <p>Walk through code execution step-by-step to find where behavior diverges from expectations.</p>
+                    <div class="example-box">
+                        <p><strong>Prompt structure:</strong></p>
+                        <p>"Trace through this code with input [input]:</p>
+                        <p>[code]</p>
+                        <p>Show the value of each variable after each line. Expected output is [expected], but actual output is [actual]. Where does the execution diverge from the expected path?"</p>
+                    </div>
+                    <p><strong>Best for:</strong> Logic errors, wrong output, off-by-one errors, loop issues.</p>
+                </div>
+
+                <div id="panel-explain" role="tabpanel" aria-labelledby="tab-explain" class="comparison-tabs__panel" hidden>
+                    <h3>Explanation-Based Debugging</h3>
+                    <p>Have the model explain what code does line-by-line. Bugs often become apparent during explanation.</p>
+                    <div class="example-box">
+                        <p><strong>Prompt structure:</strong></p>
+                        <p>"Explain this code line by line, describing what each line does and why:</p>
+                        <p>[code]</p>
+                        <p>The code is supposed to [intended purpose]. As you explain, note any lines that don't align with this purpose."</p>
+                    </div>
+                    <p><strong>Best for:</strong> Understanding unfamiliar code, subtle logic errors, code you didn't write.</p>
+                </div>
+
+                <div id="panel-test" role="tabpanel" aria-labelledby="tab-test" class="comparison-tabs__panel" hidden>
+                    <h3>Test-Driven Debugging</h3>
+                    <p>Provide failing test cases and have the model fix code to pass them.</p>
+                    <div class="example-box">
+                        <p><strong>Prompt structure:</strong></p>
+                        <p>"This function fails these test cases:</p>
+                        <ul>
+                            <li>Input: [input1] → Expected: [expected1], Got: [actual1]</li>
+                            <li>Input: [input2] → Expected: [expected2], Got: [actual2]</li>
+                        </ul>
+                        <p>Here is the function: [code]</p>
+                        <p>Fix the function so all test cases pass. Explain what was wrong."</p>
+                    </div>
+                    <p><strong>Best for:</strong> Clearly defined expected behavior, regression bugs, edge case failures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === DEBUGGING WORKFLOW === -->
+        <section class="content-section" aria-labelledby="workflow-heading">
+            <div class="container">
+                <h2 id="workflow-heading">The Self-Debugging Workflow</h2>
+                <p>An effective debugging workflow that combines generation and debugging in an iterative loop.</p>
+
+                <div class="timeline">
+                    <div class="timeline__item">
+                        <div class="timeline__marker">1</div>
+                        <div class="timeline__content">
+                            <h3>Generate Initial Code</h3>
+                            <p>Create the first version using standard code prompting techniques.</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">2</div>
+                        <div class="timeline__content">
+                            <h3>Test the Code</h3>
+                            <p>Run the code against test cases or in your environment. Collect any errors or unexpected outputs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">3</div>
+                        <div class="timeline__content">
+                            <h3>Debug with Feedback</h3>
+                            <p>Provide the code and the error/failure information to the model. Ask it to identify and explain the bug.</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">4</div>
+                        <div class="timeline__content">
+                            <h3>Apply Fix</h3>
+                            <p>Implement the suggested fix, either by having the model generate corrected code or manually applying the change.</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">5</div>
+                        <div class="timeline__content">
+                            <h3>Verify and Iterate</h3>
+                            <p>Test again. If issues remain, repeat the debug cycle with new error information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PROMPT PATTERNS === -->
+        <section class="content-section content-section--alt" aria-labelledby="patterns-heading">
+            <div class="container">
+                <h2 id="patterns-heading">Effective Debug Prompts</h2>
+
+                <div class="accordion" data-accordion>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">The Rubber Duck Prompt</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Named after rubber duck debugging—explaining code to find bugs through the act of explanation.</p>
+                            <div class="example-box">
+                                <p>"I'm going to show you code that has a bug. Please act as my rubber duck: explain what each section of this code does as if teaching a junior developer. The explanation process often reveals the bug."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">The Adversarial Reviewer</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Ask the model to actively look for problems rather than assume the code is correct.</p>
+                            <div class="example-box">
+                                <p>"Review this code as a skeptical code reviewer looking for bugs. Assume there IS a bug somewhere. Check for: off-by-one errors, null/undefined handling, edge cases, type mismatches, and logic errors. What could go wrong?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">The Hypothesis Tester</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Provide a hypothesis about what might be wrong and ask the model to validate or refute it.</p>
+                            <div class="example-box">
+                                <p>"This code returns the wrong value. I think the bug might be in the sorting logic. Please examine the sorting section specifically, trace through it with example input [1, 3, 2], and tell me if my hypothesis is correct or if the bug is elsewhere."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">The Minimal Fix</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Request the smallest possible change to fix the bug, avoiding unnecessary refactoring.</p>
+                            <div class="example-box">
+                                <p>"Find and fix the bug in this code. Make the MINIMAL change necessary—do not refactor, rename, or restructure anything else. Show me only the lines that need to change and explain why."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMMON BUG TYPES === -->
+        <section class="content-section" aria-labelledby="bugs-heading">
+            <div class="container">
+                <h2 id="bugs-heading">Common Bug Patterns</h2>
+                <p>AI-generated code tends to have predictable bug patterns. Knowing these helps focus your debugging prompts.</p>
+
+                <div class="pillar-grid pillar-grid--two-col">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔢</div>
+                        <h4 class="pillar-card__title">Off-by-One Errors</h4>
+                        <p>Loop bounds, array indexing, and range calculations are frequent sources of bugs. Always verify boundary conditions.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">∅</div>
+                        <h4 class="pillar-card__title">Null/Undefined Handling</h4>
+                        <p>Generated code often assumes values exist when they might not. Check for null checks on optional data.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔀</div>
+                        <h4 class="pillar-card__title">Type Mismatches</h4>
+                        <p>Especially in loosely-typed languages, implicit conversions can cause unexpected behavior.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">⏱️</div>
+                        <h4 class="pillar-card__title">Async/Timing Issues</h4>
+                        <p>Race conditions, missing awaits, and callback ordering problems in asynchronous code.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === BEST PRACTICES === -->
+        <section class="content-section content-section--alt" aria-labelledby="practices-heading">
+            <div class="container">
+                <h2 id="practices-heading">Best Practices</h2>
+
+                <div class="pillar-grid pillar-grid--two-col">
+                    <div class="highlight-box highlight-box--tip">
+                        <h3>Include Full Context</h3>
+                        <p>Provide the complete error message, stack trace, and relevant code. Partial information leads to partial solutions.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--tip">
+                        <h3>Specify Expected Behavior</h3>
+                        <p>Always state what the code should do. The model needs to know the target to identify the deviation.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--tip">
+                        <h3>Isolate the Problem</h3>
+                        <p>If possible, reduce the code to a minimal example that reproduces the bug. Less noise means better analysis.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--tip">
+                        <h3>Verify Fixes</h3>
+                        <p>Don't blindly apply suggested fixes. Understand why the fix works and test it against your failing cases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="content-section" aria-labelledby="related-heading">
+            <div class="container">
+                <h2 id="related-heading">Related Frameworks</h2>
+                <div class="card-grid">
+                    <a href="code-prompting.html" class="card card--hover">
+                        <h3 class="card__title">Code Prompting</h3>
+                        <p>Foundational techniques for effective code generation that reduce bugs upfront.</p>
+                    </a>
+                    <a href="../../self-refine.html" class="card card--hover">
+                        <h3 class="card__title">Self-Refine</h3>
+                        <p>Iterative improvement that can be combined with debugging for higher quality code.</p>
+                    </a>
+                    <a href="../../self-verification.html" class="card card--hover">
+                        <h3 class="card__title">Self-Verification</h3>
+                        <p>Validate code correctness before bugs become problems.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CTA SECTION === -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Practice Debugging Techniques</h2>
+                <p>Apply self-debugging strategies in hands-on exercises.</p>
+                <a href="../../../quiz/index.html" class="btn btn--primary">Start Practice Quiz</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="footer__content">
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="../../../index.html">Home</a>
+                <a href="../../index.html">Learn</a>
+                <a href="../../../patterns/index.html">Patterns</a>
+                <a href="../../../glossary.html">Glossary</a>
+                <a href="../../../about.html">About</a>
+            </nav>
+            <p class="footer__copyright">© 2025 Praxis. For educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="../../../app.js" defer></script>
+</body>
+</html>

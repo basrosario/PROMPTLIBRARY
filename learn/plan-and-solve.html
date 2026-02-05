@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
-    <meta name="description" content="Master the Constrained Output Framework: Define exact output formats for programmatic use. A foundation framework for structured AI responses.">
-    <title>Constrained Output Framework - Praxis</title>
+    <meta name="description" content="Plan-and-Solve Prompting: Create a plan before solving. Devise a strategy, then execute it step by step for better reasoning outcomes.">
+    <title>Plan-and-Solve Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css">
@@ -127,18 +127,20 @@
                     <span class="separator">/</span>
                     <a href="index.html">Learn</a>
                     <span class="separator">/</span>
-                    <span class="current">Constrained Output</span>
+                    <span class="current">Plan-and-Solve</span>
                 </nav>
                 <div class="hero-badge">
                     <svg class="hero-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <line x1="3" y1="9" x2="21" y2="9"/>
-                        <line x1="9" y1="21" x2="9" y2="9"/>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
                     </svg>
-                    <span class="hero-badge__text">Foundation Framework</span>
+                    <span class="hero-badge__text">Planning Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Constrained Output Framework</h1>
-                <p class="page-subtitle fade-in">Define exact output formats for programmatic use. Get reliable, machine-readable responses every time.</p>
+                <h1 class="page-title fade-in">Plan-and-Solve Prompting</h1>
+                <p class="page-subtitle fade-in">Think before you act. Devise a plan, then execute it methodically for complex problem-solving.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -176,152 +178,251 @@
         </section>
         <!-- /CONTENT BADGES -->
 
-        <!-- === WHY CONSTRAINED OUTPUT === -->
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">Why This Framework</span>
-                        <h2 class="section-title">Structure Matters for Automation</h2>
-                        <p class="section-intro">When you need to parse AI output with code, inconsistent formatting breaks everything. By defining exact output structure and explicitly requesting "no additional text," you get reliable, machine-readable responses.</p>
-                        <div class="feature-list feature-list--check">
-                            <div class="feature-list__item">
-                                <span class="feature-list__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
-                                    </svg>
-                                </span>
-                                <div class="feature-list__content">
-                                    <span class="feature-list__title">Predictable Output</span>
-                                    <span class="feature-list__text">Same structure every time makes parsing reliable</span>
-                                </div>
+                        <span class="section-eyebrow">The Method</span>
+                        <h2 class="section-title">Planning Before Execution</h2>
+                        <p class="section-intro">Plan-and-Solve prompting explicitly separates planning from execution. First, the model devises a strategy for solving the problem. Then, it follows the plan step by step. This prevents the model from diving in without thinking.</p>
+                        <div class="highlight-box highlight-box--info">
+                            <div class="highlight-box__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="16" x2="12" y2="12"/>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                                </svg>
                             </div>
-                            <div class="feature-list__item">
-                                <span class="feature-list__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
-                                    </svg>
-                                </span>
-                                <div class="feature-list__content">
-                                    <span class="feature-list__title">API Integration</span>
-                                    <span class="feature-list__text">Perfect for workflows where AI feeds into other systems</span>
-                                </div>
-                            </div>
-                            <div class="feature-list__item">
-                                <span class="feature-list__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"/>
-                                    </svg>
-                                </span>
-                                <div class="feature-list__content">
-                                    <span class="feature-list__title">No Conversational Fluff</span>
-                                    <span class="feature-list__text">Prevent "Here's what I found:" text that breaks parsing</span>
-                                </div>
+                            <div class="highlight-box__content">
+                                <span class="highlight-box__title">The Trigger Phrase</span>
+                                <p>"Let's first understand the problem and devise a plan to solve it. Then, let's carry out the plan and solve the problem step by step."</p>
                             </div>
                         </div>
                     </div>
                     <div class="split-section__media">
-                        <div class="callout tip">
-                            <div class="callout-title">Enforcement Tip</div>
-                            <p>End your prompt with: "Return your analysis in exactly this format, with no additional text or explanation." This prevents conversational fluff that breaks parsing.</p>
+                        <div class="stat-grid stat-grid--2">
+                            <div class="stat-card">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Phase approach</span>
+                                <span class="stat-source">Plan then Execute</span>
+                            </div>
+                            <div class="stat-card stat-card--accent">
+                                <span class="stat-number">+5%</span>
+                                <span class="stat-label">Over zero-shot CoT</span>
+                                <span class="stat-source">On math benchmarks</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /WHY CONSTRAINED OUTPUT -->
+        <!-- /THE CONCEPT -->
 
-        <!-- === FORMAT EXAMPLES === -->
+        <!-- === THE PROMPT FORMAT === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Common Formats</span>
-                    <h2 class="section-title">Output Format Examples</h2>
-                    <p class="section-subtitle">Choose the format that best fits your use case</p>
+                    <span class="section-eyebrow">Template</span>
+                    <h2 class="section-title">Plan-and-Solve Prompt Structure</h2>
+                    <p class="section-subtitle">The two key phases and how to trigger them</p>
                 </div>
 
-                <div class="comparison-panels fade-in-up">
-                    <div class="comparison-panel comparison-panel--after">
-                        <div class="comparison-panel__header">
+                <div class="pillar-grid pillar-grid--2 fade-in-up">
+                    <div class="pillar-card pillar-card--interactive">
+                        <div class="pillar-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
-                            <span>JSON Format</span>
                         </div>
-                        <div class="comparison-panel__content">
-                            <div class="comparison-panel__result">
-                                <code>{
-  "summary": "...",
-  "key_points": ["..."],
-  "sentiment": "positive",
-  "confidence": 0.92
-}</code>
-                            </div>
-                            <p class="comparison-panel__note">Best for: APIs, databases, programmatic parsing</p>
-                        </div>
+                        <h3 class="pillar-card__title">Phase 1: Planning</h3>
+                        <p class="pillar-card__text">"First, understand the problem: What are we given? What do we need to find? What approach should we use?"</p>
+                        <span class="pillar-card__tag">Strategy Development</span>
                     </div>
 
-                    <div class="comparison-panel comparison-panel--after">
-                        <div class="comparison-panel__header">
+                    <div class="pillar-card pillar-card--interactive">
+                        <div class="pillar-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="8" y1="6" x2="21" y2="6"/>
-                                <line x1="8" y1="12" x2="21" y2="12"/>
-                                <line x1="8" y1="18" x2="21" y2="18"/>
-                                <line x1="3" y1="6" x2="3.01" y2="6"/>
-                                <line x1="3" y1="12" x2="3.01" y2="12"/>
-                                <line x1="3" y1="18" x2="3.01" y2="18"/>
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
                             </svg>
-                            <span>Structured Text</span>
                         </div>
-                        <div class="comparison-panel__content">
-                            <div class="comparison-panel__result">
-                                <code>TITLE: ...
-CATEGORY: ...
-PRIORITY: High/Med/Low
-ACTION ITEMS:
-- Item 1
-- Item 2</code>
+                        <h3 class="pillar-card__title">Phase 2: Execution</h3>
+                        <p class="pillar-card__text">"Now, carry out the plan step by step. Extract relevant variables, perform calculations, and verify the answer."</p>
+                        <span class="pillar-card__tag">Systematic Solving</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box highlight-box--tip fade-in-up">
+                    <div class="highlight-box__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">PS+ Enhancement</span>
+                        <p>Plan-and-Solve+ (PS+) adds more detailed instructions: "Extract relevant variables and their values. Calculate intermediate results. Check calculations for accuracy." This reduces calculation errors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE PROMPT FORMAT -->
+
+        <!-- === INTERACTIVE COMPARISON === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">Plan-and-Solve vs. Standard CoT</h2>
+                    <p class="section-subtitle">See how explicit planning improves problem-solving</p>
+                </div>
+
+                <div class="comparison-tabs fade-in-up" data-component="comparison-tabs">
+                    <div class="comparison-tabs__nav" role="tablist">
+                        <button class="comparison-tabs__tab is-active" role="tab" aria-selected="true" data-tab="math">Math Problem</button>
+                        <button class="comparison-tabs__tab" role="tab" aria-selected="false" data-tab="logic">Logic Problem</button>
+                    </div>
+
+                    <div class="comparison-tabs__content">
+                        <div class="comparison-tabs__panel is-active" data-panel="math">
+                            <div class="comparison-grid">
+                                <div class="comparison-card comparison-card--before">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">Standard CoT</span>
+                                        <span class="comparison-card__badge comparison-card__badge--error">May Miss Steps</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>Prompt:</strong> "A store has 45 apples. They sold 1/3 in the morning and 1/5 of the remaining in the afternoon. How many are left? Let's think step by step."
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>CoT Response:</strong><br>
+                                        1/3 of 45 = 15 sold<br>
+                                        45 - 15 = 30 remaining<br>
+                                        1/5 of 45 = 9 sold...<br>
+                                        <em>(Error: used original amount instead of remaining)</em>
+                                    </div>
+                                    <div class="comparison-card__analysis">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                        <span>Jumped into calculation without clear plan</span>
+                                    </div>
+                                </div>
+                                <div class="comparison-card comparison-card--after">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">Plan-and-Solve</span>
+                                        <span class="comparison-card__badge comparison-card__badge--success">Structured</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>Prompt:</strong> "...Let's first understand and devise a plan..."
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>Plan:</strong> 1) Find morning sales 2) Calculate remaining 3) Find afternoon sales from remaining 4) Calculate final amount<br><br>
+                                        <strong>Execute:</strong><br>
+                                        Morning: 45 × 1/3 = 15 sold<br>
+                                        After morning: 45 - 15 = 30<br>
+                                        Afternoon: 30 × 1/5 = 6 sold<br>
+                                        Final: 30 - 6 = <strong>24 apples</strong>
+                                    </div>
+                                    <div class="comparison-card__analysis comparison-card__analysis--success">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                            <polyline points="22 4 12 14.01 9 11.01"/>
+                                        </svg>
+                                        <span>Plan prevents variable confusion</span>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="comparison-panel__note">Best for: Human review, simple parsing, reports</p>
+                        </div>
+
+                        <div class="comparison-tabs__panel" data-panel="logic">
+                            <div class="comparison-grid">
+                                <div class="comparison-card comparison-card--before">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">Standard CoT</span>
+                                        <span class="comparison-card__badge comparison-card__badge--error">Unstructured</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>Problem:</strong> "Who is taller: Person A is shorter than B, B is shorter than C, D is taller than A but shorter than B."
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>CoT Response:</strong><br>
+                                        A is shorter than B... D is taller than A... so D might be between A and B... let me think... <em>(loses track of relationships)</em>
+                                    </div>
+                                    <div class="comparison-card__analysis">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                        <span>No systematic approach to ordering</span>
+                                    </div>
+                                </div>
+                                <div class="comparison-card comparison-card--after">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">Plan-and-Solve</span>
+                                        <span class="comparison-card__badge comparison-card__badge--success">Systematic</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>With Plan-and-Solve:</strong>
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>Plan:</strong> 1) List all constraints 2) Build ordering from constraints 3) Place each person in sequence<br><br>
+                                        <strong>Execute:</strong><br>
+                                        Constraints: A&lt;B, B&lt;C, A&lt;D&lt;B<br>
+                                        Order: A &lt; D &lt; B &lt; C<br>
+                                        <strong>C is tallest</strong>
+                                    </div>
+                                    <div class="comparison-card__analysis comparison-card__analysis--success">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                            <polyline points="22 4 12 14.01 9 11.01"/>
+                                        </svg>
+                                        <span>Plan creates clear methodology</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /FORMAT EXAMPLES -->
+        <!-- /INTERACTIVE COMPARISON -->
 
-        <!-- === WHEN TO USE === -->
-        <section class="section section-alt">
+        <!-- === USE CASES === -->
+        <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Best Fit</span>
-                    <h2 class="section-title">When to Use Constrained Output</h2>
-                    <p class="section-subtitle">Essential for automation and consistent data processing</p>
+                    <span class="section-eyebrow">Applications</span>
+                    <h2 class="section-title">When Plan-and-Solve Excels</h2>
                 </div>
 
                 <div class="use-case-grid">
-                    <div class="use-case-card fade-in-up">
+                    <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">API Integration</h3>
-                        <p class="use-case-card__desc">When AI output needs to be parsed by code or fed into other systems.</p>
+                        <h3 class="use-case-card__title">Multi-Step Math</h3>
+                        <p class="use-case-card__desc">Word problems requiring multiple operations where variables need careful tracking.</p>
                     </div>
-                    <div class="use-case-card fade-in-up">
+                    <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Database Entry</h3>
-                        <p class="use-case-card__desc">Structured data that needs to go directly into a database.</p>
+                        <h3 class="use-case-card__title">Constraint Satisfaction</h3>
+                        <p class="use-case-card__desc">Problems with multiple conditions that must all be satisfied simultaneously.</p>
                     </div>
-                    <div class="use-case-card fade-in-up">
+                    <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -329,62 +430,42 @@ ACTION ITEMS:
                                 <line x1="9" y1="21" x2="9" y2="9"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Spreadsheet Import</h3>
-                        <p class="use-case-card__desc">Generating data for CSV or Excel import.</p>
+                        <h3 class="use-case-card__title">Project Planning</h3>
+                        <p class="use-case-card__desc">Breaking down complex projects into phases with dependencies.</p>
                     </div>
-                    <div class="use-case-card fade-in-up">
+                    <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Automation Workflows</h3>
-                        <p class="use-case-card__desc">Zapier, Make, or custom automation pipelines.</p>
-                    </div>
-                    <div class="use-case-card fade-in-up">
-                        <div class="use-case-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-card__title">Report Generation</h3>
-                        <p class="use-case-card__desc">Consistent report formats for business use.</p>
-                    </div>
-                    <div class="use-case-card fade-in-up">
-                        <div class="use-case-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                                <path d="M21 3v9h-9"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-card__title">Batch Processing</h3>
-                        <p class="use-case-card__desc">Processing many items with identical output structure.</p>
+                        <h3 class="use-case-card__title">Algorithm Design</h3>
+                        <p class="use-case-card__desc">Creating step-by-step procedures before writing actual code.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /WHEN TO USE -->
+        <!-- /USE CASES -->
 
         <!-- === RELATED FRAMEWORKS === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore frameworks that complement Constrained Output</p>
+                <p class="section-subtitle fade-in-up">Other planning and reasoning approaches</p>
 
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="zero-shot-cot.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <circle cx="6" cy="6" r="3"/>
+                            <circle cx="18" cy="18" r="3"/>
+                            <path d="M6 9v6c0 3 3 3 6 3h3"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Example Framework</span>
-                        <span class="evolution-callout__title">Few-Shot Learning Framework</span>
-                        <span class="evolution-callout__desc">Combine with examples to show the exact output format you want.</span>
+                        <span class="evolution-callout__label">Foundation</span>
+                        <span class="evolution-callout__title">Zero-Shot Chain-of-Thought</span>
+                        <span class="evolution-callout__desc">The technique Plan-and-Solve improves upon with explicit planning.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -393,17 +474,21 @@ ACTION ITEMS:
                     </span>
                 </a>
 
-                <a href="prompt-chaining.html" class="evolution-callout fade-in-up">
+                <a href="least-to-most.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Workflow Framework</span>
-                        <span class="evolution-callout__title">Prompt Chaining Framework</span>
-                        <span class="evolution-callout__desc">Use structured output to pass data between chained prompts.</span>
+                        <span class="evolution-callout__label">Similar Approach</span>
+                        <span class="evolution-callout__title">Least-to-Most</span>
+                        <span class="evolution-callout__desc">Another decomposition technique that builds from simpler to complex.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -412,17 +497,17 @@ ACTION ITEMS:
                     </span>
                 </a>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                <a href="react.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Verification Framework</span>
-                        <span class="evolution-callout__title">Self-Consistency Framework</span>
-                        <span class="evolution-callout__desc">Validate structured output with self-checking prompts.</span>
+                        <span class="evolution-callout__label">Action-Oriented</span>
+                        <span class="evolution-callout__title">ReAct Framework</span>
+                        <span class="evolution-callout__desc">Combines reasoning with action for tasks requiring external tool use.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -434,27 +519,14 @@ ACTION ITEMS:
         </section>
         <!-- /RELATED FRAMEWORKS -->
 
-        <!-- === SOURCES === -->
-        <section class="section citations-section">
-            <div class="container">
-                <h2>Sources</h2>
-                <ul class="citation-list">
-                    <li class="citation-item">
-                        <a href="https://hai.stanford.edu/ai-index/2024-ai-index-report" target="_blank" rel="noopener noreferrer">AI Index Report 2024 - Stanford Human-Centered AI Institute</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- /SOURCES -->
-
         <!-- === CTA === -->
         <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Build Structured Prompts</h2>
-                        <p class="cta-corporate__text">Create prompts with precise output requirements using our interactive tools.</p>
+                        <h2 class="cta-corporate__title">Plan Your Prompts</h2>
+                        <p class="cta-corporate__text">Build structured prompts with our interactive tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Try Prompt Builder</a>
                             <a href="../tools/analyzer.html" class="btn btn-secondary">Analyze a Prompt</a>
@@ -484,7 +556,7 @@ ACTION ITEMS:
                     <a href="costar.html">COSTAR Framework</a>
                     <a href="react.html">ReAct Framework</a>
                     <a href="flipped-interaction.html">Flipped Interaction</a>
-                    <a href="constrained-output.html">Constrained Output</a>
+                    <a href="chain-of-thought.html">Chain-of-Thought</a>
                 </div>
 
                 <div class="footer-links">

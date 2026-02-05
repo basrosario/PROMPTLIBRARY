@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Self-Refine prompting - an iterative improvement technique where AI generates, critiques, and refines its own outputs for higher quality results.">
+    <title>Self-Refine Prompting | Praxis | Prompt Engineering Library</title>
+    <link rel="preconnect" href="/" crossorigin>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- === SKIP LINK === -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="../index.html" class="logo" aria-label="Praxis Home">
+                <span class="logo-symbol">⬡</span> Praxis
+            </a>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../learn/index.html" class="active">Learn</a></li>
+                <li><a href="../patterns/index.html">Patterns</a></li>
+                <li><a href="../glossary.html">Glossary</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../quiz/index.html" class="nav-cta">Practice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- === MAIN CONTENT === -->
+    <main id="main-content">
+        <!-- === HERO === -->
+        <section class="hero hero--secondary" aria-labelledby="page-title">
+            <div class="hero__content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="index.html">Learn</a></li>
+                        <li><span aria-current="page">Self-Refine</span></li>
+                    </ol>
+                </nav>
+                <h1 id="page-title" class="hero__title">Self-Refine</h1>
+                <p class="hero__subtitle">Iterative Improvement Through Self-Critique</p>
+
+                <div class="content-badges">
+                    <span class="badge badge--framework">Advanced Framework</span>
+                    <span class="badge badge--time">12 min read</span>
+                    <span class="badge badge--level">Intermediate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- === INTRO SECTION === -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <div class="container">
+                <h2 id="intro-heading">Continuous Improvement Loop</h2>
+                <p class="lead-text">Self-Refine is a prompting technique that leverages the model's ability to critique and improve its own outputs through iterative feedback cycles. Rather than accepting the first response, this approach treats generation as a starting point for refinement.</p>
+
+                <div class="highlight-box highlight-box--insight">
+                    <h3>Core Insight</h3>
+                    <p>Language models can often identify problems in text they couldn't avoid generating in the first place. Self-Refine exploits this asymmetry between generation and evaluation capabilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === THREE-STAGE PROCESS === -->
+        <section class="content-section content-section--alt" aria-labelledby="process-heading">
+            <div class="container">
+                <h2 id="process-heading">The Three-Stage Process</h2>
+                <p>Self-Refine operates through a continuous cycle of three distinct stages, each building on the previous to progressively improve output quality.</p>
+
+                <div class="timeline">
+                    <div class="timeline__item">
+                        <div class="timeline__marker">1</div>
+                        <div class="timeline__content">
+                            <h3>Generate</h3>
+                            <p>The model produces an initial response to the given task. This first draft serves as raw material for the refinement process, not as a final answer.</p>
+                            <div class="example-box">
+                                <p><strong>Initial prompt:</strong> "Write a compelling product description for wireless earbuds."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">2</div>
+                        <div class="timeline__content">
+                            <h3>Feedback</h3>
+                            <p>The model evaluates its own output, identifying specific weaknesses, areas for improvement, and concrete suggestions for enhancement.</p>
+                            <div class="example-box">
+                                <p><strong>Feedback prompt:</strong> "Review this product description. What could be improved in terms of persuasiveness, clarity, and emotional appeal?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__marker">3</div>
+                        <div class="timeline__content">
+                            <h3>Refine</h3>
+                            <p>Using the feedback, the model generates an improved version that specifically addresses the identified issues while preserving existing strengths.</p>
+                            <div class="example-box">
+                                <p><strong>Refine prompt:</strong> "Based on this feedback, rewrite the product description with these improvements incorporated."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box highlight-box--tip">
+                    <h3>Iteration Count</h3>
+                    <p>Research suggests 2-3 refinement cycles typically yield the best cost-to-quality ratio. Beyond this, improvements often become marginal while costs increase linearly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMPARISON SECTION === -->
+        <section class="content-section" aria-labelledby="comparison-heading">
+            <div class="container">
+                <h2 id="comparison-heading">Single-Pass vs Self-Refine</h2>
+                <p>Understanding when iterative refinement adds value versus when a single well-crafted prompt suffices.</p>
+
+                <div class="comparison-tabs" role="tablist" aria-label="Comparison between single-pass and self-refine approaches">
+                    <button role="tab" aria-selected="true" aria-controls="panel-single" id="tab-single" class="comparison-tabs__tab comparison-tabs__tab--active">Single-Pass</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-refine" id="tab-refine" class="comparison-tabs__tab">Self-Refine</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-when" id="tab-when" class="comparison-tabs__tab">When to Use</button>
+                </div>
+
+                <div id="panel-single" role="tabpanel" aria-labelledby="tab-single" class="comparison-tabs__panel comparison-tabs__panel--active">
+                    <h3>Single-Pass Generation</h3>
+                    <p>Traditional prompting generates a response in one attempt, relying entirely on prompt engineering to achieve quality.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Advantages</h4>
+                            <ul class="pillar-card__list">
+                                <li>Lower token cost</li>
+                                <li>Faster response time</li>
+                                <li>Simpler implementation</li>
+                                <li>Predictable latency</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Limitations</h4>
+                            <ul class="pillar-card__list">
+                                <li>No error correction</li>
+                                <li>Fixed quality ceiling</li>
+                                <li>Inconsistent outputs</li>
+                                <li>Prompt-dependent quality</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-refine" role="tabpanel" aria-labelledby="tab-refine" class="comparison-tabs__panel" hidden>
+                    <h3>Self-Refine Approach</h3>
+                    <p>Iterative refinement treats the first response as a draft, using structured feedback to progressively improve output quality.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Advantages</h4>
+                            <ul class="pillar-card__list">
+                                <li>Higher quality outputs</li>
+                                <li>Self-correcting errors</li>
+                                <li>Consistent improvement</li>
+                                <li>Addresses blind spots</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Limitations</h4>
+                            <ul class="pillar-card__list">
+                                <li>Higher token usage</li>
+                                <li>Increased latency</li>
+                                <li>More complex orchestration</li>
+                                <li>Diminishing returns after 3 cycles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-when" role="tabpanel" aria-labelledby="tab-when" class="comparison-tabs__panel" hidden>
+                    <h3>Choosing the Right Approach</h3>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-card__value">Use Single-Pass</div>
+                            <div class="stat-card__label">When speed matters most, tasks are simple, or cost constraints are tight</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__value">Use Self-Refine</div>
+                            <div class="stat-card__label">When quality is paramount, tasks are complex, or outputs need polish</div>
+                        </div>
+                    </div>
+                    <h4>Ideal Self-Refine Use Cases</h4>
+                    <ul class="feature-list">
+                        <li>Creative writing requiring multiple revisions</li>
+                        <li>Technical documentation needing accuracy checks</li>
+                        <li>Marketing copy that must be compelling</li>
+                        <li>Code generation requiring debugging</li>
+                        <li>Analysis reports needing thoroughness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- === FEEDBACK STRATEGIES === -->
+        <section class="content-section content-section--alt" aria-labelledby="feedback-heading">
+            <div class="container">
+                <h2 id="feedback-heading">Effective Feedback Strategies</h2>
+                <p>The quality of refinement depends heavily on how you structure the feedback phase. Different strategies excel for different task types.</p>
+
+                <div class="accordion" data-accordion>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Criteria-Based Feedback</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Evaluate output against explicit criteria. Best for tasks with clear quality standards.</p>
+                            <div class="example-box">
+                                <p><strong>Example prompt:</strong> "Rate this response on a 1-10 scale for: (1) Accuracy, (2) Completeness, (3) Clarity, (4) Conciseness. For any score below 8, explain what specific changes would improve it."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Role-Based Feedback</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Critique from a specific perspective. Excellent for audience-focused content.</p>
+                            <div class="example-box">
+                                <p><strong>Example prompt:</strong> "As a skeptical customer, what questions or objections would you have about this product description? What information is missing that would help you make a purchase decision?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Comparative Feedback</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Compare against a standard or ideal. Useful when examples of excellence exist.</p>
+                            <div class="example-box">
+                                <p><strong>Example prompt:</strong> "Compare this executive summary to best practices. What makes the best summaries effective that this one is missing? How could this better capture attention in the first sentence?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Error-Focused Feedback</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Systematically identify mistakes and issues. Critical for factual or technical content.</p>
+                            <div class="example-box">
+                                <p><strong>Example prompt:</strong> "Identify any factual errors, logical inconsistencies, unsupported claims, or misleading statements in this response. For each issue, explain why it's problematic and how to fix it."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === IMPLEMENTATION PATTERNS === -->
+        <section class="content-section" aria-labelledby="patterns-heading">
+            <div class="container">
+                <h2 id="patterns-heading">Implementation Patterns</h2>
+                <p>Different ways to structure the Self-Refine loop depending on your needs and constraints.</p>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔄</div>
+                        <h3 class="pillar-card__title">Fixed Iterations</h3>
+                        <p>Run a predetermined number of refinement cycles regardless of output quality.</p>
+                        <p><strong>Best for:</strong> Batch processing, predictable costs, consistent latency requirements.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🎯</div>
+                        <h3 class="pillar-card__title">Quality Threshold</h3>
+                        <p>Continue refining until the output meets specified quality criteria or a maximum iteration limit.</p>
+                        <p><strong>Best for:</strong> High-stakes outputs where quality matters more than cost.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">📉</div>
+                        <h3 class="pillar-card__title">Diminishing Returns</h3>
+                        <p>Stop when the improvement between iterations falls below a threshold, indicating convergence.</p>
+                        <p><strong>Best for:</strong> Optimizing the quality-to-cost ratio automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMMON PITFALLS === -->
+        <section class="content-section content-section--alt" aria-labelledby="pitfalls-heading">
+            <div class="container">
+                <h2 id="pitfalls-heading">Common Pitfalls</h2>
+
+                <div class="pillar-grid pillar-grid--two-col">
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Over-Refinement</h3>
+                        <p>Too many iterations can make outputs generic or overly cautious as the model "hedges" to satisfy all feedback. Set clear stopping conditions.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Vague Feedback</h3>
+                        <p>Generic feedback like "make it better" produces generic improvements. Always request specific, actionable feedback with concrete suggestions.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Feedback Loops</h3>
+                        <p>The model may oscillate between alternatives, changing things back and forth. Include instructions to preserve good elements while improving weak ones.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Lost Context</h3>
+                        <p>In long refinement chains, original requirements can drift. Periodically re-anchor to the original task goals in your prompts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="content-section" aria-labelledby="related-heading">
+            <div class="container">
+                <h2 id="related-heading">Related Frameworks</h2>
+                <div class="card-grid">
+                    <a href="self-consistency.html" class="card card--hover">
+                        <h3 class="card__title">Self-Consistency</h3>
+                        <p>Generate multiple solutions and select the most consistent answer through voting.</p>
+                    </a>
+                    <a href="tree-of-thought.html" class="card card--hover">
+                        <h3 class="card__title">Tree of Thought</h3>
+                        <p>Explore multiple reasoning paths with evaluation and backtracking for complex problems.</p>
+                    </a>
+                    <a href="chain-of-thought.html" class="card card--hover">
+                        <h3 class="card__title">Chain of Thought</h3>
+                        <p>The foundational technique for step-by-step reasoning that Self-Refine can enhance.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CTA SECTION === -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Practice Self-Refine</h2>
+                <p>Apply iterative refinement techniques in hands-on exercises.</p>
+                <a href="../quiz/index.html" class="btn btn--primary">Start Practice Quiz</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="footer__content">
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Learn</a>
+                <a href="../patterns/index.html">Patterns</a>
+                <a href="../glossary.html">Glossary</a>
+                <a href="../about.html">About</a>
+            </nav>
+            <p class="footer__copyright">© 2025 Praxis. For educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

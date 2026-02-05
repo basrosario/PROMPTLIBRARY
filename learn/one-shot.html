@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self'; form-action 'none'; base-uri 'none'; font-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self';">
-    <meta name="description" content="Zero-Shot Chain-of-Thought: Unlock AI reasoning with five magic words. Add 'Let's think step by step' to any prompt and watch accuracy soar.">
-    <title>Zero-Shot Chain-of-Thought - Praxis</title>
+    <meta name="description" content="One-Shot Learning: Teach AI by example. A single demonstration can dramatically improve task understanding and output quality.">
+    <title>One-Shot Learning - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preload" href="../styles.css" as="style">
     <link rel="stylesheet" href="../styles.css">
@@ -37,7 +37,6 @@
                             <a href="flipped-interaction.html">Flipped Interaction</a>
                             <a href="chain-of-thought.html">Chain-of-Thought</a>
                             <a href="few-shot-learning.html">Few-Shot Learning</a>
-                            <a href="one-shot.html">One-Shot</a>
                             <a href="role-prompting.html">Role Prompting</a>
                             <a href="constrained-output.html">Constrained Output</a>
                             <a href="self-consistency.html">Self-Consistency</a>
@@ -127,18 +126,18 @@
                     <span class="separator">/</span>
                     <a href="index.html">Learn</a>
                     <span class="separator">/</span>
-                    <span class="current">Zero-Shot CoT</span>
+                    <span class="current">One-Shot Learning</span>
                 </nav>
                 <div class="hero-badge">
                     <svg class="hero-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="6" cy="6" r="3"/>
-                        <circle cx="18" cy="18" r="3"/>
-                        <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <line x1="9" y1="21" x2="9" y2="9"/>
                     </svg>
-                    <span class="hero-badge__text">Reasoning Technique</span>
+                    <span class="hero-badge__text">In-Context Learning</span>
                 </div>
-                <h1 class="page-title fade-in">Zero-Shot Chain-of-Thought</h1>
-                <p class="page-subtitle fade-in">Five words that changed AI reasoning forever: "Let's think step by step."</p>
+                <h1 class="page-title fade-in">One-Shot Learning</h1>
+                <p class="page-subtitle fade-in">One example is worth a thousand words. Show the AI what you want, and it will understand.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -176,14 +175,14 @@
         </section>
         <!-- /CONTENT BADGES -->
 
-        <!-- === THE DISCOVERY === -->
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">The Breakthrough</span>
-                        <h2 class="section-title">A Simple Phrase Unlocks Reasoning</h2>
-                        <p class="section-intro">In 2022, researchers discovered something remarkable: adding "Let's think step by step" to prompts increased accuracy on math problems from 17.7% to 78.7%—with no examples needed.</p>
+                        <span class="section-eyebrow">The Foundation</span>
+                        <h2 class="section-title">Teaching Through Demonstration</h2>
+                        <p class="section-intro">One-shot learning bridges the gap between zero-shot prompting (no examples) and few-shot learning (multiple examples). By providing a single demonstration, you give the model a concrete template to follow.</p>
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -193,107 +192,106 @@
                                 </svg>
                             </div>
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Key Insight</span>
-                                <p>LLMs already know how to reason—they just need permission to show their work. The trigger phrase activates reasoning pathways that otherwise stay dormant.</p>
+                                <span class="highlight-box__title">Why One Example Matters</span>
+                                <p>A single example establishes format, tone, depth, and style expectations simultaneously. The model extrapolates the pattern from your demonstration to new inputs.</p>
                             </div>
                         </div>
                     </div>
                     <div class="split-section__media">
                         <div class="stat-grid stat-grid--2">
                             <div class="stat-card">
-                                <span class="stat-number">17.7%</span>
-                                <span class="stat-label">Without trigger phrase</span>
-                                <span class="stat-source">GSM8K benchmark</span>
+                                <span class="stat-number">1</span>
+                                <span class="stat-label">Example needed</span>
+                                <span class="stat-source">Minimal context required</span>
                             </div>
                             <div class="stat-card stat-card--accent">
-                                <span class="stat-number">78.7%</span>
-                                <span class="stat-label">With "Let's think step by step"</span>
-                                <span class="stat-source">GSM8K benchmark</span>
+                                <span class="stat-number">~30%</span>
+                                <span class="stat-label">Accuracy improvement</span>
+                                <span class="stat-source">Over zero-shot (task-dependent)</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /THE DISCOVERY -->
+        <!-- /THE CONCEPT -->
 
-        <!-- === INTERACTIVE COMPARISON === -->
+        <!-- === LEARNING SPECTRUM === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-eyebrow">Context Spectrum</span>
+                    <h2 class="section-title">Where One-Shot Fits</h2>
+                    <p class="section-subtitle">Understanding the spectrum from zero examples to many</p>
+                </div>
+
+                <div class="timeline fade-in-up">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Zero-Shot</h3>
+                            <p class="timeline-desc">No examples. Relies entirely on instructions and the model's pre-trained knowledge.</p>
+                            <span class="timeline-meta">Best for: Simple, well-defined tasks</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-item--active">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">One-Shot</h3>
+                            <p class="timeline-desc">Single example demonstrates the expected input-output pattern.</p>
+                            <span class="timeline-meta">Best for: Format-sensitive tasks, custom outputs</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Few-Shot (2-5)</h3>
+                            <p class="timeline-desc">Multiple examples show variation and reinforce the pattern.</p>
+                            <span class="timeline-meta">Best for: Complex reasoning, edge cases</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Many-Shot (10+)</h3>
+                            <p class="timeline-desc">Extensive examples for highly specialized or unusual tasks.</p>
+                            <span class="timeline-meta">Best for: Domain-specific patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /LEARNING SPECTRUM -->
+
+        <!-- === INTERACTIVE COMPARISON === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
                     <span class="section-eyebrow">See the Difference</span>
-                    <h2 class="section-title">Before vs. After</h2>
-                    <p class="section-subtitle">Watch how the same question produces dramatically different results</p>
+                    <h2 class="section-title">One-Shot in Action</h2>
+                    <p class="section-subtitle">Compare prompts with and without a demonstration</p>
                 </div>
 
                 <div class="comparison-tabs fade-in-up" data-component="comparison-tabs">
                     <div class="comparison-tabs__nav" role="tablist">
-                        <button class="comparison-tabs__tab is-active" role="tab" aria-selected="true" data-tab="math">Math Problem</button>
-                        <button class="comparison-tabs__tab" role="tab" aria-selected="false" data-tab="logic">Logic Puzzle</button>
-                        <button class="comparison-tabs__tab" role="tab" aria-selected="false" data-tab="analysis">Analysis</button>
+                        <button class="comparison-tabs__tab is-active" role="tab" aria-selected="true" data-tab="formatting">Output Formatting</button>
+                        <button class="comparison-tabs__tab" role="tab" aria-selected="false" data-tab="classification">Classification</button>
+                        <button class="comparison-tabs__tab" role="tab" aria-selected="false" data-tab="tone">Tone & Style</button>
                     </div>
 
                     <div class="comparison-tabs__content">
-                        <div class="comparison-tabs__panel is-active" data-panel="math">
+                        <div class="comparison-tabs__panel is-active" data-panel="formatting">
                             <div class="comparison-grid">
                                 <div class="comparison-card comparison-card--before">
                                     <div class="comparison-card__header">
-                                        <span class="comparison-card__label">Without CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--error">Often Wrong</span>
+                                        <span class="comparison-card__label">Zero-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--error">Unpredictable</span>
                                     </div>
                                     <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> A store has 23 apples. They sell 8 in the morning and receive a delivery of 15 more. Then they sell 12 in the afternoon. How many apples are left?
+                                        <strong>Prompt:</strong> Extract the product name, price, and rating from this review: "The Sony WH-1000XM4 headphones ($348) are incredible. 5 stars!"
                                     </div>
                                     <div class="comparison-card__response">
-                                        <strong>Response:</strong> 18 apples.
-                                    </div>
-                                    <div class="comparison-card__analysis">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <line x1="15" y1="9" x2="9" y2="15"/>
-                                            <line x1="9" y1="9" x2="15" y2="15"/>
-                                        </svg>
-                                        <span>Skipped steps, got wrong answer</span>
-                                    </div>
-                                </div>
-                                <div class="comparison-card comparison-card--after">
-                                    <div class="comparison-card__header">
-                                        <span class="comparison-card__label">With Zero-Shot CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--success">Correct</span>
-                                    </div>
-                                    <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> A store has 23 apples. They sell 8 in the morning and receive a delivery of 15 more. Then they sell 12 in the afternoon. How many apples are left? <em>Let's think step by step.</em>
-                                    </div>
-                                    <div class="comparison-card__response">
-                                        <strong>Response:</strong><br>
-                                        1. Start: 23 apples<br>
-                                        2. Sell 8: 23 - 8 = 15 apples<br>
-                                        3. Receive 15: 15 + 15 = 30 apples<br>
-                                        4. Sell 12: 30 - 12 = <strong>18 apples</strong>
-                                    </div>
-                                    <div class="comparison-card__analysis comparison-card__analysis--success">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                            <polyline points="22 4 12 14.01 9 11.01"/>
-                                        </svg>
-                                        <span>Shows work, verifiable, correct</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comparison-tabs__panel" data-panel="logic">
-                            <div class="comparison-grid">
-                                <div class="comparison-card comparison-card--before">
-                                    <div class="comparison-card__header">
-                                        <span class="comparison-card__label">Without CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--error">Guesses</span>
-                                    </div>
-                                    <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> If all Bloops are Razzies, and all Razzies are Lazzies, are all Bloops definitely Lazzies?
-                                    </div>
-                                    <div class="comparison-card__response">
-                                        <strong>Response:</strong> Yes.
+                                        <strong>Response:</strong> The product is Sony WH-1000XM4 headphones, priced at $348, with a 5-star rating.
                                     </div>
                                     <div class="comparison-card__analysis">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -301,79 +299,126 @@
                                             <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
                                             <line x1="12" y1="17" x2="12.01" y2="17"/>
                                         </svg>
-                                        <span>Right answer, but no justification</span>
+                                        <span>Correct info, but format varies each time</span>
                                     </div>
                                 </div>
                                 <div class="comparison-card comparison-card--after">
                                     <div class="comparison-card__header">
-                                        <span class="comparison-card__label">With Zero-Shot CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--success">Reasoned</span>
+                                        <span class="comparison-card__label">One-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--success">Consistent</span>
                                     </div>
                                     <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> If all Bloops are Razzies, and all Razzies are Lazzies, are all Bloops definitely Lazzies? <em>Let's think step by step.</em>
+                                        <strong>Prompt:</strong><br>
+                                        <em>Example:</em><br>
+                                        Review: "Love my Apple AirPods Pro ($249)! Rating: 4/5"<br>
+                                        Output: Product: Apple AirPods Pro | Price: $249 | Rating: 4/5<br><br>
+                                        <em>Now extract from:</em><br>
+                                        "The Sony WH-1000XM4 headphones ($348) are incredible. 5 stars!"
                                     </div>
                                     <div class="comparison-card__response">
-                                        <strong>Response:</strong><br>
-                                        1. Given: All Bloops are Razzies<br>
-                                        2. Given: All Razzies are Lazzies<br>
-                                        3. If every Bloop is a Razzie, and every Razzie is a Lazzie...<br>
-                                        4. Then every Bloop must also be a Lazzie (transitive property)<br>
-                                        <strong>Yes, all Bloops are definitely Lazzies.</strong>
+                                        <strong>Response:</strong> Product: Sony WH-1000XM4 | Price: $348 | Rating: 5/5
                                     </div>
                                     <div class="comparison-card__analysis comparison-card__analysis--success">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                                             <polyline points="22 4 12 14.01 9 11.01"/>
                                         </svg>
-                                        <span>Clear logical chain, trustworthy</span>
+                                        <span>Matches demonstrated format exactly</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="comparison-tabs__panel" data-panel="analysis">
+                        <div class="comparison-tabs__panel" data-panel="classification">
                             <div class="comparison-grid">
                                 <div class="comparison-card comparison-card--before">
                                     <div class="comparison-card__header">
-                                        <span class="comparison-card__label">Without CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--error">Shallow</span>
+                                        <span class="comparison-card__label">Zero-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--error">Verbose</span>
                                     </div>
                                     <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> Should a startup prioritize revenue growth or profitability in its first year?
+                                        <strong>Prompt:</strong> Classify this support ticket: "My order hasn't arrived after 2 weeks"
                                     </div>
                                     <div class="comparison-card__response">
-                                        <strong>Response:</strong> It depends on the business model and market conditions. Generally, revenue growth is prioritized.
+                                        <strong>Response:</strong> This support ticket appears to be related to shipping and delivery issues. The customer is experiencing a delay with their order...
                                     </div>
                                     <div class="comparison-card__analysis">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="10"/>
                                             <line x1="8" y1="12" x2="16" y2="12"/>
                                         </svg>
-                                        <span>Generic, lacks actionable insight</span>
+                                        <span>Explains instead of classifying</span>
                                     </div>
                                 </div>
                                 <div class="comparison-card comparison-card--after">
                                     <div class="comparison-card__header">
-                                        <span class="comparison-card__label">With Zero-Shot CoT</span>
-                                        <span class="comparison-card__badge comparison-card__badge--success">Thorough</span>
+                                        <span class="comparison-card__label">One-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--success">Precise</span>
                                     </div>
                                     <div class="comparison-card__prompt">
-                                        <strong>Prompt:</strong> Should a startup prioritize revenue growth or profitability in its first year? <em>Let's think step by step.</em>
+                                        <strong>Prompt:</strong><br>
+                                        <em>Example:</em><br>
+                                        Ticket: "I can't log into my account"<br>
+                                        Category: ACCOUNT_ACCESS | Priority: MEDIUM<br><br>
+                                        <em>Classify:</em><br>
+                                        "My order hasn't arrived after 2 weeks"
                                     </div>
                                     <div class="comparison-card__response">
-                                        <strong>Response:</strong><br>
-                                        1. <strong>Funding situation:</strong> VC-backed → growth; bootstrapped → profitability<br>
-                                        2. <strong>Market type:</strong> Winner-take-all → growth; niche → profitability<br>
-                                        3. <strong>Unit economics:</strong> Must be viable regardless of focus<br>
-                                        4. <strong>Runway:</strong> Less than 12 months → profitability path needed<br>
-                                        <strong>Decision framework:</strong> Choose growth only if funded with 18+ months runway and proven unit economics.
+                                        <strong>Response:</strong> Category: SHIPPING_DELAY | Priority: HIGH
                                     </div>
                                     <div class="comparison-card__analysis comparison-card__analysis--success">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                                             <polyline points="22 4 12 14.01 9 11.01"/>
                                         </svg>
-                                        <span>Structured, considers multiple factors</span>
+                                        <span>Follows exact classification format</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-tabs__panel" data-panel="tone">
+                            <div class="comparison-grid">
+                                <div class="comparison-card comparison-card--before">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">Zero-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--error">Generic</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>Prompt:</strong> Write a product description for a vintage leather journal.
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>Response:</strong> This vintage leather journal is perfect for writing and note-taking. It features high-quality leather and blank pages...
+                                    </div>
+                                    <div class="comparison-card__analysis">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="8" y1="12" x2="16" y2="12"/>
+                                        </svg>
+                                        <span>Plain, lacks brand voice</span>
+                                    </div>
+                                </div>
+                                <div class="comparison-card comparison-card--after">
+                                    <div class="comparison-card__header">
+                                        <span class="comparison-card__label">One-Shot</span>
+                                        <span class="comparison-card__badge comparison-card__badge--success">On-Brand</span>
+                                    </div>
+                                    <div class="comparison-card__prompt">
+                                        <strong>Prompt:</strong><br>
+                                        <em>Example:</em><br>
+                                        Product: Brass Compass<br>
+                                        Description: "For the wanderer whose soul speaks in cardinal directions. This hand-polished brass companion has guided dreamers since 1847."<br><br>
+                                        <em>Write for:</em> Vintage leather journal
+                                    </div>
+                                    <div class="comparison-card__response">
+                                        <strong>Response:</strong> "For the storyteller whose thoughts deserve to age like fine wine. This hand-stitched leather confidant has held secrets and sonnets since before your grandfather was born."
+                                    </div>
+                                    <div class="comparison-card__analysis comparison-card__analysis--success">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                            <polyline points="22 4 12 14.01 9 11.01"/>
+                                        </svg>
+                                        <span>Captures brand voice and style</span>
                                     </div>
                                 </div>
                             </div>
@@ -384,74 +429,28 @@
         </section>
         <!-- /INTERACTIVE COMPARISON -->
 
-        <!-- === TRIGGER PHRASES === -->
-        <section class="section section-alt">
+        <!-- === ANATOMY OF ONE-SHOT === -->
+        <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Your Toolkit</span>
-                    <h2 class="section-title">Trigger Phrases That Work</h2>
-                    <p class="section-subtitle">Different phrasings for different contexts—all unlock reasoning</p>
+                    <span class="section-eyebrow">Structure</span>
+                    <h2 class="section-title">Anatomy of a One-Shot Prompt</h2>
+                    <p class="section-subtitle">The four essential components</p>
                 </div>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">The Classic</h3>
-                        <p class="pillar-card__text">"Let's think step by step."</p>
-                        <span class="pillar-card__tag">Most tested</span>
-                    </div>
-
+                <div class="pillar-grid pillar-grid--4 fade-in-up">
                     <div class="pillar-card pillar-card--interactive">
                         <div class="pillar-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                                 <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="pillar-card__title">The Walkthrough</h3>
-                        <p class="pillar-card__text">"Walk me through your reasoning."</p>
-                        <span class="pillar-card__tag">Conversational</span>
-                    </div>
-
-                    <div class="pillar-card pillar-card--interactive">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">The Show-Work</h3>
-                        <p class="pillar-card__text">"Show your work before answering."</p>
-                        <span class="pillar-card__tag">Math/science</span>
-                    </div>
-
-                    <div class="pillar-card pillar-card--interactive">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">The Breakdown</h3>
-                        <p class="pillar-card__text">"Break this into smaller parts first."</p>
-                        <span class="pillar-card__tag">Complex problems</span>
-                    </div>
-
-                    <div class="pillar-card pillar-card--interactive">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                                <line x1="12" y1="17" x2="12.01" y2="17"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">The Explainer</h3>
-                        <p class="pillar-card__text">"Explain your thought process."</p>
-                        <span class="pillar-card__tag">Learning contexts</span>
+                        <h3 class="pillar-card__title">1. Task Description</h3>
+                        <p class="pillar-card__text">Brief explanation of what you want done (optional if the example is self-explanatory)</p>
+                        <span class="pillar-card__tag">Context</span>
                     </div>
 
                     <div class="pillar-card pillar-card--interactive">
@@ -460,64 +459,206 @@
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="pillar-card__title">The Pre-Answer</h3>
-                        <p class="pillar-card__text">"Before you answer, consider..."</p>
-                        <span class="pillar-card__tag">Careful analysis</span>
+                        <h3 class="pillar-card__title">2. Example Input</h3>
+                        <p class="pillar-card__text">Representative sample similar to what you'll be processing</p>
+                        <span class="pillar-card__tag">Demonstration</span>
+                    </div>
+
+                    <div class="pillar-card pillar-card--interactive">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">3. Example Output</h3>
+                        <p class="pillar-card__text">The exact format and style you want the model to produce</p>
+                        <span class="pillar-card__tag">Template</span>
+                    </div>
+
+                    <div class="pillar-card pillar-card--interactive">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">4. New Input</h3>
+                        <p class="pillar-card__text">The actual data you want processed using the demonstrated pattern</p>
+                        <span class="pillar-card__tag">Your Query</span>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /TRIGGER PHRASES -->
+        <!-- /ANATOMY OF ONE-SHOT -->
+
+        <!-- === BEST PRACTICES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Optimization</span>
+                    <h2 class="section-title">Crafting Effective Examples</h2>
+                </div>
+
+                <div class="accordion fade-in-up" id="best-practices-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Choose Representative Examples</span>
+                            <span class="accordion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__content">
+                                    <div class="technique-demo__prompt">
+                                        <span class="technique-demo__tag">Principle</span>
+                                        <p>Your example should be typical of the task, not an edge case. If you're classifying emails, use a clear example of a category, not a borderline case.</p>
+                                    </div>
+                                    <div class="technique-demo__response">
+                                        <span class="technique-demo__tag">Good Example</span>
+                                        <p>For sentiment classification: "This product exceeded my expectations!" → POSITIVE<br>
+                                        <em>Not:</em> "It's okay I guess" → NEUTRAL (ambiguous)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Match Complexity Levels</span>
+                            <span class="accordion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__content">
+                                    <div class="technique-demo__prompt">
+                                        <span class="technique-demo__tag">Principle</span>
+                                        <p>The example's complexity should match your actual inputs. A simple example will produce simple outputs; a detailed example signals thoroughness.</p>
+                                    </div>
+                                    <div class="technique-demo__response">
+                                        <span class="technique-demo__tag">Example</span>
+                                        <p><strong>Simple demo = simple output:</strong> "Summarize: [article]" → "Brief summary here"<br>
+                                        <strong>Detailed demo = detailed output:</strong> "Summarize: [article]" → "Key points: ... Main argument: ... Conclusion: ..."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Use Clear Delimiters</span>
+                            <span class="accordion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__content">
+                                    <div class="technique-demo__prompt">
+                                        <span class="technique-demo__tag">Pattern</span>
+                                        <p>Separate the example from the actual task clearly. Use labels like "Example:", "Input:", "Output:", "Now process:"</p>
+                                    </div>
+                                    <div class="technique-demo__response">
+                                        <span class="technique-demo__tag">Template</span>
+                                        <p><strong>---Example---</strong><br>
+                                        Input: [example input]<br>
+                                        Output: [example output]<br>
+                                        <strong>---Your Task---</strong><br>
+                                        Input: [actual input]<br>
+                                        Output:</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Avoid Overfitting to the Example</span>
+                            <span class="accordion-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__content">
+                                    <div class="technique-demo__prompt">
+                                        <span class="technique-demo__tag">Warning</span>
+                                        <p>Models may copy specific words or phrases from your example. If your example says "excellent product," the model might use "excellent" in all responses.</p>
+                                    </div>
+                                    <div class="technique-demo__response">
+                                        <span class="technique-demo__tag">Solution</span>
+                                        <p>Choose neutral examples or add variety instructions: "Use different words than the example while maintaining the same format."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /BEST PRACTICES -->
 
         <!-- === WHEN TO USE === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow">Decision Guide</span>
-                    <h2 class="section-title">When Zero-Shot CoT Excels</h2>
+                    <h2 class="section-title">When One-Shot Excels</h2>
                 </div>
 
                 <div class="use-case-grid">
                     <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Math & Calculations</h3>
-                        <p class="use-case-card__desc">Multi-step arithmetic, word problems, percentages, conversions.</p>
+                        <h3 class="use-case-card__title">Custom Output Formats</h3>
+                        <p class="use-case-card__desc">When you need a specific structure: JSON schemas, table formats, or branded templates.</p>
                     </div>
                     <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                                <polyline points="2 17 12 22 22 17"/>
-                                <polyline points="2 12 12 17 22 12"/>
+                                <polygon points="14 2 18 6 7 17 3 17 3 13 14 2"/>
+                                <line x1="3" y1="22" x2="21" y2="22"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Logic Problems</h3>
-                        <p class="use-case-card__desc">Syllogisms, deduction, if-then reasoning, constraint satisfaction.</p>
+                        <h3 class="use-case-card__title">Brand Voice & Style</h3>
+                        <p class="use-case-card__desc">When tone matters: marketing copy, customer communications, or consistent documentation.</p>
                     </div>
                     <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Complex Decisions</h3>
-                        <p class="use-case-card__desc">Weighing trade-offs, multi-factor analysis, strategic planning.</p>
+                        <h3 class="use-case-card__title">Data Extraction</h3>
+                        <p class="use-case-card__desc">Parsing unstructured text into consistent fields: invoices, resumes, or product listings.</p>
                     </div>
                     <div class="use-case-card use-case-card--success fade-in-up">
                         <div class="use-case-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-card__title">Code Debugging</h3>
-                        <p class="use-case-card__desc">Tracing execution, finding bugs, explaining code flow.</p>
+                        <h3 class="use-case-card__title">Task Disambiguation</h3>
+                        <p class="use-case-card__desc">When instructions alone are ambiguous, one example shows exactly what you mean.</p>
                     </div>
                 </div>
 
@@ -530,114 +671,59 @@
                         </svg>
                     </div>
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">When CoT Might Not Help</span>
-                        <p>Simple factual lookups, creative writing, or tasks where the model should be fast and intuitive rather than deliberative. Adding "think step by step" to "What is the capital of France?" just adds unnecessary tokens.</p>
+                        <span class="highlight-box__title">When to Use More Examples</span>
+                        <p>If your task has multiple valid approaches, edge cases, or requires nuanced judgment, consider few-shot learning (3-5 examples) to better demonstrate the pattern variations.</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- /WHEN TO USE -->
 
-        <!-- === ADVANCED TECHNIQUES === -->
+        <!-- === RELATED FRAMEWORKS === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Level Up</span>
-                    <h2 class="section-title">Advanced Zero-Shot CoT Patterns</h2>
-                </div>
-
-                <div class="accordion fade-in-up" id="advanced-accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Structured Reasoning Templates</span>
-                            <span class="accordion-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__content">
-                                    <div class="technique-demo__prompt">
-                                        <span class="technique-demo__tag">Pattern</span>
-                                        <p>Think through this using the following structure:<br>
-                                        1. What do I know?<br>
-                                        2. What do I need to find?<br>
-                                        3. What approach will I use?<br>
-                                        4. Execute the approach<br>
-                                        5. Verify the answer</p>
-                                    </div>
-                                    <div class="technique-demo__response">
-                                        <span class="technique-demo__tag">Use For</span>
-                                        <p>When you want consistent, methodical responses across multiple similar problems.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Self-Verification Pattern</span>
-                            <span class="accordion-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__content">
-                                    <div class="technique-demo__prompt">
-                                        <span class="technique-demo__tag">Pattern</span>
-                                        <p>Let's think step by step. After reaching your answer, check your work by [specific verification method].</p>
-                                    </div>
-                                    <div class="technique-demo__response">
-                                        <span class="technique-demo__tag">Example</span>
-                                        <p>"...After calculating the total, verify by working backwards from your answer to the original values."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Domain-Specific Reasoning</span>
-                            <span class="accordion-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__content">
-                                    <div class="technique-demo__prompt">
-                                        <span class="technique-demo__tag">Pattern</span>
-                                        <p>Think through this as a [domain expert] would, showing your reasoning at each step.</p>
-                                    </div>
-                                    <div class="technique-demo__response">
-                                        <span class="technique-demo__tag">Examples</span>
-                                        <p>• "...as a financial analyst would..."<br>
-                                        • "...as a software architect would..."<br>
-                                        • "...as a doctor diagnosing symptoms would..."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /ADVANCED TECHNIQUES -->
-
-        <!-- === RELATED FRAMEWORKS === -->
-        <section class="section">
-            <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Build on Zero-Shot CoT with these techniques</p>
+                <p class="section-subtitle fade-in-up">Explore the In-Context Learning spectrum</p>
+
+                <a href="zero-shot.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Simpler Approach</span>
+                        <span class="evolution-callout__title">Zero-Shot Prompting</span>
+                        <span class="evolution-callout__desc">When you don't need examples—just clear instructions.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">More Examples</span>
+                        <span class="evolution-callout__title">Few-Shot Learning</span>
+                        <span class="evolution-callout__desc">When one example isn't enough—use 3-5 demonstrations for complex tasks.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
 
                 <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
@@ -648,47 +734,9 @@
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Foundation Framework</span>
+                        <span class="evolution-callout__label">Add Reasoning</span>
                         <span class="evolution-callout__title">Chain-of-Thought</span>
-                        <span class="evolution-callout__desc">Learn the full Chain-of-Thought framework including few-shot examples for maximum reasoning power.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Verification Framework</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Generate multiple reasoning paths and vote on the answer for higher accuracy.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="zero-shot.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Foundation Technique</span>
-                        <span class="evolution-callout__title">Zero-Shot Prompting</span>
-                        <span class="evolution-callout__desc">Start with the basics—giving AI tasks without any examples.</span>
+                        <span class="evolution-callout__desc">Combine one-shot with step-by-step reasoning for complex problem-solving.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -706,13 +754,13 @@
                 <h2>Sources</h2>
                 <ul class="citation-list">
                     <li class="citation-item">
-                        <a href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener noreferrer">Large Language Models are Zero-Shot Reasoners - Kojima et al., NeurIPS 2022</a>
+                        <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer">Language Models are Few-Shot Learners - Brown et al., NeurIPS 2020</a>
                     </li>
                     <li class="citation-item">
-                        <a href="https://dl.acm.org/doi/10.5555/3600270.3601883" target="_blank" rel="noopener noreferrer">Large Language Models are Zero-Shot Reasoners - NeurIPS Proceedings</a>
+                        <a href="https://proceedings.neurips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html" target="_blank" rel="noopener noreferrer">GPT-3 Paper - NeurIPS 2020 Proceedings</a>
                     </li>
                     <li class="citation-item">
-                        <a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models - Wei et al., 2022</a>
+                        <a href="https://arxiv.org/abs/2406.06608" target="_blank" rel="noopener noreferrer">The Prompt Report: A Systematic Survey of Prompting Techniques - Schulhoff et al., 2024</a>
                     </li>
                 </ul>
             </div>
@@ -725,8 +773,8 @@
                 <div class="cta-corporate cta-corporate--dark">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Practice Zero-Shot CoT</h2>
-                        <p class="cta-corporate__text">Try building prompts with step-by-step reasoning triggers.</p>
+                        <h2 class="cta-corporate__title">Practice One-Shot Prompting</h2>
+                        <p class="cta-corporate__text">Build prompts with effective demonstrations using our interactive tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Try Prompt Builder</a>
                             <a href="../tools/analyzer.html" class="btn btn-secondary">Analyze a Prompt</a>

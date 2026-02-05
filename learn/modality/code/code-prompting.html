@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn effective code prompting techniques - strategies for generating, explaining, and transforming code using AI language models.">
+    <title>Code Prompting | Praxis | Prompt Engineering Library</title>
+    <link rel="preconnect" href="/" crossorigin>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- === SKIP LINK === -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="../../../index.html" class="logo" aria-label="Praxis Home">
+                <span class="logo-symbol">⬡</span> Praxis
+            </a>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="../../../index.html">Home</a></li>
+                <li><a href="../../../learn/index.html" class="active">Learn</a></li>
+                <li><a href="../../../patterns/index.html">Patterns</a></li>
+                <li><a href="../../../glossary.html">Glossary</a></li>
+                <li><a href="../../../about.html">About</a></li>
+                <li><a href="../../../quiz/index.html" class="nav-cta">Practice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- === MAIN CONTENT === -->
+    <main id="main-content">
+        <!-- === HERO === -->
+        <section class="hero hero--secondary" aria-labelledby="page-title">
+            <div class="hero__content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../../index.html">Home</a></li>
+                        <li><a href="../../index.html">Learn</a></li>
+                        <li><a href="#">Code</a></li>
+                        <li><span aria-current="page">Code Prompting</span></li>
+                    </ol>
+                </nav>
+                <h1 id="page-title" class="hero__title">Code Prompting</h1>
+                <p class="hero__subtitle">Strategies for Effective Code Generation</p>
+
+                <div class="content-badges">
+                    <span class="badge badge--framework">Code Framework</span>
+                    <span class="badge badge--time">15 min read</span>
+                    <span class="badge badge--level">Intermediate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- === INTRO SECTION === -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <div class="container">
+                <h2 id="intro-heading">Prompting for Code</h2>
+                <p class="lead-text">Code prompting requires different strategies than general text generation. The precision required in programming—where a single character can change behavior—demands prompting techniques that specify exact requirements, context, and constraints.</p>
+
+                <div class="highlight-box highlight-box--insight">
+                    <h3>Key Difference</h3>
+                    <p>Code has verifiable correctness. Unlike creative writing where quality is subjective, code either works or it doesn't. This allows for systematic evaluation and iterative refinement that other domains lack.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PROMPT ANATOMY === -->
+        <section class="content-section content-section--alt" aria-labelledby="anatomy-heading">
+            <div class="container">
+                <h2 id="anatomy-heading">Anatomy of an Effective Code Prompt</h2>
+                <p>Well-structured code prompts include several key components that reduce ambiguity and improve output quality.</p>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🎯</div>
+                        <h3 class="pillar-card__title">Task Specification</h3>
+                        <p>Clearly state what the code should do. Be specific about inputs, outputs, and the transformation between them.</p>
+                        <p><strong>Example:</strong> "Write a function that takes an array of integers and returns the second largest value."</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔧</div>
+                        <h3 class="pillar-card__title">Technical Context</h3>
+                        <p>Specify language, framework, version, and environment. Include relevant dependencies and constraints.</p>
+                        <p><strong>Example:</strong> "Using TypeScript 5.0, React 18, and the existing UserContext from our codebase."</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">📋</div>
+                        <h3 class="pillar-card__title">Requirements</h3>
+                        <p>List explicit requirements: error handling, edge cases, performance constraints, coding standards.</p>
+                        <p><strong>Example:</strong> "Handle empty arrays by returning null. Use O(n) time complexity."</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">📝</div>
+                        <h3 class="pillar-card__title">Examples</h3>
+                        <p>Provide input/output examples showing expected behavior, especially for edge cases.</p>
+                        <p><strong>Example:</strong> "Input: [3, 1, 4, 1, 5] → Output: 4"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CODE TASK TYPES === -->
+        <section class="content-section" aria-labelledby="tasks-heading">
+            <div class="container">
+                <h2 id="tasks-heading">Code Task Types</h2>
+                <p>Different coding tasks benefit from different prompting approaches.</p>
+
+                <div class="comparison-tabs" role="tablist" aria-label="Code task type comparison">
+                    <button role="tab" aria-selected="true" aria-controls="panel-generate" id="tab-generate" class="comparison-tabs__tab comparison-tabs__tab--active">Generation</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-explain" id="tab-explain" class="comparison-tabs__tab">Explanation</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-transform" id="tab-transform" class="comparison-tabs__tab">Transformation</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-review" id="tab-review" class="comparison-tabs__tab">Review</button>
+                </div>
+
+                <div id="panel-generate" role="tabpanel" aria-labelledby="tab-generate" class="comparison-tabs__panel comparison-tabs__panel--active">
+                    <h3>Code Generation</h3>
+                    <p>Creating new code from requirements. This is the most common code prompting task.</p>
+                    <div class="example-box">
+                        <p><strong>Effective prompt:</strong></p>
+                        <p>"Write a Python function called `parse_date` that:</p>
+                        <ul>
+                            <li>Takes a string in format 'YYYY-MM-DD' or 'MM/DD/YYYY'</li>
+                            <li>Returns a datetime object</li>
+                            <li>Raises ValueError for invalid formats</li>
+                            <li>Include docstring and type hints"</li>
+                        </ul>
+                    </div>
+                    <p><strong>Key strategies:</strong> Specify function signature, list all requirements, include edge case handling expectations.</p>
+                </div>
+
+                <div id="panel-explain" role="tabpanel" aria-labelledby="tab-explain" class="comparison-tabs__panel" hidden>
+                    <h3>Code Explanation</h3>
+                    <p>Understanding existing code—what it does, how it works, and why certain decisions were made.</p>
+                    <div class="example-box">
+                        <p><strong>Effective prompt:</strong></p>
+                        <p>"Explain this code line by line. Focus on:</p>
+                        <ul>
+                            <li>What each section accomplishes</li>
+                            <li>Why this approach was likely chosen</li>
+                            <li>Any potential issues or improvements</li>
+                            <li>Assume I understand [language] basics but not this specific pattern"</li>
+                        </ul>
+                    </div>
+                    <p><strong>Key strategies:</strong> Specify your knowledge level, ask for specific aspects (performance, security, readability).</p>
+                </div>
+
+                <div id="panel-transform" role="tabpanel" aria-labelledby="tab-transform" class="comparison-tabs__panel" hidden>
+                    <h3>Code Transformation</h3>
+                    <p>Converting code between languages, frameworks, or paradigms while preserving functionality.</p>
+                    <div class="example-box">
+                        <p><strong>Effective prompt:</strong></p>
+                        <p>"Convert this JavaScript class to a Python class:</p>
+                        <ul>
+                            <li>Preserve all method functionality</li>
+                            <li>Use Python conventions (snake_case, etc.)</li>
+                            <li>Replace JS-specific patterns with Python equivalents</li>
+                            <li>Add type hints"</li>
+                        </ul>
+                    </div>
+                    <p><strong>Key strategies:</strong> Specify target conventions, clarify how to handle language-specific features.</p>
+                </div>
+
+                <div id="panel-review" role="tabpanel" aria-labelledby="tab-review" class="comparison-tabs__panel" hidden>
+                    <h3>Code Review</h3>
+                    <p>Analyzing code for bugs, security issues, performance problems, or style violations.</p>
+                    <div class="example-box">
+                        <p><strong>Effective prompt:</strong></p>
+                        <p>"Review this code for:</p>
+                        <ul>
+                            <li>Security vulnerabilities (especially injection attacks)</li>
+                            <li>Performance bottlenecks</li>
+                            <li>Error handling gaps</li>
+                            <li>Deviations from [style guide]</li>
+                        </ul>
+                        <p>For each issue, explain the problem and suggest a fix."</p>
+                    </div>
+                    <p><strong>Key strategies:</strong> Specify what to look for, request actionable suggestions, mention relevant standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CONTEXT STRATEGIES === -->
+        <section class="content-section content-section--alt" aria-labelledby="context-heading">
+            <div class="container">
+                <h2 id="context-heading">Providing Context Effectively</h2>
+                <p>Context is critical for code generation, but too much can overwhelm. Use these strategies to provide the right information.</p>
+
+                <div class="accordion" data-accordion>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Relevant Code Snippets</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Include only the code directly relevant to your task—interfaces being implemented, functions being called, or patterns to follow.</p>
+                            <div class="example-box">
+                                <p><strong>Good:</strong> "Here's the User interface this function should work with: [interface code]"</p>
+                                <p><strong>Bad:</strong> "Here's our entire 500-line user module..."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Type Definitions</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Share type definitions, interfaces, or schemas that the generated code must work with.</p>
+                            <div class="example-box">
+                                <p><strong>Example:</strong> "The function should accept this type: `type Config = { host: string; port: number; timeout?: number }`"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Existing Patterns</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Show examples of similar code in your project so generated code matches existing style and patterns.</p>
+                            <div class="example-box">
+                                <p><strong>Example:</strong> "Follow this pattern from our codebase for error handling: [example code]"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Constraints and Limitations</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Explicitly state what you cannot use—unavailable libraries, restricted patterns, or performance requirements.</p>
+                            <div class="example-box">
+                                <p><strong>Example:</strong> "Don't use lodash (not in our dependencies). Must work in Node 16. Memory usage should stay under 50MB."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMMON PITFALLS === -->
+        <section class="content-section" aria-labelledby="pitfalls-heading">
+            <div class="container">
+                <h2 id="pitfalls-heading">Common Pitfalls</h2>
+
+                <div class="pillar-grid pillar-grid--two-col">
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Underspecified Requirements</h3>
+                        <p>"Write a login function" leaves critical questions unanswered: What auth method? What database? What should happen on failure? Always specify the details.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Missing Edge Cases</h3>
+                        <p>If you don't mention edge cases (null inputs, empty arrays, concurrent access), the model won't handle them. List important edge cases explicitly.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Assumed Context</h3>
+                        <p>The model doesn't know your codebase. If code must integrate with existing functions or follow specific patterns, include that information.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Blind Trust</h3>
+                        <p>Never use generated code without review. Models can produce code with subtle bugs, security issues, or outdated patterns. Always verify.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="content-section content-section--alt" aria-labelledby="related-heading">
+            <div class="container">
+                <h2 id="related-heading">Related Frameworks</h2>
+                <div class="card-grid">
+                    <a href="self-debugging.html" class="card card--hover">
+                        <h3 class="card__title">Self-Debugging</h3>
+                        <p>Techniques for having AI identify and fix bugs in generated code.</p>
+                    </a>
+                    <a href="structured-output.html" class="card card--hover">
+                        <h3 class="card__title">Structured Output</h3>
+                        <p>Generating code that produces specific data formats like JSON or XML.</p>
+                    </a>
+                    <a href="../../chain-of-thought.html" class="card card--hover">
+                        <h3 class="card__title">Chain of Thought</h3>
+                        <p>Step-by-step reasoning that helps with complex algorithmic problems.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CTA SECTION === -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Practice Code Prompting</h2>
+                <p>Apply code prompting techniques in hands-on exercises.</p>
+                <a href="../../../quiz/index.html" class="btn btn--primary">Start Practice Quiz</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="footer__content">
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="../../../index.html">Home</a>
+                <a href="../../index.html">Learn</a>
+                <a href="../../../patterns/index.html">Patterns</a>
+                <a href="../../../glossary.html">Glossary</a>
+                <a href="../../../about.html">About</a>
+            </nav>
+            <p class="footer__copyright">© 2025 Praxis. For educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="../../../app.js" defer></script>
+</body>
+</html>

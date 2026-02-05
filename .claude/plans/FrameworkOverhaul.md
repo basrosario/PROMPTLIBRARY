@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-04 (Session 22)
+**Last Updated:** 2026-02-05 (Session 25)
 
 ---
 
@@ -199,12 +199,17 @@ Based on the Facts & Fictions page methodology, ALL factual claims must follow t
 
 ### Citation Rules
 
-1. **Point of Delivery** - Cite at the exact location of the claim
-2. **Verifiable** - All sources must be publicly accessible
-3. **No Stacking** - One claim, one source (not "multiple studies show")
-4. **Specific** - Name the institution, not "researchers found"
-5. **MANDATORY LINKS** - Every citation MUST include a direct URL to the source
-6. **NO LINK = NO FACT** - If you cannot find a verifiable source with a working URL, DO NOT add the claim to the site
+**⚠️ USER PREFERENCE (Session 25): NO CITATIONS on framework pages**
+- Citations/sources sections have been deferred
+- May be added later if requested
+
+~~Original rules (for reference when citations are needed):~~
+1. ~~Point of Delivery - Cite at the exact location of the claim~~
+2. ~~Verifiable - All sources must be publicly accessible~~
+3. ~~No Stacking - One claim, one source (not "multiple studies show")~~
+4. ~~Specific - Name the institution, not "researchers found"~~
+5. ~~MANDATORY LINKS - Every citation MUST include a direct URL to the source~~
+6. ~~NO LINK = NO FACT - If you cannot find a verifiable source with a working URL, DO NOT add the claim to the site~~
 
 ### Citation Format (REQUIRED)
 
@@ -753,6 +758,63 @@ Resources (mega-menu)
 
 # SESSION LOG
 
+## Session 25 (2026-02-05)
+
+**Focus:** Phase 2 - Complete remaining HIGH priority pages + Navigation updates
+**Status:** ✅ ALL 12 HIGH PRIORITY PAGES COMPLETE
+
+**Completed:**
+- [x] Created `learn/self-refine.html` - Iterative improvement technique
+  - Three-stage process: Generate → Feedback → Refine
+  - Feedback strategies: Criteria-based, Role-based, Comparative, Error-focused
+  - Implementation patterns: Fixed iterations, Quality threshold, Diminishing returns
+  - Interactive accordion for feedback strategies
+  - Comparison tabs for single-pass vs self-refine
+- [x] Created `learn/self-verification.html` - Answer validation technique
+  - Verification strategies: Backward verification, Constraint checking, Sanity checks
+  - Implementation patterns: Single-turn, Two-turn, Verification with regeneration
+  - Comparison with related techniques (Self-Refine, Self-Consistency)
+  - Interactive comparison tabs and accordion
+- [x] Created `learn/modality/code/` directory structure
+- [x] Created `learn/modality/code/code-prompting.html` - Code generation strategies
+  - Code task types: Generation, Explanation, Transformation, Review
+  - Prompt anatomy: Task spec, Technical context, Requirements, Examples
+  - Context strategies in accordion
+  - Interactive tabbed comparison of task types
+- [x] Created `learn/modality/code/self-debugging.html` - AI-assisted debugging
+  - Debugging strategies: Error-driven, Trace-based, Explanation, Test-driven
+  - Debugging workflow timeline
+  - Prompt patterns: Rubber duck, Adversarial reviewer, Hypothesis tester, Minimal fix
+- [x] Created `learn/modality/code/structured-output.html` - Format generation
+  - Format comparison: JSON, XML, YAML, CSV
+  - Prompting strategies: Schema specification, Example-driven, Format enforcement
+  - Common issues and fixes
+  - Validation strategies
+- [x] Updated navigation mega-menu across ALL 48+ HTML files:
+  - Added "Advanced" section with 6 links
+  - Added "Code" section with 3 links
+  - Used correct relative paths for each directory depth
+
+**User Preference Applied:**
+- NO CITATIONS on any framework pages (per user request)
+- Citations may be added later if needed
+
+**Files Created:**
+- `learn/self-refine.html` (NEW)
+- `learn/self-verification.html` (NEW)
+- `learn/modality/code/code-prompting.html` (NEW)
+- `learn/modality/code/self-debugging.html` (NEW)
+- `learn/modality/code/structured-output.html` (NEW)
+
+**Files Modified:**
+- All 48+ HTML files (navigation mega-menu updated)
+- `.claude/HANDOFF.md` (session status updated)
+- `.claude/plans/FrameworkOverhaul.md` (this file)
+
+**Phase 2 HIGH Priority Status:** ✅ COMPLETE (12/12 pages)
+
+---
+
 ## Session 24 (2026-02-05)
 
 **Focus:** Phase 2 - Text Framework Pages (Starting HIGH priority)
@@ -906,34 +968,39 @@ Progress: [████████████████████] 100%
 - [x] Added JS to load and render terms from JSON
 - [x] Updated search-index.json with all terms
 
-### Phase 2: Text Frameworks (2/52)
+### Phase 2: Text Frameworks (12/52)
 ```
-Progress: [█░░░░░░░░░░░░░░░░░░░] 4%
+Progress: [████░░░░░░░░░░░░░░░░] 23%
+HIGH Priority: [████████████████████] 100%
 ```
 - [x] zero-shot.html (HIGH) ✅
 - [x] zero-shot-cot.html (HIGH) ✅
-- [ ] one-shot.html (HIGH)
-- [ ] example-selection.html (HIGH)
-- [ ] least-to-most.html (HIGH)
-- [ ] plan-and-solve.html (HIGH)
-- [ ] tree-of-thought.html (HIGH)
-- [ ] self-refine.html (HIGH)
-- [ ] self-verification.html (HIGH)
-- [ ] code-prompting.html (HIGH)
-- [ ] self-debugging.html (HIGH)
-- [ ] structured-output.html (HIGH)
+- [x] one-shot.html (HIGH) ✅
+- [x] example-selection.html (HIGH) ✅
+- [x] least-to-most.html (HIGH) ✅
+- [x] plan-and-solve.html (HIGH) ✅
+- [x] tree-of-thought.html (HIGH) ✅
+- [x] self-refine.html (HIGH) ✅
+- [x] self-verification.html (HIGH) ✅
+- [x] code-prompting.html (HIGH) ✅
+- [x] self-debugging.html (HIGH) ✅
+- [x] structured-output.html (HIGH) ✅
 
-**Note:** Navigation & footer links to be updated in Phase 4 after pages are created
+**Note:** Navigation updated with Advanced + Code sections in all 48+ files
 
 ### Phase 3: Modality Frameworks (0/37)
 ```
 Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 ```
 
-### Phase 4: Site Integration (0/4)
+### Phase 4: Site Integration (1/4)
 ```
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+Progress: [█████░░░░░░░░░░░░░░░] 25%
 ```
+- [x] 4A: Navigation updates for HIGH priority pages ✅
+- [ ] 4B: Learn Hub redesign
+- [ ] 4C: Search index updates
+- [ ] 4D: Framework Matcher updates
 
 ### Phase 5: Navigation UX Overhaul (6/6) ✅ COMPLETE
 ```

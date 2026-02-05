@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Structured Output prompting - techniques for generating reliable JSON, XML, and other data formats from AI language models.">
+    <title>Structured Output | Praxis | Prompt Engineering Library</title>
+    <link rel="preconnect" href="/" crossorigin>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- === SKIP LINK === -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="../../../index.html" class="logo" aria-label="Praxis Home">
+                <span class="logo-symbol">⬡</span> Praxis
+            </a>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="../../../index.html">Home</a></li>
+                <li><a href="../../../learn/index.html" class="active">Learn</a></li>
+                <li><a href="../../../patterns/index.html">Patterns</a></li>
+                <li><a href="../../../glossary.html">Glossary</a></li>
+                <li><a href="../../../about.html">About</a></li>
+                <li><a href="../../../quiz/index.html" class="nav-cta">Practice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- === MAIN CONTENT === -->
+    <main id="main-content">
+        <!-- === HERO === -->
+        <section class="hero hero--secondary" aria-labelledby="page-title">
+            <div class="hero__content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="../../../index.html">Home</a></li>
+                        <li><a href="../../index.html">Learn</a></li>
+                        <li><a href="#">Code</a></li>
+                        <li><span aria-current="page">Structured Output</span></li>
+                    </ol>
+                </nav>
+                <h1 id="page-title" class="hero__title">Structured Output</h1>
+                <p class="hero__subtitle">Generating Reliable Data Formats</p>
+
+                <div class="content-badges">
+                    <span class="badge badge--framework">Code Framework</span>
+                    <span class="badge badge--time">10 min read</span>
+                    <span class="badge badge--level">Intermediate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- === INTRO SECTION === -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <div class="container">
+                <h2 id="intro-heading">Beyond Free-Form Text</h2>
+                <p class="lead-text">Structured Output prompting focuses on getting AI models to produce data in specific, parseable formats like JSON, XML, or YAML. This is essential for building applications where AI responses feed into downstream systems that expect structured data.</p>
+
+                <div class="highlight-box highlight-box--insight">
+                    <h3>Core Challenge</h3>
+                    <p>Language models are trained to produce natural text, not data structures. Structured output requires constraining the model's natural verbosity while ensuring format compliance—without breaking the semantic content.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === FORMAT COMPARISON === -->
+        <section class="content-section content-section--alt" aria-labelledby="formats-heading">
+            <div class="container">
+                <h2 id="formats-heading">Common Output Formats</h2>
+                <p>Different formats suit different use cases. Understanding their characteristics helps you choose appropriately.</p>
+
+                <div class="comparison-tabs" role="tablist" aria-label="Output format comparison">
+                    <button role="tab" aria-selected="true" aria-controls="panel-json" id="tab-json" class="comparison-tabs__tab comparison-tabs__tab--active">JSON</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-xml" id="tab-xml" class="comparison-tabs__tab">XML</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-yaml" id="tab-yaml" class="comparison-tabs__tab">YAML</button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-csv" id="tab-csv" class="comparison-tabs__tab">CSV/Tables</button>
+                </div>
+
+                <div id="panel-json" role="tabpanel" aria-labelledby="tab-json" class="comparison-tabs__panel comparison-tabs__panel--active">
+                    <h3>JSON Output</h3>
+                    <p>The most common format for structured AI output. Well-supported by all programming languages.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Strengths</h4>
+                            <ul class="pillar-card__list">
+                                <li>Universal parsing support</li>
+                                <li>Strict, unambiguous syntax</li>
+                                <li>Good model familiarity</li>
+                                <li>Nested structure support</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Challenges</h4>
+                            <ul class="pillar-card__list">
+                                <li>Trailing commas break parsing</li>
+                                <li>No comments allowed</li>
+                                <li>String escaping issues</li>
+                                <li>Verbose for large data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-xml" role="tabpanel" aria-labelledby="tab-xml" class="comparison-tabs__panel" hidden>
+                    <h3>XML Output</h3>
+                    <p>Useful when you need attributes, mixed content, or schema validation.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Strengths</h4>
+                            <ul class="pillar-card__list">
+                                <li>Self-documenting tags</li>
+                                <li>Schema validation (XSD)</li>
+                                <li>Mixed content support</li>
+                                <li>Attribute + element data</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Challenges</h4>
+                            <ul class="pillar-card__list">
+                                <li>Verbose syntax</li>
+                                <li>Closing tag mismatches</li>
+                                <li>Special character encoding</li>
+                                <li>Less model familiarity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-yaml" role="tabpanel" aria-labelledby="tab-yaml" class="comparison-tabs__panel" hidden>
+                    <h3>YAML Output</h3>
+                    <p>Human-readable format, good for configuration-style output.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Strengths</h4>
+                            <ul class="pillar-card__list">
+                                <li>Highly readable</li>
+                                <li>Supports comments</li>
+                                <li>Less punctuation</li>
+                                <li>Good for config data</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Challenges</h4>
+                            <ul class="pillar-card__list">
+                                <li>Whitespace-sensitive</li>
+                                <li>Indentation errors</li>
+                                <li>Ambiguous in edge cases</li>
+                                <li>Models struggle with indent</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panel-csv" role="tabpanel" aria-labelledby="tab-csv" class="comparison-tabs__panel" hidden>
+                    <h3>CSV/Table Output</h3>
+                    <p>Best for simple tabular data that will be processed in spreadsheets or data tools.</p>
+                    <div class="pillar-grid pillar-grid--two-col">
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✓</div>
+                            <h4 class="pillar-card__title">Strengths</h4>
+                            <ul class="pillar-card__list">
+                                <li>Simple structure</li>
+                                <li>Spreadsheet-ready</li>
+                                <li>Compact size</li>
+                                <li>Easy to generate</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="pillar-card__icon">✗</div>
+                            <h4 class="pillar-card__title">Challenges</h4>
+                            <ul class="pillar-card__list">
+                                <li>Flat structure only</li>
+                                <li>Delimiter in data issues</li>
+                                <li>No type information</li>
+                                <li>Quoting inconsistencies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === PROMPTING STRATEGIES === -->
+        <section class="content-section" aria-labelledby="strategies-heading">
+            <div class="container">
+                <h2 id="strategies-heading">Prompting Strategies</h2>
+                <p>Techniques to reliably get properly formatted output from language models.</p>
+
+                <div class="accordion" data-accordion>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Schema Specification</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Provide an explicit schema or template showing the expected structure.</p>
+                            <div class="example-box">
+                                <p><strong>Prompt:</strong> "Extract contact information from this text. Return as JSON matching this schema:</p>
+                                <pre>{
+  "name": "string",
+  "email": "string or null",
+  "phone": "string or null",
+  "company": "string or null"
+}</pre>
+                                <p>Use null for missing fields. Return only the JSON, no other text."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Example-Driven Format</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Show a complete example of correctly formatted output.</p>
+                            <div class="example-box">
+                                <p><strong>Prompt:</strong> "Categorize each product. Format your response exactly like this example:</p>
+                                <pre>[
+  {"product": "iPhone 15", "category": "Electronics", "subcategory": "Smartphones"},
+  {"product": "Nike Air Max", "category": "Apparel", "subcategory": "Footwear"}
+]</pre>
+                                <p>Now categorize: MacBook Pro, Levi's 501 Jeans, Sony WH-1000XM5"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Format Enforcement Phrases</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Use explicit instructions to prevent natural language additions.</p>
+                            <div class="example-box">
+                                <p><strong>Effective phrases:</strong></p>
+                                <ul>
+                                    <li>"Return only valid JSON, no explanation"</li>
+                                    <li>"Your entire response must be parseable JSON"</li>
+                                    <li>"Do not include any text before or after the JSON"</li>
+                                    <li>"Start your response with { and end with }"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <button class="accordion__trigger" aria-expanded="false">
+                            <span class="accordion__title">Prefix Prompting</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__content">
+                            <p>Start the assistant's response to constrain the format from the first character.</p>
+                            <div class="example-box">
+                                <p><strong>Prompt:</strong> "Extract the data as JSON."</p>
+                                <p><strong>Assistant prefix:</strong> "{"</p>
+                                <p>By starting the response with {, you force the model to continue valid JSON rather than adding preamble like "Here's the JSON:"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === COMMON ISSUES === -->
+        <section class="content-section content-section--alt" aria-labelledby="issues-heading">
+            <div class="container">
+                <h2 id="issues-heading">Common Issues and Fixes</h2>
+
+                <div class="pillar-grid pillar-grid--two-col">
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Preamble Text</h3>
+                        <p><strong>Issue:</strong> Model adds "Here's the JSON:" before the data.</p>
+                        <p><strong>Fix:</strong> Use prefix prompting or explicit "Return only JSON" instruction.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Trailing Commas</h3>
+                        <p><strong>Issue:</strong> Model adds comma after last array/object element.</p>
+                        <p><strong>Fix:</strong> Post-process to remove, or use lenient JSON parser.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Unescaped Strings</h3>
+                        <p><strong>Issue:</strong> Quotes or newlines in string values break JSON.</p>
+                        <p><strong>Fix:</strong> Ask model to escape special characters, or post-process.</p>
+                    </div>
+                    <div class="highlight-box highlight-box--warning">
+                        <h3>Schema Drift</h3>
+                        <p><strong>Issue:</strong> Model adds extra fields or uses different names.</p>
+                        <p><strong>Fix:</strong> Provide exact schema and state "use these exact field names."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === VALIDATION STRATEGIES === -->
+        <section class="content-section" aria-labelledby="validation-heading">
+            <div class="container">
+                <h2 id="validation-heading">Validation Strategies</h2>
+                <p>Always validate structured output before using it in your application.</p>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔍</div>
+                        <h3 class="pillar-card__title">Syntax Validation</h3>
+                        <p>Parse the output to catch format errors. Use try/catch around JSON.parse or equivalent.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">📋</div>
+                        <h3 class="pillar-card__title">Schema Validation</h3>
+                        <p>Use libraries like JSON Schema, Zod, or Pydantic to validate structure and types.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card__icon">🔄</div>
+                        <h3 class="pillar-card__title">Retry on Failure</h3>
+                        <p>If validation fails, include the error in a retry prompt asking for corrected output.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box highlight-box--tip">
+                    <h3>Retry Prompt Pattern</h3>
+                    <p>"Your previous response had this JSON error: [error message]. Please fix the formatting and return valid JSON. Previous attempt: [previous response]"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === BEST PRACTICES === -->
+        <section class="content-section content-section--alt" aria-labelledby="practices-heading">
+            <div class="container">
+                <h2 id="practices-heading">Best Practices</h2>
+
+                <ul class="feature-list">
+                    <li><strong>Prefer JSON for most cases</strong> - It has the best model support and tooling</li>
+                    <li><strong>Always provide a schema or example</strong> - Don't rely on the model to infer structure</li>
+                    <li><strong>Use explicit field names</strong> - Avoid ambiguity with clear, descriptive names</li>
+                    <li><strong>Handle missing data explicitly</strong> - Specify whether to use null, empty string, or omit</li>
+                    <li><strong>Test edge cases</strong> - Special characters, empty inputs, very long values</li>
+                    <li><strong>Build robust parsing</strong> - Expect some failures and handle gracefully</li>
+                    <li><strong>Consider API features</strong> - Many APIs offer native JSON mode or function calling</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="content-section" aria-labelledby="related-heading">
+            <div class="container">
+                <h2 id="related-heading">Related Frameworks</h2>
+                <div class="card-grid">
+                    <a href="code-prompting.html" class="card card--hover">
+                        <h3 class="card__title">Code Prompting</h3>
+                        <p>General techniques for code generation that apply to structured output.</p>
+                    </a>
+                    <a href="../../one-shot.html" class="card card--hover">
+                        <h3 class="card__title">One-Shot Prompting</h3>
+                        <p>Using examples to demonstrate expected output format.</p>
+                    </a>
+                    <a href="../../self-verification.html" class="card card--hover">
+                        <h3 class="card__title">Self-Verification</h3>
+                        <p>Having the model verify its output is valid before returning.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === CTA SECTION === -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Practice Structured Output</h2>
+                <p>Apply structured output techniques in hands-on exercises.</p>
+                <a href="../../../quiz/index.html" class="btn btn--primary">Start Practice Quiz</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="footer__content">
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="../../../index.html">Home</a>
+                <a href="../../index.html">Learn</a>
+                <a href="../../../patterns/index.html">Patterns</a>
+                <a href="../../../glossary.html">Glossary</a>
+                <a href="../../../about.html">About</a>
+            </nav>
+            <p class="footer__copyright">© 2025 Praxis. For educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="../../../app.js" defer></script>
+</body>
+</html>
