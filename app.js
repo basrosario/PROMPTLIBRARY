@@ -33,10 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close menu when clicking any link inside nav (using event delegation)
+        // All links navigate to their pages and close the nav panel
         nav.addEventListener('click', (e) => {
-            // Check if clicked element or its parent is a link
             const link = e.target.closest('a');
             if (link) {
+                // Close nav panel for all links (including parent menu items)
                 menuToggle.classList.remove('active');
                 nav.classList.remove('active');
                 document.body.classList.remove('menu-open');
@@ -52,6 +53,128 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================
+    // ACCORDION NAVIGATION (Mega Menu)
+    // Click-based expand/collapse for dropdown menus
+    // ==========================================
+    const AccordionNav = {
+        activeMenu: null,
+        isMobile: window.matchMedia('(max-width: 767px)').matches,
+
+        /**
+         * Initialize accordion navigation
+         */
+        init() {
+            const navItems = document.querySelectorAll('.nav-item.has-dropdown');
+            if (!navItems.length) return;
+
+            // Add click handlers to menu triggers
+            navItems.forEach(item => {
+                const trigger = item.querySelector('.nav-link');
+                if (trigger) {
+                    trigger.addEventListener('click', (e) => this.handleClick(e, item));
+                }
+            });
+
+            // Close menus when clicking outside
+            document.addEventListener('click', (e) => this.handleOutsideClick(e));
+
+            // Close menus on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.activeMenu) {
+                    this.closeMenu(this.activeMenu);
+                }
+            });
+
+            // Mobile: close on scroll
+            if (this.isMobile) {
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        if (this.activeMenu && this.isMobile) {
+                            this.closeMenu(this.activeMenu);
+                        }
+                    }, 100);
+                }, { passive: true });
+            }
+
+            // Update mobile state on resize
+            window.addEventListener('resize', () => {
+                this.isMobile = window.matchMedia('(max-width: 767px)').matches;
+            });
+        },
+
+        /**
+         * Handle click on menu trigger
+         * @param {Event} e - Click event
+         * @param {HTMLElement} menuItem - The nav-item element
+         */
+        handleClick(e, menuItem) {
+            // On mobile, menus are always visible - allow navigation
+            // On desktop, hover handles visibility; click navigates
+            // No need to prevent default - parent links should navigate
+        },
+
+        /**
+         * Open a menu
+         * @param {HTMLElement} menuItem - The nav-item element
+         */
+        openMenu(menuItem) {
+            menuItem.classList.add('is-active');
+            const trigger = menuItem.querySelector('.nav-link');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+            this.activeMenu = menuItem;
+        },
+
+        /**
+         * Close a menu
+         * @param {HTMLElement} menuItem - The nav-item element
+         */
+        closeMenu(menuItem) {
+            menuItem.classList.remove('is-active');
+            const trigger = menuItem.querySelector('.nav-link');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+            if (this.activeMenu === menuItem) {
+                this.activeMenu = null;
+            }
+        },
+
+        /**
+         * Handle clicks outside menus
+         * @param {Event} e - Click event
+         */
+        handleOutsideClick(e) {
+            if (!this.activeMenu) return;
+
+            // Check if click was outside all nav-items
+            const clickedNavItem = e.target.closest('.nav-item.has-dropdown');
+            if (!clickedNavItem && this.activeMenu) {
+                this.closeMenu(this.activeMenu);
+            }
+        },
+
+        /**
+         * Check if menu content overflows viewport (for desktop auto-collapse)
+         * @param {HTMLElement} menuItem - The nav-item element
+         * @returns {boolean}
+         */
+        checkOverflow(menuItem) {
+            const megaMenu = menuItem.querySelector('.mega-menu');
+            if (!megaMenu) return false;
+
+            const rect = megaMenu.getBoundingClientRect();
+            return rect.bottom > window.innerHeight;
+        }
+    };
+
+    // Initialize accordion navigation
+    AccordionNav.init();
 
     // ==========================================
     // MOBILE ACCESSIBILITY ACCORDION
@@ -7447,6 +7570,109 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // GLOSSARY JSON LOADER
+    // Loads additional terms from data/glossary.json
+    // ==========================================
+
+    /**
+     * Load glossary terms from JSON and inject into page
+     * Terms are inserted alphabetically into existing letter sections
+     */
+    async function loadGlossaryFromJSON() {
+        const filterBar = document.querySelector('.glossary-filter-bar');
+        if (!filterBar) return; // Only run on glossary page
+
+        try {
+            // Determine base path based on page location
+            const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+            const response = await fetch(`${basePath}data/glossary.json`);
+            if (!response.ok) return;
+
+            const data = await response.json();
+            const terms = data.terms || [];
+
+            terms.forEach(term => {
+                // Get first letter for section targeting
+                const firstLetter = term.term.charAt(0).toLowerCase();
+                const sectionId = `letter-${firstLetter}`;
+                const section = document.getElementById(sectionId);
+
+                if (!section) return; // Skip if no section for this letter
+
+                // Check if term already exists (avoid duplicates)
+                if (document.getElementById(term.id)) return;
+
+                // Create term HTML element
+                const termEl = document.createElement('div');
+                termEl.className = 'glossary-term';
+                termEl.id = term.id;
+                termEl.dataset.category = term.category || 'prompting';
+
+                // Build inner HTML
+                let html = `<h3>${term.term}</h3>`;
+                html += `<p>${term.definition}</p>`;
+
+                // Add link if provided
+                if (term.link) {
+                    const linkText = term.term.includes('Injection') || term.term.includes('Jailbreak')
+                        ? 'Learn about AI safety →'
+                        : `Learn more about ${term.term} →`;
+                    html += `<a href="${term.link}" class="term-link">${linkText}</a>`;
+                }
+
+                // Add tags
+                if (term.tags && term.tags.length > 0) {
+                    html += '<div class="term-tags">';
+                    term.tags.forEach(tag => {
+                        html += `<span class="term-tag">${tag}</span>`;
+                    });
+                    html += '</div>';
+                }
+
+                termEl.innerHTML = html;
+
+                // Find the terms container within the section
+                const termsContainer = section.querySelector('.glossary-terms');
+                if (!termsContainer) return;
+
+                // Insert alphabetically among existing terms
+                const existingTerms = termsContainer.querySelectorAll('.glossary-term');
+                let inserted = false;
+
+                for (const existingTerm of existingTerms) {
+                    const existingName = existingTerm.querySelector('h3')?.textContent || '';
+                    if (term.term.toLowerCase() < existingName.toLowerCase()) {
+                        termsContainer.insertBefore(termEl, existingTerm);
+                        inserted = true;
+                        break;
+                    }
+                }
+
+                // If not inserted, append at end
+                if (!inserted) {
+                    termsContainer.appendChild(termEl);
+                }
+            });
+
+            // Update page subtitle with new count
+            const allTerms = document.querySelectorAll('.glossary-term');
+            const subtitle = document.querySelector('.page-subtitle');
+            if (subtitle && allTerms.length > 0) {
+                subtitle.textContent = subtitle.textContent.replace(/\d+\+?\s*terms/, `${allTerms.length}+ terms`);
+            }
+
+        } catch (error) {
+            // Silently fail - page works with existing HTML terms
+            console.warn('Could not load glossary JSON:', error);
+        }
+    }
+
+    // Load JSON terms, then initialize filters
+    loadGlossaryFromJSON().then(() => {
+        initGlossaryFilters();
+    });
+
+    // ==========================================
     // GLOSSARY FILTER & SORT
     // Category filtering and alphabetical sorting for glossary page
     // ==========================================
@@ -7616,9 +7842,6 @@ document.addEventListener('DOMContentLoaded', () => {
             countDisplay.textContent = glossaryTerms.length;
         }
     }
-
-    // Initialize glossary filters on page load
-    initGlossaryFilters();
 
     // ==========================================
     // CONTENT LIBRARY SEARCH

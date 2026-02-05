@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2026-02-04",
+    "source": "The Prompt Report (arXiv:2406.06608v6)",
+    "totalTerms": 33
+  },
+  "terms": [
+    {
+      "id": "term-answer-engineering",
+      "term": "Answer Engineering",
+      "definition": "The process of constraining or formatting model outputs to match desired formats. Includes techniques like answer shape constraints, output templates, and format specifications that guide how the model structures its response.",
+      "category": "prompting",
+      "tags": ["Prompting", "Output Control"],
+      "relatedTerms": ["verbalizer", "constrained-output"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-beam-search",
+      "term": "Beam Search",
+      "definition": "A decoding strategy that maintains multiple candidate sequences (beams) during text generation, selecting the most probable overall sequences rather than greedily choosing tokens one at a time. Balances computational cost with output quality.",
+      "category": "prompting",
+      "tags": ["Prompting", "Decoding"],
+      "relatedTerms": ["greedy-decoding", "top-k-sampling", "top-p-sampling"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-cloze-prompt",
+      "term": "Cloze Prompt",
+      "definition": "A fill-in-the-blank style prompt where the model completes a sentence or template. Based on cloze deletion tests from psychology, these prompts frame tasks as completion exercises rather than question-answer pairs.",
+      "category": "prompting",
+      "tags": ["Prompting", "Prompt Design"],
+      "relatedTerms": ["prompt-template", "prefix-prompt"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-context-window",
+      "term": "Context Window",
+      "definition": "The maximum number of tokens a language model can process in a single input-output sequence. Determines how much information (conversation history, documents, examples) can fit in a prompt. Modern models range from 4K to 200K+ tokens.",
+      "category": "prompting",
+      "tags": ["Prompting", "Technical"],
+      "relatedTerms": ["token-budget", "in-context-learning"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-continuous-prompt",
+      "term": "Continuous Prompt",
+      "definition": "Learned vector embeddings added to the input that are optimized during training, as opposed to discrete text prompts. Used in prompt tuning and prefix tuning methods where the 'prompt' exists only in embedding space.",
+      "category": "prompting",
+      "tags": ["Prompting", "Advanced"],
+      "relatedTerms": ["discrete-prompt", "prefix-prompt"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-decomposition",
+      "term": "Decomposition",
+      "definition": "Breaking complex problems into smaller, manageable sub-problems that can be solved independently. A core principle in prompting strategies like Least-to-Most, Plan-and-Solve, and Tree of Thought that improve reasoning on multi-step tasks.",
+      "category": "prompting",
+      "tags": ["Prompting", "Reasoning"],
+      "relatedTerms": ["chain-of-thought", "least-to-most"],
+      "link": "../learn/prompt-chaining.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-demonstration",
+      "term": "Demonstration",
+      "definition": "Example input-output pairs provided in a prompt to show the model the desired behavior. Also called exemplars or shots, demonstrations are the foundation of few-shot learning and enable models to learn tasks without parameter updates.",
+      "category": "prompting",
+      "tags": ["Prompting", "Few-Shot"],
+      "relatedTerms": ["exemplar", "few-shot-learning", "in-context-learning"],
+      "link": "../learn/few-shot-learning.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-discrete-prompt",
+      "term": "Discrete Prompt",
+      "definition": "A prompt composed of actual text tokens that humans can read and write, as opposed to continuous prompts which exist only as learned embeddings. Most user-facing prompting techniques use discrete prompts.",
+      "category": "prompting",
+      "tags": ["Prompting", "Prompt Design"],
+      "relatedTerms": ["continuous-prompt", "prompt-template"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-ensemble",
+      "term": "Ensemble",
+      "definition": "Combining multiple model outputs or reasoning paths to produce a more reliable final answer. Prompting ensembles include self-consistency (sampling multiple chains of thought), demonstration ensembling, and multi-model voting strategies.",
+      "category": "prompting",
+      "tags": ["Prompting", "Advanced"],
+      "relatedTerms": ["self-consistency", "demonstration"],
+      "link": "../learn/self-consistency.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-exemplar",
+      "term": "Exemplar",
+      "definition": "A single example in few-shot learning that demonstrates the desired input-output pattern. High-quality exemplar selection significantly impacts model performance, with diversity, relevance, and ordering all playing important roles.",
+      "category": "prompting",
+      "tags": ["Prompting", "Few-Shot"],
+      "relatedTerms": ["demonstration", "few-shot-learning"],
+      "link": "../learn/few-shot-learning.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-gradient-based-search",
+      "term": "Gradient-based Search",
+      "definition": "Automated methods for finding optimal prompts by using gradient information to guide the search through prompt space. Includes techniques like AutoPrompt that can discover effective prompts without human intervention.",
+      "category": "prompting",
+      "tags": ["Prompting", "Automated"],
+      "relatedTerms": ["prompt-generation", "continuous-prompt"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-greedy-decoding",
+      "term": "Greedy Decoding",
+      "definition": "A text generation strategy that always selects the highest-probability token at each step. Fast but can produce repetitive or suboptimal text since it doesn't consider the overall sequence probability.",
+      "category": "prompting",
+      "tags": ["Prompting", "Decoding"],
+      "relatedTerms": ["beam-search", "temperature", "top-k-sampling"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-in-context-learning",
+      "term": "In-Context Learning",
+      "definition": "The ability of large language models to learn new tasks from examples provided in the prompt, without updating model parameters. Encompasses zero-shot, one-shot, and few-shot learning paradigms.",
+      "category": "prompting",
+      "tags": ["Prompting", "Core Concept"],
+      "relatedTerms": ["few-shot-learning", "demonstration", "exemplar"],
+      "link": "../learn/few-shot-learning.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-jailbreak",
+      "term": "Jailbreak",
+      "definition": "Prompts designed to bypass AI safety measures and content policies, causing models to produce outputs they were trained to refuse. A significant security concern that researchers and developers work to prevent.",
+      "category": "prompting",
+      "tags": ["Prompting", "Security"],
+      "relatedTerms": ["prompt-injection", "adversarial-attack"],
+      "link": "ai-safety.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-label-space",
+      "term": "Label Space",
+      "definition": "The set of possible output labels or categories for a classification task. In prompting, how labels are verbalized (e.g., 'positive/negative' vs 'good/bad') and their position in the prompt can significantly affect model performance.",
+      "category": "prompting",
+      "tags": ["Prompting", "Classification"],
+      "relatedTerms": ["verbalizer", "answer-engineering"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prefix-prompt",
+      "term": "Prefix Prompt",
+      "definition": "A prompting approach where context or instructions are prepended to the input, with the model generating text that continues from this prefix. Common in completion-style models and text generation tasks.",
+      "category": "prompting",
+      "tags": ["Prompting", "Prompt Design"],
+      "relatedTerms": ["cloze-prompt", "prompt-template"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-generation",
+      "term": "Prompt Generation",
+      "definition": "Automated techniques for creating effective prompts, including LLM-based generation, gradient-guided search, and evolutionary approaches. Reduces the manual effort of prompt engineering while potentially finding non-intuitive solutions.",
+      "category": "prompting",
+      "tags": ["Prompting", "Automated"],
+      "relatedTerms": ["prompt-mining", "gradient-based-search"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-injection",
+      "term": "Prompt Injection",
+      "definition": "An attack where malicious instructions are hidden in user input or external data, causing the AI to ignore its original instructions and follow the injected ones. A critical security vulnerability in AI applications.",
+      "category": "prompting",
+      "tags": ["Prompting", "Security"],
+      "relatedTerms": ["jailbreak", "adversarial-attack"],
+      "link": "ai-safety.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-mining",
+      "term": "Prompt Mining",
+      "definition": "Techniques for discovering effective prompts by searching through text corpora or using model analysis to find patterns that elicit desired behaviors. Can uncover prompts that humans might not naturally construct.",
+      "category": "prompting",
+      "tags": ["Prompting", "Automated"],
+      "relatedTerms": ["prompt-generation", "gradient-based-search"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-paraphrasing",
+      "term": "Prompt Paraphrasing",
+      "definition": "Generating multiple versions of a prompt with equivalent meaning to find formulations that work best or to create ensembles. Model performance can vary significantly across semantically equivalent phrasings.",
+      "category": "prompting",
+      "tags": ["Prompting", "Optimization"],
+      "relatedTerms": ["prompt-generation", "ensemble"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-scoring",
+      "term": "Prompt Scoring",
+      "definition": "Methods for evaluating prompt quality based on metrics like perplexity, task performance, or other criteria. Used in automated prompt selection and optimization to choose the best prompts from candidates.",
+      "category": "prompting",
+      "tags": ["Prompting", "Evaluation"],
+      "relatedTerms": ["prompt-generation", "prompt-mining"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-prompt-template",
+      "term": "Prompt Template",
+      "definition": "A reusable prompt structure with placeholders for variable content. Templates standardize prompt format while allowing customization for specific inputs, improving consistency and maintainability in production systems.",
+      "category": "prompting",
+      "tags": ["Prompting", "Best Practice"],
+      "relatedTerms": ["cloze-prompt", "prefix-prompt"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-rationale",
+      "term": "Rationale",
+      "definition": "The step-by-step explanation or reasoning provided before or alongside an answer. In chain-of-thought prompting, rationales help models solve complex problems by explicitly working through intermediate steps.",
+      "category": "prompting",
+      "tags": ["Prompting", "Reasoning"],
+      "relatedTerms": ["chain-of-thought", "reasoning-chain"],
+      "link": "../learn/chain-of-thought.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-reasoning-chain",
+      "term": "Reasoning Chain",
+      "definition": "A sequence of logical steps that leads from a problem statement to a solution. The explicit articulation of reasoning chains through prompting techniques like CoT significantly improves model performance on complex tasks.",
+      "category": "prompting",
+      "tags": ["Prompting", "Reasoning"],
+      "relatedTerms": ["chain-of-thought", "rationale"],
+      "link": "../learn/chain-of-thought.html",
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-refinement",
+      "term": "Refinement",
+      "definition": "Iteratively improving model outputs through multiple rounds of generation and critique. Self-refine and similar techniques have the model evaluate and revise its own answers to produce higher-quality final outputs.",
+      "category": "prompting",
+      "tags": ["Prompting", "Self-Improvement"],
+      "relatedTerms": ["self-critique", "chain-of-thought"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-retrieval-augmented",
+      "term": "Retrieval-Augmented Generation (RAG)",
+      "definition": "Combining language models with external knowledge retrieval, where relevant documents are fetched and included in the prompt to ground the model's responses in factual information. Reduces hallucination and enables access to current or private data.",
+      "category": "prompting",
+      "tags": ["Prompting", "Architecture"],
+      "relatedTerms": ["context-window", "in-context-learning"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-self-critique",
+      "term": "Self-Critique",
+      "definition": "Having a model evaluate and criticize its own outputs to identify errors or areas for improvement. A key component of self-improvement prompting strategies that enable iterative refinement without human feedback.",
+      "category": "prompting",
+      "tags": ["Prompting", "Self-Improvement"],
+      "relatedTerms": ["refinement", "self-consistency"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-temperature",
+      "term": "Temperature",
+      "definition": "A parameter controlling randomness in AI text generation. Temperature 0 produces deterministic outputs; values around 0.7 balance creativity with coherence; high values increase randomness but may produce incoherent text.",
+      "category": "prompting",
+      "tags": ["Prompting", "Parameters"],
+      "relatedTerms": ["top-k-sampling", "top-p-sampling", "greedy-decoding"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-token-budget",
+      "term": "Token Budget",
+      "definition": "The maximum number of tokens allocated for a prompt or response. Managing token budgets is essential for working within context window limits and controlling API costs, often requiring prioritization of information.",
+      "category": "prompting",
+      "tags": ["Prompting", "Practical"],
+      "relatedTerms": ["context-window"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-tool-use",
+      "term": "Tool Use",
+      "definition": "The ability of AI models to interact with external tools, APIs, and systems to accomplish tasks. Includes code execution, web browsing, database queries, and calling specialized functions to extend model capabilities.",
+      "category": "prompting",
+      "tags": ["Prompting", "Agentic"],
+      "relatedTerms": ["agent", "retrieval-augmented"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-top-k-sampling",
+      "term": "Top-k Sampling",
+      "definition": "A decoding strategy that restricts token selection to the k most probable tokens at each step. Provides a balance between diversity and quality by preventing selection of very unlikely tokens while maintaining variability.",
+      "category": "prompting",
+      "tags": ["Prompting", "Decoding"],
+      "relatedTerms": ["top-p-sampling", "temperature", "beam-search"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-top-p-sampling",
+      "term": "Top-p Sampling (Nucleus)",
+      "definition": "A decoding strategy that samples from the smallest set of tokens whose cumulative probability exceeds p. Dynamically adjusts the candidate pool size based on probability distribution, often producing more natural text than fixed top-k.",
+      "category": "prompting",
+      "tags": ["Prompting", "Decoding"],
+      "relatedTerms": ["top-k-sampling", "temperature", "beam-search"],
+      "source": "The Prompt Report (2024)"
+    },
+    {
+      "id": "term-verbalizer",
+      "term": "Verbalizer",
+      "definition": "A mapping between model outputs and task labels, defining how abstract categories are expressed in natural language. The choice of verbalizer (e.g., 'Yes/No' vs 'True/False') can significantly impact classification accuracy.",
+      "category": "prompting",
+      "tags": ["Prompting", "Classification"],
+      "relatedTerms": ["label-space", "answer-engineering"],
+      "source": "The Prompt Report (2024)"
+    }
+  ]
+}

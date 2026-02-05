@@ -4031,5 +4031,302 @@
     ],
     "excerpt": "Reusable frameworks for common tasks. Patterns to understand and adapt, not templates to copy.",
     "url": "patterns/index.html"
+  },
+  {
+    "id": "term-answer-engineering",
+    "title": "Answer Engineering",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["answer engineering", "output control", "format", "constraints", "verbalizer"],
+    "excerpt": "The process of constraining or formatting model outputs to match desired formats including answer shape constraints and output templates.",
+    "url": "pages/glossary.html#term-answer-engineering"
+  },
+  {
+    "id": "term-beam-search",
+    "title": "Beam Search",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["beam search", "decoding", "text generation", "sampling"],
+    "excerpt": "A decoding strategy that maintains multiple candidate sequences during text generation, selecting the most probable overall sequences.",
+    "url": "pages/glossary.html#term-beam-search"
+  },
+  {
+    "id": "term-cloze-prompt",
+    "title": "Cloze Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["cloze", "fill-in-the-blank", "completion", "prompt design"],
+    "excerpt": "A fill-in-the-blank style prompt where the model completes a sentence or template based on cloze deletion tests.",
+    "url": "pages/glossary.html#term-cloze-prompt"
+  },
+  {
+    "id": "term-context-window",
+    "title": "Context Window",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["context window", "tokens", "input length", "memory"],
+    "excerpt": "The maximum number of tokens a language model can process in a single input-output sequence, ranging from 4K to 200K+ tokens.",
+    "url": "pages/glossary.html#term-context-window"
+  },
+  {
+    "id": "term-continuous-prompt",
+    "title": "Continuous Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["continuous prompt", "embeddings", "prompt tuning", "prefix tuning"],
+    "excerpt": "Learned vector embeddings added to the input that are optimized during training, as opposed to discrete text prompts.",
+    "url": "pages/glossary.html#term-continuous-prompt"
+  },
+  {
+    "id": "term-decomposition",
+    "title": "Decomposition",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["decomposition", "sub-problems", "reasoning", "least-to-most"],
+    "excerpt": "Breaking complex problems into smaller, manageable sub-problems that can be solved independently.",
+    "url": "pages/glossary.html#term-decomposition"
+  },
+  {
+    "id": "term-demonstration",
+    "title": "Demonstration",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["demonstration", "exemplar", "few-shot", "examples"],
+    "excerpt": "Example input-output pairs provided in a prompt to show the model the desired behavior, foundation of few-shot learning.",
+    "url": "pages/glossary.html#term-demonstration"
+  },
+  {
+    "id": "term-discrete-prompt",
+    "title": "Discrete Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["discrete prompt", "text prompt", "human-readable"],
+    "excerpt": "A prompt composed of actual text tokens that humans can read and write, as opposed to continuous prompts.",
+    "url": "pages/glossary.html#term-discrete-prompt"
+  },
+  {
+    "id": "term-ensemble",
+    "title": "Ensemble",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["ensemble", "self-consistency", "voting", "multiple outputs"],
+    "excerpt": "Combining multiple model outputs or reasoning paths to produce a more reliable final answer.",
+    "url": "pages/glossary.html#term-ensemble"
+  },
+  {
+    "id": "term-exemplar",
+    "title": "Exemplar",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["exemplar", "example", "few-shot", "demonstration"],
+    "excerpt": "A single example in few-shot learning that demonstrates the desired input-output pattern.",
+    "url": "pages/glossary.html#term-exemplar"
+  },
+  {
+    "id": "term-gradient-based-search",
+    "title": "Gradient-based Search",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["gradient", "autoprompt", "optimization", "automated"],
+    "excerpt": "Automated methods for finding optimal prompts by using gradient information to guide the search through prompt space.",
+    "url": "pages/glossary.html#term-gradient-based-search"
+  },
+  {
+    "id": "term-greedy-decoding",
+    "title": "Greedy Decoding",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["greedy decoding", "text generation", "highest probability"],
+    "excerpt": "A text generation strategy that always selects the highest-probability token at each step.",
+    "url": "pages/glossary.html#term-greedy-decoding"
+  },
+  {
+    "id": "term-in-context-learning",
+    "title": "In-Context Learning",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["in-context learning", "icl", "few-shot", "zero-shot"],
+    "excerpt": "The ability of large language models to learn new tasks from examples provided in the prompt without updating model parameters.",
+    "url": "pages/glossary.html#term-in-context-learning"
+  },
+  {
+    "id": "term-jailbreak",
+    "title": "Jailbreak",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["jailbreak", "safety", "bypass", "security"],
+    "excerpt": "Prompts designed to bypass AI safety measures and content policies, causing models to produce outputs they were trained to refuse.",
+    "url": "pages/glossary.html#term-jailbreak"
+  },
+  {
+    "id": "term-label-space",
+    "title": "Label Space",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["label space", "classification", "categories", "verbalizer"],
+    "excerpt": "The set of possible output labels or categories for a classification task in prompting.",
+    "url": "pages/glossary.html#term-label-space"
+  },
+  {
+    "id": "term-prefix-prompt",
+    "title": "Prefix Prompt",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prefix prompt", "prepend", "completion"],
+    "excerpt": "A prompting approach where context or instructions are prepended to the input for text generation.",
+    "url": "pages/glossary.html#term-prefix-prompt"
+  },
+  {
+    "id": "term-prompt-generation",
+    "title": "Prompt Generation",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prompt generation", "automated", "llm-based"],
+    "excerpt": "Automated techniques for creating effective prompts including LLM-based generation and evolutionary approaches.",
+    "url": "pages/glossary.html#term-prompt-generation"
+  },
+  {
+    "id": "term-prompt-injection",
+    "title": "Prompt Injection",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prompt injection", "security", "attack", "vulnerability"],
+    "excerpt": "An attack where malicious instructions are hidden in user input, causing the AI to ignore its original instructions.",
+    "url": "pages/glossary.html#term-prompt-injection"
+  },
+  {
+    "id": "term-prompt-mining",
+    "title": "Prompt Mining",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prompt mining", "discovery", "corpus search"],
+    "excerpt": "Techniques for discovering effective prompts by searching through text corpora or using model analysis.",
+    "url": "pages/glossary.html#term-prompt-mining"
+  },
+  {
+    "id": "term-prompt-paraphrasing",
+    "title": "Prompt Paraphrasing",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["paraphrasing", "rephrasing", "variations"],
+    "excerpt": "Generating multiple versions of a prompt with equivalent meaning to find formulations that work best.",
+    "url": "pages/glossary.html#term-prompt-paraphrasing"
+  },
+  {
+    "id": "term-prompt-scoring",
+    "title": "Prompt Scoring",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prompt scoring", "evaluation", "perplexity", "metrics"],
+    "excerpt": "Methods for evaluating prompt quality based on metrics like perplexity or task performance.",
+    "url": "pages/glossary.html#term-prompt-scoring"
+  },
+  {
+    "id": "term-prompt-template",
+    "title": "Prompt Template",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["prompt template", "reusable", "placeholders", "structure"],
+    "excerpt": "A reusable prompt structure with placeholders for variable content, improving consistency in production systems.",
+    "url": "pages/glossary.html#term-prompt-template"
+  },
+  {
+    "id": "term-rationale",
+    "title": "Rationale",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["rationale", "explanation", "reasoning", "chain-of-thought"],
+    "excerpt": "The step-by-step explanation or reasoning provided before or alongside an answer in chain-of-thought prompting.",
+    "url": "pages/glossary.html#term-rationale"
+  },
+  {
+    "id": "term-reasoning-chain",
+    "title": "Reasoning Chain",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["reasoning chain", "logical steps", "cot"],
+    "excerpt": "A sequence of logical steps that leads from a problem statement to a solution in prompting techniques.",
+    "url": "pages/glossary.html#term-reasoning-chain"
+  },
+  {
+    "id": "term-refinement",
+    "title": "Refinement",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["refinement", "self-refine", "iterative", "improvement"],
+    "excerpt": "Iteratively improving model outputs through multiple rounds of generation and critique.",
+    "url": "pages/glossary.html#term-refinement"
+  },
+  {
+    "id": "term-retrieval-augmented",
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["rag", "retrieval", "augmented", "knowledge", "documents"],
+    "excerpt": "Combining language models with external knowledge retrieval to ground responses in factual information.",
+    "url": "pages/glossary.html#term-retrieval-augmented"
+  },
+  {
+    "id": "term-self-critique",
+    "title": "Self-Critique",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["self-critique", "self-evaluation", "feedback"],
+    "excerpt": "Having a model evaluate and criticize its own outputs to identify errors or areas for improvement.",
+    "url": "pages/glossary.html#term-self-critique"
+  },
+  {
+    "id": "term-temperature",
+    "title": "Temperature",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["temperature", "randomness", "creativity", "sampling"],
+    "excerpt": "A parameter controlling randomness in AI text generation. Temperature 0 produces deterministic outputs.",
+    "url": "pages/glossary.html#term-temperature"
+  },
+  {
+    "id": "term-token-budget",
+    "title": "Token Budget",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["token budget", "limits", "cost", "context"],
+    "excerpt": "The maximum number of tokens allocated for a prompt or response, essential for managing context window limits.",
+    "url": "pages/glossary.html#term-token-budget"
+  },
+  {
+    "id": "term-tool-use",
+    "title": "Tool Use",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["tool use", "function calling", "api", "agents"],
+    "excerpt": "The ability of AI models to interact with external tools, APIs, and systems to accomplish tasks.",
+    "url": "pages/glossary.html#term-tool-use"
+  },
+  {
+    "id": "term-top-k-sampling",
+    "title": "Top-k Sampling",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["top-k", "sampling", "decoding", "tokens"],
+    "excerpt": "A decoding strategy that restricts token selection to the k most probable tokens at each step.",
+    "url": "pages/glossary.html#term-top-k-sampling"
+  },
+  {
+    "id": "term-top-p-sampling",
+    "title": "Top-p Sampling (Nucleus)",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["top-p", "nucleus", "sampling", "decoding"],
+    "excerpt": "A decoding strategy that samples from the smallest set of tokens whose cumulative probability exceeds p.",
+    "url": "pages/glossary.html#term-top-p-sampling"
+  },
+  {
+    "id": "term-verbalizer",
+    "title": "Verbalizer",
+    "category": "Glossary",
+    "subcategory": "Prompting",
+    "keywords": ["verbalizer", "label mapping", "classification"],
+    "excerpt": "A mapping between model outputs and task labels, defining how abstract categories are expressed in natural language.",
+    "url": "pages/glossary.html#term-verbalizer"
   }
 ]

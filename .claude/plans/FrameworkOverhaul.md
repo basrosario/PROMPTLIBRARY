@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-04 (Session 21)
+**Last Updated:** 2026-02-04 (Session 22)
 
 ---
 
@@ -595,7 +595,7 @@ Update `tools/matcher.html`:
 ## Phase 5: Navigation UX Overhaul
 
 **Priority:** HIGH (Do before Phase 4 navigation updates)
-**Status:** Not Started
+**Status:** ✅ COMPLETE (Session 22)
 
 ### 5A: Menu Structure Reorganization
 
@@ -604,23 +604,22 @@ Update `tools/matcher.html`:
 - Target: Neurodivergence nested under Resources dropdown menu
 - Update all 48+ HTML files with navigation
 
-### 5B: Accordion Menu Behavior
+### 5B: Menu Behavior (Implemented)
 
 **Desktop Behavior:**
 | Behavior | Description |
 |----------|-------------|
-| Click to expand | Clicking menu item shows content AND expands submenu |
-| Auto-collapse | Previous menu collapses ONLY if new content hits bottom of viewport |
-| Click outside | Closes all menus |
-| Hover (optional) | No action - click only for accessibility |
+| Hover to expand | Hovering over nav-item shows mega-menu |
+| Click to navigate | Clicking nav-link navigates to section hub |
+| Mouse out | Menu closes when mouse leaves |
 
 **Mobile Behavior:**
 | Behavior | Description |
 |----------|-------------|
-| Click to expand | Same as desktop - shows content and expands submenu |
-| Auto-collapse always | Clicking another menu OR scrolling collapses previous menu |
-| Full-width dropdown | Menus expand to full viewport width |
-| Touch-friendly | Minimum 44px tap targets |
+| Always expanded | All mega-menu content visible when hamburger menu open |
+| No accordion | Simpler UX - all sections visible at once |
+| Full-width | Menus expand to full viewport width |
+| Touch-friendly | 44px+ tap targets on all links |
 
 ### 5C: Multi-Column Link Layout
 
@@ -684,58 +683,134 @@ const AccordionNav = {
 - `click` outside menus
 - `resize` for responsive behavior updates
 
-### 5E: Implementation Checklist
+### 5E: Implementation Checklist ✅
 
 **HTML Changes:**
-- [ ] Add `data-accordion-menu` attribute to menu triggers
-- [ ] Add `aria-expanded="false"` to menu triggers
-- [ ] Add `aria-controls="menu-id"` to link menu to content
-- [ ] Wrap submenus in container with ID matching aria-controls
+- [x] Add `aria-expanded="false"` to `.nav-item.has-dropdown` elements
+- [x] Add `mega-menu--multi-column` class to Resources dropdown
+- [x] Add `mega-menu-section--featured` class for AI & ND section
+- [x] Updated navigation structure in all 48 HTML files
 
 **CSS Changes:**
-- [ ] Multi-column grid for submenu links
-- [ ] Collapse/expand animation (max-height + opacity transition)
-- [ ] Active state styling for expanded menus
-- [ ] Mobile-specific scrollable container
+- [x] Multi-column grid for Resources mega-menu (`.mega-menu--multi-column`)
+- [x] Featured section styling (`.mega-menu-section--featured`)
+- [x] Smaller heading for featured section (fits on one line)
+- [x] Mobile-specific styles for always-expanded menus
 
 **JavaScript Changes:**
-- [ ] AccordionNav controller object
-- [ ] Click handlers for menu triggers
-- [ ] Scroll handler (mobile only)
-- [ ] Viewport overflow detection (desktop)
-- [ ] Outside click to close
+- [x] Existing hover/click handlers work with new structure
+- [x] No accordion JS needed (simpler always-expanded approach on mobile)
 
 **Accessibility:**
-- [ ] `aria-expanded` toggles on open/close
-- [ ] Focus management when menu opens
-- [ ] Escape key closes active menu
-- [ ] Screen reader announcements
+- [x] `aria-expanded` attribute on dropdown triggers
+- [x] Proper heading hierarchy in mega-menus
 
-### 5F: Resources Menu Structure (After Move)
+### 5F: Final Navigation Structure (Implemented)
 
+**Learn Menu:**
+```
+Learn (mega-menu)
+├── Getting Started
+│   ├── Prompt Basics
+│   └── Facts & Fictions
+└── Frameworks
+    ├── CRISP Framework
+    ├── CRISPE Framework
+    ├── COSTAR Framework
+    ├── ReAct Framework
+    ├── Flipped Interaction
+    ├── Chain-of-Thought
+    ├── Few-Shot Learning
+    ├── Role Prompting
+    ├── Constrained Output
+    ├── Self-Consistency
+    └── Prompt Chaining
+```
+
+**Resources Menu (mega-menu--multi-column):**
 ```
 Resources (mega-menu)
-├── AI Glossary (550+ terms)
-├── AI for Everybody
-├── Universal Design
-├── AI-Assisted Building
-├── Performance
-├── Security
-├── ChatGPT Guide
-├── ─────────────────  (divider)
-├── Neurodivergence Hub
-│   ├── Understanding
-│   ├── AI Tools
-│   ├── Leadership
-│   ├── Implementation
-│   └── Resources
-└── ─────────────────  (divider)
-    Facts & Fictions
+├── Explore
+│   ├── ChatGPT Guide
+│   ├── FAQ
+│   ├── Glossary
+│   ├── Security
+│   ├── Performance
+│   ├── AI for Everybody
+│   ├── Universal Design
+│   ├── AI Assisted
+│   └── About
+└── AI & ND (featured section)
+    ├── Overview
+    ├── AI for ADHD
+    ├── AI for Autism
+    ├── AI for Dyslexia
+    ├── AI Tools Finder
+    └── ND Resources
 ```
 
 ---
 
 # SESSION LOG
+
+## Session 23 (2026-02-04)
+
+**Focus:** Phase 1 Glossary + Mobile Menu Refinement
+**Completed:**
+- [x] **Phase 1 COMPLETE** - Glossary Expansion (33 terms)
+  - [x] Created `data/glossary.json` with 33 new prompting terms from The Prompt Report
+  - [x] Added `loadGlossaryFromJSON()` function to app.js (lines 7577-7673)
+  - [x] Terms loaded dynamically and inserted alphabetically into existing glossary
+  - [x] Updated `data/search-index.json` with all 33 new terms
+- [x] **Mobile Menu UX Improvements**
+  - [x] Fixed 2-column grid layout for mega-menu links
+  - [x] Used `display: contents` on sections so links flow into grid
+  - [x] Removed slideDown animation on `.nav.active` (instant open)
+  - [x] Disabled all transitions on mobile nav links
+  - [x] Disabled hover effects on touch devices (`@media (hover: none)`)
+  - [x] Hidden underline animation on mobile nav links
+
+**New Glossary Terms Added:**
+Answer Engineering, Beam Search, Cloze Prompt, Context Window, Continuous Prompt, Decomposition, Demonstration, Discrete Prompt, Ensemble, Exemplar, Gradient-based Search, Greedy Decoding, In-Context Learning, Jailbreak, Label Space, Prefix Prompt, Prompt Generation, Prompt Injection, Prompt Mining, Prompt Paraphrasing, Prompt Scoring, Prompt Template, Rationale, Reasoning Chain, Refinement, RAG, Self-Critique, Temperature, Token Budget, Tool Use, Top-k Sampling, Top-p Sampling, Verbalizer
+
+**Files Changed:**
+- `data/glossary.json` (NEW)
+- `data/search-index.json` (added 33 entries)
+- `app.js` (added loadGlossaryFromJSON function)
+- `styles.css` (mobile menu 2-column grid, disabled hover effects)
+
+---
+
+## Session 22 (2026-02-04)
+
+**Focus:** Phase 5 - Navigation UX Overhaul (COMPLETED)
+**Completed:**
+- [x] **Phase 5 COMPLETE** - Navigation UX Overhaul
+  - [x] Moved Neurodivergence section under Resources mega-menu
+  - [x] Added `mega-menu--multi-column` class for Resources dropdown
+  - [x] Added `mega-menu-section--featured` class for AI & ND section
+  - [x] Changed "Prompt Basics" section to "Getting Started" in Learn menu
+  - [x] Added "Facts & Fictions" link under Getting Started (after Prompt Basics)
+  - [x] Removed "Facts & Fictions" from Resources/Guides section
+  - [x] Changed `<h4>AI + Neurodivergence</h4>` to `<h4>AI & ND</h4>` (fits on one line)
+  - [x] Added CSS for smaller featured section heading (0.65rem, tighter letter-spacing)
+  - [x] Added `aria-expanded="false"` to all `.nav-item.has-dropdown` elements
+  - [x] Updated all 48 HTML files across:
+    - index.html, foundations/, learn/, neurodivergence/, tools/, pages/, quiz/, patterns/
+  - [x] Mobile menu: always-expanded submenus (simpler than accordion)
+
+**CSS Changes (styles.css):**
+- Added `.mega-menu--multi-column` for Resources dropdown
+- Added `.mega-menu-section--featured` for AI & ND highlight
+- Added smaller font-size for featured section heading (desktop: 0.65rem, mobile: 0.6rem)
+- Added `white-space: nowrap` to prevent heading wrap
+
+**Next Session:**
+- [x] Begin Phase 1: Add 33 glossary terms ✅ DONE (Session 23)
+- [ ] Create framework page template
+- [ ] Start HIGH priority framework pages
+
+---
 
 ## Session 21 (2026-02-04)
 
@@ -756,19 +831,19 @@ Resources (mega-menu)
   - Mobile vs Desktop behavior differences defined
 
 **Next Session:**
-- [ ] Commit uncommitted changes (.htaccess, styles.css, FrameworkOverhaul.md)
-- [ ] Phase 5: Navigation UX Overhaul (do BEFORE content phases)
-- [ ] Begin Phase 1: Add 33 glossary terms
-- [ ] Create framework page template
+- [x] Phase 5: Navigation UX Overhaul ✅ DONE
 
 ---
 
 ## Batch Progress Tracking
 
-### Phase 1: Glossary (0/33)
+### Phase 1: Glossary (33/33) ✅ COMPLETE
 ```
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+Progress: [████████████████████] 100%
 ```
+- [x] Created data/glossary.json with 33 prompting terms
+- [x] Added JS to load and render terms from JSON
+- [x] Updated search-index.json with all terms
 
 ### Phase 2: Text Frameworks (0/52)
 ```
@@ -785,16 +860,16 @@ Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 ```
 
-### Phase 5: Navigation UX Overhaul (0/6)
+### Phase 5: Navigation UX Overhaul (6/6) ✅ COMPLETE
 ```
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+Progress: [████████████████████] 100%
 ```
-- [ ] 5A: Menu structure reorganization (Neurodivergence → Resources)
-- [ ] 5B: Accordion menu behavior (JS)
-- [ ] 5C: Multi-column link layout (CSS)
-- [ ] 5D: JavaScript controller
-- [ ] 5E: HTML/ARIA updates
-- [ ] 5F: Update all 48 navigation files
+- [x] 5A: Menu structure reorganization (Neurodivergence → Resources)
+- [x] 5B: Mobile menu behavior (always-expanded, not accordion)
+- [x] 5C: Multi-column link layout (CSS mega-menu--multi-column)
+- [x] 5D: Featured section styling (AI & ND)
+- [x] 5E: HTML/ARIA updates (aria-expanded on nav-items)
+- [x] 5F: Update all 48 navigation files
 
 ---
 

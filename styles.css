@@ -5620,7 +5620,8 @@ p {
     padding-right: calc(var(--space-xl) + var(--safe-area-inset-right));
     gap: var(--space-md);
     z-index: 999;
-    animation: slideDown 0.3s ease;
+    /* No animation - instant open */
+    animation: none;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -5644,7 +5645,8 @@ p {
     display: flex;
     align-items: center;
     border-radius: var(--radius-md);
-    transition: background var(--transition-fast);
+    /* No transitions - instant response */
+    transition: none;
 }
 
 .nav.active .nav-link:active {
@@ -5707,6 +5709,19 @@ body.menu-open {
     color: white;
 }
 
+/* Disable hover animations on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link::after {
+        display: none;
+    }
+    .nav-link {
+        transition: none;
+    }
+    .mega-menu-section a {
+        transition: none;
+    }
+}
+
 .header.scrolled .nav-link {
     color: var(--text-secondary);
 }
@@ -5758,10 +5773,61 @@ body.menu-open {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-.nav-item.has-dropdown:hover .mega-menu {
+/* Hover still works for desktop - click toggles .is-active class */
+.nav-item.has-dropdown:hover .mega-menu,
+.nav-item.has-dropdown.is-active .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+/* Arrow rotation for active state */
+.nav-item.has-dropdown.is-active > .nav-link::after {
+    transform: rotate(-135deg);
+}
+
+/* Multi-column mega menu layout */
+.mega-menu--multi-column {
+    min-width: 560px;
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.mega-menu--multi-column .mega-menu-section {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Multi-column links within a section (for 8+ links) */
+.mega-menu-links {
+    display: grid;
+    grid-template-rows: repeat(8, auto);
+    grid-auto-flow: column;
+    gap: var(--space-xs) var(--space-lg);
+}
+
+/* Divider for menu sections */
+.mega-menu-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    margin: var(--space-sm) 0;
+}
+
+/* Featured subsection (for Neurodivergence) */
+.mega-menu-section--featured {
+    background: rgba(var(--primary-rgb, 220, 53, 69), 0.05);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    margin: calc(-1 * var(--space-xs)) 0;
+}
+
+.mega-menu-section--featured h4 {
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 
 .mega-menu-section h4 {
@@ -5809,40 +5875,120 @@ body.menu-open {
     color: var(--primary);
 }
 
-/* Mobile mega menu */
+/* Mobile mega menu - always expanded with submenus visible */
 @media (max-width: 767px) {
+    /* Hide the dropdown arrow - menus are always visible */
     .nav-item.has-dropdown > .nav-link::after {
         display: none;
     }
 
+    /* Nav item with dropdown - simple block layout */
+    .nav-item.has-dropdown {
+        display: block;
+    }
+
+    /* Parent link styling - full width, no animation */
+    .nav-item.has-dropdown > .nav-link {
+        display: block;
+        width: 100%;
+        transition: none;
+    }
+
+    /* Mega menu - 2-column grid for links */
     .mega-menu {
         position: static;
         transform: none;
-        opacity: 1;
-        visibility: visible;
         min-width: auto;
         background: transparent;
         border: none;
         border-radius: 0;
-        padding: 0 0 var(--space-md) var(--space-md);
+        padding: 0;
+        padding-left: var(--space-md);
+        padding-top: var(--space-xs);
         box-shadow: none;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        overflow: visible;
+        /* 2-column grid layout */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 var(--space-sm);
+        transition: none;
     }
 
+    /* Hide section headings */
     .mega-menu-section h4 {
         display: none;
     }
 
-    .mega-menu-section a {
-        padding: var(--space-sm) 0;
-        font-size: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        color: rgba(255, 255, 255, 0.8);
+    /* Make sections invisible to grid - links become direct grid items */
+    .mega-menu-section {
+        display: contents;
     }
 
-    .mega-menu-section a:hover {
-        background: transparent;
-        color: white;
+    /* Links flow into the 2-column grid */
+    .mega-menu-section a {
+        display: block;
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.8rem;
+        border-bottom: none;
+        color: rgba(255, 255, 255, 0.7) !important;
+        background: transparent !important;
+        border-radius: var(--radius-sm);
+        transition: none;
     }
+
+    /* No hover effects on mobile - clean tap experience */
+    .mega-menu-section a:hover,
+    .mega-menu-section a:focus {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    /* Hide underline animation on mobile nav links */
+    .nav-link::after {
+        display: none !important;
+    }
+
+    /* Resources multi-column - same 2-column grid */
+    .mega-menu--multi-column {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .mega-menu-links {
+        display: contents;
+    }
+
+    /* Featured section on mobile - spans full width */
+    .mega-menu-section--featured {
+        display: block;
+        grid-column: 1 / -1;
+        background: rgba(220, 53, 69, 0.1);
+        margin: var(--space-xs) 0;
+        padding: var(--space-xs);
+        border-radius: var(--radius-sm);
+    }
+
+    .mega-menu-section--featured h4 {
+        display: block;
+        color: var(--primary);
+        margin-bottom: var(--space-xs);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+    }
+
+    .mega-menu-section--featured a {
+        display: block;
+        padding-left: var(--space-sm);
+    }
+
+    .mega-menu-divider {
+        display: none;
+    }
+
 }
 
 /* ============================================
