@@ -5989,14 +5989,25 @@ body.menu-open {
 
 /* Multi-column mega menu layout */
 .mega-menu--multi-column {
-    min-width: 560px;
     display: flex;
     gap: var(--space-lg);
+    width: max-content;
+    max-width: calc(100vw - 4rem);
 }
 
 .mega-menu--multi-column .mega-menu-section {
-    flex: 1;
+    flex: 0 0 auto;
     min-width: 0;
+    display: grid;
+    grid-template-rows: repeat(11, auto);
+    grid-template-columns: auto auto;
+    grid-auto-flow: column;
+    gap: 0 var(--space-md);
+    align-content: start;
+}
+
+.mega-menu--multi-column .mega-menu-section h4 {
+    grid-column: 1 / -1;
 }
 
 /* Multi-column links within a section (for 8+ links) */
@@ -6049,6 +6060,7 @@ body.menu-open {
     font-size: 0.875rem;
     border-radius: var(--radius-sm);
     transition: background var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
 }
 
 .mega-menu-section a:hover {
@@ -6124,7 +6136,8 @@ body.menu-open {
     }
 
     /* Make sections invisible to grid - links become direct grid items */
-    .mega-menu-section {
+    .mega-menu-section,
+    .mega-menu--multi-column .mega-menu-section {
         display: contents;
     }
 
@@ -6138,6 +6151,7 @@ body.menu-open {
         background: transparent !important;
         border-radius: var(--radius-sm);
         transition: none;
+        white-space: normal;
     }
 
     /* No hover effects on mobile - clean tap experience */
@@ -6155,6 +6169,8 @@ body.menu-open {
     /* Resources multi-column - same 2-column grid */
     .mega-menu--multi-column {
         grid-template-columns: 1fr 1fr;
+        width: auto;
+        max-width: none;
     }
 
     .mega-menu-links {
@@ -11776,60 +11792,6 @@ html[data-text-scale="3"] {
     color: var(--text);
 }
 
-/* --- Stat Cards with Large Numbers --- */
-.stat-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-lg);
-    margin: var(--space-xl) 0;
-}
-
-.stat-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    text-align: center;
-    transition: all var(--transition-normal);
-}
-
-.stat-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 4px 20px rgba(220, 53, 69, 0.15);
-    transform: translateY(-2px);
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1.1;
-    margin-bottom: var(--space-xs);
-}
-
-.stat-number-small {
-    font-size: 2rem;
-}
-
-.stat-label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: var(--space-xs);
-}
-
-.stat-description {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-.stat-source {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: var(--space-sm);
-    font-style: italic;
-}
 
 /* --- Horizontal Bar Chart --- */
 .bar-chart {
@@ -12485,10 +12447,6 @@ html[data-text-scale="3"] {
 
 /* --- Data Visualization Responsive --- */
 @media (max-width: 768px) {
-    .stat-number {
-        font-size: 2.5rem;
-    }
-
     .bar-chart-item {
         grid-template-columns: 100px 1fr 50px;
     }
@@ -12536,10 +12494,6 @@ html[data-text-scale="3"] {
 
     .bar-chart-label {
         text-align: left;
-    }
-
-    .stat-cards {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -23082,52 +23036,6 @@ html[data-text-scale="3"] {
     }
 }
 
-/* --- Stats Row ---
-   Horizontal stat cards */
-.stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-    margin-top: var(--space-2xl);
-}
-
-.stat-card {
-    text-align: center;
-    padding: var(--space-xl);
-    background: var(--bg-card);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-}
-
-.stat-card__number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: var(--space-sm);
-}
-
-.stat-card__label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: var(--space-xs);
-}
-
-.stat-card__desc {
-    display: block;
-    font-size: 0.8125rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
-
-@media (max-width: 768px) {
-    .stats-row {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* --- React Elements ---
    Vertical element cards with markers */
@@ -24543,31 +24451,6 @@ html[data-text-scale="3"] {
     color: var(--text);
 }
 
-/* === STAT CARDS COMPACT ===
-   Smaller variant for inline use */
-.stat-cards--compact {
-    display: flex;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
-}
-
-.stat-card--small {
-    padding: var(--space-md);
-    min-width: auto;
-    flex: 0 1 auto;
-}
-
-.stat-card--small .stat-number {
-    font-size: 1.5rem;
-}
-
-.stat-card--small .stat-label {
-    font-size: 0.75rem;
-}
-
-.stat-card--small .stat-description {
-    display: none;
-}
 
 /* === PILLAR GRID ===
    Grid layouts for pillar cards */
@@ -24783,14 +24666,6 @@ html[data-text-scale="3"] {
     margin: var(--space-2xl) 0 var(--space-lg);
     padding-bottom: var(--space-sm);
     border-bottom: 2px solid var(--border);
-}
-
-/* Stats Row */
-.stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-lg);
-    margin-bottom: var(--space-xl);
 }
 
 /* Highlight Boxes Demo */
