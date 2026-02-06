@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,107 +147,257 @@
                     <span class="hero-badge__text">Self-Correction</span>
                 </div>
                 <h1 class="page-title fade-in">Self-Verification</h1>
-                <p class="page-subtitle fade-in">Validate answers through systematic checking.</p>
+                <p class="page-subtitle fade-in">Work backwards from the answer to catch errors — the mathematical proof-checker for AI reasoning.</p>
             </div>
         </section>
+        <!-- /HERO -->
 
+        <!-- === HISTORICAL CONTEXT === -->
+        <section class="section">
+            <div class="container">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2022-2023</span>
+                        <p><strong>Background:</strong> Self-Verification builds on backward reasoning and constraint-checking concepts from formal methods and mathematical proof theory. As a prompting technique, it gained traction in 2022-2023 as researchers demonstrated that explicitly asking LLMs to verify their own answers — by substituting solutions back into problems — significantly improved accuracy on math, logic, and constraint-satisfaction tasks.</p>
+                        <p><strong>Modern LLM Status:</strong> Self-Verification remains a <strong>valuable and practical prompting technique</strong>. While modern LLMs (Claude, GPT-4) show improved reasoning capabilities, they still benefit significantly from explicit verification prompts, especially on multi-step math problems and constraint-heavy tasks. Some models now perform implicit verification in their extended thinking modes, but explicit backward-checking prompts remain more reliable in 2025-2026.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
                         <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Trust But Verify</h2>
-                        <p class="section-intro">Self-Verification adds a validation step after answer generation. Rather than accepting the model's first response as final, this approach asks the model to check whether its answer actually satisfies the original requirements.</p>
+                        <h2 class="section-title">The Backward Check</h2>
+                        <p class="section-intro">Self-Verification applies a principle every math teacher knows: checking your work is easier than doing it right the first time. After the model generates an answer, it reverses direction — plugging the answer back into the original problem to see if everything holds up.</p>
+                        <p>This works because verification and generation use fundamentally different cognitive paths. Generating the right answer requires exploring a vast solution space, but verification just asks a binary question: "Given this answer, does the original problem check out?" This asymmetry means even models that make mistakes during generation can reliably catch those mistakes during verification.</p>
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Core Insight</span>
-                                <p>Verification is often easier than generation. A model that produces an incorrect answer can frequently identify the error when explicitly asked to check its work.</p>
+                                <span class="highlight-box__title">Key Insight</span>
+                                <p>Finding a needle in a haystack is hard. But once someone hands you a needle, checking whether it came from that haystack is easy. Self-Verification exploits this fundamental asymmetry between search and validation.</p>
                             </div>
                         </div>
                     </div>
                     <div class="split-section__media">
                         <div class="highlight-box highlight-box--tip">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Pattern</span>
-                                <p>1) Generate answer. 2) Formulate verification checks. 3) Execute checks. 4) Accept or regenerate.</p>
+                                <span class="highlight-box__title">The Core Pattern</span>
+                                <p><strong>Step 1:</strong> Generate an answer to the problem.</p>
+                                <p><strong>Step 2:</strong> Formulate verification conditions — what must be true if this answer is correct?</p>
+                                <p><strong>Step 3:</strong> Test each condition against the answer.</p>
+                                <p><strong>Step 4:</strong> If any condition fails, flag the error and regenerate.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === WHY IT WORKS === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Strategies</span>
-                    <h2 class="section-title">Verification Methods</h2>
+                    <span class="section-eyebrow">Why It Works</span>
+                    <h2 class="section-title">Three Verification Strategies</h2>
                 </div>
 
                 <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                        </div>
                         <h3 class="pillar-card__title">Backward Verification</h3>
-                        <p class="pillar-card__text">Work backwards from the answer to see if it leads to the original problem conditions. Powerful for math and logic.</p>
+                        <p class="pillar-card__text">Substitute the answer back into the original problem and check if it satisfies all equations or conditions. This is the gold standard for math, logic puzzles, and constraint satisfaction problems — if x = 5, does 3x + 7 actually equal 22?</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
                         <h3 class="pillar-card__title">Constraint Checking</h3>
-                        <p class="pillar-card__text">Verify that the answer satisfies all stated and implied constraints from the original problem.</p>
+                        <p class="pillar-card__text">Extract every explicit and implicit constraint from the problem, then systematically verify each one against the proposed answer. Catches partial solutions that satisfy some requirements but miss others — the "forgot about the edge case" problem.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Sanity Checks</h3>
-                        <p class="pillar-card__text">Apply common-sense validation to catch obviously wrong answers, even without formal verification.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Sanity Checking</h3>
+                        <p class="pillar-card__text">Apply common-sense reasonableness tests even when formal verification isn't possible. Does the population figure seem plausible? Is the date within a realistic range? Does the code compile? Catches wildly wrong answers that pass syntactic checks.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHY IT WORKS -->
 
+        <!-- === HOW IT WORKS === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
-                    <h2 class="section-title">Verification in Action</h2>
+                    <span class="section-eyebrow">Process</span>
+                    <h2 class="section-title">The Verification Pipeline</h2>
+                    <p class="section-intro">A systematic four-step process that turns every answer into a testable hypothesis.</p>
+                </div>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">1</div>
+                        <div class="element-timeline__content">
+                            <h3>Generate Initial Answer</h3>
+                            <p>The model produces its best answer using standard reasoning — chain-of-thought, decomposition, or whatever approach fits the problem. This answer becomes the hypothesis to be tested.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">2</div>
+                        <div class="element-timeline__content">
+                            <h3>Extract Verification Conditions</h3>
+                            <p>Analyze the original problem to identify every condition the answer must satisfy. For math: equations that must balance. For scheduling: constraints that must be met. For code: test cases that must pass. Turn abstract correctness into concrete, checkable conditions.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">3</div>
+                        <div class="element-timeline__content">
+                            <h3>Execute Verification Checks</h3>
+                            <p>Systematically test the answer against each condition. Substitute values, check constraints, run sanity tests. Document each check as pass or fail with specific evidence.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">4</div>
+                        <div class="element-timeline__content">
+                            <h3>Accept, Revise, or Regenerate</h3>
+                            <p>If all checks pass, accept the answer with confidence. If checks fail, either revise the specific failing component or regenerate from scratch with the failure information guiding the new attempt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === COMPARISON PANEL === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">Unverified vs. Self-Verified Output</h2>
+                </div>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__title">Without Verification</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Q: A store has a "buy 2, get 1 free" deal. If each item costs $15, how much do you pay for 7 items?</strong></p>
+                            <p>With "buy 2, get 1 free," every 3 items costs $30 (you pay for 2). For 7 items: 7 &divide; 3 = 2 groups with 1 remaining. Cost: 2 &times; $30 + $15 = $75.</p>
+                            <p><em>Looks plausible, but is it correct? No verification step — the user must manually check.</em></p>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__title">With Self-Verification</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Same question, with backward check:</strong></p>
+                            <p><strong>Answer:</strong> $75</p>
+                            <p><strong>Verification:</strong></p>
+                            <p>&#8226; 7 items in groups of 3: [2 paid + 1 free], [2 paid + 1 free], [1 remaining]</p>
+                            <p>&#8226; Free items: 2. Paid items: 5.</p>
+                            <p>&#8226; Total: 5 &times; $15 = $75 &#10004;</p>
+                            <p>&#8226; Sanity check: $75 for 7 items at $15 each (max $105) — 29% discount from a "buy 2 get 1 free" deal seems correct &#10004;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPARISON PANEL -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">In Practice</span>
+                    <h2 class="section-title">Self-Verification in Action</h2>
                 </div>
 
                 <div class="accordion fade-in-up" id="verify-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Math Problem Verification</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Problem & Answer</span>
-                                    <p><strong>Problem:</strong> "If 3x + 7 = 22, what is x?"<br>
-                                    <strong>Answer:</strong> x = 5</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Backward Verification</span>
-                                    <p><strong>Check:</strong> Substitute x = 5 back into equation<br>
-                                    3(5) + 7 = 15 + 7 = 22 ✓<br><br>
-                                    <strong>Result:</strong> Matches original equation. Answer verified.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Constraint Checking Example</span>
+                            <span class="accordion-title">SQL Query Verification</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
                                     <span class="technique-demo__tag">Problem</span>
-                                    <p>"Schedule a 2-hour meeting for 5 people next week, avoiding Monday mornings and Friday afternoons."</p>
+                                    <p>"Write a SQL query to find customers who placed more than 3 orders in the last 30 days but have never returned an item."</p>
+                                    <p><strong>Generated query:</strong></p>
+                                    <p><em>SELECT c.customer_id, c.name FROM customers c JOIN orders o ON c.customer_id = o.customer_id WHERE o.order_date >= DATE_SUB(NOW(), INTERVAL 30 DAY) GROUP BY c.customer_id HAVING COUNT(o.order_id) > 3</em></p>
                                 </div>
                                 <div class="technique-demo__response">
                                     <span class="technique-demo__tag">Verification Checklist</span>
-                                    <p>✓ Is the duration exactly 2 hours?<br>
-                                    ✓ Can all 5 people attend?<br>
-                                    ✓ Is it scheduled for next week?<br>
-                                    ✓ Does it avoid Monday morning?<br>
-                                    ✓ Does it avoid Friday afternoon?</p>
+                                    <p><strong>Constraint 1:</strong> More than 3 orders? &#10004; HAVING COUNT > 3</p>
+                                    <p><strong>Constraint 2:</strong> In the last 30 days? &#10004; WHERE clause filters dates</p>
+                                    <p><strong>Constraint 3:</strong> Never returned an item? &#10008; <strong>MISSING!</strong> No check against returns table.</p>
+                                    <p><strong>Verdict: FAIL.</strong> Query needs a NOT EXISTS subquery or LEFT JOIN against the returns table to exclude customers with any return history.</p>
+                                    <p><strong>Revised:</strong> Add <em>AND c.customer_id NOT IN (SELECT customer_id FROM returns)</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Logic Puzzle: The River Crossing</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>"A farmer has a fox, a chicken, and a sack of grain. He needs to cross a river in a boat that can only carry himself and one item. The fox will eat the chicken if left alone, and the chicken will eat the grain."</p>
+                                    <p><strong>Proposed solution:</strong> 1) Take chicken across. 2) Return. 3) Take fox across. 4) Bring chicken back. 5) Take grain across. 6) Return. 7) Take chicken across.</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Step-by-Step Verification</span>
+                                    <p><strong>After step 1:</strong> Left bank: fox, grain. Right: chicken. &#10004; Fox doesn't eat grain.</p>
+                                    <p><strong>After step 3:</strong> Left: grain. Right: fox, chicken. &#10008; <strong>Fox eats chicken!</strong></p>
+                                    <p><strong>Wait — step 4 brings chicken back.</strong> Re-reading: Steps 3-4 happen together (take fox, return with chicken).</p>
+                                    <p><strong>After step 4:</strong> Left: chicken. Right: fox. &#10004;</p>
+                                    <p><strong>After step 5:</strong> Left: chicken. Right: fox, grain. &#10004; Fox doesn't eat grain.</p>
+                                    <p><strong>After step 7:</strong> Left: empty. Right: fox, chicken, grain. &#10004; All across safely.</p>
+                                    <p><strong>Verdict: PASS.</strong> All constraints satisfied at every intermediate state.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Unit Conversion Sanity Check</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>"A car travels at 60 mph for 2.5 hours. How far does it travel in kilometers?"</p>
+                                    <p><strong>Generated answer:</strong> 60 &times; 2.5 = 150 miles = 150 &times; 1.6 = 240 km</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Multi-Layer Verification</span>
+                                    <p><strong>Backward check:</strong> 240 km &divide; 1.609 = 149.2 miles. 149.2 &divide; 2.5 hours = 59.7 mph &#8776; 60 mph &#10004;</p>
+                                    <p><strong>Precision check:</strong> Exact conversion is 1.609 km/mile, not 1.6. Precise answer: 150 &times; 1.609 = 241.4 km. The 1.6 approximation introduced a 0.6% error.</p>
+                                    <p><strong>Sanity check:</strong> ~240 km in 2.5 hours at highway speed — consistent with real-world driving. &#10004;</p>
+                                    <p><strong>Verdict: PASS with note.</strong> Answer is approximately correct. For engineering contexts, recommend using the precise 1.609 conversion factor.</p>
                                 </div>
                             </div>
                         </div>
@@ -254,73 +405,238 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES -->
 
+        <!-- === IMPLEMENTATION PATTERNS === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow">Implementation</span>
                     <h2 class="section-title">Verification Patterns</h2>
+                    <p class="section-intro">Three ways to integrate Self-Verification into your prompting workflow, from simple to robust.</p>
                 </div>
 
                 <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                            </svg>
+                        </div>
                         <h3 class="pillar-card__title">Single-Turn</h3>
-                        <p class="pillar-card__text">Include verification instructions in the original prompt, asking the model to check before finalizing.</p>
+                        <p class="pillar-card__text">Include "After answering, verify your work by checking each constraint" in the original prompt. Simple and fast, but the model may skip or shortcut the verification when it's embedded in the same prompt.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
                         <h3 class="pillar-card__title">Two-Turn</h3>
-                        <p class="pillar-card__text">Generate answer first, then send separate verification prompt with the answer and original problem.</p>
+                        <p class="pillar-card__text">Generate the answer first, then send a separate prompt: "Given this problem and this answer, verify whether the answer is correct." The separation forces genuine re-examination rather than rubber-stamping.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">With Regeneration</h3>
-                        <p class="pillar-card__text">If verification fails, regenerate with feedback about what went wrong. Repeat until verified.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <polyline points="1 20 1 14 7 14"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Verify-and-Regenerate</h3>
+                        <p class="pillar-card__text">If verification fails, feed the specific failure back as context for a new generation attempt. "Your answer failed because X — solve again avoiding this error." Most robust, catches the hardest errors.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /IMPLEMENTATION PATTERNS -->
 
+        <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-refine.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Refine</h3>
-                            <p class="icon-box__content">Iterative quality improvement.</p>
-                        </div>
-                    </a>
-                    <a href="chain-of-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Verification</h3>
-                            <p class="icon-box__content">Systematic fact checking.</p>
-                        </div>
-                    </a>
-                    <a href="self-consistency.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Consistency</h3>
-                            <p class="icon-box__content">Consensus through voting.</p>
-                        </div>
-                    </a>
-                    <a href="reversing-cot.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Reversing CoT</h3>
-                            <p class="icon-box__content">Backward verification.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Self-Verification</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">When to Use</span>
+                        <h2 class="section-title">Perfect For</h2>
+                        <ul class="feature-list feature-list--check">
+                            <li>Math and logic problems where answers can be substituted back into equations</li>
+                            <li>Constraint satisfaction tasks (scheduling, resource allocation, configuration)</li>
+                            <li>Code generation where outputs can be tested against requirements</li>
+                            <li>Any problem with clearly defined correctness criteria that can be checked independently</li>
+                        </ul>
+                    </div>
+                    <div class="split-section__media">
+                        <span class="section-eyebrow">Limitations</span>
+                        <h2 class="section-title">Skip It When</h2>
+                        <ul class="feature-list feature-list--cross">
+                            <li>Subjective tasks where "correct" is a matter of taste (creative writing, design opinions)</li>
+                            <li>Open-ended questions without definite verification criteria</li>
+                            <li>The verification itself requires the same knowledge that produced the error (blind spot problem)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Applications</span>
+                    <h2 class="section-title">Use Case Showcase</h2>
+                </div>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Mathematical Problem Solving</h3>
+                        <p class="use-case-card__text">Plug answers back into original equations to catch arithmetic errors, sign mistakes, and misapplied formulas — the most natural fit for backward verification.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">SQL and Database Queries</h3>
+                        <p class="use-case-card__text">Check that every WHERE clause, JOIN condition, and GROUP BY column actually addresses a requirement from the original question. Catches the "forgot a constraint" error pattern.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Regex Pattern Matching</h3>
+                        <p class="use-case-card__text">Test the generated regex against example inputs — both strings that should match and strings that shouldn't. Verification reveals over-matching and under-matching immediately.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Meeting and Event Scheduling</h3>
+                        <p class="use-case-card__text">Verify that proposed schedules satisfy every constraint: time zones, availability windows, duration requirements, room capacity, and buffer time between events.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Configuration Files</h3>
+                        <p class="use-case-card__text">Validate that generated configs (YAML, JSON, TOML) meet all specified requirements: correct ports, proper environment variables, matching service dependencies, and valid syntax.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Legal and Compliance Checks</h3>
+                        <p class="use-case-card__text">Verify that drafted policies or contract clauses satisfy all specified regulatory requirements — checking each compliance point as a constraint against the generated text.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Context</span>
+                    <h2 class="section-title">Verification vs. Other Self-Correction</h2>
+                    <p class="section-intro">Self-Verification focuses on answer correctness — not quality or style. It answers "is this right?" while other frameworks ask "is this good enough?"</p>
+                </div>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker era-marker--past">
+                        <span class="era-marker__label">Correctness</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Self-Verification</h3>
+                        <p class="callout__text">Binary pass/fail checking — does the answer satisfy all constraints? Best for problems with definite right answers.</p>
+                    </div>
+                    <div class="era-marker era-marker--present">
+                        <span class="era-marker__label">Quality</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Self-Refine</h3>
+                        <p class="callout__text">Spectrum-based improvement — is the answer good enough, and how can it be better? Best for writing and creative tasks.</p>
+                    </div>
+                    <div class="era-marker era-marker--future">
+                        <span class="era-marker__label">Reliability</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Self-Calibration</h3>
+                        <p class="callout__text">Confidence assessment — how certain is the model about its answer? Best for flagging uncertain responses before they cause problems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+
+                <a href="chain-of-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 11 12 14 22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2 2h11"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Systematic</span>
+                        <span class="evolution-callout__title">Chain-of-Verification</span>
+                        <span class="evolution-callout__desc">Extends verification to factual claims by generating independent verification questions — best when the "constraints" are factual accuracy rather than logical conditions.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-refine.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20h9"/>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Quality Focus</span>
+                        <span class="evolution-callout__title">Self-Refine</span>
+                        <span class="evolution-callout__desc">Where Self-Verification checks correctness, Self-Refine focuses on quality improvement — iterating on tone, clarity, and completeness through self-critique cycles.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="reversing-cot.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Reasoning</span>
+                        <span class="evolution-callout__title">Reversing Chain-of-Thought</span>
+                        <span class="evolution-callout__desc">Applies backward verification to the reasoning chain itself — checking not just the final answer but whether each step in the chain logically follows from the previous one.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Catch Errors Before They Matter</h2>
+                        <p class="cta-corporate__text">Add verification steps to your prompts with our interactive tools, or explore more self-correction frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -375,6 +691,73 @@
         </div>
     </div>
 </footer>
+
+    <!-- === BACK TO TOP === -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+    <!-- /BACK TO TOP -->
+
+    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel__header">
+            <h3 class="adl-panel__title">Accessibility</h3>
+            <button class="adl-panel__close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-panel__body">
+            <div class="adl-control">
+                <label class="adl-control__label">Text Size</label>
+                <div class="adl-control__group adl-text-size-group">
+                    <button class="adl-text-size-btn" data-size="1">1x</button>
+                    <button class="adl-text-size-btn" data-size="2">2x</button>
+                    <button class="adl-text-size-btn" data-size="3">3x</button>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">High Contrast</label>
+                <button class="adl-toggle-switch" data-setting="contrast" role="switch" aria-checked="false">
+                    <span class="adl-toggle-switch__slider"></span>
+                </button>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Read Aloud</label>
+                <div class="adl-control__group">
+                    <button class="adl-toggle-switch" data-setting="readaloud" role="switch" aria-checked="false">
+                        <span class="adl-toggle-switch__slider"></span>
+                    </button>
+                    <select class="adl-speed-select" aria-label="Reading speed">
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Screen Dimming</label>
+                <input type="range" class="adl-dim-slider" min="0" max="70" value="0" aria-label="Screen dimming level">
+            </div>
+            <button class="adl-reset-btn">Reset All</button>
+        </div>
+    </div>
+    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

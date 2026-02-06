@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,62 +147,308 @@
                     <span class="hero-badge__text">Self-Correction</span>
                 </div>
                 <h1 class="page-title fade-in">Chain-of-Verification</h1>
-                <p class="page-subtitle fade-in">Systematically verify and correct your own answers.</p>
+                <p class="page-subtitle fade-in">Make AI fact-check itself before answering. CoVe generates verification questions, answers them independently, and revises any claims that don't hold up under scrutiny.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Structured Self-Checking</h2>
-                        <p class="section-intro">Chain-of-Verification (CoVe) is a systematic approach to reducing hallucinations. After generating an initial response, the model creates specific verification questions, answers them independently, and then revises the original response based on any inconsistencies found.</p>
-                        <div class="highlight-box highlight-box--info">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Insight</span>
-                                <p>Verification questions are answered independently from the original response, preventing the model from simply confirming its own assertions.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Four Steps</span>
-                                <p>1) Generate baseline response. 2) Plan verification questions. 3) Execute verifications independently. 4) Generate final verified response.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === HISTORICAL CONTEXT === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
-                    <h2 class="section-title">CoVe in Action</h2>
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Chain-of-Verification (CoVe) was published in 2023 by Dhuliawala et al. at Meta AI. The paper demonstrated that having a model generate independent verification questions — then answer them without seeing the original response — significantly reduces hallucinations compared to simple self-checking.</p>
+                        <p><strong>Modern LLM Status:</strong> CoVe remains an <strong>active and practical prompting technique</strong>. Modern LLMs have not natively adopted systematic verification chains — they still benefit substantially from explicit CoVe-style prompting. If you work with AI-generated factual content in 2025-2026, prompting for independent verification questions is one of the most effective hallucination reduction strategies available.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="split-section split-section--center fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Don't Trust — Verify Independently</h2>
+                        <p class="split-section__text">When AI generates a list of facts, some will be wrong. Asking "are you sure?" doesn't help — the model just re-reads its own output and confirms it. The same knowledge that produced the error will confirm it.</p>
+                        <p class="split-section__text"><strong>CoVe breaks this cycle.</strong> Instead of asking "is this right?", it generates specific verification questions and answers them in a fresh context — completely isolated from the original response. This isolation is what makes it work.</p>
+                        <p class="split-section__text">Think of it like a newspaper fact-checker who verifies each claim independently, without seeing the journalist's original notes or reasoning.</p>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="highlight-box highlight-box--info">
+                            <div class="highlight-box__content">
+                                <span class="highlight-box__title">Why Independence Matters</span>
+                                <p>When verification questions are answered within the same context as the original response, the model tends to agree with itself. Independent verification forces the model to reason from scratch, dramatically reducing confirmation bias and catching errors that contextual self-checking misses.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE CONCEPT -->
+
+        <!-- === HOW IT WORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">The Four-Step Process</h2>
+                <p class="section-subtitle fade-in-up">From draft to verified output through structured self-checking</p>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate Baseline Response</h3>
+                            <p class="element-timeline__text">The AI answers the question normally, producing its best attempt. This baseline may contain errors, hallucinations, or inaccuracies — that's expected. It's just the starting point.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"Name some Mexican-American actors." → "Salma Hayek, Danny Trejo, Jessica Alba, Cameron Diaz, Eva Longoria"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Plan Verification Questions</h3>
+                            <p class="element-timeline__text">The AI examines its baseline and generates targeted questions to verify each claim. Good verification questions are specific, factual, and independently answerable.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Questions Generated</span>
+                                <p>Q1: "Is Salma Hayek Mexican-American?" Q2: "Is Danny Trejo Mexican-American?" Q3: "Is Jessica Alba Mexican-American?" Q4: "Is Cameron Diaz Mexican-American?" Q5: "Is Eva Longoria Mexican-American?"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Execute Verifications Independently</h3>
+                            <p class="element-timeline__text">Each verification question is answered in isolation — without seeing the original response. This prevents the model from simply agreeing with itself. The independence is the key innovation.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Independent Answers</span>
+                                <p>A1: Salma Hayek — Mexican-born, naturalized American. Yes. A2: Danny Trejo — American, Mexican heritage. Yes. A3: Jessica Alba — American, Mexican heritage. Yes. A4: Cameron Diaz — American, Cuban heritage, not Mexican. No. A5: Eva Longoria — American, Mexican heritage. Yes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate Final Verified Response</h3>
+                            <p class="element-timeline__text">The AI compares its verification answers against the baseline. Claims that failed verification are removed or corrected. The final response only includes verified information.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Corrected Output</span>
+                                <p>"Salma Hayek, Danny Trejo, Jessica Alba, Eva Longoria" — Cameron Diaz removed (Cuban heritage, not Mexican).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === EXECUTION MODES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Execution Modes</h2>
+                <p class="section-subtitle fade-in-up">Three approaches to running verification — each trading speed for accuracy</p>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Joint</h3>
+                        <p class="pillar-card__text">All verification questions are answered together in one pass. Fastest approach, but answers may be influenced by each other, reducing independence.</p>
+                        <span class="pillar-card__tag">Speed: Fast | Independence: Low</span>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">2-Step</h3>
+                        <p class="pillar-card__text">Questions are generated first (step 1), then answered together in a fresh context (step 2). Good balance between speed and verification quality.</p>
+                        <span class="pillar-card__tag">Speed: Moderate | Independence: Medium</span>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Factored</h3>
+                        <p class="pillar-card__text">Each verification question is answered in its own completely independent context. Maximum accuracy — no cross-contamination between verifications at all.</p>
+                        <span class="pillar-card__tag">Speed: Slow | Independence: Maximum</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Which to Choose?</div>
+                    <p>For casual use, Joint mode works fine. For important content like reports or documentation, use 2-Step. For high-stakes outputs where accuracy is critical (medical, legal, financial), use Factored — the extra computation is worth the reliability.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /EXECUTION MODES -->
+
+        <!-- === VISUAL: THE COMPARISON === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">See the Difference</h2>
+                <p class="section-subtitle fade-in-up">Why independent verification beats simple self-checking</p>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Contextual Self-Check</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Original Output</span>
+                                <p>"The Great Wall of China is visible from space."</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Self-Check (Same Context)</span>
+                                <p>"Looking at my answer... Yes, the Great Wall is famously visible from space. This seems correct."</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Confirms its own myth — no independent check</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">CoVe Independent Check</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Verification Question</span>
+                                <p>"Is the Great Wall of China visible from space with the naked eye?"</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Independent Answer</span>
+                                <p>"No. Astronauts have confirmed it is not visible from low Earth orbit without aid. This is a common misconception." → Original claim revised.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Fresh context catches the common myth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE COMPARISON -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">CoVe in Action</h2>
+                <p class="section-subtitle fade-in-up">Complete verification scenarios across different domains</p>
 
                 <div class="accordion fade-in-up" id="cove-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Factual Question Verification</span>
+                            <span class="accordion-title">List-Based Factual Verification</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Baseline Response</span>
-                                    <p>"Name some politicians born in New York."<br>
-                                    Initial: "Hillary Clinton, Donald Trump, Joe Biden..."</p>
+                                    <span class="technique-demo__tag">Question</span>
+                                    <p>"Name five countries that have landed a rover on Mars."</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Verification Process</span>
-                                    <p><strong>Verification Q1:</strong> Was Hillary Clinton born in NY? → No, Illinois<br><br>
-                                    <strong>Verification Q2:</strong> Was Donald Trump born in NY? → Yes, Queens<br><br>
-                                    <strong>Verification Q3:</strong> Was Joe Biden born in NY? → No, Pennsylvania<br><br>
-                                    <strong>Final Response:</strong> Removes incorrect entries, keeps verified ones.</p>
+                                    <span class="technique-demo__tag">CoVe Process</span>
+                                    <p><strong>Baseline:</strong> "USA, China, Russia, ESA (European Space Agency), India"<br><br>
+                                    <strong>Verification Q1:</strong> Has the USA landed a rover on Mars? → Yes (Sojourner, Spirit, Opportunity, Curiosity, Perseverance)<br><br>
+                                    <strong>Verification Q2:</strong> Has China landed a rover on Mars? → Yes (Zhurong, 2021)<br><br>
+                                    <strong>Verification Q3:</strong> Has Russia landed a rover on Mars? → No, Russia has landed probes but no rovers<br><br>
+                                    <strong>Verification Q4:</strong> Has ESA landed a rover? → No, ESA's ExoMars rover has not yet launched<br><br>
+                                    <strong>Verification Q5:</strong> Has India landed a rover on Mars? → No, India has an orbiter only<br><br>
+                                    <strong>Final Answer:</strong> "Only the USA and China have successfully landed rovers on Mars."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Technical Claim Verification</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Question</span>
+                                    <p>"What are the key differences between REST and GraphQL?"</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">CoVe Process</span>
+                                    <p><strong>Baseline claim:</strong> "GraphQL always performs better than REST because it reduces over-fetching."<br><br>
+                                    <strong>Verification Q:</strong> "Does GraphQL always perform better than REST?" → No. GraphQL can be slower for simple queries due to parsing overhead. It excels when clients need flexible data but adds complexity. Performance depends on use case.<br><br>
+                                    <strong>Revised claim:</strong> "GraphQL can reduce over-fetching compared to REST, which may improve performance for complex data needs. However, for simple endpoints, REST can be faster due to lower overhead."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Historical Event Verification</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Question</span>
+                                    <p>"Summarize the key events of the Apollo 11 mission."</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">CoVe Process</span>
+                                    <p><strong>Baseline claim:</strong> "Neil Armstrong and Buzz Aldrin landed on the Moon on July 20, 1969, while Michael Collins orbited above. Armstrong's first words were 'One small step for man, one giant leap for mankind.' They spent 3 days on the lunar surface."<br><br>
+                                    <strong>Verification Q1:</strong> "How long did Armstrong and Aldrin spend on the lunar surface?" → About 21.5 hours on the surface, with 2.5 hours outside the module. Not 3 days.<br><br>
+                                    <strong>Verification Q2:</strong> "What were Armstrong's exact first words?" → "That's one small step for [a] man, one giant leap for mankind." The quote starts with "That's" not just "One."<br><br>
+                                    <strong>Revised:</strong> Corrected duration to "approximately 21 hours" and fixed the quote to include "That's" at the beginning.</p>
                                 </div>
                             </div>
                         </div>
@@ -209,61 +456,300 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES -->
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Verification Types</span>
-                    <h2 class="section-title">Execution Modes</h2>
-                </div>
-
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Joint</h3>
-                        <p class="pillar-card__text">Answer all verification questions together in one pass. Faster but may have cross-contamination.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">2-Step</h3>
-                        <p class="pillar-card__text">Generate questions first, then answer them in a separate step. Reduces bias from original response.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Factored</h3>
-                        <p class="pillar-card__text">Answer each verification question completely independently. Most thorough but requires more computation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === WHEN TO USE === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Verification</h3>
-                            <p class="icon-box__content">General answer validation.</p>
-                        </div>
-                    </a>
-                    <a href="self-refine.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Refine</h3>
-                            <p class="icon-box__content">Iterative improvement.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title fade-in-up">When to Use CoVe</h2>
+                <p class="section-subtitle fade-in-up">Best for outputs containing verifiable factual claims</p>
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Chain-of-Verification</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>List-Based Answers</strong>
+                                    <p>When AI generates lists of names, dates, places, or facts — each item can be individually verified.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Multi-Claim Summaries</strong>
+                                    <p>Research summaries, biographical sketches, or historical overviews where multiple facts need checking.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Hallucination-Prone Topics</strong>
+                                    <p>Obscure facts, recent events, or topics where AI is known to confabulate details.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Categorical Claims</strong>
+                                    <p>"Is X a member of category Y?" — the kind of question that maps perfectly to CoVe's verification structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Subjective or Creative Content</strong>
+                                    <p>Opinions, creative writing, or brainstorming where there are no "facts" to verify.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Well-Known Simple Facts</strong>
+                                    <p>"What is the capital of France?" doesn't need a verification chain — the AI knows this reliably.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Time-Critical Responses</strong>
+                                    <p>When you need an instant answer and the cost of the verification loop outweighs the error risk.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where CoVe delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Knowledge Base Articles</h3>
+                        <p class="use-case-showcase__desc">Verify every factual claim in help docs, wiki entries, and knowledge base content before publishing.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Report Generation</h3>
+                        <p class="use-case-showcase__desc">Auto-verify data points, dates, and attributions in generated business or research reports.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">People & Biographies</h3>
+                        <p class="use-case-showcase__desc">Verify biographical details — birth dates, accomplishments, affiliations — that AI frequently halluccinates.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <path d="M9 9h6M9 13h6M9 17h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Data Extraction</h3>
+                        <p class="use-case-showcase__desc">When extracting structured data from unstructured text, verify each extracted field independently.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Comparative Analysis</h3>
+                        <p class="use-case-showcase__desc">When comparing products, technologies, or approaches, verify each comparison claim is accurate and current.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Timeline Construction</h3>
+                        <p class="use-case-showcase__desc">Verify dates and chronological ordering when AI generates historical timelines or project histories.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where CoVe Fits</h2>
+                <p class="section-subtitle fade-in-up">CoVe is the most structured member of the self-correction family</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Self-Refine</span>
+                        <span class="era-marker__title">Internal Review</span>
+                        <span class="era-marker__desc">Self-feedback loop</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">CRITIC</span>
+                        <span class="era-marker__title">Tool Verification</span>
+                        <span class="era-marker__desc">External ground truth</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">CoVe</span>
+                        <span class="era-marker__title">Verification Chain</span>
+                        <span class="era-marker__desc">Independent fact-check</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Reflexion</span>
+                        <span class="era-marker__title">Memory Learning</span>
+                        <span class="era-marker__desc">Learn from mistakes</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">CoVe vs CRITIC</div>
+                    <p>CRITIC uses external tools (search, code execution) to verify claims. CoVe uses the model's own knowledge but in an independent context. Use CRITIC when you have tool access; use CoVe when you need self-contained verification without external dependencies.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary self-correction techniques</p>
+
+                <a href="critic.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Tool-Based</span>
+                        <span class="evolution-callout__title">CRITIC</span>
+                        <span class="evolution-callout__desc">Verify outputs using external tools like search engines and code interpreters for ground-truth checking.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Backward Verification</span>
+                        <span class="evolution-callout__title">Self-Verification</span>
+                        <span class="evolution-callout__desc">Verify answers by working backwards — if the answer is correct, a related question should produce a consistent result.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-refine.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                            <path d="M21 3v9h-9"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Self-Correction</span>
+                        <span class="evolution-callout__title">Self-Refine</span>
+                        <span class="evolution-callout__desc">Iterative improvement through self-generated feedback — best for style, tone, and structural quality rather than factual accuracy.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Build Verified Prompts</h2>
+                        <p class="cta-corporate__text">Try Chain-of-Verification with our interactive tools or explore more self-correction frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -318,6 +804,83 @@
         </div>
     </div>
 </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
 
     <script src="../app.js" defer></script>
 </body>

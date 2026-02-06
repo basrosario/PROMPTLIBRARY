@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,90 +147,482 @@
                     <span class="hero-badge__text">Confidence Assessment</span>
                 </div>
                 <h1 class="page-title fade-in">Self-Calibration</h1>
-                <p class="page-subtitle fade-in">Know when to trust your answers.</p>
+                <p class="page-subtitle fade-in">Teach AI to know what it doesn't know — calibrated confidence that separates reliable answers from educated guesses.</p>
             </div>
         </section>
+        <!-- /HERO -->
 
+        <!-- === HISTORICAL CONTEXT === -->
+        <section class="section">
+            <div class="container">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: Ongoing Research</span>
+                        <p><strong>Background:</strong> Self-Calibration draws from calibration research across machine learning, with foundational work on confidence estimation and uncertainty quantification spanning multiple years. The prompting technique of asking models to rate their own confidence became practical with the emergence of instruction-following LLMs in 2022-2023.</p>
+                        <p><strong>Modern LLM Status:</strong> Self-Calibration remains a <strong>highly relevant and unsolved challenge</strong>. Modern LLMs (Claude, GPT-4, Gemini) are still poorly calibrated by default — they can express uncertainty when prompted, but their confidence levels don't reliably correlate with actual accuracy. Explicitly prompting for confidence assessment is still one of the best available strategies for surfacing unreliable outputs in 2025-2026.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
                         <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Assessing Confidence</h2>
-                        <p class="section-intro">Self-Calibration prompts the model to evaluate its own confidence in an answer. Well-calibrated confidence helps users know when to trust the response and when to seek verification or additional sources.</p>
+                        <h2 class="section-title">The Confidence Problem</h2>
+                        <p class="section-intro">AI models deliver every answer with the same polished confidence — whether stating that water boils at 100&deg;C or fabricating a historical event that never happened. Self-Calibration solves this by asking the model to assess its own certainty, turning every response into a signal with a reliability indicator attached.</p>
+                        <p>The technique works in two phases: first generate an answer, then evaluate it against specific confidence criteria. This metacognitive step forces the model to consider evidence quality, knowledge boundaries, and potential failure modes — transforming blind trust into informed decisions about when to rely on AI output and when to verify independently.</p>
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Why It Matters</span>
-                                <p>Models can be confidently wrong. Self-calibration encourages honest uncertainty assessment rather than false confidence.</p>
+                                <span class="highlight-box__title">Key Insight</span>
+                                <p>The most dangerous answer isn't the wrong one — it's the wrong one delivered with certainty. Self-Calibration makes uncertainty visible, so you know exactly when to double-check.</p>
                             </div>
                         </div>
                     </div>
                     <div class="split-section__media">
                         <div class="highlight-box highlight-box--tip">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Prompt</span>
-                                <p>"After answering, rate your confidence (low/medium/high) and explain what makes you more or less certain."</p>
+                                <span class="highlight-box__title">The Core Pattern</span>
+                                <p><strong>Step 1:</strong> Answer the question to the best of your ability.</p>
+                                <p><strong>Step 2:</strong> Rate your confidence (High / Medium / Low).</p>
+                                <p><strong>Step 3:</strong> Explain what evidence supports or undermines your certainty.</p>
+                                <p><strong>Step 4:</strong> Flag specific claims that would benefit from external verification.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === WHY IT WORKS === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Factors</span>
-                    <h2 class="section-title">Confidence Indicators</h2>
+                    <span class="section-eyebrow">Why It Works</span>
+                    <h2 class="section-title">The Psychology of Calibration</h2>
+                </div>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Metacognitive Forcing</h3>
+                        <p class="pillar-card__text">Asking "how sure are you?" activates a different reasoning mode than "what's the answer?" — it forces the model to evaluate its own knowledge state rather than just retrieve patterns.</p>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Trust Calibration</h3>
+                        <p class="pillar-card__text">Users naturally assign different verification effort based on confidence signals — high-confidence answers flow through, while low-confidence flags trigger deeper review. This matches real-world expert behavior.</p>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Error Prevention</h3>
+                        <p class="pillar-card__text">Overconfident AI outputs cause the most damage — in medical advice, legal analysis, or technical decisions. Calibration creates a safety layer that catches the most risky outputs before they reach critical decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHY IT WORKS -->
+
+        <!-- === HOW IT WORKS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Process</span>
+                    <h2 class="section-title">The Calibration Pipeline</h2>
+                    <p class="section-intro">Self-Calibration follows a structured four-step process that separates answer generation from confidence assessment.</p>
+                </div>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">1</div>
+                        <div class="element-timeline__content">
+                            <h3>Generate Initial Answer</h3>
+                            <p>The model produces its best response to the question using standard reasoning. This step is identical to a normal prompt — no confidence assessment happens yet.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">2</div>
+                        <div class="element-timeline__content">
+                            <h3>Assess Confidence Level</h3>
+                            <p>The model rates its own certainty on a defined scale (e.g., High / Medium / Low, or 1-10). This assessment considers training data coverage, reasoning chain strength, and potential ambiguity in the question.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">3</div>
+                        <div class="element-timeline__content">
+                            <h3>Explain Confidence Factors</h3>
+                            <p>The model articulates why it's confident or uncertain — citing specific evidence, knowledge gaps, assumptions made, or areas where the answer might diverge from reality.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">4</div>
+                        <div class="element-timeline__content">
+                            <h3>Flag Verification Needs</h3>
+                            <p>Low-confidence claims are explicitly marked for human verification. The model may suggest alternative sources, note where facts could be outdated, or recommend follow-up queries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === COMPARISON PANEL === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">Uncalibrated vs. Calibrated Output</h2>
+                </div>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__title">Without Self-Calibration</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Q: What year did the first email attachment get sent?</strong></p>
+                            <p>The first email attachment was sent in 1992 when MIME (Multipurpose Internet Mail Extensions) was introduced, allowing binary files to be encoded and attached to email messages.</p>
+                            <p><em>Presented with full confidence — but the date and context may be inaccurate. The user has no way to gauge reliability.</em></p>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__title">With Self-Calibration</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Q: What year did the first email attachment get sent?</strong></p>
+                            <p>MIME was standardized around 1992-1993, enabling modern email attachments. However, earlier proprietary systems may have supported file attachments before this.</p>
+                            <p><strong>Confidence: Medium.</strong> I'm confident about the MIME timeline, but "first email attachment" is ambiguous — early systems like UUCP could encode files in emails in the 1980s. The exact "first" depends on how you define "attachment." I'd recommend verifying against internet history archives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPARISON PANEL -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">In Practice</span>
+                    <h2 class="section-title">Self-Calibration in Action</h2>
+                </div>
+
+                <div class="accordion fade-in-up" id="calibration-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Medical Information Query</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Prompt</span>
+                                    <p>What's the recommended daily intake of Vitamin D for adults? After answering, rate your confidence and explain what factors affect your certainty.</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Calibrated Response</span>
+                                    <p><strong>Answer:</strong> The commonly recommended daily intake of Vitamin D for most adults (ages 19-70) is 600 IU (15 mcg), with 800 IU (20 mcg) recommended for adults over 70, according to guidelines established by the Institute of Medicine.</p>
+                                    <p><strong>Confidence: Medium-High.</strong></p>
+                                    <p><strong>Why Medium-High, not High:</strong></p>
+                                    <p>&#8226; These figures are from well-established nutritional guidelines, which I'm fairly certain about.</p>
+                                    <p>&#8226; However, there's ongoing medical debate — some researchers advocate for significantly higher doses (1000-4000 IU) based on newer evidence.</p>
+                                    <p>&#8226; Optimal intake varies by skin color, latitude, sun exposure, and health conditions — a single number oversimplifies.</p>
+                                    <p>&#8226; Guidelines may have been updated since my training data.</p>
+                                    <p><strong>Verify with:</strong> Your doctor or current NIH Office of Dietary Supplements guidelines for personalized recommendations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Technical Architecture Decision</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Prompt</span>
+                                    <p>Should I use WebSockets or Server-Sent Events for a live dashboard showing stock prices? Assess your confidence in the recommendation.</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Calibrated Response</span>
+                                    <p><strong>Answer:</strong> For a stock price dashboard, Server-Sent Events (SSE) would likely be the better choice. Stock dashboards are primarily one-directional (server pushes prices to clients), SSE is simpler to implement, works over standard HTTP, automatically reconnects, and is easier to scale behind load balancers.</p>
+                                    <p><strong>Confidence: High for the general recommendation, Medium for your specific case.</strong></p>
+                                    <p><strong>High confidence because:</strong></p>
+                                    <p>&#8226; The one-directional data flow pattern strongly favors SSE — this is a well-understood architectural pattern.</p>
+                                    <p>&#8226; SSE's built-in reconnection and HTTP compatibility are concrete technical advantages for this use case.</p>
+                                    <p><strong>Medium for your case because:</strong></p>
+                                    <p>&#8226; If users need to place trades from the same interface (bidirectional), WebSockets become necessary.</p>
+                                    <p>&#8226; If you need sub-millisecond latency for high-frequency trading, neither may suffice — you'd want direct TCP connections.</p>
+                                    <p>&#8226; Your existing infrastructure (proxy configs, corporate firewalls) could favor one over the other.</p>
+                                    <p><strong>I'd want to know:</strong> Does the dashboard need any client-to-server communication? What's the update frequency requirement?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Historical Fact with Knowledge Boundary</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Prompt</span>
+                                    <p>How many languages are currently spoken in Papua New Guinea? Provide your answer with a confidence assessment.</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Calibrated Response</span>
+                                    <p><strong>Answer:</strong> Papua New Guinea is widely recognized as the most linguistically diverse country on Earth, with approximately 840 living languages — roughly 12% of the world's total languages.</p>
+                                    <p><strong>Confidence: Medium.</strong></p>
+                                    <p><strong>What I'm confident about:</strong></p>
+                                    <p>&#8226; PNG is indeed the world's most linguistically diverse nation — this is a well-established linguistic fact.</p>
+                                    <p>&#8226; The number is in the 800+ range across all sources I've encountered.</p>
+                                    <p><strong>Why not High confidence:</strong></p>
+                                    <p>&#8226; The exact count varies between sources (Ethnologue, UNESCO, government census) depending on the language vs. dialect distinction.</p>
+                                    <p>&#8226; Languages in PNG are actively going extinct — some small languages with elderly-only speakers may have disappeared since data was collected.</p>
+                                    <p>&#8226; Remote highland communities may have undocumented languages not yet counted.</p>
+                                    <p>&#8226; "Currently spoken" is hard to define — does a language with 3 remaining speakers count?</p>
+                                    <p><strong>Suggest verifying:</strong> Ethnologue's latest edition for the most current count.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /EXAMPLES -->
+
+        <!-- === CONFIDENCE SIGNALS === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Deep Dive</span>
+                    <h2 class="section-title">Reading Confidence Signals</h2>
                 </div>
 
                 <div class="pillar-grid pillar-grid--3 fade-in-up">
                     <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Knowledge Source</h3>
-                        <p class="pillar-card__text">Is this from reliable training data, or is it extrapolation into uncertain territory?</p>
+                        <h3 class="pillar-card__title">High Confidence Markers</h3>
+                        <p class="pillar-card__text">Well-established facts, mathematical relationships, widely-accepted scientific principles, and well-documented historical events. The model can point to clear, unambiguous evidence.</p>
                     </div>
                     <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Consistency</h3>
-                        <p class="pillar-card__text">Would different reasoning paths lead to the same answer?</p>
+                        <h3 class="pillar-card__title">Medium Confidence Markers</h3>
+                        <p class="pillar-card__text">Topics with expert disagreement, rapidly evolving fields, context-dependent answers, or questions where the model is interpolating between known facts rather than recalling directly.</p>
                     </div>
                     <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Completeness</h3>
-                        <p class="pillar-card__text">Are there gaps in information that could change the answer?</p>
+                        <h3 class="pillar-card__title">Low Confidence Markers</h3>
+                        <p class="pillar-card__text">Niche statistics, recent events near the training cutoff, predictions about future outcomes, subjective assessments presented as objective, or areas with sparse training data coverage.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /CONFIDENCE SIGNALS -->
 
+        <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Verification</h3>
-                            <p class="icon-box__content">Checking answer correctness.</p>
-                        </div>
-                    </a>
-                    <a href="chain-of-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Verification</h3>
-                            <p class="icon-box__content">Systematic fact checking.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Self-Calibration</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">When to Use</span>
+                        <h2 class="section-title">Perfect For</h2>
+                        <ul class="feature-list feature-list--check">
+                            <li>High-stakes decisions where wrong answers have real consequences (medical, legal, financial)</li>
+                            <li>Research tasks where you need to know which findings require verification</li>
+                            <li>Factual queries about statistics, dates, or specific claims that could be fabricated</li>
+                            <li>Domains where the model's training data may be incomplete or outdated</li>
+                        </ul>
+                    </div>
+                    <div class="split-section__media">
+                        <span class="section-eyebrow">Limitations</span>
+                        <h2 class="section-title">Skip It When</h2>
+                        <ul class="feature-list feature-list--cross">
+                            <li>Creative tasks where confidence ratings don't apply (writing fiction, brainstorming)</li>
+                            <li>Simple, well-defined tasks like formatting or code syntax where correctness is binary</li>
+                            <li>Speed is critical and the additional assessment step adds unwanted latency</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Applications</span>
+                    <h2 class="section-title">Use Case Showcase</h2>
+                </div>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Medical Triage</h3>
+                        <p class="use-case-card__text">Flag health-related responses with confidence levels so users know when AI guidance is reliable background information vs. when professional consultation is essential.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Legal Research</h3>
+                        <p class="use-case-card__text">Distinguish between well-established legal principles (high confidence) and jurisdiction-specific nuances or recent case law that may have shifted (low confidence).</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Data Analysis</h3>
+                        <p class="use-case-card__text">When interpreting trends or making projections, calibration separates solid data-backed observations from speculative inferences about causation or future direction.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Academic Writing</h3>
+                        <p class="use-case-card__text">Identify which claims in a draft need citations vs. which are common knowledge. Low-confidence claims become research priorities rather than unchecked assertions.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Customer Support</h3>
+                        <p class="use-case-card__text">Route queries intelligently — high-confidence answers go directly to customers, while low-confidence responses get escalated to human agents for review before delivery.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Competitive Intelligence</h3>
+                        <p class="use-case-card__text">Separate verified market data from AI-generated estimates when analyzing competitors, so strategy decisions are grounded in facts rather than plausible-sounding guesses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Context</span>
+                    <h2 class="section-title">The Self-Correction Spectrum</h2>
+                    <p class="section-intro">Self-Calibration occupies a unique position — rather than fixing errors, it prevents you from acting on them in the first place.</p>
+                </div>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker era-marker--past">
+                        <span class="era-marker__label">Prevention</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Self-Calibration</h3>
+                        <p class="callout__text">Flags uncertain answers before they cause problems — the "early warning system" of self-correction.</p>
+                    </div>
+                    <div class="era-marker era-marker--present">
+                        <span class="era-marker__label">Detection</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Chain-of-Verification</h3>
+                        <p class="callout__text">Actively checks factual claims through independent verification questions.</p>
+                    </div>
+                    <div class="era-marker era-marker--future">
+                        <span class="era-marker__label">Correction</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Reflexion &amp; Self-Refine</h3>
+                        <p class="callout__text">Iteratively improves outputs through feedback loops and memory-based learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+
+                <a href="self-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complementary</span>
+                        <span class="evolution-callout__title">Self-Verification</span>
+                        <span class="evolution-callout__desc">Works backward from the answer to check correctness — while Self-Calibration assesses confidence, Self-Verification actively tests the answer.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="8.5" cy="7" r="4"/>
+                            <path d="M20 8v6M23 11h-6"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Statistical</span>
+                        <span class="evolution-callout__title">Self-Consistency</span>
+                        <span class="evolution-callout__desc">Generates multiple reasoning paths and votes on the answer — provides an empirical confidence signal through agreement rates.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="chain-of-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 11 12 14 22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2 2h11"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Verification</span>
+                        <span class="evolution-callout__title">Chain-of-Verification</span>
+                        <span class="evolution-callout__desc">Goes beyond confidence assessment to actively fact-check individual claims — the natural next step when Self-Calibration flags low confidence.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Build Trustworthy AI Outputs</h2>
+                        <p class="cta-corporate__text">Add confidence assessment to your prompts with our interactive tools, or explore more self-correction frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -284,6 +677,73 @@
         </div>
     </div>
 </footer>
+
+    <!-- === BACK TO TOP === -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+    <!-- /BACK TO TOP -->
+
+    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel__header">
+            <h3 class="adl-panel__title">Accessibility</h3>
+            <button class="adl-panel__close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-panel__body">
+            <div class="adl-control">
+                <label class="adl-control__label">Text Size</label>
+                <div class="adl-control__group adl-text-size-group">
+                    <button class="adl-text-size-btn" data-size="1">1x</button>
+                    <button class="adl-text-size-btn" data-size="2">2x</button>
+                    <button class="adl-text-size-btn" data-size="3">3x</button>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">High Contrast</label>
+                <button class="adl-toggle-switch" data-setting="contrast" role="switch" aria-checked="false">
+                    <span class="adl-toggle-switch__slider"></span>
+                </button>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Read Aloud</label>
+                <div class="adl-control__group">
+                    <button class="adl-toggle-switch" data-setting="readaloud" role="switch" aria-checked="false">
+                        <span class="adl-toggle-switch__slider"></span>
+                    </button>
+                    <select class="adl-speed-select" aria-label="Reading speed">
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Screen Dimming</label>
+                <input type="range" class="adl-dim-slider" min="0" max="70" value="0" aria-label="Screen dimming level">
+            </div>
+            <button class="adl-reset-btn">Reset All</button>
+        </div>
+    </div>
+    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,166 +147,519 @@
                     <span class="hero-badge__text">Self-Correction</span>
                 </div>
                 <h1 class="page-title fade-in">Self-Refine</h1>
-                <p class="page-subtitle fade-in">Iterative improvement through self-critique and refinement.</p>
+                <p class="page-subtitle fade-in">Your AI's inner editor — generate, critique, and polish outputs through iterative self-improvement cycles.</p>
             </div>
         </section>
+        <!-- /HERO -->
 
+        <!-- === HISTORICAL CONTEXT === -->
+        <section class="section">
+            <div class="container">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Self-Refine was published in 2023 by Madaan et al. The paper demonstrated that a single LLM can substantially improve its own outputs through iterative generate-critique-revise cycles — without any external feedback, fine-tuning, or additional training data.</p>
+                        <p><strong>Modern LLM Status:</strong> Self-Refine remains a <strong>highly practical and widely-used prompting technique</strong>. Modern LLMs do not natively perform iterative self-improvement — they produce a single response unless explicitly instructed to critique and revise. The generate-critique-refine pattern is one of the most effective ways to improve output quality in 2025-2026, especially for writing, documentation, and creative tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
                         <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Continuous Improvement Loop</h2>
-                        <p class="section-intro">Self-Refine leverages the model's ability to critique and improve its own outputs through iterative feedback cycles. Rather than accepting the first response, this approach treats generation as a starting point for refinement.</p>
+                        <h2 class="section-title">The Draft-Critique-Revise Loop</h2>
+                        <p class="section-intro">Every great writer knows: writing is rewriting. Self-Refine applies this principle to AI by separating generation from evaluation. The model first produces a draft, then switches roles to become its own critic, and finally revises based on its own feedback — repeating until the output meets quality standards.</p>
+                        <p>What makes Self-Refine powerful is a surprising asymmetry: language models are often better at identifying problems in text than avoiding those problems during generation. A model that writes a vague paragraph can reliably point out that it's vague when asked to review it. Self-Refine exploits this gap between creation and evaluation to systematically ratchet up quality.</p>
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Core Insight</span>
-                                <p>Language models can often identify problems in text they couldn't avoid generating in the first place. Self-Refine exploits this asymmetry between generation and evaluation capabilities.</p>
+                                <span class="highlight-box__title">Key Insight</span>
+                                <p>Models can critique better than they create. Self-Refine turns this weakness into a strength — using the same model as both writer and editor to achieve quality neither role could reach alone.</p>
                             </div>
                         </div>
                     </div>
                     <div class="split-section__media">
                         <div class="highlight-box highlight-box--tip">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Three Stages</span>
-                                <p>1) Generate initial output. 2) Critique and identify weaknesses. 3) Refine based on feedback. Repeat as needed.</p>
+                                <span class="highlight-box__title">The Three Roles</span>
+                                <p><strong>Generator:</strong> Creates the initial output — a first draft with no pressure for perfection.</p>
+                                <p><strong>Critic:</strong> Reviews the draft against quality criteria, identifying specific weaknesses with actionable feedback.</p>
+                                <p><strong>Refiner:</strong> Incorporates the feedback to produce an improved version, preserving strengths while fixing weaknesses.</p>
+                                <p><em>Repeat the Critic → Refiner cycle until satisfied or diminishing returns are reached.</em></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === WHY IT WORKS === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Process</span>
-                    <h2 class="section-title">The Three-Stage Cycle</h2>
+                    <span class="section-eyebrow">Why It Works</span>
+                    <h2 class="section-title">The Psychology of Self-Editing</h2>
                 </div>
 
                 <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">1. Generate</h3>
-                        <p class="pillar-card__text">Produce an initial response to the task. This first draft serves as raw material for refinement, not a final answer.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 20h9"/>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Generation-Evaluation Gap</h3>
+                        <p class="pillar-card__text">Models generate text token-by-token but evaluate holistically. This means they can see structural issues, tone mismatches, and logical gaps in completed text that were invisible during sequential generation.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">2. Feedback</h3>
-                        <p class="pillar-card__text">Evaluate the output, identifying specific weaknesses, areas for improvement, and concrete suggestions for enhancement.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <polyline points="1 20 1 14 7 14"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Diminishing Error Density</h3>
+                        <p class="pillar-card__text">Each refinement cycle removes the most obvious issues first, progressively raising the quality floor. The first revision typically captures 60-80% of possible improvements, making even a single cycle highly valuable.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">3. Refine</h3>
-                        <p class="pillar-card__text">Generate an improved version that addresses identified issues while preserving existing strengths.</p>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Focused Attention</h3>
+                        <p class="pillar-card__text">During generation, the model splits attention across content, style, accuracy, and coherence simultaneously. Critique-then-refine lets it focus on one quality dimension at a time, leading to more thorough improvement.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHY IT WORKS -->
 
+        <!-- === HOW IT WORKS === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
+                    <span class="section-eyebrow">Process</span>
+                    <h2 class="section-title">The Self-Refine Pipeline</h2>
+                    <p class="section-intro">A structured cycle that turns rough drafts into polished outputs through targeted self-critique.</p>
+                </div>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">1</div>
+                        <div class="element-timeline__content">
+                            <h3>Generate Initial Output</h3>
+                            <p>The model produces a complete first response to the task. This draft serves as raw material — no pressure for perfection, just a starting point that captures the core ideas and structure.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">2</div>
+                        <div class="element-timeline__content">
+                            <h3>Self-Critique with Criteria</h3>
+                            <p>The model reviews its own output against specific quality dimensions: accuracy, clarity, completeness, tone, structure, and task alignment. Each identified weakness comes with a concrete, actionable improvement suggestion.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">3</div>
+                        <div class="element-timeline__content">
+                            <h3>Refine and Incorporate</h3>
+                            <p>The model produces an improved version that directly addresses each piece of feedback while preserving existing strengths. The revision is targeted — fixing what's broken without rewriting what works.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">4</div>
+                        <div class="element-timeline__content">
+                            <h3>Evaluate or Iterate</h3>
+                            <p>Check if the output now meets quality standards. If significant issues remain, cycle back to step 2. Typically, 2-3 cycles yield the best cost-to-quality ratio — beyond that, improvements become marginal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === FEEDBACK STRATEGIES === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Strategies</span>
+                    <h2 class="section-title">Feedback Approaches</h2>
+                    <p class="section-intro">Different critique strategies suit different tasks. Choose the feedback lens that matches your quality goals.</p>
+                </div>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Criteria-Based</h3>
+                        <p class="pillar-card__text">Score the output against explicit dimensions (accuracy: 7/10, clarity: 5/10, completeness: 8/10). Gives structured, measurable feedback with clear improvement priorities.</p>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Role-Based</h3>
+                        <p class="pillar-card__text">Critique from a specific persona — a skeptical customer, a domain expert, or the target audience. This surfaces blind spots the generator persona might miss.</p>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Error-Focused</h3>
+                        <p class="pillar-card__text">Systematically hunt for factual errors, logical fallacies, unsupported claims, and internal contradictions. Best for technical or factual content where accuracy is paramount.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /FEEDBACK STRATEGIES -->
+
+        <!-- === COMPARISON PANEL === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">First Draft vs. Self-Refined Output</h2>
+                </div>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__title">First Draft (No Refinement)</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Task: Explain microservices to a non-technical manager</strong></p>
+                            <p>Microservices is an architectural style that structures an application as a collection of services that are independently deployable, loosely coupled, organized around business capabilities, and owned by small teams. Each service implements a single business capability and communicates through well-defined APIs, typically using HTTP/REST or message queues.</p>
+                            <p><em>Problem: Too technical, jargon-heavy, and doesn't connect to what a manager actually cares about (cost, speed, risk).</em></p>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__title">After 2 Self-Refine Cycles</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Task: Explain microservices to a non-technical manager</strong></p>
+                            <p>Think of our current app as one large machine where everything is connected — if one part breaks, the whole thing can go down. Microservices means rebuilding it as a set of independent smaller machines, each handling one specific job (payments, user accounts, notifications).</p>
+                            <p><strong>Why it matters to you:</strong> Teams can update the payment system without risking the login system. New features ship faster because teams work in parallel. When Black Friday traffic spikes, we scale only the parts that need it instead of duplicating the entire application.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPARISON PANEL -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">In Practice</span>
                     <h2 class="section-title">Self-Refine in Action</h2>
                 </div>
 
                 <div class="accordion fade-in-up" id="refine-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Product Description Refinement</span>
+                            <span class="accordion-title">Email Drafting: Sales Outreach</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Stage 1: Generate</span>
-                                    <p>"Write a product description for wireless earbuds."<br><br>
-                                    <em>Initial output: Basic description mentioning features...</em></p>
+                                    <span class="technique-demo__tag">Step 1: Generate</span>
+                                    <p>"Write a cold outreach email to a VP of Engineering about our monitoring tool."</p>
+                                    <p><em>Draft: "Dear VP, I'm reaching out from MonitorPro. Our platform provides comprehensive observability including distributed tracing, log aggregation, and real-time alerting with 99.9% uptime SLA. We serve 500+ enterprise clients. Would you be interested in a demo?"</em></p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Stage 2 & 3: Feedback + Refine</span>
-                                    <p><strong>Feedback:</strong> "Review this description. What could be improved in terms of persuasiveness, clarity, and emotional appeal?"<br><br>
-                                    <strong>Critique:</strong> Missing benefits, too technical, no emotional hook...<br><br>
-                                    <strong>Refine:</strong> "Based on this feedback, rewrite with improvements incorporated."</p>
+                                    <span class="technique-demo__tag">Step 2: Critique</span>
+                                    <p><strong>Problems identified:</strong></p>
+                                    <p>&#8226; Opens with company, not recipient's problem — no reason to keep reading</p>
+                                    <p>&#8226; Feature-dump instead of value proposition</p>
+                                    <p>&#8226; "Dear VP" is impersonal — shows no research</p>
+                                    <p>&#8226; Ask is too big (demo) for a first contact</p>
+                                </div>
+                            </div>
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Step 3: Refined Output</span>
+                                    <p><em>"Hi [Name], I noticed your team is scaling from monolith to microservices (congrats on the Series B). That transition usually means a 3x spike in debugging time as observability fragments across services.</em></p>
+                                    <p><em>We helped [Similar Company]'s platform team cut incident response from 45 minutes to 8 by unifying their monitoring before the complexity hit.</em></p>
+                                    <p><em>Worth a 15-minute chat about what you're seeing on your end?"</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Code Documentation: API Endpoint</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Step 1: Generate</span>
+                                    <p>"Document this API endpoint: POST /api/users"</p>
+                                    <p><em>Draft: "Creates a new user. Accepts name, email, and password. Returns user object with ID."</em></p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Step 2: Critique</span>
+                                    <p><strong>Problems identified:</strong></p>
+                                    <p>&#8226; No request/response format examples</p>
+                                    <p>&#8226; Missing error cases (duplicate email, invalid password format)</p>
+                                    <p>&#8226; Doesn't mention authentication requirements</p>
+                                    <p>&#8226; No rate limiting or validation rules mentioned</p>
+                                    <p>&#8226; No HTTP status codes</p>
+                                </div>
+                            </div>
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Step 3: Refined Output</span>
+                                    <p><em>POST /api/users — Create a new user account.</em></p>
+                                    <p><em><strong>Auth:</strong> None (public registration endpoint)</em></p>
+                                    <p><em><strong>Rate limit:</strong> 5 requests/minute per IP</em></p>
+                                    <p><em><strong>Body:</strong> { name: string (2-50 chars), email: string (valid format, unique), password: string (min 8 chars, 1 uppercase, 1 number) }</em></p>
+                                    <p><em><strong>201:</strong> { id, name, email, created_at } — user created</em></p>
+                                    <p><em><strong>409:</strong> { error: "email_taken" } — duplicate email</em></p>
+                                    <p><em><strong>422:</strong> { errors: [...] } — validation failures</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Creative Writing: Story Opening</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Step 1: Generate</span>
+                                    <p>"Write the opening paragraph of a mystery novel set in a lighthouse."</p>
+                                    <p><em>Draft: "The lighthouse stood tall against the stormy sky. Sarah arrived at the old building on a dark and rainy night. She had been sent to investigate the disappearance of the lighthouse keeper. The place was creepy and she felt afraid."</em></p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Step 2: Critique</span>
+                                    <p><strong>Problems identified:</strong></p>
+                                    <p>&#8226; Opens with weather clich&eacute; ("dark and stormy night")</p>
+                                    <p>&#8226; Tells instead of shows emotion ("she felt afraid")</p>
+                                    <p>&#8226; Passive protagonist — things happen to her, she doesn't act</p>
+                                    <p>&#8226; No sensory details beyond visual</p>
+                                    <p>&#8226; Dumps exposition instead of creating intrigue</p>
+                                </div>
+                            </div>
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Step 3: Refined Output</span>
+                                    <p><em>"The logbook entry for November 12th was the last one written in Thomas Marsh's hand. After that, someone else had taken over — the letters cramped, the ink darker, the weather observations growing increasingly wrong. Sarah traced her finger along the final genuine entry: 'Light operational. Seas moderate. Nothing unusual.' She looked up at the spiral staircase disappearing into the lamp room above. The beam hadn't turned since Tuesday."</em></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <!-- /EXAMPLES -->
 
-                <div class="highlight-box highlight-box--tip fade-in-up">
-                    <div class="highlight-box__content">
-                        <span class="highlight-box__title">Iteration Count</span>
-                        <p>Research suggests 2-3 refinement cycles typically yield the best cost-to-quality ratio. Beyond this, improvements often become marginal.</p>
+        <!-- === WHEN TO USE === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">When to Use</span>
+                        <h2 class="section-title">Perfect For</h2>
+                        <ul class="feature-list feature-list--check">
+                            <li>Writing tasks where quality, tone, and polish matter (emails, reports, content marketing)</li>
+                            <li>Documentation that needs to be thorough, covering edge cases and error scenarios</li>
+                            <li>Creative work where first drafts are rough and benefit from structural critique</li>
+                            <li>Any output where you'd normally iterate manually — Self-Refine automates the revision loop</li>
+                        </ul>
+                    </div>
+                    <div class="split-section__media">
+                        <span class="section-eyebrow">Limitations</span>
+                        <h2 class="section-title">Skip It When</h2>
+                        <ul class="feature-list feature-list--cross">
+                            <li>Speed matters more than polish — each cycle adds latency and token cost</li>
+                            <li>The task needs external verification (Self-Refine can't catch errors it doesn't recognize as errors)</li>
+                            <li>Simple factual lookups or yes/no questions where iteration adds no value</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
 
+        <!-- === USE CASES === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Strategies</span>
-                    <h2 class="section-title">Feedback Approaches</h2>
+                    <span class="section-eyebrow">Applications</span>
+                    <h2 class="section-title">Use Case Showcase</h2>
                 </div>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Criteria-Based</h3>
-                        <p class="pillar-card__text">Evaluate against explicit criteria like accuracy, clarity, and completeness with specific scores.</p>
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Marketing Copy</h3>
+                        <p class="use-case-card__text">Turn flat product descriptions into compelling copy — the critique step catches missing benefits, weak CTAs, and mismatched tone before they reach customers.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Role-Based</h3>
-                        <p class="pillar-card__text">Critique from a specific perspective (skeptical customer, expert reviewer, target audience).</p>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Technical Writing</h3>
+                        <p class="use-case-card__text">API docs, README files, and internal wikis improve dramatically when the model critiques for missing examples, unclear prerequisites, and assumed knowledge.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Error-Focused</h3>
-                        <p class="pillar-card__text">Systematically identify factual errors, logical inconsistencies, and unsupported claims.</p>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Code Review Prep</h3>
+                        <p class="use-case-card__text">Before submitting code for review, have the model critique its own generated code for naming conventions, edge cases, and design pattern violations.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Executive Summaries</h3>
+                        <p class="use-case-card__text">Condense complex reports into executive summaries, then refine for jargon removal, action-oriented language, and appropriate detail level for the audience.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Educational Content</h3>
+                        <p class="use-case-card__text">Lesson plans, tutorials, and study guides benefit from critique that checks for assumed prior knowledge, scaffolding gaps, and engagement-killing monotony.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h3 class="use-case-card__title">Interview Preparation</h3>
+                        <p class="use-case-card__text">Draft interview answers, then refine by critiquing for specificity, STAR format compliance, and relevance to the role — turning generic answers into memorable ones.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /USE CASES -->
 
+        <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Verification</h3>
-                            <p class="icon-box__content">Validate answer correctness.</p>
-                        </div>
-                    </a>
-                    <a href="self-consistency.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Consistency</h3>
-                            <p class="icon-box__content">Multiple solutions with voting.</p>
-                        </div>
-                    </a>
-                    <a href="reflexion.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Reflexion</h3>
-                            <p class="icon-box__content">Learn from failures with memory.</p>
-                        </div>
-                    </a>
-                    <a href="critic.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">CRITIC</h3>
-                            <p class="icon-box__content">Tool-based verification.</p>
-                        </div>
-                    </a>
+                <div class="section-header">
+                    <span class="section-eyebrow">Context</span>
+                    <h2 class="section-title">The Refinement Family</h2>
+                    <p class="section-intro">Self-Refine is the simplest iterative improvement method — no external tools, no memory, no multi-agent complexity. Just a model talking to itself.</p>
                 </div>
-            </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Self-Refine</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker era-marker--past">
+                        <span class="era-marker__label">Internal Only</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Self-Refine</h3>
+                        <p class="callout__text">Pure self-critique using only the model's own judgment — fast, simple, and effective for writing and style tasks.</p>
+                    </div>
+                    <div class="era-marker era-marker--present">
+                        <span class="era-marker__label">Tool-Augmented</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">CRITIC</h3>
+                        <p class="callout__text">Extends self-critique with external tools (search, calculators) for factual verification beyond the model's knowledge.</p>
+                    </div>
+                    <div class="era-marker era-marker--future">
+                        <span class="era-marker__label">Memory-Enhanced</span>
+                    </div>
+                    <div class="callout">
+                        <h3 class="callout__title">Reflexion</h3>
+                        <p class="callout__text">Adds persistent memory so insights from past failures carry forward to future attempts — learning across iterations.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+
+                <a href="critic.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Tool-Augmented</span>
+                        <span class="evolution-callout__title">CRITIC</span>
+                        <span class="evolution-callout__desc">When self-critique isn't enough — CRITIC adds external tools like search engines and calculators to verify factual claims the model can't self-assess.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="reflexion.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">With Memory</span>
+                        <span class="evolution-callout__title">Reflexion</span>
+                        <span class="evolution-callout__desc">Adds persistent memory to the refinement loop — insights from past failures carry forward so the model doesn't repeat the same mistakes.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Verification</span>
+                        <span class="evolution-callout__title">Self-Verification</span>
+                        <span class="evolution-callout__desc">Focuses specifically on answer correctness rather than quality — works backward from the answer to check if it holds up under scrutiny.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Polish Every Output</h2>
+                        <p class="cta-corporate__text">Build Self-Refine cycles into your prompts with our interactive tools, or explore more self-correction frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -360,6 +714,73 @@
         </div>
     </div>
 </footer>
+
+    <!-- === BACK TO TOP === -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+    <!-- /BACK TO TOP -->
+
+    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel__header">
+            <h3 class="adl-panel__title">Accessibility</h3>
+            <button class="adl-panel__close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-panel__body">
+            <div class="adl-control">
+                <label class="adl-control__label">Text Size</label>
+                <div class="adl-control__group adl-text-size-group">
+                    <button class="adl-text-size-btn" data-size="1">1x</button>
+                    <button class="adl-text-size-btn" data-size="2">2x</button>
+                    <button class="adl-text-size-btn" data-size="3">3x</button>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">High Contrast</label>
+                <button class="adl-toggle-switch" data-setting="contrast" role="switch" aria-checked="false">
+                    <span class="adl-toggle-switch__slider"></span>
+                </button>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Read Aloud</label>
+                <div class="adl-control__group">
+                    <button class="adl-toggle-switch" data-setting="readaloud" role="switch" aria-checked="false">
+                        <span class="adl-toggle-switch__slider"></span>
+                    </button>
+                    <select class="adl-speed-select" aria-label="Reading speed">
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Screen Dimming</label>
+                <input type="range" class="adl-dim-slider" min="0" max="70" value="0" aria-label="Screen dimming level">
+            </div>
+            <button class="adl-reset-btn">Reset All</button>
+        </div>
+    </div>
+    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

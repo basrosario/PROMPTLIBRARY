@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,86 +147,313 @@
                     <span class="hero-badge__text">Self-Correction</span>
                 </div>
                 <h1 class="page-title fade-in">Reflexion</h1>
-                <p class="page-subtitle fade-in">Learn from failure through reflection and memory.</p>
+                <p class="page-subtitle fade-in">AI that learns from its mistakes. Reflexion stores verbal reflections on failures in memory, so the next attempt avoids the same pitfalls — without retraining the model.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Reflective Learning</h2>
-                        <p class="section-intro">Reflexion enables agents to learn from their mistakes without updating model weights. When a task fails, the agent generates a verbal reflection analyzing what went wrong. These reflections are stored in memory and used to guide future attempts at similar tasks.</p>
-                        <div class="highlight-box highlight-box--info">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Innovation</span>
-                                <p>Unlike simple retry mechanisms, Reflexion creates persistent lessons learned. The agent doesn't just try again—it tries differently based on explicit self-analysis.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Cycle</span>
-                                <p>1) Attempt task. 2) Receive feedback. 3) Reflect on failure. 4) Store reflection. 5) Retry with memory context.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === HISTORICAL CONTEXT === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Components</span>
-                    <h2 class="section-title">Reflexion Architecture</h2>
-                </div>
-
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Actor</h3>
-                        <p class="pillar-card__text">The agent that attempts the task. Takes actions based on current state and memory context.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Evaluator</h3>
-                        <p class="pillar-card__text">Assesses whether the attempt succeeded or failed, providing feedback signals.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Self-Reflection</h3>
-                        <p class="pillar-card__text">Generates verbal analysis of failures and concrete suggestions for improvement.</p>
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Reflexion was published in 2023 by Shinn et al. It introduced verbal reinforcement learning — where an AI agent stores natural-language reflections on failures in a memory buffer, then uses those reflections to improve subsequent attempts without any model retraining.</p>
+                        <p><strong>Modern LLM Status:</strong> Reflexion has <strong>deeply influenced modern AI agent architecture</strong>. The reflect-and-retry pattern with persistent memory is now a foundational design principle in production agent frameworks (LangChain, AutoGPT, Claude's agentic workflows). While not a built-in LLM feature, the concept is essential knowledge for anyone building multi-step AI agents in 2025-2026.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /HISTORICAL CONTEXT -->
 
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
-                    <h2 class="section-title">Reflexion in Action</h2>
+                <div class="split-section split-section--center fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Fail Once, Learn Forever</h2>
+                        <p class="split-section__text">When a person fails at something, they don't just retry the exact same way. They think about what went wrong, form a lesson, and approach the problem differently next time. That learning persists.</p>
+                        <p class="split-section__text"><strong>Reflexion gives AI the same ability.</strong> When a task fails, instead of blindly retrying, the agent writes a verbal reflection — an explicit analysis of what went wrong and what to do differently. This reflection is stored in memory and injected into the next attempt's context.</p>
+                        <p class="split-section__text">The result: performance improves across attempts without changing the model's weights. It's in-context learning from failure.</p>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="highlight-box highlight-box--info">
+                            <div class="highlight-box__content">
+                                <span class="highlight-box__title">Why Not Just Retry?</span>
+                                <p>Simple retries suffer from the same blind spots — the model makes similar mistakes each time. Reflexion explicitly identifies the failure mode ("I forgot to handle edge cases") and addresses it in the next attempt. It's the difference between guessing randomly and learning systematically.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+        <!-- /THE CONCEPT -->
+
+        <!-- === ARCHITECTURE === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">The Three Components</h2>
+                <p class="section-subtitle fade-in-up">How the Reflexion architecture enables learning from failure</p>
+
+                <div class="pillar-grid pillar-grid--3 fade-in-up">
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Actor</h3>
+                        <p class="pillar-card__text">The agent that attempts the task. It takes actions based on the current state and any stored reflections from previous attempts. On the first try, it works from scratch. On retries, it has memory of past mistakes.</p>
+                        <span class="pillar-card__tag">Executes the task</span>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Evaluator</h3>
+                        <p class="pillar-card__text">Assesses whether the attempt succeeded or failed. This could be automated (test suites, scoring functions) or come from external feedback. It provides the binary signal that triggers reflection.</p>
+                        <span class="pillar-card__tag">Judges success or failure</span>
+                    </div>
+                    <div class="pillar-card pillar-card--featured">
+                        <div class="pillar-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-card__title">Self-Reflection</h3>
+                        <p class="pillar-card__text">After failure, generates a verbal analysis: what went wrong, why, and what to do differently. This reflection is stored in persistent memory and provided as context for all future attempts.</p>
+                        <span class="pillar-card__tag">Analyzes and remembers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /ARCHITECTURE -->
+
+        <!-- === HOW IT WORKS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">The Reflexion Loop</h2>
+                <p class="section-subtitle fade-in-up">From failure to insight to improved performance</p>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Attempt the Task</h3>
+                            <p class="element-timeline__text">The Actor executes the task using its current knowledge plus any stored reflections from previous attempts. On the first run, there's no memory context.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>Task: "Write a function that finds the longest common subsequence of two strings."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Evaluate the Result</h3>
+                            <p class="element-timeline__text">The Evaluator checks whether the attempt succeeded. For coding tasks, this means running test cases. For reasoning tasks, it might be checking the answer. The evaluation produces a pass/fail signal.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Result</span>
+                                <p>Test results: 3 of 5 tests pass. Fails on empty strings and strings with no common characters.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate Reflection</h3>
+                            <p class="element-timeline__text">On failure, the Self-Reflection component analyzes what went wrong. It produces a natural language explanation — not just "it failed" but specifically why and how to fix it.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Reflection</span>
+                                <p>"My implementation didn't handle edge cases: empty strings should return an empty string, and when no common characters exist, the result should also be empty. I need to add base case checks at the start of the function."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Store in Memory</h3>
+                            <p class="element-timeline__text">The reflection is added to a persistent memory store. All future attempts on this task (or similar tasks) will receive these reflections as part of their input context.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Memory Entry</span>
+                                <p>Stored: "Always handle edge cases first — empty inputs, null values, and degenerate cases where the expected result is trivial."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">5</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Retry with Memory</h3>
+                            <p class="element-timeline__text">The Actor attempts the task again, but now with the reflection in its context. It reads the lessons learned and actively avoids the previous failure mode. This cycle can repeat until the task succeeds.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Result</span>
+                                <p>Attempt 2: Adds base case handling for empty strings. All 5 tests pass.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === VISUAL: THE COMPARISON === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">See the Difference</h2>
+                <p class="section-subtitle fade-in-up">Why reflective retrying beats blind retrying</p>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 2l4 4-4 4"/>
+                                    <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Blind Retry</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Attempt 1</span>
+                                <p>Writes API integration. Fails: doesn't handle rate limiting.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Attempt 2</span>
+                                <p>Writes API integration again. Fails: still doesn't handle rate limiting. Makes the same class of mistake because nothing was learned.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Same mistakes, no learning between attempts</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Reflexion</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Attempt 1 + Reflection</span>
+                                <p>Fails: no rate limiting. Reflection: "I need to implement exponential backoff and respect Retry-After headers for any external API call."</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Attempt 2 (with memory)</span>
+                                <p>Reads stored reflection. Implements retry logic with exponential backoff and header checking from the start. Passes all tests.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Learns from failure, avoids repeating mistakes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE COMPARISON -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Reflexion in Action</h2>
+                <p class="section-subtitle fade-in-up">Multi-attempt scenarios showing how reflection drives improvement</p>
 
                 <div class="accordion fade-in-up" id="reflexion-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Coding Task with Learning</span>
+                            <span class="accordion-title">Coding: Handling Edge Cases</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Attempt 1 - Failed</span>
-                                    <p>Task: Write function to check palindrome<br>
-                                    Code: <code>return s == s[::-1]</code><br>
-                                    Tests fail on "A man, a plan, a canal: Panama"</p>
+                                    <span class="technique-demo__tag">Attempt 1 — Failed</span>
+                                    <p><strong>Task:</strong> Write a function to check if a string is a palindrome.<br><br>
+                                    <strong>Code:</strong> Simply reverses the string and compares.<br><br>
+                                    <strong>Tests fail on:</strong> "A man, a plan, a canal: Panama" (spaces, punctuation, mixed case)</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Reflection & Retry</span>
-                                    <p><strong>Reflection:</strong> "My solution failed because I didn't handle case sensitivity or non-alphanumeric characters. Palindrome checks should normalize the string first."<br><br>
-                                    <strong>Memory:</strong> Store this insight<br><br>
-                                    <strong>Attempt 2:</strong> Normalize string, filter characters, then compare. Tests pass.</p>
+                                    <span class="technique-demo__tag">Reflection + Attempt 2 — Passed</span>
+                                    <p><strong>Reflection:</strong> "My solution failed because I didn't normalize the input. For palindrome checks, I need to: 1) Convert to lowercase, 2) Remove non-alphanumeric characters, 3) Then compare. String processing tasks almost always need input normalization."<br><br>
+                                    <strong>Attempt 2:</strong> Adds normalization step — converts to lowercase, strips non-alphanumeric characters, then compares. All tests pass.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Reasoning: Multi-Step Math Problem</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Attempt 1 — Wrong Answer</span>
+                                    <p><strong>Question:</strong> "A store sells apples for $2 each. With a 'buy 3, get 1 free' deal, how much do 10 apples cost?"<br><br>
+                                    <strong>Answer:</strong> "$20" (simply multiplied 10 × $2, ignoring the deal)</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Reflection + Attempt 2 — Correct</span>
+                                    <p><strong>Reflection:</strong> "I ignored the discount deal entirely. With 'buy 3 get 1 free', every 4 apples only costs 3 × $2 = $6. For 10 apples: 2 full groups of 4 (cost: $12) + 2 remaining apples (cost: $4) = $16. I need to always check for special pricing before doing simple multiplication."<br><br>
+                                    <strong>Attempt 2:</strong> Correctly calculates $16 by applying the deal to groups of 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Research: Missing Key Context</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Attempt 1 — Incomplete</span>
+                                    <p><strong>Task:</strong> "Compare the environmental impact of electric vs gas vehicles."<br><br>
+                                    <strong>Response:</strong> Only discusses tailpipe emissions, concluding EVs have zero environmental impact.</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Reflection + Attempt 2 — Comprehensive</span>
+                                    <p><strong>Reflection:</strong> "My analysis was one-dimensional. I only considered tailpipe emissions. A thorough comparison needs to include: battery manufacturing emissions, electricity source (coal vs renewable), battery disposal/recycling, and total lifecycle analysis. Comparative analyses should always consider the full lifecycle, not just the most visible factor."<br><br>
+                                    <strong>Attempt 2:</strong> Provides full lifecycle comparison covering manufacturing, operation, electricity source, battery disposal, and total lifecycle CO2 — a much more nuanced and accurate analysis.</p>
                                 </div>
                             </div>
                         </div>
@@ -233,37 +461,299 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES -->
 
+        <!-- === WHEN TO USE === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-refine.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Refine</h3>
-                            <p class="icon-box__content">Single-session improvement.</p>
-                        </div>
-                    </a>
-                    <a href="critic.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">CRITIC</h3>
-                            <p class="icon-box__content">Tool-based verification.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title fade-in-up">When to Use Reflexion</h2>
+                <p class="section-subtitle fade-in-up">Best for tasks with clear success/failure signals and multiple attempts</p>
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Reflexion</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Code Generation</strong>
+                                    <p>Test suites provide perfect pass/fail signals. Reflections help the agent fix bugs systematically rather than randomly.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Sequential Decision Making</strong>
+                                    <p>Tasks where the agent takes multiple steps and needs to learn which strategies work in which situations.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Multi-Attempt Workflows</strong>
+                                    <p>Any scenario where the agent gets multiple tries and can benefit from accumulating knowledge across attempts.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Complex Problem Solving</strong>
+                                    <p>Problems where the solution space is large and systematic elimination of wrong approaches accelerates finding the right one.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Single-Shot Tasks</strong>
+                                    <p>When you only get one attempt, there's no opportunity for the reflection loop to provide value.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>No Clear Evaluation Signal</strong>
+                                    <p>Reflexion needs a way to determine success or failure. Subjective tasks without objective metrics are poor fits.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Simple Tasks</strong>
+                                    <p>If the task is straightforward enough that the first attempt usually succeeds, the overhead of reflection isn't worth it.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where Reflexion delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Automated Coding</h3>
+                        <p class="use-case-showcase__desc">Generate code, run tests, reflect on failures, and iterate until all tests pass — the ideal Reflexion use case.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Question Answering</h3>
+                        <p class="use-case-showcase__desc">When answers can be verified against ground truth, reflect on wrong answers to improve reasoning strategies.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Debugging Agents</h3>
+                        <p class="use-case-showcase__desc">AI agents that debug systems can store reflections about what approaches worked for similar issues.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 3v3a2 2 0 0 1-2 2H3"/>
+                                <path d="M21 8h-3a2 2 0 0 1-2-2V3"/>
+                                <path d="M3 16h3a2 2 0 0 1 2 2v3"/>
+                                <path d="M16 21v-3a2 2 0 0 1 2-2h3"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Decision-Making Agents</h3>
+                        <p class="use-case-showcase__desc">Agents navigating complex environments learn which actions lead to dead ends and adapt their strategy.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <path d="M9 9h6M9 13h6M9 17h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Data Pipeline Design</h3>
+                        <p class="use-case-showcase__desc">Iteratively build and test data transformations, learning from validation errors to build correct pipelines.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Prompt Engineering</h3>
+                        <p class="use-case-showcase__desc">Iteratively refine prompts by reflecting on which formulations produce better outputs and why.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where Reflexion Fits</h2>
+                <p class="section-subtitle fade-in-up">Reflexion adds memory and learning to the self-correction family</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Self-Refine</span>
+                        <span class="era-marker__title">Single Session</span>
+                        <span class="era-marker__desc">Improve within one try</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">CRITIC</span>
+                        <span class="era-marker__title">Tool Check</span>
+                        <span class="era-marker__desc">Verify with tools</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">CoVe</span>
+                        <span class="era-marker__title">Fact Chain</span>
+                        <span class="era-marker__desc">Independent verification</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Reflexion</span>
+                        <span class="era-marker__title">Memory Learning</span>
+                        <span class="era-marker__desc">Learn across attempts</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">The Key Difference</div>
+                    <p>Self-Refine improves a single output within one session. CRITIC and CoVe verify factual accuracy. Reflexion is unique because it creates persistent memory — lessons learned from failure carry forward to future attempts, making the agent progressively smarter without retraining.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary self-correction techniques</p>
+
+                <a href="self-refine.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                            <path d="M21 3v9h-9"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Self-Correction</span>
+                        <span class="evolution-callout__title">Self-Refine</span>
+                        <span class="evolution-callout__desc">Iterative improvement within a single session — feedback and refinement without persistent memory.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="critic.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Tool-Based</span>
+                        <span class="evolution-callout__title">CRITIC</span>
+                        <span class="evolution-callout__desc">Verify outputs using external tools for ground-truth checking — complementary to Reflexion's memory approach.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="chain-of-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Verification</span>
+                        <span class="evolution-callout__title">Chain-of-Verification</span>
+                        <span class="evolution-callout__desc">Systematic fact-checking through independent verification questions — best for factual accuracy in single outputs.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Build Learning Agents</h2>
+                        <p class="cta-corporate__text">Explore Reflexion-style learning with our interactive tools or discover more self-correction frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -318,6 +808,73 @@
         </div>
     </div>
 </footer>
+
+    <!-- === BACK TO TOP === -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+    <!-- /BACK TO TOP -->
+
+    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel__header">
+            <h3 class="adl-panel__title">Accessibility</h3>
+            <button class="adl-panel__close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-panel__body">
+            <div class="adl-control">
+                <label class="adl-control__label">Text Size</label>
+                <div class="adl-control__group adl-text-size-group">
+                    <button class="adl-text-size-btn" data-size="1">1x</button>
+                    <button class="adl-text-size-btn" data-size="2">2x</button>
+                    <button class="adl-text-size-btn" data-size="3">3x</button>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">High Contrast</label>
+                <button class="adl-toggle-switch" data-setting="contrast" role="switch" aria-checked="false">
+                    <span class="adl-toggle-switch__slider"></span>
+                </button>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Read Aloud</label>
+                <div class="adl-control__group">
+                    <button class="adl-toggle-switch" data-setting="readaloud" role="switch" aria-checked="false">
+                        <span class="adl-toggle-switch__slider"></span>
+                    </button>
+                    <select class="adl-speed-select" aria-label="Reading speed">
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Screen Dimming</label>
+                <input type="range" class="adl-dim-slider" min="0" max="70" value="0" aria-label="Screen dimming level">
+            </div>
+            <button class="adl-reset-btn">Reset All</button>
+        </div>
+    </div>
+    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>
