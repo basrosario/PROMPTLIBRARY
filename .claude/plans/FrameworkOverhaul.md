@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-05 (Session 25)
+**Last Updated:** 2026-02-05 (Session 27)
 
 ---
 
@@ -628,32 +628,37 @@ Update `tools/matcher.html`:
 
 ### 5C: Multi-Column Link Layout
 
-**Column Rules:**
+**Column Rules (Updated Session 27):**
 | Rule | Implementation |
 |------|----------------|
-| Max 8 links per column | After 8 links, start new column |
-| Column flow | Links fill column top-to-bottom, then overflow to next column |
-| Responsive columns | Desktop: up to 4 columns; Tablet: 2 columns; Mobile: 1 column (scrollable) |
-| Column gap | Use `--space-lg` (16px) between columns |
+| Max 10 links per column | After 10 links, overflow to second column |
+| No text wrapping | `white-space: nowrap` on all menu links |
+| Heading spans columns | `grid-column: 1 / -1` on h4 headings |
+| Column flow | Links fill column top-to-bottom below heading |
+| Responsive | Desktop: auto columns; Mobile: 2-column grid |
+| Column gap | Use `--space-md` between columns |
 
-**CSS Implementation Approach:**
+**CSS Implementation (Current):**
 ```css
-/* Navigation submenu multi-column */
-.nav-submenu__links {
+/* Mega menu sections use CSS Grid for auto-column split */
+.mega-menu--multi-column .mega-menu-section {
+    flex: 0 0 auto;
     display: grid;
-    grid-template-rows: repeat(8, auto);
+    grid-template-rows: repeat(11, auto); /* h4 + 10 links */
+    grid-template-columns: auto auto;
     grid-auto-flow: column;
-    gap: var(--space-xs) var(--space-lg);
+    gap: 0 var(--space-md);
+    align-content: start;
 }
 
-/* Mobile: single column with scroll */
-@media (max-width: 768px) {
-    .nav-submenu__links {
-        grid-template-rows: none;
-        grid-auto-flow: row;
-        max-height: 60vh;
-        overflow-y: auto;
-    }
+/* Heading spans both columns */
+.mega-menu--multi-column .mega-menu-section h4 {
+    grid-column: 1 / -1;
+}
+
+/* No-wrap on links */
+.mega-menu-section a {
+    white-space: nowrap;
 }
 ```
 
@@ -757,6 +762,59 @@ Resources (mega-menu)
 ---
 
 # SESSION LOG
+
+## Session 27 (2026-02-05)
+
+**Focus:** Mega menu CSS fixes + Documentation update
+**Status:** COMPLETE
+
+**Completed:**
+- [x] Fixed mega menu desktop layout:
+  - `white-space: nowrap` on all menu links (no 2-line wrapping)
+  - CSS Grid with `grid-template-rows: repeat(11, auto)` + `grid-auto-flow: column` (10 links per column)
+  - `grid-column: 1 / -1` on h4 headings (items always below heading line)
+  - `width: max-content` on container (auto-sizes to content)
+- [x] Mobile overrides preserved (display: contents, white-space: normal)
+- [x] Updated FrameworkOverhaul.md with accurate Phase 2 progress (47/52)
+
+**Files Modified:**
+- `styles.css` (mega menu grid layout fixes)
+- `.claude/plans/FrameworkOverhaul.md` (this file)
+
+---
+
+## Session 26 (2026-02-05)
+
+**Focus:** Phase 2 completion - 35+ MEDIUM/LOW priority pages + mega menu + code folder fix
+**Status:** COMPLETE
+
+**Completed:**
+- [x] Created 35+ new framework pages (MEDIUM and LOW priority)
+- [x] Updated mega menu navigation across 99+ HTML files (5 sections: Getting Started, Frameworks, Advanced, Self-Correction, Code)
+- [x] Fixed self-refine.html and self-verification.html (rewritten with correct site template)
+- [x] Rewrote learn/modality/code/ pages (code-prompting, self-debugging, structured-output) with correct template
+- [x] Removed all stat cards and citation-like content from framework pages
+- [x] Updated HANDOFF.md with session progress
+
+**New Pages Created:**
+- decomp.html, graph-of-thought.html, program-of-thought.html
+- chain-of-verification.html, critic.html, reflexion.html
+- s2a.html, simtom.html, re2.html
+- knn-prompting.html, vote-k.html, demo-ensembling.html
+- active-prompting.html, thread-of-thought.html, tab-cot.html, complexity-prompting.html
+- memory-of-thought.html, meta-reasoning.html, self-calibration.html, diverse-prompting.html
+- prompt-mining.html, universal-self-consistency.html, cumulative-reasoning.html, reversing-cot.html
+- faithful-cot.html, cosp.html, dense-prompting.html, max-mutual-info.html
+- structured-cot.html, recursion-of-thought.html
+- And more...
+
+**Files Modified:**
+- 99+ HTML files (mega menu navigation)
+- 3 code folder HTML files (template rewrite)
+- styles.css (stat card removal, mega menu updates)
+- .claude/HANDOFF.md
+
+---
 
 ## Session 25 (2026-02-05)
 
@@ -968,25 +1026,86 @@ Progress: [████████████████████] 100%
 - [x] Added JS to load and render terms from JSON
 - [x] Updated search-index.json with all terms
 
-### Phase 2: Text Frameworks (12/52)
+### Phase 2: Text Frameworks (47/52)
 ```
-Progress: [████░░░░░░░░░░░░░░░░] 23%
+Progress: [██████████████████░░] 90%
 HIGH Priority: [████████████████████] 100%
+MEDIUM Priority: [████████████████████] 100%
+LOW Priority: [██████████████████░░] 88%
 ```
+
+**2A: Zero-Shot Frameworks (8/8) COMPLETE**
 - [x] zero-shot.html (HIGH) ✅
-- [x] zero-shot-cot.html (HIGH) ✅
+- [x] emotion-prompting.html (MEDIUM) ✅
+- [x] style-prompting.html (MEDIUM) ✅
+- [x] s2a.html (LOW) ✅
+- [x] simtom.html (LOW) ✅
+- [x] rar.html (MEDIUM) ✅
+- [x] re2.html (LOW) ✅
+- [x] self-ask.html (MEDIUM) ✅
+
+**2B: In-Context Learning (6/10)**
 - [x] one-shot.html (HIGH) ✅
+- [ ] many-shot.html (MEDIUM)
 - [x] example-selection.html (HIGH) ✅
+- [ ] example-ordering.html (MEDIUM)
+- [x] knn-prompting.html (LOW) ✅
+- [x] vote-k.html (LOW) ✅
+- [ ] self-generated-icl.html (MEDIUM)
+- [x] demo-ensembling.html (LOW) ✅
+- [ ] active-example.html (LOW)
+- [x] prompt-mining.html (LOW) ✅
+
+**2C: Thought Generation (11/12)**
+- [x] zero-shot-cot.html (HIGH) ✅
+- [x] analogical-reasoning.html (MEDIUM) ✅
+- [x] step-back.html (MEDIUM) ✅
+- [x] thread-of-thought.html (LOW) ✅
+- [x] tab-cot.html (LOW) ✅
+- [x] contrastive-cot.html (MEDIUM) ✅
+- [ ] uncertainty-cot.html (LOW)
+- [x] complexity-prompting.html (LOW) ✅
+- [x] active-prompting.html (LOW) ✅
+- [x] memory-of-thought.html (LOW) ✅
+- [x] auto-cot.html (MEDIUM) ✅
+- [x] structured-cot.html (LOW) ✅
+
+**2D: Decomposition (8/8) COMPLETE**
 - [x] least-to-most.html (HIGH) ✅
+- [x] decomp.html (MEDIUM) ✅
 - [x] plan-and-solve.html (HIGH) ✅
 - [x] tree-of-thought.html (HIGH) ✅
+- [x] graph-of-thought.html (MEDIUM) ✅
+- [x] recursion-of-thought.html (LOW) ✅
+- [x] program-of-thought.html (MEDIUM) ✅
+- [x] faithful-cot.html (LOW) ✅
+
+**2E: Ensembling (6/6) COMPLETE**
+- [x] cosp.html (LOW) ✅
+- [x] dense-prompting.html (LOW) ✅
+- [x] max-mutual-info.html (LOW) ✅
+- [x] meta-reasoning.html (LOW) ✅
+- [x] universal-self-consistency.html (LOW) ✅
+- [x] diverse-prompting.html (LOW) ✅
+
+**2F: Self-Criticism (8/8) COMPLETE**
 - [x] self-refine.html (HIGH) ✅
 - [x] self-verification.html (HIGH) ✅
-- [x] code-prompting.html (HIGH) ✅
-- [x] self-debugging.html (HIGH) ✅
-- [x] structured-output.html (HIGH) ✅
+- [x] chain-of-verification.html (MEDIUM) ✅
+- [x] critic.html (MEDIUM) ✅
+- [x] cumulative-reasoning.html (LOW) ✅
+- [x] reversing-cot.html (LOW) ✅
+- [x] self-calibration.html (LOW) ✅
+- [x] reflexion.html (MEDIUM) ✅
 
-**Note:** Navigation updated with Advanced + Code sections in all 48+ files
+**Remaining (5 pages):**
+1. many-shot.html
+2. example-ordering.html
+3. self-generated-icl.html
+4. active-example.html
+5. uncertainty-cot.html
+
+**Note:** Navigation updated with Advanced + Self-Correction + Code sections in all 99+ files
 
 ### Phase 3: Modality Frameworks (0/37)
 ```
