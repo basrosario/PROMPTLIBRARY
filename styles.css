@@ -5999,18 +5999,39 @@ body.menu-open {
     gap: var(--space-sm) var(--space-md);
     width: max-content;
     max-width: calc(100vw - 2rem);
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(10px);
 }
 
 .nav-item.has-dropdown:hover .mega-menu.mega-menu--multi-column,
 .nav-item.has-dropdown.is-active .mega-menu.mega-menu--multi-column {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 .mega-menu--multi-column .mega-menu-section {
     flex: 0 0 auto;
     min-width: 0;
+}
+
+/* Resources dropdown: center under its nav link, not viewport */
+.nav-item.has-dropdown:last-child:has(.mega-menu--multi-column) {
+    position: relative;
+}
+
+.nav-item.has-dropdown:last-child .mega-menu--multi-column {
+    left: 50%;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.nav-item.has-dropdown:last-child:hover .mega-menu.mega-menu--multi-column,
+.nav-item.has-dropdown:last-child.is-active .mega-menu.mega-menu--multi-column {
+    transform: translateX(-50%) translateY(0);
 }
 
 /* Links wrapper within a section */

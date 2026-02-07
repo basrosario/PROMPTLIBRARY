@@ -1702,28 +1702,28 @@ Progress: [████████████████████] 100%
 Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 ```
 
-### Phase 4: Site Integration (1/4)
+### Phase 4: Site Integration (3/4)
 ```
-Progress: [█████░░░░░░░░░░░░░░░] 25%
+Progress: [███████████████░░░░░] 75%
 ```
 - [x] 4A: Navigation updates for HIGH priority pages ✅
-- [ ] 4B: Learn Hub redesign → **Now "Discover Hub" (see discover-hub-category-pages.md)**
-- [ ] 4C: Search index updates
+- [x] 4B: Learn Hub redesign → **"Discover Hub" COMPLETE (see discover-hub-category-pages.md)** ✅
+- [x] 4C: Search index updates → **COMPLETE (2,226 entries, all categories renamed)** ✅
 - [ ] 4D: Framework Matcher updates
 
-### NEW: Discover Hub + Category Landing Pages (0/5 phases)
+### NEW: Discover Hub + Category Landing Pages (5/5 phases) COMPLETE
 ```
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+Progress: [████████████████████] 100%
 ```
 **Plan:** `.claude/plans/discover-hub-category-pages.md`
-**Status:** APPROVED — ready for implementation (Session 41 was documentation-only; no phases started)
+**Status:** ALL 5 PHASES COMPLETE (Sessions 42-43)
 **Architecture Reference:** `.claude/SiteFrameworks.md` (created Session 41, 1,041 lines)
 
-- [ ] Phase 1: Batch rename "Advanced Techniques" → "Prompting Strategies" + "Learn" → "Discover" (~105 files)
-- [ ] Phase 2: Redesign learn/index.html as Discover Hub (all 62+ frameworks by category)
-- [ ] Phase 3: Create 7 flat category landing pages
-- [ ] Phase 4: Update homepage cards + mega-menu links to point to category pages
-- [ ] Phase 5: Search index + metadata updates
+- [x] Phase 1: Batch rename "Advanced Techniques" → "Prompting Strategies" + "Learn" → "Discover" (104 files, commit `32d7351`)
+- [x] Phase 2: Redesign learn/index.html as Discover Hub (63 framework cards, 8 categories, commit `4d296ba`)
+- [x] Phase 3: Create 7 flat category landing pages (commit `0eb604e`)
+- [x] Phase 4: Update homepage cards + mega-menu links to point to category pages (commit `a8f8df0`)
+- [x] Phase 5: Search index + metadata updates (8 new entries, 30 renames, commit `b1c922d`)
 
 ### Phase 5: Navigation UX Overhaul (6/6) ✅ COMPLETE
 ```

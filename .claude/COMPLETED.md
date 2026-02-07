@@ -63,6 +63,27 @@
   - Total search index: 2,226 entries (was 2,218)
   - 2 files changed (app.js, data/search-index.json)
 
+## Session 44 (2026-02-07)
+**UI Refinements — Content Updates + Desktop Mega-Menu Overhaul**
+
+- [x] **AI Foundations Title Change** (commit `9847fc9`)
+  - Changed h1 in `foundations/index.html` from "The History of AI Communication" to "The History of Modern AI"
+
+- [x] **Homepage Hero Button** (commit `9847fc9`)
+  - Changed "AI for Everybody" button to "Framework Library" linking to `learn/index.html`
+  - Homepage only (not other pages)
+
+- [x] **Desktop Mega-Menu Overhaul** (commits `26701b1`, `615d25a`, + uncommitted CSS)
+  - Removed 2-column grid within each category section — single-column links per category
+  - Categories remain in single horizontal row across the top of the menu
+  - Discover menu (9 categories): viewport-centered using `left: 0; right: 0; margin-left: auto; margin-right: auto` within `.header-container` (`max-width: 1400px; margin: 0 auto; position: relative`)
+  - Resources menu (4 sections): centered under its "Resources" nav link using `:last-child` override with `left: 50%; translateX(-50%)`
+  - `.nav-item.has-dropdown:has(.mega-menu--multi-column)` gets `position: static` to allow centering within `.header-container`
+  - `.nav-item.has-dropdown:last-child:has(.mega-menu--multi-column)` gets `position: relative` override to center Resources under its link
+  - All desktop dropdown menus appear at the same vertical height
+  - CSS changes in `styles.css` around lines 5990-6040
+  - 1 file changed (styles.css)
+
 ---
 
 ## Session 41 (2026-02-07)
