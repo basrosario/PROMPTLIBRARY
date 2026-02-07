@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Self-Ask Prompting: Have AI decompose complex questions by asking and answering intermediate sub-questions.">
+    <meta name="description" content="Self-Ask Prompting: Have AI decompose complex questions by explicitly asking and answering intermediate sub-questions for transparent multi-hop reasoning.">
     <title>Self-Ask Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -131,7 +131,10 @@
         </div>
     </header>
 
+
+
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,64 +149,272 @@
                     <span class="hero-badge__text">Decomposition Technique</span>
                 </div>
                 <h1 class="page-title fade-in">Self-Ask Prompting</h1>
-                <p class="page-subtitle fade-in">AI asks and answers its own sub-questions to solve complex problems.</p>
+                <p class="page-subtitle fade-in">Complex questions hide simpler ones inside them. Self-Ask forces the model to surface those hidden sub-questions explicitly &mdash; asking and answering each one in sequence before assembling a final, well-supported answer.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Questions Lead to Answers</h2>
-                        <p class="section-intro">Self-Ask prompts the model to identify what sub-questions need answering before tackling the main question. The model explicitly asks "Follow-up question:" then answers it, building toward the final answer through intermediate steps.</p>
-                        <div class="highlight-box highlight-box--info">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Benefit</span>
-                                <p>By making the questioning process explicit, Self-Ask produces more interpretable reasoning and catches missing information that would otherwise lead to errors.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Pattern</span>
-                                <p>"Are follow-up questions needed here?" triggers the model to decompose before answering.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === HISTORICAL CONTEXT === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
-                    <h2 class="section-title">Self-Ask in Action</h2>
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2022</span>
+                        <p><strong>Introduced:</strong> Self-Ask was published in 2022 by Press et al. The technique addresses multi-hop reasoning &mdash; questions that require chaining together multiple facts to reach an answer. Instead of hoping the model silently connects the dots, Self-Ask introduces a structured protocol: the model explicitly asks &ldquo;Are follow-up questions needed here?&rdquo; then generates and answers each sub-question before synthesizing a final response. The original paper paired Self-Ask with a search engine for intermediate lookups, anticipating retrieval-augmented generation (RAG) patterns.</p>
+                        <p><strong>Modern LLM Status:</strong> The core insight of Self-Ask &mdash; decomposing complex questions into explicit sub-questions &mdash; has been <strong>largely absorbed into standard LLM behavior</strong>. Claude, GPT-4, and Gemini naturally break down multi-hop questions internally. However, Self-Ask&rsquo;s explicit &ldquo;Follow-up question / Intermediate answer&rdquo; format remains valuable when you need <strong>fully transparent, auditable reasoning chains</strong> where each inference step is visible and verifiable. The technique is most relevant today for interpretability, debugging, and educational contexts.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
 
-                <div class="accordion fade-in-up" id="selfask-accordion">
+        <!-- === THE CONCEPT === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="split-section split-section--center fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Make the Model Question Itself</h2>
+                        <p class="split-section__text">Many questions appear simple on the surface but actually require connecting multiple facts in sequence. &ldquo;Was the president who signed NAFTA born before or after the moon landing?&rdquo; seems straightforward, but it hides two prerequisite questions: who signed NAFTA, and when were they born? Standard prompting asks the model to make these connections silently, where errors can hide undetected.</p>
+                        <p class="split-section__text"><strong>Self-Ask flips the process into the open.</strong> The model is instructed to pause and ask: &ldquo;Are follow-up questions needed here?&rdquo; When the answer is yes, it generates each sub-question explicitly, answers it, then uses that intermediate answer to fuel the next step. The reasoning chain becomes a visible, step-by-step interrogation rather than a black-box leap.</p>
+                        <p class="split-section__text">Think of it like a detective who, instead of jumping to a conclusion, writes down each question they need to answer on a whiteboard &mdash; then methodically solves each one before connecting the evidence into a final verdict.</p>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="highlight-box highlight-box--info">
+                            <div class="highlight-box__content">
+                                <span class="highlight-box__title">Why Explicit Questions Beat Implicit Reasoning</span>
+                                <p>When a model reasons silently through a multi-hop question, it can skip steps, conflate facts, or quietly substitute one entity for another &mdash; and you would never know. Self-Ask&rsquo;s explicit sub-question format makes every inference visible: if the model gets the wrong intermediate answer, you can see exactly <strong>where</strong> the chain broke. This transforms opaque reasoning into a debuggable, auditable trail.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE CONCEPT -->
+
+        <!-- === HOW IT WORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">The Self-Ask Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from complex question to verified answer</p>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Receive the Complex Question</h3>
+                            <p class="element-timeline__text">Start with a question that requires multiple facts or reasoning steps to answer. The question should involve connecting information that no single lookup can resolve &mdash; these are called compositional or multi-hop questions.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Did the company that created the iPhone also make the first personal computer to sell one million units?&rdquo;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Ask &ldquo;Are Follow-Up Questions Needed?&rdquo;</h3>
+                            <p class="element-timeline__text">The model evaluates the question and determines whether it can answer directly or needs to decompose it first. This decision gate is the signature move of Self-Ask &mdash; it forces the model to consciously assess complexity before proceeding rather than guessing at an answer.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Are follow-up questions needed here: Yes.&rdquo; &mdash; The model recognizes it needs to identify the iPhone creator and the first million-unit PC separately.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate and Answer Sub-Questions Sequentially</h3>
+                            <p class="element-timeline__text">The model produces each sub-question and its intermediate answer in order. Each subsequent question can build on the answers already obtained. This sequential chaining ensures that information flows correctly from one step to the next, and each intermediate answer is recorded explicitly.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p><strong>Follow-up:</strong> What company created the iPhone?<br><strong>Intermediate answer:</strong> Apple Inc.<br><strong>Follow-up:</strong> What was the first personal computer to sell one million units?<br><strong>Intermediate answer:</strong> The Apple II.<br><strong>Follow-up:</strong> What company made the Apple II?<br><strong>Intermediate answer:</strong> Apple Inc. (then Apple Computer, Inc.)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Synthesize the Final Answer</h3>
+                            <p class="element-timeline__text">With all intermediate answers in hand, the model combines them into a clear, well-supported final response. The answer is grounded in the explicit evidence chain rather than an unsupported assertion. Anyone reviewing the output can trace the logic from question to sub-questions to conclusion.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p><strong>So the final answer is:</strong> Yes. Apple Inc. created the iPhone and also made the Apple II, which was the first personal computer to sell one million units.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === VISUAL: THE COMPARISON === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">See the Difference</h2>
+                <p class="section-subtitle fade-in-up">Why explicit sub-questions produce more reliable answers</p>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Direct Answer</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Were the economic policies that caused the 2008 financial crisis enacted during a Republican or Democratic presidency?</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The 2008 financial crisis was caused by policies enacted during the Bush administration, so Republican.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Oversimplified, skips crucial context, no visible reasoning</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Self-Ask</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Decomposed Reasoning</span>
+                                <p><strong>Follow-up:</strong> What policies contributed to the 2008 crisis?<br><strong>Intermediate:</strong> Key factors include the Gramm-Leach-Bliley Act (1999) and the Commodity Futures Modernization Act (2000), plus regulatory failures in mortgage oversight.<br><strong>Follow-up:</strong> Who was president when those acts were signed?<br><strong>Intermediate:</strong> Bill Clinton (Democrat) signed both acts.<br><strong>Follow-up:</strong> Were there additional contributing factors under later administrations?<br><strong>Intermediate:</strong> Yes &mdash; the Bush administration (Republican) maintained deregulatory policies and oversight gaps that amplified the risk.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Final Answer</span>
+                                <p>The crisis resulted from policies enacted across both parties &mdash; foundational deregulation under Clinton (Democrat) and continued deregulatory posture under Bush (Republican). Attributing it to a single presidency oversimplifies the multi-administration causal chain.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Nuanced, traceable, each inference step visible and verifiable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE COMPARISON -->
+
+        <!-- === EXAMPLES IN ACTION === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Self-Ask in Action</h2>
+                <p class="section-subtitle fade-in-up">See how explicit sub-questions improve multi-hop reasoning</p>
+
+                <div class="accordion fade-in-up" id="self-ask-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Multi-Hop Question</span>
+                            <span class="accordion-title">Multi-Hop Geography Question</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Question</span>
-                                    <p>"Who was president when the company that makes the iPhone was founded?"</p>
+                                    <span class="technique-demo__tag">Original Question</span>
+                                    <p>&ldquo;Was the iPhone invented in the same state where President Gerald Ford was born?&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Self-Ask Process</span>
-                                    <p><strong>Follow-up question:</strong> What company makes the iPhone?<br>
-                                    <strong>Answer:</strong> Apple makes the iPhone.<br><br>
-                                    <strong>Follow-up question:</strong> When was Apple founded?<br>
-                                    <strong>Answer:</strong> Apple was founded in 1976.<br><br>
-                                    <strong>Follow-up question:</strong> Who was US president in 1976?<br>
-                                    <strong>Answer:</strong> Gerald Ford was president in 1976.<br><br>
-                                    <strong>Final answer:</strong> Gerald Ford was president when Apple was founded.</p>
+                                    <span class="technique-demo__tag">Self-Ask Decomposition</span>
+                                    <p><strong>Are follow-up questions needed here?</strong> Yes.<br><br>
+                                    <strong>Follow-up:</strong> Where was the iPhone invented?<br>
+                                    <strong>Intermediate answer:</strong> The iPhone was developed by Apple Inc. in Cupertino, California.<br><br>
+                                    <strong>Follow-up:</strong> Where was President Gerald Ford born?<br>
+                                    <strong>Intermediate answer:</strong> Gerald Ford was born in Omaha, Nebraska.<br><br>
+                                    <strong>Follow-up:</strong> Are California and Nebraska the same state?<br>
+                                    <strong>Intermediate answer:</strong> No, California and Nebraska are different states.<br><br>
+                                    <strong>So the final answer is:</strong> No. The iPhone was invented in California, while Gerald Ford was born in Nebraska.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Historical Causation Chain</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Original Question</span>
+                                    <p>&ldquo;Did the treaty that ended World War I contribute to the conditions that started World War II?&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Self-Ask Decomposition</span>
+                                    <p><strong>Are follow-up questions needed here?</strong> Yes.<br><br>
+                                    <strong>Follow-up:</strong> What treaty ended World War I?<br>
+                                    <strong>Intermediate answer:</strong> The Treaty of Versailles, signed in 1919.<br><br>
+                                    <strong>Follow-up:</strong> What were the key provisions of the Treaty of Versailles?<br>
+                                    <strong>Intermediate answer:</strong> It imposed heavy reparations on Germany, required territorial concessions, limited Germany&rsquo;s military, and assigned war guilt to Germany (Article 231).<br><br>
+                                    <strong>Follow-up:</strong> How did these provisions affect Germany in the 1920s and 1930s?<br>
+                                    <strong>Intermediate answer:</strong> The reparations contributed to economic instability, hyperinflation, and widespread resentment. These conditions fueled nationalist movements, including the rise of the Nazi Party.<br><br>
+                                    <strong>Follow-up:</strong> Did these conditions contribute to the start of World War II?<br>
+                                    <strong>Intermediate answer:</strong> Yes. Historians broadly agree that the punitive terms of Versailles created political and economic conditions that Adolf Hitler exploited to gain power and pursue aggressive expansion.<br><br>
+                                    <strong>So the final answer is:</strong> Yes. The Treaty of Versailles imposed conditions on Germany that contributed to the economic hardship and political instability from which World War II emerged, though it was one of several contributing factors rather than the sole cause.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Scientific Reasoning Chain</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Original Question</span>
+                                    <p>&ldquo;Was the element gallium discovered before or after the scientist who predicted its existence died?&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Self-Ask Decomposition</span>
+                                    <p><strong>Are follow-up questions needed here?</strong> Yes.<br><br>
+                                    <strong>Follow-up:</strong> Who predicted the existence of gallium?<br>
+                                    <strong>Intermediate answer:</strong> Dmitri Mendeleev predicted gallium&rsquo;s existence in 1871, calling it &ldquo;eka-aluminium&rdquo; based on gaps in his periodic table.<br><br>
+                                    <strong>Follow-up:</strong> When was gallium actually discovered?<br>
+                                    <strong>Intermediate answer:</strong> Gallium was discovered in 1875 by Paul Emile Lecoq de Boisbaudran.<br><br>
+                                    <strong>Follow-up:</strong> When did Dmitri Mendeleev die?<br>
+                                    <strong>Intermediate answer:</strong> Mendeleev died on February 2, 1907.<br><br>
+                                    <strong>Follow-up:</strong> Was 1875 before 1907?<br>
+                                    <strong>Intermediate answer:</strong> Yes, 1875 is 32 years before 1907.<br><br>
+                                    <strong>So the final answer is:</strong> Gallium was discovered before Mendeleev died. He predicted it in 1871, it was found in 1875, and he lived until 1907 &mdash; meaning he witnessed the confirmation of his prediction during his lifetime.</p>
                                 </div>
                             </div>
                         </div>
@@ -211,39 +422,303 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES IN ACTION -->
 
+
+        <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="least-to-most.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Least-to-Most</h3>
-                            <p class="icon-box__content">Another decomposition approach.</p>
-                        </div>
-                    </a>
-                    <a href="chain-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Thought</h3>
-                            <p class="icon-box__content">Step-by-step reasoning without explicit questions.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title fade-in-up">When to Use Self-Ask</h2>
+                <p class="section-subtitle fade-in-up">Best for multi-hop questions that demand transparent reasoning</p>
 
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Practice Self-Ask</h2>
-                    <p class="cta-corporate__text">Try decomposing complex questions.</p>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Multi-Hop Questions</strong>
+                                    <p>Questions that chain multiple facts together &mdash; &ldquo;Who was the president when the company founded by the inventor of the telephone went public?&rdquo;</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Reasoning Audits</strong>
+                                    <p>When you need to verify every step of the model&rsquo;s logic &mdash; each sub-question and answer creates a checkable evidence trail.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Educational Contexts</strong>
+                                    <p>Teaching students how complex questions decompose &mdash; Self-Ask makes the hidden reasoning structure visible and instructive.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Fact-Checking Pipelines</strong>
+                                    <p>Breaking claims into verifiable sub-claims &mdash; each intermediate answer can be independently confirmed against trusted sources.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Single-Hop Questions</strong>
+                                    <p>Questions answerable with a single fact lookup &mdash; &ldquo;What is the capital of France?&rdquo; needs no decomposition.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Speed-Critical Applications</strong>
+                                    <p>When latency matters more than transparency &mdash; Self-Ask adds tokens and processing time for each sub-question and answer pair.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Creative or Open-Ended Tasks</strong>
+                                    <p>Writing, brainstorming, or opinion-based questions where there is no factual chain to decompose &mdash; Self-Ask is designed for factual multi-hop reasoning.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where Self-Ask delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Research Analysis</h3>
+                        <p class="use-case-showcase__desc">Decompose complex research questions into verifiable sub-inquiries, ensuring each factual claim is independently supported before drawing conclusions.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Legal Due Diligence</h3>
+                        <p class="use-case-showcase__desc">Break regulatory compliance questions into jurisdiction-specific sub-questions, tracing each requirement back to its statutory source.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
+                        <p class="use-case-showcase__desc">Decompose differential diagnosis questions into symptom-by-symptom analysis, making each diagnostic inference explicit and reviewable by clinicians.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Customer Support Escalation</h3>
+                        <p class="use-case-showcase__desc">When a support issue spans multiple systems or policies, decompose the customer&rsquo;s problem into sub-questions that each map to a specific knowledge base article.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Security Incident Analysis</h3>
+                        <p class="use-case-showcase__desc">Trace attack vectors through explicit sub-questions: what vulnerability was exploited, what systems were affected, what data was accessed, and what was the blast radius.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 20V10"/>
+                                <path d="M12 20V4"/>
+                                <path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
+                        <p class="use-case-showcase__desc">Break investment thesis questions into sub-analyses: market conditions, company fundamentals, competitive positioning, and risk factors &mdash; each answered and sourced independently.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where Self-Ask Fits</h2>
+                <p class="section-subtitle fade-in-up">Self-Ask bridges implicit reasoning and structured decomposition</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Chain-of-Thought</span>
+                        <span class="era-marker__title">Implicit Steps</span>
+                        <span class="era-marker__desc">Reasoning as continuous prose</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Self-Ask</span>
+                        <span class="era-marker__title">Explicit Questions</span>
+                        <span class="era-marker__desc">Structured sub-question protocol</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Decomposed Prompting</span>
+                        <span class="era-marker__title">Modular Sub-Tasks</span>
+                        <span class="era-marker__desc">Dedicated handlers per sub-problem</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Graph of Thought</span>
+                        <span class="era-marker__title">Non-Linear Paths</span>
+                        <span class="era-marker__desc">Interconnected reasoning nodes</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Combine with Search</div>
+                    <p>Self-Ask was originally designed to pair each sub-question with a search engine lookup &mdash; making it a precursor to modern retrieval-augmented generation (RAG). In production systems, you can route each &ldquo;Follow-up question&rdquo; to a knowledge base or API, then feed the retrieved answer back as the &ldquo;Intermediate answer&rdquo; for maximum factual grounding.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary decomposition techniques</p>
+
+                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Foundation</span>
+                        <span class="evolution-callout__title">Chain-of-Thought</span>
+                        <span class="evolution-callout__desc">The implicit step-by-step reasoning technique that Self-Ask makes explicit through structured sub-questions.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="decomp.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Evolution</span>
+                        <span class="evolution-callout__title">Decomposed Prompting</span>
+                        <span class="evolution-callout__desc">Takes decomposition further by routing each sub-task to specialized handlers &mdash; a modular extension of Self-Ask&rsquo;s question-splitting approach.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="step-back.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Step-Back Prompting</span>
+                        <span class="evolution-callout__desc">Instead of decomposing forward into sub-questions, Step-Back abstracts upward to broader principles before answering &mdash; a complementary reasoning direction.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Decompose Your Questions</h2>
+                        <p class="cta-corporate__text">Try Self-Ask decomposition on your own complex questions or build reasoning-enhanced prompts with our tools.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
+
 
     <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
@@ -297,6 +772,83 @@
         </div>
     </div>
 </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
 
     <script src="../app.js" defer></script>
 </body>

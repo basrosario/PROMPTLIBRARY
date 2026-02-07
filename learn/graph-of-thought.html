@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Graph of Thoughts: Model reasoning as a graph structure where thoughts can merge, loop, and form complex networks.">
+    <meta name="description" content="Graph of Thoughts (GoT): Model reasoning as a graph structure where thoughts can branch, merge, loop, and form complex networks for superior problem-solving.">
     <title>Graph of Thoughts - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,21 +147,39 @@
                     <span class="hero-badge__text">Advanced Reasoning</span>
                 </div>
                 <h1 class="page-title fade-in">Graph of Thoughts</h1>
-                <p class="page-subtitle fade-in">Network-based reasoning with merging and feedback loops.</p>
+                <p class="page-subtitle fade-in">Network-based reasoning where thoughts branch, merge, and loop &mdash; modelling how ideas actually connect and combine.</p>
             </div>
         </section>
+        <!-- /HERO -->
 
+        <!-- === HISTORICAL CONTEXT === -->
+        <section class="section">
+            <div class="container">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Graph of Thoughts (GoT) was published in 2023 by Besta et al. at ETH Zurich. The paper demonstrated that modelling LLM reasoning as an arbitrary graph &mdash; rather than a chain or tree &mdash; enables operations like thought merging, looping, and refinement that significantly improve performance on tasks such as sorting, set operations, and keyword counting.</p>
+                        <p><strong>Modern LLM Status:</strong> GoT remains a <strong>research-stage framework</strong> that is not natively supported by current LLMs. Modern models still generate linear token sequences and do not spontaneously form graph-structured reasoning. Implementing GoT requires explicit orchestration &mdash; either through multi-prompt workflows or dedicated software that manages the thought graph externally. The core insight (that merging and looping improve reasoning) has influenced newer agentic architectures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="split-section">
                     <div class="split-section__content">
                         <span class="section-eyebrow">The Concept</span>
                         <h2 class="section-title">Beyond Linear and Tree Structures</h2>
-                        <p class="section-intro">Graph of Thoughts (GoT) extends reasoning beyond chains and trees into arbitrary graph structures. Thoughts can branch, merge back together, form loops, and create complex networks that better model how ideas actually connect and combine.</p>
+                        <p class="section-intro">Chain-of-Thought forces reasoning into a single path. Tree of Thought lets it branch. Graph of Thoughts removes all structural constraints &mdash; thoughts can branch, merge back together, form feedback loops, and create complex networks that mirror how humans actually solve hard problems.</p>
+                        <p>The key breakthrough is <strong>aggregation</strong>: the ability to take multiple independent reasoning paths and combine their best elements into a single, stronger result. A tree can explore alternatives, but it cannot synthesise them. A graph can split a problem four ways, solve each piece independently, and then merge the solutions into a unified answer that none of the individual branches could have reached alone.</p>
+                        <p>This matters because many real-world problems are not linear. Policy decisions balance competing priorities. Design work integrates constraints from multiple stakeholders. Research synthesises findings across studies. GoT gives LLM reasoning a topology that matches the structure of the problem itself.</p>
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Innovation</span>
-                                <p>While trees only branch outward, graphs allow thoughts to converge. Multiple reasoning paths can merge their insights, and feedback loops can refine ideas iteratively.</p>
+                                <span class="highlight-box__title">Core Innovation</span>
+                                <p>GoT introduces three fundamental operations &mdash; Generate, Aggregate, and Refine &mdash; that transform a collection of thoughts into a directed graph. This enables reasoning patterns impossible in chains or trees: convergence, cycles, and multi-path synthesis.</p>
                             </div>
                         </div>
                     </div>
@@ -168,65 +187,172 @@
                         <div class="highlight-box highlight-box--tip">
                             <div class="highlight-box__content">
                                 <span class="highlight-box__title">Structure Comparison</span>
-                                <p><strong>Chain:</strong> A → B → C<br>
-                                <strong>Tree:</strong> A branches to B, C<br>
-                                <strong>Graph:</strong> A, B merge to C, C loops back</p>
+                                <p><strong>Chain:</strong> A &rarr; B &rarr; C &rarr; D (linear, no branching)</p>
+                                <p><strong>Tree:</strong> A branches to B and C; B branches to D and E (branching, no merging)</p>
+                                <p><strong>Graph:</strong> A branches to B and C; B and C merge into D; D loops back to refine B (branching + merging + loops)</p>
+                                <p><em>The graph subsumes both chain and tree as special cases &mdash; every chain is a graph, every tree is a graph, but not every graph is a tree.</em></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Operations</span>
-                    <h2 class="section-title">Graph Transformations</h2>
+                    <span class="section-eyebrow">Process</span>
+                    <h2 class="section-title">The GoT Pipeline</h2>
+                    <p class="section-intro">A five-step orchestration that builds, explores, and refines a graph of interconnected thoughts.</p>
                 </div>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Generate</h3>
-                        <p class="pillar-card__text">Create new thought nodes by expanding, refining, or exploring from existing nodes.</p>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">1</div>
+                        <div class="element-timeline__content">
+                            <h3>Define the Problem Graph</h3>
+                            <p>Decompose the problem into an initial set of thought nodes. Identify which parts can be solved independently (parallel branches) and which depend on others (sequential edges). This graph topology is the blueprint for the entire reasoning process.</p>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Aggregate</h3>
-                        <p class="pillar-card__text">Merge multiple thought branches into a unified insight that combines their strengths.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">2</div>
+                        <div class="element-timeline__content">
+                            <h3>Generate Thoughts</h3>
+                            <p>Expand the graph by producing new thought nodes from existing ones. Each generation step can create one or many new nodes &mdash; exploring alternatives, breaking down sub-problems, or proposing candidate solutions for individual branches.</p>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Refine</h3>
-                        <p class="pillar-card__text">Improve existing thoughts through feedback loops and iterative enhancement.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">3</div>
+                        <div class="element-timeline__content">
+                            <h3>Explore and Score</h3>
+                            <p>Evaluate thought nodes using a scoring function. Promising branches receive more computational resources while weak branches are pruned. This keeps the graph focused on high-quality reasoning paths without exhaustively exploring every possibility.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">4</div>
+                        <div class="element-timeline__content">
+                            <h3>Aggregate Thoughts</h3>
+                            <p>Merge multiple thought branches into unified results. This is the operation that distinguishes GoT from all prior frameworks &mdash; taking the best elements from parallel explorations and synthesising them into a single, stronger conclusion that no individual branch could reach.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">5</div>
+                        <div class="element-timeline__content">
+                            <h3>Refine Through Loops</h3>
+                            <p>Feed aggregated results back into the graph for further improvement. Refinement loops let the system iteratively polish its reasoning &mdash; catching errors, filling gaps, and strengthening weak arguments until quality thresholds are met or improvement plateaus.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /HOW IT WORKS -->
 
+        <!-- === COMPARISON PANEL === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">Chain/Tree Thinking vs. Graph of Thoughts</h2>
+                </div>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__title">Chain or Tree Approach</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Task: Evaluate a carbon tax policy</strong></p>
+                            <p>Chain: Analyse economic impact &rarr; then environmental impact &rarr; then social impact &rarr; conclude. Each step only sees the previous one.</p>
+                            <p>Tree: Branch into economic, environmental, and social analyses &mdash; but each branch concludes independently. No cross-pollination of insights.</p>
+                            <p><em>Problem: The economic analysis cannot incorporate environmental findings, and the final conclusion is just a list of separate perspectives rather than an integrated assessment.</em></p>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__title">Graph of Thoughts Approach</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Task: Evaluate a carbon tax policy</strong></p>
+                            <p><strong>Branch:</strong> Explore economic, environmental, and social dimensions in parallel.</p>
+                            <p><strong>Aggregate:</strong> Merge findings &mdash; the economic analysis now accounts for environmental benefits (reduced healthcare costs from cleaner air), and social analysis incorporates economic data (job displacement in fossil fuel regions).</p>
+                            <p><strong>Refine:</strong> Loop back to strengthen weak areas identified during aggregation. The integrated assessment reveals trade-offs invisible to any single branch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPARISON PANEL -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">In Practice</span>
                     <h2 class="section-title">GoT in Action</h2>
                 </div>
 
                 <div class="accordion fade-in-up" id="got-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Sorting Task with Merging</span>
+                            <span class="accordion-title">Sorting Task with Merge-Based Aggregation</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
                                     <span class="technique-demo__tag">Problem</span>
-                                    <p>Sort a large list of numbers efficiently.</p>
+                                    <p>&ldquo;Sort this list of 128 numbers in ascending order.&rdquo;</p>
+                                    <p><em>A single LLM call frequently makes errors on long lists &mdash; swapping adjacent elements, dropping items, or losing track of position.</em></p>
                                 </div>
                                 <div class="technique-demo__response">
                                     <span class="technique-demo__tag">Graph Approach</span>
-                                    <p><strong>Split:</strong> Divide list into 4 sub-lists (parallel branches)<br><br>
-                                    <strong>Generate:</strong> Sort each sub-list independently<br><br>
-                                    <strong>Aggregate:</strong> Merge sorted sub-lists pairwise<br><br>
-                                    <strong>Aggregate again:</strong> Merge the two results into final sorted list</p>
+                                    <p><strong>Split (Generate):</strong> Divide the 128-element list into 4 sub-lists of 32 elements each &mdash; creating 4 parallel thought branches.</p>
+                                    <p><strong>Sort (Generate):</strong> Sort each 32-element sub-list independently. Smaller lists are within the model&rsquo;s reliable sorting range.</p>
+                                    <p><strong>Merge (Aggregate):</strong> Pairwise-merge the 4 sorted sub-lists into 2 merged lists, then merge those 2 into the final sorted output.</p>
+                                    <p><strong>Verify (Refine):</strong> Check the final list for ordering violations and fix any that remain.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Policy Analysis with Cross-Domain Synthesis</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>&ldquo;Analyse the impact of implementing a four-day work week across our organisation.&rdquo;</p>
+                                    <p><em>Linear analysis tends to focus on one dimension at a time, missing critical interactions between factors.</em></p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Graph Approach</span>
+                                    <p><strong>Branch (Generate):</strong> Create parallel analysis nodes for productivity impact, employee wellbeing, client satisfaction, operational costs, and talent acquisition.</p>
+                                    <p><strong>Cross-Link (Generate):</strong> Each branch generates findings that reference other branches &mdash; e.g., wellbeing improvements feed back into productivity estimates.</p>
+                                    <p><strong>Synthesise (Aggregate):</strong> Merge all five analyses into a unified recommendation that weighs trade-offs: &ldquo;Productivity drops 5% initially but wellbeing gains reduce turnover by 20%, netting a positive ROI within 18 months.&rdquo;</p>
+                                    <p><strong>Stress-Test (Refine):</strong> Loop back through the graph with adversarial assumptions &mdash; what if productivity drops 15% instead of 5%? Update the recommendation accordingly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Creative Problem Solving with Idea Convergence</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>&ldquo;Design a solution for reducing food waste in urban restaurants.&rdquo;</p>
+                                    <p><em>Creative problems benefit from exploring diverse angles and then combining the best elements &mdash; something trees cannot do.</em></p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Graph Approach</span>
+                                    <p><strong>Diverge (Generate):</strong> Explore 4 independent solution spaces: technology (smart inventory), behavioural (portion sizing), economic (dynamic pricing), and community (surplus redistribution).</p>
+                                    <p><strong>Develop (Generate):</strong> Each branch produces 2-3 concrete proposals with implementation details, costs, and expected impact.</p>
+                                    <p><strong>Converge (Aggregate):</strong> Merge the strongest elements into a hybrid solution: smart inventory tracking triggers dynamic pricing for items approaching expiry, while unsold items are automatically routed to a community redistribution network.</p>
+                                    <p><strong>Iterate (Refine):</strong> Loop back to identify gaps &mdash; the hybrid solution needs a mobile app component (from the technology branch) to coordinate redistribution logistics.</p>
                                 </div>
                             </div>
                         </div>
@@ -234,37 +360,236 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES -->
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="tree-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Tree of Thoughts</h3>
-                            <p class="icon-box__content">Branching without merging.</p>
-                        </div>
-                    </a>
-                    <a href="chain-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Thought</h3>
-                            <p class="icon-box__content">Linear reasoning paths.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
+        <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Explore Graph Reasoning</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section">
+                    <div class="split-section__content">
+                        <span class="section-eyebrow">When to Use</span>
+                        <h2 class="section-title">Perfect For</h2>
+                        <ul class="feature-list feature-list--check">
+                            <li>Problems that decompose into independent sub-tasks whose results need to be combined (sorting, summarisation, multi-criteria analysis)</li>
+                            <li>Multi-perspective analysis where insights from one domain should inform conclusions in another</li>
+                            <li>Creative work that benefits from divergent exploration followed by convergent synthesis</li>
+                            <li>Complex decisions requiring iterative refinement after an initial round of analysis</li>
+                        </ul>
+                    </div>
+                    <div class="split-section__media">
+                        <span class="section-eyebrow">Limitations</span>
+                        <h2 class="section-title">Skip It When</h2>
+                        <ul class="feature-list feature-list--cross">
+                            <li>The task is inherently linear &mdash; a simple question-answer or step-by-step procedure does not benefit from graph structure</li>
+                            <li>Token budget or latency is tight &mdash; GoT requires multiple LLM calls for branching, aggregating, and refining</li>
+                            <li>You lack orchestration tooling &mdash; without software to manage the graph, manual multi-prompt workflows become error-prone at scale</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where Graph of Thoughts delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 20V10"/>
+                                <path d="M12 20V4"/>
+                                <path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Large-Scale Sorting</h3>
+                        <p class="use-case-showcase__desc">Split long lists into manageable chunks, sort each independently, and merge results pairwise — the original GoT benchmark that outperformed Chain-of-Thought.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Multi-Criteria Decisions</h3>
+                        <p class="use-case-showcase__desc">Evaluate options across independent dimensions (cost, risk, impact, feasibility), then aggregate into a weighted recommendation accounting for trade-offs.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Document Summarization</h3>
+                        <p class="use-case-showcase__desc">Summarize sections independently, then merge section summaries into a coherent executive summary preserving relationships between topics.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Research Synthesis</h3>
+                        <p class="use-case-showcase__desc">Analyze multiple papers or data sources in parallel branches, then aggregate findings into a unified review identifying agreements, contradictions, and gaps.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Product Design</h3>
+                        <p class="use-case-showcase__desc">Explore user needs, technical constraints, and business goals in separate branches, then converge into a design specification balancing all dimensions.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <path d="M9 9h6M9 13h6M9 17h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Set Operations</h3>
+                        <p class="use-case-showcase__desc">Compute intersections, unions, and differences across large keyword sets by partitioning across parallel branches and merging partial results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where Graph of Thoughts Fits</h2>
+                <p class="section-subtitle fade-in-up">The evolution from linear reasoning to graph-based networks</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Chain-of-Thought</span>
+                        <span class="era-marker__title">Linear Reasoning</span>
+                        <span class="era-marker__desc">Sequential single path</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Tree of Thought</span>
+                        <span class="era-marker__title">Branching Paths</span>
+                        <span class="era-marker__desc">Explore and select best</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Graph of Thoughts</span>
+                        <span class="era-marker__title">Network Topology</span>
+                        <span class="era-marker__desc">Branch, merge, and loop</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Recursion of Thought</span>
+                        <span class="era-marker__title">Recursive Graphs</span>
+                        <span class="era-marker__desc">Nested sub-graphs</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">The Key Difference</div>
+                    <p>While Chain-of-Thought follows one path and Tree of Thought branches without merging, Graph of Thoughts is the first framework that lets reasoning paths converge — combining insights from multiple independent explorations into unified conclusions. This makes it uniquely suited for problems where synthesis matters more than selection.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+
+                <a href="tree-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v6M12 8l-4 4M12 8l4 4M8 12v4M16 12v4M8 16l-3 3M8 16l3 3M16 16l-3 3M16 16l3 3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Branching</span>
+                        <span class="evolution-callout__title">Tree of Thought</span>
+                        <span class="evolution-callout__desc">GoT&rsquo;s predecessor &mdash; adds branching and search to Chain-of-Thought, but branches cannot merge. Start here if you need exploration without synthesis.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="program-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Computational</span>
+                        <span class="evolution-callout__title">Program of Thought</span>
+                        <span class="evolution-callout__desc">Offloads reasoning to executable code &mdash; complements GoT by providing precise computation for the quantitative sub-tasks within a thought graph.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="decomp.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Decomposition</span>
+                        <span class="evolution-callout__title">Decomposed Prompting</span>
+                        <span class="evolution-callout__desc">Breaks complex tasks into sub-tasks handled by specialised prompts &mdash; provides the decomposition backbone that GoT extends with merging and refinement loops.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Think in Graphs</h2>
+                        <p class="cta-corporate__text">Build graph-structured reasoning into your prompts with our interactive tools, or explore more advanced reasoning frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -319,6 +644,73 @@
         </div>
     </div>
 </footer>
+
+    <!-- === BACK TO TOP === -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+    <!-- /BACK TO TOP -->
+
+    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel__header">
+            <h3 class="adl-panel__title">Accessibility</h3>
+            <button class="adl-panel__close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-panel__body">
+            <div class="adl-control">
+                <label class="adl-control__label">Text Size</label>
+                <div class="adl-control__group adl-text-size-group">
+                    <button class="adl-text-size-btn" data-size="1">1x</button>
+                    <button class="adl-text-size-btn" data-size="2">2x</button>
+                    <button class="adl-text-size-btn" data-size="3">3x</button>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">High Contrast</label>
+                <button class="adl-toggle-switch" data-setting="contrast" role="switch" aria-checked="false">
+                    <span class="adl-toggle-switch__slider"></span>
+                </button>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Read Aloud</label>
+                <div class="adl-control__group">
+                    <button class="adl-toggle-switch" data-setting="readaloud" role="switch" aria-checked="false">
+                        <span class="adl-toggle-switch__slider"></span>
+                    </button>
+                    <select class="adl-speed-select" aria-label="Reading speed">
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="adl-control">
+                <label class="adl-control__label">Screen Dimming</label>
+                <input type="range" class="adl-dim-slider" min="0" max="70" value="0" aria-label="Screen dimming level">
+            </div>
+            <button class="adl-reset-btn">Reset All</button>
+        </div>
+    </div>
+    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

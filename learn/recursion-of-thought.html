@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Recursion of Thought: Apply recursive decomposition where sub-problems spawn their own reasoning chains.">
+    <meta name="description" content="Recursion of Thought: Apply recursive divide-and-conquer reasoning to decompose complex problems into sub-problems until reaching solvable base cases.">
     <title>Recursion of Thought - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -11,6 +11,7 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- === HEADER === -->
     <header class="header" id="header">
         <div class="header-container">
             <a href="../index.html" class="logo">&lt;/Praxis <span>Library</span>&gt;</a>
@@ -130,8 +131,10 @@
             </button>
         </div>
     </header>
+    <!-- /HEADER -->
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -146,92 +149,554 @@
                     <span class="hero-badge__text">Advanced Decomposition</span>
                 </div>
                 <h1 class="page-title fade-in">Recursion of Thought</h1>
-                <p class="page-subtitle fade-in">Recursive problem decomposition with nested reasoning.</p>
+                <p class="page-subtitle fade-in">Some problems cannot be solved at one level of depth. Recursion of Thought applies divide-and-conquer recursively &mdash; decomposing sub-problems into their own sub-problems until reaching base cases simple enough to solve directly.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
+        <!-- === HISTORICAL CONTEXT === -->
+        <section class="section">
+            <div class="container">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Recursion of Thought was published in 2023 by Lee et al. The key insight is that context windows are limited, so when a problem is too complex for a single pass, RoT uses a special &ldquo;going-up&rdquo; token to pause the current problem, recurse into a sub-problem in a fresh context, solve it, and return the result to the parent level. This mirrors how recursive functions in programming call themselves on smaller inputs until reaching a base case, then unwind the call stack to assemble the final answer.</p>
+                        <p><strong>Modern LLM Status:</strong> RoT&rsquo;s recursive decomposition principle has directly influenced <strong>agentic AI architectures</strong> where parent agents spawn child agents for sub-tasks. Modern frameworks like AutoGen and CrewAI implement recursive delegation patterns that echo RoT&rsquo;s design. However, RoT as a pure prompting technique remains <strong>research-stage</strong> &mdash; it requires programmatic orchestration to manage the recursion stack across multiple context windows. Understanding RoT is valuable for designing hierarchical agent systems and recognizing the limits of single-context reasoning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="split-section">
+                <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Recursive Decomposition</h2>
-                        <p class="section-intro">Recursion of Thought applies the divide-and-conquer strategy recursively. When a sub-problem is still too complex, it spawns its own decomposition, creating a tree of reasoning chains that bottoms out at solvable base cases.</p>
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">When Sub-Problems Have Sub-Problems</h2>
+                        <p class="split-section__text">Standard decomposition frameworks like Least-to-Most break a problem into parts and solve each part. But what happens when one of those parts is itself too complex to solve directly? Flat decomposition hits a ceiling &mdash; it assumes one level of breakdown is enough. For genuinely complex problems, it is not.</p>
+                        <p class="split-section__text"><strong>Recursion of Thought eliminates this ceiling.</strong> Instead of decomposing once, RoT applies the same decomposition strategy at every level. If a sub-problem is still too hard, decompose it again. And again. Each level follows the identical pattern: check if the problem is a base case, and if not, break it down further. This creates a tree of reasoning where the leaves are simple, solvable problems and the internal nodes are combination points where results flow back upward.</p>
+                        <p class="split-section__text">The critical innovation is the &ldquo;going-up&rdquo; token &mdash; a mechanism that allows the model to pause its current reasoning, open a new context for a sub-problem, solve it there, and return the result to continue the parent computation. This overcomes the fundamental limitation of fixed context windows by distributing reasoning across multiple contexts organized in a recursive call stack.</p>
+                    </div>
+                    <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Like Programming Recursion</span>
-                                <p>Just as recursive functions call themselves on smaller inputs, RoT applies the same decomposition strategy at each level until reaching simple base cases.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Pattern</span>
-                                <p>1) Check if base case. 2) If not, decompose. 3) Recursively solve each part. 4) Combine results.</p>
+                                <span class="highlight-box__title">The Programming Analogy</span>
+                                <p>In computer science, recursion is one of the most powerful problem-solving paradigms. A recursive function solves a problem by: (1) checking the base case &mdash; if the input is small enough, return the answer directly; (2) otherwise, breaking the input into smaller pieces, calling itself on each piece, and combining the results.</p>
+                                <p>RoT applies this exact pattern to language model reasoning. The &ldquo;function&rdquo; is the decomposition prompt itself, the &ldquo;input&rdquo; is the problem, the &ldquo;base case&rdquo; is a question simple enough for the model to answer in one step, and the &ldquo;recursive call&rdquo; is spawning a new context to handle a sub-problem. The result is a reasoning tree of arbitrary depth, limited only by the complexity of the original problem.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Applications</span>
-                    <h2 class="section-title">When to Use RoT</h2>
-                </div>
+                <h2 class="section-title fade-in-up">The Recursive Reasoning Process</h2>
+                <p class="section-subtitle fade-in-up">Five steps from complex problem to assembled solution</p>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Hierarchical Problems</h3>
-                        <p class="pillar-card__text">Tasks with natural hierarchical structure that mirrors recursive decomposition.</p>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Check if Base Case</h3>
+                            <p class="element-timeline__text">Before doing any decomposition, first assess whether the current problem is simple enough to solve directly. A base case is a question that can be answered in a single reasoning step without further breakdown. If it is a base case, solve it immediately and return the result.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"What is 7 times 8?" &mdash; This is a base case. Answer directly: 56. No decomposition needed.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Variable Depth</h3>
-                        <p class="pillar-card__text">Problems where complexity varies and fixed decomposition levels won't work.</p>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Decompose into Sub-Problems</h3>
+                            <p class="element-timeline__text">If the problem is not a base case, identify the logical sub-problems it can be broken into. Each sub-problem should be a self-contained question whose answer contributes to solving the parent problem. The decomposition should produce sub-problems that are strictly simpler than the original.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"Summarize this 50-page report" decomposes into: "Summarize Chapter 1," "Summarize Chapter 2," ... "Summarize Chapter 10." Each chapter summary is a sub-problem.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Self-Similar Structure</h3>
-                        <p class="pillar-card__text">Sub-problems that have the same form as the original problem.</p>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Recurse into Each Sub-Problem</h3>
+                            <p class="element-timeline__text">For each sub-problem, open a new context and apply the same process from Step 1. If the sub-problem is a base case, solve it. If it is still too complex, decompose it again. This is the recursive step &mdash; the same strategy applied at a deeper level. The &ldquo;going-up&rdquo; token signals when to pause the parent and descend into a child context.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"Summarize Chapter 3" is still too long for one pass. Decompose further: "Summarize Section 3.1," "Summarize Section 3.2," "Summarize Section 3.3." Each section is now a base case &mdash; short enough to summarize directly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Solve Base Cases Directly</h3>
+                            <p class="element-timeline__text">At the deepest level of recursion, every sub-problem is a base case. Solve each one directly using straightforward reasoning. These are the &ldquo;leaf nodes&rdquo; of the reasoning tree &mdash; concrete answers that require no further decomposition.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"Summarize Section 3.1" &mdash; a 2-page section on methodology. Base case reached. Output: "Section 3.1 describes the survey methodology, including a sample of 500 participants across three age groups."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">5</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Combine Results Bottom-Up</h3>
+                            <p class="element-timeline__text">Once all base cases are solved, unwind the recursion. Combine section summaries into chapter summaries, combine chapter summaries into the final report summary. Each level merges results from its children into a coherent answer for its parent, flowing upward until the original question is answered.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>Section summaries merge into "Chapter 3 Summary." All chapter summaries merge into "Full Report Summary." The original problem is solved by composing the answers bottom-up through the recursion tree.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /HOW IT WORKS -->
 
+        <!-- === COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="least-to-most.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Least-to-Most</h3>
-                            <p class="icon-box__content">Linear decomposition.</p>
-                        </div>
-                    </a>
-                    <a href="decomp.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Decomposed Prompting</h3>
-                            <p class="icon-box__content">Sub-procedure delegation.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title fade-in-up">Flat vs. Recursive Decomposition</h2>
+                <p class="section-subtitle fade-in-up">Why adaptive depth matters for complex problems</p>
 
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Recursion of Thought</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__heading">Flat Decomposition</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>One level of breakdown.</strong> The original problem is split into parts, and each part is solved directly. There is no mechanism for further decomposition if a part is still too complex.</p>
+                            <p><strong>Fixed depth.</strong> The decomposition depth is decided in advance, regardless of actual problem complexity. Simple and hard sub-problems get the same treatment.</p>
+                            <p><strong>Breaks down when sub-problems exceed context capacity.</strong> If a sub-problem is itself too large or complex for a single pass, flat decomposition has no recourse &mdash; it will attempt to solve it anyway, often producing incomplete or incorrect results.</p>
+                            <p><strong>Example:</strong> "Summarize this book" becomes "Summarize Chapter 1, Summarize Chapter 2, ..." &mdash; but if a chapter is 80 pages long, the model cannot summarize it in one pass.</p>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__heading">Recursive Decomposition</h3>
+                        <div class="comparison-panel__content">
+                            <p><strong>Multi-level, adaptive breakdown.</strong> Sub-problems are decomposed further whenever they remain too complex. The depth of decomposition adapts naturally to the complexity at each branch.</p>
+                            <p><strong>Dynamic depth.</strong> Simple branches resolve at level one while complex branches recurse deeper. The tree structure mirrors the actual structure of the problem rather than a one-size-fits-all split.</p>
+                            <p><strong>Overcomes context limitations.</strong> By spawning new contexts for sub-problems, each reasoning step operates within manageable scope. No single context needs to hold the entire problem.</p>
+                            <p><strong>Example:</strong> "Summarize this book" becomes chapters, long chapters become sections, long sections become sub-sections &mdash; recursing until every piece fits within a single context window.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /COMPARISON -->
+
+        <!-- === EXAMPLES IN ACTION === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Recursion of Thought in Action</h2>
+                <p class="section-subtitle fade-in-up">See how recursive decomposition solves problems that flat approaches cannot handle</p>
+
+                <div class="accordion fade-in-up" id="rot-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Recursive Document Summarization</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>"Summarize this 200-page technical report on climate adaptation strategies across 12 regions, including policy recommendations and implementation timelines for each."</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Recursive Decomposition</span>
+                                    <p><strong>Level 0 (Root):</strong> "Summarize the full 200-page report." Not a base case &mdash; far too long for one context. Decompose.<br><br>
+                                    <strong>Level 1 &mdash; Decompose:</strong> Split into 12 regional sections plus an introduction and conclusion = 14 sub-problems.<br><br>
+                                    <strong>Level 2 &mdash; Recurse into Region 5:</strong> "Summarize the Southeast Asia section (22 pages)." Still too long for one pass. Decompose further: "Policy Overview (4 pages)," "Implementation Timeline (6 pages)," "Case Studies (8 pages)," "Recommendations (4 pages)."<br><br>
+                                    <strong>Level 3 &mdash; Base Cases:</strong> "Summarize Case Studies (8 pages)" &mdash; manageable in one context. Solve directly: "Three case studies in Vietnam, Thailand, and Indonesia demonstrate that early-warning flood systems reduced displacement by 40% when paired with community training programs."<br><br>
+                                    <strong>Combine Level 2:</strong> Merge the four sub-section summaries into: "The Southeast Asia section recommends scaled early-warning systems based on successful pilots, with a 2025-2030 implementation timeline and $2.1B estimated investment."<br><br>
+                                    <strong>Combine Level 1:</strong> Merge all 14 section summaries into a coherent executive summary of the full report.<br><br>
+                                    <strong>Result:</strong> A structured, accurate summary that could not have been produced in a single pass due to the volume and complexity of the source material.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Hierarchical Math Problem</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>"A medical test has 95% sensitivity and 99% specificity. The disease prevalence is 1 in 10,000. A patient tests positive. What is the probability they actually have the disease? Explain the reasoning using Bayes&rsquo; theorem."</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Recursive Decomposition</span>
+                                    <p><strong>Level 0 (Root):</strong> "Calculate posterior probability using Bayes&rsquo; theorem with the given parameters." Not a base case &mdash; requires multiple intermediate calculations. Decompose.<br><br>
+                                    <strong>Level 1 &mdash; Decompose:</strong> Bayes&rsquo; theorem: P(Disease|Positive) = P(Positive|Disease) * P(Disease) / P(Positive). Three sub-problems: (A) Calculate P(Positive|Disease) * P(Disease), (B) Calculate P(Positive), (C) Divide A by B.<br><br>
+                                    <strong>Level 2 &mdash; Sub-problem A:</strong> P(Positive|Disease) = 0.95 (sensitivity). P(Disease) = 1/10000 = 0.0001. Multiply: 0.95 * 0.0001 = 0.000095. Base case &mdash; solved.<br><br>
+                                    <strong>Level 2 &mdash; Sub-problem B:</strong> P(Positive) = P(Pos|Disease)*P(Disease) + P(Pos|No Disease)*P(No Disease). Not a base case &mdash; decompose further.<br><br>
+                                    <strong>Level 3 &mdash; Sub-problem B1:</strong> P(Pos|No Disease) = 1 - specificity = 1 - 0.99 = 0.01. P(No Disease) = 1 - 0.0001 = 0.9999. Multiply: 0.01 * 0.9999 = 0.009999. Base case &mdash; solved.<br><br>
+                                    <strong>Level 3 &mdash; Sub-problem B2:</strong> P(Positive) = 0.000095 + 0.009999 = 0.010094. Base case &mdash; solved.<br><br>
+                                    <strong>Combine Level 1:</strong> P(Disease|Positive) = 0.000095 / 0.010094 = 0.00941 = approximately 0.94%.<br><br>
+                                    <strong>Result:</strong> Despite the positive test, there is only about a 0.94% chance the patient actually has the disease. The low prevalence means false positives vastly outnumber true positives.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Organizational Analysis</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Problem</span>
+                                    <p>"Analyze the operational efficiency of a multinational corporation with 4 divisions, each containing 3-5 departments. Identify bottlenecks, redundancies, and optimization opportunities at every organizational level."</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Recursive Decomposition</span>
+                                    <p><strong>Level 0 (Root):</strong> "Analyze full organizational efficiency." Not a base case &mdash; too many interacting components. Decompose by division.<br><br>
+                                    <strong>Level 1 &mdash; Decompose:</strong> Four sub-problems: Analyze Manufacturing Division, Analyze Sales Division, Analyze R&amp;D Division, Analyze Operations Division.<br><br>
+                                    <strong>Level 2 &mdash; Recurse into Manufacturing:</strong> "Analyze Manufacturing Division efficiency." Still too broad with 5 departments. Decompose: Production, Quality Control, Logistics, Procurement, Maintenance.<br><br>
+                                    <strong>Level 3 &mdash; Base Cases:</strong> "Analyze Procurement Department" &mdash; single department with defined processes. Base case. Solve directly: "Procurement shows 23-day average vendor approval cycle vs. 10-day industry standard. Dual-approval bottleneck in contracts under $50K adds unnecessary overhead. Recommendation: raise single-approval threshold to $50K."<br><br>
+                                    <strong>Combine Level 2:</strong> Merge the 5 department analyses into a Manufacturing Division report: "Manufacturing shows strong production throughput but procurement and maintenance are bottlenecks. Cross-department redundancy: both QC and Production maintain separate testing equipment inventories."<br><br>
+                                    <strong>Combine Level 1:</strong> Merge all 4 division reports into a corporate-level analysis. Identify cross-division patterns: "Three of four divisions maintain independent IT support teams &mdash; consolidation could save 15% on IT staffing costs."<br><br>
+                                    <strong>Result:</strong> A three-level analysis identifying bottlenecks at the department, division, and corporate levels, with actionable recommendations at each level. A flat approach would miss the department-level details or the cross-division patterns.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /EXAMPLES IN ACTION -->
+
+        <!-- === WHEN TO USE === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">When to Use Recursion of Thought</h2>
+                <p class="section-subtitle fade-in-up">Best for problems with hierarchical or variable-depth complexity</p>
+
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Hierarchical Problems</strong>
+                                    <p>When the problem has a natural tree structure with multiple levels of detail that cannot be captured in a single decomposition pass.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Variable Complexity</strong>
+                                    <p>When different branches of the problem vary significantly in complexity, requiring deeper decomposition in some areas but not others.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Context-Exceeding Tasks</strong>
+                                    <p>When the total input or reasoning chain exceeds what can fit in a single context window, requiring distributed reasoning across multiple contexts.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Agentic Architectures</strong>
+                                    <p>When designing multi-agent systems where parent agents delegate to child agents, mirroring the recursive call stack pattern.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Single-Step Problems</strong>
+                                    <p>When the question can be answered directly without any decomposition, the overhead of recursive structure adds no value.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>No Programmatic Orchestration</strong>
+                                    <p>When you cannot control context management programmatically. RoT requires an orchestration layer to manage the recursion stack across multiple LLM calls.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Flat Problems</strong>
+                                    <p>When all sub-problems are at the same level of complexity and a single decomposition pass handles them adequately.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where Recursion of Thought delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Long Document Analysis</h3>
+                        <p class="use-case-showcase__desc">Recursively summarize or analyze documents that exceed context limits by decomposing into chapters, sections, and paragraphs, then combining results bottom-up.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                                <line x1="14" y1="4" x2="10" y2="20"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Codebase Understanding</h3>
+                        <p class="use-case-showcase__desc">Analyze a large codebase by recursing through modules, classes, and functions, building understanding from individual components up to the full architecture.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <circle cx="5" cy="6" r="2"/>
+                                <circle cx="19" cy="6" r="2"/>
+                                <circle cx="5" cy="18" r="2"/>
+                                <circle cx="19" cy="18" r="2"/>
+                                <path d="M7 7l3 3M14 9l3-2M7 17l3-3M14 15l3 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Multi-Agent Orchestration</h3>
+                        <p class="use-case-showcase__desc">Design agent hierarchies where parent agents spawn child agents for sub-tasks, with each level managing its own scope and returning results upward.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Research Synthesis</h3>
+                        <p class="use-case-showcase__desc">Synthesize findings across dozens of papers by recursively analyzing individual studies, then grouping by theme, and finally combining into a comprehensive literature review.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Organizational Audits</h3>
+                        <p class="use-case-showcase__desc">Audit multilayer organizations by recursing into divisions, departments, and teams, identifying issues at each level and surfacing cross-cutting patterns.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Complex Project Planning</h3>
+                        <p class="use-case-showcase__desc">Break down large projects into phases, phases into workstreams, workstreams into tasks, and tasks into subtasks &mdash; each level planned with appropriate detail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where Recursion of Thought Fits</h2>
+                <p class="section-subtitle fade-in-up">A recursive evolution in decomposition framework design</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Least-to-Most</span>
+                        <span class="era-marker__title">Linear</span>
+                        <span class="era-marker__desc">Sequential sub-problems</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Decomposed Prompting</span>
+                        <span class="era-marker__title">Modular</span>
+                        <span class="era-marker__desc">Specialized sub-solvers</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Graph of Thought</span>
+                        <span class="era-marker__title">Network</span>
+                        <span class="era-marker__desc">Graph-structured reasoning</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Recursion of Thought</span>
+                        <span class="era-marker__title">Recursive</span>
+                        <span class="era-marker__desc">Divide-and-conquer at any depth</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Design Pattern</div>
+                    <p>Recursion of Thought maps directly to modern agentic AI architectures. When a parent agent encounters a task too complex for its context, it spawns a child agent &mdash; exactly like a recursive function call. Frameworks like AutoGen and CrewAI implement this pattern. Use RoT as your mental model when designing hierarchical agent systems that need to handle arbitrary problem depth.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary decomposition approaches</p>
+
+                <a href="decomp.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="6" cy="6" r="3"/>
+                            <circle cx="18" cy="18" r="3"/>
+                            <path d="M6 9v6c0 3 3 3 6 3h3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Foundation</span>
+                        <span class="evolution-callout__title">Decomposed Prompting</span>
+                        <span class="evolution-callout__desc">Modular sub-problem solving with specialized handlers &mdash; Recursion of Thought extends this with multi-level recursive depth.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="least-to-most.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Related</span>
+                        <span class="evolution-callout__title">Least-to-Most</span>
+                        <span class="evolution-callout__desc">Linear decomposition from simplest to hardest &mdash; Recursion of Thought generalizes this to multi-level tree structures.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="graph-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="5" cy="6" r="3"/>
+                            <circle cx="19" cy="6" r="3"/>
+                            <circle cx="12" cy="18" r="3"/>
+                            <path d="M8 6h8M7 8l3 8M17 8l-3 8"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Evolution</span>
+                        <span class="evolution-callout__title">Graph of Thought</span>
+                        <span class="evolution-callout__desc">Extends tree reasoning to non-linear graph structures &mdash; allowing cross-branch connections that recursion alone cannot represent.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Think Recursively</h2>
+                        <p class="cta-corporate__text">Design recursive reasoning workflows or explore more decomposition frameworks in the Praxis Library.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
+    <!-- === FOOTER === -->
     <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
     <div class="container">
@@ -284,6 +749,84 @@
         </div>
     </div>
 </footer>
+    <!-- /FOOTER -->
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
 
     <script src="../app.js" defer></script>
 </body>

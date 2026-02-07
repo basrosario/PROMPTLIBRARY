@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Step-Back Prompting: Abstract to high-level concepts before answering specific questions for better reasoning.">
+    <meta name="description" content="Step-Back Prompting: Abstract to high-level principles before answering specific questions — grounding responses in foundational knowledge for better reasoning.">
     <title>Step-Back Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -132,6 +132,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -143,63 +144,259 @@
                     <span class="current">Step-Back</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Thought Generation</span>
+                    <span class="hero-badge__text">Abstraction Technique</span>
                 </div>
                 <h1 class="page-title fade-in">Step-Back Prompting</h1>
-                <p class="page-subtitle fade-in">Zoom out to principles before zooming in to specifics.</p>
+                <p class="page-subtitle fade-in">Zoom out to fundamental principles before zooming in to specifics. Step-Back Prompting teaches LLMs to abstract away from details, reason about high-level concepts first, and then apply that foundational understanding to produce more accurate, grounded answers.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Big Picture First</h2>
-                        <p class="section-intro">Step-Back prompting asks the model to first consider the high-level principles or concepts relevant to a question before attempting to answer the specific query. This abstraction step grounds the response in foundational knowledge.</p>
-                        <div class="highlight-box highlight-box--info">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Why It Works</span>
-                                <p>Specific questions can be misleading or have hidden complexity. By stepping back to principles first, the model ensures its answer is built on solid conceptual foundations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Pattern</span>
-                                <p>"Before answering, step back and consider: What general principles are relevant here?"</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === HISTORICAL CONTEXT === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
-                    <h2 class="section-title">Step-Back in Action</h2>
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Step-Back Prompting was published in 2023 by Zheng et al. at Google DeepMind. The technique addresses a fundamental challenge in LLM reasoning: when faced with complex, detail-heavy questions, models often get lost in specifics and miss the underlying principles that would lead to correct answers. Step-Back Prompting solves this by adding an explicit abstraction step — the model first generates a higher-level question about the relevant principles, answers that abstract question, and then uses those principles to tackle the original specific question.</p>
+                        <p><strong>Modern LLM Status:</strong> Step-Back Prompting remains a <strong>partially integrated</strong> technique. While modern LLMs like Claude, GPT-4, and Gemini have improved their ability to reason from principles, they still benefit significantly from explicit step-back instructions on complex knowledge-intensive tasks. The technique is especially valuable for <strong>STEM reasoning</strong>, <strong>legal analysis</strong>, and <strong>multi-step knowledge tasks</strong> where grounding in fundamentals prevents the model from generating plausible but incorrect answers. Unlike techniques that are now fully internalized, Step-Back Prompting consistently improves accuracy when applied manually.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="split-section split-section--center fade-in-up">
+                    <div class="split-section__content">
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Principles Before Particulars</h2>
+                        <p class="split-section__text">When someone asks "What happens to the pressure of an ideal gas if you double the temperature and halve the volume?", the instinct is to jump straight to numbers. But experts do something different — they first recall the ideal gas law (PV = nRT), understand the relationships between variables, and then apply that framework to the specific scenario. Step-Back Prompting teaches LLMs to follow this same expert reasoning pattern.</p>
+                        <p class="split-section__text"><strong>The abstraction step is the key innovation.</strong> Rather than letting the model reason directly about a complex specific question, you first ask it to identify the relevant high-level concepts, principles, or theories. This creates a conceptual scaffold that prevents the model from making errors that stem from reasoning about details without understanding the bigger picture. The model essentially builds a foundation before constructing the answer.</p>
+                        <p class="split-section__text">Think of it like an architect who, before designing a specific room layout, first establishes the structural principles — load-bearing requirements, building codes, material properties. The specific design decisions flow naturally from these foundational constraints, and the result is far more reliable than designing room by room without structural awareness.</p>
+                    </div>
+                    <div class="split-section__visual">
+                        <div class="highlight-box highlight-box--info">
+                            <div class="highlight-box__content">
+                                <span class="highlight-box__title">Why Abstraction Prevents Errors</span>
+                                <p>Complex questions often contain surface-level details that mislead models into pattern-matching rather than reasoning. By stepping back to principles first, the model establishes a <strong>correct reasoning framework</strong> before engaging with the specifics. This is why Step-Back Prompting showed dramatic improvements on physics, chemistry, and legal reasoning tasks — domains where getting the underlying principles wrong cascades into completely wrong answers, no matter how fluent the response sounds.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE CONCEPT -->
+
+        <!-- === HOW IT WORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">The Step-Back Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from specific question to principle-grounded answer</p>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Receive the Specific Question</h3>
+                            <p class="element-timeline__text">Start with the original, detail-heavy question that the user wants answered. This is typically a question that requires domain knowledge and reasoning about specific scenarios, numbers, or edge cases — the kind of question where jumping straight to an answer often produces errors.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"Can an employer legally terminate an employee for posting negative comments about the company on social media during non-work hours?"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate the Step-Back Question</h3>
+                            <p class="element-timeline__text">Formulate a higher-level, more abstract version of the question that targets the underlying principles, theories, or domain knowledge. This step-back question should be broad enough to capture the foundational concepts but specific enough to be directly relevant to the original question.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"What are the legal principles governing employee termination, at-will employment, protected speech, and the limits of employer authority over off-duty conduct?"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Answer the Abstract Question</h3>
+                            <p class="element-timeline__text">Have the model thoroughly answer the step-back question, laying out the relevant principles, frameworks, and domain knowledge. This creates a comprehensive conceptual foundation — a knowledge scaffold that the final answer can be built upon. The model is essentially studying the textbook before taking the exam.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"At-will employment allows termination for any lawful reason. However, exceptions include: protected concerted activity under the NLRA, state laws protecting lawful off-duty conduct, wrongful termination in violation of public policy, and social media policies that may be overbroad..."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Apply Principles to the Specific Question</h3>
+                            <p class="element-timeline__text">With the principled foundation established, now answer the original specific question. The model maps the abstract knowledge onto the concrete scenario, producing an answer that is grounded in correct principles rather than surface-level pattern matching. The result is more accurate, more nuanced, and better reasoned.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>"It depends on several factors: the jurisdiction's at-will status, whether the speech constitutes protected concerted activity under the NLRA (discussing working conditions with coworkers), and whether the employer's social media policy is lawfully narrow. In most at-will states, purely personal complaints can be grounds for termination, but collective discussions about workplace conditions are federally protected."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === VISUAL: THE COMPARISON === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">See the Difference</h2>
+                <p class="section-subtitle fade-in-up">Why abstraction produces better answers than direct questioning</p>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Direct Answer</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Question Asked Directly</span>
+                                <p>"Can an employer fire someone for negative social media posts about the company during non-work hours?"</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Typical Response</span>
+                                <p>"Yes, in most cases an employer can fire an employee for negative social media posts about the company, as most states are at-will employment states." — Overly simplistic, misses critical exceptions and nuance.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Shallow, misses legal exceptions, potentially misleading</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Step-Back Approach</h3>
+                        </div>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Step-Back First</span>
+                                <p>First establish the legal principles: at-will employment, NLRA protections, protected concerted activity, state off-duty conduct laws, and employer social media policy requirements.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Grounded Response</span>
+                                <p>"The answer depends on jurisdiction and content. While at-will employment permits broad termination, the NLRA protects concerted activity about working conditions. State laws may protect lawful off-duty conduct. The employer's social media policy must be lawfully narrow." — Comprehensive and accurate.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Principle-grounded, nuanced, identifies key variables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /THE COMPARISON -->
+
+        <!-- === EXAMPLES IN ACTION === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Step-Back in Action</h2>
+                <p class="section-subtitle fade-in-up">See how abstracting to principles improves reasoning across domains</p>
 
                 <div class="accordion fade-in-up" id="stepback-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Physics Problem</span>
+                            <span class="accordion-title">Physics: Gas Laws Problem</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
                                     <span class="technique-demo__tag">Specific Question</span>
-                                    <p>"What is the temperature of the sun's core?"</p>
+                                    <p><strong>Question:</strong> "A sealed container of ideal gas is at 300K and 1 atm. If the temperature is raised to 600K and the volume is reduced to half, what is the new pressure?"<br><br>
+                                    <strong>Step-Back Question:</strong> "What are the fundamental gas laws that govern the relationship between pressure, volume, and temperature in an ideal gas?"</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Step-Back Approach</span>
-                                    <p><strong>Step back:</strong> What physical processes occur in stellar cores? What determines core temperature?<br><br>
-                                    <strong>Principles:</strong> Nuclear fusion, gravitational pressure, hydrostatic equilibrium...<br><br>
-                                    <strong>Then answer:</strong> With this foundation, provide a grounded response about solar core temperature.</p>
+                                    <span class="technique-demo__tag">Step-Back Reasoning</span>
+                                    <p><strong>Principles established:</strong> The ideal gas law states PV = nRT. For a fixed amount of gas (sealed container), we can use the combined gas law: P1V1/T1 = P2V2/T2. Pressure is directly proportional to temperature and inversely proportional to volume.<br><br>
+                                    <strong>Applied to specifics:</strong> P2 = P1 x (V1/V2) x (T2/T1) = 1 atm x (V1/(V1/2)) x (600K/300K) = 1 atm x 2 x 2 = 4 atm. The new pressure is 4 atm.<br><br>
+                                    <strong>Why Step-Back helped:</strong> By establishing the gas law framework first, the model avoids the common error of only considering one variable change at a time, or confusing the relationship directions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Legal: Employment Termination</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Specific Question</span>
+                                    <p><strong>Question:</strong> "An employee in California was fired after posting on Facebook that the company's overtime policy was unfair. Is this lawful termination?"<br><br>
+                                    <strong>Step-Back Question:</strong> "What legal frameworks govern employee termination for speech, particularly regarding workplace complaints, protected concerted activity, and California-specific employment protections?"</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Step-Back Reasoning</span>
+                                    <p><strong>Principles established:</strong> California is an at-will state but with significant exceptions. The NLRA Section 7 protects "concerted activity" — employees discussing wages, hours, or working conditions with coworkers. California Labor Code Section 1102.5 provides whistleblower protection. California also has strong public policy exceptions to at-will employment. Social media posts visible to coworkers may constitute concerted activity.<br><br>
+                                    <strong>Applied to specifics:</strong> This termination is likely unlawful. The post concerns overtime policy (a working condition), which is core protected activity under the NLRA. If the post was visible to coworkers, it constitutes concerted activity regardless of the platform. California's additional protections further strengthen the employee's position. The employer could face NLRB charges and state wrongful termination claims.<br><br>
+                                    <strong>Why Step-Back helped:</strong> Without establishing the legal framework first, a model might default to the oversimplified "at-will means they can fire for any reason" answer, missing the critical NLRA and California-specific protections.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Programming: Architecture Decision</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Specific Question</span>
+                                    <p><strong>Question:</strong> "Should we migrate our monolithic e-commerce application to microservices? We have 15 developers, 2 million daily active users, and deployment takes 4 hours."<br><br>
+                                    <strong>Step-Back Question:</strong> "What are the fundamental principles for choosing between monolithic and microservices architectures, including team size considerations, scalability requirements, deployment complexity, and organizational readiness?"</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Step-Back Reasoning</span>
+                                    <p><strong>Principles established:</strong> Conway's Law suggests system architecture should mirror team structure. Microservices trade deployment complexity for independent scalability and team autonomy. Microservices require mature DevOps practices (CI/CD, monitoring, service mesh). Premature decomposition creates distributed monolith problems. The Strangler Fig pattern enables incremental migration.<br><br>
+                                    <strong>Applied to specifics:</strong> With 15 developers, you could support 2-3 independent service teams. The 4-hour deployment time suggests a genuine pain point that microservices could address. However, the team needs mature DevOps first. Recommendation: start with the Strangler Fig pattern to extract the highest-pain components into separate services while keeping the rest as a monolith.<br><br>
+                                    <strong>Why Step-Back helped:</strong> Without the architectural principles, the answer might be a simple "yes, migrate to microservices" without considering team readiness, incremental approaches, or the real risk of creating a distributed monolith.</p>
                                 </div>
                             </div>
                         </div>
@@ -207,37 +404,297 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES IN ACTION -->
 
+        <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="chain-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Thought</h3>
-                            <p class="icon-box__content">Detailed step-by-step reasoning.</p>
-                        </div>
-                    </a>
-                    <a href="analogical-reasoning.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Analogical Reasoning</h3>
-                            <p class="icon-box__content">Connect to similar problems.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title fade-in-up">When to Use Step-Back</h2>
+                <p class="section-subtitle fade-in-up">Best for knowledge-intensive questions where principles matter</p>
 
-        <section class="section">
-            <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Practice Step-Back</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Perfect For</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>STEM Problem Solving</strong>
+                                    <p>Physics, chemistry, biology, and math problems where identifying the correct formula, law, or theorem first prevents computational errors downstream.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Legal and Regulatory Analysis</strong>
+                                    <p>Questions involving laws, regulations, or policies where establishing the legal framework first prevents oversimplified or incorrect conclusions.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Strategic Decision-Making</strong>
+                                    <p>Complex decisions where understanding the underlying trade-offs, constraints, and principles leads to more nuanced and defensible recommendations.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Breaking Tunnel Vision</strong>
+                                    <p>When you suspect the model (or you) are fixated on details and missing the bigger picture — Step-Back forces a broader perspective before diving in.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-section__content">
+                        <h3 class="split-section__subtitle">Skip It When</h3>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Simple Factual Questions</strong>
+                                    <p>For straightforward lookups like "What is the capital of France?" — abstracting to principles adds unnecessary complexity without improving accuracy.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Creative and Open-Ended Tasks</strong>
+                                    <p>For brainstorming, creative writing, or ideation where there are no "correct principles" to establish — the abstraction step can constrain rather than help.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Speed-Critical Interactions</strong>
+                                    <p>When latency matters more than depth — the two-stage process adds response time that may not be justified for quick conversational exchanges.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Use Cases</h2>
+                <p class="section-subtitle fade-in-up">Where Step-Back Prompting delivers the most value</p>
+
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Scientific Research</h3>
+                        <p class="use-case-showcase__desc">Ground experimental analysis in established scientific theories and laws before interpreting specific results, preventing confirmation bias and missed variables.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Contract Analysis</h3>
+                        <p class="use-case-showcase__desc">Establish the relevant legal frameworks and statutory requirements before analyzing specific contract clauses, ensuring no critical protections or obligations are overlooked.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">System Design</h3>
+                        <p class="use-case-showcase__desc">Review fundamental architecture patterns, scalability principles, and constraint trade-offs before making specific technology or design decisions for complex systems.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
+                        <p class="use-case-showcase__desc">Establish pathophysiology and diagnostic frameworks before evaluating specific patient presentations, ensuring differential diagnoses are comprehensive and evidence-based.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
+                        <p class="use-case-showcase__desc">Ground investment or risk analysis in economic principles, valuation frameworks, and market fundamentals before evaluating specific opportunities or scenarios.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Educational Tutoring</h3>
+                        <p class="use-case-showcase__desc">Identify and explain the underlying concepts and prerequisite knowledge before walking students through specific problem solutions, building deeper understanding.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- /USE CASES -->
+
+        <!-- === FRAMEWORK POSITIONING === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Where Step-Back Fits</h2>
+                <p class="section-subtitle fade-in-up">Step-Back bridges linear reasoning and structured decomposition</p>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Chain-of-Thought</span>
+                        <span class="era-marker__title">Linear Steps</span>
+                        <span class="era-marker__desc">Sequential reasoning forward</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Analogical Reasoning</span>
+                        <span class="era-marker__title">Related Problems</span>
+                        <span class="era-marker__desc">Connect to similar domains</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Step-Back</span>
+                        <span class="era-marker__title">Abstract First</span>
+                        <span class="era-marker__desc">Principles before specifics</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Graph of Thought</span>
+                        <span class="era-marker__title">Network Reasoning</span>
+                        <span class="era-marker__desc">Multi-path exploration</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">Chain These</div>
+                    <p>Use Step-Back Prompting to establish foundational principles, then apply Chain-of-Thought to reason through the specific problem step by step. This combines the accuracy of principle-grounded reasoning with the transparency of explicit reasoning chains — you get the right framework and a clear path through it.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /FRAMEWORK POSITIONING -->
+
+        <!-- === RELATED FRAMEWORKS === -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary reasoning techniques</p>
+
+                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Chain-of-Thought</span>
+                        <span class="evolution-callout__desc">Step-by-step reasoning that pairs naturally with Step-Back — use Step-Back for the principles, then CoT for the detailed reasoning path.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="analogical-reasoning.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Related Approach</span>
+                        <span class="evolution-callout__title">Analogical Reasoning</span>
+                        <span class="evolution-callout__desc">While Step-Back abstracts to principles, Analogical Reasoning connects to similar solved problems — both ground answers in broader knowledge.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-ask.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <circle cx="12" cy="17" r=".5"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Alternative</span>
+                        <span class="evolution-callout__title">Self-Ask</span>
+                        <span class="evolution-callout__desc">Generates and answers sub-questions to build toward the final answer — a different decomposition strategy that complements Step-Back's abstraction approach.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Ground Your Reasoning in Principles</h2>
+                        <p class="cta-corporate__text">Try Step-Back Prompting in the Prompt Builder or explore how it connects to other reasoning frameworks.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA SECTION -->
     </main>
 
     <footer class="footer">
@@ -292,6 +749,83 @@
         </div>
     </div>
 </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
 
     <script src="../app.js" defer></script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Decomposed Prompting: Break complex problems into sub-problems and solve each with specialized sub-procedures.">
+    <meta name="description" content="Decomposed Prompting (DecomP): Break complex tasks into specialized sub-procedures, routing each sub-problem to its ideal solver for maximum accuracy.">
     <title>Decomposed Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -131,7 +131,10 @@
         </div>
     </header>
 
+    <!-- === MAIN CONTENT === -->
     <main id="main-content">
+
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -145,62 +148,214 @@
                 <div class="hero-badge">
                     <span class="hero-badge__text">Problem Decomposition</span>
                 </div>
-                <h1 class="page-title fade-in">Decomposed Prompting</h1>
-                <p class="page-subtitle fade-in">Break complex tasks into specialized sub-procedures.</p>
+                <h1 class="page-title fade-in">Decomposed Prompting (DecomP)</h1>
+                <p class="page-subtitle fade-in">Break complex tasks into specialized sub-procedures, routing each sub-problem to its ideal solver.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
+        <!-- === HISTORICAL CONTEXT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="split-section">
+                <div class="highlight-box highlight-box--warning fade-in-up">
+                    <div class="highlight-box__content">
+                        <span class="highlight-box__title">Framework Context: 2022</span>
+                        <p>Decomposed Prompting was introduced by Tushar Khot et al. at Carnegie Mellon and the Allen Institute for AI. The paper demonstrated that complex tasks benefit from decomposition into sub-tasks, each handled by a purpose-built sub-procedure&mdash;whether that&rsquo;s an LLM prompt, a retrieval function, or a code executor. This insight became a foundational pattern in modern agentic AI systems like LangChain, AutoGen, and CrewAI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HISTORICAL CONTEXT -->
+
+        <!-- === THE CONCEPT === -->
+        <section class="section">
+            <div class="container">
+                <div class="split-section split-section--center">
                     <div class="split-section__content">
                         <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Modular Problem Solving</h2>
-                        <p class="section-intro">Decomposed Prompting (DecomP) breaks complex tasks into smaller sub-tasks, each handled by a specialized "sub-procedure" or tool. Unlike simple decomposition, DecomP assigns different solving strategies to different sub-problems based on their nature.</p>
-                        <div class="highlight-box highlight-box--info">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Insight</span>
-                                <p>Not all sub-problems need the same approach. Some need retrieval, others need calculation, and others need reasoning. DecomP matches the right tool to each sub-task.</p>
-                            </div>
-                        </div>
+                        <h2 class="section-title">Not All Sub-Problems Are Created Equal</h2>
+                        <div class="split-section__badge">The Core Insight</div>
+                        <p class="section-intro">Think of a hospital emergency room. A patient arrives with multiple symptoms&mdash;the triage nurse doesn&rsquo;t try to treat everything herself. She routes the broken arm to orthopedics, the allergic reaction to immunology, and the paperwork to administration. Each specialist uses different tools and expertise.</p>
+                        <p>Decomposed Prompting works the same way. Instead of forcing a single LLM prompt to handle an entire complex task, DecomP breaks it into sub-tasks and assigns each one to the most appropriate handler. Some sub-tasks need factual retrieval, others need mathematical calculation, others need multi-step reasoning, and others need code execution.</p>
                     </div>
                     <div class="split-section__media">
                         <div class="highlight-box highlight-box--tip">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Framework</span>
-                                <p>1) Decompose into sub-tasks. 2) Select appropriate handler for each. 3) Execute sub-procedures. 4) Integrate results.</p>
+                                <span class="highlight-box__title">Beyond Simple Decomposition</span>
+                                <p><strong>Least-to-Most</strong> decomposes a problem and solves sub-tasks sequentially, always using the same LLM approach for every step.</p>
+                                <p><strong>DecomP</strong> goes further: each sub-task is routed to a <em>specialized handler</em>&mdash;one might use retrieval, another might use code execution, another might use a different prompt template entirely.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /THE CONCEPT -->
 
+        <!-- === HOW IT WORKS === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Process</span>
+                    <h2 class="section-title">How DecomP Works</h2>
+                    <p class="section-intro">Follow a running example: &ldquo;Who invented the telephone, and what was the GDP of their birth country in the year they died?&rdquo;</p>
+                </div>
+
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__number">1</div>
+                        <div class="element-timeline__content">
+                            <h3>Analyze the Task</h3>
+                            <p>Examine the question to identify its composite nature. This question requires biographical facts, geographic knowledge, historical economic data, and temporal reasoning&mdash;no single prompt can handle all of these reliably.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__number">2</div>
+                        <div class="element-timeline__content">
+                            <h3>Identify Sub-Tasks</h3>
+                            <p>Break the question into discrete sub-problems: (a) Who invented the telephone? (b) Where were they born? (c) When did they die? (d) What was the GDP of their birth country in that year?</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__number">3</div>
+                        <div class="element-timeline__content">
+                            <h3>Assign Specialized Handlers</h3>
+                            <p>Route each sub-task to its ideal solver: (a) and (b) go to a <strong>retrieval</strong> sub-procedure for factual lookup. (c) goes to <strong>retrieval</strong> as well. (d) requires a <strong>data lookup</strong> sub-procedure that can query economic databases or structured datasets.</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__number">4</div>
+                        <div class="element-timeline__content">
+                            <h3>Execute Sub-Procedures</h3>
+                            <p>Run each handler: (a) Alexander Graham Bell. (b) Edinburgh, Scotland&mdash;part of the United Kingdom. (c) Died in 1922. (d) UK GDP in 1922 was approximately &pound;5.5 billion (nominal).</p>
+                        </div>
+                    </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__number">5</div>
+                        <div class="element-timeline__content">
+                            <h3>Integrate Results</h3>
+                            <p>A final integration step combines all sub-answers into a coherent response: &ldquo;Alexander Graham Bell invented the telephone. He was born in Edinburgh, Scotland (UK) and died in 1922. The GDP of the United Kingdom in 1922 was approximately &pound;5.5 billion.&rdquo;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /HOW IT WORKS -->
+
+        <!-- === COMPARISON === -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Example</span>
+                    <span class="section-eyebrow">Comparison</span>
+                    <h2 class="section-title">Monolithic vs. Decomposed</h2>
+                </div>
+
+                <div class="comparison-panel fade-in-up">
+                    <div class="comparison-panel__side comparison-panel__side--before">
+                        <h3 class="comparison-panel__heading">Monolithic Prompt</h3>
+                        <div class="comparison-panel__content">
+                            <p>&ldquo;Tell me who invented the telephone, where they were born, when they died, and what the GDP of their birth country was in their death year.&rdquo;</p>
+                            <ul>
+                                <li>Single prompt handles everything</li>
+                                <li>Model may hallucinate GDP figures</li>
+                                <li>No verification of individual facts</li>
+                                <li>Failure in one part corrupts the whole answer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__side comparison-panel__side--after">
+                        <h3 class="comparison-panel__heading">DecomP Approach</h3>
+                        <div class="comparison-panel__content">
+                            <p>Break into 4 sub-tasks, each with a specialized handler for retrieval, lookup, or reasoning.</p>
+                            <ul>
+                                <li>Each sub-task uses the right tool</li>
+                                <li>GDP retrieved from reliable data source</li>
+                                <li>Each fact independently verifiable</li>
+                                <li>Failure is isolated to one sub-task</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                        <p>DecomP achieves higher accuracy on complex tasks by matching each sub-problem to a purpose-built solver, reducing hallucination and enabling fault isolation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /COMPARISON -->
+
+        <!-- === EXAMPLES === -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Examples</span>
                     <h2 class="section-title">DecomP in Action</h2>
                 </div>
 
                 <div class="accordion fade-in-up" id="decomp-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Multi-Step Research Question</span>
+                            <span class="accordion-title">Multi-Hop Research Question</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
                                     <span class="technique-demo__tag">Complex Question</span>
-                                    <p>"What was the population of the city where Einstein was born when he won the Nobel Prize?"</p>
+                                    <p>&ldquo;Who invented the telephone, and what was the GDP of their birth country in the year they died?&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Decomposed Approach</span>
-                                    <p><strong>Sub-task 1 (Retrieval):</strong> Where was Einstein born? → Ulm, Germany<br><br>
-                                    <strong>Sub-task 2 (Retrieval):</strong> When did Einstein win Nobel Prize? → 1921<br><br>
-                                    <strong>Sub-task 3 (Retrieval):</strong> Population of Ulm in 1921? → ~57,000<br><br>
-                                    <strong>Integration:</strong> Combine sub-answers into final response.</p>
+                                    <span class="technique-demo__tag">DecomP Execution</span>
+                                    <p><strong>Sub-task 1 (Retrieval):</strong> Who invented the telephone? &rarr; Alexander Graham Bell</p>
+                                    <p><strong>Sub-task 2 (Retrieval):</strong> Where was Bell born? &rarr; Edinburgh, Scotland (UK)</p>
+                                    <p><strong>Sub-task 3 (Retrieval):</strong> When did Bell die? &rarr; 1922</p>
+                                    <p><strong>Sub-task 4 (Data Lookup):</strong> UK GDP in 1922? &rarr; Approximately &pound;5.5 billion</p>
+                                    <p><strong>Integration:</strong> &ldquo;Alexander Graham Bell invented the telephone. Born in Edinburgh, Scotland (UK), he died in 1922. The UK&rsquo;s GDP that year was approximately &pound;5.5 billion.&rdquo;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Complex Data Analysis</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Business Question</span>
+                                    <p>&ldquo;Compare our Q3 sales performance across all regions, identify the top-performing product category, and project Q4 targets based on historical trends.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">DecomP Execution</span>
+                                    <p><strong>Sub-task 1 (Data Retrieval):</strong> Pull Q3 sales data by region &rarr; Returns structured dataset</p>
+                                    <p><strong>Sub-task 2 (Calculation):</strong> Compute regional comparisons, growth rates &rarr; North America +12%, EMEA +8%, APAC +15%</p>
+                                    <p><strong>Sub-task 3 (Aggregation):</strong> Identify top product category &rarr; Cloud Services at 34% of revenue</p>
+                                    <p><strong>Sub-task 4 (Code Execution):</strong> Run time-series projection model &rarr; Q4 projected targets by region</p>
+                                    <p><strong>Integration:</strong> Synthesize findings into executive summary with regional breakdown, category winner, and Q4 projections.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Technical Troubleshooting</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Engineering Request</span>
+                                    <p>&ldquo;Our API is returning 500 errors intermittently. Diagnose the issue and recommend a fix.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">DecomP Execution</span>
+                                    <p><strong>Sub-task 1 (Log Analysis):</strong> Parse error logs &rarr; Errors correlate with high-traffic windows, stack traces point to connection pool exhaustion</p>
+                                    <p><strong>Sub-task 2 (Code Review):</strong> Examine connection management code &rarr; Pool max set to 10, no timeout configured</p>
+                                    <p><strong>Sub-task 3 (Reasoning):</strong> Correlate findings&mdash;pool too small, leaked connections not reclaimed &rarr; Root cause: pool exhaustion under load</p>
+                                    <p><strong>Sub-task 4 (Retrieval):</strong> Look up best practices for pool configuration &rarr; Recommended pool size formula, timeout settings</p>
+                                    <p><strong>Integration:</strong> &ldquo;Root cause: connection pool exhaustion. Increase pool to 50, add 30s idle timeout, implement health checks, add monitoring.&rdquo;</p>
                                 </div>
                             </div>
                         </div>
@@ -208,62 +363,235 @@
                 </div>
             </div>
         </section>
+        <!-- /EXAMPLES -->
 
+        <!-- === WHEN TO USE === -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">Applicability</span>
+                    <h2 class="section-title">When to Use DecomP</h2>
+                </div>
+
+                <div class="split-section fade-in-up">
+                    <div class="split-section__content">
+                        <h3>Perfect For</h3>
+                        <ul class="feature-list feature-list--positive">
+                            <li><strong>Multi-Tool Workflows</strong> &mdash; Tasks requiring different capabilities: retrieval, calculation, code execution, and reasoning working together.</li>
+                            <li><strong>Multi-Hop Reasoning</strong> &mdash; Questions where the answer to one sub-question feeds into the next, and each hop may need a different solving strategy.</li>
+                            <li><strong>Agent Architecture Design</strong> &mdash; Building AI systems where specialized modules handle different responsibilities, following the DecomP pattern at a systems level.</li>
+                            <li><strong>Accuracy-Critical Tasks</strong> &mdash; Scenarios where you cannot afford hallucinated facts&mdash;decomposition lets you verify each sub-answer independently.</li>
+                        </ul>
+                    </div>
+                    <div class="split-section__media">
+                        <h3>Skip It When</h3>
+                        <ul class="feature-list feature-list--neutral">
+                            <li><strong>Simple, Single-Step Tasks</strong> &mdash; If the question can be answered directly without decomposition, DecomP adds unnecessary overhead.</li>
+                            <li><strong>Latency-Sensitive Applications</strong> &mdash; Each sub-procedure adds a round-trip. If speed matters more than accuracy, a single well-crafted prompt may be preferable.</li>
+                            <li><strong>No Specialized Tools Available</strong> &mdash; DecomP&rsquo;s power comes from routing to different handlers. If every sub-task would use the same generic LLM call, Least-to-Most may be simpler.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /WHEN TO USE -->
+
+        <!-- === USE CASES === -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">Components</span>
-                    <h2 class="section-title">Sub-Procedure Types</h2>
+                    <span class="section-eyebrow">Applications</span>
+                    <h2 class="section-title">Real-World Use Cases</h2>
                 </div>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Retrieval</h3>
-                        <p class="pillar-card__text">Look up facts, dates, or specific information from external sources or knowledge.</p>
+                <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Research Automation</h3>
+                        <p class="use-case-showcase__text">Decompose literature reviews into search, filtering, extraction, and synthesis sub-tasks. Each phase uses the right tool&mdash;search APIs for discovery, NLP for extraction, LLMs for synthesis.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Calculation</h3>
-                        <p class="pillar-card__text">Perform mathematical operations, comparisons, or logical computations.</p>
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Software Engineering</h3>
+                        <p class="use-case-showcase__text">Break feature requests into requirements analysis, architecture design, code generation, testing, and review&mdash;each handled by a specialized agent or tool.</p>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Reasoning</h3>
-                        <p class="pillar-card__text">Apply logical inference, causal analysis, or multi-step deduction.</p>
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
+                        <p class="use-case-showcase__text">Route market data retrieval to APIs, numerical analysis to code execution, regulatory checks to document search, and narrative generation to LLMs.</p>
+                    </div>
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Medical Diagnostics</h3>
+                        <p class="use-case-showcase__text">Decompose diagnostic reasoning into symptom extraction, differential diagnosis generation, evidence retrieval from medical literature, and treatment recommendation&mdash;each with appropriate safeguards.</p>
+                    </div>
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Legal Due Diligence</h3>
+                        <p class="use-case-showcase__text">Split contract review into clause extraction, risk identification, precedent search, and compliance checking&mdash;with document retrieval handling the knowledge-intensive parts.</p>
+                    </div>
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Customer Support Agents</h3>
+                        <p class="use-case-showcase__text">Decompose support tickets into intent classification, account lookup, knowledge base search, and response generation&mdash;each sub-task optimized for speed and accuracy.</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /USE CASES -->
 
+        <!-- === FRAMEWORK POSITIONING === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="least-to-most.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Least-to-Most</h3>
-                            <p class="icon-box__content">Sequential sub-problem solving.</p>
-                        </div>
-                    </a>
-                    <a href="self-ask.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Ask</h3>
-                            <p class="icon-box__content">Generate and answer sub-questions.</p>
-                        </div>
-                    </a>
+                <div class="section-header">
+                    <span class="section-eyebrow">Evolution</span>
+                    <h2 class="section-title">Where DecomP Fits</h2>
+                    <p class="section-intro">Decomposed Prompting builds on earlier decomposition methods and directly inspired the agentic AI architectures that followed.</p>
+                </div>
+
+                <div class="evolution-timeline fade-in-up">
+                    <div class="era-marker">
+                        <span class="era-marker__year">Chain-of-Thought</span>
+                        <span class="era-marker__title">Sequential Reasoning</span>
+                        <span class="era-marker__desc">Single-approach steps</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Least-to-Most</span>
+                        <span class="era-marker__title">Sub-task Solving</span>
+                        <span class="era-marker__desc">Same LLM handler</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">DecomP</span>
+                        <span class="era-marker__title">Specialized Handlers</span>
+                        <span class="era-marker__desc">Route to right tool</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Program of Thought</span>
+                        <span class="era-marker__title">Code as Reasoning</span>
+                        <span class="era-marker__desc">Executable programs</span>
+                    </div>
+                </div>
+
+                <div class="callout tip fade-in-up">
+                    <div class="callout-title">The Agentic Connection</div>
+                    <p>DecomP's core idea — breaking tasks into sub-procedures with specialized handlers — is exactly the architecture used by modern AI agent frameworks. When LangChain chains together tools, when AutoGen coordinates specialist agents, or when CrewAI assigns roles to team members, they are implementing the DecomP pattern at scale.</p>
                 </div>
             </div>
         </section>
+        <!-- /FRAMEWORK POSITIONING -->
 
+        <!-- === RELATED FRAMEWORKS === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Decomposed Prompting</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary decomposition techniques</p>
+
+                <a href="least-to-most.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Predecessor</span>
+                        <span class="evolution-callout__title">Least-to-Most</span>
+                        <span class="evolution-callout__desc">Sequential sub-problem solving with a single LLM handler — DecomP extends this by routing to specialized tools.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-ask.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Sibling</span>
+                        <span class="evolution-callout__title">Self-Ask</span>
+                        <span class="evolution-callout__desc">Generates and answers follow-up sub-questions — shares DecomP's multi-hop spirit but focuses on question generation.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="program-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Evolution</span>
+                        <span class="evolution-callout__title">Program of Thought</span>
+                        <span class="evolution-callout__desc">Takes DecomP's code execution sub-procedure and makes it the primary reasoning medium — generates executable programs as steps.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Design Smarter Workflows</h2>
+                        <p class="cta-corporate__text">Use the Prompt Builder to create decomposed prompts that route sub-tasks to specialized handlers, or explore all frameworks in the AI Foundations hub.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /CTA SECTION -->
     </main>
+    <!-- /MAIN CONTENT -->
 
     <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
@@ -317,6 +645,83 @@
         </div>
     </div>
 </footer>
+
+    <!-- Back to Top Bar -->
+    <button class="back-to-top-bar" aria-label="Back to top">
+        <span class="back-to-top-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </span>
+        <span class="back-to-top-text">Back to Top</span>
+    </button>
+
+    <!-- Accessibility Dashboard -->
+    <div class="adl-dim-overlay" aria-hidden="true"></div>
+    <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13v6M9 17l3 3 3-3"/>
+        </svg>
+    </button>
+    <div class="adl-panel" id="adl-panel" role="dialog" aria-label="Accessibility Settings">
+        <div class="adl-panel-header">
+            <span class="adl-panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M12 13v6M9 17l3 3 3-3"/>
+                </svg>
+                Accessibility
+            </span>
+            <button class="adl-close" aria-label="Close accessibility panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Text Size</span>
+            <div class="adl-btn-group">
+                <button class="adl-btn is-active" data-scale="1" aria-label="Normal text size">1x</button>
+                <button class="adl-btn" data-scale="2" aria-label="Large text size">2x</button>
+                <button class="adl-btn" data-scale="3" aria-label="Extra large text size">3x</button>
+            </div>
+        </div>
+        <div class="adl-control">
+            <div class="adl-switch-wrapper">
+                <span class="adl-switch-label">High Contrast</span>
+                <label class="adl-switch">
+                    <input type="checkbox" id="adl-contrast-toggle" aria-label="Toggle high contrast mode">
+                    <span class="adl-switch-track"></span>
+                </label>
+            </div>
+        </div>
+        <div class="adl-control adl-readaloud">
+            <span class="adl-label">Read Aloud</span>
+            <div class="adl-readaloud-controls">
+                <button class="adl-play-btn" aria-label="Play or pause reading">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                </button>
+                <div class="adl-speed-group">
+                    <button class="adl-speed-btn" data-speed="slow">Slow</button>
+                    <button class="adl-speed-btn is-active" data-speed="normal">Normal</button>
+                    <button class="adl-speed-btn" data-speed="fast">Fast</button>
+                </div>
+            </div>
+            <div class="adl-reading-indicator"></div>
+        </div>
+        <div class="adl-control">
+            <span class="adl-label">Screen Dimming</span>
+            <div class="adl-range-wrapper">
+                <input type="range" class="adl-range" id="adl-dim-slider" min="0" max="50" value="0" aria-label="Screen dimming level">
+                <span class="adl-range-value">0%</span>
+            </div>
+        </div>
+        <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
+    </div>
 
     <script src="../app.js" defer></script>
 </body>
