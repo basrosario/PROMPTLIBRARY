@@ -1,31 +1,56 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-07 (Session 39)
-**Last Commit:** `d5bce3f` — Sessions 37+38+39 committed
-**Current Phase:** Homepage Redesign Complete — ready for commit
+**Last Updated:** 2026-02-07 (Session 40)
+**Last Commit:** `3cf8860` — Homepage redesign + search modal fix pushed
+**Current Phase:** Discover Hub + Category Landing Pages — ready to begin Phase 1
 
 ---
 
-## CURRENT SESSION STATUS (Session 39)
+## NEXT TASK: Discover Hub + Category Landing Pages
 
-### Completed This Session
+**Plan file:** `.claude/plans/discover-hub-category-pages.md`
+**Status:** All decisions confirmed, ready for implementation
 
-#### Homepage Redesign — IMPLEMENTED
+### Confirmed Decisions (Session 39/40)
 
-Replaced all `<main id="main-content">` content in `index.html` (old lines 196-479) with 6 new sections:
+| Decision | Choice |
+|----------|--------|
+| "Advanced Techniques" rename | **"Prompting Strategies"** |
+| Nav link "Learn" rename | **"Discover"** (site-wide, all 100 files) |
+| Discover hub card density | **All 62+ cards visible**, grouped by category with anchor filters |
+| Category page file structure | **Flat** — `learn/reasoning-cot.html` (not `learn/category/`) |
 
-1. **Library at a Glance** — Updated counter-grid: 62+ Frameworks, 2,141+ Glossary Terms, 12 Interactive Tools, 100% Free & Accessible
-2. **Explore Frameworks by Category** — 6 icon-box cards (Structured 5, Reasoning 14, Decomposition 7, Self-Correction 7, ICL 9, Advanced 11) + CTA to learn/index.html
-3. **Interactive Tools** — 6 icon-box cards (Analyzer, Builder, Matcher, Checklist, Persona, Quiz) + CTA to tools/index.html
-4. **AI Foundations & Glossary** — split-section with feature-list (5 eras, 61 frameworks, Turing to LLMs) + highlight-box about 2,141+ glossary terms
-5. **Why Praxis** — split-section with feature-list--check (Free, Accessible, ND-inclusive) + highlight-box about ND resources (NO emoji)
-6. **Getting Started CTA** — cta-corporate--gradient with quiz + prompt basics buttons
+### Implementation Phases (in order)
 
-**Quality checks passed:** 0 inline styles, 0 inline scripts, 0 emoji, 0 external resources, all root-level paths, `<!-- === SECTION === -->` notation throughout.
+1. **Phase 1 — Batch Renames** (all 100 HTML files + app.js)
+   - "Advanced Techniques" → "Prompting Strategies" in mega-menu headers
+   - "Learn" → "Discover" in nav link text
+   - Use Python batch script (like Session 38's `update_nav.py`)
+   - Also update `index.html` homepage card label, `app.js` search categories, `foundations/index.html`
 
-### NOT YET COMMITTED
+2. **Phase 2 — Discover Hub** (learn/index.html redesign)
+   - Replace current 11-card "Learn" page with full Discover hub
+   - All 62+ frameworks shown grouped by 8 categories (excl. Getting Started)
+   - Anchor-link filter row at top
+   - Category descriptions + count badges
+   - "View Category Page" links
 
-All Session 37 + Session 38 + Session 39 changes are uncommitted (~100 HTML files + homepage redesign).
+3. **Phase 3 — 7 Category Landing Pages** (new files)
+   - `learn/structured-frameworks.html` (5)
+   - `learn/reasoning-cot.html` (14)
+   - `learn/decomposition.html` (7)
+   - `learn/self-correction.html` (7)
+   - `learn/in-context-learning.html` (9)
+   - `learn/ensemble-methods.html` (7)
+   - `learn/prompting-strategies.html` (11)
+
+4. **Phase 4 — Homepage + Mega-menu Link Updates**
+   - Homepage 6 category cards link to category landing pages
+   - Mega-menu category headers become clickable links
+
+5. **Phase 5 — Search Index + Metadata**
+   - Add 7 category pages to search-index.json
+   - Update category names in app.js
 
 ---
 
@@ -55,6 +80,9 @@ function resolveInternalUrl(targetPath) {
 - `searchModal.navigateToResult(href)` — handles same-page hash vs. full navigation
 - `searchPraxis(query)` — searches index, returns grouped results (Glossary first)
 - `renderSearchResults(grouped, query)` — renders result HTML with highlight marks
+
+### Python Batch Script Pattern (Session 38)
+Session 38 used `update_nav.py` to batch-update all 100 HTML files (header, footer, head cleanup). Same approach recommended for Phase 1 renames. Script reads each file, applies replacements, writes back.
 
 ---
 
@@ -97,13 +125,13 @@ JS:    // === SECTION === ... /** JSDoc comments */
 
 ```
 _public_html/
-├── index.html              # Home page (updated hero)
+├── index.html              # Home page (6-section redesign, Session 39)
 ├── styles.css              # ALL CSS (single file)
 ├── app.js                  # ALL JavaScript (single file)
 ├── foundations/
 │   └── index.html          # AI Foundations timeline (5 eras + framework directories)
 ├── learn/                  # Framework pages (62+)
-│   ├── index.html          # Learn hub
+│   ├── index.html          # Learn hub (NEXT: redesign as Discover hub)
 │   ├── [62 framework pages] # All redesigned to 13-section template
 │   └── modality/code/      # Code frameworks (3 pages)
 ├── data/
@@ -118,7 +146,8 @@ _public_html/
     ├── HANDOFF.md           # THIS FILE
     ├── COMPLETED.md         # Archive of completed work
     └── plans/
-        └── FrameworkOverhaul.md   # Master plan with all phases
+        ├── FrameworkOverhaul.md          # Master plan (Phases 1-5)
+        └── discover-hub-category-pages.md # Discover Hub plan (ACTIVE)
 ```
 
 ---
@@ -145,6 +174,26 @@ _public_html/
 | Era frameworks | `.era-frameworks`, `.era-frameworks__grid` | Framework directory grids |
 | Framework status | `.framework-status--active`, `--adopted`, `--historical` | Relevancy badges |
 | CTA corporate | `.cta-corporate` | Call to action with neural bg |
+| Icon boxes | `.icon-box` | Clickable category/tool cards |
+| Counter grid | `.counter-grid` | Animated stat counters |
+
+---
+
+## 9 FRAMEWORK CATEGORIES (65 frameworks)
+
+| Category | Count | Rename Pending? |
+|----------|-------|-----------------|
+| Getting Started | 2 | No |
+| Structured Frameworks | 5 | No |
+| Reasoning & CoT | 14 | No |
+| Decomposition | 7 | No |
+| Self-Correction | 7 | No |
+| In-Context Learning | 9 | No |
+| Ensemble Methods | 7 | No |
+| Advanced Techniques → **Prompting Strategies** | 11 | **YES — Phase 1** |
+| Code | 3 | No |
+
+Full framework inventory by category: see `.claude/plans/discover-hub-category-pages.md`
 
 ---
 
@@ -154,7 +203,8 @@ _public_html/
 |----------|---------|
 | `.claude/HANDOFF.md` | Current state (this file) |
 | `.claude/COMPLETED.md` | Archived completed work |
-| `.claude/plans/FrameworkOverhaul.md` | Master plan — see "PART B" section for nav update specs |
+| `.claude/plans/FrameworkOverhaul.md` | Master plan — Phases 1-5 + session log |
+| `.claude/plans/discover-hub-category-pages.md` | **ACTIVE** — Discover Hub + Category Pages plan |
 | `learn/self-ask.html` | Canonical 13-section template (855 lines) |
 
 ---

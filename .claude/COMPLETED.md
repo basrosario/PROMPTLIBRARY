@@ -105,8 +105,10 @@
 
 ## Session Work Logs (Archived)
 
-### Session 39 (2026-02-07)
-**Homepage Redesign — Full Implementation**
+### Sessions 39-40 (2026-02-07)
+**Homepage Redesign + Search Modal Fix + Discover Hub Planning**
+
+**Homepage Redesign (commit `d5bce3f`):**
 - Replaced all `<main>` content in `index.html` with 6 new sections
 - Section 1: Library at a Glance — counter-grid (62+ Frameworks, 2,141+ Glossary Terms, 12 Tools, 100% Free)
 - Section 2: Explore Frameworks by Category — 6 icon-box cards with category counts
@@ -116,7 +118,22 @@
 - Section 6: Getting Started CTA — cta-corporate--gradient with quiz + basics buttons
 - All existing CSS components reused, zero new CSS needed
 - Quality checks: 0 inline styles, 0 inline scripts, 0 emoji, 0 external resources
-- Files: index.html, HANDOFF.md, COMPLETED.md
+
+**Search Modal Height Fix (commit `3cf8860`):**
+- styles.css `.search-modal`: changed `top: 5%; max-height: 88vh` → `top: 10%; min-height: 80vh; max-height: 80vh`
+- Modal now consistently 80% of viewport height
+
+**Discover Hub + Category Pages Plan (Session 40):**
+- Created `.claude/plans/discover-hub-category-pages.md` — 5-phase plan
+- User confirmed decisions:
+  - "Advanced Techniques" → "Prompting Strategies" (category rename)
+  - "Learn" → "Discover" (nav link rename, all 100 files)
+  - All 62+ cards visible on Discover hub, grouped by category
+  - Flat file structure for category pages (`learn/reasoning-cot.html`)
+- 7 category landing pages planned
+- Plan approved, ready for implementation
+
+**Files:** index.html, styles.css, HANDOFF.md, COMPLETED.md, discover-hub-category-pages.md (new), FrameworkOverhaul.md
 
 ### Session 38 (2026-02-07)
 **Part B — Full Navigation Update (100 files) + Homepage Redesign Plan**

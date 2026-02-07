@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-07 (Session 35)
+**Last Updated:** 2026-02-07 (Session 40)
 
 ---
 
@@ -777,6 +777,45 @@ Resources (mega-menu)
 ---
 
 # SESSION LOG
+
+## Sessions 39-40 (2026-02-07)
+
+**Focus:** Homepage Redesign Implementation + Search Modal Fix + Discover Hub Planning
+**Status:** COMPLETE (homepage + modal pushed; Discover Hub plan approved)
+
+**Completed:**
+- [x] **Homepage Redesign — Full Implementation** (commit `d5bce3f`)
+  - Replaced all `<main id="main-content">` content in `index.html` with 6 new sections
+  - Section 1: Library at a Glance — counter-grid (62+, 2,141+, 12, 100%)
+  - Section 2: Explore Frameworks by Category — 6 icon-box cards with counts
+  - Section 3: Interactive Tools — 6 icon-box cards
+  - Section 4: AI Foundations & Glossary — split-section
+  - Section 5: Why Praxis — split-section (no emoji)
+  - Section 6: Getting Started CTA — cta-corporate--gradient
+  - Quality: 0 inline styles, 0 inline scripts, 0 emoji, 0 external resources
+- [x] **Search Modal Height Fix** (commit `3cf8860`)
+  - Changed: `top: 10%; min-height: 80vh; max-height: 80vh;`
+- [x] **Discover Hub + Category Pages Plan** — created `.claude/plans/discover-hub-category-pages.md`
+  - User confirmed: "Advanced Techniques" → "Prompting Strategies"
+  - User confirmed: "Learn" → "Discover" nav rename (site-wide)
+  - User confirmed: All cards visible, flat file structure
+  - 5-phase implementation plan approved
+
+**Commits pushed:**
+```
+3cf8860 fix: Search modal height 80vh
+d5bce3f feat: Homepage redesign + site-wide nav update (Sessions 37-39)
+```
+
+**Files Modified:**
+- `index.html` (homepage redesign)
+- `styles.css` (search modal height)
+- `.claude/HANDOFF.md`, `.claude/COMPLETED.md`
+- `.claude/plans/discover-hub-category-pages.md` (NEW)
+
+**Next:** Begin Discover Hub implementation — Phase 1 (batch renames)
+
+---
 
 ## Session 38 (2026-02-07)
 
@@ -1634,9 +1673,22 @@ Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 Progress: [█████░░░░░░░░░░░░░░░] 25%
 ```
 - [x] 4A: Navigation updates for HIGH priority pages ✅
-- [ ] 4B: Learn Hub redesign
+- [ ] 4B: Learn Hub redesign → **Now "Discover Hub" (see discover-hub-category-pages.md)**
 - [ ] 4C: Search index updates
 - [ ] 4D: Framework Matcher updates
+
+### NEW: Discover Hub + Category Landing Pages (0/5 phases)
+```
+Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+```
+**Plan:** `.claude/plans/discover-hub-category-pages.md`
+**Status:** APPROVED — ready for implementation
+
+- [ ] Phase 1: Batch rename "Advanced Techniques" → "Prompting Strategies" + "Learn" → "Discover" (100 files)
+- [ ] Phase 2: Redesign learn/index.html as Discover Hub (all 62+ frameworks by category)
+- [ ] Phase 3: Create 7 flat category landing pages
+- [ ] Phase 4: Update homepage cards + mega-menu links to point to category pages
+- [ ] Phase 5: Search index + metadata updates
 
 ### Phase 5: Navigation UX Overhaul (6/6) ✅ COMPLETE
 ```
