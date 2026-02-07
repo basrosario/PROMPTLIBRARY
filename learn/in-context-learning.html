@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore 9 in-context learning frameworks: Few-Shot, Zero-Shot, One-Shot, Example Selection, KNN Prompting, and more. Teach AI by demonstration.">
+    <meta name="description" content="Explore 13 in-context learning frameworks: Few-Shot, Zero-Shot, One-Shot, Example Selection, KNN Prompting, Many-Shot, and more. Teach AI by demonstration.">
     <title>In-Context Learning - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -44,6 +44,10 @@
                             <a href="../learn/vote-k.html">Vote-k</a>
                             <a href="../learn/demo-ensembling.html">Demo Ensembling</a>
                             <a href="../learn/prompt-mining.html">Prompt Mining</a>
+                            <a href="../learn/many-shot.html">Many-Shot</a>
+                            <a href="../learn/example-ordering.html">Example Ordering</a>
+                            <a href="../learn/self-generated-icl.html">Self-Generated ICL</a>
+                            <a href="../learn/active-example.html">Active Example</a>
                         </div>
                         <div class="mega-menu-section">
                             <h4><a href="reasoning-cot.html">Reasoning & CoT</a></h4>
@@ -61,6 +65,7 @@
                             <a href="../learn/memory-of-thought.html">Memory of Thought</a>
                             <a href="../learn/active-prompting.html">Active Prompting</a>
                             <a href="../learn/reversing-cot.html">Reversing CoT</a>
+                            <a href="../learn/uncertainty-cot.html">Uncertainty-Routed CoT</a>
                         </div>
                         <div class="mega-menu-section">
                             <h4><a href="decomposition.html">Decomposition</a></h4>
@@ -184,7 +189,7 @@
                     <span class="current">In-Context Learning</span>
                 </nav>
                 <h1 class="page-title fade-in">In-Context Learning</h1>
-                <p class="page-subtitle fade-in">9 frameworks &mdash; Few-shot, zero-shot, and example-selection methods that teach AI by demonstration.</p>
+                <p class="page-subtitle fade-in">13 frameworks &mdash; Few-shot, zero-shot, and example-selection methods that teach AI by demonstration.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -207,7 +212,7 @@
         <!-- === FRAMEWORK GRID === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">In-Context Learning <span class="discover-category__count">9</span></h2>
+                <h2 class="section-title fade-in-up">In-Context Learning <span class="discover-category__count">13</span></h2>
 
                 <div class="discover-grid fade-in-up">
                     <a href="few-shot-learning.html" class="discover-card">
@@ -282,6 +287,38 @@
                         <p class="discover-card__desc">Discover optimal prompt templates through systematic search.</p>
                         <span class="framework-status framework-status--active">Still active technique</span>
                     </a>
+                    <a href="many-shot.html" class="discover-card">
+                        <div class="discover-card__header">
+                            <h3 class="discover-card__title">Many-Shot</h3>
+                            <span class="discover-card__year">2024</span>
+                        </div>
+                        <p class="discover-card__desc">Provide hundreds to thousands of demonstrations using extended context windows.</p>
+                        <span class="framework-status framework-status--active">Still active technique</span>
+                    </a>
+                    <a href="example-ordering.html" class="discover-card">
+                        <div class="discover-card__header">
+                            <h3 class="discover-card__title">Example Ordering</h3>
+                            <span class="discover-card__year">2022</span>
+                        </div>
+                        <p class="discover-card__desc">Optimize the sequence of few-shot examples to maximize performance.</p>
+                        <span class="framework-status framework-status--active">Still active technique</span>
+                    </a>
+                    <a href="self-generated-icl.html" class="discover-card">
+                        <div class="discover-card__header">
+                            <h3 class="discover-card__title">Self-Generated ICL</h3>
+                            <span class="discover-card__year">2022</span>
+                        </div>
+                        <p class="discover-card__desc">Have the model generate its own demonstrations before tackling the task.</p>
+                        <span class="framework-status framework-status--active">Still active technique</span>
+                    </a>
+                    <a href="active-example.html" class="discover-card">
+                        <div class="discover-card__header">
+                            <h3 class="discover-card__title">Active Example Selection</h3>
+                            <span class="discover-card__year">2023</span>
+                        </div>
+                        <p class="discover-card__desc">Dynamically choose demonstrations based on model uncertainty per query.</p>
+                        <span class="framework-status framework-status--active">Still active technique</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -291,7 +328,7 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Framework Comparison</h2>
-                <p class="section-subtitle fade-in-up">Side-by-side comparison of all 9 frameworks in this category.</p>
+                <p class="section-subtitle fade-in-up">Side-by-side comparison of all 13 frameworks in this category.</p>
 
                 <div class="comparison-table-wrapper fade-in-up">
                     <table class="comparison-table">
@@ -366,6 +403,34 @@
                                     <td>2022</td>
                                     <td>Template discovery</td>
                                     <td>Systematic search</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td class="comparison-table__feature">Many-Shot</td>
+                                    <td>2024</td>
+                                    <td>Complex patterns</td>
+                                    <td>Volume of examples</td>
+                                    <td>Low</td>
+                                </tr>
+                                <tr>
+                                    <td class="comparison-table__feature">Example Ordering</td>
+                                    <td>2022</td>
+                                    <td>Consistency</td>
+                                    <td>Sequence optimization</td>
+                                    <td>Medium</td>
+                                </tr>
+                                <tr>
+                                    <td class="comparison-table__feature">Self-Generated ICL</td>
+                                    <td>2022</td>
+                                    <td>Cold start tasks</td>
+                                    <td>No labeled data needed</td>
+                                    <td>Low</td>
+                                </tr>
+                                <tr>
+                                    <td class="comparison-table__feature">Active Example Selection</td>
+                                    <td>2023</td>
+                                    <td>Diverse queries</td>
+                                    <td>Query-aware selection</td>
                                     <td>High</td>
                                 </tr>
                         </tbody>

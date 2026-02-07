@@ -1,60 +1,98 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-07 (Session 44)
-**Last Commit:** `615d25a` — fix: Keep mega-menu categories in single row, tighten spacing
-**Current Phase:** Framework Overhaul Phase 2 — 5 remaining text framework pages
+**Last Updated:** 2026-02-07 (Session 45)
+**Last Commit:** UNCOMMITTED — Phase 2 complete, needs commit + push
+**Current Phase:** Phase 2 COMPLETE (52/52 text frameworks) — Phase 3 Modality Frameworks next
 
 ---
 
-## SESSION 44 SUMMARY
+## SESSION 45 SUMMARY
 
-Session 44 made several UI refinements and content updates:
+**Focus:** Complete Phase 2 Text Frameworks (final 5 pages) + full site integration
 
-1. **AI Foundations Title** (`9847fc9`) — Changed h1 from "The History of AI Communication" to "The History of Modern AI" in `foundations/index.html`
-2. **Homepage Hero Button** (`9847fc9`) — Changed "AI for Everybody" button to "Framework Library" linking to `learn/index.html` (homepage only)
-3. **Desktop Mega-Menu Overhaul** (`26701b1`, `615d25a`, uncommitted CSS) — Multiple iterations:
-   - Removed 2-column grid within each category section (single-column links per category)
-   - Categories remain in a single horizontal row across the top
-   - Discover menu: viewport-centered using `left: 0; right: 0; margin: auto` on `.header-container` (which is centered with `max-width: 1400px; margin: 0 auto`)
-   - Resources menu: centered under its nav link using `:last-child` override with `left: 50%; translateX(-50%)`
-   - All desktop menus appear at the same vertical height
+### Completed
 
-**Uncommitted:** `styles.css` has the final mega-menu centering fix (Discover = viewport-centered, Resources = nav-link-centered). Needs commit + push.
+1. **5 Framework Pages Created** (parallel background agents, 870-907 lines each):
+   - `learn/many-shot.html` (891 lines) — Many-Shot Prompting, 2024 by Agarwal et al.
+   - `learn/example-ordering.html` (871 lines) — Example Ordering, 2022 by Lu et al.
+   - `learn/self-generated-icl.html` (873 lines) — Self-Generated ICL, 2022 by Kim et al.
+   - `learn/active-example.html` (873 lines) — Active Example Selection, 2023
+   - `learn/uncertainty-cot.html` (907 lines) — Uncertainty-Routed CoT, 2023 by Wang et al.
+   - All 13 sections, zero inline styles/scripts, historical context notices
+
+2. **Mega-Menu Navigation Updated** (111 HTML files via `update_nav_s45.py`):
+   - ICL section: +4 links (Many-Shot, Example Ordering, Self-Generated ICL, Active Example)
+   - Reasoning section: +1 link (Uncertainty-Routed CoT)
+   - All 3 depth levels verified (root, one-deep, two-deep)
+
+3. **Search Index Updated** — 5 new entries added to `data/search-index.json`
+
+4. **Discover Hub Updated** (`learn/index.html`):
+   - 5 new framework cards added (4 ICL, 1 Reasoning)
+   - Filter counts: In-Context Learning 9->13, Reasoning & CoT 14->15
+
+5. **Category Pages Updated**:
+   - `learn/in-context-learning.html` — count 9->13, +4 cards, +4 table rows
+   - `learn/reasoning-cot.html` — count 14->15, +1 card, +1 table row
+
+6. **Homepage Updated** (`index.html`):
+   - Counter: 62+ -> 67+ frameworks
+   - CTA text: "View All 67+ Frameworks"
+
+### Quality Checks Passed
+- 0 inline styles across all 5 pages
+- 0 inline scripts across all 5 pages
+- 0 external resources
+- Historical context notices on all 5 pages
+- All 13 section comments verified
 
 ---
 
-## NEXT TASKS — Framework Overhaul Remaining Work
+## PHASE 2 TEXT FRAMEWORKS: COMPLETE (52/52)
 
-### Priority 1: Finish Phase 2 Text Frameworks (5 remaining pages)
+All 52 text framework pages are now built and integrated. Phase 2 is 100% done.
 
-All 5 are In-Context Learning or Thought Generation pages. Each needs the full 13-section template (reference: `learn/self-ask.html`).
+---
 
-| Page | Category | Priority |
-|------|----------|----------|
-| `learn/many-shot.html` | In-Context Learning | MEDIUM |
-| `learn/example-ordering.html` | In-Context Learning | MEDIUM |
-| `learn/self-generated-icl.html` | In-Context Learning | MEDIUM |
-| `learn/active-example.html` | In-Context Learning | LOW |
-| `learn/uncertainty-cot.html` | Thought Generation | LOW |
+## NEXT TASKS — Phase 3 Modality Frameworks
 
-After creating these pages:
-- Add them to the mega-menu navigation across all ~108 HTML files (Python batch script)
-- Add them to `data/search-index.json`
-- Update category page framework counts (In-Context Learning: 9 -> 13, Reasoning & CoT: 14 -> 15)
-- Update Discover hub `learn/index.html` card counts
+### Priority 1: Phase 3 — Modality Frameworks (37 pages, 0% done)
 
-### Priority 2: Phase 3 — Modality Frameworks (37 pages, 0% done)
+Large expansion into non-text modalities. See FrameworkOverhaul.md Phase 3 for full page list.
 
-Large expansion into non-text modalities. See FrameworkOverhaul.md Phase 3:
-- 3A: Image Prompting (12 pages)
-- 3B: Audio/Speech (6 pages)
-- 3C: Video (6 pages)
-- 3D: Code/Structured (5 more — 3 already exist)
-- 3E: 3D/Spatial (5 pages)
+**Directory Structure:**
+```
+learn/modality/
+    index.html          (hub page — NEEDS CREATION)
+    image/              (12 pages — NEEDS CREATION)
+    audio/              (6 pages — NEEDS CREATION)
+    video/              (6 pages — NEEDS CREATION)
+    code/               (3 pages EXIST, 5 more needed)
+    3d/                 (5 pages — NEEDS CREATION)
+```
 
-### Priority 3: Phase 4 Site Integration
+**Sub-phases (recommended order):**
+| Sub-Phase | Pages | Priority |
+|-----------|-------|----------|
+| 3A: Image Prompting | 12 pages | HIGH — most common modality |
+| 3B: Audio/Speech | 6 pages | MEDIUM |
+| 3C: Video | 6 pages | MEDIUM |
+| 3D: Code/Structured | 5 more (3 exist) | MEDIUM |
+| 3E: 3D/Spatial | 5 pages | LOW |
+
+**Approach:**
+- Use same 13-section template (`learn/self-ask.html`)
+- Parallel background agents (5-6 per batch)
+- After each sub-phase: update mega-menu nav (Python batch script), search index, Discover hub, homepage counter
+- Paths from `learn/modality/image/` use `../../../` prefix for root-relative links
+
+### Priority 2: Phase 4 Site Integration
 
 - 4D: Framework Matcher updates (include new frameworks in recommendations)
+
+### Status Note
+
+**Session 45 changes are UNCOMMITTED.** The next session should start by committing and pushing Session 45 work before beginning Phase 3.
 
 ---
 
@@ -246,16 +284,16 @@ _public_html/
 
 ---
 
-## 9 FRAMEWORK CATEGORIES (65 frameworks)
+## 9 FRAMEWORK CATEGORIES (70 frameworks)
 
 | Category | Count | Category Page | Status |
 |----------|-------|---------------|--------|
 | Getting Started | 2 | -- | No category page needed |
 | Structured Frameworks | 5 | `learn/structured-frameworks.html` | DONE |
-| Reasoning & CoT | 14 | `learn/reasoning-cot.html` | DONE |
+| Reasoning & CoT | 15 | `learn/reasoning-cot.html` | DONE |
 | Decomposition | 7 | `learn/decomposition.html` | DONE |
 | Self-Correction | 7 | `learn/self-correction.html` | DONE |
-| In-Context Learning | 9 | `learn/in-context-learning.html` | DONE |
+| In-Context Learning | 13 | `learn/in-context-learning.html` | DONE |
 | Ensemble Methods | 7 | `learn/ensemble-methods.html` | DONE |
 | Prompting Strategies | 11 | `learn/prompting-strategies.html` | DONE |
 | Code | 3 | -- | Uses `learn/modality/code/` hub |

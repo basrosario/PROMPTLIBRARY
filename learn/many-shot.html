@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demonstration Ensembling: Run the same query with multiple different sets of few-shot examples and combine results through voting or aggregation for more robust, consistent AI predictions.">
-    <title>Demonstration Ensembling - Praxis</title>
+    <meta name="description" content="Many-Shot Prompting: Leverage extended context windows to provide hundreds or thousands of demonstrations, teaching LLMs complex patterns through sheer volume of examples.">
+    <title>Many-Shot Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -187,13 +187,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Demonstration Ensembling</span>
+                    <span class="current">Many-Shot</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Ensemble Technique</span>
+                    <span class="hero-badge__text">In-Context Learning Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Demonstration Ensembling</h1>
-                <p class="page-subtitle fade-in">Any single set of few-shot examples carries its own biases &mdash; the phrasing, the order, the edge cases it happens to cover. Demonstration Ensembling neutralizes that fragility by running the same query across multiple different example sets and combining the results, producing predictions that are more robust, more consistent, and less dependent on the luck of which demonstrations you happened to pick.</p>
+                <h1 class="page-title fade-in">Many-Shot Prompting</h1>
+                <p class="page-subtitle fade-in">When a handful of examples falls short, fill the context window. Many-Shot Prompting provides the model with hundreds or thousands of demonstrations &mdash; leveraging massive context windows to teach complex patterns through sheer volume of evidence rather than clever instruction.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -203,9 +203,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2022</span>
-                        <p><strong>Introduced:</strong> Demonstration Ensembling emerged from research in 2022 showing that LLM outputs can be surprisingly sensitive to which few-shot examples appear in the prompt. Two different sets of demonstrations &mdash; both perfectly valid &mdash; can produce different answers to the same question. This technique addresses that instability head-on: instead of betting on a single example set, you create multiple distinct sets from your available pool, run each one independently, and aggregate the results through majority voting or averaging. The ensemble approach borrows a proven principle from classical machine learning, where combining multiple weak learners consistently outperforms any single model.</p>
-                        <p><strong>Modern LLM Status:</strong> The principle of ensembling across different contexts remains a <strong>powerful reliability strategy</strong>, now commonly applied in evaluation pipelines and production systems where consistency matters more than speed. Modern implementations often combine demonstration ensembling with self-consistency sampling, temperature variation, or retrieval-augmented example selection. In high-stakes domains like medical triage, content moderation, and financial classification, ensembling across example sets is a standard practice for reducing variance and catching edge cases that any single prompt configuration might miss.</p>
+                        <span class="highlight-box__title">Framework Context: 2024</span>
+                        <p><strong>Introduced:</strong> Many-Shot In-Context Learning was formalized in 2024 by Agarwal et al. at Google DeepMind. The technique capitalizes on a simple observation: as LLM context windows expanded from 4K to 100K+ tokens, the old practical limit of a few examples disappeared entirely. The researchers demonstrated that providing hundreds to thousands of examples in-context could significantly outperform few-shot approaches, particularly for tasks requiring the model to internalize complex patterns, specialized formats, or nuanced classification boundaries that a handful of examples cannot adequately convey.</p>
+                        <p><strong>Modern LLM Status:</strong> Many-Shot ICL is an <strong>active and increasingly important technique</strong>. With modern LLMs supporting context windows of 100K+ tokens (Claude, Gemini), many-shot prompting has become more practical and effective than ever. Research from Google DeepMind (2024) demonstrated that using hundreds to thousands of examples in-context can significantly outperform few-shot approaches, especially for tasks where the model needs to learn complex patterns, specialized formats, or domain-specific reasoning that cannot be conveyed with just a handful of examples. The technique is especially relevant for tasks requiring consistent formatting, nuanced classification, or adaptation to specialized domains.</p>
                     </div>
                 </div>
             </div>
@@ -218,16 +218,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Why Varying Examples Reduces Bias</h2>
-                        <p class="split-section__text">Every set of few-shot examples encodes implicit assumptions. If your three examples all happen to be short responses, the model learns &ldquo;keep it brief.&rdquo; If they all handle straightforward cases, the model may stumble on ambiguity. A single demonstration set is like asking one expert for their opinion &mdash; useful, but inherently limited by that expert&rsquo;s perspective and experience.</p>
-                        <p class="split-section__text"><strong>Demonstration Ensembling treats examples like a jury rather than a single judge.</strong> By assembling multiple distinct sets of demonstrations &mdash; each drawing from different parts of your example pool &mdash; you expose the model to a broader range of patterns, edge cases, and response styles. When you aggregate the outputs, the biases of any individual set wash out. What survives the vote is the signal that persists across all contexts.</p>
-                        <p class="split-section__text">Think of it like surveying a landscape from multiple vantage points. Each viewpoint reveals features that others miss, and the composite picture is richer and more accurate than any single perspective could provide.</p>
+                        <h2 class="split-section__title">More Examples, Better Patterns</h2>
+                        <p class="split-section__text">Few-shot prompting works well for straightforward tasks, but it has a fundamental limitation: a small number of examples can only represent a narrow slice of the problem space. When your task involves 25 categories instead of 3, or when edge cases are common rather than rare, a handful of demonstrations leaves the model guessing about everything it has not seen. Many-Shot Prompting eliminates that guesswork by flooding the context with evidence.</p>
+                        <p class="split-section__text"><strong>The approach is deliberately simple.</strong> Rather than engineering clever instructions or multi-step reasoning chains, you let the examples do the teaching. Hundreds of input-output pairs establish the pattern so unambiguously that the model absorbs formatting rules, classification boundaries, and domain vocabulary purely from observation &mdash; the same way a human might learn a new coding style by reading hundreds of examples rather than studying a style guide.</p>
+                        <p class="split-section__text">Think of it as the difference between explaining the rules of a board game verbally versus simply playing fifty rounds. After enough rounds, the rules become intuitive &mdash; even the subtle ones nobody thought to mention.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Demonstration Sensitivity Problem</span>
-                                <p>Research has shown that simply reordering the same few-shot examples can swing classification accuracy by 10&ndash;30 percentage points. Swapping one example for another from the same category can flip the model&rsquo;s answer entirely. This isn&rsquo;t a flaw in the model &mdash; it&rsquo;s a consequence of how in-context learning works. Demonstration Ensembling doesn&rsquo;t try to find the &ldquo;perfect&rdquo; example set (which may not exist). Instead, it <strong>embraces the variance</strong> and uses aggregation to extract the stable, reliable signal underneath.</p>
+                                <span class="highlight-box__title">Why Volume Succeeds Where Brevity Fails</span>
+                                <p>Few-shot examples inevitably create selection bias &mdash; whichever 3-5 examples you choose will overrepresent some patterns and miss others entirely. Many-Shot sidesteps this by including enough examples to cover the full distribution of inputs. The model sees common cases, rare edge cases, ambiguous borderlines, and formatting exceptions all within the same prompt. This statistical coverage produces more consistent and reliable outputs than any carefully curated small set can achieve.</p>
                             </div>
                         </div>
                     </div>
@@ -239,8 +239,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Demonstration Ensembling Process</h2>
-                <p class="section-subtitle fade-in-up">Four stages from example pool to aggregated prediction</p>
+                <h2 class="section-title fade-in-up">The Many-Shot Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from example collection to pattern-driven output</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -248,11 +248,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Create N Distinct Example Sets</h3>
-                            <p class="element-timeline__text">Start with a pool of available few-shot examples and sample N different subsets from it. Each set should contain a representative mix of cases but draw from different examples. The goal is diversity &mdash; each set should expose the model to a slightly different slice of your problem space, varying in difficulty, phrasing, and edge case coverage.</p>
+                            <h3 class="element-timeline__title">Assemble a Large Example Set</h3>
+                            <p class="element-timeline__text">Gather dozens to thousands of input-output examples that represent the full scope of your target task. Prioritize coverage over perfection &mdash; include common cases, edge cases, ambiguous inputs, and the complete range of expected output categories. The goal is to build a dataset that mirrors the real-world distribution the model will encounter.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>From a pool of 20 labeled sentiment examples, create 5 sets of 3 examples each. Set A might include a sarcastic review, a straightforward positive, and a mixed sentiment. Set B draws a formal complaint, an enthusiastic endorsement, and a neutral description.</p>
+                                <p>For a support ticket classifier with 25 categories, collect 10-20 labeled tickets per category &mdash; yielding 250-500 examples that cover every routing destination including rare ones like &ldquo;billing dispute escalation&rdquo; or &ldquo;API rate limit inquiry.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -262,11 +262,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Run the Same Query with Each Set Independently</h3>
-                            <p class="element-timeline__text">Submit your target query to the model N times, each time paired with a different example set. The query itself stays identical &mdash; only the demonstrations change. Each prompt independently primes the model with its unique context, producing a response shaped by that particular set of examples. These runs can execute in parallel for efficiency.</p>
+                            <h3 class="element-timeline__title">Format Examples Consistently</h3>
+                            <p class="element-timeline__text">Structure every example with identical formatting &mdash; the same delimiters, labels, and input-output markers throughout the entire set. Consistency in presentation is what allows the model to distinguish the pattern signal from noise. Even minor formatting inconsistencies across hundreds of examples can degrade performance because the model wastes capacity learning format variations instead of task patterns.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The query &ldquo;Classify this review: &lsquo;The battery life is decent but the screen cracks too easily&rsquo;&rdquo; is sent 5 times, each preceded by a different set of 3 labeled examples. Each prompt independently produces a sentiment classification.</p>
+                                <p>Every example follows the same template: <strong>Input:</strong> [customer message] / <strong>Category:</strong> [label] / <strong>Priority:</strong> [high|medium|low]. No deviations, no extra fields in some examples, no missing labels in others.</p>
                             </div>
                         </div>
                     </div>
@@ -276,11 +276,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Collect All N Responses</h3>
-                            <p class="element-timeline__text">Gather the outputs from all N runs. For classification tasks, this yields N predicted labels. For generation tasks, you collect N distinct text outputs. For numerical predictions, you have N values. Each response reflects the model&rsquo;s interpretation as influenced by its particular demonstration context &mdash; some may agree, others may diverge on edge cases.</p>
+                            <h3 class="element-timeline__title">Pack Examples into Context</h3>
+                            <p class="element-timeline__text">Include as many examples as the context window allows, prioritizing diversity and coverage over redundancy. If you cannot fit all examples, select a representative subset that maintains proportional coverage of each category or pattern. Order can matter &mdash; place the most representative examples early and ensure that no category or pattern type is clustered exclusively at the end where it might receive less attention.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The 5 runs return: Mixed (Set A), Negative (Set B), Mixed (Set C), Mixed (Set D), Negative (Set E). Three out of five agree on &ldquo;Mixed&rdquo; while two say &ldquo;Negative.&rdquo;</p>
+                                <p>With a 128K-token context window and examples averaging 80 tokens each, you can fit roughly 1,200 examples with room for instructions and the target query. Interleave categories rather than grouping them to ensure even exposure.</p>
                             </div>
                         </div>
                     </div>
@@ -290,11 +290,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Aggregate Results via Majority Vote, Averaging, or Consensus</h3>
-                            <p class="element-timeline__text">Combine the N responses into a single final answer. For classification, use majority voting &mdash; the label that appears most frequently wins. For numerical tasks, take the mean or median. For generation tasks, you can select the response most similar to the others, use an LLM to synthesize a consensus answer, or rank outputs by agreement. The aggregation step is where individual biases cancel out and the robust signal emerges.</p>
+                            <h3 class="element-timeline__title">Present the Target Query</h3>
+                            <p class="element-timeline__text">After all demonstrations, present the new input using the exact same format as the examples &mdash; minus the output. The model completes the pattern by generating an output that follows the conventions established across hundreds of prior demonstrations. The sheer weight of consistent examples makes deviation from the learned pattern extremely unlikely.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>Majority vote: 3 out of 5 responses say &ldquo;Mixed,&rdquo; so the final classification is <strong>&ldquo;Mixed Sentiment&rdquo;</strong> with 60% agreement confidence. The two &ldquo;Negative&rdquo; votes flag this as a borderline case worth human review.</p>
+                                <p><strong>Input:</strong> &ldquo;My API calls are returning 429 errors since yesterday and I need this resolved for a demo tomorrow morning.&rdquo; / <strong>Category:</strong> [model generates: API rate limit inquiry] / <strong>Priority:</strong> [model generates: high]</p>
                             </div>
                         </div>
                     </div>
@@ -303,11 +303,11 @@
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === THE COMPARISON === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Why multiple example sets outperform a single demonstration</p>
+                <p class="section-subtitle fade-in-up">Why hundreds of examples outperform a handful</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -318,16 +318,20 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Single Example Set</h3>
+                            <h3 class="comparison-panel__title">Few-Shot (3 Examples)</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Three few-shot examples are chosen for a support ticket classifier. All three happen to be billing-related complaints with angry tone. The model sees: refund request &rarr; Billing, overcharge dispute &rarr; Billing, payment failure &rarr; Billing.</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Classify the sentiment of product reviews. Here are 3 examples:<br><br>
+                                &ldquo;Love this product!&rdquo; &rarr; Positive<br>
+                                &ldquo;Terrible quality.&rdquo; &rarr; Negative<br>
+                                &ldquo;It works fine.&rdquo; &rarr; Neutral<br><br>
+                                Now classify: &ldquo;The build quality is outstanding but the software crashes every hour and customer support ghosted me.&rdquo;</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>New ticket: &ldquo;I can&rsquo;t log in to my account after the update.&rdquo; The model classifies it as <strong>Billing</strong> because the examples biased it toward that category. The actual category should be Technical Support.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>Negative.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -335,7 +339,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Fragile &mdash; biased by whichever examples were chosen</span>
+                            <span>Oversimplified, misses mixed sentiment, no nuance for edge cases</span>
                         </div>
                     </div>
 
@@ -350,16 +354,16 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Demo Ensembling</h3>
+                            <h3 class="comparison-panel__title">Many-Shot (200+ Examples)</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Five different example sets are created, each mixing billing, technical, and account issues. The same login ticket is classified independently by each set. Results: Technical (Set 1), Technical (Set 2), Account (Set 3), Technical (Set 4), Technical (Set 5).</p>
+                                <span class="comparison-panel__label">200+ Demonstrations Including</span>
+                                <p>Examples covering: positive, negative, neutral, mixed-positive, mixed-negative, sarcastic, conditional-positive, feature-specific praise with overall dissatisfaction, and dozens more nuanced patterns &mdash; each with consistent labeling across the full taxonomy.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>Majority vote: 4 out of 5 say <strong>Technical Support</strong>. The ensemble correctly identifies the category despite individual sets having different example compositions. The one &ldquo;Account&rdquo; vote is outweighed by the consensus.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>Mixed-Negative. Hardware praised (build quality: positive), software criticized (crashes: negative), service criticized (support: negative). Overall lean: negative due to two negative dimensions outweighing one positive.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -367,7 +371,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Robust &mdash; no single example set can dominate the outcome</span>
+                            <span>Nuanced classification, handles mixed sentiment, follows learned taxonomy</span>
                         </div>
                     </div>
                 </div>
@@ -378,34 +382,30 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Demonstration Ensembling in Action</h2>
-                <p class="section-subtitle fade-in-up">See how ensembling across example sets improves reliability</p>
+                <h2 class="section-title fade-in-up">Many-Shot in Action</h2>
+                <p class="section-subtitle fade-in-up">See how large example sets transform model performance</p>
 
-                <div class="accordion fade-in-up" id="demo-ensembling-accordion">
+                <div class="accordion fade-in-up" id="many-shot-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Classification Task: Email Intent Detection</span>
+                            <span class="accordion-title">Specialized Classification</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Email</span>
-                                    <p>&ldquo;Hi team, I wanted to follow up on the quarterly numbers. Can we schedule a call this week to discuss projections and also loop in the design lead for the product review?&rdquo;</p>
+                                    <span class="technique-demo__tag">Scenario</span>
+                                    <p>A customer support team needs to route incoming tickets into 25+ categories with subcategories. Few-shot attempts with 3-5 examples per category fail on ambiguous tickets &mdash; a complaint about &ldquo;slow API responses during peak hours&rdquo; gets routed to &ldquo;General Performance&rdquo; instead of &ldquo;API Rate Limiting &mdash; Infrastructure.&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: meeting request, project update, leave request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set B</strong> (examples: data inquiry, scheduling, feedback):<br>
-                                    Classification &rarr; <strong>Scheduling</strong><br><br>
-                                    <strong>Set C</strong> (examples: product review, team coordination, status check):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set D</strong> (examples: follow-up, escalation, scheduling):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set E</strong> (examples: introduction, meeting request, info request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Majority Vote (4/5):</strong> Meeting Request. The ensemble correctly identifies the primary intent despite the email containing multiple sub-intents including data discussion, scheduling, and cross-team coordination.</p>
+                                    <span class="technique-demo__tag">Many-Shot Approach</span>
+                                    <p><strong>Example set:</strong> 200 labeled tickets covering all 25 categories, including 15-20 deliberately ambiguous cases that demonstrate correct routing for borderline inputs.<br><br>
+                                    <strong>Key examples included:</strong><br>
+                                    &ldquo;Dashboard loads slowly after 3pm EST&rdquo; &rarr; Infrastructure &mdash; Peak Load<br>
+                                    &ldquo;API returns 429 too many requests&rdquo; &rarr; API Rate Limiting &mdash; Infrastructure<br>
+                                    &ldquo;Everything feels sluggish today&rdquo; &rarr; General Performance &mdash; Triage Needed<br>
+                                    &ldquo;API response times doubled since last deployment&rdquo; &rarr; API Performance &mdash; Deployment Related<br><br>
+                                    <strong>Result on ambiguous ticket:</strong> &ldquo;Slow API responses during peak hours&rdquo; correctly routed to &ldquo;API Rate Limiting &mdash; Infrastructure&rdquo; because the model absorbed the distinction between general slowness and API-specific performance from dozens of similar boundary cases.</p>
                                 </div>
                             </div>
                         </div>
@@ -413,24 +413,20 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Content Generation: Product Description Tone</span>
+                            <span class="accordion-title">Domain-Specific Translation</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Task</span>
-                                    <p>Write a product description for a noise-cancelling headphone aimed at audiophiles and commuters. Three example sets each show different product descriptions as demonstrations.</p>
+                                    <span class="technique-demo__tag">Scenario</span>
+                                    <p>A pharmaceutical company needs to translate clinical trial documentation from English to Japanese, maintaining exact medical terminology. Few-shot with 5 term pairs produces inconsistent translations &mdash; &ldquo;adverse event&rdquo; alternates between three different Japanese renderings across a single document.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: luxury tech products with aspirational tone):<br>
-                                    Output emphasizes premium design aesthetics, lifestyle benefits, and brand prestige.<br><br>
-                                    <strong>Set B</strong> (examples: practical office gear with feature-focused tone):<br>
-                                    Output emphasizes battery life, call clarity, microphone quality, and comfort for 8-hour wear.<br><br>
-                                    <strong>Set C</strong> (examples: balanced product descriptions mixing emotion and specs):<br>
-                                    Output blends comfort claims with concrete specifications and realistic use scenarios.<br><br>
-                                    <strong>Consensus Synthesis:</strong> An aggregation pass identifies common themes across all three outputs &mdash; noise cancellation for focus, all-day comfort, and clear call quality. The final description combines the practical specifics from Set B with the engaging framing from Set A and the balanced structure from Set C, producing a description more complete and well-rounded than any single output.</p>
+                                    <span class="technique-demo__tag">Many-Shot Approach</span>
+                                    <p><strong>Example set:</strong> 500 verified English-Japanese medical term pairs from the company&rsquo;s approved glossary, plus 150 full-sentence translation pairs from previously approved clinical documents.<br><br>
+                                    <strong>Coverage includes:</strong> Drug names, anatomical terms, adverse event classifications, regulatory phrases, statistical terminology, and dosage expressions &mdash; each appearing in multiple sentence contexts to reinforce correct usage.<br><br>
+                                    <strong>Result:</strong> Translations maintain terminological consistency across the entire document. &ldquo;Adverse event&rdquo; renders identically every time because the model saw the approved translation in 40+ different sentence contexts within the prompt. Domain-specific compounds like &ldquo;double-blind placebo-controlled&rdquo; translate correctly because the model observed the exact pattern in its demonstrations rather than attempting creative translation.</p>
                                 </div>
                             </div>
                         </div>
@@ -438,26 +434,24 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Data Extraction: Invoice Field Parsing</span>
+                            <span class="accordion-title">Format Standardization</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Document</span>
-                                    <p>Extract vendor name, invoice number, date, and total amount from a scanned invoice with imperfect OCR output: &ldquo;Vndr: Acme Ccrp. Inv#: 2024-0847 Dt: 03/15/24 Ttl: $12,450.00&rdquo;</p>
+                                    <span class="technique-demo__tag">Scenario</span>
+                                    <p>A data migration project requires converting addresses from 12 different legacy formats into a single standardized schema. Few-shot with one example per format misses regional variations &mdash; UK postcodes, German PLZ codes, and Japanese address ordering each have dozens of sub-formats that a single example cannot represent.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: clean invoices with standard formatting):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/24, Total: $12,450.00<br><br>
-                                    <strong>Set B</strong> (examples: messy OCR invoices with abbreviations):<br>
-                                    Vendor: Acme Corp., Invoice: 2024-0847, Date: 2024-03-15, Total: $12,450.00<br><br>
-                                    <strong>Set C</strong> (examples: international invoices with varied date formats):<br>
-                                    Vendor: Acme Ccrp, Invoice: 2024-0847, Date: March 15, 2024, Total: $12,450.00<br><br>
-                                    <strong>Set D</strong> (examples: invoices with OCR correction patterns):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/2024, Total: $12,450.00<br><br>
-                                    <strong>Consensus:</strong> All four agree on invoice number and total. Three of four correct &ldquo;Ccrp&rdquo; to &ldquo;Corp&rdquo; &mdash; majority vote applies the correction. Date format is standardized to the most common output. The ensemble catches the OCR error that Set C missed.</p>
+                                    <span class="technique-demo__tag">Many-Shot Approach</span>
+                                    <p><strong>Example set:</strong> 800 address conversion pairs spanning all 12 source formats, with 30-100 examples per format weighted by frequency and variation complexity.<br><br>
+                                    <strong>Format coverage:</strong><br>
+                                    UK: &ldquo;Flat 3B, 42 High St, London SW1A 1AA&rdquo; &rarr; standardized<br>
+                                    Germany: &ldquo;Hauptstra&szlig;e 15, 80331 M&uuml;nchen&rdquo; &rarr; standardized<br>
+                                    Japan: &ldquo;150-0001 Tokyo Shibuya-ku...&rdquo; &rarr; standardized<br>
+                                    US (variations): PO Box, rural routes, military APO, suite/unit formats &mdash; 80+ examples covering the long tail of American address formatting.<br><br>
+                                    <strong>Result:</strong> The model handles novel addresses from any of the 12 formats with over 97% accuracy, including edge cases like addresses with building names, floor numbers, care-of lines, and mixed-language entries &mdash; because it absorbed the transformation rules from hundreds of real-world examples rather than relying on explicit format specifications.</p>
                                 </div>
                             </div>
                         </div>
@@ -467,11 +461,12 @@
         </section>
         <!-- /EXAMPLES IN ACTION -->
 
+
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Demonstration Ensembling</h2>
-                <p class="section-subtitle fade-in-up">Best for tasks where consistency and reliability outweigh latency costs</p>
+                <h2 class="section-title fade-in-up">When to Use Many-Shot</h2>
+                <p class="section-subtitle fade-in-up">Best when examples teach better than instructions</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -483,8 +478,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>High-Stakes Classification</strong>
-                                    <p>Medical triage, content moderation, fraud detection &mdash; any domain where a single misclassification carries significant consequences and reliability trumps speed.</p>
+                                    <strong>Complex Classification with Many Categories</strong>
+                                    <p>Tasks involving dozens of output categories where boundaries are subtle &mdash; few-shot cannot represent enough of the decision space to produce consistent results.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -493,8 +488,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Ambiguous or Borderline Inputs</strong>
-                                    <p>When inputs frequently fall between categories or have multiple valid interpretations, ensembling reveals whether disagreement is a feature of the input or an artifact of the examples.</p>
+                                    <strong>Domain-Specific Tasks</strong>
+                                    <p>Work requiring specialized vocabulary, formatting conventions, or reasoning patterns that the model has not internalized from general training &mdash; medical coding, legal terminology, proprietary taxonomies.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -503,8 +498,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Evaluation and Benchmarking</strong>
-                                    <p>When measuring LLM performance, ensembling across example sets produces more stable metrics that reflect true model capability rather than prompt sensitivity.</p>
+                                    <strong>Format Standardization</strong>
+                                    <p>Converting diverse input formats to a single standard where the transformation rules are easier to demonstrate than to describe &mdash; addresses, dates, names, product codes.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -513,8 +508,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Large Example Pools</strong>
-                                    <p>When you have far more labeled examples than fit in a single prompt, ensembling lets you leverage the full pool rather than discarding most of your data.</p>
+                                    <strong>Inconsistent Few-Shot Performance</strong>
+                                    <p>When few-shot results vary depending on which examples you choose, it signals that the task needs broader coverage &mdash; many-shot eliminates selection sensitivity.</p>
                                 </div>
                             </div>
                         </div>
@@ -528,8 +523,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Latency-Sensitive Applications</strong>
-                                    <p>Each ensemble member adds an API call. If your use case requires sub-second responses &mdash; like autocomplete or real-time chat &mdash; the overhead of N parallel calls may be prohibitive.</p>
+                                    <strong>Simple Tasks That Few-Shot Handles Well</strong>
+                                    <p>If 3-5 examples already produce consistent, accurate results, scaling to hundreds adds cost and latency without measurable improvement &mdash; do not waste tokens on solved problems.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -538,8 +533,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Very Small Example Pools</strong>
-                                    <p>If you only have 3&ndash;4 examples total, you cannot create meaningfully diverse subsets. The &ldquo;ensembles&rdquo; would overlap too heavily to provide independent signals.</p>
+                                    <strong>Curated Examples Are Unavailable or Unreliable</strong>
+                                    <p>Many-shot amplifies the quality of your examples. If your labeled data contains errors, inconsistencies, or outdated patterns, scaling up will teach the model bad habits at scale rather than good ones.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -548,8 +543,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Budget-Constrained Scenarios</strong>
-                                    <p>Ensembling multiplies your API costs by N. For exploratory or low-value tasks where a single good-enough answer suffices, the cost-benefit ratio doesn&rsquo;t justify the approach.</p>
+                                    <strong>Context Window Is Limited</strong>
+                                    <p>Models with context windows under 32K tokens cannot fit enough examples for many-shot to outperform well-chosen few-shot examples &mdash; the technique requires room to scale.</p>
                                 </div>
                             </div>
                         </div>
@@ -563,27 +558,20 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Demonstration Ensembling delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where Many-Shot delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="2" y1="15" x2="12" y2="15"/>
+                                <polyline points="9 12 12 15 9 18"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Content Moderation</h3>
-                        <p class="use-case-showcase__desc">Run flagged content through multiple example sets spanning different violation types to reduce both false positives and false negatives in automated moderation pipelines.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Medical Triage</h3>
-                        <p class="use-case-showcase__desc">Classify patient symptoms across multiple demonstration sets covering different specialties, ensuring the urgency assessment isn&rsquo;t biased by the particular clinical examples shown.</p>
+                        <h3 class="use-case-showcase__title">Data Labeling</h3>
+                        <p class="use-case-showcase__desc">Annotate large datasets by providing hundreds of labeled examples in-context, achieving near-human accuracy on classification, entity extraction, and tagging tasks without fine-tuning.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -595,41 +583,52 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Document Classification</h3>
-                        <p class="use-case-showcase__desc">Sort incoming documents into categories using diverse example sets that cover different document styles, formats, and edge cases for each category.</p>
+                        <h3 class="use-case-showcase__title">Format Normalization</h3>
+                        <p class="use-case-showcase__desc">Standardize inconsistent data entries &mdash; dates, phone numbers, addresses, product identifiers &mdash; by demonstrating the transformation with hundreds of real-world conversion pairs.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 20V10"/>
-                                <path d="M12 20V4"/>
-                                <path d="M6 20v-6"/>
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                                <line x1="14" y1="4" x2="10" y2="20"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Sentiment Analysis</h3>
-                        <p class="use-case-showcase__desc">Ensemble across example sets that emphasize different sentiment signals &mdash; sarcasm, understatement, cultural context &mdash; to produce more nuanced and consistent sentiment scores.</p>
+                        <h3 class="use-case-showcase__title">Code Style Enforcement</h3>
+                        <p class="use-case-showcase__desc">Teach a model your team&rsquo;s exact coding conventions by providing hundreds of before-and-after code samples, ensuring generated code matches your naming patterns, spacing rules, and documentation standards.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Intent Recognition</h3>
-                        <p class="use-case-showcase__desc">Classify user queries in chatbot systems using multiple example sets that cover different phrasings and contexts for each intent, reducing misrouting of ambiguous requests.</p>
+                        <h3 class="use-case-showcase__title">Medical Coding</h3>
+                        <p class="use-case-showcase__desc">Map clinical notes to ICD-10 or CPT codes using hundreds of verified coding examples, capturing the nuanced distinctions between similar diagnoses that few-shot approaches routinely confuse.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">LLM Evaluation</h3>
-                        <p class="use-case-showcase__desc">Benchmark model performance using ensembled example sets to produce stable accuracy metrics that reflect true capability rather than sensitivity to prompt construction.</p>
+                        <h3 class="use-case-showcase__title">Legal Clause Classification</h3>
+                        <p class="use-case-showcase__desc">Categorize contract clauses into regulatory categories by demonstrating hundreds of clause-to-category mappings, enabling consistent treatment of indemnification, limitation of liability, force majeure, and other legal constructs.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Multilingual Content Standardization</h3>
+                        <p class="use-case-showcase__desc">Normalize content across languages and locales by providing translation pairs, terminology mappings, and formatting conversions that maintain brand voice and technical accuracy across every target market.</p>
                     </div>
                 </div>
             </div>
@@ -639,35 +638,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Demonstration Ensembling Fits</h2>
-                <p class="section-subtitle fade-in-up">Bridging few-shot learning and systematic reliability engineering</p>
+                <h2 class="section-title fade-in-up">Where Many-Shot Fits</h2>
+                <p class="section-subtitle fade-in-up">Many-Shot occupies the high-volume zone of in-context learning</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
+                        <span class="era-marker__year">Zero-Shot</span>
+                        <span class="era-marker__title">No Examples</span>
+                        <span class="era-marker__desc">Instructions only, no demonstrations</span>
+                    </div>
+                    <div class="era-marker">
                         <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Single Example Set</span>
-                        <span class="era-marker__desc">One fixed set of demonstrations</span>
+                        <span class="era-marker__title">2-10 Examples</span>
+                        <span class="era-marker__desc">Small curated demonstration set</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Demo Ensembling</span>
-                        <span class="era-marker__title">Multiple Sets + Voting</span>
-                        <span class="era-marker__desc">Aggregated predictions across diverse examples</span>
+                        <span class="era-marker__year">Many-Shot</span>
+                        <span class="era-marker__title">100+ Examples</span>
+                        <span class="era-marker__desc">Full context window utilization</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Multiple Reasoning Paths</span>
-                        <span class="era-marker__desc">Diverse reasoning chains with voting</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">DiVeRSe</span>
-                        <span class="era-marker__title">Full Pipeline Diversity</span>
-                        <span class="era-marker__desc">Diverse prompts, paths, and verifiers</span>
+                        <span class="era-marker__year">Retrieval-Augmented</span>
+                        <span class="era-marker__title">Dynamic Selection</span>
+                        <span class="era-marker__desc">Query-relevant examples from a pool</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Combine for Maximum Reliability</div>
-                    <p>Demonstration Ensembling and Self-Consistency target different sources of variance. Ensembling varies the <strong>context</strong> (which examples the model sees), while Self-Consistency varies the <strong>reasoning path</strong> (how the model thinks through the same context). Combining both &mdash; running multiple reasoning samples across multiple example sets &mdash; creates a two-dimensional ensemble that reduces variance from both sources simultaneously. In production systems handling critical decisions, this layered approach can push reliability close to human-level consistency.</p>
+                    <div class="callout-title">Combine with Reinforced ICL</div>
+                    <p>Many-Shot becomes even more powerful when combined with Reinforced In-Context Learning. Instead of packing examples randomly, you can use the initial model outputs to identify which example categories produce the most errors, then over-represent those categories in your final example set. This targeted approach means your context window budget is spent on the examples that matter most &mdash; the boundary cases and ambiguous inputs where additional demonstrations make the biggest difference.</p>
                 </div>
             </div>
         </section>
@@ -677,46 +676,7 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary ensemble and example-based techniques</p>
-
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 2l4 4-4 4"/>
-                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
-                            <path d="M7 22l-4-4 4-4"/>
-                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Complement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Samples multiple reasoning paths from the same prompt and takes a majority vote &mdash; ensembling over reasoning rather than over demonstrations.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="diverse.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Evolution</span>
-                        <span class="evolution-callout__title">DiVeRSe</span>
-                        <span class="evolution-callout__desc">Extends ensembling to diversify across prompts, reasoning paths, and verification steps &mdash; a comprehensive pipeline that builds on demonstration variation.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
+                <p class="section-subtitle fade-in-up">Explore complementary in-context learning techniques</p>
 
                 <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
@@ -730,7 +690,46 @@
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
                         <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">The foundational technique of providing examples in the prompt &mdash; Demonstration Ensembling extends this by systematically varying which examples are shown.</span>
+                        <span class="evolution-callout__desc">The classic approach that Many-Shot extends by dramatically increasing example count &mdash; from a curated handful to hundreds or thousands of demonstrations.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="example-selection.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Example Selection</span>
+                        <span class="evolution-callout__desc">When you cannot fit all examples in context, Example Selection helps choose the most informative subset &mdash; maximizing pattern coverage within token budget constraints.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="knn-prompting.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Evolution</span>
+                        <span class="evolution-callout__title">KNN Prompting</span>
+                        <span class="evolution-callout__desc">Dynamically retrieves the most relevant examples from a large pool based on query similarity &mdash; bringing many-shot coverage with few-shot token efficiency.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -748,8 +747,8 @@
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Build Reliable Predictions</h2>
-                        <p class="cta-corporate__text">Try Demonstration Ensembling on your own classification tasks or explore ensemble strategies with our prompt engineering tools.</p>
+                        <h2 class="cta-corporate__title">Scale Your Examples</h2>
+                        <p class="cta-corporate__text">Try many-shot prompting with hundreds of examples or build prompts with our tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
                             <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
@@ -762,7 +761,6 @@
     </main>
 
 
-    <!-- === FOOTER + BACK-TO-TOP === -->
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
     <div class="container">
@@ -825,9 +823,8 @@
         </span>
         <span class="back-to-top-text">Back to Top</span>
     </button>
-    <!-- /FOOTER + BACK-TO-TOP -->
 
-    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <!-- Accessibility Dashboard -->
     <div class="adl-dim-overlay" aria-hidden="true"></div>
     <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -893,7 +890,6 @@
         </div>
         <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
     </div>
-    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

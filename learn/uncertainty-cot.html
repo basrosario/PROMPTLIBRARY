@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demonstration Ensembling: Run the same query with multiple different sets of few-shot examples and combine results through voting or aggregation for more robust, consistent AI predictions.">
-    <title>Demonstration Ensembling - Praxis</title>
+    <meta name="description" content="Uncertainty-Routed Chain-of-Thought: Dynamically route queries through CoT reasoning only when the model is uncertain, optimizing the cost-accuracy tradeoff in LLM deployments.">
+    <title>Uncertainty-Routed CoT - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -187,13 +187,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Demonstration Ensembling</span>
+                    <span class="current">Uncertainty-Routed CoT</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Ensemble Technique</span>
+                    <span class="hero-badge__text">Thought Generation Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Demonstration Ensembling</h1>
-                <p class="page-subtitle fade-in">Any single set of few-shot examples carries its own biases &mdash; the phrasing, the order, the edge cases it happens to cover. Demonstration Ensembling neutralizes that fragility by running the same query across multiple different example sets and combining the results, producing predictions that are more robust, more consistent, and less dependent on the luck of which demonstrations you happened to pick.</p>
+                <h1 class="page-title fade-in">Uncertainty-Routed Chain-of-Thought</h1>
+                <p class="page-subtitle fade-in">Not every question deserves a full reasoning chain. Uncertainty-Routed CoT measures model confidence first and only activates step-by-step reasoning when the model is genuinely unsure &mdash; saving tokens, reducing latency, and reserving deep thinking for the problems that actually need it.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -203,9 +203,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2022</span>
-                        <p><strong>Introduced:</strong> Demonstration Ensembling emerged from research in 2022 showing that LLM outputs can be surprisingly sensitive to which few-shot examples appear in the prompt. Two different sets of demonstrations &mdash; both perfectly valid &mdash; can produce different answers to the same question. This technique addresses that instability head-on: instead of betting on a single example set, you create multiple distinct sets from your available pool, run each one independently, and aggregate the results through majority voting or averaging. The ensemble approach borrows a proven principle from classical machine learning, where combining multiple weak learners consistently outperforms any single model.</p>
-                        <p><strong>Modern LLM Status:</strong> The principle of ensembling across different contexts remains a <strong>powerful reliability strategy</strong>, now commonly applied in evaluation pipelines and production systems where consistency matters more than speed. Modern implementations often combine demonstration ensembling with self-consistency sampling, temperature variation, or retrieval-augmented example selection. In high-stakes domains like medical triage, content moderation, and financial classification, ensembling across example sets is a standard practice for reducing variance and catching edge cases that any single prompt configuration might miss.</p>
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Uncertainty-Routed Chain-of-Thought was proposed in 2023 by Wang et al. as a cost-optimization layer for chain-of-thought prompting. The key observation was straightforward: applying CoT universally to every query is wasteful because many questions are simple enough to answer directly. The technique introduces a confidence-measurement gate that routes only uncertain queries through full reasoning chains, while letting high-confidence direct answers pass through immediately.</p>
+                        <p><strong>Modern LLM Status:</strong> Uncertainty-Routed CoT is an <strong>active and practically valuable technique</strong> for optimizing the cost-accuracy tradeoff in LLM deployments. The core idea is simple but powerful: not every question needs chain-of-thought reasoning. Easy questions can be answered directly (saving tokens and latency), while only hard or uncertain questions get routed through expensive CoT processing. This routing decision is based on measuring the model&rsquo;s uncertainty &mdash; if the model is confident in its direct answer, skip CoT; if uncertain, trigger the full reasoning chain. Modern LLM deployments increasingly use this pattern to reduce costs by 40&ndash;60% while maintaining accuracy on the questions that actually need detailed reasoning.</p>
                     </div>
                 </div>
             </div>
@@ -218,16 +218,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Why Varying Examples Reduces Bias</h2>
-                        <p class="split-section__text">Every set of few-shot examples encodes implicit assumptions. If your three examples all happen to be short responses, the model learns &ldquo;keep it brief.&rdquo; If they all handle straightforward cases, the model may stumble on ambiguity. A single demonstration set is like asking one expert for their opinion &mdash; useful, but inherently limited by that expert&rsquo;s perspective and experience.</p>
-                        <p class="split-section__text"><strong>Demonstration Ensembling treats examples like a jury rather than a single judge.</strong> By assembling multiple distinct sets of demonstrations &mdash; each drawing from different parts of your example pool &mdash; you expose the model to a broader range of patterns, edge cases, and response styles. When you aggregate the outputs, the biases of any individual set wash out. What survives the vote is the signal that persists across all contexts.</p>
-                        <p class="split-section__text">Think of it like surveying a landscape from multiple vantage points. Each viewpoint reveals features that others miss, and the composite picture is richer and more accurate than any single perspective could provide.</p>
+                        <h2 class="split-section__title">Reason Only When It Matters</h2>
+                        <p class="split-section__text">Chain-of-thought prompting dramatically improves accuracy on hard problems &mdash; but it comes at a cost. Every reasoning chain consumes extra tokens, adds latency, and increases API expenses. The uncomfortable truth is that most queries in a production system are straightforward. Asking the model to &ldquo;think step by step&rdquo; about &ldquo;What is the capital of France?&rdquo; is like sending a routine headache to the emergency room.</p>
+                        <p class="split-section__text"><strong>Uncertainty-Routed CoT introduces a triage layer.</strong> Before committing to an expensive reasoning process, the system first generates a quick direct answer and gauges how confident the model is. If confidence is high, the direct answer ships immediately. If confidence is low &mdash; the model hesitates, token probabilities are spread across multiple answers, or self-consistency samples disagree &mdash; then and only then does the system activate the full chain-of-thought pipeline.</p>
+                        <p class="split-section__text">Think of it like a medical triage system in an emergency department: routine cases get standard treatment and move through quickly, while complex or ambiguous cases are escalated to specialists who take the time to reason through every detail.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Demonstration Sensitivity Problem</span>
-                                <p>Research has shown that simply reordering the same few-shot examples can swing classification accuracy by 10&ndash;30 percentage points. Swapping one example for another from the same category can flip the model&rsquo;s answer entirely. This isn&rsquo;t a flaw in the model &mdash; it&rsquo;s a consequence of how in-context learning works. Demonstration Ensembling doesn&rsquo;t try to find the &ldquo;perfect&rdquo; example set (which may not exist). Instead, it <strong>embraces the variance</strong> and uses aggregation to extract the stable, reliable signal underneath.</p>
+                                <span class="highlight-box__title">Why Selective Reasoning Outperforms Universal CoT</span>
+                                <p>Universal CoT applies the same reasoning overhead to every query regardless of difficulty. This wastes resources on easy questions and can actually <strong>degrade</strong> performance on trivial tasks by introducing unnecessary reasoning steps where the model might overthink and second-guess a correct instinct. Uncertainty-Routed CoT matches reasoning effort to problem difficulty &mdash; minimal effort for easy problems, maximum effort for hard ones &mdash; achieving near-identical accuracy at a fraction of the computational cost.</p>
                             </div>
                         </div>
                     </div>
@@ -239,8 +239,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Demonstration Ensembling Process</h2>
-                <p class="section-subtitle fade-in-up">Four stages from example pool to aggregated prediction</p>
+                <h2 class="section-title fade-in-up">The Uncertainty-Routing Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from incoming query to optimally-routed response</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -248,11 +248,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Create N Distinct Example Sets</h3>
-                            <p class="element-timeline__text">Start with a pool of available few-shot examples and sample N different subsets from it. Each set should contain a representative mix of cases but draw from different examples. The goal is diversity &mdash; each set should expose the model to a slightly different slice of your problem space, varying in difficulty, phrasing, and edge case coverage.</p>
+                            <h3 class="element-timeline__title">Generate a Direct Answer</h3>
+                            <p class="element-timeline__text">Present the question to the model without any chain-of-thought instructions and obtain a quick, concise response. This serves as the &ldquo;fast path&rdquo; answer &mdash; the response the model would give if asked to reply immediately without deliberation. This step is cheap and fast, consuming minimal tokens.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>From a pool of 20 labeled sentiment examples, create 5 sets of 3 examples each. Set A might include a sarcastic review, a straightforward positive, and a mixed sentiment. Set B draws a formal complaint, an enthusiastic endorsement, and a neutral description.</p>
+                                <p>Query: &ldquo;What is the boiling point of water at sea level?&rdquo; &mdash; Direct answer: &ldquo;100 degrees Celsius (212 degrees Fahrenheit).&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -262,11 +262,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Run the Same Query with Each Set Independently</h3>
-                            <p class="element-timeline__text">Submit your target query to the model N times, each time paired with a different example set. The query itself stays identical &mdash; only the demonstrations change. Each prompt independently primes the model with its unique context, producing a response shaped by that particular set of examples. These runs can execute in parallel for efficiency.</p>
+                            <h3 class="element-timeline__title">Measure Uncertainty</h3>
+                            <p class="element-timeline__text">Evaluate the model&rsquo;s confidence in the direct answer. Several measurement strategies exist: examining token-level probabilities to see if the top token dominates or if probability is spread across alternatives, asking the model to self-report a confidence score, running multiple samples and checking agreement (self-consistency), or computing the entropy of the output distribution. High agreement or high probability on a single answer signals confidence; disagreement or diffuse probability signals uncertainty.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The query &ldquo;Classify this review: &lsquo;The battery life is decent but the screen cracks too easily&rsquo;&rdquo; is sent 5 times, each preceded by a different set of 3 labeled examples. Each prompt independently produces a sentiment classification.</p>
+                                <p>For &ldquo;What is the boiling point of water?&rdquo; the model assigns 98% probability to &ldquo;100 degrees Celsius&rdquo; &mdash; high confidence. For &ldquo;What was the primary cause of the 2008 financial crisis?&rdquo; the model spreads probability across multiple explanations &mdash; low confidence.</p>
                             </div>
                         </div>
                     </div>
@@ -276,11 +276,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Collect All N Responses</h3>
-                            <p class="element-timeline__text">Gather the outputs from all N runs. For classification tasks, this yields N predicted labels. For generation tasks, you collect N distinct text outputs. For numerical predictions, you have N values. Each response reflects the model&rsquo;s interpretation as influenced by its particular demonstration context &mdash; some may agree, others may diverge on edge cases.</p>
+                            <h3 class="element-timeline__title">Route Based on Threshold</h3>
+                            <p class="element-timeline__text">Compare the measured uncertainty against a configurable threshold. If confidence exceeds the threshold, the direct answer is returned immediately &mdash; no CoT needed. If confidence falls below the threshold, the query is routed to the full chain-of-thought pipeline. The threshold is a tunable parameter that lets operators balance cost savings against accuracy: a higher threshold routes more queries to CoT (safer but more expensive), while a lower threshold lets more direct answers through (cheaper but riskier).</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The 5 runs return: Mixed (Set A), Negative (Set B), Mixed (Set C), Mixed (Set D), Negative (Set E). Three out of five agree on &ldquo;Mixed&rdquo; while two say &ldquo;Negative.&rdquo;</p>
+                                <p>Threshold set at 85% confidence. &ldquo;Boiling point of water&rdquo; scores 98% &mdash; direct answer returned. &ldquo;Primary cause of 2008 crisis&rdquo; scores 42% &mdash; routed to CoT reasoning.</p>
                             </div>
                         </div>
                     </div>
@@ -290,11 +290,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Aggregate Results via Majority Vote, Averaging, or Consensus</h3>
-                            <p class="element-timeline__text">Combine the N responses into a single final answer. For classification, use majority voting &mdash; the label that appears most frequently wins. For numerical tasks, take the mean or median. For generation tasks, you can select the response most similar to the others, use an LLM to synthesize a consensus answer, or rank outputs by agreement. The aggregation step is where individual biases cancel out and the robust signal emerges.</p>
+                            <h3 class="element-timeline__title">Apply CoT for Uncertain Cases</h3>
+                            <p class="element-timeline__text">For queries that failed the confidence check, regenerate the response using full chain-of-thought prompting. The model now reasons step by step, breaking the problem into intermediate stages and building toward a well-supported conclusion. The additional reasoning typically resolves the uncertainty and produces a more reliable answer &mdash; justifying the extra token cost for these genuinely difficult questions.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>Majority vote: 3 out of 5 responses say &ldquo;Mixed,&rdquo; so the final classification is <strong>&ldquo;Mixed Sentiment&rdquo;</strong> with 60% agreement confidence. The two &ldquo;Negative&rdquo; votes flag this as a borderline case worth human review.</p>
+                                <p>&ldquo;What was the primary cause of the 2008 financial crisis?&rdquo; now gets full CoT: the model walks through deregulation policies, mortgage-backed securities, credit default swaps, and systemic risk factors before synthesizing a nuanced, multi-factor answer.</p>
                             </div>
                         </div>
                     </div>
@@ -303,11 +303,11 @@
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === THE COMPARISON === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Why multiple example sets outperform a single demonstration</p>
+                <p class="section-subtitle fade-in-up">Why selective routing beats blanket reasoning</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -318,16 +318,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Single Example Set</h3>
+                            <h3 class="comparison-panel__title">Uniform CoT on All Queries</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Three few-shot examples are chosen for a support ticket classifier. All three happen to be billing-related complaints with angry tone. The model sees: refund request &rarr; Billing, overcharge dispute &rarr; Billing, payment failure &rarr; Billing.</p>
+                                <span class="comparison-panel__label">Approach</span>
+                                <p>Every question gets full chain-of-thought reasoning regardless of difficulty. &ldquo;What is 2 + 2?&rdquo; receives the same multi-step reasoning treatment as a complex word problem.</p>
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Result</span>
-                                <p>New ticket: &ldquo;I can&rsquo;t log in to my account after the update.&rdquo; The model classifies it as <strong>Billing</strong> because the examples biased it toward that category. The actual category should be Technical Support.</p>
+                                <p>Tokens wasted on trivial questions. Latency increased across the board. API costs inflated by 3&ndash;5x for queries that gain no accuracy benefit from reasoning. Easy questions occasionally degraded by overthinking.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -335,7 +335,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Fragile &mdash; biased by whichever examples were chosen</span>
+                            <span>Expensive, slow, no differentiation between easy and hard queries</span>
                         </div>
                     </div>
 
@@ -350,16 +350,16 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Demo Ensembling</h3>
+                            <h3 class="comparison-panel__title">Uncertainty-Routed CoT</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Five different example sets are created, each mixing billing, technical, and account issues. The same login ticket is classified independently by each set. Results: Technical (Set 1), Technical (Set 2), Account (Set 3), Technical (Set 4), Technical (Set 5).</p>
+                                <span class="comparison-panel__label">Approach</span>
+                                <p>Each query is first answered directly and scored for confidence. Easy, high-confidence queries return immediately. Only uncertain, genuinely difficult queries are escalated to full chain-of-thought reasoning.</p>
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Result</span>
-                                <p>Majority vote: 4 out of 5 say <strong>Technical Support</strong>. The ensemble correctly identifies the category despite individual sets having different example compositions. The one &ldquo;Account&rdquo; vote is outweighed by the consensus.</p>
+                                <p>Easy questions answered in milliseconds with minimal tokens. Hard questions receive full reasoning chains. Overall cost reduced by 40&ndash;60% while maintaining near-identical accuracy on the queries that benefit from CoT.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -367,7 +367,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Robust &mdash; no single example set can dominate the outcome</span>
+                            <span>Cost-efficient, fast on easy queries, deep reasoning reserved for hard ones</span>
                         </div>
                     </div>
                 </div>
@@ -378,34 +378,37 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Demonstration Ensembling in Action</h2>
-                <p class="section-subtitle fade-in-up">See how ensembling across example sets improves reliability</p>
+                <h2 class="section-title fade-in-up">Uncertainty-Routed CoT in Action</h2>
+                <p class="section-subtitle fade-in-up">See how confidence-based routing optimizes reasoning effort</p>
 
-                <div class="accordion fade-in-up" id="demo-ensembling-accordion">
+                <div class="accordion fade-in-up" id="uncertainty-cot-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Classification Task: Email Intent Detection</span>
+                            <span class="accordion-title">Math Problem Routing</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Email</span>
-                                    <p>&ldquo;Hi team, I wanted to follow up on the quarterly numbers. Can we schedule a call this week to discuss projections and also loop in the design lead for the product review?&rdquo;</p>
+                                    <span class="technique-demo__tag">High-Confidence Query (Direct Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;What is 15 x 8?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> 120<br>
+                                    <strong>Confidence score:</strong> 99.2%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence exceeds threshold &mdash; return direct answer immediately.<br><br>
+                                    <strong>Final output:</strong> 120<br>
+                                    <strong>Tokens used:</strong> Minimal (no reasoning chain generated)</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: meeting request, project update, leave request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set B</strong> (examples: data inquiry, scheduling, feedback):<br>
-                                    Classification &rarr; <strong>Scheduling</strong><br><br>
-                                    <strong>Set C</strong> (examples: product review, team coordination, status check):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set D</strong> (examples: follow-up, escalation, scheduling):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set E</strong> (examples: introduction, meeting request, info request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Majority Vote (4/5):</strong> Meeting Request. The ensemble correctly identifies the primary intent despite the email containing multiple sub-intents including data discussion, scheduling, and cross-team coordination.</p>
+                                    <span class="technique-demo__tag">Low-Confidence Query (CoT Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;A train leaves Station A at 60 mph while another leaves Station B, 200 miles away, at 40 mph heading toward Station A. When do they meet?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> &ldquo;About 2 hours?&rdquo;<br>
+                                    <strong>Confidence score:</strong> 54.3%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence below threshold &mdash; activate CoT.<br><br>
+                                    <strong>CoT reasoning:</strong> The trains approach each other at a combined speed of 60 + 40 = 100 mph. The distance between them is 200 miles. Time = distance / speed = 200 / 100 = 2 hours.<br><br>
+                                    <strong>Final output:</strong> The trains meet after exactly 2 hours.<br>
+                                    <strong>Tokens used:</strong> Full reasoning chain (justified by the uncertainty)</p>
                                 </div>
                             </div>
                         </div>
@@ -413,24 +416,31 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Content Generation: Product Description Tone</span>
+                            <span class="accordion-title">Medical Question Triage</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Task</span>
-                                    <p>Write a product description for a noise-cancelling headphone aimed at audiophiles and commuters. Three example sets each show different product descriptions as demonstrations.</p>
+                                    <span class="technique-demo__tag">High-Confidence Query (Direct Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;What is the normal human body temperature?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> 98.6 degrees Fahrenheit (37 degrees Celsius)<br>
+                                    <strong>Confidence score:</strong> 97.8%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence exceeds threshold &mdash; return direct answer immediately.<br><br>
+                                    <strong>Final output:</strong> Normal body temperature is approximately 98.6 degrees F (37 degrees C).<br>
+                                    <strong>Tokens used:</strong> Minimal</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: luxury tech products with aspirational tone):<br>
-                                    Output emphasizes premium design aesthetics, lifestyle benefits, and brand prestige.<br><br>
-                                    <strong>Set B</strong> (examples: practical office gear with feature-focused tone):<br>
-                                    Output emphasizes battery life, call clarity, microphone quality, and comfort for 8-hour wear.<br><br>
-                                    <strong>Set C</strong> (examples: balanced product descriptions mixing emotion and specs):<br>
-                                    Output blends comfort claims with concrete specifications and realistic use scenarios.<br><br>
-                                    <strong>Consensus Synthesis:</strong> An aggregation pass identifies common themes across all three outputs &mdash; noise cancellation for focus, all-day comfort, and clear call quality. The final description combines the practical specifics from Set B with the engaging framing from Set A and the balanced structure from Set C, producing a description more complete and well-rounded than any single output.</p>
+                                    <span class="technique-demo__tag">Low-Confidence Query (CoT Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;A patient presents with intermittent chest pain, elevated troponin levels, and a normal ECG. What is the most likely diagnosis?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> &ldquo;Possibly NSTEMI or unstable angina&rdquo;<br>
+                                    <strong>Confidence score:</strong> 38.1%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence below threshold &mdash; activate CoT.<br><br>
+                                    <strong>CoT reasoning:</strong> Step 1: Elevated troponin indicates myocardial injury. Step 2: Normal ECG rules out STEMI but not NSTEMI. Step 3: Intermittent chest pain aligns with acute coronary syndrome. Step 4: The combination of elevated troponin with normal ECG most specifically points to NSTEMI (Non-ST-Elevation Myocardial Infarction), as unstable angina typically presents without troponin elevation.<br><br>
+                                    <strong>Final output:</strong> The most likely diagnosis is NSTEMI, given the elevated troponin with normal ECG and intermittent chest pain. Unstable angina is a differential but less likely due to the troponin elevation.<br>
+                                    <strong>Tokens used:</strong> Full reasoning chain (appropriate for clinical complexity)</p>
                                 </div>
                             </div>
                         </div>
@@ -438,26 +448,31 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Data Extraction: Invoice Field Parsing</span>
+                            <span class="accordion-title">Code Debugging Routing</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Document</span>
-                                    <p>Extract vendor name, invoice number, date, and total amount from a scanned invoice with imperfect OCR output: &ldquo;Vndr: Acme Ccrp. Inv#: 2024-0847 Dt: 03/15/24 Ttl: $12,450.00&rdquo;</p>
+                                    <span class="technique-demo__tag">High-Confidence Query (Direct Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;What does the len() function do in Python?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> Returns the number of items in an object (length of a string, list, tuple, dictionary, etc.)<br>
+                                    <strong>Confidence score:</strong> 99.5%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence exceeds threshold &mdash; return direct answer immediately.<br><br>
+                                    <strong>Final output:</strong> The len() function returns the number of items in an object, such as characters in a string or elements in a list.<br>
+                                    <strong>Tokens used:</strong> Minimal</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: clean invoices with standard formatting):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/24, Total: $12,450.00<br><br>
-                                    <strong>Set B</strong> (examples: messy OCR invoices with abbreviations):<br>
-                                    Vendor: Acme Corp., Invoice: 2024-0847, Date: 2024-03-15, Total: $12,450.00<br><br>
-                                    <strong>Set C</strong> (examples: international invoices with varied date formats):<br>
-                                    Vendor: Acme Ccrp, Invoice: 2024-0847, Date: March 15, 2024, Total: $12,450.00<br><br>
-                                    <strong>Set D</strong> (examples: invoices with OCR correction patterns):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/2024, Total: $12,450.00<br><br>
-                                    <strong>Consensus:</strong> All four agree on invoice number and total. Three of four correct &ldquo;Ccrp&rdquo; to &ldquo;Corp&rdquo; &mdash; majority vote applies the correction. Date format is standardized to the most common output. The ensemble catches the OCR error that Set C missed.</p>
+                                    <span class="technique-demo__tag">Low-Confidence Query (CoT Path)</span>
+                                    <p><strong>Query:</strong> &ldquo;Why does this recursive function cause a stack overflow when the input list has duplicate values?&rdquo;<br><br>
+                                    <strong>Direct answer:</strong> &ldquo;Maybe a missing base case or infinite recursion?&rdquo;<br>
+                                    <strong>Confidence score:</strong> 31.7%<br>
+                                    <strong>Threshold:</strong> 85%<br>
+                                    <strong>Routing decision:</strong> Confidence below threshold &mdash; activate CoT.<br><br>
+                                    <strong>CoT reasoning:</strong> Step 1: A stack overflow in recursion means the function calls itself without reaching a base case. Step 2: The function works with unique values, so the base case handles those correctly. Step 3: With duplicates, the partitioning logic places equal elements on the same side every time. Step 4: This means the recursive call receives a list of the same size as the input, never reducing the problem. Step 5: The missing logic is a base case or partition rule that handles equal elements &mdash; without it, the recursion never terminates when duplicates are present.<br><br>
+                                    <strong>Final output:</strong> The stack overflow occurs because the partition logic does not handle duplicate values. When all remaining elements are equal, they stay on one side of the partition, so the recursive call never reduces the input size. Adding a three-way partition (less than, equal to, greater than) or a check for all-equal sublists resolves the infinite recursion.<br>
+                                    <strong>Tokens used:</strong> Full reasoning chain (debugging requires step-by-step trace analysis)</p>
                                 </div>
                             </div>
                         </div>
@@ -470,8 +485,8 @@
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Demonstration Ensembling</h2>
-                <p class="section-subtitle fade-in-up">Best for tasks where consistency and reliability outweigh latency costs</p>
+                <h2 class="section-title fade-in-up">When to Use Uncertainty-Routed CoT</h2>
+                <p class="section-subtitle fade-in-up">Best for production systems balancing cost, latency, and accuracy</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -483,8 +498,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>High-Stakes Classification</strong>
-                                    <p>Medical triage, content moderation, fraud detection &mdash; any domain where a single misclassification carries significant consequences and reliability trumps speed.</p>
+                                    <strong>High-Volume Production Systems</strong>
+                                    <p>When processing thousands or millions of queries daily, even small per-query savings compound into significant cost reductions without sacrificing quality on hard questions.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -493,8 +508,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Ambiguous or Borderline Inputs</strong>
-                                    <p>When inputs frequently fall between categories or have multiple valid interpretations, ensembling reveals whether disagreement is a feature of the input or an artifact of the examples.</p>
+                                    <strong>Mixed-Difficulty Workloads</strong>
+                                    <p>Pipelines that receive a blend of easy and hard questions benefit most from routing &mdash; the easy majority subsidizes the expensive minority through token savings.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -503,8 +518,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Evaluation and Benchmarking</strong>
-                                    <p>When measuring LLM performance, ensembling across example sets produces more stable metrics that reflect true model capability rather than prompt sensitivity.</p>
+                                    <strong>Latency-Sensitive Applications</strong>
+                                    <p>When users expect fast responses for simple queries &mdash; such as chatbots or real-time assistants &mdash; routing avoids the latency penalty of unnecessary reasoning on straightforward requests.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -513,8 +528,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Large Example Pools</strong>
-                                    <p>When you have far more labeled examples than fit in a single prompt, ensembling lets you leverage the full pool rather than discarding most of your data.</p>
+                                    <strong>Budget-Constrained Deployments</strong>
+                                    <p>Organizations that cannot afford to run CoT on every single request can use routing to allocate their reasoning budget where it produces the greatest accuracy improvement.</p>
                                 </div>
                             </div>
                         </div>
@@ -528,8 +543,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Latency-Sensitive Applications</strong>
-                                    <p>Each ensemble member adds an API call. If your use case requires sub-second responses &mdash; like autocomplete or real-time chat &mdash; the overhead of N parallel calls may be prohibitive.</p>
+                                    <strong>Uniformly Difficult Queries</strong>
+                                    <p>If every question in your pipeline is genuinely hard &mdash; such as advanced mathematical proofs or complex legal analysis &mdash; routing adds overhead without saving cost, since nearly all queries will trigger CoT anyway.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -538,8 +553,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Very Small Example Pools</strong>
-                                    <p>If you only have 3&ndash;4 examples total, you cannot create meaningfully diverse subsets. The &ldquo;ensembles&rdquo; would overlap too heavily to provide independent signals.</p>
+                                    <strong>Maximum Accuracy Requirements</strong>
+                                    <p>In safety-critical domains where even a small accuracy drop on &ldquo;easy&rdquo; questions is unacceptable &mdash; such as medical diagnosis or aviation systems &mdash; the risk of skipping CoT on a misclassified query may outweigh the cost savings.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -548,8 +563,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Budget-Constrained Scenarios</strong>
-                                    <p>Ensembling multiplies your API costs by N. For exploratory or low-value tasks where a single good-enough answer suffices, the cost-benefit ratio doesn&rsquo;t justify the approach.</p>
+                                    <strong>No Confidence Measurement Infrastructure</strong>
+                                    <p>If your deployment lacks access to token probabilities, cannot run multiple samples, and has no way to gauge model confidence, the routing mechanism has no signal to operate on.</p>
                                 </div>
                             </div>
                         </div>
@@ -563,27 +578,28 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Demonstration Ensembling delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where uncertainty-based routing delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Content Moderation</h3>
-                        <p class="use-case-showcase__desc">Run flagged content through multiple example sets spanning different violation types to reduce both false positives and false negatives in automated moderation pipelines.</p>
+                        <h3 class="use-case-showcase__title">Customer Support Chatbots</h3>
+                        <p class="use-case-showcase__desc">Most support queries are routine (password resets, order tracking) and can be answered directly. Complex escalation cases get full reasoning to diagnose multi-system issues accurately.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Medical Triage</h3>
-                        <p class="use-case-showcase__desc">Classify patient symptoms across multiple demonstration sets covering different specialties, ensuring the urgency assessment isn&rsquo;t biased by the particular clinical examples shown.</p>
+                        <h3 class="use-case-showcase__title">Educational Q&amp;A Platforms</h3>
+                        <p class="use-case-showcase__desc">Factual recall questions are answered instantly, while conceptual or multi-step problems trigger detailed explanations that walk students through the reasoning process.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -595,8 +611,29 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Document Classification</h3>
-                        <p class="use-case-showcase__desc">Sort incoming documents into categories using diverse example sets that cover different document styles, formats, and edge cases for each category.</p>
+                        <h3 class="use-case-showcase__title">Automated Grading Systems</h3>
+                        <p class="use-case-showcase__desc">Clear-cut right-or-wrong answers are graded directly. Ambiguous, partial-credit, or essay-style responses are routed through CoT for nuanced evaluation and detailed feedback.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Medical Information Hotlines</h3>
+                        <p class="use-case-showcase__desc">Common health questions (dosage, side effects) are answered directly from knowledge. Symptom-combination queries that could indicate multiple conditions trigger thorough differential reasoning.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Code Review Automation</h3>
+                        <p class="use-case-showcase__desc">Obvious style violations and syntax issues are flagged directly. Subtle logic bugs, race conditions, or architectural concerns are analyzed through step-by-step reasoning chains.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -607,29 +644,8 @@
                                 <path d="M6 20v-6"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Sentiment Analysis</h3>
-                        <p class="use-case-showcase__desc">Ensemble across example sets that emphasize different sentiment signals &mdash; sarcasm, understatement, cultural context &mdash; to produce more nuanced and consistent sentiment scores.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Intent Recognition</h3>
-                        <p class="use-case-showcase__desc">Classify user queries in chatbot systems using multiple example sets that cover different phrasings and contexts for each intent, reducing misrouting of ambiguous requests.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">LLM Evaluation</h3>
-                        <p class="use-case-showcase__desc">Benchmark model performance using ensembled example sets to produce stable accuracy metrics that reflect true capability rather than sensitivity to prompt construction.</p>
+                        <h3 class="use-case-showcase__title">Financial Analysis Assistants</h3>
+                        <p class="use-case-showcase__desc">Straightforward metric lookups (current stock price, market cap) return instantly. Complex valuation questions, risk assessments, or multi-factor analyses receive full reasoning treatment.</p>
                     </div>
                 </div>
             </div>
@@ -639,35 +655,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Demonstration Ensembling Fits</h2>
-                <p class="section-subtitle fade-in-up">Bridging few-shot learning and systematic reliability engineering</p>
+                <h2 class="section-title fade-in-up">Where Uncertainty-Routed CoT Fits</h2>
+                <p class="section-subtitle fade-in-up">From universal reasoning to adaptive, confidence-driven intelligence</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
-                        <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Single Example Set</span>
-                        <span class="era-marker__desc">One fixed set of demonstrations</span>
-                    </div>
-                    <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Demo Ensembling</span>
-                        <span class="era-marker__title">Multiple Sets + Voting</span>
-                        <span class="era-marker__desc">Aggregated predictions across diverse examples</span>
+                        <span class="era-marker__year">Chain-of-Thought</span>
+                        <span class="era-marker__title">Always Reason</span>
+                        <span class="era-marker__desc">Step-by-step on every query</span>
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Multiple Reasoning Paths</span>
-                        <span class="era-marker__desc">Diverse reasoning chains with voting</span>
+                        <span class="era-marker__title">Sample Multiple Paths</span>
+                        <span class="era-marker__desc">Vote across reasoning chains</span>
+                    </div>
+                    <div class="era-marker era-marker--active">
+                        <span class="era-marker__year">Uncertainty-Routed CoT</span>
+                        <span class="era-marker__title">Route by Confidence</span>
+                        <span class="era-marker__desc">Reason only when uncertain</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">DiVeRSe</span>
-                        <span class="era-marker__title">Full Pipeline Diversity</span>
-                        <span class="era-marker__desc">Diverse prompts, paths, and verifiers</span>
+                        <span class="era-marker__year">Meta-Reasoning</span>
+                        <span class="era-marker__title">Choose Strategy Dynamically</span>
+                        <span class="era-marker__desc">Select the optimal reasoning method</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Combine for Maximum Reliability</div>
-                    <p>Demonstration Ensembling and Self-Consistency target different sources of variance. Ensembling varies the <strong>context</strong> (which examples the model sees), while Self-Consistency varies the <strong>reasoning path</strong> (how the model thinks through the same context). Combining both &mdash; running multiple reasoning samples across multiple example sets &mdash; creates a two-dimensional ensemble that reduces variance from both sources simultaneously. In production systems handling critical decisions, this layered approach can push reliability close to human-level consistency.</p>
+                    <div class="callout-title">Tuning the Confidence Threshold</div>
+                    <p>The routing threshold is the most important parameter in an Uncertainty-Routed CoT system. Start with a conservative threshold (90%+) and gradually lower it while monitoring accuracy on a held-out evaluation set. Track two metrics: the percentage of queries routed to CoT (your &ldquo;reasoning rate&rdquo;) and the accuracy on queries that bypass CoT. The optimal threshold is the lowest value where bypassed queries maintain acceptable accuracy &mdash; this maximizes cost savings while preserving quality.</p>
                 </div>
             </div>
         </section>
@@ -677,48 +693,9 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary ensemble and example-based techniques</p>
+                <p class="section-subtitle fade-in-up">Explore techniques that connect to uncertainty-based routing</p>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 2l4 4-4 4"/>
-                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
-                            <path d="M7 22l-4-4 4-4"/>
-                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Complement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Samples multiple reasoning paths from the same prompt and takes a majority vote &mdash; ensembling over reasoning rather than over demonstrations.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="diverse.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Evolution</span>
-                        <span class="evolution-callout__title">DiVeRSe</span>
-                        <span class="evolution-callout__desc">Extends ensembling to diversify across prompts, reasoning paths, and verification steps &mdash; a comprehensive pipeline that builds on demonstration variation.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -729,8 +706,47 @@
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">The foundational technique of providing examples in the prompt &mdash; Demonstration Ensembling extends this by systematically varying which examples are shown.</span>
+                        <span class="evolution-callout__title">Chain-of-Thought</span>
+                        <span class="evolution-callout__desc">Uncertainty-Routed CoT makes Chain-of-Thought conditional rather than universal, applying detailed reasoning only when the model&rsquo;s confidence indicates it is needed.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Self-Consistency</span>
+                        <span class="evolution-callout__desc">Self-Consistency sampling can serve as the uncertainty measurement mechanism &mdash; if multiple samples disagree, uncertainty is high and the query should be routed to CoT.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="complexity-prompting.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Parallel</span>
+                        <span class="evolution-callout__title">Complexity-Based Prompting</span>
+                        <span class="evolution-callout__desc">Both techniques selectively apply more reasoning effort to harder problems, but use different signals &mdash; Complexity-Based measures reasoning chain length, while Uncertainty-Routed measures model confidence.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -748,8 +764,8 @@
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Build Reliable Predictions</h2>
-                        <p class="cta-corporate__text">Try Demonstration Ensembling on your own classification tasks or explore ensemble strategies with our prompt engineering tools.</p>
+                        <h2 class="cta-corporate__title">Route Your Reasoning</h2>
+                        <p class="cta-corporate__text">Apply uncertainty-based routing to optimize your reasoning pipeline or explore our prompting tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
                             <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
@@ -762,7 +778,6 @@
     </main>
 
 
-    <!-- === FOOTER + BACK-TO-TOP === -->
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
     <div class="container">
@@ -825,9 +840,8 @@
         </span>
         <span class="back-to-top-text">Back to Top</span>
     </button>
-    <!-- /FOOTER + BACK-TO-TOP -->
 
-    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <!-- Accessibility Dashboard -->
     <div class="adl-dim-overlay" aria-hidden="true"></div>
     <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -893,7 +907,6 @@
         </div>
         <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
     </div>
-    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

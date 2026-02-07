@@ -4,6 +4,45 @@
 
 ---
 
+## Session 45 (2026-02-07)
+**Phase 2 Text Frameworks COMPLETE (52/52) — Final 5 pages + full site integration**
+
+- [x] **5 Framework Pages Created** (parallel background agents, 870-907 lines each):
+  - `learn/many-shot.html` (891 lines) — Many-Shot Prompting, 2024 by Agarwal et al., Google DeepMind
+  - `learn/example-ordering.html` (871 lines) — Example Ordering, 2022 by Lu et al.
+  - `learn/self-generated-icl.html` (873 lines) — Self-Generated ICL, 2022 by Kim et al.
+  - `learn/active-example.html` (873 lines) — Active Example Selection, 2023
+  - `learn/uncertainty-cot.html` (907 lines) — Uncertainty-Routed CoT, 2023 by Wang et al.
+  - All 13 sections, zero inline styles/scripts, historical context notices on all pages
+
+- [x] **Mega-Menu Navigation Updated** (111 HTML files via `update_nav_s45.py`):
+  - In-Context Learning section: +4 links (Many-Shot, Example Ordering, Self-Generated ICL, Active Example)
+  - Reasoning & CoT section: +1 link (Uncertainty-Routed CoT)
+  - All 3 depth levels verified (root, one-deep, two-deep)
+
+- [x] **Search Index** — 5 new entries added to `data/search-index.json`
+
+- [x] **Discover Hub** (`learn/index.html`) — 5 new framework cards, filter counts: ICL 9->13, CoT 14->15
+
+- [x] **Category Pages Updated**:
+  - `learn/in-context-learning.html` — count 9->13, +4 cards, +4 comparison table rows, meta desc updated
+  - `learn/reasoning-cot.html` — count 14->15, +1 card, +1 comparison table row, meta desc updated
+
+- [x] **Homepage** (`index.html`) — Counter 62+->67+, CTA "View All 67+ Frameworks"
+
+**Quality Checks Passed:** 0 inline styles, 0 inline scripts, 0 external resources across all 5 new pages.
+
+---
+
+## Session 44 (2026-02-07)
+**UI Refinements + Handoff Prep**
+
+- [x] **AI Foundations Title** (`9847fc9`) — Changed h1 to "The History of Modern AI"
+- [x] **Homepage Hero Button** (`9847fc9`) — Changed "AI for Everybody" button to "Framework Library"
+- [x] **Desktop Mega-Menu Centering** (`26701b1`, `615d25a`, `e522503`) — Discover menu viewport-centered, Resources menu nav-link-centered
+
+---
+
 ## Session 42 (2026-02-07)
 **Discover Hub — Phases 1-3 Implementation**
 

@@ -778,6 +778,41 @@ Resources (mega-menu)
 
 # SESSION LOG
 
+## Session 45 (2026-02-07)
+
+**Focus:** Complete Phase 2 Text Frameworks (final 5 pages) + full site integration
+**Status:** COMPLETE — Phase 2 is 100% done (52/52 text framework pages)
+
+**Completed:**
+- [x] **5 Framework Pages Created** (parallel background agents):
+  - `learn/many-shot.html` (891 lines) — Many-Shot Prompting, 2024 by Agarwal et al.
+  - `learn/example-ordering.html` (871 lines) — Example Ordering, 2022 by Lu et al.
+  - `learn/self-generated-icl.html` (873 lines) — Self-Generated ICL, 2022 by Kim et al.
+  - `learn/active-example.html` (873 lines) — Active Example Selection, 2023
+  - `learn/uncertainty-cot.html` (907 lines) — Uncertainty-Routed CoT, 2023 by Wang et al.
+- [x] **Navigation Updated** — 111 HTML files updated via `update_nav_s45.py` (+4 ICL links, +1 CoT link)
+- [x] **Search Index** — 5 new entries added to `data/search-index.json`
+- [x] **Discover Hub** — 5 new cards, filter counts updated (ICL 9->13, CoT 14->15)
+- [x] **Category Pages** — `in-context-learning.html` (9->13), `reasoning-cot.html` (14->15)
+- [x] **Homepage** — Counter 62+->67+, CTA text updated
+- [x] Quality: 0 inline styles, 0 inline scripts, 0 external resources, historical context on all pages
+
+**Files Created:**
+- 5 learn/*.html files (full 13-section template, 870-907 lines each)
+
+**Files Modified:**
+- 111 HTML files (navigation update)
+- `data/search-index.json` (5 new entries)
+- `learn/index.html` (5 new cards, count updates)
+- `learn/in-context-learning.html` (4 new cards, count updates)
+- `learn/reasoning-cot.html` (1 new card, count update)
+- `index.html` (counter + CTA updates)
+- `.claude/HANDOFF.md`, `.claude/plans/FrameworkOverhaul.md`
+
+**Next:** Phase 3 — Modality Frameworks (37 pages, 0% done)
+
+---
+
 ## Session 41 (2026-02-07)
 
 **Focus:** Codebase Deep Dive + SiteFrameworks.md Documentation
@@ -1402,12 +1437,12 @@ Progress: [████████████████████] 100%
 - [x] Rewrote JSON loader using DOM API — no innerHTML (Session 29)
 - [x] Added content-visibility: auto for lazy rendering (Session 29)
 
-### Phase 2: Text Frameworks (47/52)
+### Phase 2: Text Frameworks (52/52) ✅ COMPLETE
 ```
-Progress: [██████████████████░░] 90%
+Progress: [████████████████████] 100%
 HIGH Priority: [████████████████████] 100%
 MEDIUM Priority: [████████████████████] 100%
-LOW Priority: [██████████████████░░] 88%
+LOW Priority: [████████████████████] 100%
 ```
 
 **2A: Zero-Shot Frameworks (8/8) COMPLETE**
@@ -1420,26 +1455,26 @@ LOW Priority: [██████████████████░░] 88%
 - [x] re2.html (LOW) ✅
 - [x] self-ask.html (MEDIUM) ✅
 
-**2B: In-Context Learning (6/10)**
+**2B: In-Context Learning (10/10) COMPLETE**
 - [x] one-shot.html (HIGH) ✅
-- [ ] many-shot.html (MEDIUM)
+- [x] many-shot.html (MEDIUM) ✅ Session 45
 - [x] example-selection.html (HIGH) ✅
-- [ ] example-ordering.html (MEDIUM)
+- [x] example-ordering.html (MEDIUM) ✅ Session 45
 - [x] knn-prompting.html (LOW) ✅
 - [x] vote-k.html (LOW) ✅
-- [ ] self-generated-icl.html (MEDIUM)
+- [x] self-generated-icl.html (MEDIUM) ✅ Session 45
 - [x] demo-ensembling.html (LOW) ✅
-- [ ] active-example.html (LOW)
+- [x] active-example.html (LOW) ✅ Session 45
 - [x] prompt-mining.html (LOW) ✅
 
-**2C: Thought Generation (11/12)**
+**2C: Thought Generation (12/12) COMPLETE**
 - [x] zero-shot-cot.html (HIGH) ✅
 - [x] analogical-reasoning.html (MEDIUM) ✅
 - [x] step-back.html (MEDIUM) ✅
 - [x] thread-of-thought.html (LOW) ✅
 - [x] tab-cot.html (LOW) ✅
 - [x] contrastive-cot.html (MEDIUM) ✅
-- [ ] uncertainty-cot.html (LOW)
+- [x] uncertainty-cot.html (LOW) ✅ Session 45
 - [x] complexity-prompting.html (LOW) ✅
 - [x] active-prompting.html (LOW) ✅
 - [x] memory-of-thought.html (LOW) ✅
@@ -1474,14 +1509,7 @@ LOW Priority: [██████████████████░░] 88%
 - [x] self-calibration.html (LOW) ✅
 - [x] reflexion.html (MEDIUM) ✅
 
-**Remaining (5 pages):**
-1. many-shot.html
-2. example-ordering.html
-3. self-generated-icl.html
-4. active-example.html
-5. uncertainty-cot.html
-
-**Note:** Navigation updated with Advanced + Self-Correction + Code sections in all 99+ files
+**Note:** Navigation updated across all 111+ files with all 70 framework links
 
 ### Quality Redesign Waves (40/40 pages complete) — Track Started Session 29
 ```

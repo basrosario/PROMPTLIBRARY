@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demonstration Ensembling: Run the same query with multiple different sets of few-shot examples and combine results through voting or aggregation for more robust, consistent AI predictions.">
-    <title>Demonstration Ensembling - Praxis</title>
+    <meta name="description" content="Active Example Selection: Dynamically choose in-context demonstrations based on model uncertainty to maximize few-shot learning accuracy for each query.">
+    <title>Active Example Selection - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -187,13 +187,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Demonstration Ensembling</span>
+                    <span class="current">Active Example Selection</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Ensemble Technique</span>
+                    <span class="hero-badge__text">In-Context Learning Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Demonstration Ensembling</h1>
-                <p class="page-subtitle fade-in">Any single set of few-shot examples carries its own biases &mdash; the phrasing, the order, the edge cases it happens to cover. Demonstration Ensembling neutralizes that fragility by running the same query across multiple different example sets and combining the results, producing predictions that are more robust, more consistent, and less dependent on the luck of which demonstrations you happened to pick.</p>
+                <h1 class="page-title fade-in">Active Example Selection</h1>
+                <p class="page-subtitle fade-in">Not all demonstrations are created equal. Active Example Selection watches where the model stumbles, then retrieves the specific examples most likely to resolve that uncertainty &mdash; turning static few-shot prompting into a dynamic, query-aware feedback loop.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -203,9 +203,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2022</span>
-                        <p><strong>Introduced:</strong> Demonstration Ensembling emerged from research in 2022 showing that LLM outputs can be surprisingly sensitive to which few-shot examples appear in the prompt. Two different sets of demonstrations &mdash; both perfectly valid &mdash; can produce different answers to the same question. This technique addresses that instability head-on: instead of betting on a single example set, you create multiple distinct sets from your available pool, run each one independently, and aggregate the results through majority voting or averaging. The ensemble approach borrows a proven principle from classical machine learning, where combining multiple weak learners consistently outperforms any single model.</p>
-                        <p><strong>Modern LLM Status:</strong> The principle of ensembling across different contexts remains a <strong>powerful reliability strategy</strong>, now commonly applied in evaluation pipelines and production systems where consistency matters more than speed. Modern implementations often combine demonstration ensembling with self-consistency sampling, temperature variation, or retrieval-augmented example selection. In high-stakes domains like medical triage, content moderation, and financial classification, ensembling across example sets is a standard practice for reducing variance and catching edge cases that any single prompt configuration might miss.</p>
+                        <span class="highlight-box__title">Framework Context: 2023</span>
+                        <p><strong>Introduced:</strong> Active Example Selection builds on decades of active learning research (Settles, 2009) and adapts those principles specifically for in-context demonstration selection in large language models. Rather than treating few-shot examples as a fixed preamble, this approach emerged from the recognition that different queries benefit from fundamentally different demonstrations. By 2023, researchers had formalized methods for dynamically selecting in-context examples based on model uncertainty, query characteristics, and task-specific performance signals.</p>
+                        <p><strong>Modern LLM Status:</strong> Active Example Selection is an <strong>active technique</strong> that applies active learning principles to the selection of in-context demonstrations. Rather than statically choosing examples, the approach iteratively selects demonstrations based on the model&rsquo;s current uncertainty or errors. When the model is uncertain about a particular input, the system retrieves examples most likely to resolve that uncertainty. This creates a feedback loop where example selection is tailored to each specific query, improving efficiency and accuracy compared to fixed demonstration sets. The technique is particularly relevant for production systems that handle diverse queries requiring different types of demonstrations.</p>
                     </div>
                 </div>
             </div>
@@ -218,16 +218,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Why Varying Examples Reduces Bias</h2>
-                        <p class="split-section__text">Every set of few-shot examples encodes implicit assumptions. If your three examples all happen to be short responses, the model learns &ldquo;keep it brief.&rdquo; If they all handle straightforward cases, the model may stumble on ambiguity. A single demonstration set is like asking one expert for their opinion &mdash; useful, but inherently limited by that expert&rsquo;s perspective and experience.</p>
-                        <p class="split-section__text"><strong>Demonstration Ensembling treats examples like a jury rather than a single judge.</strong> By assembling multiple distinct sets of demonstrations &mdash; each drawing from different parts of your example pool &mdash; you expose the model to a broader range of patterns, edge cases, and response styles. When you aggregate the outputs, the biases of any individual set wash out. What survives the vote is the signal that persists across all contexts.</p>
-                        <p class="split-section__text">Think of it like surveying a landscape from multiple vantage points. Each viewpoint reveals features that others miss, and the composite picture is richer and more accurate than any single perspective could provide.</p>
+                        <h2 class="split-section__title">Let the Model&rsquo;s Weakness Guide Your Examples</h2>
+                        <p class="split-section__text">Active Example Selection dynamically chooses which few-shot demonstrations to show the model based on where the model is currently struggling. Instead of using a fixed set of examples for all queries, it identifies the model&rsquo;s weak points and selects demonstrations that specifically address those weaknesses. The result is a prompt that is precisely calibrated to each individual query rather than generically assembled for all possible inputs.</p>
+                        <p class="split-section__text"><strong>This is analogous to a tutor who watches a student fail a particular type of problem and then provides a worked example of exactly that problem type</strong> &mdash; targeted instruction rather than generic review. A math tutor does not re-explain addition when the student is stuck on long division. Similarly, Active Example Selection does not waste context window space on demonstrations the model already handles well.</p>
+                        <p class="split-section__text">The approach transforms few-shot prompting from a static configuration step into a responsive, real-time process. Each query triggers a fresh assessment of what the model needs to see, and the demonstration set is assembled accordingly. This closes the gap between generic prompting and fully fine-tuned models by making the most of every token in the context window.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Demonstration Sensitivity Problem</span>
-                                <p>Research has shown that simply reordering the same few-shot examples can swing classification accuracy by 10&ndash;30 percentage points. Swapping one example for another from the same category can flip the model&rsquo;s answer entirely. This isn&rsquo;t a flaw in the model &mdash; it&rsquo;s a consequence of how in-context learning works. Demonstration Ensembling doesn&rsquo;t try to find the &ldquo;perfect&rdquo; example set (which may not exist). Instead, it <strong>embraces the variance</strong> and uses aggregation to extract the stable, reliable signal underneath.</p>
+                                <span class="highlight-box__title">Why Dynamic Selection Outperforms Fixed Demonstrations</span>
+                                <p>Fixed example sets are a compromise &mdash; they try to cover the broadest range of scenarios but inevitably miss the specific nuances any given query demands. A set optimized for common cases will fail on edge cases, while a set loaded with edge cases wastes tokens on the routine majority. Active Example Selection eliminates this trade-off entirely by assembling a <strong>bespoke demonstration set for every single query</strong>, ensuring the context window always contains the most informative examples possible.</p>
                             </div>
                         </div>
                     </div>
@@ -239,8 +239,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Demonstration Ensembling Process</h2>
-                <p class="section-subtitle fade-in-up">Four stages from example pool to aggregated prediction</p>
+                <h2 class="section-title fade-in-up">The Active Example Selection Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from uncertainty detection to tailored demonstration</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -248,11 +248,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Create N Distinct Example Sets</h3>
-                            <p class="element-timeline__text">Start with a pool of available few-shot examples and sample N different subsets from it. Each set should contain a representative mix of cases but draw from different examples. The goal is diversity &mdash; each set should expose the model to a slightly different slice of your problem space, varying in difficulty, phrasing, and edge case coverage.</p>
+                            <h3 class="element-timeline__title">Maintain an Example Pool</h3>
+                            <p class="element-timeline__text">Curate a large bank of labeled input-output pairs covering the full task distribution. This pool serves as the reservoir from which demonstrations are dynamically drawn. The richer and more diverse the pool, the more precisely the system can match examples to any given query&rsquo;s needs.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>From a pool of 20 labeled sentiment examples, create 5 sets of 3 examples each. Set A might include a sarcastic review, a straightforward positive, and a mixed sentiment. Set B draws a formal complaint, an enthusiastic endorsement, and a neutral description.</p>
+                                <p>A customer support classification system maintains 500 labeled tickets spanning billing inquiries, technical issues, cancellation requests, feature requests, and account recovery &mdash; each with its correct category label and reasoning.</p>
                             </div>
                         </div>
                     </div>
@@ -262,11 +262,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Run the Same Query with Each Set Independently</h3>
-                            <p class="element-timeline__text">Submit your target query to the model N times, each time paired with a different example set. The query itself stays identical &mdash; only the demonstrations change. Each prompt independently primes the model with its unique context, producing a response shaped by that particular set of examples. These runs can execute in parallel for efficiency.</p>
+                            <h3 class="element-timeline__title">Assess Model Uncertainty</h3>
+                            <p class="element-timeline__text">For a given query, evaluate the model&rsquo;s confidence or uncertainty. This can be measured through output probability distributions, consistency across multiple generations, or entropy of the predicted label distribution. High uncertainty signals that the model needs targeted help to resolve this particular input.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The query &ldquo;Classify this review: &lsquo;The battery life is decent but the screen cracks too easily&rsquo;&rdquo; is sent 5 times, each preceded by a different set of 3 labeled examples. Each prompt independently produces a sentiment classification.</p>
+                                <p>The model receives &ldquo;I need to change the card on file, but if this doesn&rsquo;t fix the charge issue I want to close my account.&rdquo; It assigns 38% probability to &ldquo;billing inquiry&rdquo; and 35% to &ldquo;cancellation request&rdquo; &mdash; high entropy indicates genuine ambiguity.</p>
                             </div>
                         </div>
                     </div>
@@ -276,11 +276,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Collect All N Responses</h3>
-                            <p class="element-timeline__text">Gather the outputs from all N runs. For classification tasks, this yields N predicted labels. For generation tasks, you collect N distinct text outputs. For numerical predictions, you have N values. Each response reflects the model&rsquo;s interpretation as influenced by its particular demonstration context &mdash; some may agree, others may diverge on edge cases.</p>
+                            <h3 class="element-timeline__title">Select Targeted Examples</h3>
+                            <p class="element-timeline__text">Choose examples from the pool that are most relevant to the model&rsquo;s uncertainty region. Prioritize examples that are semantically similar to the query, represent the uncertain label classes, or cover the specific edge case the model is struggling with. The selection algorithm balances similarity, diversity, and informational value.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The 5 runs return: Mixed (Set A), Negative (Set B), Mixed (Set C), Mixed (Set D), Negative (Set E). Three out of five agree on &ldquo;Mixed&rdquo; while two say &ldquo;Negative.&rdquo;</p>
+                                <p>The system retrieves three examples from the pool: one where a payment method change was correctly labeled as &ldquo;billing inquiry,&rdquo; one where a conditional cancellation threat was labeled &ldquo;cancellation request,&rdquo; and one borderline case where both topics appeared but billing was primary &mdash; demonstrating the distinguishing signals.</p>
                             </div>
                         </div>
                     </div>
@@ -290,11 +290,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Aggregate Results via Majority Vote, Averaging, or Consensus</h3>
-                            <p class="element-timeline__text">Combine the N responses into a single final answer. For classification, use majority voting &mdash; the label that appears most frequently wins. For numerical tasks, take the mean or median. For generation tasks, you can select the response most similar to the others, use an LLM to synthesize a consensus answer, or rank outputs by agreement. The aggregation step is where individual biases cancel out and the robust signal emerges.</p>
+                            <h3 class="element-timeline__title">Generate with Tailored Context</h3>
+                            <p class="element-timeline__text">Present the dynamically selected examples as in-context demonstrations, then pose the query. The model now has demonstrations specifically chosen to address its weaknesses on this particular input. The result is a response informed by the most relevant possible context rather than generic, one-size-fits-all demonstrations.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>Majority vote: 3 out of 5 responses say &ldquo;Mixed,&rdquo; so the final classification is <strong>&ldquo;Mixed Sentiment&rdquo;</strong> with 60% agreement confidence. The two &ldquo;Negative&rdquo; votes flag this as a borderline case worth human review.</p>
+                                <p>With the three targeted examples in context, the model now correctly classifies the ticket as &ldquo;billing inquiry&rdquo; with 82% confidence &mdash; the borderline example showed that when the primary action requested is a payment method change, the billing label takes precedence even when cancellation is mentioned conditionally.</p>
                             </div>
                         </div>
                     </div>
@@ -303,11 +303,11 @@
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === THE COMPARISON === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Why multiple example sets outperform a single demonstration</p>
+                <p class="section-subtitle fade-in-up">Why query-aware demonstrations outperform fixed example sets</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -318,16 +318,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Single Example Set</h3>
+                            <h3 class="comparison-panel__title">Static Example Selection</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Three few-shot examples are chosen for a support ticket classifier. All three happen to be billing-related complaints with angry tone. The model sees: refund request &rarr; Billing, overcharge dispute &rarr; Billing, payment failure &rarr; Billing.</p>
+                                <span class="comparison-panel__label">Fixed Demonstrations</span>
+                                <p>Same three examples used for every query: a clear billing ticket, a clear technical issue, and a clear feature request. These were chosen once during system setup and never change regardless of input.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>New ticket: &ldquo;I can&rsquo;t log in to my account after the update.&rdquo; The model classifies it as <strong>Billing</strong> because the examples biased it toward that category. The actual category should be Technical Support.</p>
+                                <span class="comparison-panel__label">Result on Ambiguous Input</span>
+                                <p>Model classifies the mixed billing-and-cancellation ticket as &ldquo;cancellation request&rdquo; with 52% confidence. The fixed examples provided no guidance on distinguishing overlapping categories.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -335,7 +335,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Fragile &mdash; biased by whichever examples were chosen</span>
+                            <span>One-size-fits-all approach wastes context on irrelevant demonstrations</span>
                         </div>
                     </div>
 
@@ -350,16 +350,16 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Demo Ensembling</h3>
+                            <h3 class="comparison-panel__title">Active Example Selection</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Five different example sets are created, each mixing billing, technical, and account issues. The same login ticket is classified independently by each set. Results: Technical (Set 1), Technical (Set 2), Account (Set 3), Technical (Set 4), Technical (Set 5).</p>
+                                <span class="comparison-panel__label">Dynamic Demonstrations</span>
+                                <p>System detects uncertainty between &ldquo;billing&rdquo; and &ldquo;cancellation,&rdquo; then retrieves: (1) a payment-method-change ticket labeled billing, (2) a conditional cancellation threat labeled cancellation, (3) a borderline case where billing was primary despite cancellation language.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>Majority vote: 4 out of 5 say <strong>Technical Support</strong>. The ensemble correctly identifies the category despite individual sets having different example compositions. The one &ldquo;Account&rdquo; vote is outweighed by the consensus.</p>
+                                <span class="comparison-panel__label">Result on Same Input</span>
+                                <p>Model correctly classifies as &ldquo;billing inquiry&rdquo; with 82% confidence. The targeted examples resolved the exact ambiguity the model was facing.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -367,7 +367,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Robust &mdash; no single example set can dominate the outcome</span>
+                            <span>Each query receives the most helpful demonstrations for its specific challenges</span>
                         </div>
                     </div>
                 </div>
@@ -378,34 +378,26 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Demonstration Ensembling in Action</h2>
-                <p class="section-subtitle fade-in-up">See how ensembling across example sets improves reliability</p>
+                <h2 class="section-title fade-in-up">Active Example Selection in Action</h2>
+                <p class="section-subtitle fade-in-up">See how uncertainty-driven demonstration selection resolves real challenges</p>
 
-                <div class="accordion fade-in-up" id="demo-ensembling-accordion">
+                <div class="accordion fade-in-up" id="active-example-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Classification Task: Email Intent Detection</span>
+                            <span class="accordion-title">Ambiguous Intent Classification</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Email</span>
-                                    <p>&ldquo;Hi team, I wanted to follow up on the quarterly numbers. Can we schedule a call this week to discuss projections and also loop in the design lead for the product review?&rdquo;</p>
+                                    <span class="technique-demo__tag">The Challenge</span>
+                                    <p>A customer support system receives the message: &ldquo;My subscription renewed but I thought I cancelled it last month. Can you check what happened and reverse the charge? If this keeps happening I&rsquo;m done with the service.&rdquo; The model is uncertain whether this is a billing dispute, a cancellation request, or an account inquiry.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: meeting request, project update, leave request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set B</strong> (examples: data inquiry, scheduling, feedback):<br>
-                                    Classification &rarr; <strong>Scheduling</strong><br><br>
-                                    <strong>Set C</strong> (examples: product review, team coordination, status check):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set D</strong> (examples: follow-up, escalation, scheduling):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set E</strong> (examples: introduction, meeting request, info request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Majority Vote (4/5):</strong> Meeting Request. The ensemble correctly identifies the primary intent despite the email containing multiple sub-intents including data discussion, scheduling, and cross-team coordination.</p>
+                                    <span class="technique-demo__tag">Active Selection Response</span>
+                                    <p><strong>Uncertainty detected:</strong> The model assigns 30% to &ldquo;billing dispute,&rdquo; 28% to &ldquo;cancellation request,&rdquo; and 25% to &ldquo;account inquiry&rdquo; &mdash; near-uniform distribution across three categories.<br><br>
+                                    <strong>Examples retrieved:</strong> The system pulls three demonstrations from the pool: (1) a ticket where a customer disputed an unexpected charge but explicitly wanted to keep the service &mdash; labeled &ldquo;billing dispute,&rdquo; (2) a ticket where a customer mentioned a past cancellation attempt and demanded the account be closed &mdash; labeled &ldquo;cancellation request,&rdquo; (3) a ticket where a customer asked about a renewal error but expressed frustration without a firm exit intent &mdash; labeled &ldquo;billing dispute.&rdquo;<br><br>
+                                    <strong>Result:</strong> With these targeted examples in context, the model correctly identifies the primary intent as &ldquo;billing dispute&rdquo; because the customer&rsquo;s core request is to reverse a charge and investigate, while the cancellation language is conditional (&ldquo;if this keeps happening&rdquo;) rather than definitive.</p>
                                 </div>
                             </div>
                         </div>
@@ -413,24 +405,20 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Content Generation: Product Description Tone</span>
+                            <span class="accordion-title">Edge Case Handling in Data Extraction</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Task</span>
-                                    <p>Write a product description for a noise-cancelling headphone aimed at audiophiles and commuters. Three example sets each show different product descriptions as demonstrations.</p>
+                                    <span class="technique-demo__tag">The Challenge</span>
+                                    <p>A data extraction pipeline encounters the date string &ldquo;3rd Quarter FY2024 (Oct-Dec 2023)&rdquo; in a financial document. The model needs to extract a standardized date range, but the fiscal year offset and informal quarter notation create ambiguity that standard date-parsing examples do not cover.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: luxury tech products with aspirational tone):<br>
-                                    Output emphasizes premium design aesthetics, lifestyle benefits, and brand prestige.<br><br>
-                                    <strong>Set B</strong> (examples: practical office gear with feature-focused tone):<br>
-                                    Output emphasizes battery life, call clarity, microphone quality, and comfort for 8-hour wear.<br><br>
-                                    <strong>Set C</strong> (examples: balanced product descriptions mixing emotion and specs):<br>
-                                    Output blends comfort claims with concrete specifications and realistic use scenarios.<br><br>
-                                    <strong>Consensus Synthesis:</strong> An aggregation pass identifies common themes across all three outputs &mdash; noise cancellation for focus, all-day comfort, and clear call quality. The final description combines the practical specifics from Set B with the engaging framing from Set A and the balanced structure from Set C, producing a description more complete and well-rounded than any single output.</p>
+                                    <span class="technique-demo__tag">Active Selection Response</span>
+                                    <p><strong>Uncertainty detected:</strong> The model generates inconsistent outputs across three attempts &mdash; &ldquo;2024-07 to 2024-09,&rdquo; &ldquo;2023-10 to 2023-12,&rdquo; and &ldquo;2024-10 to 2024-12&rdquo; &mdash; revealing confusion between calendar quarters and fiscal year offsets.<br><br>
+                                    <strong>Examples retrieved:</strong> The system retrieves demonstrations showing: (1) a fiscal year date with explicit calendar mapping where the correct output used the parenthetical calendar dates, (2) a quarter notation with a fiscal year offset where &ldquo;Q3 FY2025&rdquo; mapped to January through March 2025, (3) a case where parenthetical clarification overrode the fiscal year label as the authoritative date range.<br><br>
+                                    <strong>Result:</strong> The model correctly extracts &ldquo;2023-10-01 to 2023-12-31&rdquo; by following the pattern established in the retrieved examples: when explicit calendar dates appear in parentheses, those take precedence over fiscal year quarter calculations.</p>
                                 </div>
                             </div>
                         </div>
@@ -438,26 +426,20 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Data Extraction: Invoice Field Parsing</span>
+                            <span class="accordion-title">Code Review Categorization</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Document</span>
-                                    <p>Extract vendor name, invoice number, date, and total amount from a scanned invoice with imperfect OCR output: &ldquo;Vndr: Acme Ccrp. Inv#: 2024-0847 Dt: 03/15/24 Ttl: $12,450.00&rdquo;</p>
+                                    <span class="technique-demo__tag">The Challenge</span>
+                                    <p>An automated code review system needs to categorize a pull request that renames a function from <code>processData</code> to <code>validateAndTransformInput</code>, updates its internal logic to add input validation, and fixes a null-pointer exception in the process. The model is uncertain whether this is a &ldquo;refactor,&rdquo; a &ldquo;bug fix,&rdquo; or a &ldquo;feature enhancement.&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: clean invoices with standard formatting):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/24, Total: $12,450.00<br><br>
-                                    <strong>Set B</strong> (examples: messy OCR invoices with abbreviations):<br>
-                                    Vendor: Acme Corp., Invoice: 2024-0847, Date: 2024-03-15, Total: $12,450.00<br><br>
-                                    <strong>Set C</strong> (examples: international invoices with varied date formats):<br>
-                                    Vendor: Acme Ccrp, Invoice: 2024-0847, Date: March 15, 2024, Total: $12,450.00<br><br>
-                                    <strong>Set D</strong> (examples: invoices with OCR correction patterns):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/2024, Total: $12,450.00<br><br>
-                                    <strong>Consensus:</strong> All four agree on invoice number and total. Three of four correct &ldquo;Ccrp&rdquo; to &ldquo;Corp&rdquo; &mdash; majority vote applies the correction. Date format is standardized to the most common output. The ensemble catches the OCR error that Set C missed.</p>
+                                    <span class="technique-demo__tag">Active Selection Response</span>
+                                    <p><strong>Uncertainty detected:</strong> The model assigns 34% to &ldquo;refactor,&rdquo; 33% to &ldquo;bug fix,&rdquo; and 28% to &ldquo;feature enhancement&rdquo; &mdash; a three-way split with no clear winner.<br><br>
+                                    <strong>Examples retrieved:</strong> The system selects: (1) a PR that only renamed functions and reorganized code with no behavior change &mdash; labeled &ldquo;refactor,&rdquo; (2) a PR that renamed a function but also fixed an edge case crash in the same function &mdash; labeled &ldquo;bug fix&rdquo; because the behavioral fix was the primary motivation, (3) a PR that added input validation to an existing function without fixing any known bug &mdash; labeled &ldquo;feature enhancement.&rdquo;<br><br>
+                                    <strong>Result:</strong> The model correctly categorizes the PR as &ldquo;bug fix&rdquo; based on the pattern from the retrieved examples: when a rename and logic change accompany a fix for a known defect (the null-pointer exception), the bug fix label takes priority because the defect resolution is the motivating change.</p>
                                 </div>
                             </div>
                         </div>
@@ -467,11 +449,12 @@
         </section>
         <!-- /EXAMPLES IN ACTION -->
 
+
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Demonstration Ensembling</h2>
-                <p class="section-subtitle fade-in-up">Best for tasks where consistency and reliability outweigh latency costs</p>
+                <h2 class="section-title fade-in-up">When to Use Active Example Selection</h2>
+                <p class="section-subtitle fade-in-up">Best for systems where query diversity demands adaptive demonstrations</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -483,8 +466,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>High-Stakes Classification</strong>
-                                    <p>Medical triage, content moderation, fraud detection &mdash; any domain where a single misclassification carries significant consequences and reliability trumps speed.</p>
+                                    <strong>Production Systems with Diverse Queries</strong>
+                                    <p>When the same system handles billing questions, technical issues, and account management &mdash; each query type benefits from fundamentally different demonstrations.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -493,8 +476,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Ambiguous or Borderline Inputs</strong>
-                                    <p>When inputs frequently fall between categories or have multiple valid interpretations, ensembling reveals whether disagreement is a feature of the input or an artifact of the examples.</p>
+                                    <strong>Tasks with Many Edge Cases</strong>
+                                    <p>Domains where unusual inputs appear frequently &mdash; date formats, code patterns, legal language &mdash; and a fixed example set cannot anticipate every variant.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -503,8 +486,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Evaluation and Benchmarking</strong>
-                                    <p>When measuring LLM performance, ensembling across example sets produces more stable metrics that reflect true model capability rather than prompt sensitivity.</p>
+                                    <strong>High-Accuracy Requirements</strong>
+                                    <p>When generic examples leave performance gaps that matter &mdash; medical triage, financial classification, or content moderation where errors have real consequences.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -513,8 +496,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Large Example Pools</strong>
-                                    <p>When you have far more labeled examples than fit in a single prompt, ensembling lets you leverage the full pool rather than discarding most of your data.</p>
+                                    <strong>Large Labeled Data Pools</strong>
+                                    <p>Systems with hundreds or thousands of labeled examples available for retrieval &mdash; the larger the pool, the more precisely the system can match demonstrations to each query.</p>
                                 </div>
                             </div>
                         </div>
@@ -528,8 +511,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Latency-Sensitive Applications</strong>
-                                    <p>Each ensemble member adds an API call. If your use case requires sub-second responses &mdash; like autocomplete or real-time chat &mdash; the overhead of N parallel calls may be prohibitive.</p>
+                                    <strong>Simple, Uniform Tasks</strong>
+                                    <p>When the task is straightforward enough that the same fixed examples work consistently across all queries &mdash; sentiment analysis on product reviews, for instance.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -538,8 +521,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Very Small Example Pools</strong>
-                                    <p>If you only have 3&ndash;4 examples total, you cannot create meaningfully diverse subsets. The &ldquo;ensembles&rdquo; would overlap too heavily to provide independent signals.</p>
+                                    <strong>No Retrieval Infrastructure</strong>
+                                    <p>When there is no infrastructure for real-time example retrieval and uncertainty estimation &mdash; the technique requires embedding search, confidence scoring, and dynamic prompt assembly.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -548,8 +531,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Budget-Constrained Scenarios</strong>
-                                    <p>Ensembling multiplies your API costs by N. For exploratory or low-value tasks where a single good-enough answer suffices, the cost-benefit ratio doesn&rsquo;t justify the approach.</p>
+                                    <strong>Small Example Pools</strong>
+                                    <p>When fewer than 50 labeled examples are available, dynamic selection offers little advantage over simply including all of them or manually curating a representative subset.</p>
                                 </div>
                             </div>
                         </div>
@@ -563,62 +546,17 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Demonstration Ensembling delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where Active Example Selection delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Content Moderation</h3>
-                        <p class="use-case-showcase__desc">Run flagged content through multiple example sets spanning different violation types to reduce both false positives and false negatives in automated moderation pipelines.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Medical Triage</h3>
-                        <p class="use-case-showcase__desc">Classify patient symptoms across multiple demonstration sets covering different specialties, ensuring the urgency assessment isn&rsquo;t biased by the particular clinical examples shown.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Document Classification</h3>
-                        <p class="use-case-showcase__desc">Sort incoming documents into categories using diverse example sets that cover different document styles, formats, and edge cases for each category.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 20V10"/>
-                                <path d="M12 20V4"/>
-                                <path d="M6 20v-6"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Sentiment Analysis</h3>
-                        <p class="use-case-showcase__desc">Ensemble across example sets that emphasize different sentiment signals &mdash; sarcasm, understatement, cultural context &mdash; to produce more nuanced and consistent sentiment scores.</p>
-                    </div>
-
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Intent Recognition</h3>
-                        <p class="use-case-showcase__desc">Classify user queries in chatbot systems using multiple example sets that cover different phrasings and contexts for each intent, reducing misrouting of ambiguous requests.</p>
+                        <h3 class="use-case-showcase__title">Production Classification Systems</h3>
+                        <p class="use-case-showcase__desc">Route incoming tickets, documents, or messages to the correct category by selecting demonstrations that address the specific ambiguity each input presents, rather than relying on generic examples.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -628,8 +566,51 @@
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">LLM Evaluation</h3>
-                        <p class="use-case-showcase__desc">Benchmark model performance using ensembled example sets to produce stable accuracy metrics that reflect true capability rather than sensitivity to prompt construction.</p>
+                        <h3 class="use-case-showcase__title">Adaptive Tutoring</h3>
+                        <p class="use-case-showcase__desc">When a student submits an answer, identify the specific misconception and retrieve worked examples that address that exact misunderstanding, creating a personalized learning experience.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Real-Time Content Moderation</h3>
+                        <p class="use-case-showcase__desc">When the model is uncertain whether content violates a policy, retrieve examples of borderline cases in the same category to sharpen the distinction between acceptable and prohibited content.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Dynamic Code Review</h3>
+                        <p class="use-case-showcase__desc">Categorize pull requests by retrieving examples of similar code changes that were correctly labeled, especially for borderline cases that blend refactoring, bug fixes, and feature additions.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Medical Triage</h3>
+                        <p class="use-case-showcase__desc">When symptom descriptions are ambiguous, retrieve case examples with similar presentations but different diagnoses to help the model distinguish between conditions that share overlapping symptoms.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Multilingual Query Handling</h3>
+                        <p class="use-case-showcase__desc">When processing queries that mix languages or use culturally specific idioms, retrieve demonstrations in the relevant language combination to help the model handle code-switching and cultural context accurately.</p>
                     </div>
                 </div>
             </div>
@@ -639,35 +620,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Demonstration Ensembling Fits</h2>
-                <p class="section-subtitle fade-in-up">Bridging few-shot learning and systematic reliability engineering</p>
+                <h2 class="section-title fade-in-up">Where Active Example Selection Fits</h2>
+                <p class="section-subtitle fade-in-up">Active Example Selection bridges static curation and full knowledge-base integration</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
                         <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Single Example Set</span>
-                        <span class="era-marker__desc">One fixed set of demonstrations</span>
+                        <span class="era-marker__title">Fixed Examples</span>
+                        <span class="era-marker__desc">Same demonstrations for every query</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Example Selection</span>
+                        <span class="era-marker__title">Curated Examples</span>
+                        <span class="era-marker__desc">Manually chosen per task type</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Demo Ensembling</span>
-                        <span class="era-marker__title">Multiple Sets + Voting</span>
-                        <span class="era-marker__desc">Aggregated predictions across diverse examples</span>
+                        <span class="era-marker__year">Active Example Selection</span>
+                        <span class="era-marker__title">Uncertainty-Driven Examples</span>
+                        <span class="era-marker__desc">Dynamically selected per query</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Multiple Reasoning Paths</span>
-                        <span class="era-marker__desc">Diverse reasoning chains with voting</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">DiVeRSe</span>
-                        <span class="era-marker__title">Full Pipeline Diversity</span>
-                        <span class="era-marker__desc">Diverse prompts, paths, and verifiers</span>
+                        <span class="era-marker__year">RAG</span>
+                        <span class="era-marker__title">Full Knowledge Base</span>
+                        <span class="era-marker__desc">Retrieval from entire document stores</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Combine for Maximum Reliability</div>
-                    <p>Demonstration Ensembling and Self-Consistency target different sources of variance. Ensembling varies the <strong>context</strong> (which examples the model sees), while Self-Consistency varies the <strong>reasoning path</strong> (how the model thinks through the same context). Combining both &mdash; running multiple reasoning samples across multiple example sets &mdash; creates a two-dimensional ensemble that reduces variance from both sources simultaneously. In production systems handling critical decisions, this layered approach can push reliability close to human-level consistency.</p>
+                    <div class="callout-title">The Uncertainty Feedback Loop</div>
+                    <p>Active Example Selection is most powerful when deployed as a continuous loop rather than a one-shot process. As the system handles more queries, it can log which examples most effectively resolved uncertainty for similar inputs. Over time, the selection algorithm becomes increasingly precise &mdash; learning not just which examples are semantically similar, but which examples actually <strong>change the model&rsquo;s behavior</strong> in the desired direction. This creates a self-improving pipeline where example selection quality compounds with usage.</p>
                 </div>
             </div>
         </section>
@@ -677,48 +658,9 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary ensemble and example-based techniques</p>
+                <p class="section-subtitle fade-in-up">Explore complementary in-context learning techniques</p>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 2l4 4-4 4"/>
-                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
-                            <path d="M7 22l-4-4 4-4"/>
-                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Complement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Samples multiple reasoning paths from the same prompt and takes a majority vote &mdash; ensembling over reasoning rather than over demonstrations.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="diverse.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Evolution</span>
-                        <span class="evolution-callout__title">DiVeRSe</span>
-                        <span class="evolution-callout__desc">Extends ensembling to diversify across prompts, reasoning paths, and verification steps &mdash; a comprehensive pipeline that builds on demonstration variation.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="example-selection.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -729,8 +671,47 @@
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">The foundational technique of providing examples in the prompt &mdash; Demonstration Ensembling extends this by systematically varying which examples are shown.</span>
+                        <span class="evolution-callout__title">Example Selection</span>
+                        <span class="evolution-callout__desc">Active Example Selection extends static selection by making it dynamic and query-aware &mdash; moving from pre-chosen demonstrations to real-time, uncertainty-driven retrieval.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="knn-prompting.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Related</span>
+                        <span class="evolution-callout__title">KNN Prompting</span>
+                        <span class="evolution-callout__desc">Both retrieve examples based on query similarity, but Active Example Selection also factors in model uncertainty &mdash; not just semantic distance but whether the example will actually resolve the model&rsquo;s confusion.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="vote-k.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Vote-k</span>
+                        <span class="evolution-callout__desc">Vote-k uses model confidence to select examples for annotation, while Active Example Selection uses confidence to select examples for prompting &mdash; both leverage uncertainty but at different stages of the pipeline.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -748,8 +729,8 @@
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Build Reliable Predictions</h2>
-                        <p class="cta-corporate__text">Try Demonstration Ensembling on your own classification tasks or explore ensemble strategies with our prompt engineering tools.</p>
+                        <h2 class="cta-corporate__title">Target Your Demonstrations</h2>
+                        <p class="cta-corporate__text">Build query-aware demonstration pipelines or explore our prompting tools to design more effective in-context learning strategies.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
                             <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
@@ -762,7 +743,6 @@
     </main>
 
 
-    <!-- === FOOTER + BACK-TO-TOP === -->
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
     <div class="container">
@@ -825,9 +805,8 @@
         </span>
         <span class="back-to-top-text">Back to Top</span>
     </button>
-    <!-- /FOOTER + BACK-TO-TOP -->
 
-    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <!-- Accessibility Dashboard -->
     <div class="adl-dim-overlay" aria-hidden="true"></div>
     <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -893,7 +872,6 @@
         </div>
         <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
     </div>
-    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>

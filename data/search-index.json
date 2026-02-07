@@ -47670,5 +47670,96 @@
     ],
     "excerpt": "Reusable frameworks for common tasks. Patterns to understand and adapt, not templates to copy.",
     "url": "patterns/index.html"
+  },
+  {
+    "id": "learn-many-shot",
+    "title": "Many-Shot Prompting",
+    "category": "Discover",
+    "subcategory": "In-Context Learning",
+    "keywords": [
+      "many-shot",
+      "in-context learning",
+      "examples",
+      "demonstrations",
+      "large context",
+      "hundreds",
+      "pattern learning",
+      "classification",
+      "format consistency"
+    ],
+    "excerpt": "Provide dozens to thousands of demonstrations within the prompt, leveraging extended context windows to teach complex patterns through volume of examples.",
+    "url": "learn/many-shot.html"
+  },
+  {
+    "id": "learn-example-ordering",
+    "title": "Example Ordering",
+    "category": "Discover",
+    "subcategory": "In-Context Learning",
+    "keywords": [
+      "example ordering",
+      "permutation",
+      "recency bias",
+      "majority label bias",
+      "few-shot",
+      "demonstration order",
+      "sequence",
+      "arrangement"
+    ],
+    "excerpt": "Optimize the sequence of few-shot demonstrations to maximize model performance. The same examples in different orders can swing accuracy by 20+ percentage points.",
+    "url": "learn/example-ordering.html"
+  },
+  {
+    "id": "learn-self-generated-icl",
+    "title": "Self-Generated ICL",
+    "category": "Discover",
+    "subcategory": "In-Context Learning",
+    "keywords": [
+      "self-generated",
+      "in-context learning",
+      "bootstrap",
+      "auto-generate",
+      "demonstrations",
+      "cold start",
+      "no labeled data",
+      "self-teaching"
+    ],
+    "excerpt": "Have the model generate its own few-shot examples before tackling the actual task, eliminating the need for manually curated demonstrations.",
+    "url": "learn/self-generated-icl.html"
+  },
+  {
+    "id": "learn-active-example",
+    "title": "Active Example Selection",
+    "category": "Discover",
+    "subcategory": "In-Context Learning",
+    "keywords": [
+      "active example",
+      "active learning",
+      "uncertainty",
+      "dynamic selection",
+      "query-aware",
+      "targeted demonstrations",
+      "confidence",
+      "adaptive"
+    ],
+    "excerpt": "Dynamically choose few-shot demonstrations based on model uncertainty for each specific query, providing targeted examples where the model needs them most.",
+    "url": "learn/active-example.html"
+  },
+  {
+    "id": "learn-uncertainty-cot",
+    "title": "Uncertainty-Routed CoT",
+    "category": "Discover",
+    "subcategory": "Reasoning & CoT",
+    "keywords": [
+      "uncertainty",
+      "routed",
+      "chain-of-thought",
+      "confidence",
+      "cost optimization",
+      "selective reasoning",
+      "triage",
+      "conditional"
+    ],
+    "excerpt": "Conditionally apply chain-of-thought reasoning only when the model is uncertain, saving tokens on easy questions while maintaining accuracy on hard ones.",
+    "url": "learn/uncertainty-cot.html"
   }
 ]

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore 14 chain-of-thought and reasoning frameworks for prompt engineering. From basic CoT to Analogical Reasoning, Step-Back, and Memory of Thought.">
+    <meta name="description" content="Explore 15 chain-of-thought and reasoning frameworks for prompt engineering. From basic CoT to Analogical Reasoning, Step-Back, and Memory of Thought.">
     <title>Reasoning and CoT - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -44,6 +44,10 @@
                             <a href="../learn/vote-k.html">Vote-k</a>
                             <a href="../learn/demo-ensembling.html">Demo Ensembling</a>
                             <a href="../learn/prompt-mining.html">Prompt Mining</a>
+                            <a href="../learn/many-shot.html">Many-Shot</a>
+                            <a href="../learn/example-ordering.html">Example Ordering</a>
+                            <a href="../learn/self-generated-icl.html">Self-Generated ICL</a>
+                            <a href="../learn/active-example.html">Active Example</a>
                         </div>
                         <div class="mega-menu-section">
                             <h4><a href="reasoning-cot.html">Reasoning & CoT</a></h4>
@@ -61,6 +65,7 @@
                             <a href="../learn/memory-of-thought.html">Memory of Thought</a>
                             <a href="../learn/active-prompting.html">Active Prompting</a>
                             <a href="../learn/reversing-cot.html">Reversing CoT</a>
+                            <a href="../learn/uncertainty-cot.html">Uncertainty-Routed CoT</a>
                         </div>
                         <div class="mega-menu-section">
                             <h4><a href="decomposition.html">Decomposition</a></h4>
@@ -184,7 +189,7 @@
                     <span class="current">Reasoning &amp; CoT</span>
                 </nav>
                 <h1 class="page-title fade-in">Reasoning &amp; CoT</h1>
-                <p class="page-subtitle fade-in">14 frameworks &mdash; Chain-of-thought methods that guide AI through transparent, step-by-step logical reasoning.</p>
+                <p class="page-subtitle fade-in">15 frameworks &mdash; Chain-of-thought methods that guide AI through transparent, step-by-step logical reasoning.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -207,7 +212,7 @@
         <!-- === FRAMEWORK GRID === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Reasoning &amp; CoT <span class="discover-category__count">14</span></h2>
+                <h2 class="section-title fade-in-up">Reasoning &amp; CoT <span class="discover-category__count">15</span></h2>
 
                 <div class="discover-grid fade-in-up">
                     <a href="chain-of-thought.html" class="discover-card">
@@ -322,6 +327,14 @@
                         <p class="discover-card__desc">Work backward from conclusions to verify reasoning validity.</p>
                         <span class="framework-status framework-status--active">Still active technique</span>
                     </a>
+                    <a href="uncertainty-cot.html" class="discover-card">
+                        <div class="discover-card__header">
+                            <h3 class="discover-card__title">Uncertainty-Routed CoT</h3>
+                            <span class="discover-card__year">2023</span>
+                        </div>
+                        <p class="discover-card__desc">Apply chain-of-thought selectively based on model confidence for cost-optimal reasoning.</p>
+                        <span class="framework-status framework-status--active">Still active technique</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -331,7 +344,7 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Framework Comparison</h2>
-                <p class="section-subtitle fade-in-up">Side-by-side comparison of all 14 frameworks in this category.</p>
+                <p class="section-subtitle fade-in-up">Side-by-side comparison of all 15 frameworks in this category.</p>
 
                 <div class="comparison-table-wrapper fade-in-up">
                     <table class="comparison-table">
@@ -441,6 +454,13 @@
                                     <td>2023</td>
                                     <td>Verification</td>
                                     <td>Backward reasoning</td>
+                                    <td>Medium</td>
+                                </tr>
+                                <tr>
+                                    <td class="comparison-table__feature">Uncertainty-Routed CoT</td>
+                                    <td>2023</td>
+                                    <td>Cost optimization</td>
+                                    <td>Selective reasoning</td>
                                     <td>Medium</td>
                                 </tr>
                         </tbody>

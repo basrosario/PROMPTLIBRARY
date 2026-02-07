@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demonstration Ensembling: Run the same query with multiple different sets of few-shot examples and combine results through voting or aggregation for more robust, consistent AI predictions.">
-    <title>Demonstration Ensembling - Praxis</title>
+    <meta name="description" content="Self-Generated ICL: Have the model create its own few-shot examples before tackling the actual task, eliminating the need for manually curated demonstrations.">
+    <title>Self-Generated ICL - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -187,13 +187,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Demonstration Ensembling</span>
+                    <span class="current">Self-Generated ICL</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Ensemble Technique</span>
+                    <span class="hero-badge__text">In-Context Learning Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Demonstration Ensembling</h1>
-                <p class="page-subtitle fade-in">Any single set of few-shot examples carries its own biases &mdash; the phrasing, the order, the edge cases it happens to cover. Demonstration Ensembling neutralizes that fragility by running the same query across multiple different example sets and combining the results, producing predictions that are more robust, more consistent, and less dependent on the luck of which demonstrations you happened to pick.</p>
+                <h1 class="page-title fade-in">Self-Generated ICL</h1>
+                <p class="page-subtitle fade-in">What if the model could write its own few-shot examples? Self-Generated In-Context Learning has the model produce demonstration examples before tackling the actual task &mdash; bootstrapping its own context to deliver more consistent, well-calibrated outputs without any manually curated data.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -204,8 +204,8 @@
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
                         <span class="highlight-box__title">Framework Context: 2022</span>
-                        <p><strong>Introduced:</strong> Demonstration Ensembling emerged from research in 2022 showing that LLM outputs can be surprisingly sensitive to which few-shot examples appear in the prompt. Two different sets of demonstrations &mdash; both perfectly valid &mdash; can produce different answers to the same question. This technique addresses that instability head-on: instead of betting on a single example set, you create multiple distinct sets from your available pool, run each one independently, and aggregate the results through majority voting or averaging. The ensemble approach borrows a proven principle from classical machine learning, where combining multiple weak learners consistently outperforms any single model.</p>
-                        <p><strong>Modern LLM Status:</strong> The principle of ensembling across different contexts remains a <strong>powerful reliability strategy</strong>, now commonly applied in evaluation pipelines and production systems where consistency matters more than speed. Modern implementations often combine demonstration ensembling with self-consistency sampling, temperature variation, or retrieval-augmented example selection. In high-stakes domains like medical triage, content moderation, and financial classification, ensembling across example sets is a standard practice for reducing variance and catching edge cases that any single prompt configuration might miss.</p>
+                        <p><strong>Introduced:</strong> Self-Generated ICL was proposed in 2022 by Kim et al. as a method to overcome one of the most persistent bottlenecks in few-shot prompting: the need for high-quality, manually curated demonstration examples. The key observation was that large language models already possess sufficient knowledge to generate their own task demonstrations &mdash; and that these self-created examples can serve as effective in-context learning signals when prepended to the actual query.</p>
+                        <p><strong>Modern LLM Status:</strong> Self-Generated ICL is an <strong>active and practical technique</strong>. The approach has the model generate its own few-shot examples before tackling the actual task, eliminating the need for manually curated demonstrations. With modern LLMs being strong generators, self-generated examples are often surprisingly high quality and well-suited to the task at hand. The technique is particularly valuable when labeled data is scarce or unavailable, when working in specialized domains where example creation requires expertise, or when you want the model to calibrate its own understanding of the task before answering. Recent work has shown that self-generated examples can match or exceed the performance of human-written examples for many NLP tasks.</p>
                     </div>
                 </div>
             </div>
@@ -218,16 +218,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Why Varying Examples Reduces Bias</h2>
-                        <p class="split-section__text">Every set of few-shot examples encodes implicit assumptions. If your three examples all happen to be short responses, the model learns &ldquo;keep it brief.&rdquo; If they all handle straightforward cases, the model may stumble on ambiguity. A single demonstration set is like asking one expert for their opinion &mdash; useful, but inherently limited by that expert&rsquo;s perspective and experience.</p>
-                        <p class="split-section__text"><strong>Demonstration Ensembling treats examples like a jury rather than a single judge.</strong> By assembling multiple distinct sets of demonstrations &mdash; each drawing from different parts of your example pool &mdash; you expose the model to a broader range of patterns, edge cases, and response styles. When you aggregate the outputs, the biases of any individual set wash out. What survives the vote is the signal that persists across all contexts.</p>
-                        <p class="split-section__text">Think of it like surveying a landscape from multiple vantage points. Each viewpoint reveals features that others miss, and the composite picture is richer and more accurate than any single perspective could provide.</p>
+                        <h2 class="split-section__title">Let the Model Teach Itself by Example</h2>
+                        <p class="split-section__text">Few-shot prompting works remarkably well &mdash; but it has an uncomfortable dependency: someone has to write the examples. Crafting high-quality demonstrations takes time, domain expertise, and careful formatting. For specialized tasks like medical coding, legal extraction, or niche classification, creating even three good examples can require a subject-matter expert and hours of iteration.</p>
+                        <p class="split-section__text"><strong>Self-Generated ICL removes that bottleneck entirely.</strong> Instead of asking a human to write demonstrations, you ask the model itself: &ldquo;Generate three examples of this task being performed correctly.&rdquo; The model draws on its training data to produce plausible input-output pairs, and those self-created examples then serve as the few-shot context for the real query. The model becomes both the teacher and the student.</p>
+                        <p class="split-section__text">Think of it like a musician warming up before a performance. Rather than jumping straight into the concert piece, the musician plays scales and short passages in the same key and tempo &mdash; calibrating their hands, ears, and focus. Self-Generated ICL gives the model the same warm-up: it rehearses the task pattern before the real performance begins.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Demonstration Sensitivity Problem</span>
-                                <p>Research has shown that simply reordering the same few-shot examples can swing classification accuracy by 10&ndash;30 percentage points. Swapping one example for another from the same category can flip the model&rsquo;s answer entirely. This isn&rsquo;t a flaw in the model &mdash; it&rsquo;s a consequence of how in-context learning works. Demonstration Ensembling doesn&rsquo;t try to find the &ldquo;perfect&rdquo; example set (which may not exist). Instead, it <strong>embraces the variance</strong> and uses aggregation to extract the stable, reliable signal underneath.</p>
+                                <span class="highlight-box__title">Why Self-Generated Examples Work</span>
+                                <p>Large language models have internalized millions of task patterns from their training data. When you ask a model to generate examples of a task, it draws on that vast implicit knowledge to produce demonstrations that are naturally well-formatted, contextually appropriate, and stylistically consistent. These self-generated examples often capture subtle task requirements &mdash; like output length, tone, and structure &mdash; that are difficult to specify in instructions alone. The model essentially <strong>externalizes its own understanding</strong> of the task, then uses that externalized knowledge as a reference point.</p>
                             </div>
                         </div>
                     </div>
@@ -239,8 +239,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Demonstration Ensembling Process</h2>
-                <p class="section-subtitle fade-in-up">Four stages from example pool to aggregated prediction</p>
+                <h2 class="section-title fade-in-up">The Self-Generated ICL Process</h2>
+                <p class="section-subtitle fade-in-up">Four stages from task description to bootstrapped solution</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -248,11 +248,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Create N Distinct Example Sets</h3>
-                            <p class="element-timeline__text">Start with a pool of available few-shot examples and sample N different subsets from it. Each set should contain a representative mix of cases but draw from different examples. The goal is diversity &mdash; each set should expose the model to a slightly different slice of your problem space, varying in difficulty, phrasing, and edge case coverage.</p>
+                            <h3 class="element-timeline__title">Define the Task Format</h3>
+                            <p class="element-timeline__text">Describe the task clearly and specify the desired input-output format. The model needs to understand what a good example looks like before it can generate one. Include any constraints on structure, length, or style that the final output should follow.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>From a pool of 20 labeled sentiment examples, create 5 sets of 3 examples each. Set A might include a sarcastic review, a straightforward positive, and a mixed sentiment. Set B draws a formal complaint, an enthusiastic endorsement, and a neutral description.</p>
+                                <p>&ldquo;Task: Given a customer support email, extract the following fields in JSON format: issue_type, product_name, urgency_level (low/medium/high), and a one-sentence summary.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -262,11 +262,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Run the Same Query with Each Set Independently</h3>
-                            <p class="element-timeline__text">Submit your target query to the model N times, each time paired with a different example set. The query itself stays identical &mdash; only the demonstrations change. Each prompt independently primes the model with its unique context, producing a response shaped by that particular set of examples. These runs can execute in parallel for efficiency.</p>
+                            <h3 class="element-timeline__title">Prompt for Example Generation</h3>
+                            <p class="element-timeline__text">Ask the model to generate several examples of the task being performed correctly. Specify diversity requirements to prevent repetitive or narrow examples. Request that the generated demonstrations cover different scenarios, edge cases, and input variations to give the model a well-rounded calibration set.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The query &ldquo;Classify this review: &lsquo;The battery life is decent but the screen cracks too easily&rsquo;&rdquo; is sent 5 times, each preceded by a different set of 3 labeled examples. Each prompt independently produces a sentiment classification.</p>
+                                <p>&ldquo;Generate 3 diverse examples of this extraction task. Each example should include a realistic customer email and the correct JSON output. Vary the issue types, urgency levels, and writing styles across examples.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -276,11 +276,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Collect All N Responses</h3>
-                            <p class="element-timeline__text">Gather the outputs from all N runs. For classification tasks, this yields N predicted labels. For generation tasks, you collect N distinct text outputs. For numerical predictions, you have N values. Each response reflects the model&rsquo;s interpretation as influenced by its particular demonstration context &mdash; some may agree, others may diverge on edge cases.</p>
+                            <h3 class="element-timeline__title">Assemble the Self-Generated Demonstrations</h3>
+                            <p class="element-timeline__text">Collect the model-generated examples and format them as a standard few-shot prompt, treating them as if they were human-curated demonstrations. This step can be done automatically in a pipeline or manually reviewed for quality. The assembled prompt now contains task instructions followed by the self-generated example pairs.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>The 5 runs return: Mixed (Set A), Negative (Set B), Mixed (Set C), Mixed (Set D), Negative (Set E). Three out of five agree on &ldquo;Mixed&rdquo; while two say &ldquo;Negative.&rdquo;</p>
+                                <p>The three generated email-to-JSON pairs are formatted as: &ldquo;Email: [generated input] &rarr; Output: [generated JSON]&rdquo; repeated three times, creating a standard few-shot block ready for use.</p>
                             </div>
                         </div>
                     </div>
@@ -290,11 +290,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Aggregate Results via Majority Vote, Averaging, or Consensus</h3>
-                            <p class="element-timeline__text">Combine the N responses into a single final answer. For classification, use majority voting &mdash; the label that appears most frequently wins. For numerical tasks, take the mean or median. For generation tasks, you can select the response most similar to the others, use an LLM to synthesize a consensus answer, or rank outputs by agreement. The aggregation step is where individual biases cancel out and the robust signal emerges.</p>
+                            <h3 class="element-timeline__title">Solve the Target Task</h3>
+                            <p class="element-timeline__text">Present the actual query after the self-generated demonstrations. The model now has context from its own examples to guide its response on the real input. The self-created demonstrations prime the model&rsquo;s output format, reasoning patterns, and task-specific conventions &mdash; producing a response that is more consistent and better calibrated than a zero-shot attempt.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>Majority vote: 3 out of 5 responses say &ldquo;Mixed,&rdquo; so the final classification is <strong>&ldquo;Mixed Sentiment&rdquo;</strong> with 60% agreement confidence. The two &ldquo;Negative&rdquo; votes flag this as a borderline case worth human review.</p>
+                                <p>The real customer email is appended after the three self-generated examples. The model extracts the JSON fields using the same format and granularity it established in its own demonstrations, producing a consistent and well-structured output.</p>
                             </div>
                         </div>
                     </div>
@@ -303,11 +303,11 @@
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === THE COMPARISON === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Why multiple example sets outperform a single demonstration</p>
+                <p class="section-subtitle fade-in-up">How self-generated examples transform cold-start performance</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -318,16 +318,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Single Example Set</h3>
+                            <h3 class="comparison-panel__title">No Examples (Cold Start)</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Three few-shot examples are chosen for a support ticket classifier. All three happen to be billing-related complaints with angry tone. The model sees: refund request &rarr; Billing, overcharge dispute &rarr; Billing, payment failure &rarr; Billing.</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Classify this product review as positive, negative, or neutral and explain your reasoning: &ldquo;The battery lasts longer than expected but the screen scratches too easily.&rdquo;</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>New ticket: &ldquo;I can&rsquo;t log in to my account after the update.&rdquo; The model classifies it as <strong>Billing</strong> because the examples biased it toward that category. The actual category should be Technical Support.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>This review is mixed. It has both positive and negative aspects. I would classify it as neutral.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -335,7 +335,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Fragile &mdash; biased by whichever examples were chosen</span>
+                            <span>Vague reasoning, inconsistent format, no structured analysis</span>
                         </div>
                     </div>
 
@@ -350,16 +350,16 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Demo Ensembling</h3>
+                            <h3 class="comparison-panel__title">Self-Generated ICL</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Setup</span>
-                                <p>Five different example sets are created, each mixing billing, technical, and account issues. The same login ticket is classified independently by each set. Results: Technical (Set 1), Technical (Set 2), Account (Set 3), Technical (Set 4), Technical (Set 5).</p>
+                                <span class="comparison-panel__label">Self-Generated Examples Set the Pattern</span>
+                                <p>The model first generates three classified reviews with structured reasoning, establishing a consistent format: sentiment label, key positive signals, key negative signals, and a weighted final judgment. Each self-generated example demonstrates the expected output depth.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">Result</span>
-                                <p>Majority vote: 4 out of 5 say <strong>Technical Support</strong>. The ensemble correctly identifies the category despite individual sets having different example compositions. The one &ldquo;Account&rdquo; vote is outweighed by the consensus.</p>
+                                <span class="comparison-panel__label">Response on Real Input</span>
+                                <p><strong>Classification:</strong> Mixed-Negative<br><strong>Positive signals:</strong> Battery life exceeded expectations (durability praise).<br><strong>Negative signals:</strong> Screen scratches too easily (build quality criticism affecting daily use).<br><strong>Judgment:</strong> While the battery praise is genuine, the screen durability issue affects the core user experience more directly. Weighted classification leans negative.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -367,7 +367,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Robust &mdash; no single example set can dominate the outcome</span>
+                            <span>Structured format, nuanced reasoning, consistent with self-taught pattern</span>
                         </div>
                     </div>
                 </div>
@@ -378,34 +378,25 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Demonstration Ensembling in Action</h2>
-                <p class="section-subtitle fade-in-up">See how ensembling across example sets improves reliability</p>
+                <h2 class="section-title fade-in-up">Self-Generated ICL in Action</h2>
+                <p class="section-subtitle fade-in-up">See how bootstrapped examples improve task performance across domains</p>
 
-                <div class="accordion fade-in-up" id="demo-ensembling-accordion">
+                <div class="accordion fade-in-up" id="sg-icl-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Classification Task: Email Intent Detection</span>
+                            <span class="accordion-title">Technical Summarization</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Email</span>
-                                    <p>&ldquo;Hi team, I wanted to follow up on the quarterly numbers. Can we schedule a call this week to discuss projections and also loop in the design lead for the product review?&rdquo;</p>
+                                    <span class="technique-demo__tag">Step 1: Generate Examples</span>
+                                    <p>&ldquo;Generate 3 examples of summarizing a scientific abstract into 3 plain-language bullet points. Each bullet should be one sentence, avoid jargon, and highlight the key finding, method, and implication respectively.&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: meeting request, project update, leave request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set B</strong> (examples: data inquiry, scheduling, feedback):<br>
-                                    Classification &rarr; <strong>Scheduling</strong><br><br>
-                                    <strong>Set C</strong> (examples: product review, team coordination, status check):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set D</strong> (examples: follow-up, escalation, scheduling):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Set E</strong> (examples: introduction, meeting request, info request):<br>
-                                    Classification &rarr; <strong>Meeting Request</strong><br><br>
-                                    <strong>Majority Vote (4/5):</strong> Meeting Request. The ensemble correctly identifies the primary intent despite the email containing multiple sub-intents including data discussion, scheduling, and cross-team coordination.</p>
+                                    <span class="technique-demo__tag">Step 2: Apply to Real Task</span>
+                                    <p>The model generates three abstract-to-bullets examples covering topics like gene therapy, climate modeling, and materials science. Each example demonstrates the exact three-bullet format with consistent tone and complexity level.<br><br>
+                                    When given a real abstract about a novel protein folding algorithm, the model follows the pattern it established: <strong>Bullet 1 (Finding):</strong> Researchers developed an algorithm that predicts protein shapes with 95% accuracy in under a minute. <strong>Bullet 2 (Method):</strong> The approach combines graph neural networks with evolutionary sequence data to model atomic-level interactions. <strong>Bullet 3 (Implication):</strong> Faster protein structure prediction could accelerate drug discovery timelines from years to months.</p>
                                 </div>
                             </div>
                         </div>
@@ -413,24 +404,19 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Content Generation: Product Description Tone</span>
+                            <span class="accordion-title">Code Documentation</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Task</span>
-                                    <p>Write a product description for a noise-cancelling headphone aimed at audiophiles and commuters. Three example sets each show different product descriptions as demonstrations.</p>
+                                    <span class="technique-demo__tag">Step 1: Generate Examples</span>
+                                    <p>&ldquo;Generate 3 examples of converting an undocumented Python function into a fully documented version. Include a Google-style docstring with a summary line, parameter descriptions with types, return type, and one usage example. Vary the function complexity across examples.&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: luxury tech products with aspirational tone):<br>
-                                    Output emphasizes premium design aesthetics, lifestyle benefits, and brand prestige.<br><br>
-                                    <strong>Set B</strong> (examples: practical office gear with feature-focused tone):<br>
-                                    Output emphasizes battery life, call clarity, microphone quality, and comfort for 8-hour wear.<br><br>
-                                    <strong>Set C</strong> (examples: balanced product descriptions mixing emotion and specs):<br>
-                                    Output blends comfort claims with concrete specifications and realistic use scenarios.<br><br>
-                                    <strong>Consensus Synthesis:</strong> An aggregation pass identifies common themes across all three outputs &mdash; noise cancellation for focus, all-day comfort, and clear call quality. The final description combines the practical specifics from Set B with the engaging framing from Set A and the balanced structure from Set C, producing a description more complete and well-rounded than any single output.</p>
+                                    <span class="technique-demo__tag">Step 2: Apply to Real Task</span>
+                                    <p>The model creates three before/after pairs: a simple utility function, a data processing function with multiple parameters, and an async function with error handling. Each demonstrates consistent docstring formatting, type annotations, and usage examples.<br><br>
+                                    When given a real undocumented function that calculates weighted moving averages, the model applies the same documentation style: a clear summary line, each parameter described with its type and purpose, the return value documented with its shape and meaning, and a concise usage example showing typical invocation. The output mirrors the formatting conventions established in its self-generated demonstrations.</p>
                                 </div>
                             </div>
                         </div>
@@ -438,26 +424,19 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Data Extraction: Invoice Field Parsing</span>
+                            <span class="accordion-title">Data Extraction</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Target Document</span>
-                                    <p>Extract vendor name, invoice number, date, and total amount from a scanned invoice with imperfect OCR output: &ldquo;Vndr: Acme Ccrp. Inv#: 2024-0847 Dt: 03/15/24 Ttl: $12,450.00&rdquo;</p>
+                                    <span class="technique-demo__tag">Step 1: Generate Examples</span>
+                                    <p>&ldquo;Generate 3 examples of extracting structured fields from invoice text. For each example, create a realistic invoice paragraph and extract: vendor_name, invoice_date, total_amount, currency, and line_items (as an array). Use JSON output format. Vary invoice styles and complexity.&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Ensemble Process</span>
-                                    <p><strong>Set A</strong> (examples: clean invoices with standard formatting):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/24, Total: $12,450.00<br><br>
-                                    <strong>Set B</strong> (examples: messy OCR invoices with abbreviations):<br>
-                                    Vendor: Acme Corp., Invoice: 2024-0847, Date: 2024-03-15, Total: $12,450.00<br><br>
-                                    <strong>Set C</strong> (examples: international invoices with varied date formats):<br>
-                                    Vendor: Acme Ccrp, Invoice: 2024-0847, Date: March 15, 2024, Total: $12,450.00<br><br>
-                                    <strong>Set D</strong> (examples: invoices with OCR correction patterns):<br>
-                                    Vendor: Acme Corp, Invoice: 2024-0847, Date: 03/15/2024, Total: $12,450.00<br><br>
-                                    <strong>Consensus:</strong> All four agree on invoice number and total. Three of four correct &ldquo;Ccrp&rdquo; to &ldquo;Corp&rdquo; &mdash; majority vote applies the correction. Date format is standardized to the most common output. The ensemble catches the OCR error that Set C missed.</p>
+                                    <span class="technique-demo__tag">Step 2: Apply to Real Task</span>
+                                    <p>The model generates three invoice-to-JSON pairs: a simple single-item invoice, a multi-line invoice with tax and shipping, and an international invoice with currency conversion. Each output uses identical JSON field names and consistent formatting conventions.<br><br>
+                                    When presented with a real invoice from a cloud hosting provider with multiple service tiers and prorated charges, the model extracts all fields using the exact schema it defined in its examples. The line_items array captures each service tier separately, the currency field matches the format from demonstrations, and edge cases like prorated amounts are handled consistently because the self-generated examples established how to represent partial charges.</p>
                                 </div>
                             </div>
                         </div>
@@ -470,8 +449,8 @@
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Demonstration Ensembling</h2>
-                <p class="section-subtitle fade-in-up">Best for tasks where consistency and reliability outweigh latency costs</p>
+                <h2 class="section-title fade-in-up">When to Use Self-Generated ICL</h2>
+                <p class="section-subtitle fade-in-up">Best for bootstrapping demonstrations when curated examples are unavailable</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -483,8 +462,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>High-Stakes Classification</strong>
-                                    <p>Medical triage, content moderation, fraud detection &mdash; any domain where a single misclassification carries significant consequences and reliability trumps speed.</p>
+                                    <strong>Scarce or Expensive Labeled Data</strong>
+                                    <p>When creating task examples requires significant time, cost, or domain expertise &mdash; the model can bootstrap its own demonstrations in seconds.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -493,8 +472,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Ambiguous or Borderline Inputs</strong>
-                                    <p>When inputs frequently fall between categories or have multiple valid interpretations, ensembling reveals whether disagreement is a feature of the input or an artifact of the examples.</p>
+                                    <strong>Specialized Domain Tasks</strong>
+                                    <p>Tasks in medicine, law, finance, or engineering where manual example creation requires expert knowledge that may not be readily available.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -503,8 +482,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Evaluation and Benchmarking</strong>
-                                    <p>When measuring LLM performance, ensembling across example sets produces more stable metrics that reflect true model capability rather than prompt sensitivity.</p>
+                                    <strong>Rapid Prototyping</strong>
+                                    <p>When you need a working few-shot solution quickly without the overhead of curating a demonstration set &mdash; ideal for proof-of-concept testing.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -513,8 +492,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Large Example Pools</strong>
-                                    <p>When you have far more labeled examples than fit in a single prompt, ensembling lets you leverage the full pool rather than discarding most of your data.</p>
+                                    <strong>Format Calibration</strong>
+                                    <p>When the primary goal is ensuring the model understands the expected output structure &mdash; self-generated examples anchor format consistency across responses.</p>
                                 </div>
                             </div>
                         </div>
@@ -528,8 +507,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Latency-Sensitive Applications</strong>
-                                    <p>Each ensemble member adds an API call. If your use case requires sub-second responses &mdash; like autocomplete or real-time chat &mdash; the overhead of N parallel calls may be prohibitive.</p>
+                                    <strong>High-Quality Examples Already Exist</strong>
+                                    <p>When you already have well-curated, human-verified demonstrations &mdash; these are generally more reliable than self-generated ones and should be preferred.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -538,8 +517,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Very Small Example Pools</strong>
-                                    <p>If you only have 3&ndash;4 examples total, you cannot create meaningfully diverse subsets. The &ldquo;ensembles&rdquo; would overlap too heavily to provide independent signals.</p>
+                                    <strong>Factual Accuracy Is Critical in Examples</strong>
+                                    <p>Self-generated demonstrations may contain plausible but incorrect facts. If the example content itself must be factually verified, human curation is safer.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -548,8 +527,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Budget-Constrained Scenarios</strong>
-                                    <p>Ensembling multiplies your API costs by N. For exploratory or low-value tasks where a single good-enough answer suffices, the cost-benefit ratio doesn&rsquo;t justify the approach.</p>
+                                    <strong>Error Cascading Risk</strong>
+                                    <p>Tasks where an incorrect self-generated example could bias the model&rsquo;s final answer &mdash; if a wrong pattern is established in the examples, it may propagate into the real output.</p>
                                 </div>
                             </div>
                         </div>
@@ -563,27 +542,17 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Demonstration Ensembling delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where Self-Generated ICL delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Content Moderation</h3>
-                        <p class="use-case-showcase__desc">Run flagged content through multiple example sets spanning different violation types to reduce both false positives and false negatives in automated moderation pipelines.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Medical Triage</h3>
-                        <p class="use-case-showcase__desc">Classify patient symptoms across multiple demonstration sets covering different specialties, ensuring the urgency assessment isn&rsquo;t biased by the particular clinical examples shown.</p>
+                        <h3 class="use-case-showcase__title">Cold-Start Prototyping</h3>
+                        <p class="use-case-showcase__desc">Launch a new classification or extraction task without any pre-existing labeled data by having the model generate its own training-like examples on the fly.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -595,30 +564,20 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Document Classification</h3>
-                        <p class="use-case-showcase__desc">Sort incoming documents into categories using diverse example sets that cover different document styles, formats, and edge cases for each category.</p>
+                        <h3 class="use-case-showcase__title">Documentation Generation</h3>
+                        <p class="use-case-showcase__desc">Generate example documentation patterns first, then apply that consistent style to new code, APIs, or processes &mdash; ensuring uniformity without a style guide.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 20V10"/>
-                                <path d="M12 20V4"/>
-                                <path d="M6 20v-6"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Sentiment Analysis</h3>
-                        <p class="use-case-showcase__desc">Ensemble across example sets that emphasize different sentiment signals &mdash; sarcasm, understatement, cultural context &mdash; to produce more nuanced and consistent sentiment scores.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Intent Recognition</h3>
-                        <p class="use-case-showcase__desc">Classify user queries in chatbot systems using multiple example sets that cover different phrasings and contexts for each intent, reducing misrouting of ambiguous requests.</p>
+                        <h3 class="use-case-showcase__title">Data Formatting</h3>
+                        <p class="use-case-showcase__desc">Establish output schemas by generating sample transformations first, then processing real data through the self-taught format for consistent structured output.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -628,8 +587,30 @@
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">LLM Evaluation</h3>
-                        <p class="use-case-showcase__desc">Benchmark model performance using ensembled example sets to produce stable accuracy metrics that reflect true capability rather than sensitivity to prompt construction.</p>
+                        <h3 class="use-case-showcase__title">Style Transfer</h3>
+                        <p class="use-case-showcase__desc">Have the model generate examples of writing in a target voice or tone, then apply that calibrated style to new content with higher consistency than instruction-only approaches.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Report Standardization</h3>
+                        <p class="use-case-showcase__desc">Bootstrap standardized report formats by generating example reports first, then transforming raw data or notes into the established template with consistent sections and detail levels.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Template Creation</h3>
+                        <p class="use-case-showcase__desc">Generate diverse template examples for emails, proposals, or tickets, then use those self-created templates to produce new documents that follow a coherent structural pattern.</p>
                     </div>
                 </div>
             </div>
@@ -639,35 +620,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Demonstration Ensembling Fits</h2>
-                <p class="section-subtitle fade-in-up">Bridging few-shot learning and systematic reliability engineering</p>
+                <h2 class="section-title fade-in-up">Where Self-Generated ICL Fits</h2>
+                <p class="section-subtitle fade-in-up">Self-Generated ICL bridges zero-shot simplicity and curated few-shot quality</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
+                        <span class="era-marker__year">Zero-Shot</span>
+                        <span class="era-marker__title">No Examples Needed</span>
+                        <span class="era-marker__desc">Instructions only, no demonstrations</span>
+                    </div>
+                    <div class="era-marker">
                         <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Single Example Set</span>
-                        <span class="era-marker__desc">One fixed set of demonstrations</span>
+                        <span class="era-marker__title">Human-Provided Examples</span>
+                        <span class="era-marker__desc">Manually curated demonstrations</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Demo Ensembling</span>
-                        <span class="era-marker__title">Multiple Sets + Voting</span>
-                        <span class="era-marker__desc">Aggregated predictions across diverse examples</span>
+                        <span class="era-marker__year">Self-Generated ICL</span>
+                        <span class="era-marker__title">Model-Created Examples</span>
+                        <span class="era-marker__desc">Bootstrapped demonstrations from the model itself</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Multiple Reasoning Paths</span>
-                        <span class="era-marker__desc">Diverse reasoning chains with voting</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">DiVeRSe</span>
-                        <span class="era-marker__title">Full Pipeline Diversity</span>
-                        <span class="era-marker__desc">Diverse prompts, paths, and verifiers</span>
+                        <span class="era-marker__year">Active Example Selection</span>
+                        <span class="era-marker__title">Iteratively Refined Examples</span>
+                        <span class="era-marker__desc">Dynamically chosen optimal demonstrations</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Combine for Maximum Reliability</div>
-                    <p>Demonstration Ensembling and Self-Consistency target different sources of variance. Ensembling varies the <strong>context</strong> (which examples the model sees), while Self-Consistency varies the <strong>reasoning path</strong> (how the model thinks through the same context). Combining both &mdash; running multiple reasoning samples across multiple example sets &mdash; creates a two-dimensional ensemble that reduces variance from both sources simultaneously. In production systems handling critical decisions, this layered approach can push reliability close to human-level consistency.</p>
+                    <div class="callout-title">Quality Control Strategies</div>
+                    <p>Self-generated examples are not guaranteed to be perfect. For higher-stakes applications, consider filtering strategies: generate more examples than you need and select the best subset, use the model to self-evaluate its own examples for correctness, or combine self-generated demonstrations with even one or two verified human examples as anchors. This hybrid approach captures the convenience of automation while maintaining a quality floor set by trusted references.</p>
                 </div>
             </div>
         </section>
@@ -677,46 +658,7 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary ensemble and example-based techniques</p>
-
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 2l4 4-4 4"/>
-                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
-                            <path d="M7 22l-4-4 4-4"/>
-                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Complement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Samples multiple reasoning paths from the same prompt and takes a majority vote &mdash; ensembling over reasoning rather than over demonstrations.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="diverse.html" class="evolution-callout fade-in-up">
-                    <span class="evolution-callout__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                    </span>
-                    <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Evolution</span>
-                        <span class="evolution-callout__title">DiVeRSe</span>
-                        <span class="evolution-callout__desc">Extends ensembling to diversify across prompts, reasoning paths, and verification steps &mdash; a comprehensive pipeline that builds on demonstration variation.</span>
-                    </div>
-                    <span class="evolution-callout__arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
+                <p class="section-subtitle fade-in-up">Explore techniques that complement or extend self-generated demonstrations</p>
 
                 <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
@@ -730,7 +672,46 @@
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
                         <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">The foundational technique of providing examples in the prompt &mdash; Demonstration Ensembling extends this by systematically varying which examples are shown.</span>
+                        <span class="evolution-callout__desc">Self-Generated ICL automates the example creation step that Few-Shot Learning requires manually &mdash; same principle, different source of demonstrations.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="auto-cot.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Parallel</span>
+                        <span class="evolution-callout__title">Auto-CoT</span>
+                        <span class="evolution-callout__desc">Both techniques have the model generate its own demonstrations &mdash; Auto-CoT for reasoning chains, Self-Generated ICL for general task examples across any domain.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="example-selection.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Example Selection</span>
+                        <span class="evolution-callout__desc">When self-generated examples are numerous, Example Selection strategies can filter for the best subset &mdash; combining automated generation with intelligent curation.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -748,8 +729,8 @@
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Build Reliable Predictions</h2>
-                        <p class="cta-corporate__text">Try Demonstration Ensembling on your own classification tasks or explore ensemble strategies with our prompt engineering tools.</p>
+                        <h2 class="cta-corporate__title">Bootstrap Your Own Examples</h2>
+                        <p class="cta-corporate__text">Try self-generated demonstrations or build prompts with our tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
                             <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
@@ -762,7 +743,6 @@
     </main>
 
 
-    <!-- === FOOTER + BACK-TO-TOP === -->
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
     <div class="container">
@@ -825,9 +805,8 @@
         </span>
         <span class="back-to-top-text">Back to Top</span>
     </button>
-    <!-- /FOOTER + BACK-TO-TOP -->
 
-    <!-- === ACCESSIBILITY DASHBOARD === -->
+    <!-- Accessibility Dashboard -->
     <div class="adl-dim-overlay" aria-hidden="true"></div>
     <button class="adl-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="adl-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -893,7 +872,6 @@
         </div>
         <button class="adl-reset" aria-label="Reset accessibility settings to defaults">Reset to Defaults</button>
     </div>
-    <!-- /ACCESSIBILITY DASHBOARD -->
 
     <script src="../app.js" defer></script>
 </body>
