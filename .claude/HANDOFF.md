@@ -1,35 +1,26 @@
 # Praxis Project Handoff Document
 
 **Last Updated:** 2026-02-07 (Session 42)
-**Last Commit:** `0eb604e` — feat: Create 7 category landing pages for Discover hub
-**Current Phase:** Discover Hub — Phases 1-3 COMPLETE, Phases 4-5 remaining
+**Last Commit:** `a8f8df0` — feat: Link homepage category cards + mega-menu headers to category pages
+**Current Phase:** Discover Hub — Phases 1-4 COMPLETE, Phase 5 remaining
 
 ---
 
 ## SESSION 42 SUMMARY
 
-Session 42 implemented Phases 1-3 of the Discover Hub plan. Three commits:
+Session 42 implemented Phases 1-4 of the Discover Hub plan. Six commits:
 
 1. **Phase 1** (`32d7351`) — Batch renamed "Advanced Techniques" → "Prompting Strategies" in mega-menu headers (101 files), renamed "Learn" → "Discover" in nav links (102 files), breadcrumbs (68 files), and footer headings (101 files). Updated homepage card + app.js search index.
 2. **Phase 2** (`4d296ba`) — Redesigned learn/index.html from 11-card "Learn" page to full Discover hub (1,093 lines) with 63 framework cards across 8 categories, sticky filter row, comparison table, and CTA. Added ~120 lines of CSS for discover components.
 3. **Phase 3** (`0eb604e`) — Created 7 category landing pages: structured-frameworks, reasoning-cot, decomposition, self-correction, in-context-learning, ensemble-methods, prompting-strategies. Each has hero, overview, framework grid, comparison table, related categories, and CTA. Added `.category-overview` CSS.
+4. **Bugfix** (`a697128`) — Fixed broken relative paths in 3 code modality pages (learn/modality/code/) that had 2-level prefixes instead of 3-level.
+5. **Phase 4** (`a8f8df0`) — Updated 6 homepage category card links to point to category landing pages. Made all 7 mega-menu `<h4>` category headers clickable links across 108 pages with correct relative paths per directory depth. Added `.mega-menu-section h4 a` CSS to preserve header styling.
 
 ---
 
-## NEXT TASK: Discover Hub Phases 4-5
+## NEXT TASK: Discover Hub Phase 5
 
 **Plan file:** `.claude/plans/discover-hub-category-pages.md`
-
-### Phase 4 — Homepage + Mega-menu Link Updates
-- Homepage 6 category cards link to category landing pages instead of individual framework pages
-  - Structured → `learn/structured-frameworks.html`
-  - Reasoning & CoT → `learn/reasoning-cot.html`
-  - Decomposition → `learn/decomposition.html`
-  - Self-Correction → `learn/self-correction.html`
-  - ICL → `learn/in-context-learning.html`
-  - Prompting Strategies → `learn/prompting-strategies.html`
-- Mega-menu category headers become clickable links to category landing pages
-- Consider: Add Ensemble Methods as 7th homepage card
 
 ### Phase 5 — Search Index + Metadata
 - Add 7 category landing pages to `data/search-index.json`

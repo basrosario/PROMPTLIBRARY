@@ -40,6 +40,18 @@
   - Added `.category-overview` CSS component
   - 8 files changed (7 new HTML + styles.css)
 
+- [x] **Bugfix — Code Modality Paths** (commit `a697128`)
+  - Fixed broken relative paths in 3 code modality pages (`learn/modality/code/`)
+  - Pages are 3 levels deep but had 2-level `../../` prefixes instead of `../../../`
+  - 363 path corrections across 3 files (CSS, JS, favicon, nav links)
+
+- [x] **Phase 4 — Homepage + Mega-menu Link Updates** (commit `a8f8df0`)
+  - Updated 6 homepage category card `href` values to category landing pages
+  - Made all 7 mega-menu `<h4>` category headers clickable links across 108 pages
+  - Correct relative paths per directory depth: root (`learn/`), learn/ (``), tools/pages/etc. (`../learn/`), learn/modality/code/ (`../../`)
+  - Added `.mega-menu-section h4 a` CSS to inherit h4 styling (color, text-transform, letter-spacing)
+  - 110 files changed
+
 ---
 
 ## Session 41 (2026-02-07)
