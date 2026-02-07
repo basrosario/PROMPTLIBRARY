@@ -259,21 +259,65 @@
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
-                        <h3 class="comparison-panel__title">Chain or Tree Approach</h3>
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Chain or Tree Approach</h3>
+                        </div>
                         <div class="comparison-panel__content">
-                            <p><strong>Task: Evaluate a carbon tax policy</strong></p>
-                            <p>Chain: Analyse economic impact &rarr; then environmental impact &rarr; then social impact &rarr; conclude. Each step only sees the previous one.</p>
-                            <p>Tree: Branch into economic, environmental, and social analyses &mdash; but each branch concludes independently. No cross-pollination of insights.</p>
-                            <p><em>Problem: The economic analysis cannot incorporate environmental findings, and the final conclusion is just a list of separate perspectives rather than an integrated assessment.</em></p>
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Task: Evaluate a carbon tax policy</span>
+                                <p>Chain: Analyse economic impact &rarr; then environmental impact &rarr; then social impact &rarr; conclude. Each step only sees the previous one.</p>
+                                <p>Tree: Branch into economic, environmental, and social analyses &mdash; but each branch concludes independently. No cross-pollination of insights.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">The Problem</span>
+                                <p>The economic analysis cannot incorporate environmental findings, and the final conclusion is just a list of separate perspectives rather than an integrated assessment.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>No cross-pollination, branches conclude independently</span>
                         </div>
                     </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
                     <div class="comparison-panel__side comparison-panel__side--after">
-                        <h3 class="comparison-panel__title">Graph of Thoughts Approach</h3>
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Graph of Thoughts Approach</h3>
+                        </div>
                         <div class="comparison-panel__content">
-                            <p><strong>Task: Evaluate a carbon tax policy</strong></p>
-                            <p><strong>Branch:</strong> Explore economic, environmental, and social dimensions in parallel.</p>
-                            <p><strong>Aggregate:</strong> Merge findings &mdash; the economic analysis now accounts for environmental benefits (reduced healthcare costs from cleaner air), and social analysis incorporates economic data (job displacement in fossil fuel regions).</p>
-                            <p><strong>Refine:</strong> Loop back to strengthen weak areas identified during aggregation. The integrated assessment reveals trade-offs invisible to any single branch.</p>
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Task: Evaluate a carbon tax policy</span>
+                                <p><strong>Branch:</strong> Explore economic, environmental, and social dimensions in parallel.</p>
+                                <p><strong>Aggregate:</strong> Merge findings &mdash; economic analysis accounts for environmental benefits, social analysis incorporates economic data.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">The Advantage</span>
+                                <p><strong>Refine:</strong> Loop back to strengthen weak areas identified during aggregation. The integrated assessment reveals trade-offs invisible to any single branch.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Cross-domain synthesis with iterative refinement</span>
                         </div>
                     </div>
                 </div>

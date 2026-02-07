@@ -252,31 +252,64 @@
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
-                        <h3 class="comparison-panel__heading">Monolithic Prompt</h3>
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">Monolithic Prompt</h3>
+                        </div>
                         <div class="comparison-panel__content">
-                            <p>&ldquo;Tell me who invented the telephone, where they were born, when they died, and what the GDP of their birth country was in their death year.&rdquo;</p>
-                            <ul>
-                                <li>Single prompt handles everything</li>
-                                <li>Model may hallucinate GDP figures</li>
-                                <li>No verification of individual facts</li>
-                                <li>Failure in one part corrupts the whole answer</li>
-                            </ul>
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Single Prompt</span>
+                                <p>&ldquo;Tell me who invented the telephone, where they were born, when they died, and what the GDP of their birth country was in their death year.&rdquo;</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Weaknesses</span>
+                                <p>Model may hallucinate GDP figures. No verification of individual facts. Failure in one part corrupts the whole answer.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Single point of failure, no fact isolation</span>
                         </div>
                     </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
                     <div class="comparison-panel__side comparison-panel__side--after">
-                        <h3 class="comparison-panel__heading">DecomP Approach</h3>
-                        <div class="comparison-panel__content">
-                            <p>Break into 4 sub-tasks, each with a specialized handler for retrieval, lookup, or reasoning.</p>
-                            <ul>
-                                <li>Each sub-task uses the right tool</li>
-                                <li>GDP retrieved from reliable data source</li>
-                                <li>Each fact independently verifiable</li>
-                                <li>Failure is isolated to one sub-task</li>
-                            </ul>
+                        <div class="comparison-panel__header">
+                            <span class="comparison-panel__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </span>
+                            <h3 class="comparison-panel__title">DecomP Approach</h3>
                         </div>
-                    </div>
-                    <div class="comparison-panel__verdict comparison-panel__verdict--strong">
-                        <p>DecomP achieves higher accuracy on complex tasks by matching each sub-problem to a purpose-built solver, reducing hallucination and enabling fault isolation.</p>
+                        <div class="comparison-panel__content">
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Decomposed</span>
+                                <p>Break into 4 sub-tasks, each with a specialized handler for retrieval, lookup, or reasoning.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Strengths</span>
+                                <p>Each sub-task uses the right tool. GDP retrieved from reliable data source. Each fact independently verifiable. Failure is isolated to one sub-task.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Purpose-built solvers reduce hallucination and enable fault isolation</span>
+                        </div>
                     </div>
                 </div>
             </div>
