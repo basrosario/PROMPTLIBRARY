@@ -4,6 +4,23 @@
 
 ---
 
+## Session 41 (2026-02-07)
+**Learning & Documentation Session — No Code Changes**
+- [x] Deep dive into entire codebase: glossary lazy loading, search-to-glossary flow, URL resolution, component library, design tokens, navigation architecture, neural network canvas, accessibility dashboard
+- [x] Created `.claude/SiteFrameworks.md` (1,041 lines) — comprehensive "soul of the project" document
+  - Covers WHY behind every architectural decision (lazy loading, DOM API over innerHTML, single-file principle, CSP compliance, `resolveInternalUrl()`, anchor offset pattern, etc.)
+  - Full search-to-glossary flow walkthrough (step-by-step from any page)
+  - Complete component library reference with BEM classes
+  - Design token system documentation
+  - 13-section framework template breakdown
+  - Critical rules with session origins
+- [x] Commit: `c49e78b` — docs: Add SiteFrameworks.md
+- [x] Updated HANDOFF.md, COMPLETED.md, FrameworkOverhaul.md for handoff
+
+**No implementation phases started.** Discover Hub Phases 1-5 remain pending.
+
+---
+
 ## Completed Phases
 
 ### Phase 0: Fix Prompt Analyzer - COMPLETED

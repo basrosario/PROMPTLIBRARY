@@ -778,6 +778,40 @@ Resources (mega-menu)
 
 # SESSION LOG
 
+## Session 41 (2026-02-07)
+
+**Focus:** Codebase Deep Dive + SiteFrameworks.md Documentation
+**Status:** COMPLETE (documentation only — no code changes)
+
+**Completed:**
+- [x] **Full Codebase Study** — Deep dive into all major systems:
+  - Glossary lazy loading pipeline (JSON fetch → DOM API render → hash scroll)
+  - Search system (scoring algorithm, category ordering, result rendering)
+  - Search-to-glossary flow (cross-page navigation vs. same-page scroll)
+  - URL resolution (`resolveInternalUrl()` depth calculation)
+  - Anchor offset pattern (`scroll-margin-top: 100px/160px`)
+  - Design token system (CSS custom properties, dark mode)
+  - Component library (20+ BEM components)
+  - 13-section framework template
+  - Navigation architecture (mega-menu grid, mobile behavior)
+  - Neural network canvas system (performance optimizations)
+  - Accessibility dashboard (ADL panel, localStorage persistence)
+- [x] **Created `.claude/SiteFrameworks.md`** (1,041 lines)
+  - Comprehensive "soul of the project" document
+  - Documents WHY behind every architectural decision
+  - Full component reference, design tokens, critical rules
+- [x] **Commit:** `c49e78b` — docs: Add SiteFrameworks.md
+
+**Files Created:**
+- `.claude/SiteFrameworks.md` (1,041 lines)
+
+**Files Modified:**
+- `.claude/HANDOFF.md`, `.claude/COMPLETED.md`, `.claude/plans/FrameworkOverhaul.md`
+
+**Next:** Begin Discover Hub implementation — Phase 1 (batch renames across ~105 files)
+
+---
+
 ## Sessions 39-40 (2026-02-07)
 
 **Focus:** Homepage Redesign Implementation + Search Modal Fix + Discover Hub Planning
@@ -1682,9 +1716,10 @@ Progress: [█████░░░░░░░░░░░░░░░] 25%
 Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 ```
 **Plan:** `.claude/plans/discover-hub-category-pages.md`
-**Status:** APPROVED — ready for implementation
+**Status:** APPROVED — ready for implementation (Session 41 was documentation-only; no phases started)
+**Architecture Reference:** `.claude/SiteFrameworks.md` (created Session 41, 1,041 lines)
 
-- [ ] Phase 1: Batch rename "Advanced Techniques" → "Prompting Strategies" + "Learn" → "Discover" (100 files)
+- [ ] Phase 1: Batch rename "Advanced Techniques" → "Prompting Strategies" + "Learn" → "Discover" (~105 files)
 - [ ] Phase 2: Redesign learn/index.html as Discover Hub (all 62+ frameworks by category)
 - [ ] Phase 3: Create 7 flat category landing pages
 - [ ] Phase 4: Update homepage cards + mega-menu links to point to category pages
