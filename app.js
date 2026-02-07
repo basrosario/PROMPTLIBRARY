@@ -7772,7 +7772,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // PROMPT THEORY Category
         { title: 'Prompt Basics', desc: 'Fundamental concepts of AI prompting and how to communicate effectively with AI', url: 'learn/prompt-basics.html', category: 'Prompt Theory', keywords: ['basics', 'fundamentals', 'introduction', 'beginner', 'prompting', 'communication'] },
-        { title: 'Learning Hub', desc: 'Overview of all prompting methodologies and frameworks', url: 'learn/index.html', category: 'Prompt Theory', keywords: ['learning', 'hub', 'overview', 'methodologies', 'frameworks', 'start'] },
+        { title: 'Discover Hub', desc: 'Overview of all prompting methodologies and frameworks', url: 'learn/index.html', category: 'Prompt Theory', keywords: ['discover', 'hub', 'overview', 'methodologies', 'frameworks', 'start'] },
 
         // PATTERNS Category
         { title: 'Patterns Library', desc: 'Common prompt patterns organized by use case and task type', url: 'patterns/index.html', category: 'Patterns', keywords: ['patterns', 'library', 'templates', 'use-case', 'task', 'collection'] },
@@ -8135,7 +8135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // SITE SEARCH INDEX (LAZY-LOADED)
     // Loaded from external JSON file for better performance
-    // Categories: Learn, Tools, Glossary, Patterns, FAQ, Resources
+    // Categories: Discover, Tools, Glossary, Patterns, FAQ, Resources
     // ==========================================
 
     /**
@@ -8303,7 +8303,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Group by category
         const grouped = {};
-        const categoryOrder = ['Glossary', 'Learn', 'Tools', 'Patterns', 'FAQ', 'Resources'];
+        const categoryOrder = ['Glossary', 'Discover', 'Tools', 'Patterns', 'FAQ', 'Resources'];
 
         results.forEach(result => {
             if (!grouped[result.category]) {
@@ -8371,7 +8371,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Category icons for search results
      */
     const CATEGORY_ICONS = {
-        Learn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
+        Discover: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
         Tools: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
         Glossary: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
         Patterns: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>',
@@ -8438,7 +8438,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <a href="${getSearchLinkPath('learn/index.html')}" class="search-modal-help-item search-modal-quick-link">
                                 <span class="search-modal-help-badge">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                                    Learn
+                                    Discover
                                 </span>
                                 <span>Methods &amp; techniques</span>
                             </a>
