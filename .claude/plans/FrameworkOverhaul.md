@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-05 (Session 30)
+**Last Updated:** 2026-02-06 (Session 33)
 
 ---
 
@@ -778,6 +778,94 @@ Resources (mega-menu)
 
 # SESSION LOG
 
+## Session 33 (2026-02-06)
+
+**Focus:** Critical URL bug fix + Search modal enhancements + Glossary navigation
+**Status:** COMPLETE (handoff prepared)
+
+**Completed:**
+- [x] **Critical Bug Fix: Universal URL Resolution** (`8fda121`)
+  - ALL dynamically generated internal URLs were broken from subdirectory pages
+  - Created `resolveInternalUrl(targetPath)` — universal depth-based path resolver
+  - Applied to 10 locations in app.js (search results, glossary, recommender, badge lightbox, technique links, quick links, glossary JSON fetch)
+  - Replaced all folder-specific if/else logic (was missing foundations/, neurodivergence/)
+  - New rule: ALWAYS use `resolveInternalUrl()` for dynamic internal links
+- [x] **Search Modal Enhancements** (`0d758a9`)
+  - Expanded to 80% viewport width (was 720px max), 88vh height, 5% from top
+  - Quick Links section now collapsible (chevron toggle, starts collapsed)
+  - Glossary terms appear first in search results (was 3rd)
+  - Glossary shows 10 results per search (other categories: 5)
+  - Post-lazy-load hash scroll — glossary.html#term-xxx now works
+- [x] **Search Modal Close-on-Select** (`32ec056`)
+  - Modal closes when clicking/selecting any result
+  - Same-page hash links (glossary terms on glossary page) handled with direct scroll
+  - Added `navigateToResult()` method for hash detection
+- [x] **Wave 3 Comparison Panel Fix** (`390715f`)
+  - Updated 3 files to new header/icon/divider/verdict comparison panel structure
+  - Dark mode fix for `.era-marker--active`
+
+**Commits:**
+```
+32ec056 fix: Close search modal when selecting a result on the same page
+0d758a9 feat: Enhanced search modal — 80% screen, collapsible Quick Links, Glossary-first results
+8fda121 fix: Universal URL resolution for search, glossary, and recommender links
+390715f fix: Update comparison panels to new structure + dark mode era-marker fix
+```
+
+**Files Modified:**
+- `app.js` — resolveInternalUrl, search modal enhancements, glossary hash scroll
+- `styles.css` — search modal 80% width, collapsible Quick Links, era-marker dark mode
+- `learn/decomp.html`, `learn/graph-of-thought.html`, `learn/recursion-of-thought.html` — comparison panel structure
+- `.claude/HANDOFF.md`, `.claude/plans/FrameworkOverhaul.md` — handoff docs
+
+---
+
+## Session 32 (2026-02-06)
+
+**Focus:** Wave 3 — Decomposition Quality Redesign (6 pages)
+**Status:** COMPLETE
+
+**Completed:**
+- [x] **Wave 3: Decomposition Quality Redesign (6 pages)**
+  - `learn/decomp.html` — 323→728 lines
+  - `learn/self-ask.html` — 303→855 lines
+  - `learn/step-back.html` — 298→832 lines
+  - `learn/graph-of-thought.html` — 325→717 lines
+  - `learn/program-of-thought.html` — 325→826 lines
+  - `learn/recursion-of-thought.html` — 290→833 lines
+  - All 13 sections, zero inline styles/scripts, historical context notices
+
+**Commits:**
+```
+1ee7b83 feat: Redesign Wave 3 (Decomposition family) — 6 pages expanded to 13-section template
+```
+
+---
+
+## Session 31 (2026-02-06)
+
+**Focus:** Wave 2 — CoT Variants Quality Redesign (8 pages)
+**Status:** COMPLETE
+
+**Completed:**
+- [x] **Wave 2: CoT Variants Quality Redesign (8 pages)**
+  - `learn/auto-cot.html` — 290→855 lines
+  - `learn/contrastive-cot.html` — 296→846 lines
+  - `learn/structured-cot.html` — 293→805 lines
+  - `learn/faithful-cot.html` — 290→853 lines
+  - `learn/complexity-prompting.html` — 286→837 lines
+  - `learn/tab-cot.html` — 301→844 lines
+  - `learn/reversing-cot.html` — 299→857 lines
+  - `learn/cumulative-reasoning.html` — 290→854 lines
+  - All 13 sections, zero inline styles/scripts, historical context notices
+
+**Commits:**
+```
+075d75a feat: Redesign Wave 2 (CoT Variants family) — 8 pages expanded to 13-section template
+```
+
+---
+
 ## Session 30 (2026-02-05)
 
 **Focus:** Track B — AI Foundations Framework Timeline
@@ -1216,22 +1304,22 @@ LOW Priority: [██████████████████░░] 88%
 
 **Note:** Navigation updated with Advanced + Self-Correction + Code sections in all 99+ files
 
-### Quality Redesign Waves (6/40 pages complete) — NEW Track (Session 29)
+### Quality Redesign Waves (20/40 pages complete) — Track Started Session 29
 ```
-Progress: [███░░░░░░░░░░░░░░░░░] 15%
+Progress: [██████████░░░░░░░░░░] 50%
 ```
 All 40 existing framework pages being redesigned to match ReAct/COSTAR/Flipped Interaction quality standard (13-section template, 700-1000+ lines each).
 
 | Wave | Pages | Status |
 |------|-------|--------|
-| Wave 1 — Self-Correction | 6 pages (critic, chain-of-verification, reflexion, self-calibration, self-refine, self-verification) | ✅ COMPLETE |
-| Wave 2 — CoT Variants | 8 pages (auto-cot, contrastive-cot, structured-cot, faithful-cot, complexity-prompting, tab-cot, reversing-cot, cumulative-reasoning) | ⬜ PENDING |
-| Wave 3 — Decomposition | 6 pages (decomp, self-ask, step-back, graph-of-thought, program-of-thought, recursion-of-thought) | ⬜ PENDING |
-| Wave 4 — Advanced Reasoning | 7 pages (analogical-reasoning, meta-reasoning, thread-of-thought, memory-of-thought, simtom, max-mutual-info, universal-self-consistency) | ⬜ PENDING |
+| Wave 1 — Self-Correction | 6 pages (critic, chain-of-verification, reflexion, self-calibration, self-refine, self-verification) | ✅ COMPLETE (Session 29) |
+| Wave 2 — CoT Variants | 8 pages (auto-cot, contrastive-cot, structured-cot, faithful-cot, complexity-prompting, tab-cot, reversing-cot, cumulative-reasoning) | ✅ COMPLETE (Session 31) |
+| Wave 3 — Decomposition | 6 pages (decomp, self-ask, step-back, graph-of-thought, program-of-thought, recursion-of-thought) | ✅ COMPLETE (Session 32) |
+| Wave 4 — Advanced Reasoning | 7 pages (analogical-reasoning, meta-reasoning, thread-of-thought, memory-of-thought, simtom, max-mutual-info, universal-self-consistency) | ⬜ START HERE |
 | Wave 5 — Example Methods | 7 pages (active-prompting, knn-prompting, vote-k, demo-ensembling, diverse-prompting, dense-prompting, prompt-mining) | ⬜ PENDING |
 | Wave 6 — Style & Emotion | 6 pages (emotion-prompting, style-prompting, s2a, re2, cosp, rar) | ⬜ PENDING |
 
-**Reference template:** `learn/critic.html` (898 lines, 13 sections, historical context notice)
+**Reference templates:** `learn/critic.html` (898 lines) or `learn/auto-cot.html` (855 lines) — both have all 13 sections
 
 ### Phase 3: Modality Frameworks (0/37)
 ```
