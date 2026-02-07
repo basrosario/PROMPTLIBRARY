@@ -5792,6 +5792,7 @@ p {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
 }
 
 .header-right {
@@ -5987,35 +5988,35 @@ body.menu-open {
     transform: rotate(-135deg);
 }
 
-/* Multi-column mega menu layout */
+/* Nav items with wide menus position relative to header, not self */
+.nav-item.has-dropdown:has(.mega-menu--multi-column) {
+    position: static;
+}
+
+/* Multi-column mega menu layout (single-column links per category) */
 .mega-menu--multi-column {
     display: flex;
-    gap: var(--space-lg);
-    width: max-content;
-    max-width: calc(100vw - 4rem);
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-lg);
+    width: fit-content;
+    max-width: calc(100vw - 2rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.nav-item.has-dropdown:hover .mega-menu.mega-menu--multi-column,
+.nav-item.has-dropdown.is-active .mega-menu.mega-menu--multi-column {
+    transform: translateX(-50%) translateY(0);
 }
 
 .mega-menu--multi-column .mega-menu-section {
     flex: 0 0 auto;
     min-width: 0;
-    display: grid;
-    grid-template-rows: repeat(11, auto);
-    grid-template-columns: auto auto;
-    grid-auto-flow: column;
-    gap: 0 var(--space-md);
-    align-content: start;
 }
 
-.mega-menu--multi-column .mega-menu-section h4 {
-    grid-column: 1 / -1;
-}
-
-/* Multi-column links within a section (for 8+ links) */
+/* Links wrapper within a section */
 .mega-menu-links {
-    display: grid;
-    grid-template-rows: repeat(8, auto);
-    grid-auto-flow: column;
-    gap: var(--space-xs) var(--space-lg);
+    display: block;
 }
 
 /* Divider for menu sections */
@@ -6192,7 +6193,7 @@ body.menu-open {
         visibility: visible;
     }
 
-    /* Resources multi-column - same 2-column grid */
+    /* Multi-column on mobile - same 2-column grid */
     .mega-menu--multi-column {
         grid-template-columns: 1fr 1fr;
         width: auto;
