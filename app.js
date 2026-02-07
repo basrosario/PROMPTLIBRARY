@@ -462,6 +462,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
+     * Resolves a root-relative internal URL to the correct relative path
+     * based on the current page's directory depth.
+     * Handles all subdirectories (pages/, learn/, tools/, learn/modality/code/, etc.)
+     * @param {string} targetPath - Root-relative path (e.g., 'pages/glossary.html#term-foo')
+     * @returns {string} - Correctly resolved relative path
+     */
+    function resolveInternalUrl(targetPath) {
+        if (!targetPath || targetPath.startsWith('http') || targetPath.startsWith('/') || targetPath.startsWith('#') || targetPath.startsWith('mailto:')) {
+            return targetPath;
+        }
+        const pathname = window.location.pathname;
+        const segments = pathname.replace(/^\//, '').split('/');
+        const depth = Math.max(0, segments.length - 1);
+        if (depth === 0) return targetPath;
+        return '../'.repeat(depth) + targetPath;
+    }
+
+    /**
      * Gets the glossary URL for a given AI term
      * @param {string} term - The AI term text
      * @returns {string|null} - The glossary URL with anchor, or null if no mapping exists
@@ -469,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getGlossaryUrl(term) {
         const anchor = TERM_GLOSSARY_MAP[term];
         if (anchor) {
-            return `pages/glossary.html#${anchor}`;
+            return resolveInternalUrl(`pages/glossary.html#${anchor}`);
         }
         return null;
     }
@@ -5533,7 +5551,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="technique-desc">${escapeHtml(t.description)}</span>
                             ${matchPreview}
                         </div>
-                        <a href="../${escapeHtml(t.learnUrl)}" class="technique-learn" title="Learn more">Learn</a>
+                        <a href="${escapeHtml(resolveInternalUrl(t.learnUrl))}" class="technique-learn" title="Learn more">Learn</a>
                     </div>
                 `;
             }).join('');
@@ -7030,17 +7048,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let linkUrl = content.link;
         const isInternalLink = content.link && !content.link.startsWith('http');
         if (isInternalLink) {
-            const path = window.location.pathname;
-            // Determine path prefix based on current location
-            if (path.includes('/pages/')) {
-                // In pages folder - just use filename
-                linkUrl = content.link.replace('pages/', '');
-            } else if (path.includes('/learn/') || path.includes('/tools/') ||
-                       path.includes('/patterns/') || path.includes('/quiz/')) {
-                // In subfolder - need ../pages/
-                linkUrl = '../' + content.link;
-            }
-            // Root level (index.html) uses pages/security.html as-is
+            linkUrl = resolveInternalUrl(content.link);
         }
 
         const linkHtml = content.link ? `
@@ -7489,8 +7497,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!filterBar) return;
 
         try {
-            const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
-            const response = await fetch(`${basePath}data/glossary.json`);
+            const response = await fetch(resolveInternalUrl('data/glossary.json'));
             if (!response.ok) return;
 
             const data = await response.json();
@@ -7836,7 +7843,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchResults.innerHTML = '<div class="search-no-results">No results found. Try different keywords.</div>';
             } else {
                 searchResults.innerHTML = results.map(item => `
-                    <a href="${item.url}" class="search-result-item">
+                    <a href="${resolveInternalUrl(item.url)}" class="search-result-item">
                         <span class="search-result-category">${item.category}</span>
                         <div class="search-result-title">${item.title}</div>
                         <div class="search-result-desc">${item.desc}</div>
@@ -8069,12 +8076,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="recommender-confidence-value">${best.confidence}% match</span>
                 </div>
                 <p class="recommender-reasoning">${generateReasoning(task.toLowerCase(), best)}</p>
-                <a href="${best.url}" class="btn btn-primary btn-sm">Learn ${best.name} →</a>
+                <a href="${resolveInternalUrl(best.url)}" class="btn btn-primary btn-sm">Learn ${best.name} →</a>
                 <div class="recommender-alternatives">
                     <h4>Other Options</h4>
                     <div class="recommender-alt-list">
                         ${alternatives.map(alt => `
-                            <a href="${alt.url}" class="recommender-alt-item">
+                            <a href="${resolveInternalUrl(alt.url)}" class="recommender-alt-item">
                                 ${alt.name} <span class="recommender-alt-score">${alt.confidence}%</span>
                             </a>
                         `).join('')}
@@ -8372,37 +8379,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Calculate relative path for search quick links based on current page location
+     * Calculate relative path for search quick links based on current page location.
+     * Delegates to resolveInternalUrl for universal directory-depth handling.
      * @param {string} targetPath - The target path (e.g., 'learn/index.html', 'pages/glossary.html')
      * @returns {string} - The correct relative path
      */
     function getSearchLinkPath(targetPath) {
-        const path = window.location.pathname;
-
-        // Check if we're in a subfolder
-        if (path.includes('/pages/')) {
-            // In pages folder - adjust paths
-            if (targetPath.startsWith('pages/')) {
-                return targetPath.replace('pages/', '');
-            } else if (targetPath.startsWith('learn/') || targetPath.startsWith('tools/') ||
-                       targetPath.startsWith('patterns/') || targetPath.startsWith('quiz/')) {
-                return '../' + targetPath;
-            }
-        } else if (path.includes('/learn/') || path.includes('/tools/') ||
-                   path.includes('/patterns/') || path.includes('/quiz/')) {
-            // In other subfolder - need ../ prefix for pages, direct for same level
-            if (targetPath.startsWith('pages/')) {
-                return '../' + targetPath;
-            } else if (targetPath.startsWith('learn/') && path.includes('/learn/')) {
-                return targetPath.replace('learn/', '');
-            } else if (targetPath.startsWith('tools/') && path.includes('/tools/')) {
-                return targetPath.replace('tools/', '');
-            } else {
-                return '../' + targetPath;
-            }
-        }
-        // Root level - use path as-is
-        return targetPath;
+        return resolveInternalUrl(targetPath);
     }
 
     /**
@@ -8599,7 +8582,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             group.results.forEach(result => {
                 html += `
-                    <a href="${escapeHtml(result.url)}" class="search-result-item" data-id="${escapeHtml(result.id)}">
+                    <a href="${escapeHtml(resolveInternalUrl(result.url))}" class="search-result-item" data-id="${escapeHtml(result.id)}">
                         <div class="search-result-icon">${icon}</div>
                         <div class="search-result-content">
                             <div class="search-result-title">${highlightMatches(result.title, query)}</div>
