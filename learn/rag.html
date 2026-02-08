@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contrastive Chain-of-Thought: Show both correct and incorrect reasoning to help AI distinguish good from bad reasoning patterns.">
-    <title>Contrastive Chain-of-Thought - Praxis</title>
+    <meta name="description" content="Retrieval-Augmented Generation (RAG): Ground AI responses in real, retrieved documents to reduce hallucination and deliver accurate, source-backed answers.">
+    <title>Retrieval-Augmented Generation (RAG) - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -121,7 +121,7 @@
                             <a href="../learn/modality/code/code-prompting.html">Code Prompting</a>
                             <a href="../learn/modality/code/self-debugging.html">Self-Debugging</a>
                             <a href="../learn/modality/code/structured-output.html">Structured Output</a>
-                        
+
                             <a href="../learn/modality/code/program-synthesis.html">Program Synthesis</a>
                             <a href="../learn/modality/code/code-explanation.html">Code Explanation</a>
                             <a href="../learn/modality/code/code-review.html">Code Review</a>
@@ -228,6 +228,8 @@
         </div>
     </header>
 
+
+
     <main id="main-content">
         <!-- === HERO SECTION === -->
         <section class="page-hero">
@@ -238,13 +240,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Contrastive CoT</span>
+                    <span class="current">RAG</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Thought Generation</span>
+                    <span class="hero-badge__text">Prompting Strategy</span>
                 </div>
-                <h1 class="page-title fade-in">Contrastive Chain-of-Thought</h1>
-                <p class="page-subtitle fade-in">Don't just show AI the right answer — show it the wrong one too. Contrastive CoT uses both correct and incorrect reasoning examples to sharpen the model's ability to avoid common mistakes.</p>
+                <h1 class="page-title fade-in">Retrieval-Augmented Generation</h1>
+                <p class="page-subtitle fade-in">Language models know a lot, but not everything &mdash; and they cannot tell the difference. RAG solves this by retrieving relevant documents before generating a response, grounding the AI in real, verifiable information rather than parametric memory alone.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -254,9 +256,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2023</span>
-                        <p><strong>Introduced:</strong> Contrastive Chain-of-Thought was published in 2023 by Chia, Chen, Tuan, Poria, and Bing. The technique added a critical missing piece to standard Chain-of-Thought prompting: negative reasoning examples. Where standard CoT demonstrates only the correct path to an answer, Contrastive CoT pairs each correct reasoning chain with an explicitly incorrect one, annotating where and why the bad reasoning fails. This dual-demonstration approach helps models build clearer internal boundaries between valid and invalid reasoning patterns.</p>
-                        <p><strong>Modern LLM Status:</strong> The core insight — that negative examples improve reasoning — remains valuable and practically useful. Modern LLMs like Claude and GPT-4 are stronger reasoners out of the box, but they still benefit measurably from explicit counterexamples, especially in domains with well-known error patterns such as percentage calculations, logical fallacies, and unit conversions. Contrastive CoT is a practical enhancement over standard few-shot CoT that costs little to implement and consistently reduces errors in targeted domains.</p>
+                        <span class="highlight-box__title">Framework Context: 2020</span>
+                        <p><strong>Introduced:</strong> RAG was introduced in 2020 by Lewis et al. at Facebook AI Research (now Meta AI) in the paper &ldquo;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.&rdquo; The core innovation combined a neural retriever (DPR &mdash; Dense Passage Retrieval) with a sequence-to-sequence generator, allowing the model to fetch relevant passages from a knowledge base and condition its output on retrieved evidence. This addressed a fundamental limitation of parametric-only models: they encode knowledge in weights during training but cannot update, verify, or cite that knowledge at inference time.</p>
+                        <p><strong>Modern LLM Status:</strong> RAG has become <strong>the dominant architecture for production AI applications that require factual accuracy</strong>. Every major enterprise AI deployment &mdash; from customer support to legal research to medical information systems &mdash; uses some form of RAG. Modern implementations pair vector databases (Pinecone, Weaviate, ChromaDB) with embedding models for semantic search, then feed retrieved chunks into the LLM&rsquo;s context window. Advanced RAG patterns include multi-step retrieval, re-ranking, hybrid search (combining keyword and semantic search), and citation generation. The technique has evolved from a research concept into the backbone of trustworthy AI systems.</p>
                     </div>
                 </div>
             </div>
@@ -269,16 +271,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Mistakes Are Teachers Too</h2>
-                        <p class="split-section__text">Standard Chain-of-Thought prompting shows the model correct reasoning examples and hopes it figures out what NOT to do on its own. This works reasonably well, but it leaves a gap: the model has no explicit understanding of common failure modes. It knows what right looks like, but not what wrong looks like.</p>
-                        <p class="split-section__text"><strong>Contrastive CoT closes this gap.</strong> By providing both correct and incorrect reasoning chains side by side — with clear annotations explaining WHERE the incorrect chain goes wrong and WHY — the model develops a much sharper sense of the boundary between valid and invalid reasoning.</p>
-                        <p class="split-section__text">Think of it like a math teacher who doesn't just show the correct solution on the board, but also walks through the common mistake students make on every exam. "Here's how to solve it correctly, and here's the error that 60% of students make — notice they confuse the percentage with the absolute value right here."</p>
+                        <h2 class="split-section__title">Give the Model a Library Card</h2>
+                        <p class="split-section__text">A language model&rsquo;s knowledge is frozen at training time. It cannot access new information, verify its own claims, or distinguish between what it truly knows and what it is confabulating. When asked about your company&rsquo;s refund policy, last quarter&rsquo;s earnings, or a document uploaded yesterday, the model has two choices: refuse to answer or hallucinate something plausible. Neither is acceptable in production.</p>
+                        <p class="split-section__text"><strong>RAG bridges the gap between parametric knowledge and real-time information.</strong> Before generating a response, a retrieval system searches a knowledge base for documents relevant to the user&rsquo;s query. These retrieved passages are then injected into the model&rsquo;s context alongside the question, giving it concrete evidence to reason over. The model becomes a skilled synthesizer of provided information rather than an unreliable memory bank.</p>
+                        <p class="split-section__text">Think of it like the difference between a student taking a closed-book exam and an open-book exam. The closed-book student must rely entirely on memorization &mdash; and will confidently write wrong answers when memory fails. The open-book student consults their materials, cites specific passages, and produces answers grounded in verifiable sources.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Contrast Effect</span>
-                                <p>Humans learn faster when shown both positive and negative examples. A medical student learns diagnostic patterns more effectively by studying both correct diagnoses and documented misdiagnoses. The same principle applies to LLMs — explicit error patterns create clearer decision boundaries, making the model less likely to stumble into known pitfalls.</p>
+                                <span class="highlight-box__title">Why Retrieval Beats Bigger Models</span>
+                                <p>Scaling model parameters does not solve the fundamental knowledge problem. A model with a trillion parameters still cannot know about documents created after its training cutoff, proprietary company data it was never trained on, or rapidly changing information like stock prices or policy updates. RAG is not a workaround for small models &mdash; it is the architecturally correct solution for any application where factual accuracy matters. Even the most capable models benefit from retrieved evidence, because it transforms guessing into grounded synthesis.</p>
                             </div>
                         </div>
                     </div>
@@ -290,8 +292,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Contrastive CoT Process</h2>
-                <p class="section-subtitle fade-in-up">Four steps from examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">The RAG Pipeline</h2>
+                <p class="section-subtitle fade-in-up">Four stages from query to grounded response</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -299,11 +301,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Identify Common Errors</h3>
-                            <p class="element-timeline__text">Analyze the target domain to find recurring mistakes that people and models consistently make. These could be computational errors, logical fallacies, misapplied rules, or overlooked constraints. The better you understand the failure modes, the more effective your contrastive examples will be.</p>
+                            <h3 class="element-timeline__title">Receive the Query</h3>
+                            <p class="element-timeline__text">The user submits a question or request. The system captures this query and prepares it for the retrieval step. In advanced implementations, the query may be reformulated or expanded to improve retrieval quality &mdash; for example, decomposing a complex question into multiple sub-queries.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Math domain common errors: confusing percentage with absolute value, forgetting order of operations, misreading word problem quantities, swapping numerator and denominator in ratios."</p>
+                                <p>User asks: &ldquo;What is our company&rsquo;s policy on remote work for international employees?&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -313,11 +315,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Correct Examples</h3>
-                            <p class="element-timeline__text">Write clear, correct reasoning chains that demonstrate proper problem-solving with explicit step-by-step logic. Each step should be labeled and justified so the model can see exactly how a correct thinker moves from problem to solution.</p>
+                            <h3 class="element-timeline__title">Retrieve Relevant Documents</h3>
+                            <p class="element-timeline__text">The query is converted into a vector embedding and compared against a pre-indexed knowledge base using semantic similarity search. The top-k most relevant document chunks are retrieved. Modern systems often combine semantic search with keyword matching (hybrid search) and apply re-ranking models to improve precision.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Step 1 — Convert percentage to decimal: 20% = 0.20. Step 2 — Calculate discount: $50 x 0.20 = $10. Step 3 — Subtract discount: $50 - $10 = $40. Final answer: $40."</p>
+                                <p>Retriever returns 3 chunks: (1) International Remote Work Policy v3.2, Section 4: Eligibility Criteria, (2) Tax Compliance Guide: Cross-Border Employment, (3) IT Security Policy: VPN Requirements for International Access.</p>
                             </div>
                         </div>
                     </div>
@@ -327,11 +329,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Incorrect Examples</h3>
-                            <p class="element-timeline__text">Write deliberately wrong reasoning chains that reproduce the identified common errors. Critically, annotate exactly where and why the reasoning fails. The annotation is what transforms a bad example into a teaching tool.</p>
+                            <h3 class="element-timeline__title">Augment the Prompt</h3>
+                            <p class="element-timeline__text">The retrieved documents are formatted and injected into the LLM&rsquo;s context window alongside the original query. The prompt instructs the model to answer based on the provided documents, cite sources, and indicate when the retrieved information is insufficient to answer fully.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Subtract 20 from 50 = $30. ERROR: Confused percentage (20%) with absolute dollar value ($20). The correct approach requires multiplying by 0.20 to find the actual discount amount."</p>
+                                <p>&ldquo;Based on the following company documents: [Document 1]... [Document 2]... [Document 3]... Answer the user&rsquo;s question about international remote work policy. Cite specific document sections. If the documents do not contain enough information to answer fully, state what is missing.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -341,11 +343,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Combine in Prompt</h3>
-                            <p class="element-timeline__text">Present both correct and incorrect examples together in the prompt, clearly labeled, so the model sees the full contrast before attempting new problems. The juxtaposition is the key — seeing right and wrong side by side creates stronger pattern recognition than either alone.</p>
+                            <h3 class="element-timeline__title">Generate Grounded Response</h3>
+                            <p class="element-timeline__text">The LLM reads the retrieved documents and the query, then synthesizes a response that draws directly from the provided evidence. The response includes citations pointing back to source documents, allowing users to verify claims and building trust through transparency.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Prompt structure: 'CORRECT approach: [full reasoning chain] ... COMMON MISTAKE to avoid: [wrong chain with error annotation] ... Now solve this new problem using correct reasoning:'</p>
+                                <p>The model responds with a structured answer citing Section 4 of the International Remote Work Policy, noting eligibility requirements, tax implications from the Compliance Guide, and VPN setup instructions from the IT Security Policy &mdash; with source references for each claim.</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +360,7 @@
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Standard CoT vs Contrastive CoT</p>
+                <p class="section-subtitle fade-in-up">Why retrieved evidence produces more reliable answers</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -369,16 +371,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Standard CoT</h3>
+                            <h3 class="comparison-panel__title">Without RAG</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"Here's how to solve a percentage problem: 30% of $80 means $80 x 0.30 = $24. So the discount is $24 and the final price is $56. Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>What is our company&rsquo;s parental leave policy?</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Only a correct example. The model must infer on its own what mistakes to avoid. If it has a tendency toward a common error pattern, nothing in the prompt warns it away.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The model generates a plausible-sounding policy based on general knowledge of parental leave practices. It states &ldquo;12 weeks paid leave&rdquo; because that is common, but your company actually offers 16 weeks. It omits the adoption leave provisions entirely because it has never seen your policy document.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -386,7 +388,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Model might still make common errors it hasn't been warned about</span>
+                            <span>Hallucinated details, no source verification, potential policy misinformation</span>
                         </div>
                     </div>
 
@@ -398,20 +400,19 @@
                         <div class="comparison-panel__header">
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8 12l3 3 5-5"/>
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Contrastive CoT</h3>
+                            <h3 class="comparison-panel__title">With RAG</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"CORRECT: 30% of $80 = $80 x 0.30 = $24 discount, final price $56. COMMON MISTAKE: 30% of $80 = $80 - 30 = $50 (ERROR: treated percentage as dollars). Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>[Retrieved: Employee Handbook v4.1, Chapter 7: Family Leave, Sections 7.1-7.4] Based on these documents, what is our company&rsquo;s parental leave policy?</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Both the correct reasoning and the specific mistake to avoid, with a clear annotation of where and why the error occurs. The model now has explicit anti-patterns to steer away from.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The model cites Section 7.1 for 16 weeks paid birth parent leave, Section 7.2 for 12 weeks non-birth parent leave, Section 7.3 for 16 weeks adoption leave with the same benefits, and Section 7.4 for the gradual return-to-work program. Each claim maps to a specific section number.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -419,7 +420,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Model explicitly learns what to avoid — errors drop significantly</span>
+                            <span>Source-grounded, verifiable, accurate to actual company policy</span>
                         </div>
                     </div>
                 </div>
@@ -430,33 +431,28 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Contrastive CoT in Action</h2>
-                <p class="section-subtitle fade-in-up">Real-world scenarios showing correct vs incorrect reasoning pairs</p>
+                <h2 class="section-title fade-in-up">RAG in Action</h2>
+                <p class="section-subtitle fade-in-up">See how retrieval grounds AI responses in real evidence</p>
 
-                <div class="accordion fade-in-up" id="contrastive-accordion">
+                <div class="accordion fade-in-up" id="rag-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Mathematical Reasoning</span>
+                            <span class="accordion-title">Enterprise Knowledge Base</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Problem:</strong> A jacket originally costs $80. The store offers 25% off, then an additional 10% off the sale price. What is the final price?</p>
-                                    <p><strong>Step 1:</strong> Calculate the first discount: $80 x 0.25 = $20.<br>
-                                    <strong>Step 2:</strong> Subtract first discount: $80 - $20 = $60.<br>
-                                    <strong>Step 3:</strong> Calculate second discount on the NEW price: $60 x 0.10 = $6.<br>
-                                    <strong>Step 4:</strong> Subtract second discount: $60 - $6 = $54.<br>
-                                    <strong>Final answer:</strong> $54.</p>
+                                    <span class="technique-demo__tag">Query</span>
+                                    <p>&ldquo;How do I configure SSO for our internal dashboard?&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Step 1:</strong> Add the two discounts: 25% + 10% = 35%.<br>
-                                    <strong>Step 2:</strong> Calculate total discount: $80 x 0.35 = $28.<br>
-                                    <strong>Step 3:</strong> Subtract: $80 - $28 = $52.<br>
-                                    <strong>Final answer:</strong> $52.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> The mistake is adding percentages that apply to different base values. The 25% applies to $80, but the 10% applies to $60 (the already-discounted price). Stacking percentages only works when they share the same base. Sequential discounts must be calculated sequentially.</p>
+                                    <span class="technique-demo__tag">RAG Pipeline</span>
+                                    <p><strong>Retrieved Documents:</strong><br>
+                                    (1) IT Admin Guide: SSO Configuration, Section 3.2<br>
+                                    (2) Dashboard Release Notes v2.4: New SSO Provider Support<br>
+                                    (3) Security Checklist: SSO Implementation<br><br>
+                                    <strong>Generated Response:</strong> The LLM synthesizes a step-by-step answer citing the Admin Guide for SAML configuration steps, the Release Notes for supported identity providers (Okta, Azure AD, Auth0), and the Security Checklist for the required certificate rotation schedule. Each instruction maps back to a specific source document and section number, enabling the employee to verify any step against the original documentation.</p>
                                 </div>
                             </div>
                         </div>
@@ -464,24 +460,22 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Logical Reasoning</span>
+                            <span class="accordion-title">Legal Research Assistant</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Rex is a dog.<br>
-                                    <strong>Conclusion:</strong> Rex is a mammal.</p>
-                                    <p><strong>Analysis:</strong> This is valid deductive reasoning (modus ponens). We know the category "dogs" is a subset of "mammals," and Rex belongs to "dogs," so Rex must also belong to "mammals." The logic is airtight.</p>
+                                    <span class="technique-demo__tag">Query</span>
+                                    <p>&ldquo;Does the new EU AI Act apply to our recommendation engine?&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Whiskers is a mammal.<br>
-                                    <strong>Conclusion:</strong> Whiskers is a dog.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the fallacy of "affirming the consequent." Just because all dogs are mammals does NOT mean all mammals are dogs. Whiskers could be a cat, a horse, or a whale — all mammals, none of them dogs. The error is reversing the direction of the subset relationship. Being in the larger category does not guarantee membership in the smaller one.</p>
+                                    <span class="technique-demo__tag">RAG Pipeline</span>
+                                    <p><strong>Retrieved Documents:</strong><br>
+                                    (1) EU AI Act Final Text, Articles 6-7: High-Risk Classification<br>
+                                    (2) Internal Product Architecture Doc: Recommendation Engine v3<br>
+                                    (3) Legal Team Memo: AI Act Compliance Assessment<br><br>
+                                    <strong>Generated Response:</strong> The LLM cross-references the Act&rsquo;s high-risk criteria against the product architecture, determines the recommendation engine likely falls under &ldquo;limited risk&rdquo; based on Article 52 transparency obligations, and cites the Legal Team memo&rsquo;s existing compliance assessment with specific gaps identified. Each conclusion traces back to a retrieved document, allowing the legal team to verify the analysis independently.</p>
                                 </div>
                             </div>
                         </div>
@@ -489,21 +483,22 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Reading Comprehension</span>
+                            <span class="accordion-title">Medical Information System</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Passage:</strong> "The company's Q3 revenue grew 12% year-over-year, driven primarily by expansion in the European market. However, operating margins declined due to increased hiring costs."</p>
-                                    <p><strong>Question:</strong> Is the company in good financial health?</p>
-                                    <p><strong>Analysis:</strong> The picture is mixed. Revenue growth of 12% is positive and shows demand is increasing. However, declining operating margins mean that costs are growing faster than revenue. The company is growing its top line but needs to manage expenses. A balanced assessment would be: growing but facing profitability pressure.</p>
+                                    <span class="technique-demo__tag">Query</span>
+                                    <p>&ldquo;What are the current treatment guidelines for Type 2 diabetes in patients with kidney disease?&rdquo;</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Analysis:</strong> Revenue grew 12%, so the company is doing great financially. Growth means health.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the over-generalization fallacy — focusing on one positive data point while ignoring contradictory evidence in the same passage. The passage explicitly states that operating margins declined. Revenue growth alone does not equal financial health; profitability, margins, and cost management are equally important. A correct reading must weigh ALL information presented, not cherry-pick the favorable parts.</p>
+                                    <span class="technique-demo__tag">RAG Pipeline</span>
+                                    <p><strong>Retrieved Documents:</strong><br>
+                                    (1) ADA Standards of Medical Care 2024, Section 11: Chronic Kidney Disease<br>
+                                    (2) KDIGO Clinical Practice Guideline for Diabetes Management in CKD<br>
+                                    (3) FDA Drug Safety Communication: SGLT2 Inhibitors<br><br>
+                                    <strong>Generated Response:</strong> The LLM synthesizes treatment recommendations with specific citations &mdash; SGLT2 inhibitors as first-line per KDIGO guidelines, GFR thresholds for medication adjustments per ADA standards, and monitoring requirements from the FDA safety communication. Each recommendation includes its source reference. The response concludes with a disclaimer that clinical guidelines inform but do not replace individualized clinical decision-making.</p>
                                 </div>
                             </div>
                         </div>
@@ -516,8 +511,8 @@
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Contrastive CoT</h2>
-                <p class="section-subtitle fade-in-up">Best for domains with identifiable, recurring reasoning errors</p>
+                <h2 class="section-title fade-in-up">When to Use RAG</h2>
+                <p class="section-subtitle fade-in-up">Best for applications where factual accuracy and source grounding are essential</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -529,8 +524,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Error-Prone Domains</strong>
-                                    <p>Math, logic, and analytical tasks where specific mistakes recur consistently across both human and AI reasoning.</p>
+                                    <strong>Knowledge-Intensive Applications</strong>
+                                    <p>When the AI must answer questions about specific documents, policies, products, or data that it was not trained on.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -539,8 +534,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Training and Education</strong>
-                                    <p>Building prompts that teach not just correct solutions but common pitfalls — ideal for educational AI applications.</p>
+                                    <strong>Accuracy-Critical Deployments</strong>
+                                    <p>When hallucinated or outdated information carries real consequences &mdash; legal, medical, financial, or compliance contexts.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -549,8 +544,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Quality-Critical Tasks</strong>
-                                    <p>When even small reasoning errors have outsized impact — financial calculations, compliance analysis, safety assessments.</p>
+                                    <strong>Dynamic Knowledge Bases</strong>
+                                    <p>When the underlying information changes frequently &mdash; product catalogs, policy documents, regulatory updates &mdash; and the AI must always reflect current data.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -559,8 +554,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Known Error Patterns</strong>
-                                    <p>When you can identify and document the specific mistakes to avoid — the technique is only as good as your error catalogue.</p>
+                                    <strong>Auditable AI Systems</strong>
+                                    <p>When stakeholders need to verify where answers came from &mdash; RAG&rsquo;s citation mechanism creates a transparent evidence trail.</p>
                                 </div>
                             </div>
                         </div>
@@ -574,8 +569,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Open-Ended Creativity</strong>
-                                    <p>Creative writing, brainstorming, and generative tasks where there is no objectively "wrong" reasoning path to contrast against.</p>
+                                    <strong>General Knowledge Questions</strong>
+                                    <p>Questions well within the model&rsquo;s training data where retrieval adds latency without improving accuracy &mdash; &ldquo;What is photosynthesis?&rdquo;</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -584,8 +579,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Simple Factual Queries</strong>
-                                    <p>Direct lookups and retrieval tasks that don't involve reasoning chains — the model either knows the fact or it doesn't.</p>
+                                    <strong>Creative Generation Tasks</strong>
+                                    <p>Writing fiction, brainstorming ideas, or generating original content where grounding in retrieved documents would constrain creativity.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -594,8 +589,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Unknown Error Patterns</strong>
-                                    <p>If you can't identify what specific mistakes to demonstrate, standard CoT may suffice. Vague or generic "bad examples" add noise, not clarity.</p>
+                                    <strong>Simple Classification Tasks</strong>
+                                    <p>Sentiment analysis, language detection, or categorization tasks where the model&rsquo;s parametric knowledge is sufficient and retrieval would add unnecessary complexity.</p>
                                 </div>
                             </div>
                         </div>
@@ -609,39 +604,17 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Contrastive CoT delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where RAG delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Standardized Testing</h3>
-                        <p class="use-case-showcase__desc">Improve accuracy on SAT, GRE, and GMAT-style math by showing common trap answers alongside correct solution paths.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <path d="M9 9h6M9 13h6M9 17h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
-                        <p class="use-case-showcase__desc">Avoid common calculation errors in compound interest, tax rates, and margin computations by contrasting correct and incorrect formulas.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
-                        <p class="use-case-showcase__desc">Show diagnostic pitfalls — like anchoring bias or base rate neglect — alongside correct differential diagnosis patterns.</p>
+                        <h3 class="use-case-showcase__title">Customer Support</h3>
+                        <p class="use-case-showcase__desc">Answer product questions using current documentation, troubleshooting guides, and known issue databases &mdash; always citing the specific article or guide section.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -653,31 +626,50 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Legal Analysis</h3>
-                        <p class="use-case-showcase__desc">Demonstrate correct and incorrect applications of legal precedent, showing how misapplied case law leads to faulty conclusions.</p>
+                        <h3 class="use-case-showcase__title">Legal Research</h3>
+                        <p class="use-case-showcase__desc">Search across case law, statutes, and regulatory documents to find relevant precedents and compile source-backed legal analyses.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Code Review</h3>
-                        <p class="use-case-showcase__desc">Show both correct implementations and common anti-patterns with explanations of why the anti-pattern fails or degrades performance.</p>
+                        <h3 class="use-case-showcase__title">Medical Information</h3>
+                        <p class="use-case-showcase__desc">Provide evidence-based health information grounded in current clinical guidelines, peer-reviewed research, and drug safety databases.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                                <polyline points="2 17 12 22 22 17"/>
-                                <polyline points="2 12 12 17 22 12"/>
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Scientific Reasoning</h3>
-                        <p class="use-case-showcase__desc">Contrast correct experimental design with common confounding variable errors and correlation-causation mix-ups.</p>
+                        <h3 class="use-case-showcase__title">Enterprise Search</h3>
+                        <p class="use-case-showcase__desc">Transform internal knowledge bases into conversational interfaces where employees get synthesized answers with links back to source documents.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Academic Research</h3>
+                        <p class="use-case-showcase__desc">Help researchers find and synthesize relevant papers, extract key findings, and identify connections across large document collections.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Compliance Monitoring</h3>
+                        <p class="use-case-showcase__desc">Continuously check organizational practices against retrieved regulatory requirements and flag potential violations with specific regulatory citations.</p>
                     </div>
                 </div>
             </div>
@@ -687,35 +679,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Contrastive CoT Fits</h2>
-                <p class="section-subtitle fade-in-up">From basic examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">Where RAG Fits</h2>
+                <p class="section-subtitle fade-in-up">RAG bridges parametric knowledge and dynamic evidence retrieval</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
-                        <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Example-Based</span>
-                        <span class="era-marker__desc">Learning from demonstrations</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">Chain-of-Thought</span>
-                        <span class="era-marker__title">Correct Examples</span>
-                        <span class="era-marker__desc">Step-by-step reasoning</span>
+                        <span class="era-marker__year">Parametric Models</span>
+                        <span class="era-marker__title">Closed-Book</span>
+                        <span class="era-marker__desc">Knowledge encoded only in model weights</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Contrastive CoT</span>
-                        <span class="era-marker__title">Dual Examples</span>
-                        <span class="era-marker__desc">Correct + incorrect reasoning</span>
+                        <span class="era-marker__year">RAG</span>
+                        <span class="era-marker__title">Open-Book</span>
+                        <span class="era-marker__desc">Retrieve then generate with evidence</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Path Sampling</span>
-                        <span class="era-marker__desc">Multiple reasoning paths</span>
+                        <span class="era-marker__year">Agentic RAG</span>
+                        <span class="era-marker__title">Multi-Step Retrieval</span>
+                        <span class="era-marker__desc">Dynamic retrieval with reasoning loops</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Self-RAG</span>
+                        <span class="era-marker__title">Adaptive Retrieval</span>
+                        <span class="era-marker__desc">Model decides when and what to retrieve</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Stack Them</div>
-                    <p>Use Contrastive CoT to teach the model what to avoid, then Self-Consistency to sample multiple reasoning paths. The model avoids known pitfalls across all sampled chains, combining error awareness with path diversity for maximum reasoning accuracy.</p>
+                    <div class="callout-title">The Enterprise AI Standard</div>
+                    <p>RAG has become the de facto architecture for enterprise AI. When Gartner, McKinsey, and Forrester advise companies on AI adoption, RAG is consistently the recommended starting point. The reason is simple: enterprises cannot deploy AI systems that hallucinate about their own products, policies, or data. RAG provides the grounding layer that makes AI trustworthy enough for production use &mdash; transforming an impressive but unreliable demo into a system that stakeholders can actually depend on.</p>
                 </div>
             </div>
         </section>
@@ -725,19 +717,21 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary reasoning techniques</p>
+                <p class="section-subtitle fade-in-up">Explore complementary techniques for factual accuracy</p>
 
-                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                <a href="self-ask.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                            <path d="M21 3v9h-9"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Chain-of-Thought</span>
-                        <span class="evolution-callout__desc">Standard correct-only reasoning demonstrations — the baseline that Contrastive CoT enhances with negative examples.</span>
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Self-Ask</span>
+                        <span class="evolution-callout__desc">Self-Ask&rsquo;s sub-question decomposition pairs naturally with RAG &mdash; each sub-question can trigger its own retrieval step, improving multi-hop factual accuracy.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -746,17 +740,16 @@
                     </span>
                 </a>
 
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="react.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Technique</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">Provide examples for the model to learn from — Contrastive CoT extends this to include what NOT to do.</span>
+                        <span class="evolution-callout__label">Extension</span>
+                        <span class="evolution-callout__title">ReAct</span>
+                        <span class="evolution-callout__desc">ReAct adds reasoning and action loops around retrieval &mdash; the model decides when to search, evaluates results, and iterates until it has sufficient evidence.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -765,7 +758,7 @@
                     </span>
                 </a>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                <a href="chain-of-verification.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 2l4 4-4 4"/>
@@ -775,9 +768,9 @@
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Enhancement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Sample multiple reasoning paths and vote — combines well with contrastive examples to avoid repeated errors.</span>
+                        <span class="evolution-callout__label">Quality Layer</span>
+                        <span class="evolution-callout__title">Chain-of-Verification</span>
+                        <span class="evolution-callout__desc">After RAG retrieves and generates, Chain-of-Verification checks each claim against the source documents &mdash; catching any remaining hallucinations or misattributions.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -790,16 +783,16 @@
         <!-- /RELATED FRAMEWORKS -->
 
         <!-- === CTA SECTION === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Sharpen Your Reasoning</h2>
-                        <p class="cta-corporate__text">Build Contrastive CoT prompts that teach AI what to avoid, or explore more reasoning frameworks across the Praxis Library.</p>
+                        <h2 class="cta-corporate__title">Ground Your AI in Reality</h2>
+                        <p class="cta-corporate__text">Build retrieval-augmented prompts with our Prompt Builder or explore related frameworks for factual accuracy and source grounding.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
-                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                            <a href="index.html" class="btn btn-secondary">All Frameworks</a>
                         </div>
                     </div>
                 </div>
@@ -807,6 +800,7 @@
         </section>
         <!-- /CTA SECTION -->
     </main>
+
 
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>

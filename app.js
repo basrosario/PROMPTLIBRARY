@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * TabbedMenu — progressive disclosure for mega-menus.
      * Desktop: left tab column (mouseenter switches panels), keyboard arrow-key nav.
-     * Mobile: accordion with collapsible category headers (single-expand).
+     * Mobile: all sections expanded by default, individual toggle to collapse.
      * Tab buttons are generated at runtime from each [data-tab] section's <h4> text.
      */
     const TabbedMenu = {
@@ -281,6 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.activateTab(menu, tabs[next], targetSection);
                 }
             });
+
+            // Mobile: expand all sections by default
+            if (this.isMobile()) {
+                sections.forEach(s => s.classList.add('is-expanded'));
+            }
         },
 
         /**
@@ -308,20 +313,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         /**
-         * Toggle a section in mobile accordion mode (single-expand)
+         * Toggle a section in mobile accordion mode (independent toggle)
          * @param {HTMLElement} menu - The .mega-menu--tabbed container
          * @param {HTMLElement} section - The section to toggle
          */
         toggleAccordion(menu, section) {
-            const wasExpanded = section.classList.contains('is-expanded');
-            // Close all sections
-            menu.querySelectorAll('.mega-menu-section[data-tab]').forEach(s => {
-                s.classList.remove('is-expanded');
-            });
-            // Open if it wasn't already open
-            if (!wasExpanded) {
-                section.classList.add('is-expanded');
-            }
+            section.classList.toggle('is-expanded');
         }
     };
 

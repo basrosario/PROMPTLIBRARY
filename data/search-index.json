@@ -49641,5 +49641,91 @@
     ],
     "excerpt": "Curated AI Resources for Neurodivergent Users - Research, organizations, tools, and guides for using AI with ADHD, Autism, Dyslexia, and more.",
     "url": "neurodivergence/resources.html"
+  },
+  {
+    "id": "learn-system-prompting",
+    "title": "System Prompting",
+    "category": "Discover",
+    "subcategory": "Prompting Strategies",
+    "keywords": [
+      "system prompting",
+      "system prompt",
+      "configuration",
+      "behavioral rules",
+      "role definition",
+      "constraints",
+      "instructions",
+      "persona",
+      "guardrails",
+      "safety",
+      "output format",
+      "production ai"
+    ],
+    "excerpt": "System Prompting: Define AI behavior, personality, and constraints through structured system-level instructions that shape every response in a conversation.",
+    "url": "learn/system-prompting.html"
+  },
+  {
+    "id": "learn-rag",
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "category": "Discover",
+    "subcategory": "Prompting Strategies",
+    "keywords": [
+      "rag",
+      "retrieval-augmented generation",
+      "retrieval",
+      "knowledge base",
+      "vector search",
+      "semantic search",
+      "grounding",
+      "hallucination reduction",
+      "citations",
+      "enterprise ai",
+      "document retrieval",
+      "factual accuracy"
+    ],
+    "excerpt": "Retrieval-Augmented Generation (RAG): Ground AI responses in real, retrieved documents to reduce hallucination and deliver accurate, source-backed answers.",
+    "url": "learn/rag.html"
+  },
+  {
+    "id": "learn-agentic-prompting",
+    "title": "Agentic Prompting",
+    "category": "Discover",
+    "subcategory": "Prompting Strategies",
+    "keywords": [
+      "agentic prompting",
+      "ai agents",
+      "autonomous",
+      "tool use",
+      "function calling",
+      "planning",
+      "multi-step",
+      "goal-directed",
+      "reasoning loop",
+      "react pattern",
+      "orchestration",
+      "automation"
+    ],
+    "excerpt": "Agentic Prompting: Design AI systems that autonomously plan, execute, and adapt multi-step tasks using tools, memory, and reasoning loops.",
+    "url": "learn/agentic-prompting.html"
+  },
+  {
+    "id": "learn-skeleton-of-thought",
+    "title": "Skeleton-of-Thought",
+    "category": "Discover",
+    "subcategory": "Decomposition",
+    "keywords": [
+      "skeleton-of-thought",
+      "parallel generation",
+      "outline first",
+      "latency reduction",
+      "structured output",
+      "parallel decoding",
+      "speed optimization",
+      "decomposition",
+      "expand in parallel",
+      "response structure"
+    ],
+    "excerpt": "Skeleton-of-Thought: Accelerate AI responses by generating an answer outline first, then expanding each point in parallel for faster, more structured outputs.",
+    "url": "learn/skeleton-of-thought.html"
   }
 ]

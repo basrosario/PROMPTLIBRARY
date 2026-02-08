@@ -1,8 +1,8 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-07 (Session 56)
-**Last Commit:** `c94a43e` — Mega-menu sidebar quick links redesign
-**Current Phase:** Post-build. Search + navigation UX improvements.
+**Last Updated:** 2026-02-07 (Session 57)
+**Last Commit:** Session 57 (Code page upgrades + 4 emerging frameworks + mobile nav fixes)
+**Current Phase:** Post-build. Emerging frameworks + page upgrades.
 
 ---
 
@@ -23,7 +23,51 @@
 - **Mega-Menu Redesign** — COMPLETE (Session 48, tabbed progressive disclosure, 133+ files)
 - **Site Audit System** — COMPLETE (Session 53, `.claude/testing-procedures.md`)
 - **First Full Audit** — EXECUTED Session 54, ALL items resolved Session 55
-- **Site totals:** 104 framework pages (all 13-section), 2,141+ glossary terms, 145 HTML files, 2,324 search entries
+- **Emerging Frameworks** — COMPLETE (Session 57, 4 new pages + 3 Code upgrades)
+- **Site totals:** 108 framework pages (all 13-section), 2,141+ glossary terms, 149 HTML files, 2,328 search entries
+
+---
+
+## SESSION 57 — Code Upgrades + Emerging Frameworks (2026-02-07)
+
+### Completed This Session
+
+1. **3 Code page 13-section upgrades** — Rebuilt `code-prompting.html`, `self-debugging.html`, and `structured-output.html` with full rich content: enhanced hero subtitles, 3-paragraph concept sections, element-timeline How It Works, proper comparison panels, 3 detailed accordion examples each, 6 use cases each, evolution-callout Related Frameworks cards, full CTA with canvas. These pages previously had thin content (8-10 sections with basic content) and now match the quality of the Session 50 new Code pages.
+
+2. **System Prompting page** (`learn/system-prompting.html`) — New Prompting Strategies page. Covers system-level instruction design: role definition, behavioral constraints, output format specification, and context/examples. Three accordion demos: Customer Support Agent, Code Review Assistant, Educational Tutor. Framework positioning: Direct Prompting → System Prompting → Constitutional AI → Agentic Systems.
+
+3. **RAG page** (`learn/rag.html`) — New Prompting Strategies page. Covers Retrieval-Augmented Generation: query processing, document retrieval, prompt augmentation, grounded response generation. Three accordion demos: Enterprise Knowledge Base, Legal Research Assistant, Medical Information System. Framework positioning: Parametric Models → RAG → Agentic RAG → Self-RAG.
+
+4. **Agentic Prompting page** (`learn/agentic-prompting.html`) — New Prompting Strategies page. Covers autonomous AI agents: goal/tool definition, approach planning, tool execution, observe/reflect loops, result delivery. Three accordion demos: Automated Research Agent, Code Development Agent, Multi-Agent Collaboration. Framework positioning: Single Prompts → Prompt Chaining → ReAct → Agentic Prompting.
+
+5. **Skeleton-of-Thought page** (`learn/skeleton-of-thought.html`) — New Decomposition page. Covers parallel generation via outline-first approach: skeleton generation, parallel point expansion, final assembly. Three accordion demos: Technical Documentation, Educational Content, Product Comparison. Framework positioning: Standard Generation → Chain-of-Thought → Skeleton-of-Thought → Speculative Decoding.
+
+6. **Mega-menu batch update** — `update_nav_emerging.py` added 4 new links across all 149 HTML files: 3 in Prompting Strategies tab (after RE2), 1 in Decomposition tab (after Program of Thought). Handles 4 depth variants correctly.
+
+7. **Search index** — 4 new entries added to `data/search-index.json` (2,328 total entries).
+
+8. **Discover hub** — 4 new cards added to `learn/index.html`. Prompting Strategies count: 11→14. Decomposition count: 7→8.
+
+9. **Category pages** — Updated `learn/prompting-strategies.html` (3 new cards + 3 comparison table rows, count 11→14) and `learn/decomposition.html` (1 new card + 1 comparison table row, count 7→8).
+
+10. **Homepage counter** — Updated `index.html` from 101+ to 108+ frameworks (counter, subtitle, CTA button).
+
+11. **Parking lot** — Created `.claude/parkinglot.md` with deferred items: (1) Performance optimization/minification branching strategy, (2) User analytics/feedback mechanisms.
+
+12. **Mobile nav scroll fix (longstanding bug)** — Fixed `.nav.active` (position:fixed) disappearing when page was scrolled. Root cause: `.header.scrolled` applied `backdrop-filter: blur(10px)` which per CSS spec creates a new containing block, causing the nav's `position:fixed` to become relative to the ~60px header instead of viewport. Fix: `body.menu-open .header { backdrop-filter: none; }` in `styles.css`.
+
+13. **Mobile nav expanded by default** — Changed mobile mega-menu accordion from all-collapsed to all-expanded on init. In `app.js` `TabbedMenu.setup()`, added `is-expanded` class to all sections when mobile. Changed `toggleAccordion` from single-expand to independent toggle (users can collapse/expand individual sections).
+
+14. **Mobile nav Resources formatting fix** — Resources dropdown had desktop centering (`transform: translateX(-50%); left: 50%`) that wasn't reset on mobile, causing misalignment at bottom of mobile menu. Added mobile override to reset transform and position.
+
+### Updated Counters
+| Counter | Old | New |
+|---------|-----|-----|
+| Framework pages | 104 | 108 |
+| HTML files | 145 | 149 |
+| Search entries | 2,324 | 2,328 |
+| Prompting Strategies | 11 | 14 |
+| Decomposition | 7 | 8 |
 
 ---
 
@@ -87,10 +131,9 @@
 
 ## FUTURE WORK
 
-- 3 Code modality pages need full 13-section template build-out
-- Additional framework pages for emerging techniques
-- Performance optimization / CSS+JS minification
-- User analytics or feedback mechanisms
+- Performance optimization / CSS+JS minification (see `.claude/parkinglot.md`)
+- User analytics or feedback mechanisms (see `.claude/parkinglot.md`)
+- Additional framework pages for further emerging techniques
 
 ---
 
@@ -162,7 +205,7 @@ Sessions 38/45/46/48 used Python scripts to batch-update navigation across all H
 
 **Mobile styling:** Headers 0.86rem, links 0.92rem. Non-clickable headers: `var(--primary)` (red). Clickable headers/links: `#fff`.
 
-**JS:** `TabbedMenu` object in `app.js` — runtime tab button generation from `[data-tab]` section h4 text, mouseenter switching (desktop), h4 click accordion (mobile), roving tabindex keyboard nav. No changes needed — queries `.mega-menu-tabs` inside `.mega-menu-sidebar`.
+**JS:** `TabbedMenu` object in `app.js` — runtime tab button generation from `[data-tab]` section h4 text, mouseenter switching (desktop), h4 click accordion (mobile, all expanded by default, independent toggle), roving tabindex keyboard nav. Mobile menu requires `body.menu-open .header { backdrop-filter: none; }` to prevent CSS containing block from breaking `position: fixed` on `.nav.active`.
 
 **Resources menu** still uses `mega-menu--multi-column` (unchanged).
 
@@ -184,6 +227,7 @@ Sessions 38/45/46/48 used Python scripts to batch-update navigation across all H
 | `update_nav_3d.py` | Reference for adding 3D tab (13th mega-menu tab) | 131 |
 | `update_nav_tabbed.py` | Reference for tabbed-menu conversion script | 157 |
 | `update_nav_sidebar.py` | Reference for sidebar quick links conversion (S56) | ~90 |
+| `update_nav_emerging.py` | Reference for adding links within existing tabs (S57) | ~100 |
 
 ---
 
@@ -258,10 +302,10 @@ _public_html/
 +-- app.js                  # ALL JavaScript (~10,900 lines)
 +-- foundations/
 |   +-- index.html          # AI Foundations timeline
-+-- learn/                  # Framework pages (104) + category pages (8) + hub (1)
-|   +-- index.html          # Discover hub (101 framework cards, 13 categories)
++-- learn/                  # Framework pages (108) + category pages (8) + hub (1)
+|   +-- index.html          # Discover hub (108 framework cards, 13 categories)
 |   +-- [7 category pages]  # structured-frameworks, reasoning-cot, etc.
-|   +-- [67 text framework pages]
+|   +-- [71 text framework pages]
 |   +-- modality/
 |       +-- index.html      # Modality hub page
 |       +-- code/           # Code frameworks (8 pages)
@@ -289,18 +333,18 @@ _public_html/
 
 ---
 
-## 13 FRAMEWORK CATEGORIES (104 framework pages)
+## 13 FRAMEWORK CATEGORIES (108 framework pages)
 
 | Category | Count | Category Page | Status |
 |----------|-------|---------------|--------|
 | Getting Started | 2 | -- | No category page needed |
 | Structured Frameworks | 5 | `learn/structured-frameworks.html` | DONE |
 | Reasoning & CoT | 15 | `learn/reasoning-cot.html` | DONE |
-| Decomposition | 7 | `learn/decomposition.html` | DONE |
+| Decomposition | 8 | `learn/decomposition.html` | DONE |
 | Self-Correction | 7 | `learn/self-correction.html` | DONE |
 | In-Context Learning | 13 | `learn/in-context-learning.html` | DONE |
 | Ensemble Methods | 7 | `learn/ensemble-methods.html` | DONE |
-| Prompting Strategies | 11 | `learn/prompting-strategies.html` | DONE |
+| Prompting Strategies | 14 | `learn/prompting-strategies.html` | DONE |
 | Code | 8 | -- | Uses `learn/modality/code/` hub |
 | Image | 12 | -- | Uses `learn/modality/image/` via modality hub |
 | Audio | 6 | -- | Uses `learn/modality/audio/` via modality hub |

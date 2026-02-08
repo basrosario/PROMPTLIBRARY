@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contrastive Chain-of-Thought: Show both correct and incorrect reasoning to help AI distinguish good from bad reasoning patterns.">
-    <title>Contrastive Chain-of-Thought - Praxis</title>
+    <meta name="description" content="System Prompting: Define AI behavior, personality, and constraints through structured system-level instructions that shape every response in a conversation.">
+    <title>System Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -121,7 +121,7 @@
                             <a href="../learn/modality/code/code-prompting.html">Code Prompting</a>
                             <a href="../learn/modality/code/self-debugging.html">Self-Debugging</a>
                             <a href="../learn/modality/code/structured-output.html">Structured Output</a>
-                        
+
                             <a href="../learn/modality/code/program-synthesis.html">Program Synthesis</a>
                             <a href="../learn/modality/code/code-explanation.html">Code Explanation</a>
                             <a href="../learn/modality/code/code-review.html">Code Review</a>
@@ -228,6 +228,8 @@
         </div>
     </header>
 
+
+
     <main id="main-content">
         <!-- === HERO SECTION === -->
         <section class="page-hero">
@@ -238,13 +240,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Contrastive CoT</span>
+                    <span class="current">System Prompting</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Thought Generation</span>
+                    <span class="hero-badge__text">Prompting Strategy</span>
                 </div>
-                <h1 class="page-title fade-in">Contrastive Chain-of-Thought</h1>
-                <p class="page-subtitle fade-in">Don't just show AI the right answer — show it the wrong one too. Contrastive CoT uses both correct and incorrect reasoning examples to sharpen the model's ability to avoid common mistakes.</p>
+                <h1 class="page-title fade-in">System Prompting</h1>
+                <p class="page-subtitle fade-in">Before a conversation even begins, the system prompt has already shaped the AI&rsquo;s personality, capabilities, and boundaries. System Prompting is the art of defining these invisible rules &mdash; the foundational instructions that govern how the model behaves, what it knows, and what it refuses across every interaction.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -254,9 +256,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2023</span>
-                        <p><strong>Introduced:</strong> Contrastive Chain-of-Thought was published in 2023 by Chia, Chen, Tuan, Poria, and Bing. The technique added a critical missing piece to standard Chain-of-Thought prompting: negative reasoning examples. Where standard CoT demonstrates only the correct path to an answer, Contrastive CoT pairs each correct reasoning chain with an explicitly incorrect one, annotating where and why the bad reasoning fails. This dual-demonstration approach helps models build clearer internal boundaries between valid and invalid reasoning patterns.</p>
-                        <p><strong>Modern LLM Status:</strong> The core insight — that negative examples improve reasoning — remains valuable and practically useful. Modern LLMs like Claude and GPT-4 are stronger reasoners out of the box, but they still benefit measurably from explicit counterexamples, especially in domains with well-known error patterns such as percentage calculations, logical fallacies, and unit conversions. Contrastive CoT is a practical enhancement over standard few-shot CoT that costs little to implement and consistently reduces errors in targeted domains.</p>
+                        <span class="highlight-box__title">Framework Context: 2022&ndash;2023</span>
+                        <p><strong>Introduced:</strong> System prompting emerged alongside the ChatGPT launch in late 2022, when OpenAI introduced the &ldquo;system&rdquo; message role as a separate instruction channel. The concept was formalized in API documentation in early 2023. The idea built on earlier work in instruction tuning and RLHF &mdash; researchers at InstructGPT (Ouyang et al., 2022) demonstrated that models could be steered through natural language instructions placed before user messages. System prompts gave developers a dedicated, persistent space for behavioral rules that wouldn&rsquo;t be overwritten by conversational context.</p>
+                        <p><strong>Modern LLM Status:</strong> System prompting has become the <strong>primary configuration mechanism for production AI applications</strong>. Every major API (OpenAI, Anthropic, Google, Meta) supports system-level instructions. Modern best practices include structured role definitions, explicit constraint lists, output format specifications, and guard rails. The technique has evolved from simple persona assignments (&ldquo;You are a helpful assistant&rdquo;) into sophisticated behavioral contracts that define tool usage, safety boundaries, citation requirements, and multi-turn conversation management.</p>
                     </div>
                 </div>
             </div>
@@ -269,16 +271,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Mistakes Are Teachers Too</h2>
-                        <p class="split-section__text">Standard Chain-of-Thought prompting shows the model correct reasoning examples and hopes it figures out what NOT to do on its own. This works reasonably well, but it leaves a gap: the model has no explicit understanding of common failure modes. It knows what right looks like, but not what wrong looks like.</p>
-                        <p class="split-section__text"><strong>Contrastive CoT closes this gap.</strong> By providing both correct and incorrect reasoning chains side by side — with clear annotations explaining WHERE the incorrect chain goes wrong and WHY — the model develops a much sharper sense of the boundary between valid and invalid reasoning.</p>
-                        <p class="split-section__text">Think of it like a math teacher who doesn't just show the correct solution on the board, but also walks through the common mistake students make on every exam. "Here's how to solve it correctly, and here's the error that 60% of students make — notice they confuse the percentage with the absolute value right here."</p>
+                        <h2 class="split-section__title">The Invisible Architecture</h2>
+                        <p class="split-section__text">Every AI conversation has an invisible architect: the system prompt. While users see only the chat interface, the system prompt has already defined the model&rsquo;s identity, capabilities, knowledge boundaries, and behavioral constraints. It is the difference between a generic chatbot and a specialized expert &mdash; between an AI that hallucinates freely and one that cites sources and admits uncertainty.</p>
+                        <p class="split-section__text"><strong>System Prompting separates configuration from conversation.</strong> Instead of mixing behavioral instructions into user messages (where they compete for attention and can be overridden), the system prompt occupies a privileged position in the model&rsquo;s context. It is processed first, given higher priority, and persists across the entire conversation. This architectural separation means users can interact naturally while the system prompt silently enforces consistency, safety rules, and output standards.</p>
+                        <p class="split-section__text">Think of it like the training manual for a new employee. Before they interact with a single customer, the manual has defined their role, their boundaries, their escalation procedures, and the company&rsquo;s standards. The system prompt is that manual &mdash; invisible to the end user but shaping every response.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Contrast Effect</span>
-                                <p>Humans learn faster when shown both positive and negative examples. A medical student learns diagnostic patterns more effectively by studying both correct diagnoses and documented misdiagnoses. The same principle applies to LLMs — explicit error patterns create clearer decision boundaries, making the model less likely to stumble into known pitfalls.</p>
+                                <span class="highlight-box__title">Why Separation Matters</span>
+                                <p>When behavioral instructions live inside user messages, they degrade over long conversations &mdash; the model gradually drifts from its assigned role as earlier instructions scroll out of the active context window. System prompts solve this by sitting in a privileged position that the model references throughout the conversation. This persistence means the AI maintains its defined personality, constraints, and output format whether the conversation is 3 messages or 300.</p>
                             </div>
                         </div>
                     </div>
@@ -290,8 +292,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Contrastive CoT Process</h2>
-                <p class="section-subtitle fade-in-up">Four steps from examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">The System Prompting Process</h2>
+                <p class="section-subtitle fade-in-up">Four layers from role definition to grounded configuration</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -299,11 +301,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Identify Common Errors</h3>
-                            <p class="element-timeline__text">Analyze the target domain to find recurring mistakes that people and models consistently make. These could be computational errors, logical fallacies, misapplied rules, or overlooked constraints. The better you understand the failure modes, the more effective your contrastive examples will be.</p>
+                            <h3 class="element-timeline__title">Define the Role and Identity</h3>
+                            <p class="element-timeline__text">Establish who the AI is in this context &mdash; its expertise, personality traits, communication style, and knowledge domain. A well-defined role constrains the response space and gives the model a coherent perspective to reason from, rather than defaulting to generic assistant behavior.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Math domain common errors: confusing percentage with absolute value, forgetting order of operations, misreading word problem quantities, swapping numerator and denominator in ratios."</p>
+                                <p>&ldquo;You are a senior tax accountant specializing in small business taxation. You communicate in clear, jargon-free language. You are thorough but concise, and you always distinguish between federal and state-level requirements.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -313,11 +315,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Correct Examples</h3>
-                            <p class="element-timeline__text">Write clear, correct reasoning chains that demonstrate proper problem-solving with explicit step-by-step logic. Each step should be labeled and justified so the model can see exactly how a correct thinker moves from problem to solution.</p>
+                            <h3 class="element-timeline__title">Set Behavioral Constraints</h3>
+                            <p class="element-timeline__text">Define what the model must do, should do, and must never do. Explicit constraints prevent common failure modes like hallucination, scope creep, or inappropriate responses. The most effective constraints are specific and testable rather than vague aspirational statements.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Step 1 — Convert percentage to decimal: 20% = 0.20. Step 2 — Calculate discount: $50 x 0.20 = $10. Step 3 — Subtract discount: $50 - $10 = $40. Final answer: $40."</p>
+                                <p>&ldquo;Rules: (1) Never provide specific tax advice &mdash; always recommend consulting a licensed CPA. (2) If you are unsure about a regulation, say so explicitly. (3) Always specify which tax year you are referencing. (4) Do not discuss topics outside taxation and business finance.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -327,11 +329,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Incorrect Examples</h3>
-                            <p class="element-timeline__text">Write deliberately wrong reasoning chains that reproduce the identified common errors. Critically, annotate exactly where and why the reasoning fails. The annotation is what transforms a bad example into a teaching tool.</p>
+                            <h3 class="element-timeline__title">Specify Output Format</h3>
+                            <p class="element-timeline__text">Define how responses should be structured &mdash; length expectations, formatting conventions, required sections, and response templates. Format specifications reduce variability and ensure outputs integrate cleanly into downstream systems or user interfaces.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Subtract 20 from 50 = $30. ERROR: Confused percentage (20%) with absolute dollar value ($20). The correct approach requires multiplying by 0.20 to find the actual discount amount."</p>
+                                <p>&ldquo;Response format: Start with a one-sentence summary. Use bullet points for multiple items. Include relevant IRS form numbers in parentheses. End complex answers with a &lsquo;Key Takeaway&rsquo; section.&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -341,11 +343,11 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Combine in Prompt</h3>
-                            <p class="element-timeline__text">Present both correct and incorrect examples together in the prompt, clearly labeled, so the model sees the full contrast before attempting new problems. The juxtaposition is the key — seeing right and wrong side by side creates stronger pattern recognition than either alone.</p>
+                            <h3 class="element-timeline__title">Add Context and Examples</h3>
+                            <p class="element-timeline__text">Provide reference information, few-shot examples of ideal responses, and edge case handling instructions. Context grounds the model in specific domain knowledge, while examples demonstrate the expected quality and style more precisely than rules alone.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Prompt structure: 'CORRECT approach: [full reasoning chain] ... COMMON MISTAKE to avoid: [wrong chain with error annotation] ... Now solve this new problem using correct reasoning:'</p>
+                                <p>&ldquo;When users ask about deductions, first clarify whether they are asking about business or personal deductions. Example interaction: User: &lsquo;Can I deduct my home office?&rsquo; Response: &lsquo;Home office deductions depend on whether you use a dedicated space exclusively for business...&rsquo;&rdquo;</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +360,7 @@
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Standard CoT vs Contrastive CoT</p>
+                <p class="section-subtitle fade-in-up">Why structured system prompts outperform generic instructions</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -369,16 +371,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Standard CoT</h3>
+                            <h3 class="comparison-panel__title">Generic Prompt</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"Here's how to solve a percentage problem: 30% of $80 means $80 x 0.30 = $24. So the discount is $24 and the final price is $56. Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>You are a helpful assistant. Answer the user&rsquo;s questions about taxes.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Only a correct example. The model must infer on its own what mistakes to avoid. If it has a tendency toward a common error pattern, nothing in the prompt warns it away.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>A vague, generic response that mixes federal and state rules, doesn&rsquo;t specify the tax year, provides overly confident advice, and uses inconsistent formatting across responses.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -386,7 +388,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Model might still make common errors it hasn't been warned about</span>
+                            <span>No guardrails, inconsistent behavior, potential liability</span>
                         </div>
                     </div>
 
@@ -398,20 +400,19 @@
                         <div class="comparison-panel__header">
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8 12l3 3 5-5"/>
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Contrastive CoT</h3>
+                            <h3 class="comparison-panel__title">System Prompt</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"CORRECT: 30% of $80 = $80 x 0.30 = $24 discount, final price $56. COMMON MISTAKE: 30% of $80 = $80 - 30 = $50 (ERROR: treated percentage as dollars). Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>You are TaxGuide, a small business tax information assistant. You specialize in U.S. federal tax regulations for sole proprietors and LLCs. Rules: (1) Always specify the applicable tax year. (2) Cite relevant IRS publications or form numbers. (3) Never provide personalized tax advice &mdash; recommend a CPA for specific situations. (4) If unsure, state your uncertainty clearly. Format: Lead with a one-sentence answer, then supporting details in bullet points.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Both the correct reasoning and the specific mistake to avoid, with a clear annotation of where and why the error occurs. The model now has explicit anti-patterns to steer away from.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>A focused response that specifies &ldquo;2024 tax year,&rdquo; cites &ldquo;IRS Publication 587,&rdquo; distinguishes between simplified and regular home office deduction methods, and ends with &ldquo;For your specific situation, consult a licensed CPA who can review your complete tax picture.&rdquo;</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -419,7 +420,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Model explicitly learns what to avoid — errors drop significantly</span>
+                            <span>Consistent behavior, proper disclaimers, verifiable citations, reliable format</span>
                         </div>
                     </div>
                 </div>
@@ -430,33 +431,34 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Contrastive CoT in Action</h2>
-                <p class="section-subtitle fade-in-up">Real-world scenarios showing correct vs incorrect reasoning pairs</p>
+                <h2 class="section-title fade-in-up">System Prompting in Action</h2>
+                <p class="section-subtitle fade-in-up">See how system prompts shape AI behavior across different domains</p>
 
-                <div class="accordion fade-in-up" id="contrastive-accordion">
+                <div class="accordion fade-in-up" id="system-prompting-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Mathematical Reasoning</span>
+                            <span class="accordion-title">Customer Support Agent</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Problem:</strong> A jacket originally costs $80. The store offers 25% off, then an additional 10% off the sale price. What is the final price?</p>
-                                    <p><strong>Step 1:</strong> Calculate the first discount: $80 x 0.25 = $20.<br>
-                                    <strong>Step 2:</strong> Subtract first discount: $80 - $20 = $60.<br>
-                                    <strong>Step 3:</strong> Calculate second discount on the NEW price: $60 x 0.10 = $6.<br>
-                                    <strong>Step 4:</strong> Subtract second discount: $60 - $6 = $54.<br>
-                                    <strong>Final answer:</strong> $54.</p>
+                                    <span class="technique-demo__tag">System Prompt</span>
+                                    <p>You are a TechCorp Support Specialist. Your knowledge covers Product X (Version 3.0 and later). Follow these rules:<br><br>
+                                    <strong>Scope:</strong> Only answer questions about Product X features, billing, and account management. For hardware issues, immediately direct users to a human agent.<br><br>
+                                    <strong>Tone:</strong> Empathetic and professional. Acknowledge the user&rsquo;s frustration before troubleshooting.<br><br>
+                                    <strong>Response format:</strong> (1) Acknowledge the issue, (2) Diagnose the problem, (3) Provide a solution with step-by-step instructions, (4) Ask the user to verify the fix.<br><br>
+                                    <strong>Constraints:</strong> Never share internal pricing structures or product roadmap details. Never guess &mdash; if unsure, escalate to the billing team or a senior agent.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Step 1:</strong> Add the two discounts: 25% + 10% = 35%.<br>
-                                    <strong>Step 2:</strong> Calculate total discount: $80 x 0.35 = $28.<br>
-                                    <strong>Step 3:</strong> Subtract: $80 - $28 = $52.<br>
-                                    <strong>Final answer:</strong> $52.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> The mistake is adding percentages that apply to different base values. The 25% applies to $80, but the 10% applies to $60 (the already-discounted price). Stacking percentages only works when they share the same base. Sequential discounts must be calculated sequentially.</p>
+                                    <span class="technique-demo__tag">Resulting Behavior</span>
+                                    <p><strong>User:</strong> I was charged twice for my subscription this month and I&rsquo;m really frustrated.<br><br>
+                                    <strong>Agent:</strong> I completely understand your frustration &mdash; a double charge is never acceptable, and I want to help resolve this right away.<br><br>
+                                    Based on your description, this appears to be a billing discrepancy. Here&rsquo;s what I recommend:<br><br>
+                                    1. Log into your TechCorp account at account.techcorp.com<br>
+                                    2. Navigate to Billing &gt; Transaction History<br>
+                                    3. Check whether both charges show as &ldquo;Completed&rdquo; or if one is &ldquo;Pending&rdquo;<br><br>
+                                    If both show as Completed, I&rsquo;ll escalate this directly to our billing team for an immediate refund of the duplicate charge. Could you check your transaction history and let me know what you see?</p>
                                 </div>
                             </div>
                         </div>
@@ -464,24 +466,27 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Logical Reasoning</span>
+                            <span class="accordion-title">Code Review Assistant</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Rex is a dog.<br>
-                                    <strong>Conclusion:</strong> Rex is a mammal.</p>
-                                    <p><strong>Analysis:</strong> This is valid deductive reasoning (modus ponens). We know the category "dogs" is a subset of "mammals," and Rex belongs to "dogs," so Rex must also belong to "mammals." The logic is airtight.</p>
+                                    <span class="technique-demo__tag">System Prompt</span>
+                                    <p>You are a Senior Software Engineer conducting code reviews. Focus on three areas: security vulnerabilities, performance bottlenecks, and maintainability.<br><br>
+                                    <strong>Output format:</strong> Rate each finding by severity &mdash; Critical, Warning, or Suggestion. Include specific line references and provide targeted fix recommendations with code snippets.<br><br>
+                                    <strong>Constraints:</strong> Do not rewrite entire functions. Suggest targeted, minimal changes. Always explain the &ldquo;why&rdquo; behind each finding so the developer learns, not just fixes.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Whiskers is a mammal.<br>
-                                    <strong>Conclusion:</strong> Whiskers is a dog.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the fallacy of "affirming the consequent." Just because all dogs are mammals does NOT mean all mammals are dogs. Whiskers could be a cat, a horse, or a whale — all mammals, none of them dogs. The error is reversing the direction of the subset relationship. Being in the larger category does not guarantee membership in the smaller one.</p>
+                                    <span class="technique-demo__tag">Resulting Behavior</span>
+                                    <p><strong>[Critical] SQL Injection Vulnerability &mdash; Line 23</strong><br>
+                                    The query uses string concatenation to insert user input directly: <code>query = &quot;SELECT * FROM users WHERE id = &quot; + user_id</code>. An attacker can inject arbitrary SQL through the user_id parameter.<br>
+                                    <strong>Fix:</strong> Use parameterized queries: <code>cursor.execute(&quot;SELECT * FROM users WHERE id = %s&quot;, (user_id,))</code><br><br>
+                                    <strong>[Warning] N+1 Query Pattern &mdash; Lines 31&ndash;38</strong><br>
+                                    The loop fetches related records one at a time inside a for loop, resulting in N+1 database calls. For 1,000 users, this generates 1,001 queries instead of 2.<br>
+                                    <strong>Fix:</strong> Use a JOIN or batch fetch to retrieve all related records in a single query before the loop.<br><br>
+                                    <strong>[Suggestion] Naming Convention &mdash; Line 12</strong><br>
+                                    The variable <code>x</code> provides no context about its purpose. Consider renaming to <code>active_user_count</code> to improve readability for future maintainers.</p>
                                 </div>
                             </div>
                         </div>
@@ -489,21 +494,28 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Reading Comprehension</span>
+                            <span class="accordion-title">Educational Tutor</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Passage:</strong> "The company's Q3 revenue grew 12% year-over-year, driven primarily by expansion in the European market. However, operating margins declined due to increased hiring costs."</p>
-                                    <p><strong>Question:</strong> Is the company in good financial health?</p>
-                                    <p><strong>Analysis:</strong> The picture is mixed. Revenue growth of 12% is positive and shows demand is increasing. However, declining operating margins mean that costs are growing faster than revenue. The company is growing its top line but needs to manage expenses. A balanced assessment would be: growing but facing profitability pressure.</p>
+                                    <span class="technique-demo__tag">System Prompt</span>
+                                    <p>You are a patient math tutor for high school algebra. Use the Socratic method &mdash; ask guiding questions rather than giving answers directly.<br><br>
+                                    <strong>Pedagogical approach:</strong> Start at the student&rsquo;s level and increase difficulty gradually. Validate the student&rsquo;s approach before correcting mistakes. Use encouraging language throughout.<br><br>
+                                    <strong>Constraints:</strong> Never solve the problem outright. Never skip steps. If the student is stuck, provide hints in escalating specificity &mdash; start broad, then narrow.<br><br>
+                                    <strong>Format:</strong> Begin each response with a guiding question. Only reveal the next step after the student has attempted the current one.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Analysis:</strong> Revenue grew 12%, so the company is doing great financially. Growth means health.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the over-generalization fallacy — focusing on one positive data point while ignoring contradictory evidence in the same passage. The passage explicitly states that operating margins declined. Revenue growth alone does not equal financial health; profitability, margins, and cost management are equally important. A correct reading must weigh ALL information presented, not cherry-pick the favorable parts.</p>
+                                    <span class="technique-demo__tag">Resulting Behavior</span>
+                                    <p><strong>Student:</strong> How do I solve 2x + 5 = 13?<br><br>
+                                    <strong>Tutor:</strong> Great question! Let&rsquo;s work through this together. Looking at the equation 2x + 5 = 13, our goal is to get x by itself on one side. What operation do you think we should do first to start isolating the term with x?<br><br>
+                                    <strong>Student:</strong> Subtract 5 from both sides?<br><br>
+                                    <strong>Tutor:</strong> Exactly right! Subtracting 5 from both sides is the perfect first move. Go ahead and do that &mdash; what do you get on each side?<br><br>
+                                    <strong>Student:</strong> 2x = 8<br><br>
+                                    <strong>Tutor:</strong> Perfect work! Now you have 2x = 8. You&rsquo;re one step away from finding x. What operation will undo the multiplication by 2?<br><br>
+                                    <strong>Student:</strong> Divide by 2. So x = 4!<br><br>
+                                    <strong>Tutor:</strong> You nailed it! x = 4 is absolutely correct. You just solved a two-step linear equation by isolating the variable &mdash; first removing the constant with subtraction, then removing the coefficient with division. That process works for any equation in this form.</p>
                                 </div>
                             </div>
                         </div>
@@ -513,11 +525,12 @@
         </section>
         <!-- /EXAMPLES IN ACTION -->
 
+
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Contrastive CoT</h2>
-                <p class="section-subtitle fade-in-up">Best for domains with identifiable, recurring reasoning errors</p>
+                <h2 class="section-title fade-in-up">When to Use System Prompting</h2>
+                <p class="section-subtitle fade-in-up">Best for production applications that demand consistent, governed AI behavior</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -529,8 +542,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Error-Prone Domains</strong>
-                                    <p>Math, logic, and analytical tasks where specific mistakes recur consistently across both human and AI reasoning.</p>
+                                    <strong>Production AI Applications</strong>
+                                    <p>When building customer-facing AI products that need consistent, predictable behavior across thousands of conversations and users.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -539,8 +552,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Training and Education</strong>
-                                    <p>Building prompts that teach not just correct solutions but common pitfalls — ideal for educational AI applications.</p>
+                                    <strong>Safety-Critical Deployments</strong>
+                                    <p>When the AI must reliably refuse certain requests, stay within defined boundaries, and never produce harmful or misleading content.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -549,8 +562,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Quality-Critical Tasks</strong>
-                                    <p>When even small reasoning errors have outsized impact — financial calculations, compliance analysis, safety assessments.</p>
+                                    <strong>Domain-Specific Assistants</strong>
+                                    <p>When the AI needs to operate as a specialist in a particular field &mdash; maintaining expertise boundaries and domain-appropriate communication styles.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -559,8 +572,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Known Error Patterns</strong>
-                                    <p>When you can identify and document the specific mistakes to avoid — the technique is only as good as your error catalogue.</p>
+                                    <strong>Multi-Turn Conversations</strong>
+                                    <p>When behavioral consistency must persist across long conversations where earlier user messages may scroll out of the context window.</p>
                                 </div>
                             </div>
                         </div>
@@ -574,8 +587,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Open-Ended Creativity</strong>
-                                    <p>Creative writing, brainstorming, and generative tasks where there is no objectively "wrong" reasoning path to contrast against.</p>
+                                    <strong>One-Off Exploratory Queries</strong>
+                                    <p>Quick, single-turn questions where the overhead of crafting a system prompt exceeds the benefit of behavioral consistency.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -584,8 +597,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Simple Factual Queries</strong>
-                                    <p>Direct lookups and retrieval tasks that don't involve reasoning chains — the model either knows the fact or it doesn't.</p>
+                                    <strong>Creative Brainstorming</strong>
+                                    <p>Open-ended ideation sessions where rigid role definitions and output constraints would limit the model&rsquo;s creative range.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -594,8 +607,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Unknown Error Patterns</strong>
-                                    <p>If you can't identify what specific mistakes to demonstrate, standard CoT may suffice. Vague or generic "bad examples" add noise, not clarity.</p>
+                                    <strong>Rapidly Changing Requirements</strong>
+                                    <p>Prototyping phases where the desired behavior changes every few messages &mdash; embedding instructions in user prompts is faster for iteration.</p>
                                 </div>
                             </div>
                         </div>
@@ -609,9 +622,29 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Contrastive CoT delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where System Prompting delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Customer Support Automation</h3>
+                        <p class="use-case-showcase__desc">Deploy AI agents with defined escalation paths, brand voice, knowledge boundaries, and compliance rules that hold across millions of conversations.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Content Moderation</h3>
+                        <p class="use-case-showcase__desc">Configure AI reviewers with explicit criteria for flagging, approving, or escalating user-generated content based on community guidelines.</p>
+                    </div>
+
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -619,19 +652,8 @@
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Standardized Testing</h3>
-                        <p class="use-case-showcase__desc">Improve accuracy on SAT, GRE, and GMAT-style math by showing common trap answers alongside correct solution paths.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <path d="M9 9h6M9 13h6M9 17h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
-                        <p class="use-case-showcase__desc">Avoid common calculation errors in compound interest, tax rates, and margin computations by contrasting correct and incorrect formulas.</p>
+                        <h3 class="use-case-showcase__title">Educational Platforms</h3>
+                        <p class="use-case-showcase__desc">Build AI tutors with specific pedagogical approaches, difficulty adaptation rules, and subject matter boundaries that maintain educational best practices.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -640,8 +662,8 @@
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
-                        <p class="use-case-showcase__desc">Show diagnostic pitfalls — like anchoring bias or base rate neglect — alongside correct differential diagnosis patterns.</p>
+                        <h3 class="use-case-showcase__title">Healthcare Information</h3>
+                        <p class="use-case-showcase__desc">Create medical information assistants with strict disclaimers, evidence-based response requirements, and clear boundaries between information and medical advice.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -653,31 +675,20 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Legal Analysis</h3>
-                        <p class="use-case-showcase__desc">Demonstrate correct and incorrect applications of legal precedent, showing how misapplied case law leads to faulty conclusions.</p>
+                        <h3 class="use-case-showcase__title">Legal Document Analysis</h3>
+                        <p class="use-case-showcase__desc">Configure AI assistants that analyze contracts within defined jurisdictions, flag specific clause types, and always include appropriate legal disclaimers.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
+                                <path d="M18 20V10"/>
+                                <path d="M12 20V4"/>
+                                <path d="M6 20v-6"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Code Review</h3>
-                        <p class="use-case-showcase__desc">Show both correct implementations and common anti-patterns with explanations of why the anti-pattern fails or degrades performance.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                                <polyline points="2 17 12 22 22 17"/>
-                                <polyline points="2 12 12 17 22 12"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Scientific Reasoning</h3>
-                        <p class="use-case-showcase__desc">Contrast correct experimental design with common confounding variable errors and correlation-causation mix-ups.</p>
+                        <h3 class="use-case-showcase__title">Enterprise Knowledge Bases</h3>
+                        <p class="use-case-showcase__desc">Build internal Q&amp;A systems that reference specific company documentation, respect information access levels, and format responses for the target audience.</p>
                     </div>
                 </div>
             </div>
@@ -687,35 +698,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Contrastive CoT Fits</h2>
-                <p class="section-subtitle fade-in-up">From basic examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">Where System Prompting Fits</h2>
+                <p class="section-subtitle fade-in-up">System Prompting bridges ad-hoc instructions and autonomous AI governance</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
-                        <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Example-Based</span>
-                        <span class="era-marker__desc">Learning from demonstrations</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">Chain-of-Thought</span>
-                        <span class="era-marker__title">Correct Examples</span>
-                        <span class="era-marker__desc">Step-by-step reasoning</span>
+                        <span class="era-marker__year">Direct Prompting</span>
+                        <span class="era-marker__title">Ad-Hoc Instructions</span>
+                        <span class="era-marker__desc">Instructions mixed into messages</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Contrastive CoT</span>
-                        <span class="era-marker__title">Dual Examples</span>
-                        <span class="era-marker__desc">Correct + incorrect reasoning</span>
+                        <span class="era-marker__year">System Prompting</span>
+                        <span class="era-marker__title">Persistent Configuration</span>
+                        <span class="era-marker__desc">Dedicated behavioral layer</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Path Sampling</span>
-                        <span class="era-marker__desc">Multiple reasoning paths</span>
+                        <span class="era-marker__year">Constitutional AI</span>
+                        <span class="era-marker__title">Self-Enforced Principles</span>
+                        <span class="era-marker__desc">Model evaluates own compliance</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">Agentic Systems</span>
+                        <span class="era-marker__title">Dynamic Configuration</span>
+                        <span class="era-marker__desc">System prompts that adapt per context</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Stack Them</div>
-                    <p>Use Contrastive CoT to teach the model what to avoid, then Self-Consistency to sample multiple reasoning paths. The model avoids known pitfalls across all sampled chains, combining error awareness with path diversity for maximum reasoning accuracy.</p>
+                    <div class="callout-title">The Hidden Layer of Every AI Product</div>
+                    <p>Behind every polished AI chatbot, coding assistant, or automated agent is a carefully crafted system prompt. When ChatGPT refuses to help with harmful requests, that is a system prompt at work. When Claude formats code with syntax highlighting and explains its reasoning, that is a system prompt shaping behavior. Understanding system prompting means understanding the mechanism that transforms a raw language model into a useful, safe, and consistent product.</p>
                 </div>
             </div>
         </section>
@@ -725,19 +736,21 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary reasoning techniques</p>
+                <p class="section-subtitle fade-in-up">Explore complementary configuration techniques</p>
 
-                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                <a href="role-prompting.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                            <path d="M21 3v9h-9"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Chain-of-Thought</span>
-                        <span class="evolution-callout__desc">Standard correct-only reasoning demonstrations — the baseline that Contrastive CoT enhances with negative examples.</span>
+                        <span class="evolution-callout__title">Role Prompting</span>
+                        <span class="evolution-callout__desc">The precursor to system prompting &mdash; assigning a persona within the user message. System prompting elevates this into a persistent, privileged instruction layer.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -746,17 +759,16 @@
                     </span>
                 </a>
 
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="prompt-chaining.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Technique</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">Provide examples for the model to learn from — Contrastive CoT extends this to include what NOT to do.</span>
+                        <span class="evolution-callout__label">Extension</span>
+                        <span class="evolution-callout__title">Prompt Chaining</span>
+                        <span class="evolution-callout__desc">System prompts define behavior for individual calls; chaining connects multiple system-prompted calls into sequential workflows where each step has its own configuration.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -765,7 +777,7 @@
                     </span>
                 </a>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                <a href="constrained-output.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 2l4 4-4 4"/>
@@ -775,9 +787,9 @@
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Enhancement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Sample multiple reasoning paths and vote — combines well with contrastive examples to avoid repeated errors.</span>
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Constrained Output</span>
+                        <span class="evolution-callout__desc">While system prompting defines behavioral rules, Constrained Output focuses specifically on enforcing structured formats &mdash; the two combine for reliable, formatted AI responses.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -790,16 +802,16 @@
         <!-- /RELATED FRAMEWORKS -->
 
         <!-- === CTA SECTION === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Sharpen Your Reasoning</h2>
-                        <p class="cta-corporate__text">Build Contrastive CoT prompts that teach AI what to avoid, or explore more reasoning frameworks across the Praxis Library.</p>
+                        <h2 class="cta-corporate__title">Configure Your AI</h2>
+                        <p class="cta-corporate__text">Design system prompts for your AI applications with our Prompt Builder, or explore related configuration techniques across the framework library.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
-                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                            <a href="../tools/matcher.html" class="btn btn-secondary">Framework Matcher</a>
                         </div>
                     </div>
                 </div>
@@ -807,6 +819,7 @@
         </section>
         <!-- /CTA SECTION -->
     </main>
+
 
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>

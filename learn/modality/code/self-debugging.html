@@ -77,6 +77,7 @@
                             <a href="../../decomp.html">DECOMP</a>
                             <a href="../../recursion-of-thought.html">Recursion of Thought</a>
                             <a href="../../program-of-thought.html">Program of Thought</a>
+                            <a href="../../../learn/skeleton-of-thought.html">Skeleton-of-Thought</a>
                         </div>
                         <div class="mega-menu-section" data-tab="self-correction" role="tabpanel">
                             <h4><a href="../../self-correction.html">Self-Correction</a></h4>
@@ -111,6 +112,9 @@
                             <a href="../../simtom.html">SimToM</a>
                             <a href="../../rar.html">RaR</a>
                             <a href="../../re2.html">RE2</a>
+                            <a href="../../../learn/system-prompting.html">System Prompting</a>
+                            <a href="../../../learn/rag.html">RAG</a>
+                            <a href="../../../learn/agentic-prompting.html">Agentic Prompting</a>
                         </div>
                         <div class="mega-menu-section" data-tab="code" role="tabpanel">
                             <h4>Code</h4>
@@ -240,7 +244,7 @@
                     <span class="hero-badge__text">Code Frameworks</span>
                 </div>
                 <h1 class="page-title fade-in">Self-Debugging</h1>
-                <p class="page-subtitle fade-in">AI-assisted bug identification, explanation, and fixing.</p>
+                <p class="page-subtitle fade-in">Turn debugging from a hunt into a conversation &mdash; feed error messages, stack traces, and failing tests back to the AI so it can trace the logic, pinpoint the root cause, and propose minimal, targeted fixes.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -251,8 +255,8 @@
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
                         <span class="highlight-box__title">Framework Context: 2023</span>
-                        <p><strong>Introduced:</strong> Self-Debugging was formalized by Chen et al. (2023) building on the observation that LLMs can identify errors in code they generated. The technique extends self-correction principles to the programming domain, where code can be executed and tested to provide concrete feedback rather than relying on the model&rsquo;s judgment alone.</p>
-                        <p><strong>Modern LLM Status:</strong> By 2025&ndash;2026, self-debugging is <strong>standard practice in AI-assisted development</strong>. Modern models excel at interpreting error messages, tracing execution, and proposing minimal fixes. IDE integrations like GitHub Copilot and Cursor embed this capability directly into the development workflow.</p>
+                        <p><strong>Introduced:</strong> Self-Debugging was formalized by Chen et al. (2023) at Carnegie Mellon University, building on the observation that large language models can identify errors in code they have generated. The technique extends general self-correction principles to the programming domain, where code can be executed and tested to provide concrete, unambiguous feedback rather than relying on the model&rsquo;s subjective judgment alone. The original paper demonstrated that feeding execution results back to the model for iterative repair significantly improved pass rates on coding benchmarks compared to single-shot generation.</p>
+                        <p><strong>Modern LLM Status:</strong> By 2025&ndash;2026, self-debugging is <strong>standard practice in AI-assisted development</strong>. Modern models excel at interpreting error messages, tracing execution paths, and proposing minimal fixes. IDE integrations like GitHub Copilot, Cursor, and Claude Code embed this capability directly into the development workflow, creating tight generate-test-fix loops. The key differentiator in quality is not whether the model can debug &mdash; it almost certainly can &mdash; but whether the developer provides sufficient context: the error message, the expected behavior, the relevant code, and the scope of acceptable changes.</p>
                     </div>
                 </div>
             </div>
@@ -262,23 +266,19 @@
         <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="split-section">
+                <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Debugging with AI</h2>
-                        <p class="section-intro">Self-Debugging is a prompting technique where AI models identify, explain, and fix bugs in code. This approach leverages the model's ability to trace logic, interpret errors, and reason about expected vs actual behavior—turning debugging from a hunt into a conversation.</p>
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">The Model That Created the Bug Can Find It &mdash; If You Show It the Evidence</h2>
+                        <p class="split-section__text">Self-Debugging exploits a fundamental property of code that distinguishes it from every other AI task domain: <strong>code failures produce concrete, specific, machine-readable evidence</strong>. An error message tells you the exact line that crashed. A failing test tells you exactly which assertion failed and what the actual value was versus the expected value. A stack trace maps the exact execution path through the program. No other prompting domain provides this level of objective, verifiable feedback.</p>
+                        <p class="split-section__text"><strong>The core insight is that re-examining code for errors activates different reasoning patterns than initial generation.</strong> When a model generates code, it operates in a creative, forward-looking mode &mdash; assembling patterns to satisfy requirements. When it debugs, it switches to an analytical, backward-tracing mode &mdash; starting from the symptom and working backward through the logic to identify where the code&rsquo;s actual behavior diverges from its intended behavior. This cognitive shift is the same one human developers experience when they switch from writing code to reviewing it.</p>
+                        <p class="split-section__text">Think of it like a chess player who, after making a move, is asked to analyze the board from the opponent&rsquo;s perspective. The same knowledge that produced the move can now identify its weaknesses &mdash; but only when the perspective shifts from &ldquo;how do I advance my plan?&rdquo; to &ldquo;where is the flaw in this position?&rdquo;</p>
+                    </div>
+                    <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Core Insight</span>
-                                <p>Models can often spot bugs they would have created. Re-examining code for errors activates different reasoning patterns than initial generation.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Workflow</span>
-                                <p>1) Generate code. 2) Test and collect errors. 3) Debug with feedback. 4) Apply fix. 5) Verify and iterate.</p>
+                                <span class="highlight-box__title">Why Concrete Feedback Changes Everything</span>
+                                <p>In general self-correction tasks, the model must judge its own output quality subjectively &mdash; &ldquo;is this essay good?&rdquo; has no definitive answer. But in debugging, the feedback is <strong>binary and specific</strong>: the code either passes all tests or it does not. An error message either matches the root cause or it does not. This objectivity transforms self-correction from a hit-or-miss heuristic into a <strong>systematic, convergent process</strong>. Each debugging iteration narrows the problem space with concrete evidence, making the approach dramatically more reliable than self-correction in subjective domains.</p>
                             </div>
                         </div>
                     </div>
@@ -287,108 +287,79 @@
         </section>
         <!-- /THE CONCEPT -->
 
-        <!-- === WHY IT WORKS === -->
+        <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Why Self-Debugging Works</h2>
-                <p class="section-subtitle fade-in-up">Three cognitive mechanisms that make AI-assisted debugging effective</p>
+                <h2 class="section-title fade-in-up">The Self-Debugging Process</h2>
+                <p class="section-subtitle fade-in-up">Five steps from broken code to verified fix</p>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Fresh Perspective</h3>
-                        <p class="pillar-card__text">Re-examining code for errors activates different reasoning patterns than initial generation, similar to how human developers catch bugs during code review. The model approaches the same code from an analytical rather than generative mindset.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Concrete Feedback</h3>
-                        <p class="pillar-card__text">Unlike creative tasks, code bugs produce specific error messages, stack traces, and failing tests that ground the debugging conversation in facts. This concrete evidence constrains the model&rsquo;s reasoning to verifiable hypotheses.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Pattern Recognition</h3>
-                        <p class="pillar-card__text">Models have seen millions of bug patterns during training &mdash; off-by-one errors, null references, async issues &mdash; and can match symptoms to known root causes. This vast exposure enables rapid diagnosis of common failure modes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /WHY IT WORKS -->
-
-        <!-- === HOW IT WORKS === -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Strategies</span>
-                    <h2 class="section-title">Debugging Approaches</h2>
-                </div>
-
-                <div class="accordion fade-in-up" id="debug-strategies-accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Error-Driven Debugging</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Start with an error message and work backward to find the root cause.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Best For</span>
-                                    <p>Runtime errors, exceptions, compile errors, type mismatches. Provide the error message, code, and ask for explanation and fix.</p>
-                                </div>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Generate or Receive the Code</h3>
+                            <p class="element-timeline__text">Start with code that has a known problem &mdash; either AI-generated code that failed its tests, existing code that has started producing errors, or legacy code with a suspected bug. The code can come from any source; what matters is that you have a concrete failure to investigate rather than a vague sense that something is wrong.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>An AI-generated <code>calculate_discount()</code> function passes basic tests but returns incorrect values when the discount percentage exceeds 100% or when the price is zero.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Trace-Based Debugging</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Walk through code execution step-by-step to find where behavior diverges from expectations.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Best For</span>
-                                    <p>Logic errors, wrong output, off-by-one errors, loop issues. Ask to trace variable values through execution.</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Collect Concrete Failure Evidence</h3>
+                            <p class="element-timeline__text">Run the code and capture every piece of evidence the failure produces: error messages, stack traces, assertion failures, wrong output values, log entries, and the specific inputs that triggered the problem. The more concrete evidence you provide, the faster and more accurately the model can diagnose the root cause. Vague descriptions like &ldquo;it doesn&rsquo;t work&rdquo; force the model to guess; specific evidence constrains its analysis to the actual problem.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Input: <code>calculate_discount(100.0, 150)</code>. Expected: <code>ValueError</code> for discount over 100%. Actual: returns <code>-50.0</code> (a negative price). Also, <code>calculate_discount(0.0, 50)</code> returns <code>0.0</code> which is correct but there is no validation that price is positive.&rdquo;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Explanation-Based Debugging</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Have the model explain what code does line-by-line. Bugs often become apparent during explanation.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Best For</span>
-                                    <p>Understanding unfamiliar code, subtle logic errors, code you didn't write. State the intended purpose for comparison.</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Prompt the Model to Diagnose</h3>
+                            <p class="element-timeline__text">Provide the code, the failure evidence, and a structured debugging request. Ask the model to trace through the execution with the failing inputs, identify the exact point where behavior diverges from expectations, explain the root cause, and propose a minimal fix. The key word is &ldquo;minimal&rdquo; &mdash; you want the smallest change that resolves the bug, not a refactor of the entire function.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Trace through <code>calculate_discount(100.0, 150)</code> step by step. Identify where the validation should catch the invalid percentage. Explain why it currently allows values over 100. Provide a minimal fix &mdash; change only the lines necessary to add the missing validation.&rdquo;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Test-Driven Debugging</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Provide failing test cases and have the model fix code to pass them.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Best For</span>
-                                    <p>Clearly defined expected behavior, regression bugs, edge case failures. Include input, expected output, and actual output.</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Apply and Test the Fix</h3>
+                            <p class="element-timeline__text">Apply the model&rsquo;s proposed fix to your code and run the failing tests again. Also run the full test suite to check for regressions &mdash; a fix that solves one problem while breaking three others is not a fix. If the original tests now pass and no new failures appear, the debugging cycle is complete. If not, collect the new failure evidence and return to step 3 for another iteration.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>After adding validation for discount percentages over 100, run the full test suite. The edge case test now passes, but verify that the normal discount calculations (10%, 25%, 50%) still return correct values.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">5</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Iterate Until All Tests Pass</h3>
+                            <p class="element-timeline__text">Self-Debugging is inherently iterative. Complex bugs may require multiple rounds of diagnosis and repair, where each round resolves one layer of the problem and reveals the next. The key advantage of AI-assisted debugging is that each iteration is fast &mdash; the model can analyze code and propose fixes in seconds rather than the minutes or hours a human might spend tracing through unfamiliar logic. Track which bugs have been fixed and which remain to avoid circular debugging.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>Round 1 fixed the missing validation. Round 2 reveals that the validation error message references the wrong parameter name. Round 3 confirms all tests pass and the error messages are accurate.</p>
                             </div>
                         </div>
                     </div>
@@ -397,37 +368,7 @@
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === BUG TYPES === -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Bug Types</span>
-                    <h2 class="section-title">Common Bug Patterns</h2>
-                </div>
-
-                <div class="pillar-grid pillar-grid--4 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Off-by-One</h3>
-                        <p class="pillar-card__text">Loop bounds, array indexing, and range calculations. Always verify boundary conditions.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Null Handling</h3>
-                        <p class="pillar-card__text">Generated code often assumes values exist. Check for null/undefined on optional data.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Type Mismatches</h3>
-                        <p class="pillar-card__text">Implicit conversions in loosely-typed languages cause unexpected behavior.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Async Issues</h3>
-                        <p class="pillar-card__text">Race conditions, missing awaits, callback ordering problems in asynchronous code.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /BUG TYPES -->
-
-        <!-- === COMPARISON PANEL === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
@@ -451,7 +392,7 @@
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Problem</span>
-                                <p>Pastes code without error messages, expected behavior, or context. The model guesses at what &ldquo;doesn&rsquo;t work&rdquo; means and may change working code or miss the actual bug entirely.</p>
+                                <p>Pastes code without error messages, expected behavior, or context. The model guesses at what &ldquo;doesn&rsquo;t work&rdquo; means and may change working code, miss the actual bug, or introduce new bugs while &ldquo;fixing&rdquo; code that was never broken.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -483,7 +424,7 @@
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Result</span>
-                                <p>The model traces execution with concrete inputs, pinpoints the exact line where the logic diverges from expected behavior, explains the root cause, and provides a targeted fix that preserves the rest of the code.</p>
+                                <p>The model traces execution with concrete inputs, pinpoints the exact line where the logic diverges from expected behavior, explains the root cause (the condition checks for odd instead of even), and provides a targeted single-line fix that preserves the rest of the code.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -497,37 +438,75 @@
                 </div>
             </div>
         </section>
-        <!-- /COMPARISON PANEL -->
+        <!-- /THE COMPARISON -->
 
-        <!-- === IMPLEMENTATION PATTERNS === -->
+        <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Techniques</span>
-                    <h2 class="section-title">Debug Prompt Patterns</h2>
-                </div>
+                <h2 class="section-title fade-in-up">Self-Debugging in Action</h2>
+                <p class="section-subtitle fade-in-up">See how different debugging strategies apply to different failure modes</p>
 
-                <div class="pillar-grid pillar-grid--2 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">The Rubber Duck</h3>
-                        <p class="pillar-card__text">"Act as my rubber duck: explain what each section does as if teaching a junior developer."</p>
+                <div class="accordion fade-in-up" id="self-debugging-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Error-Driven: Runtime Exception</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Debugging Prompt</span>
+                                    <p>&ldquo;This Python function raises <code>TypeError: unsupported operand type(s) for +: &lsquo;int&rsquo; and &lsquo;str&rsquo;</code> on line 12 when processing user input from our API. The function should concatenate a user ID (integer) with a prefix string to form a cache key. Here is the code and the full stack trace: [code] [trace]. Explain the type mismatch, identify why the input arrives as a string instead of an integer, and provide a fix that handles both types safely.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt provides the exact error, the line number, the intended behavior, and the execution context (API input). The model can immediately see that the issue is a type coercion problem at the API boundary and propose <code>str(user_id)</code> or input validation rather than guessing at what &ldquo;doesn&rsquo;t work&rdquo; might mean.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Adversarial Reviewer</h3>
-                        <p class="pillar-card__text">"Review as a skeptical code reviewer. Assume there IS a bug somewhere. What could go wrong?"</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Trace-Based: Logic Error</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Debugging Prompt</span>
+                                    <p>&ldquo;This binary search function returns -1 (not found) for values that are definitely in the sorted array. For input array [1, 3, 5, 7, 9, 11] and target 7, it should return index 3 but returns -1. No error is thrown. Trace through the execution step by step, showing the values of low, high, and mid at each iteration. Identify where the search space excludes the target value and explain why.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>By requesting explicit variable tracing, the prompt forces the model to simulate execution rather than pattern-match against common binary search bugs. The step-by-step trace reveals whether the issue is in the midpoint calculation, the boundary updates (<code>mid + 1</code> vs <code>mid</code>), or the termination condition &mdash; and the developer can verify each step independently.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Hypothesis Tester</h3>
-                        <p class="pillar-card__text">"I think the bug is in the sorting logic. Trace through with [input] and tell me if I'm right."</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Minimal Fix</h3>
-                        <p class="pillar-card__text">"Make the MINIMAL change necessary. Don't refactor—show only the lines that need to change."</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Test-Driven: Failing Assertions</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Debugging Prompt</span>
+                                    <p>&ldquo;3 of 12 unit tests are failing for this date parsing function. Passing tests: standard ISO dates (2024-01-15), dates with time (2024-01-15T10:30:00). Failing tests: (1) <code>parse_date(&rsquo;Jan 15, 2024&rsquo;)</code> expected <code>2024-01-15</code> got <code>None</code>, (2) <code>parse_date(&rsquo;15/01/2024&rsquo;)</code> expected <code>2024-01-15</code> got <code>2024-15-01</code> (month/day swapped), (3) <code>parse_date(&rsquo;&rsquo;)</code> expected <code>ValueError</code> got <code>None</code>. Here is the function: [code]. Fix the function to pass all three failing tests without breaking the passing tests.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt provides exact inputs, expected outputs, and actual outputs for each failure &mdash; plus which tests already pass (establishing constraints the fix must not violate). The model can see three distinct issues: missing format support, incorrect day/month parsing order, and missing empty-string validation. Each fix is independently verifiable against the provided test cases.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /IMPLEMENTATION PATTERNS -->
+        <!-- /EXAMPLES IN ACTION -->
 
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
@@ -565,8 +544,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Code Review for Potential Issues</strong>
-                                    <p>Proactive debugging where you ask the model to identify potential bugs, edge cases, and failure points before they manifest in production.</p>
+                                    <strong>Proactive Code Review</strong>
+                                    <p>Ask the model to identify potential bugs, edge cases, and failure points before they manifest in production &mdash; defensive debugging before deployment.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -577,16 +556,6 @@
                                 <div>
                                     <strong>Understanding Unfamiliar Codebases</strong>
                                     <p>Tracing through code you did not write to understand its behavior, identify assumptions, and locate potential failure points in legacy or third-party code.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--positive">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                <div>
-                                    <strong>Iterative Fix-Test-Refine Cycles</strong>
-                                    <p>Multi-turn debugging sessions where each fix is tested and any remaining failures feed back into the next debugging iteration until all tests pass.</p>
                                 </div>
                             </div>
                         </div>
@@ -610,8 +579,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>May Propose Fixes That Introduce New Bugs</strong>
-                                    <p>A fix that resolves one symptom can create side effects elsewhere. Each proposed change should be reviewed for unintended consequences before applying.</p>
+                                    <strong>May Introduce New Bugs While Fixing</strong>
+                                    <p>A fix that resolves one symptom can create side effects elsewhere. Always run the full test suite after applying any proposed change, not just the failing test.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -620,7 +589,7 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Struggles with Bugs Requiring Full System Context</strong>
+                                    <strong>Struggles with Distributed System Bugs</strong>
                                     <p>Bugs that span multiple services, involve network timing, or depend on production configuration may exceed the model&rsquo;s context window and reasoning capacity.</p>
                                 </div>
                             </div>
@@ -630,18 +599,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Cannot Debug Hardware or Environment Issues</strong>
+                                    <strong>Cannot Debug Environment or Hardware Issues</strong>
                                     <p>Problems caused by OS-level configuration, driver incompatibilities, memory corruption, or hardware failures are outside the scope of static code analysis.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--neutral">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <line x1="8" y1="12" x2="16" y2="12"/>
-                                </svg>
-                                <div>
-                                    <strong>Multi-File Dependency Bugs Need Careful Context</strong>
-                                    <p>When bugs involve interactions across many files, you must carefully curate which code to include in the prompt to stay within token limits while providing sufficient context.</p>
                                 </div>
                             </div>
                         </div>
@@ -667,7 +626,7 @@
                             </svg>
                         </div>
                         <h3 class="use-case-showcase__title">Production Bug Triage</h3>
-                        <p class="use-case-showcase__desc">Quickly identify root causes from error logs and stack traces to prioritize fixes. Feed production error output directly into a debugging prompt to get rapid diagnosis and fix recommendations for critical incidents.</p>
+                        <p class="use-case-showcase__desc">Quickly identify root causes from error logs and stack traces to prioritize fixes. Feed production error output directly into a debugging prompt to get rapid diagnosis and fix recommendations for critical incidents that need immediate resolution.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -679,8 +638,8 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Code Review Assistance</h3>
-                        <p class="use-case-showcase__desc">Systematic review catching potential bugs, edge cases, and security issues before deployment. Use self-debugging proactively to identify problems before they reach production environments.</p>
+                        <h3 class="use-case-showcase__title">Pre-Deployment Code Review</h3>
+                        <p class="use-case-showcase__desc">Systematic review catching potential bugs, edge cases, and security issues before deployment. Use self-debugging proactively on new code to identify problems before they reach production environments and affect users.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -690,8 +649,8 @@
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Legacy Code Understanding</h3>
-                        <p class="use-case-showcase__desc">Explain complex or poorly documented code by tracing logic and identifying potential failure points. Self-debugging techniques help map out how legacy systems actually behave versus how they were intended to work.</p>
+                        <h3 class="use-case-showcase__title">Legacy Code Archaeology</h3>
+                        <p class="use-case-showcase__desc">Explain complex or poorly documented code by tracing logic and identifying assumptions. Self-debugging techniques help map out how legacy systems actually behave versus how they were intended to work, making refactoring safer and more informed.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -701,8 +660,30 @@
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Learning Tool</h3>
-                        <p class="use-case-showcase__desc">Junior developers learn debugging strategies by watching AI trace through problems step by step. The structured explanation of bug identification, root cause analysis, and fix reasoning builds transferable debugging skills.</p>
+                        <h3 class="use-case-showcase__title">Developer Education</h3>
+                        <p class="use-case-showcase__desc">Junior developers learn debugging strategies by watching AI trace through problems step by step. The structured explanation of bug identification, root cause analysis, and fix reasoning builds transferable debugging skills that apply to any codebase.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <polyline points="1 20 1 14 7 14"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Regression Debugging</h3>
+                        <p class="use-case-showcase__desc">When code that previously worked starts failing after changes, self-debugging helps identify which modification introduced the regression. Provide the diff, the new failure, and the old passing behavior for targeted root cause analysis.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Security Vulnerability Analysis</h3>
+                        <p class="use-case-showcase__desc">Apply debugging techniques to security concerns: trace how user input flows through the code, identify where sanitization is missing, and pinpoint paths that could lead to injection, privilege escalation, or data exposure.</p>
                     </div>
                 </div>
             </div>
@@ -722,17 +703,17 @@
                         <span class="era-marker__desc">Code generation techniques that produce initial output for debugging</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Parent</span>
+                        <span class="era-marker__year">Principle</span>
                         <span class="era-marker__title">Self-Correction</span>
                         <span class="era-marker__desc">General self-correction principles applied across all domains</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Current</span>
+                        <span class="era-marker__year">Domain</span>
                         <span class="era-marker__title">Self-Debugging</span>
-                        <span class="era-marker__desc">Code-domain application of self-correction with concrete feedback</span>
+                        <span class="era-marker__desc">Code-domain self-correction with concrete, testable feedback</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Related</span>
+                        <span class="era-marker__year">Extensions</span>
                         <span class="era-marker__title">Self-Refine / Reflexion</span>
                         <span class="era-marker__desc">Iterative improvement and learning from errors across attempts</span>
                     </div>
@@ -750,32 +731,67 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="code-prompting.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Code Prompting</h3>
-                            <p class="icon-box__content">Effective code generation.</p>
-                        </div>
-                    </a>
-                    <a href="../../self-refine.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Refine</h3>
-                            <p class="icon-box__content">Iterative improvement.</p>
-                        </div>
-                    </a>
-                    <a href="../../self-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Verification</h3>
-                            <p class="icon-box__content">Validate correctness.</p>
-                        </div>
-                    </a>
-                    <a href="../../reflexion.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Reflexion</h3>
-                            <p class="icon-box__content">Learn from failures.</p>
-                        </div>
-                    </a>
-                </div>
+                <p class="section-subtitle fade-in-up">Explore complementary debugging and correction techniques</p>
+
+                <a href="code-prompting.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Foundation</span>
+                        <span class="evolution-callout__title">Code Prompting</span>
+                        <span class="evolution-callout__desc">The code generation techniques that produce the initial output &mdash; better prompts mean fewer bugs to debug in the first place.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="../../self-refine.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <polyline points="1 20 1 14 7 14"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Parent Pattern</span>
+                        <span class="evolution-callout__title">Self-Refine</span>
+                        <span class="evolution-callout__desc">The general-purpose iterative improvement loop (generate, critique, improve) that Self-Debugging specializes for executable code with testable outcomes.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="../../reflexion.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2l4 4-4 4"/>
+                            <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+                            <path d="M7 22l-4-4 4-4"/>
+                            <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Reflexion</span>
+                        <span class="evolution-callout__desc">Adds a memory layer to self-correction &mdash; the model reflects on past failures to avoid repeating them, enabling learning across multiple debugging attempts.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
         </section>
         <!-- /RELATED FRAMEWORKS -->
@@ -786,7 +802,7 @@
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Try Self-Debugging</h2>
+                        <h2 class="cta-corporate__title">Debug Smarter, Not Harder</h2>
                         <p class="cta-corporate__text">Apply structured debugging techniques to your own code or build debugging prompts with our tools.</p>
                         <div class="cta-corporate__actions">
                             <a href="../../../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>

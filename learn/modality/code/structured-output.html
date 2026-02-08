@@ -77,6 +77,7 @@
                             <a href="../../decomp.html">DECOMP</a>
                             <a href="../../recursion-of-thought.html">Recursion of Thought</a>
                             <a href="../../program-of-thought.html">Program of Thought</a>
+                            <a href="../../../learn/skeleton-of-thought.html">Skeleton-of-Thought</a>
                         </div>
                         <div class="mega-menu-section" data-tab="self-correction" role="tabpanel">
                             <h4><a href="../../self-correction.html">Self-Correction</a></h4>
@@ -111,6 +112,9 @@
                             <a href="../../simtom.html">SimToM</a>
                             <a href="../../rar.html">RaR</a>
                             <a href="../../re2.html">RE2</a>
+                            <a href="../../../learn/system-prompting.html">System Prompting</a>
+                            <a href="../../../learn/rag.html">RAG</a>
+                            <a href="../../../learn/agentic-prompting.html">Agentic Prompting</a>
                         </div>
                         <div class="mega-menu-section" data-tab="code" role="tabpanel">
                             <h4>Code</h4>
@@ -225,6 +229,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -239,18 +244,19 @@
                     <span class="hero-badge__text">Code Frameworks</span>
                 </div>
                 <h1 class="page-title fade-in">Structured Output</h1>
-                <p class="page-subtitle fade-in">Generate reliable JSON, XML, and other data formats from AI.</p>
+                <p class="page-subtitle fade-in">Get AI to produce reliable JSON, XML, YAML, and other machine-readable data formats &mdash; using schema specification, format enforcement, and validation loops to ensure every response is parseable by downstream systems.</p>
             </div>
         </section>
+        <!-- /HERO SECTION -->
 
         <!-- === HISTORICAL CONTEXT === -->
         <section class="section">
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2022-2023</span>
-                        <p><strong>Background:</strong> Structured output prompting became a critical discipline as developers began integrating LLM responses into application pipelines. Early approaches relied on post-processing, but research by OpenAI, Anthropic, and others demonstrated that prompt-level strategies&mdash;schema specification, prefix prompting, and format enforcement&mdash;could achieve reliable structured generation without external tooling.</p>
-                        <p><strong>Modern LLM Status:</strong> By 2025&ndash;2026, many APIs offer native structured output modes (OpenAI&rsquo;s JSON mode, Anthropic&rsquo;s tool use). However, prompt-level techniques remain essential for maximum reliability, custom formats, and models without native structured output support.</p>
+                        <span class="highlight-box__title">Framework Context: 2022&ndash;2024</span>
+                        <p><strong>Background:</strong> Structured output prompting became a critical discipline as developers began integrating LLM responses into application pipelines. Early approaches relied on post-processing &mdash; parsing natural language responses with regex or secondary AI calls &mdash; but research by OpenAI, Anthropic, Google, and the broader ML engineering community demonstrated that prompt-level strategies (schema specification, prefix prompting, and format enforcement) could achieve reliable structured generation without external tooling. The emergence of JSON Mode in major APIs during 2023&ndash;2024 validated the demand for guaranteed-format output.</p>
+                        <p><strong>Modern LLM Status:</strong> By 2025&ndash;2026, many APIs offer native structured output modes (OpenAI&rsquo;s JSON mode, Anthropic&rsquo;s tool use, Google&rsquo;s controlled generation). However, <strong>prompt-level techniques remain essential</strong> for maximum reliability, custom formats beyond JSON, models without native structured output support, and situations where you need finer control over field names, nesting depth, and optional values than API-level constraints provide.</p>
                     </div>
                 </div>
             </div>
@@ -260,194 +266,99 @@
         <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="split-section">
+                <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Beyond Free-Form Text</h2>
-                        <p class="section-intro">Structured Output prompting focuses on getting AI models to produce data in specific, parseable formats. This is essential for building applications where AI responses feed into downstream systems that expect structured data.</p>
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">The Model Wants to Write Prose &mdash; Your Job Is to Constrain It to Data</h2>
+                        <p class="split-section__text">Language models are trained on vast amounts of natural language text. Their default mode is to generate fluent, verbose, conversational prose. But when you need machine-readable data &mdash; a JSON object, an XML document, a CSV table &mdash; that natural verbosity becomes the enemy. The model wants to say &ldquo;Here is the JSON output for your request:&rdquo; before the data, add commentary after it, use inconsistent field names, or drift away from your schema as the output gets longer.</p>
+                        <p class="split-section__text"><strong>Structured Output prompting is the discipline of constraining the model&rsquo;s generation to produce exact, schema-compliant data formats.</strong> This requires a combination of techniques: providing explicit schemas that define the expected structure, using format enforcement phrases that suppress natural language wrapping, showing examples that demonstrate the exact output format, and implementing validation loops that catch and correct format errors before they reach downstream systems.</p>
+                        <p class="split-section__text">Think of it as the difference between asking someone to &ldquo;tell you about the weather&rdquo; (which produces a paragraph) and asking them to &ldquo;fill in this form with temperature, humidity, and wind speed&rdquo; (which produces structured data). The same information, but the second request constrains the response format to exactly what your system needs.</p>
+                    </div>
+                    <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Core Challenge</span>
-                                <p>Language models are trained to produce natural text, not data structures. Structured output requires constraining verbosity while ensuring format compliance.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Strategies</span>
-                                <p>Schema specification, example-driven format, format enforcement phrases, and prefix prompting.</p>
+                                <span class="highlight-box__title">Why Format Compliance Is a Pipeline Requirement</span>
+                                <p>In application pipelines, a single malformed JSON response can crash a downstream service, corrupt a database record, or trigger a cascade of errors across microservices. Unlike human-facing text where approximate correctness is fine, structured output demands <strong>exact syntactic validity</strong>: every bracket must match, every string must be properly escaped, every required field must be present. This is why structured output prompting has developed more rigorous techniques than general prompting &mdash; the cost of format failure is immediate, concrete, and system-wide rather than merely producing a suboptimal answer.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- === WHY IT WORKS === -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Core Principles</span>
-                    <h2 class="section-title">Why It Works</h2>
-                </div>
-                <div class="pillar-grid pillar-grid--3 stagger-children">
-                    <div class="pillar-card fade-in-up">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M3 9h18M9 3v18"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">Schema Anchoring</h3>
-                        <p class="pillar-card__text">Providing an explicit schema or example locks the model into a specific structure, dramatically reducing format drift and unexpected fields. The schema serves as a constraint that channels generation toward the target format rather than free-form prose.</p>
-                    </div>
-                    <div class="pillar-card fade-in-up">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">Constraint Reduction</h3>
-                        <p class="pillar-card__text">Narrowing output to a specific format eliminates the model&rsquo;s tendency toward verbose natural language, producing cleaner machine-readable results. By constraining the output space, you reduce ambiguity and make parsing deterministic.</p>
-                    </div>
-                    <div class="pillar-card fade-in-up">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 4 23 10 17 10"/>
-                                <polyline points="1 20 1 14 7 14"/>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">Validation Loop</h3>
-                        <p class="pillar-card__text">Structured outputs can be automatically validated against schemas, enabling retry-on-failure workflows that converge on correct format. When validation fails, the error message can be fed back to the model for self-correction, creating a reliable generation pipeline.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /WHY IT WORKS -->
-
-        <!-- === COMMON OUTPUT FORMATS === -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Formats</span>
-                    <h2 class="section-title">Common Output Formats</h2>
-                </div>
-
-                <div class="pillar-grid pillar-grid--4 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">JSON</h3>
-                        <p class="pillar-card__text">Universal parsing support, strict syntax, good model familiarity. Watch for trailing commas and unescaped strings.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">XML</h3>
-                        <p class="pillar-card__text">Self-documenting tags, schema validation support. More verbose, watch for closing tag mismatches.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">YAML</h3>
-                        <p class="pillar-card__text">Highly readable, supports comments. Whitespace-sensitive—models may struggle with indentation.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">CSV/Tables</h3>
-                        <p class="pillar-card__text">Simple structure, spreadsheet-ready. Flat only—watch for delimiter-in-data issues.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- /THE CONCEPT -->
 
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Strategies</span>
-                    <h2 class="section-title">Prompting Techniques</h2>
-                </div>
+                <h2 class="section-title fade-in-up">The Structured Output Process</h2>
+                <p class="section-subtitle fade-in-up">Four techniques that ensure reliable, parseable output from any model</p>
 
-                <div class="accordion fade-in-up" id="structured-strategies-accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Schema Specification</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Provide an explicit schema or template showing the expected structure with field names and types.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Example</span>
-                                    <p>"Return as JSON matching this schema: { name: string, email: string | null, phone: string | null }"</p>
-                                </div>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Specify the Exact Schema</h3>
+                            <p class="element-timeline__text">Provide an explicit schema showing every field name, its data type, whether it is required or optional, and any constraints on its values. The schema serves as a contract between your prompt and the model&rsquo;s output &mdash; every field you define will appear in the output, and fields you do not define should not. Use JSON Schema notation, TypeScript interfaces, or Pydantic models for maximum clarity.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Return JSON matching this schema: { &lsquo;name&rsquo;: string (required), &lsquo;email&rsquo;: string or null, &lsquo;age&rsquo;: integer (18-120), &lsquo;roles&rsquo;: string[] (at least one) }&rdquo;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Example-Driven Format</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Show a complete example of correctly formatted output for the model to follow.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Example</span>
-                                    <p>"Format your response exactly like this example: [{ product: 'iPhone', category: 'Electronics' }]"</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Provide a Format Example</h3>
+                            <p class="element-timeline__text">Show a complete, correctly formatted example of the expected output. Examples are the most powerful format enforcement tool because they demonstrate not just what fields to include, but exactly how to format values, handle nulls, structure arrays, and nest objects. The model will mimic the example&rsquo;s structure far more reliably than it will follow abstract schema descriptions alone.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Format your response exactly like this example: { &lsquo;name&rsquo;: &lsquo;Jane Doe&rsquo;, &lsquo;email&rsquo;: &lsquo;jane@example.com&rsquo;, &lsquo;age&rsquo;: 34, &lsquo;roles&rsquo;: [&lsquo;editor&rsquo;, &lsquo;reviewer&rsquo;] }&rdquo;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Format Enforcement Phrases</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Use explicit instructions to prevent natural language additions around the data.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Phrases</span>
-                                    <p>"Return only valid JSON, no explanation." "Your entire response must be parseable JSON." "Start with { and end with }."</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Enforce Format Boundaries</h3>
+                            <p class="element-timeline__text">Use explicit instructions that suppress the model&rsquo;s natural tendency to wrap data in conversational text. Phrases like &ldquo;Return only valid JSON, no explanation&rdquo; and &ldquo;Your entire response must be parseable JSON&rdquo; prevent preamble text, commentary, and markdown code fences from contaminating the output. For API-based usage, prefix prompting (starting the assistant response with the opening bracket) physically constrains the format from the first character.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Return only valid JSON. Do not include any text before or after the JSON object. Do not wrap it in markdown code fences. Start with { and end with }.&rdquo;</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Prefix Prompting</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Approach</span>
-                                    <p>Start the assistant's response to constrain format from the first character.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">How It Works</span>
-                                    <p>By starting the response with "{", you force the model to continue valid JSON rather than adding preamble.</p>
-                                </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Validate and Retry on Failure</h3>
+                            <p class="element-timeline__text">Even with perfect prompting, no technique guarantees 100% format compliance on every generation. Production systems should always validate the output against the expected schema (using JSON Schema, Zod, Pydantic, or equivalent), and if validation fails, feed the error message back to the model in a retry prompt. This validation-retry loop converges on correct format within one to two retries in the vast majority of cases.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Your previous response was invalid JSON: unexpected token at position 47 (trailing comma after last array element). Please regenerate the same data as valid JSON without trailing commas.&rdquo;</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /HOW IT WORKS -->
 
-        <!-- === COMPARISON PANEL === -->
+        <!-- === VISUAL: THE COMPARISON === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Comparison</span>
-                    <h2 class="section-title">See the Difference</h2>
-                </div>
+                <h2 class="section-title fade-in-up">See the Difference</h2>
+                <p class="section-subtitle fade-in-up">Why structured output prompts produce machine-readable results</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -455,93 +366,136 @@
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="10"/>
-                                    <path d="M15 9l-6 6M9 9l6 6"/>
+                                    <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
                             <h3 class="comparison-panel__title">Without Structured Output</h3>
                         </div>
                         <div class="comparison-panel__content">
-                            <p><strong>Prompt:</strong> "Extract the product info from this review."</p>
-                            <p><strong>Response:</strong> "The reviewer mentions they bought a Samsung Galaxy S24 for $799. They gave it 4 out of 5 stars and said the camera was excellent but felt the battery life could be better. Overall they seemed happy with the purchase and would recommend it to others looking for a flagship phone."</p>
-                            <p>The response contains the information, but it is buried in natural language. Parsing this programmatically requires NLP, regex, or another AI call &mdash; adding cost, latency, and fragility to every downstream system that needs the data.</p>
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Extract the product info from this review.</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The reviewer mentions they bought a Samsung Galaxy S24 for $799. They gave it 4 out of 5 stars and said the camera was excellent but felt the battery life could be better. Overall they seemed happy with the purchase.</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--weak">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12h8"/>
+                            </svg>
+                            <span>Information buried in prose &mdash; requires NLP or regex to extract</span>
                         </div>
                     </div>
+
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
+
                     <div class="comparison-panel__side comparison-panel__side--after">
                         <div class="comparison-panel__header">
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M9 12l2 2 4-4"/>
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
                             <h3 class="comparison-panel__title">With Structured Output</h3>
                         </div>
                         <div class="comparison-panel__content">
-                            <p><strong>Prompt:</strong> "Extract product info from this review. Return only valid JSON matching: { product: string, brand: string, price: number, rating: number, pros: string[], cons: string[] }"</p>
-                            <p><strong>Response:</strong> { "product": "Galaxy S24", "brand": "Samsung", "price": 799, "rating": 4, "pros": ["Excellent camera", "Fast processor"], "cons": ["Battery life could be better"] }</p>
-                            <p>The same information, now machine-readable. One JSON.parse() call and the data flows directly into databases, APIs, and dashboards &mdash; no post-processing, no ambiguity, no fragile regex extraction.</p>
+                            <div class="comparison-panel__prompt">
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Extract product info from this review. Return only valid JSON matching: { product: string, brand: string, price: number, rating: number, pros: string[], cons: string[] }</p>
+                            </div>
+                            <div class="comparison-panel__result">
+                                <span class="comparison-panel__label">Response</span>
+                                <p>{ "product": "Galaxy S24", "brand": "Samsung", "price": 799, "rating": 4, "pros": ["Excellent camera", "Fast processor"], "cons": ["Battery life could be better"] }</p>
+                            </div>
+                        </div>
+                        <div class="comparison-panel__verdict comparison-panel__verdict--strong">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l3 3 5-5"/>
+                            </svg>
+                            <span>Machine-readable &mdash; one JSON.parse() and data flows into any system</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /COMPARISON PANEL -->
+        <!-- /THE COMPARISON -->
 
-        <!-- === IMPLEMENTATION PATTERNS === -->
+        <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Issues</span>
-                    <h2 class="section-title">Common Problems</h2>
-                </div>
+                <h2 class="section-title fade-in-up">Structured Output in Action</h2>
+                <p class="section-subtitle fade-in-up">See how different structured output strategies apply to real scenarios</p>
 
-                <div class="pillar-grid pillar-grid--2 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Preamble Text</h3>
-                        <p class="pillar-card__text">Model adds "Here's the JSON:" before data. Fix: Use prefix prompting or "Return only JSON" instruction.</p>
+                <div class="accordion fade-in-up" id="structured-output-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Data Extraction: Email Parsing</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Output Prompt</span>
+                                    <p>&ldquo;Extract structured data from this customer email. Return only valid JSON matching this schema: { &lsquo;sender_name&rsquo;: string, &lsquo;intent&rsquo;: &lsquo;complaint&rsquo; | &lsquo;inquiry&rsquo; | &lsquo;feedback&rsquo; | &lsquo;request&rsquo;, &lsquo;product_mentioned&rsquo;: string or null, &lsquo;urgency&rsquo;: &lsquo;low&rsquo; | &lsquo;medium&rsquo; | &lsquo;high&rsquo;, &lsquo;action_required&rsquo;: string, &lsquo;sentiment&rsquo;: &lsquo;positive&rsquo; | &lsquo;neutral&rsquo; | &lsquo;negative&rsquo; }. Do not include any text outside the JSON object. Here is the email: [email text]&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The schema defines exact field names, constrained enum values for categorical fields (intent, urgency, sentiment), and nullable types for optional data. The format enforcement phrase prevents prose wrapping. The result can be directly inserted into a CRM database or routed by an automated ticketing system without any human parsing.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Trailing Commas</h3>
-                        <p class="pillar-card__text">Model adds comma after last element. Fix: Post-process to remove, or use lenient JSON parser.</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">API Response: Product Catalog</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Output Prompt</span>
+                                    <p>&ldquo;Generate 5 product entries for a fitness equipment store. Return as a JSON array. Each entry must match: { &lsquo;id&rsquo;: string (format: &lsquo;FIT-001&rsquo;), &lsquo;name&rsquo;: string, &lsquo;category&rsquo;: string, &lsquo;price_usd&rsquo;: number (2 decimal places), &lsquo;in_stock&rsquo;: boolean, &lsquo;tags&rsquo;: string[] (1-5 tags) }. Return only the JSON array, no other text.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt specifies an ID format pattern, price precision (2 decimal places), boolean types for stock status, and array length constraints for tags. These details prevent the model from using inconsistent ID formats, rounding prices to whole numbers, using string values like &ldquo;yes&rdquo; for stock status, or generating dozens of tags per entry.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Unescaped Strings</h3>
-                        <p class="pillar-card__text">Quotes or newlines in values break JSON. Fix: Ask model to escape special characters, or post-process.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Schema Drift</h3>
-                        <p class="pillar-card__text">Model adds extra fields or uses different names. Fix: Provide exact schema and state "use these exact field names."</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Configuration: Infrastructure as Code</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Output Prompt</span>
+                                    <p>&ldquo;Generate a Docker Compose YAML file for a web application with three services: (1) a Node.js web server on port 3000, (2) a PostgreSQL 16 database with a named volume for data persistence, (3) a Redis cache. Include health checks for all services. The web service depends on both database and cache being healthy before starting. Return only valid YAML, no explanation or markdown fences.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt specifies exact service configurations, dependency ordering, health check requirements, and the YAML format constraint. By naming specific versions (PostgreSQL 16), ports, and features (named volumes, health-dependent startup), the prompt eliminates the model&rsquo;s need to guess at configuration details that would vary between environments.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Validation</span>
-                    <h2 class="section-title">Validation Strategies</h2>
-                </div>
-
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Syntax Validation</h3>
-                        <p class="pillar-card__text">Parse output to catch format errors. Use try/catch around JSON.parse or equivalent.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Schema Validation</h3>
-                        <p class="pillar-card__text">Use JSON Schema, Zod, or Pydantic to validate structure and types match expectations.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Retry on Failure</h3>
-                        <p class="pillar-card__text">If validation fails, include error in retry prompt asking for corrected output.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- /EXAMPLES IN ACTION -->
 
         <!-- === WHEN TO USE === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">When to Use Structured Output</h2>
                 <p class="section-subtitle fade-in-up">Best for machine-readable data generation from natural language</p>
@@ -557,7 +511,7 @@
                                 </svg>
                                 <div>
                                     <strong>API Response Generation</strong>
-                                    <p>Generate response payloads that conform to API contracts for direct consumption by frontend applications and microservices.</p>
+                                    <p>Generate response payloads that conform to API contracts for direct consumption by frontend applications, eliminating manual data transformation between AI output and application logic.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -566,8 +520,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Data Extraction from Text</strong>
-                                    <p>Pull structured records from unstructured sources like emails, documents, and web pages into consistent, parseable formats.</p>
+                                    <strong>Data Extraction from Unstructured Text</strong>
+                                    <p>Pull structured records from emails, documents, reviews, and web pages into consistent, queryable formats that feed directly into databases and analytics pipelines.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -576,8 +530,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Configuration File Creation</strong>
-                                    <p>Generate deployment configs, environment files, and infrastructure-as-code from natural language requirements.</p>
+                                    <strong>Configuration and Infrastructure Files</strong>
+                                    <p>Generate deployment configs, environment files, Docker Compose specs, and infrastructure-as-code from natural language requirements with exact format compliance.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -586,18 +540,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Database Record Formatting</strong>
-                                    <p>Transform unstructured input into database-ready records with consistent field names, types, and value constraints.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--positive">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                <div>
-                                    <strong>Report Generation with Consistent Schema</strong>
-                                    <p>Produce formatted reports with predictable structure for dashboards, analytics pipelines, and automated workflows.</p>
+                                    <strong>Automated Report Generation</strong>
+                                    <p>Produce formatted reports with predictable structure for dashboards, analytics pipelines, and automated workflows that require consistent schema compliance across every report.</p>
                                 </div>
                             </div>
                         </div>
@@ -611,8 +555,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Complex Nested Structures</strong>
-                                    <p>Deeply nested objects and arrays have higher error rates as the model must maintain structural consistency across many levels.</p>
+                                    <strong>Deep Nesting Increases Error Rates</strong>
+                                    <p>Deeply nested objects and arrays have higher error rates as the model must maintain bracket matching and indentation consistency across many levels of nesting.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -621,8 +565,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Long Output Format Drift</strong>
-                                    <p>Very long structured outputs increase the risk of format drift, where the model gradually deviates from the schema over many entries.</p>
+                                    <strong>Long Outputs Risk Format Drift</strong>
+                                    <p>Very long structured outputs increase the risk of schema drift, where the model gradually deviates from field names, types, or structure over many entries in an array.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -631,8 +575,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Truncation Risk</strong>
-                                    <p>Models may truncate large structured responses mid-structure, producing invalid output that cannot be parsed.</p>
+                                    <strong>Truncation Produces Invalid Output</strong>
+                                    <p>Models may truncate large structured responses mid-structure, producing unclosed brackets and invalid output that cannot be parsed by any standard parser.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -641,18 +585,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Whitespace-Sensitive Formats</strong>
-                                    <p>Formats like YAML rely on precise indentation that models frequently get wrong, making them fragile for structured output.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--neutral">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <line x1="8" y1="12" x2="16" y2="12"/>
-                                </svg>
-                                <div>
-                                    <strong>No Guarantee Without Validation</strong>
-                                    <p>Prompt-level techniques cannot guarantee 100% valid output. Production systems should always include schema validation and retry logic.</p>
+                                    <strong>No Format Guarantee Without Validation</strong>
+                                    <p>Prompt-level techniques improve reliability but cannot guarantee 100% valid output. Production systems must always include schema validation and retry-on-failure logic.</p>
                                 </div>
                             </div>
                         </div>
@@ -663,7 +597,7 @@
         <!-- /WHEN TO USE -->
 
         <!-- === USE CASES === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
                 <p class="section-subtitle fade-in-up">Where Structured Output delivers the most value</p>
@@ -675,8 +609,8 @@
                                 <path d="M18 20V10M12 20V4M6 20v-6"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">API Integration</h3>
-                        <p class="use-case-showcase__desc">Generate response payloads that conform to API contracts for direct consumption by frontend applications, eliminating manual data transformation between AI output and application logic.</p>
+                        <h3 class="use-case-showcase__title">API Integration Pipelines</h3>
+                        <p class="use-case-showcase__desc">Generate response payloads that conform to API contracts for direct consumption by frontend applications and microservices, eliminating manual data transformation between AI output and application logic.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -688,8 +622,8 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Data Extraction</h3>
-                        <p class="use-case-showcase__desc">Pull structured records from unstructured text like emails, documents, and web pages, converting free-form information into consistent, queryable data formats.</p>
+                        <h3 class="use-case-showcase__title">Document Data Extraction</h3>
+                        <p class="use-case-showcase__desc">Pull structured records from unstructured text like emails, contracts, invoices, and web pages, converting free-form information into consistent, queryable data formats for database ingestion.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -700,8 +634,8 @@
                                 <line x1="14" y1="4" x2="10" y2="20"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Configuration Generation</h3>
-                        <p class="use-case-showcase__desc">Create deployment configs, environment files, and infrastructure-as-code from natural language requirements, accelerating DevOps workflows with AI-generated specifications.</p>
+                        <h3 class="use-case-showcase__title">DevOps Configuration</h3>
+                        <p class="use-case-showcase__desc">Create deployment configs, Docker Compose files, Kubernetes manifests, and infrastructure-as-code from natural language requirements, accelerating DevOps workflows with AI-generated specifications.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -712,8 +646,30 @@
                                 <line x1="12" y1="17" x2="12" y2="21"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Automated Reporting</h3>
-                        <p class="use-case-showcase__desc">Generate formatted reports with consistent structure for dashboards and analytics pipelines, ensuring every report follows the same schema for reliable downstream processing.</p>
+                        <h3 class="use-case-showcase__title">Dashboard Data Generation</h3>
+                        <p class="use-case-showcase__desc">Generate formatted data with consistent structure for dashboards and analytics pipelines, ensuring every data point follows the same schema for reliable visualization and aggregation.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Database Seeding</h3>
+                        <p class="use-case-showcase__desc">Generate realistic test data in exact database-ready formats with proper types, foreign key references, and constraint compliance for development and testing environments.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Chatbot Response Routing</h3>
+                        <p class="use-case-showcase__desc">Extract intent, entities, and metadata from user messages as structured JSON to drive conversation routing, slot filling, and action dispatch in conversational AI systems.</p>
                     </div>
                 </div>
             </div>
@@ -721,7 +677,7 @@
         <!-- /USE CASES -->
 
         <!-- === FRAMEWORK POSITIONING === -->
-        <section class="section">
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Where Structured Output Fits</h2>
                 <p class="section-subtitle fade-in-up">The data-format specialization of constrained output techniques</p>
@@ -730,77 +686,116 @@
                     <div class="era-marker">
                         <span class="era-marker__year">Constrained Output</span>
                         <span class="era-marker__title">Foundation</span>
-                        <span class="era-marker__desc">General format control</span>
+                        <span class="era-marker__desc">General format control and response boundaries</span>
                     </div>
                     <div class="era-marker era-marker--active">
                         <span class="era-marker__year">Structured Output</span>
                         <span class="era-marker__title">Specialize</span>
-                        <span class="era-marker__desc">Data-format precision</span>
+                        <span class="era-marker__desc">Exact data-format precision and schema compliance</span>
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Code Prompting</span>
                         <span class="era-marker__title">Generate</span>
-                        <span class="era-marker__desc">Code generation output</span>
+                        <span class="era-marker__desc">Executable code as structured output</span>
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Self-Verification</span>
                         <span class="era-marker__title">Validate</span>
-                        <span class="era-marker__desc">Output validation loop</span>
+                        <span class="era-marker__desc">Output validation and correction loop</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Design Pattern</div>
-                    <p>Structured Output is the data-format specialization of Constrained Output. While Constrained Output sets general boundaries on response format, Structured Output demands exact schema compliance. Combine with One-Shot Learning to provide format examples, and Self-Verification to validate the output before returning it to the application layer.</p>
+                    <div class="callout-title">The Structured Output Stack</div>
+                    <p>Structured Output is the data-format specialization of <strong>Constrained Output</strong>. While Constrained Output sets general boundaries on response format, Structured Output demands exact schema compliance with specific field names, types, and nesting. For maximum reliability, combine with <strong>One-Shot Learning</strong> to provide format examples that the model mimics, and <strong>Self-Verification</strong> to have the model check its own output against the schema before returning it. In production pipelines, add programmatic schema validation (JSON Schema, Zod, Pydantic) as a final safety net.</p>
                 </div>
             </div>
         </section>
         <!-- /FRAMEWORK POSITIONING -->
 
         <!-- === RELATED FRAMEWORKS === -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="code-prompting.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Code Prompting</h3>
-                            <p class="icon-box__content">General code techniques.</p>
-                        </div>
-                    </a>
-                    <a href="../../constrained-output.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Constrained Output</h3>
-                            <p class="icon-box__content">Format control techniques.</p>
-                        </div>
-                    </a>
-                    <a href="../../one-shot.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">One-Shot</h3>
-                            <p class="icon-box__content">Example-based formatting.</p>
-                        </div>
-                    </a>
-                    <a href="../../self-verification.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Verification</h3>
-                            <p class="icon-box__content">Validate before returning.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- === CTA === -->
         <section class="section">
             <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Structured Output</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../../../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <h2 class="section-title fade-in-up">Related Frameworks</h2>
+                <p class="section-subtitle fade-in-up">Explore complementary format control and validation techniques</p>
+
+                <a href="../../constrained-output.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 3v18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Foundation</span>
+                        <span class="evolution-callout__title">Constrained Output</span>
+                        <span class="evolution-callout__desc">The general-purpose format control technique that Structured Output specializes for machine-readable data formats with exact schema requirements.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="code-prompting.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Sibling</span>
+                        <span class="evolution-callout__title">Code Prompting</span>
+                        <span class="evolution-callout__desc">Shares the same precision requirements as Structured Output but targets executable code rather than data formats &mdash; both demand exact syntax and verifiable correctness.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="../../self-verification.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Self-Verification</span>
+                        <span class="evolution-callout__desc">Add a verification step where the model checks its own structured output against the schema before returning it &mdash; catching format errors before they reach your application.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- /RELATED FRAMEWORKS -->
+
+        <!-- === CTA SECTION === -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Generate Reliable Structured Data</h2>
+                        <p class="cta-corporate__text">Apply schema specification and format enforcement to your own data extraction tasks or build structured output prompts with our tools.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../../../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../../../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /CTA SECTION -->
     </main>
 
         <footer class="footer">

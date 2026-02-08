@@ -271,6 +271,14 @@ p {
     background: rgba(13, 17, 23, 0.95);
 }
 
+/* Disable backdrop-filter when mobile menu is open —
+   backdrop-filter creates a new containing block which breaks
+   position:fixed on the child .nav.active element */
+body.menu-open .header {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
 .header-inner {
     display: flex;
     align-items: center;
@@ -6490,6 +6498,13 @@ body.menu-open {
         grid-template-columns: 1fr 1fr;
         width: auto;
         max-width: none;
+    }
+
+    /* Reset Resources dropdown centering transforms on mobile */
+    .nav-item.has-dropdown:last-child .mega-menu--multi-column {
+        transform: none;
+        left: auto;
+        right: auto;
     }
 
     .mega-menu-links {

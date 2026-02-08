@@ -77,6 +77,7 @@
                             <a href="../../decomp.html">DECOMP</a>
                             <a href="../../recursion-of-thought.html">Recursion of Thought</a>
                             <a href="../../program-of-thought.html">Program of Thought</a>
+                            <a href="../../../learn/skeleton-of-thought.html">Skeleton-of-Thought</a>
                         </div>
                         <div class="mega-menu-section" data-tab="self-correction" role="tabpanel">
                             <h4><a href="../../self-correction.html">Self-Correction</a></h4>
@@ -111,6 +112,9 @@
                             <a href="../../simtom.html">SimToM</a>
                             <a href="../../rar.html">RaR</a>
                             <a href="../../re2.html">RE2</a>
+                            <a href="../../../learn/system-prompting.html">System Prompting</a>
+                            <a href="../../../learn/rag.html">RAG</a>
+                            <a href="../../../learn/agentic-prompting.html">Agentic Prompting</a>
                         </div>
                         <div class="mega-menu-section" data-tab="code" role="tabpanel">
                             <h4>Code</h4>
@@ -225,6 +229,7 @@
     </header>
 
     <main id="main-content">
+        <!-- === HERO SECTION === -->
         <section class="page-hero">
             <canvas id="page-hero-neural-bg" class="page-hero-neural-bg"></canvas>
             <div class="container">
@@ -239,7 +244,7 @@
                     <span class="hero-badge__text">Code Frameworks</span>
                 </div>
                 <h1 class="page-title fade-in">Code Prompting</h1>
-                <p class="page-subtitle fade-in">Strategies for effective code generation, explanation, and transformation.</p>
+                <p class="page-subtitle fade-in">The discipline of translating programming intent into precise AI instructions &mdash; specifying language, constraints, edge cases, and expected behavior so that generated code is production-ready rather than a rough draft that needs rewriting.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -249,9 +254,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2021-2023</span>
-                        <p><strong>Background:</strong> Code generation prompting emerged as a distinct discipline with OpenAI&rsquo;s Codex (2021) and GitHub Copilot. While early LLMs could produce code from natural language, research demonstrated that specific prompting strategies&mdash;specifying language, constraints, edge cases, and expected formats&mdash;dramatically improved code quality and reduced bugs.</p>
-                        <p><strong>Modern LLM Status:</strong> By 2025-2026, code-capable models like GPT-4, Claude, and Gemini achieve near-human performance on many coding benchmarks. However, effective prompting remains critical: specifying context, requirements, and constraints consistently produces better code than vague instructions, even with the most capable models.</p>
+                        <span class="highlight-box__title">Framework Context: 2021&ndash;2024</span>
+                        <p><strong>Background:</strong> Code generation prompting emerged as a distinct discipline with OpenAI&rsquo;s Codex (2021) and GitHub Copilot. While early large language models could produce code from natural language descriptions, research at institutions including Stanford, MIT, and Carnegie Mellon demonstrated that specific prompting strategies &mdash; specifying language, constraints, edge cases, and expected output formats &mdash; dramatically improved code quality and reduced bugs. The HumanEval and MBPP benchmarks established standard evaluation frameworks, and by 2023 the field had matured into a recognized engineering practice with its own best practices and failure modes.</p>
+                        <p><strong>Modern LLM Status:</strong> By 2025&ndash;2026, code-capable models like GPT-4, Claude, and Gemini achieve near-human performance on many coding benchmarks. However, <strong>effective prompting remains the critical differentiator between useful code and code that needs extensive reworking</strong>. Research consistently shows that specifying context, requirements, and constraints produces measurably better code than vague instructions, even with the most capable models. The gap between a good code prompt and a vague one is the difference between a production-ready function and a generic snippet that handles none of your actual requirements.</p>
                     </div>
                 </div>
             </div>
@@ -261,23 +266,19 @@
         <!-- === THE CONCEPT === -->
         <section class="section section-alt">
             <div class="container">
-                <div class="split-section">
+                <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
-                        <span class="section-eyebrow">The Concept</span>
-                        <h2 class="section-title">Precision in Code Generation</h2>
-                        <p class="section-intro">Code prompting requires different strategies than general text generation. The precision required in programming—where a single character can change behavior—demands prompting techniques that specify exact requirements, context, and constraints.</p>
+                        <span class="split-section__badge">The Core Insight</span>
+                        <h2 class="split-section__title">Every Ambiguity in Your Prompt Becomes an Assumption in Your Code</h2>
+                        <p class="split-section__text">Code prompting is fundamentally different from general text prompting because programming demands a level of precision where a single character can change behavior entirely. A misplaced bracket, an off-by-one loop bound, or an unhandled null value can crash an application or silently corrupt data. When you prompt an AI to generate code, every detail you leave unspecified becomes a decision the model makes on its own &mdash; and those implicit decisions are where bugs hide.</p>
+                        <p class="split-section__text"><strong>The core discipline of code prompting is eliminating ambiguity before generation begins.</strong> This means specifying four dimensions for every code request: (1) the exact task and its boundaries, (2) the technical environment and constraints, (3) the requirements including edge cases and error handling, and (4) concrete input/output examples that demonstrate expected behavior. When all four dimensions are covered, the model operates within a well-defined solution space rather than guessing at your intent.</p>
+                        <p class="split-section__text">Think of it like the difference between telling an architect &ldquo;build me a house&rdquo; versus providing blueprints with room dimensions, materials, electrical plans, and plumbing specifications. The architect can build something from either instruction &mdash; but only the second will match what you actually need.</p>
+                    </div>
+                    <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">Key Difference</span>
-                                <p>Code has verifiable correctness. Unlike creative writing where quality is subjective, code either works or it doesn't. This allows for systematic evaluation and iterative refinement.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-section__media">
-                        <div class="highlight-box highlight-box--tip">
-                            <div class="highlight-box__content">
-                                <span class="highlight-box__title">Essential Components</span>
-                                <p>Task specification, technical context, requirements list, and input/output examples form the anatomy of effective code prompts.</p>
+                                <span class="highlight-box__title">Why Code Prompting Is Uniquely Testable</span>
+                                <p>Unlike creative writing where quality is subjective, code has <strong>verifiable correctness</strong>. A function either returns the right value or it does not. A query either executes without errors or it fails. This verifiability creates a powerful feedback loop: you can prompt, test, identify failures, and refine your prompt with concrete evidence of what went wrong. No other domain of AI prompting offers this level of objective evaluation, which is why code prompting has developed into a more rigorous, systematic discipline than general-purpose prompting.</p>
                             </div>
                         </div>
                     </div>
@@ -286,82 +287,75 @@
         </section>
         <!-- /THE CONCEPT -->
 
-        <!-- === WHY IT WORKS === -->
+        <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Why It Works</span>
-                    <h2 class="section-title">The Mechanics Behind Code Prompting</h2>
-                </div>
+                <h2 class="section-title fade-in-up">The Code Prompting Process</h2>
+                <p class="section-subtitle fade-in-up">Four dimensions that transform vague requests into production-ready code</p>
 
-                <div class="pillar-grid pillar-grid--3 fade-in-up">
-                    <div class="pillar-card pillar-card--featured">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                <div class="element-timeline fade-in-up">
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">1</span>
                         </div>
-                        <h3 class="pillar-card__title">Verifiable Output</h3>
-                        <p class="pillar-card__text">Code either runs correctly or it doesn&rsquo;t, enabling objective evaluation and systematic improvement unlike subjective text tasks.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--featured">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="9" y1="3" x2="9" y2="21"/>
-                            </svg>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Define the Task Precisely</h3>
+                            <p class="element-timeline__text">Start with an unambiguous description of what the code should do. State the function name, what inputs it accepts, what output it produces, and the transformation between them. The more specific your task definition, the less the model needs to guess &mdash; and guessing is where most code generation failures originate.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Write a function called <code>calculate_shipping_cost</code> that takes an order weight in kilograms (float), a destination country code (string, ISO 3166-1 alpha-2), and a boolean for expedited shipping. Return the total shipping cost as a float rounded to two decimal places.&rdquo;</p>
+                            </div>
                         </div>
-                        <h3 class="pillar-card__title">Constraint Anchoring</h3>
-                        <p class="pillar-card__text">Explicit requirements (language, framework, edge cases) constrain the solution space, reducing hallucinated or irrelevant code.</p>
                     </div>
-                    <div class="pillar-card pillar-card--featured">
-                        <div class="pillar-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 4 23 10 17 10"/>
-                                <polyline points="1 20 1 14 7 14"/>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                            </svg>
-                        </div>
-                        <h3 class="pillar-card__title">Iterative Refinement</h3>
-                        <p class="pillar-card__text">Generated code can be tested immediately and debugged in follow-up prompts, creating a rapid feedback loop.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /WHY IT WORKS -->
 
-        <!-- === HOW IT WORKS === -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Components</span>
-                    <h2 class="section-title">Anatomy of a Code Prompt</h2>
-                </div>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">2</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Specify the Technical Context</h3>
+                            <p class="element-timeline__text">Provide the programming language and version, the framework or library ecosystem, and any environmental constraints. Without this context, the model defaults to its most common training patterns &mdash; which may be a different language version, an outdated API, or an incompatible framework. Include dependencies, import conventions, and any project-specific patterns the code must follow.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Use Python 3.11 with type hints. This function is part of a FastAPI application using Pydantic models. Import the <code>ShippingRate</code> model from <code>app.models.shipping</code>. Follow our project convention of raising <code>HTTPException</code> for validation errors.&rdquo;</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="pillar-grid pillar-grid--4 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Task Specification</h3>
-                        <p class="pillar-card__text">Clearly state what the code should do. Be specific about inputs, outputs, and the transformation between them.</p>
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">3</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">List Requirements and Edge Cases</h3>
+                            <p class="element-timeline__text">Explicitly enumerate every requirement the model should satisfy, including error handling behavior, edge cases, performance constraints, and coding standards. Models do not anticipate edge cases you do not mention &mdash; if you want null handling, boundary checking, or timeout logic, you must ask for it. The requirements list is your contract with the model: anything not specified is left to its discretion.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Requirements: (1) Validate that weight is positive and under 70kg. (2) Raise ValueError for unsupported country codes. (3) Apply 2.5x multiplier for expedited shipping. (4) Return 0.0 for orders qualifying for free shipping (over 50kg to domestic destinations). (5) Include a docstring with parameter descriptions and return type.&rdquo;</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Technical Context</h3>
-                        <p class="pillar-card__text">Specify language, framework, version, and environment. Include relevant dependencies and constraints.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Requirements</h3>
-                        <p class="pillar-card__text">List explicit requirements: error handling, edge cases, performance constraints, coding standards.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Examples</h3>
-                        <p class="pillar-card__text">Provide input/output examples showing expected behavior, especially for edge cases.</p>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">4</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Provide Input/Output Examples</h3>
+                            <p class="element-timeline__text">Concrete examples of expected behavior eliminate remaining ambiguity. Show the model what correct output looks like for normal cases, boundary cases, and error cases. Examples serve as implicit test cases &mdash; the model will try to produce code that satisfies them, and you can verify that the generated code actually does. This is the single most effective technique for reducing code generation errors.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>&ldquo;Expected behavior: <code>calculate_shipping_cost(5.0, &rsquo;US&rsquo;, False)</code> returns <code>12.50</code>. <code>calculate_shipping_cost(5.0, &rsquo;US&rsquo;, True)</code> returns <code>31.25</code>. <code>calculate_shipping_cost(-1.0, &rsquo;US&rsquo;, False)</code> raises <code>ValueError</code>. <code>calculate_shipping_cost(55.0, &rsquo;US&rsquo;, False)</code> returns <code>0.0</code> (free shipping).&rdquo;</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- /HOW IT WORKS -->
 
-        <!-- === COMPARISON PANEL === -->
-        <section class="section">
+        <!-- === VISUAL: THE COMPARISON === -->
+        <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
                 <p class="section-subtitle fade-in-up">Why precise code prompts produce dramatically better results</p>
@@ -384,7 +378,7 @@
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Result</span>
-                                <p>Ambiguous language, unknown data types, no edge case handling, no type hints, no documentation. The model must guess every detail, producing generic code that likely won&rsquo;t fit your actual requirements.</p>
+                                <p>Ambiguous language, unknown data types, no edge case handling, no type hints, no documentation. The model must guess every detail &mdash; programming language, sort direction, element types, stability requirements, what happens with empty input &mdash; producing generic code that likely will not fit your actual requirements.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -412,7 +406,7 @@
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
                                 <span class="comparison-panel__label">Prompt</span>
-                                <p>Write a Python 3.11 function called <code>sort_by_priority</code> that takes a list of dicts with keys &lsquo;name&rsquo; (str) and &lsquo;priority&rsquo; (int 1-5), returns a new list sorted by priority descending then name ascending. Handle empty list (return []) and missing &lsquo;priority&rsquo; key (default to 3). Include type hints and a docstring.</p>
+                                <p>Write a Python 3.11 function called <code>sort_by_priority</code> that takes a list of dicts with keys &lsquo;name&rsquo; (str) and &lsquo;priority&rsquo; (int 1&ndash;5), returns a new list sorted by priority descending then name ascending. Handle empty list (return []) and missing &lsquo;priority&rsquo; key (default to 3). Include type hints and a docstring.</p>
                             </div>
                             <div class="comparison-panel__result">
                                 <span class="comparison-panel__label">Result</span>
@@ -430,121 +424,75 @@
                 </div>
             </div>
         </section>
-        <!-- /COMPARISON PANEL -->
+        <!-- /THE COMPARISON -->
 
-        <!-- === EXAMPLES === -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Task Types</span>
-                    <h2 class="section-title">Code Task Categories</h2>
-                </div>
-
-                <div class="accordion fade-in-up" id="code-tasks-accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Code Generation</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Task</span>
-                                    <p>Creating new code from requirements—the most common code prompting task.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Key Strategies</span>
-                                    <p>Specify function signature, list all requirements, include edge case handling expectations, define error behavior.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Code Explanation</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Task</span>
-                                    <p>Understanding existing code—what it does, how it works, and why certain decisions were made.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Key Strategies</span>
-                                    <p>Specify your knowledge level, ask for specific aspects (performance, security, readability), request line-by-line breakdown.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Code Transformation</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Task</span>
-                                    <p>Converting code between languages, frameworks, or paradigms while preserving functionality.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Key Strategies</span>
-                                    <p>Specify target conventions, clarify how to handle language-specific features, preserve all method functionality.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Code Review</span>
-                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="technique-demo">
-                                <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Task</span>
-                                    <p>Analyzing code for bugs, security issues, performance problems, or style violations.</p>
-                                </div>
-                                <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Key Strategies</span>
-                                    <p>Specify what to look for, request actionable suggestions, mention relevant standards and style guides.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Pitfalls</span>
-                    <h2 class="section-title">Common Mistakes</h2>
-                </div>
+                <h2 class="section-title fade-in-up">Code Prompting in Action</h2>
+                <p class="section-subtitle fade-in-up">See how structured code prompts produce different results for different task types</p>
 
-                <div class="pillar-grid pillar-grid--2 fade-in-up">
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Underspecified Requirements</h3>
-                        <p class="pillar-card__text">"Write a login function" leaves critical questions unanswered: What auth method? What database? What happens on failure?</p>
+                <div class="accordion fade-in-up" id="code-prompting-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Code Generation: API Endpoint</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Code Prompt</span>
+                                    <p>&ldquo;Write a FastAPI POST endpoint at /api/users that creates a new user. Accept JSON body with fields: email (required, must be valid email format), name (required, 2-100 characters), role (optional, defaults to &lsquo;viewer&rsquo;, must be one of &lsquo;viewer&rsquo;, &lsquo;editor&rsquo;, &lsquo;admin&rsquo;). Use Pydantic for validation. Return 201 with the created user object on success. Return 409 if email already exists. Return 422 for validation errors. Include type hints throughout.&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>Every design decision is pre-made: the HTTP method, route path, field validation rules, default values, success response code, and error codes for each failure mode. The model cannot make incorrect assumptions because the prompt eliminates all ambiguity. The resulting code will have proper Pydantic validation, correct status codes, and the exact error handling behavior you specified.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Missing Edge Cases</h3>
-                        <p class="pillar-card__text">If you don't mention edge cases (null inputs, empty arrays), the model won't handle them. List important cases explicitly.</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Code Transformation: Language Migration</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Code Prompt</span>
+                                    <p>&ldquo;Convert this JavaScript Express middleware to Python FastAPI. Preserve all functionality: JWT token extraction from Authorization header, token validation with expiry check, user lookup from decoded token, and request context injection. Map Express patterns to FastAPI equivalents: req/res to Request/Response, next() to dependency injection with Depends(), and error responses to HTTPException. Target Python 3.11 with type hints. Here is the source: [code]&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt identifies every functional behavior that must be preserved and maps each source-language pattern to its target-language equivalent. Without these explicit mappings, the model might use a different auth pattern, skip the expiry check, or fail to inject the user context correctly. The prompt turns a complex migration into a structured translation task.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Assumed Context</h3>
-                        <p class="pillar-card__text">The model doesn't know your codebase. If code must integrate with existing functions, include that information.</p>
-                    </div>
-                    <div class="pillar-card pillar-card--interactive">
-                        <h3 class="pillar-card__title">Blind Trust</h3>
-                        <p class="pillar-card__text">Never use generated code without review. Models can produce code with subtle bugs or security issues. Always verify.</p>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span class="accordion-title">Code Review: Security Audit</span>
+                            <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="technique-demo">
+                                <div class="technique-demo__prompt">
+                                    <span class="technique-demo__tag">Structured Code Prompt</span>
+                                    <p>&ldquo;Review this Python function for security vulnerabilities. Focus on: (1) SQL injection via string formatting or concatenation, (2) command injection via subprocess or os.system calls, (3) path traversal via unvalidated file paths, (4) sensitive data exposure in error messages or logs, (5) improper input validation that could allow malformed data. For each issue found, state the line number, the vulnerability type (CWE ID if applicable), the severity (critical/high/medium/low), and a specific fix. Here is the code: [code]&rdquo;</p>
+                                </div>
+                                <div class="technique-demo__response">
+                                    <span class="technique-demo__tag">Why This Works</span>
+                                    <p>The prompt defines a specific checklist of vulnerability categories rather than asking for a general review. This prevents the model from focusing on style issues while missing injection flaws. The required output format (line number, CWE ID, severity, fix) ensures actionable results rather than vague warnings. Each finding maps directly to a remediation step.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /IMPLEMENTATION PATTERNS -->
+        <!-- /EXAMPLES IN ACTION -->
 
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
@@ -562,8 +510,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Code Generation from Specs</strong>
-                                    <p>Translating detailed requirements into working functions, classes, and modules with explicit constraints and expected behavior.</p>
+                                    <strong>Code Generation from Specifications</strong>
+                                    <p>Translating detailed requirements into working functions, classes, and modules. The more constraints you provide &mdash; types, boundaries, error conditions &mdash; the closer the output matches production-ready code.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -573,7 +521,7 @@
                                 </svg>
                                 <div>
                                     <strong>Code Review and Bug Finding</strong>
-                                    <p>Submitting code for analysis of potential bugs, security vulnerabilities, performance issues, and style violations.</p>
+                                    <p>Submitting code for analysis of potential bugs, security vulnerabilities, performance issues, and style violations. Specify which categories to prioritize for focused results.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -582,18 +530,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Language/Framework Translation</strong>
-                                    <p>Converting code between programming languages or migrating from one framework to another while preserving functionality.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--positive">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                <div>
-                                    <strong>Boilerplate and Scaffolding</strong>
-                                    <p>Generating project structure, configuration files, and repetitive boilerplate code from high-level specifications.</p>
+                                    <strong>Language and Framework Translation</strong>
+                                    <p>Converting code between programming languages or migrating from one framework to another. Explicitly map source-language patterns to target equivalents for faithful translation.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -603,7 +541,7 @@
                                 </svg>
                                 <div>
                                     <strong>Test Case Generation</strong>
-                                    <p>Creating unit tests, integration tests, and edge case coverage from function signatures and requirements documentation.</p>
+                                    <p>Creating unit tests, integration tests, and edge case coverage from function signatures and requirements. Specify testing framework, assertion style, and which scenarios to cover.</p>
                                 </div>
                             </div>
                         </div>
@@ -618,7 +556,7 @@
                                 </svg>
                                 <div>
                                     <strong>Cannot Verify Runtime Behavior</strong>
-                                    <p>The model generates code but cannot execute it. Syntactically correct code may still fail at runtime due to environment-specific issues.</p>
+                                    <p>The model generates code but cannot execute it. Syntactically correct code may still fail at runtime due to environment-specific issues, missing dependencies, or configuration problems.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -628,7 +566,7 @@
                                 </svg>
                                 <div>
                                     <strong>May Generate Plausible but Incorrect Logic</strong>
-                                    <p>Code that looks correct and follows conventions can still contain subtle logical errors, especially in complex algorithms or edge cases.</p>
+                                    <p>Code that looks correct and follows conventions can still contain subtle logical errors, especially in complex algorithms, boundary conditions, or concurrent operations.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -637,8 +575,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Misses Project-Specific Conventions</strong>
-                                    <p>Without explicit context about your codebase, the model cannot follow internal naming conventions, architectural patterns, or team standards.</p>
+                                    <strong>Cannot Access Your Codebase Context</strong>
+                                    <p>Without explicit context about your project, the model cannot follow internal naming conventions, architectural patterns, or team standards. Always include relevant integration points.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -648,17 +586,7 @@
                                 </svg>
                                 <div>
                                     <strong>Security Vulnerabilities May Be Subtle</strong>
-                                    <p>Generated code can introduce injection flaws, improper auth checks, or insecure defaults that pass casual review but fail security audits.</p>
-                                </div>
-                            </div>
-                            <div class="feature-list__item feature-list__item--neutral">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <line x1="8" y1="12" x2="16" y2="12"/>
-                                </svg>
-                                <div>
-                                    <strong>Not a Substitute for Code Review</strong>
-                                    <p>AI-generated code should always be reviewed by a human developer before deployment, especially for production systems and security-critical paths.</p>
+                                    <p>Generated code can introduce injection flaws, improper auth checks, or insecure defaults that pass casual review. Always run security analysis before deploying AI-generated code.</p>
                                 </div>
                             </div>
                         </div>
@@ -682,7 +610,7 @@
                             </svg>
                         </div>
                         <h3 class="use-case-showcase__title">API Development</h3>
-                        <p class="use-case-showcase__desc">Generate endpoint handlers with validation, error handling, and documentation. Specify HTTP methods, request/response schemas, authentication requirements, and status codes for production-ready API code.</p>
+                        <p class="use-case-showcase__desc">Generate endpoint handlers with validation, error handling, and documentation. Specify HTTP methods, request/response schemas, authentication requirements, and status codes for production-ready API code that integrates directly into your application.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -694,7 +622,7 @@
                             </svg>
                         </div>
                         <h3 class="use-case-showcase__title">Database Operations</h3>
-                        <p class="use-case-showcase__desc">Create queries, migrations, and data access layers with proper parameterization. Define schema constraints, indexing strategies, and transaction boundaries for safe, performant database code.</p>
+                        <p class="use-case-showcase__desc">Create queries, migrations, and data access layers with proper parameterization. Define schema constraints, indexing strategies, and transaction boundaries for safe, performant database code that prevents injection attacks.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -705,7 +633,7 @@
                             </svg>
                         </div>
                         <h3 class="use-case-showcase__title">Automation Scripts</h3>
-                        <p class="use-case-showcase__desc">Build CI/CD scripts, data pipelines, and batch processing tools. Specify input sources, transformation logic, error recovery, and logging requirements for reliable automated workflows.</p>
+                        <p class="use-case-showcase__desc">Build CI/CD scripts, data pipelines, and batch processing tools. Specify input sources, transformation logic, error recovery, and logging requirements for reliable automated workflows that handle failures gracefully.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -718,7 +646,29 @@
                             </svg>
                         </div>
                         <h3 class="use-case-showcase__title">Legacy Modernization</h3>
-                        <p class="use-case-showcase__desc">Translate older codebases to modern languages and frameworks. Provide source code context, target architecture constraints, and compatibility requirements for faithful, incremental migration.</p>
+                        <p class="use-case-showcase__desc">Translate older codebases to modern languages and frameworks. Provide source code context, target architecture constraints, and compatibility requirements for faithful, incremental migration that preserves business logic.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Security Hardening</h3>
+                        <p class="use-case-showcase__desc">Review existing code for vulnerabilities and generate hardened alternatives. Specify threat models, compliance requirements, and security standards to produce code that resists common attack vectors like injection, XSS, and CSRF.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Frontend Component Development</h3>
+                        <p class="use-case-showcase__desc">Generate UI components with accessibility, responsive behavior, and state management. Specify component props, event handlers, styling approach, and accessibility requirements for components that work across devices and assistive technologies.</p>
                     </div>
                 </div>
             </div>
@@ -739,7 +689,7 @@
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Self-Debugging</span>
-                        <span class="era-marker__title">Iterative Debugging</span>
+                        <span class="era-marker__title">Iterative Repair</span>
                         <span class="era-marker__desc">AI identifies and fixes bugs in its own generated code</span>
                     </div>
                     <div class="era-marker">
@@ -749,14 +699,14 @@
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Structured Output</span>
-                        <span class="era-marker__title">Data Format Generation</span>
+                        <span class="era-marker__title">Data Formats</span>
                         <span class="era-marker__desc">Producing JSON, XML, and structured data with schema guarantees</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
                     <div class="callout-title">Build on the Basics</div>
-                    <p>Code prompting techniques form the base layer for all AI-assisted development. Master specification, context-setting, and constraint definition here, then extend with Self-Debugging for iterative improvement, Program Synthesis for formal correctness, or Structured Output for data format guarantees.</p>
+                    <p>Code prompting techniques form the base layer for all AI-assisted development. Master specification, context-setting, and constraint definition here, then extend with <strong>Self-Debugging</strong> for iterative bug fixing, <strong>Program Synthesis</strong> for generating code from formal specifications and test cases, <strong>Structured Output</strong> for reliable data format generation, or <strong>Test Generation</strong> for automated test coverage. Every specialized code technique builds on the same foundational principle: the more precisely you specify what you need, the better the code you get back.</p>
                 </div>
             </div>
         </section>
@@ -766,45 +716,86 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <div class="icon-boxes icon-boxes--four fade-in-up">
-                    <a href="self-debugging.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Self-Debugging</h3>
-                            <p class="icon-box__content">AI-assisted bug identification.</p>
-                        </div>
-                    </a>
-                    <a href="structured-output.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Structured Output</h3>
-                            <p class="icon-box__content">Generating data formats.</p>
-                        </div>
-                    </a>
-                    <a href="../../chain-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Chain-of-Thought</h3>
-                            <p class="icon-box__content">Step-by-step reasoning.</p>
-                        </div>
-                    </a>
-                    <a href="../../program-of-thought.html" class="icon-box icon-box--clickable">
-                        <div class="icon-box__body">
-                            <h3 class="icon-box__title">Program of Thought</h3>
-                            <p class="icon-box__content">Code-based reasoning.</p>
-                        </div>
-                    </a>
-                </div>
+                <p class="section-subtitle fade-in-up">Explore complementary code-focused techniques</p>
+
+                <a href="self-debugging.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Extension</span>
+                        <span class="evolution-callout__title">Self-Debugging</span>
+                        <span class="evolution-callout__desc">When generated code has bugs, Self-Debugging feeds error messages and test failures back to the model for iterative repair &mdash; closing the loop between generation and correction.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="structured-output.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 3v18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Specialization</span>
+                        <span class="evolution-callout__title">Structured Output</span>
+                        <span class="evolution-callout__desc">Focuses specifically on generating reliable JSON, XML, YAML, and other machine-readable data formats &mdash; the data-format specialization of code prompting techniques.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="../../program-of-thought.html" class="evolution-callout fade-in-up">
+                    <span class="evolution-callout__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </span>
+                    <div class="evolution-callout__content">
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Program of Thought</span>
+                        <span class="evolution-callout__desc">Uses code generation as a reasoning strategy &mdash; the model writes and conceptually executes code to solve problems, bridging code prompting with chain-of-thought reasoning.</span>
+                    </div>
+                    <span class="evolution-callout__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
         </section>
+        <!-- /RELATED FRAMEWORKS -->
 
+        <!-- === CTA SECTION === -->
         <section class="section">
             <div class="container">
-                <div class="cta-corporate cta-corporate--dark">
-                    <h2 class="cta-corporate__title">Try Code Prompting</h2>
-                    <div class="cta-corporate__actions">
-                        <a href="../../../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                <div class="cta-corporate cta-corporate--dark fade-in-up">
+                    <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
+                    <div class="cta-corporate__content">
+                        <h2 class="cta-corporate__title">Start Writing Better Code Prompts</h2>
+                        <p class="cta-corporate__text">Apply the four-dimension framework to your own code tasks or build structured prompts with our tools.</p>
+                        <div class="cta-corporate__actions">
+                            <a href="../../../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
+                            <a href="../../../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /CTA SECTION -->
     </main>
 
         <footer class="footer">

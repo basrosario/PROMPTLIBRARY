@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contrastive Chain-of-Thought: Show both correct and incorrect reasoning to help AI distinguish good from bad reasoning patterns.">
-    <title>Contrastive Chain-of-Thought - Praxis</title>
+    <meta name="description" content="Skeleton-of-Thought: Accelerate AI responses by generating an answer outline first, then expanding each point in parallel for faster, more structured outputs.">
+    <title>Skeleton-of-Thought - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -121,7 +121,7 @@
                             <a href="../learn/modality/code/code-prompting.html">Code Prompting</a>
                             <a href="../learn/modality/code/self-debugging.html">Self-Debugging</a>
                             <a href="../learn/modality/code/structured-output.html">Structured Output</a>
-                        
+
                             <a href="../learn/modality/code/program-synthesis.html">Program Synthesis</a>
                             <a href="../learn/modality/code/code-explanation.html">Code Explanation</a>
                             <a href="../learn/modality/code/code-review.html">Code Review</a>
@@ -228,6 +228,8 @@
         </div>
     </header>
 
+
+
     <main id="main-content">
         <!-- === HERO SECTION === -->
         <section class="page-hero">
@@ -238,13 +240,15 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Contrastive CoT</span>
+                    <a href="decomposition.html">Decomposition</a>
+                    <span class="separator">/</span>
+                    <span class="current">Skeleton-of-Thought</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Thought Generation</span>
+                    <span class="hero-badge__text">Decomposition Technique</span>
                 </div>
-                <h1 class="page-title fade-in">Contrastive Chain-of-Thought</h1>
-                <p class="page-subtitle fade-in">Don't just show AI the right answer — show it the wrong one too. Contrastive CoT uses both correct and incorrect reasoning examples to sharpen the model's ability to avoid common mistakes.</p>
+                <h1 class="page-title fade-in">Skeleton-of-Thought</h1>
+                <p class="page-subtitle fade-in">Standard generation is strictly sequential &mdash; each token waits for the previous one. Skeleton-of-Thought breaks this bottleneck by first generating a concise outline, then expanding each point independently and in parallel, dramatically reducing latency while producing well-structured responses.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -255,8 +259,8 @@
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
                         <span class="highlight-box__title">Framework Context: 2023</span>
-                        <p><strong>Introduced:</strong> Contrastive Chain-of-Thought was published in 2023 by Chia, Chen, Tuan, Poria, and Bing. The technique added a critical missing piece to standard Chain-of-Thought prompting: negative reasoning examples. Where standard CoT demonstrates only the correct path to an answer, Contrastive CoT pairs each correct reasoning chain with an explicitly incorrect one, annotating where and why the bad reasoning fails. This dual-demonstration approach helps models build clearer internal boundaries between valid and invalid reasoning patterns.</p>
-                        <p><strong>Modern LLM Status:</strong> The core insight — that negative examples improve reasoning — remains valuable and practically useful. Modern LLMs like Claude and GPT-4 are stronger reasoners out of the box, but they still benefit measurably from explicit counterexamples, especially in domains with well-known error patterns such as percentage calculations, logical fallacies, and unit conversions. Contrastive CoT is a practical enhancement over standard few-shot CoT that costs little to implement and consistently reduces errors in targeted domains.</p>
+                        <p><strong>Introduced:</strong> Skeleton-of-Thought (SoT) was introduced in 2023 by Ning et al. in &ldquo;Skeleton-of-Thought: Large Language Models Can Do Parallel Decoding.&rdquo; The research demonstrated that LLM response latency could be reduced by up to 2x by splitting generation into two phases: first producing a skeleton (outline of key points), then expanding each skeleton point independently. Because the expansion of each point does not depend on the others, these expansions can run in parallel across multiple API calls or batched requests. The technique was tested on GPT-4, Claude, and LLaMA models across diverse question types.</p>
+                        <p><strong>Modern LLM Status:</strong> Skeleton-of-Thought has become <strong>an important latency optimization technique for production AI systems</strong>. The core insight &mdash; that many responses can be decomposed into independently expandable sections &mdash; influences modern streaming architectures and parallel generation strategies. While native LLM inference is still autoregressive (sequential token generation), SoT&rsquo;s principle has been adopted in practice through parallel API calls, speculative decoding research, and structured output generation. The technique is particularly valuable for long-form content generation, multi-part answers, and any application where response latency affects user experience.</p>
                     </div>
                 </div>
             </div>
@@ -269,16 +273,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Mistakes Are Teachers Too</h2>
-                        <p class="split-section__text">Standard Chain-of-Thought prompting shows the model correct reasoning examples and hopes it figures out what NOT to do on its own. This works reasonably well, but it leaves a gap: the model has no explicit understanding of common failure modes. It knows what right looks like, but not what wrong looks like.</p>
-                        <p class="split-section__text"><strong>Contrastive CoT closes this gap.</strong> By providing both correct and incorrect reasoning chains side by side — with clear annotations explaining WHERE the incorrect chain goes wrong and WHY — the model develops a much sharper sense of the boundary between valid and invalid reasoning.</p>
-                        <p class="split-section__text">Think of it like a math teacher who doesn't just show the correct solution on the board, but also walks through the common mistake students make on every exam. "Here's how to solve it correctly, and here's the error that 60% of students make — notice they confuse the percentage with the absolute value right here."</p>
+                        <h2 class="split-section__title">Outline First, Expand in Parallel</h2>
+                        <p class="split-section__text">Traditional LLM generation is brutally sequential: every token depends on every previous token. A 2,000-word response requires the model to generate each word one after another, with no opportunity for parallelism. The first sentence must be complete before the second begins, the first paragraph before the second. For complex, multi-part responses, this sequential bottleneck means users wait while the model slowly writes from beginning to end.</p>
+                        <p class="split-section__text"><strong>Skeleton-of-Thought exploits a key observation: many responses have independently expandable sections.</strong> When asked to explain a concept, the model might produce five key points. Each point can be elaborated without knowing the details of the others &mdash; only the skeleton (the outline of points) needs to be generated sequentially. Once the skeleton exists, all expansions can happen simultaneously, collapsing a serial process into a parallel one.</p>
+                        <p class="split-section__text">Think of it like building a house. The framing (skeleton) must go up first &mdash; you need to know where the rooms are. But once the frame is in place, you can wire the electrical, plumb the pipes, and install the drywall all at the same time. You don&rsquo;t need to finish the kitchen before starting the bathroom. Skeleton-of-Thought applies this same parallel-after-planning principle to text generation.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Contrast Effect</span>
-                                <p>Humans learn faster when shown both positive and negative examples. A medical student learns diagnostic patterns more effectively by studying both correct diagnoses and documented misdiagnoses. The same principle applies to LLMs — explicit error patterns create clearer decision boundaries, making the model less likely to stumble into known pitfalls.</p>
+                                <span class="highlight-box__title">Speed Without Sacrificing Structure</span>
+                                <p>The beauty of Skeleton-of-Thought is that the speed improvement comes from better organization, not from cutting corners. The skeleton phase forces the model to plan its response structure before writing, which often produces more coherent and well-organized output than standard sequential generation. You get faster responses AND better structure &mdash; the outline-first approach is a rare case where the optimization also improves quality.</p>
                             </div>
                         </div>
                     </div>
@@ -290,8 +294,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Contrastive CoT Process</h2>
-                <p class="section-subtitle fade-in-up">Four steps from examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">The Skeleton-of-Thought Process</h2>
+                <p class="section-subtitle fade-in-up">Three phases from question to parallel-generated response</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -299,11 +303,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Identify Common Errors</h3>
-                            <p class="element-timeline__text">Analyze the target domain to find recurring mistakes that people and models consistently make. These could be computational errors, logical fallacies, misapplied rules, or overlooked constraints. The better you understand the failure modes, the more effective your contrastive examples will be.</p>
+                            <h3 class="element-timeline__title">Generate the Skeleton</h3>
+                            <p class="element-timeline__text">The model receives the question and produces a concise outline &mdash; a numbered list of key points, sections, or arguments it plans to cover. This skeleton captures the structure of the complete response in a compact form. The skeleton generation is sequential (fast, since it produces only short bullet points) and provides the blueprint for parallel expansion.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Math domain common errors: confusing percentage with absolute value, forgetting order of operations, misreading word problem quantities, swapping numerator and denominator in ratios."</p>
+                                <p>Question: &ldquo;What are the advantages of renewable energy over fossil fuels?&rdquo;<br><br><strong>Skeleton:</strong><br>1. Environmental impact and emissions reduction<br>2. Long-term cost economics<br>3. Energy independence and security<br>4. Job creation and economic growth<br>5. Technological scalability</p>
                             </div>
                         </div>
                     </div>
@@ -313,11 +317,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Correct Examples</h3>
-                            <p class="element-timeline__text">Write clear, correct reasoning chains that demonstrate proper problem-solving with explicit step-by-step logic. Each step should be labeled and justified so the model can see exactly how a correct thinker moves from problem to solution.</p>
+                            <h3 class="element-timeline__title">Expand Each Point in Parallel</h3>
+                            <p class="element-timeline__text">Each skeleton point is sent as an independent generation request. Because no expansion depends on any other expansion, all of them can run simultaneously. Each expansion prompt includes the original question, the full skeleton (for context), and the specific point to elaborate. The model produces a detailed paragraph or section for each point independently.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Step 1 — Convert percentage to decimal: 20% = 0.20. Step 2 — Calculate discount: $50 x 0.20 = $10. Step 3 — Subtract discount: $50 - $10 = $40. Final answer: $40."</p>
+                                <p>Five parallel API calls, each expanding one skeleton point. Point 1 expands into a paragraph about carbon reduction and climate impact. Point 3 expands into a paragraph about reducing dependence on imported fossil fuels. All five complete roughly simultaneously rather than sequentially.</p>
                             </div>
                         </div>
                     </div>
@@ -327,25 +331,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Incorrect Examples</h3>
-                            <p class="element-timeline__text">Write deliberately wrong reasoning chains that reproduce the identified common errors. Critically, annotate exactly where and why the reasoning fails. The annotation is what transforms a bad example into a teaching tool.</p>
+                            <h3 class="element-timeline__title">Assemble the Final Response</h3>
+                            <p class="element-timeline__text">The expanded sections are collected and concatenated in skeleton order. Optional post-processing can add transitions between sections, an introduction, or a conclusion. The result is a complete, well-structured response generated in significantly less wall-clock time than sequential generation would require.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Subtract 20 from 50 = $30. ERROR: Confused percentage (20%) with absolute dollar value ($20). The correct approach requires multiplying by 0.20 to find the actual discount amount."</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="element-timeline__item">
-                        <div class="element-timeline__marker">
-                            <span class="element-timeline__number">4</span>
-                        </div>
-                        <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Combine in Prompt</h3>
-                            <p class="element-timeline__text">Present both correct and incorrect examples together in the prompt, clearly labeled, so the model sees the full contrast before attempting new problems. The juxtaposition is the key — seeing right and wrong side by side creates stronger pattern recognition than either alone.</p>
-                            <div class="element-timeline__example">
-                                <span class="element-timeline__example-label">Example</span>
-                                <p>"Prompt structure: 'CORRECT approach: [full reasoning chain] ... COMMON MISTAKE to avoid: [wrong chain with error annotation] ... Now solve this new problem using correct reasoning:'</p>
+                                <p>The five expanded paragraphs are assembled into a cohesive response with the skeleton providing the heading structure. A brief introduction and conclusion are added. Total generation time: roughly the time of the skeleton plus the longest single expansion &mdash; not the sum of all expansions.</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +348,7 @@
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Standard CoT vs Contrastive CoT</p>
+                <p class="section-subtitle fade-in-up">How parallel expansion dramatically reduces response time</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -369,16 +359,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Standard CoT</h3>
+                            <h3 class="comparison-panel__title">Sequential Generation</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"Here's how to solve a percentage problem: 30% of $80 means $80 x 0.30 = $24. So the discount is $24 and the final price is $56. Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Explain the advantages of renewable energy over fossil fuels in detail.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Only a correct example. The model must infer on its own what mistakes to avoid. If it has a tendency toward a common error pattern, nothing in the prompt warns it away.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The model generates the entire response token by token, from the first word of the introduction through each advantage in sequence to the conclusion. Total time: sum of all tokens generated. For a 2,000-word response at typical generation speeds, this can take 30&ndash;60 seconds.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -386,7 +376,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Model might still make common errors it hasn't been warned about</span>
+                            <span>Full serial generation &mdash; each section waits for the previous to complete</span>
                         </div>
                     </div>
 
@@ -398,20 +388,19 @@
                         <div class="comparison-panel__header">
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8 12l3 3 5-5"/>
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Contrastive CoT</h3>
+                            <h3 class="comparison-panel__title">Skeleton-of-Thought</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"CORRECT: 30% of $80 = $80 x 0.30 = $24 discount, final price $56. COMMON MISTAKE: 30% of $80 = $80 - 30 = $50 (ERROR: treated percentage as dollars). Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Phase 1: Outline the key advantages (skeleton). Phase 2: Expand each advantage in parallel.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Both the correct reasoning and the specific mistake to avoid, with a clear annotation of where and why the error occurs. The model now has explicit anti-patterns to steer away from.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>Phase 1 produces a 5-point skeleton in 2&ndash;3 seconds. Phase 2 expands all 5 points simultaneously &mdash; each taking 5&ndash;8 seconds, but running in parallel. Total time: skeleton time plus the longest expansion, roughly 10&ndash;11 seconds. Same quality, up to 2x faster.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -419,7 +408,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Model explicitly learns what to avoid — errors drop significantly</span>
+                            <span>Parallel expansion &mdash; all sections generated simultaneously after skeleton</span>
                         </div>
                     </div>
                 </div>
@@ -430,33 +419,31 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Contrastive CoT in Action</h2>
-                <p class="section-subtitle fade-in-up">Real-world scenarios showing correct vs incorrect reasoning pairs</p>
+                <h2 class="section-title fade-in-up">Skeleton-of-Thought in Action</h2>
+                <p class="section-subtitle fade-in-up">See how outline-first generation accelerates structured responses</p>
 
-                <div class="accordion fade-in-up" id="contrastive-accordion">
+                <div class="accordion fade-in-up" id="sot-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Mathematical Reasoning</span>
+                            <span class="accordion-title">Technical Documentation</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Problem:</strong> A jacket originally costs $80. The store offers 25% off, then an additional 10% off the sale price. What is the final price?</p>
-                                    <p><strong>Step 1:</strong> Calculate the first discount: $80 x 0.25 = $20.<br>
-                                    <strong>Step 2:</strong> Subtract first discount: $80 - $20 = $60.<br>
-                                    <strong>Step 3:</strong> Calculate second discount on the NEW price: $60 x 0.10 = $6.<br>
-                                    <strong>Step 4:</strong> Subtract second discount: $60 - $6 = $54.<br>
-                                    <strong>Final answer:</strong> $54.</p>
+                                    <span class="technique-demo__tag">Skeleton Phase</span>
+                                    <p>&ldquo;Write a comprehensive guide to setting up a CI/CD pipeline with GitHub Actions.&rdquo;</p>
+                                    <p><strong>Skeleton produced:</strong><br>
+                                    1. Prerequisites and Repository Setup<br>
+                                    2. Workflow File Configuration<br>
+                                    3. Build and Test Stages<br>
+                                    4. Deployment Configuration<br>
+                                    5. Monitoring and Notifications<br>
+                                    6. Troubleshooting Common Issues</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Step 1:</strong> Add the two discounts: 25% + 10% = 35%.<br>
-                                    <strong>Step 2:</strong> Calculate total discount: $80 x 0.35 = $28.<br>
-                                    <strong>Step 3:</strong> Subtract: $80 - $28 = $52.<br>
-                                    <strong>Final answer:</strong> $52.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> The mistake is adding percentages that apply to different base values. The 25% applies to $80, but the 10% applies to $60 (the already-discounted price). Stacking percentages only works when they share the same base. Sequential discounts must be calculated sequentially.</p>
+                                    <span class="technique-demo__tag">Parallel Expansion</span>
+                                    <p>All 6 sections are expanded independently and in parallel. Each expansion prompt includes the original question, the full skeleton for structural context, and the specific section to elaborate. Section 1 details repository structure and required permissions. Section 3 covers YAML syntax for build matrices and test runners. Section 6 addresses permission errors, caching issues, and runner timeouts. The final assembled document has clear section headers derived from the skeleton and detailed content from each parallel expansion &mdash; produced in the time it would take to sequentially generate just two of the six sections.</p>
                                 </div>
                             </div>
                         </div>
@@ -464,24 +451,25 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Logical Reasoning</span>
+                            <span class="accordion-title">Educational Content</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Rex is a dog.<br>
-                                    <strong>Conclusion:</strong> Rex is a mammal.</p>
-                                    <p><strong>Analysis:</strong> This is valid deductive reasoning (modus ponens). We know the category "dogs" is a subset of "mammals," and Rex belongs to "dogs," so Rex must also belong to "mammals." The logic is airtight.</p>
+                                    <span class="technique-demo__tag">Skeleton Phase</span>
+                                    <p>&ldquo;Explain the causes and consequences of the Industrial Revolution for a university-level history course.&rdquo;</p>
+                                    <p><strong>Skeleton produced:</strong><br>
+                                    1. Agricultural and Technological Preconditions<br>
+                                    2. Key Inventions and Innovations<br>
+                                    3. Social and Demographic Transformations<br>
+                                    4. Economic Restructuring<br>
+                                    5. Environmental Consequences<br>
+                                    6. Long-Term Political Impact</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Whiskers is a mammal.<br>
-                                    <strong>Conclusion:</strong> Whiskers is a dog.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the fallacy of "affirming the consequent." Just because all dogs are mammals does NOT mean all mammals are dogs. Whiskers could be a cat, a horse, or a whale — all mammals, none of them dogs. The error is reversing the direction of the subset relationship. Being in the larger category does not guarantee membership in the smaller one.</p>
+                                    <span class="technique-demo__tag">Parallel Expansion</span>
+                                    <p>Each section is expanded independently with appropriate academic depth. Section 1 covers the enclosure movement and seed drill innovations. Section 3 details urbanization patterns and the emergence of the factory system. Section 5 examines deforestation, air pollution, and resource extraction at industrial scale. The parallel generation produces the full 2,500-word essay-style response in the time it would take to generate a single section sequentially &mdash; each expansion runs simultaneously, and the assembled result maintains coherent academic tone throughout.</p>
                                 </div>
                             </div>
                         </div>
@@ -489,21 +477,25 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Reading Comprehension</span>
+                            <span class="accordion-title">Product Comparison</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Passage:</strong> "The company's Q3 revenue grew 12% year-over-year, driven primarily by expansion in the European market. However, operating margins declined due to increased hiring costs."</p>
-                                    <p><strong>Question:</strong> Is the company in good financial health?</p>
-                                    <p><strong>Analysis:</strong> The picture is mixed. Revenue growth of 12% is positive and shows demand is increasing. However, declining operating margins mean that costs are growing faster than revenue. The company is growing its top line but needs to manage expenses. A balanced assessment would be: growing but facing profitability pressure.</p>
+                                    <span class="technique-demo__tag">Skeleton Phase</span>
+                                    <p>&ldquo;Compare React, Vue, and Angular for building a large-scale enterprise web application.&rdquo;</p>
+                                    <p><strong>Skeleton produced:</strong><br>
+                                    1. Learning Curve and Developer Experience<br>
+                                    2. Performance and Bundle Size<br>
+                                    3. Enterprise Ecosystem and Tooling<br>
+                                    4. Community and Long-Term Support<br>
+                                    5. State Management Approaches<br>
+                                    6. Verdict and Recommendation</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Analysis:</strong> Revenue grew 12%, so the company is doing great financially. Growth means health.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the over-generalization fallacy — focusing on one positive data point while ignoring contradictory evidence in the same passage. The passage explicitly states that operating margins declined. Revenue growth alone does not equal financial health; profitability, margins, and cost management are equally important. A correct reading must weigh ALL information presented, not cherry-pick the favorable parts.</p>
+                                    <span class="technique-demo__tag">Parallel Expansion</span>
+                                    <p>Each section is expanded independently with specific technical comparisons. Section 2 benchmarks virtual DOM diffing, hydration costs, and tree-shaking effectiveness across all three frameworks. Section 5 compares Redux/Zustand, Pinia/Vuex, and NgRx/Signals with code-level tradeoffs. Section 6 synthesizes the findings into a context-dependent recommendation. The parallel approach produces the full comparison in under 15 seconds rather than the 45+ seconds of sequential generation &mdash; particularly valuable when developers need quick, comprehensive framework evaluations.</p>
                                 </div>
                             </div>
                         </div>
@@ -516,8 +508,8 @@
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Contrastive CoT</h2>
-                <p class="section-subtitle fade-in-up">Best for domains with identifiable, recurring reasoning errors</p>
+                <h2 class="section-title fade-in-up">When to Use Skeleton-of-Thought</h2>
+                <p class="section-subtitle fade-in-up">Best for multi-section responses where speed and structure both matter</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -529,8 +521,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Error-Prone Domains</strong>
-                                    <p>Math, logic, and analytical tasks where specific mistakes recur consistently across both human and AI reasoning.</p>
+                                    <strong>Long-Form Content Generation</strong>
+                                    <p>When generating responses with multiple distinct sections or points that can be elaborated independently &mdash; reports, guides, analyses, comparisons.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -539,8 +531,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Training and Education</strong>
-                                    <p>Building prompts that teach not just correct solutions but common pitfalls — ideal for educational AI applications.</p>
+                                    <strong>Latency-Sensitive Applications</strong>
+                                    <p>When users are waiting for responses and reducing wall-clock time directly improves the experience &mdash; chatbots, real-time assistants, interactive tools.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -549,8 +541,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Quality-Critical Tasks</strong>
-                                    <p>When even small reasoning errors have outsized impact — financial calculations, compliance analysis, safety assessments.</p>
+                                    <strong>Structured Output Requirements</strong>
+                                    <p>When the response needs clear organization with headings, sections, or numbered points &mdash; the skeleton phase naturally produces well-structured content.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -559,8 +551,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Known Error Patterns</strong>
-                                    <p>When you can identify and document the specific mistakes to avoid — the technique is only as good as your error catalogue.</p>
+                                    <strong>Batch Processing Pipelines</strong>
+                                    <p>When generating many multi-section responses at scale &mdash; the parallel expansion multiplies throughput across the entire pipeline.</p>
                                 </div>
                             </div>
                         </div>
@@ -574,8 +566,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Open-Ended Creativity</strong>
-                                    <p>Creative writing, brainstorming, and generative tasks where there is no objectively "wrong" reasoning path to contrast against.</p>
+                                    <strong>Short, Focused Answers</strong>
+                                    <p>Single-paragraph responses or factual lookups where the overhead of skeleton generation exceeds the time saved by parallelism.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -584,8 +576,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Simple Factual Queries</strong>
-                                    <p>Direct lookups and retrieval tasks that don't involve reasoning chains — the model either knows the fact or it doesn't.</p>
+                                    <strong>Highly Narrative Content</strong>
+                                    <p>Creative writing, storytelling, or flowing prose where each paragraph&rsquo;s content depends heavily on the specific words of the previous paragraph.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -594,8 +586,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Unknown Error Patterns</strong>
-                                    <p>If you can't identify what specific mistakes to demonstrate, standard CoT may suffice. Vague or generic "bad examples" add noise, not clarity.</p>
+                                    <strong>Tightly Interdependent Arguments</strong>
+                                    <p>Complex logical arguments where later points build directly on the specific details (not just the topic) of earlier points &mdash; these resist independent expansion.</p>
                                 </div>
                             </div>
                         </div>
@@ -609,39 +601,17 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Contrastive CoT delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where Skeleton-of-Thought delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Standardized Testing</h3>
-                        <p class="use-case-showcase__desc">Improve accuracy on SAT, GRE, and GMAT-style math by showing common trap answers alongside correct solution paths.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <path d="M9 9h6M9 13h6M9 17h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
-                        <p class="use-case-showcase__desc">Avoid common calculation errors in compound interest, tax rates, and margin computations by contrasting correct and incorrect formulas.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
-                        <p class="use-case-showcase__desc">Show diagnostic pitfalls — like anchoring bias or base rate neglect — alongside correct differential diagnosis patterns.</p>
+                        <h3 class="use-case-showcase__title">Real-Time Chat Assistants</h3>
+                        <p class="use-case-showcase__desc">Reduce response latency for complex questions by generating the outline quickly, then expanding sections in parallel while streaming results to the user.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -653,8 +623,19 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Legal Analysis</h3>
-                        <p class="use-case-showcase__desc">Demonstrate correct and incorrect applications of legal precedent, showing how misapplied case law leads to faulty conclusions.</p>
+                        <h3 class="use-case-showcase__title">Report Generation</h3>
+                        <p class="use-case-showcase__desc">Produce multi-section business reports, research summaries, or analytical documents faster by parallelizing section writing after establishing the structure.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Educational Content</h3>
+                        <p class="use-case-showcase__desc">Generate lesson plans, study guides, or course materials with multiple independent sections that can be expanded simultaneously.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -664,20 +645,30 @@
                                 <polyline points="8 6 2 12 8 18"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Code Review</h3>
-                        <p class="use-case-showcase__desc">Show both correct implementations and common anti-patterns with explanations of why the anti-pattern fails or degrades performance.</p>
+                        <h3 class="use-case-showcase__title">API Documentation</h3>
+                        <p class="use-case-showcase__desc">Create endpoint documentation, integration guides, or SDK references where each section (authentication, endpoints, errors, examples) is independent.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                                <polyline points="2 17 12 22 22 17"/>
-                                <polyline points="2 12 12 17 22 12"/>
+                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                <line x1="7" y1="7" x2="7.01" y2="7"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Scientific Reasoning</h3>
-                        <p class="use-case-showcase__desc">Contrast correct experimental design with common confounding variable errors and correlation-causation mix-ups.</p>
+                        <h3 class="use-case-showcase__title">Product Descriptions</h3>
+                        <p class="use-case-showcase__desc">Generate detailed product pages with independently expandable sections: features, specifications, comparisons, and use cases.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Email Campaigns</h3>
+                        <p class="use-case-showcase__desc">Draft multi-section newsletters or marketing emails where each content block can be generated independently after establishing the overall theme and structure.</p>
                     </div>
                 </div>
             </div>
@@ -687,35 +678,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Contrastive CoT Fits</h2>
-                <p class="section-subtitle fade-in-up">From basic examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">Where Skeleton-of-Thought Fits</h2>
+                <p class="section-subtitle fade-in-up">From sequential tokens to parallel generation strategies</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
-                        <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Example-Based</span>
-                        <span class="era-marker__desc">Learning from demonstrations</span>
+                        <span class="era-marker__year">Standard Generation</span>
+                        <span class="era-marker__title">Sequential Tokens</span>
+                        <span class="era-marker__desc">Every token waits for the previous one</span>
                     </div>
                     <div class="era-marker">
                         <span class="era-marker__year">Chain-of-Thought</span>
-                        <span class="era-marker__title">Correct Examples</span>
-                        <span class="era-marker__desc">Step-by-step reasoning</span>
+                        <span class="era-marker__title">Structured Reasoning</span>
+                        <span class="era-marker__desc">Step-by-step but still sequential</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Contrastive CoT</span>
-                        <span class="era-marker__title">Dual Examples</span>
-                        <span class="era-marker__desc">Correct + incorrect reasoning</span>
+                        <span class="era-marker__year">Skeleton-of-Thought</span>
+                        <span class="era-marker__title">Parallel Expansion</span>
+                        <span class="era-marker__desc">Outline first, then expand simultaneously</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Path Sampling</span>
-                        <span class="era-marker__desc">Multiple reasoning paths</span>
+                        <span class="era-marker__year">Speculative Decoding</span>
+                        <span class="era-marker__title">Hardware Parallelism</span>
+                        <span class="era-marker__desc">Draft and verify tokens in parallel at inference level</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Stack Them</div>
-                    <p>Use Contrastive CoT to teach the model what to avoid, then Self-Consistency to sample multiple reasoning paths. The model avoids known pitfalls across all sampled chains, combining error awareness with path diversity for maximum reasoning accuracy.</p>
+                    <div class="callout-title">The Architecture Principle Behind SoT</div>
+                    <p>Skeleton-of-Thought embodies a fundamental computer science principle: identify the serial dependencies in a process, minimize them, and parallelize everything else. In traditional generation, the serial dependency spans the entire response &mdash; every token depends on all previous tokens. SoT reduces the serial dependency to just the skeleton, making the bulk of the generation (the expansions) embarrassingly parallel. This same principle drives performance optimization across all of computing, from CPU pipelines to distributed systems.</p>
                 </div>
             </div>
         </section>
@@ -725,19 +716,21 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary reasoning techniques</p>
+                <p class="section-subtitle fade-in-up">Explore complementary decomposition and generation techniques</p>
 
-                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                <a href="plan-and-solve.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                            <path d="M21 3v9h-9"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Chain-of-Thought</span>
-                        <span class="evolution-callout__desc">Standard correct-only reasoning demonstrations — the baseline that Contrastive CoT enhances with negative examples.</span>
+                        <span class="evolution-callout__title">Plan-and-Solve</span>
+                        <span class="evolution-callout__desc">Plan-and-Solve introduced the plan-then-execute pattern that Skeleton-of-Thought adapts for parallel generation &mdash; the skeleton is the plan, and the expansions are the execution.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -746,17 +739,16 @@
                     </span>
                 </a>
 
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="tree-of-thought.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Technique</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">Provide examples for the model to learn from — Contrastive CoT extends this to include what NOT to do.</span>
+                        <span class="evolution-callout__label">Structural Kin</span>
+                        <span class="evolution-callout__title">Tree of Thought</span>
+                        <span class="evolution-callout__desc">Both techniques decompose generation into a branching structure. Tree of Thought explores alternative branches for reasoning; Skeleton-of-Thought expands parallel branches for speed.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -765,7 +757,7 @@
                     </span>
                 </a>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                <a href="least-to-most.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 2l4 4-4 4"/>
@@ -775,9 +767,9 @@
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Enhancement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Sample multiple reasoning paths and vote — combines well with contrastive examples to avoid repeated errors.</span>
+                        <span class="evolution-callout__label">Complement</span>
+                        <span class="evolution-callout__title">Least-to-Most</span>
+                        <span class="evolution-callout__desc">Least-to-Most builds answers progressively from simple to complex. Combined with SoT, the skeleton captures the complexity hierarchy while expansions handle each level in parallel.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -790,16 +782,16 @@
         <!-- /RELATED FRAMEWORKS -->
 
         <!-- === CTA SECTION === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Sharpen Your Reasoning</h2>
-                        <p class="cta-corporate__text">Build Contrastive CoT prompts that teach AI what to avoid, or explore more reasoning frameworks across the Praxis Library.</p>
+                        <h2 class="cta-corporate__title">Accelerate Your AI Outputs</h2>
+                        <p class="cta-corporate__text">Design structured, parallel-friendly prompts with our Prompt Builder or explore decomposition techniques that organize complex reasoning.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
-                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                            <a href="decomposition.html" class="btn btn-secondary">Decomposition Frameworks</a>
                         </div>
                     </div>
                 </div>
@@ -807,6 +799,7 @@
         </section>
         <!-- /CTA SECTION -->
     </main>
+
 
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>

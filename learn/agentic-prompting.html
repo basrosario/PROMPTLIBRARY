@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contrastive Chain-of-Thought: Show both correct and incorrect reasoning to help AI distinguish good from bad reasoning patterns.">
-    <title>Contrastive Chain-of-Thought - Praxis</title>
+    <meta name="description" content="Agentic Prompting: Design AI systems that autonomously plan, execute, and adapt multi-step tasks using tools, memory, and reasoning loops.">
+    <title>Agentic Prompting - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
 </head>
@@ -121,7 +121,7 @@
                             <a href="../learn/modality/code/code-prompting.html">Code Prompting</a>
                             <a href="../learn/modality/code/self-debugging.html">Self-Debugging</a>
                             <a href="../learn/modality/code/structured-output.html">Structured Output</a>
-                        
+
                             <a href="../learn/modality/code/program-synthesis.html">Program Synthesis</a>
                             <a href="../learn/modality/code/code-explanation.html">Code Explanation</a>
                             <a href="../learn/modality/code/code-review.html">Code Review</a>
@@ -228,6 +228,8 @@
         </div>
     </header>
 
+
+
     <main id="main-content">
         <!-- === HERO SECTION === -->
         <section class="page-hero">
@@ -238,13 +240,13 @@
                     <span class="separator">/</span>
                     <a href="index.html">Discover</a>
                     <span class="separator">/</span>
-                    <span class="current">Contrastive CoT</span>
+                    <span class="current">Agentic Prompting</span>
                 </nav>
                 <div class="hero-badge">
-                    <span class="hero-badge__text">Thought Generation</span>
+                    <span class="hero-badge__text">Prompting Strategy</span>
                 </div>
-                <h1 class="page-title fade-in">Contrastive Chain-of-Thought</h1>
-                <p class="page-subtitle fade-in">Don't just show AI the right answer — show it the wrong one too. Contrastive CoT uses both correct and incorrect reasoning examples to sharpen the model's ability to avoid common mistakes.</p>
+                <h1 class="page-title fade-in">Agentic Prompting</h1>
+                <p class="page-subtitle fade-in">Traditional prompting asks the model to respond. Agentic Prompting asks it to act &mdash; planning multi-step tasks, invoking external tools, observing results, and adapting its strategy until the goal is achieved. This is the paradigm shift from AI as a text generator to AI as an autonomous problem solver.</p>
             </div>
         </section>
         <!-- /HERO SECTION -->
@@ -254,9 +256,9 @@
             <div class="container">
                 <div class="highlight-box highlight-box--warning fade-in-up">
                     <div class="highlight-box__content">
-                        <span class="highlight-box__title">Framework Context: 2023</span>
-                        <p><strong>Introduced:</strong> Contrastive Chain-of-Thought was published in 2023 by Chia, Chen, Tuan, Poria, and Bing. The technique added a critical missing piece to standard Chain-of-Thought prompting: negative reasoning examples. Where standard CoT demonstrates only the correct path to an answer, Contrastive CoT pairs each correct reasoning chain with an explicitly incorrect one, annotating where and why the bad reasoning fails. This dual-demonstration approach helps models build clearer internal boundaries between valid and invalid reasoning patterns.</p>
-                        <p><strong>Modern LLM Status:</strong> The core insight — that negative examples improve reasoning — remains valuable and practically useful. Modern LLMs like Claude and GPT-4 are stronger reasoners out of the box, but they still benefit measurably from explicit counterexamples, especially in domains with well-known error patterns such as percentage calculations, logical fallacies, and unit conversions. Contrastive CoT is a practical enhancement over standard few-shot CoT that costs little to implement and consistently reduces errors in targeted domains.</p>
+                        <span class="highlight-box__title">Framework Context: 2023&ndash;2024</span>
+                        <p><strong>Introduced:</strong> Agentic prompting crystallized as a distinct paradigm in 2023, building on foundational work in ReAct (Yao et al., 2022) and Toolformer (Schick et al., 2023). The concept gained widespread attention with AutoGPT (March 2023) and BabyAGI, which demonstrated that LLMs could autonomously decompose goals into tasks, execute them using external tools, and iterate based on results. Anthropic, OpenAI, and Google subsequently formalized tool-use APIs and function calling in mid-2023, providing the infrastructure for reliable agentic behavior. The term &ldquo;agentic&rdquo; was popularized by Andrew Ng and the AI research community to distinguish this goal-directed, multi-step pattern from simple prompt-response interactions.</p>
+                        <p><strong>Modern LLM Status:</strong> Agentic prompting has become <strong>the frontier of practical AI deployment</strong>. Major frameworks &mdash; LangChain, CrewAI, AutoGen, and the Claude Agent SDK &mdash; are built entirely around agentic patterns. Modern implementations use structured tool definitions, persistent memory systems, planning-execution-reflection loops, and multi-agent orchestration. The technique has moved from experimental demos to production systems: coding assistants that write and debug across entire codebases, research agents that search and synthesize across hundreds of sources, and business automation agents that interact with APIs, databases, and external services autonomously.</p>
                     </div>
                 </div>
             </div>
@@ -269,16 +271,16 @@
                 <div class="split-section split-section--center fade-in-up">
                     <div class="split-section__content">
                         <span class="split-section__badge">The Core Insight</span>
-                        <h2 class="split-section__title">Mistakes Are Teachers Too</h2>
-                        <p class="split-section__text">Standard Chain-of-Thought prompting shows the model correct reasoning examples and hopes it figures out what NOT to do on its own. This works reasonably well, but it leaves a gap: the model has no explicit understanding of common failure modes. It knows what right looks like, but not what wrong looks like.</p>
-                        <p class="split-section__text"><strong>Contrastive CoT closes this gap.</strong> By providing both correct and incorrect reasoning chains side by side — with clear annotations explaining WHERE the incorrect chain goes wrong and WHY — the model develops a much sharper sense of the boundary between valid and invalid reasoning.</p>
-                        <p class="split-section__text">Think of it like a math teacher who doesn't just show the correct solution on the board, but also walks through the common mistake students make on every exam. "Here's how to solve it correctly, and here's the error that 60% of students make — notice they confuse the percentage with the absolute value right here."</p>
+                        <h2 class="split-section__title">From Responding to Acting</h2>
+                        <p class="split-section__text">Standard prompting follows a simple pattern: you ask, the model answers. The entire interaction is bounded by a single turn &mdash; the model receives text and produces text. It cannot check a database, run code, search the web, or verify its own claims. This makes it fundamentally passive, no matter how intelligent the response appears.</p>
+                        <p class="split-section__text"><strong>Agentic Prompting breaks this boundary by giving the model a goal, tools, and permission to iterate.</strong> Instead of asking for a single response, you define an objective and equip the AI with the capabilities needed to achieve it &mdash; web search, code execution, file operations, API calls, or database queries. The model plans its approach, executes steps using available tools, observes the results, and decides what to do next. It can loop back, try different approaches, and recover from failures without human intervention.</p>
+                        <p class="split-section__text">Think of the difference between asking someone for directions versus asking them to drive you there. In the first case, you get instructions and hope they are correct. In the second case, the driver navigates in real time &mdash; checking the map, adapting to traffic, rerouting around construction, and getting you to the destination regardless of unexpected obstacles.</p>
                     </div>
                     <div class="split-section__visual">
                         <div class="highlight-box highlight-box--info">
                             <div class="highlight-box__content">
-                                <span class="highlight-box__title">The Contrast Effect</span>
-                                <p>Humans learn faster when shown both positive and negative examples. A medical student learns diagnostic patterns more effectively by studying both correct diagnoses and documented misdiagnoses. The same principle applies to LLMs — explicit error patterns create clearer decision boundaries, making the model less likely to stumble into known pitfalls.</p>
+                                <span class="highlight-box__title">The Agent Loop: Plan, Act, Observe, Reflect</span>
+                                <p>Every agentic system follows the same fundamental cycle. The model plans what to do next based on the current state and the overall goal. It acts by invoking a tool or generating output. It observes the result of that action. Then it reflects on whether the result moves it closer to the goal, and adjusts its plan accordingly. This loop continues until the goal is achieved or the agent determines it cannot proceed. The quality of an agentic system depends on how well each phase of this loop is designed.</p>
                             </div>
                         </div>
                     </div>
@@ -290,8 +292,8 @@
         <!-- === HOW IT WORKS === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">The Contrastive CoT Process</h2>
-                <p class="section-subtitle fade-in-up">Four steps from examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">The Agentic Process</h2>
+                <p class="section-subtitle fade-in-up">Five stages from goal definition to delivered result</p>
 
                 <div class="element-timeline fade-in-up">
                     <div class="element-timeline__item">
@@ -299,11 +301,11 @@
                             <span class="element-timeline__number">1</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Identify Common Errors</h3>
-                            <p class="element-timeline__text">Analyze the target domain to find recurring mistakes that people and models consistently make. These could be computational errors, logical fallacies, misapplied rules, or overlooked constraints. The better you understand the failure modes, the more effective your contrastive examples will be.</p>
+                            <h3 class="element-timeline__title">Define the Goal and Tools</h3>
+                            <p class="element-timeline__text">Establish a clear objective for the agent and define the tools it can use. Each tool has a name, description, and input/output schema. The goal should be specific enough to evaluate completion but broad enough to allow the agent flexibility in its approach.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Math domain common errors: confusing percentage with absolute value, forgetting order of operations, misreading word problem quantities, swapping numerator and denominator in ratios."</p>
+                                <p>Goal: &ldquo;Research the top 3 competitors in the cloud storage market and produce a comparison report.&rdquo; Tools: web_search(query), read_url(url), write_file(path, content), analyze_data(data)</p>
                             </div>
                         </div>
                     </div>
@@ -313,11 +315,11 @@
                             <span class="element-timeline__number">2</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Correct Examples</h3>
-                            <p class="element-timeline__text">Write clear, correct reasoning chains that demonstrate proper problem-solving with explicit step-by-step logic. Each step should be labeled and justified so the model can see exactly how a correct thinker moves from problem to solution.</p>
+                            <h3 class="element-timeline__title">Plan the Approach</h3>
+                            <p class="element-timeline__text">The agent analyzes the goal and creates an execution plan &mdash; a sequence of steps it will follow. Good planning prompts instruct the agent to think through dependencies, identify potential obstacles, and establish success criteria before acting.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Step 1 — Convert percentage to decimal: 20% = 0.20. Step 2 — Calculate discount: $50 x 0.20 = $10. Step 3 — Subtract discount: $50 - $10 = $40. Final answer: $40."</p>
+                                <p>Agent plans: (1) Search for cloud storage market reports, (2) Identify top 3 players by market share, (3) Research each competitor&rsquo;s features, pricing, and recent developments, (4) Compile findings into structured comparison, (5) Write the final report.</p>
                             </div>
                         </div>
                     </div>
@@ -327,11 +329,11 @@
                             <span class="element-timeline__number">3</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Craft Incorrect Examples</h3>
-                            <p class="element-timeline__text">Write deliberately wrong reasoning chains that reproduce the identified common errors. Critically, annotate exactly where and why the reasoning fails. The annotation is what transforms a bad example into a teaching tool.</p>
+                            <h3 class="element-timeline__title">Execute with Tools</h3>
+                            <p class="element-timeline__text">The agent carries out each step by invoking the appropriate tool. Each tool call produces an observation &mdash; the result of that action &mdash; which the agent processes before deciding the next step. The agent adapts in real time: if a search returns irrelevant results, it reformulates the query; if a URL is unavailable, it finds an alternative source.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"20% off $50: Subtract 20 from 50 = $30. ERROR: Confused percentage (20%) with absolute dollar value ($20). The correct approach requires multiplying by 0.20 to find the actual discount amount."</p>
+                                <p>Agent calls web_search(&lsquo;cloud storage market share 2024&rsquo;), processes the results, identifies Dropbox, Google Drive, and OneDrive as top 3, then calls web_search for each with specific queries about features and pricing.</p>
                             </div>
                         </div>
                     </div>
@@ -341,11 +343,25 @@
                             <span class="element-timeline__number">4</span>
                         </div>
                         <div class="element-timeline__content">
-                            <h3 class="element-timeline__title">Combine in Prompt</h3>
-                            <p class="element-timeline__text">Present both correct and incorrect examples together in the prompt, clearly labeled, so the model sees the full contrast before attempting new problems. The juxtaposition is the key — seeing right and wrong side by side creates stronger pattern recognition than either alone.</p>
+                            <h3 class="element-timeline__title">Observe and Reflect</h3>
+                            <p class="element-timeline__text">After each action, the agent evaluates the result. Did the tool call succeed? Is the information sufficient? Does it need to try a different approach? This reflection step is what distinguishes agentic behavior from simple sequential execution &mdash; the agent can self-correct, backtrack, and adapt.</p>
                             <div class="element-timeline__example">
                                 <span class="element-timeline__example-label">Example</span>
-                                <p>"Prompt structure: 'CORRECT approach: [full reasoning chain] ... COMMON MISTAKE to avoid: [wrong chain with error annotation] ... Now solve this new problem using correct reasoning:'</p>
+                                <p>Agent observes that pricing data for one competitor is outdated (2022). Reflects that this is insufficient. Decides to search specifically for &ldquo;2024 pricing updates&rdquo; and checks the competitor&rsquo;s official website directly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="element-timeline__item">
+                        <div class="element-timeline__marker">
+                            <span class="element-timeline__number">5</span>
+                        </div>
+                        <div class="element-timeline__content">
+                            <h3 class="element-timeline__title">Deliver the Result</h3>
+                            <p class="element-timeline__text">Once the agent determines that the goal is met &mdash; all information gathered, all analysis completed &mdash; it synthesizes the accumulated evidence into the final deliverable. The result is grounded in real data gathered through actual tool use, not parametric memory.</p>
+                            <div class="element-timeline__example">
+                                <span class="element-timeline__example-label">Example</span>
+                                <p>Agent compiles the researched data into a structured comparison report with feature matrices, pricing tables, and strategic recommendations &mdash; every data point traceable to a specific source accessed during the research phase.</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +374,7 @@
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">See the Difference</h2>
-                <p class="section-subtitle fade-in-up">Standard CoT vs Contrastive CoT</p>
+                <p class="section-subtitle fade-in-up">Why agentic execution outperforms static prompting</p>
 
                 <div class="comparison-panel fade-in-up">
                     <div class="comparison-panel__side comparison-panel__side--before">
@@ -369,16 +385,16 @@
                                     <path d="M12 8v4M12 16h.01"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Standard CoT</h3>
+                            <h3 class="comparison-panel__title">Standard Prompt</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"Here's how to solve a percentage problem: 30% of $80 means $80 x 0.30 = $24. So the discount is $24 and the final price is $56. Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Compare the top 3 cloud storage providers by features, pricing, and market position.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Only a correct example. The model must infer on its own what mistakes to avoid. If it has a tendency toward a common error pattern, nothing in the prompt warns it away.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The model produces a comparison based on its training data. Pricing is from 2023 (outdated). It misses Google Drive&rsquo;s recent enterprise tier changes. Market share figures are approximate. No sources cited.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--weak">
@@ -386,7 +402,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12h8"/>
                             </svg>
-                            <span>Model might still make common errors it hasn't been warned about</span>
+                            <span>Stale data, no verification, unverifiable claims</span>
                         </div>
                     </div>
 
@@ -398,20 +414,19 @@
                         <div class="comparison-panel__header">
                             <span class="comparison-panel__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8 12l3 3 5-5"/>
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </span>
-                            <h3 class="comparison-panel__title">Contrastive CoT</h3>
+                            <h3 class="comparison-panel__title">Agentic Prompt</h3>
                         </div>
                         <div class="comparison-panel__content">
                             <div class="comparison-panel__prompt">
-                                <span class="comparison-panel__label">Prompt Approach</span>
-                                <p>"CORRECT: 30% of $80 = $80 x 0.30 = $24 discount, final price $56. COMMON MISTAKE: 30% of $80 = $80 - 30 = $50 (ERROR: treated percentage as dollars). Now solve: What is 15% off $120?"</p>
+                                <span class="comparison-panel__label">Prompt</span>
+                                <p>Goal: Produce an up-to-date comparison of the top 3 cloud storage providers. Tools: web_search, read_url, write_file. Success criteria: Current pricing (2024), verified feature lists, market share data with sources.</p>
                             </div>
                             <div class="comparison-panel__result">
-                                <span class="comparison-panel__label">What the Model Sees</span>
-                                <p>Both the correct reasoning and the specific mistake to avoid, with a clear annotation of where and why the error occurs. The model now has explicit anti-patterns to steer away from.</p>
+                                <span class="comparison-panel__label">Response</span>
+                                <p>The agent searches current sources, visits each provider&rsquo;s pricing page, cross-references market research reports, and compiles a report with live pricing data, verified feature matrices, and cited market share statistics from Gartner and IDC reports.</p>
                             </div>
                         </div>
                         <div class="comparison-panel__verdict comparison-panel__verdict--strong">
@@ -419,7 +434,7 @@
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 12l3 3 5-5"/>
                             </svg>
-                            <span>Model explicitly learns what to avoid — errors drop significantly</span>
+                            <span>Current data, verified sources, traceable evidence chain</span>
                         </div>
                     </div>
                 </div>
@@ -430,33 +445,30 @@
         <!-- === EXAMPLES IN ACTION === -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title fade-in-up">Contrastive CoT in Action</h2>
-                <p class="section-subtitle fade-in-up">Real-world scenarios showing correct vs incorrect reasoning pairs</p>
+                <h2 class="section-title fade-in-up">Agentic Prompting in Action</h2>
+                <p class="section-subtitle fade-in-up">See how autonomous agents solve complex tasks end-to-end</p>
 
-                <div class="accordion fade-in-up" id="contrastive-accordion">
+                <div class="accordion fade-in-up" id="agentic-prompting-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Mathematical Reasoning</span>
+                            <span class="accordion-title">Automated Research Agent</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Problem:</strong> A jacket originally costs $80. The store offers 25% off, then an additional 10% off the sale price. What is the final price?</p>
-                                    <p><strong>Step 1:</strong> Calculate the first discount: $80 x 0.25 = $20.<br>
-                                    <strong>Step 2:</strong> Subtract first discount: $80 - $20 = $60.<br>
-                                    <strong>Step 3:</strong> Calculate second discount on the NEW price: $60 x 0.10 = $6.<br>
-                                    <strong>Step 4:</strong> Subtract second discount: $60 - $6 = $54.<br>
-                                    <strong>Final answer:</strong> $54.</p>
+                                    <span class="technique-demo__tag">Goal Definition</span>
+                                    <p><strong>Goal:</strong> Produce a comprehensive market analysis of the enterprise AI infrastructure sector, identifying the top 5 vendors, their competitive positioning, and emerging trends.<br><br>
+                                    <strong>Tools available:</strong> web_search(query), read_url(url), write_file(path, content), analyze_data(data)<br><br>
+                                    <strong>Success criteria:</strong> Report must include market size data with sources, vendor comparison matrix, and at least 3 emerging trends supported by evidence from multiple sources.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Step 1:</strong> Add the two discounts: 25% + 10% = 35%.<br>
-                                    <strong>Step 2:</strong> Calculate total discount: $80 x 0.35 = $28.<br>
-                                    <strong>Step 3:</strong> Subtract: $80 - $28 = $52.<br>
-                                    <strong>Final answer:</strong> $52.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> The mistake is adding percentages that apply to different base values. The 25% applies to $80, but the 10% applies to $60 (the already-discounted price). Stacking percentages only works when they share the same base. Sequential discounts must be calculated sequentially.</p>
+                                    <span class="technique-demo__tag">Agent Execution</span>
+                                    <p><strong>Step 1 &mdash; Plan:</strong> Agent outlines 5 research phases: market overview, vendor identification, deep-dive per vendor, trend analysis, report compilation.<br><br>
+                                    <strong>Step 2 &mdash; Execute:</strong> Calls web_search(&lsquo;enterprise AI infrastructure market size 2024&rsquo;). Receives 12 results. Reads the top 3 URLs for market data. Identifies a $150B market estimate from IDC and a $142B estimate from Gartner.<br><br>
+                                    <strong>Step 3 &mdash; Adapt:</strong> Notices discrepancy between sources. Calls web_search(&lsquo;IDC vs Gartner AI market methodology differences&rsquo;) to understand the gap. Determines IDC includes edge computing; Gartner does not. Documents both figures with methodology notes.<br><br>
+                                    <strong>Step 4 &mdash; Encounter obstacle:</strong> One vendor&rsquo;s investor relations page returns a 403 error. Agent pivots to read_url on their latest earnings call transcript from a financial news site instead.<br><br>
+                                    <strong>Step 5 &mdash; Synthesize:</strong> After reading 8 URLs and executing 14 tool calls total, agent compiles findings into a structured report with 23 cited sources, a 5-vendor comparison matrix, and 4 identified trends with supporting evidence from multiple independent sources.</p>
                                 </div>
                             </div>
                         </div>
@@ -464,24 +476,25 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Logical Reasoning</span>
+                            <span class="accordion-title">Code Development Agent</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Rex is a dog.<br>
-                                    <strong>Conclusion:</strong> Rex is a mammal.</p>
-                                    <p><strong>Analysis:</strong> This is valid deductive reasoning (modus ponens). We know the category "dogs" is a subset of "mammals," and Rex belongs to "dogs," so Rex must also belong to "mammals." The logic is airtight.</p>
+                                    <span class="technique-demo__tag">Goal Definition</span>
+                                    <p><strong>Goal:</strong> Build a REST API endpoint that accepts CSV uploads, validates the data against a schema, and stores valid records in a PostgreSQL database.<br><br>
+                                    <strong>Tools available:</strong> write_code(file, content), run_tests(path), execute_shell(command), read_file(path)<br><br>
+                                    <strong>Success criteria:</strong> All tests pass, handles malformed CSV gracefully, returns appropriate HTTP status codes for success and error cases.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Premise 1:</strong> All dogs are mammals.<br>
-                                    <strong>Premise 2:</strong> Whiskers is a mammal.<br>
-                                    <strong>Conclusion:</strong> Whiskers is a dog.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the fallacy of "affirming the consequent." Just because all dogs are mammals does NOT mean all mammals are dogs. Whiskers could be a cat, a horse, or a whale — all mammals, none of them dogs. The error is reversing the direction of the subset relationship. Being in the larger category does not guarantee membership in the smaller one.</p>
+                                    <span class="technique-demo__tag">Agent Execution</span>
+                                    <p><strong>Step 1 &mdash; Plan:</strong> Agent plans the implementation order: database model first, then API endpoint, then validation logic, then test suite.<br><br>
+                                    <strong>Step 2 &mdash; Build model:</strong> Calls write_code to create the SQLAlchemy model with appropriate column types and constraints. Calls execute_shell to run the database migration.<br><br>
+                                    <strong>Step 3 &mdash; Build endpoint:</strong> Writes the Flask route for CSV upload with file parsing logic. Implements row-by-row validation against the schema definition.<br><br>
+                                    <strong>Step 4 &mdash; Write tests:</strong> Creates 6 test cases covering: valid CSV, missing required columns, invalid data types, empty file, oversized file, and duplicate records.<br><br>
+                                    <strong>Step 5 &mdash; Debug:</strong> Calls run_tests. Two tests fail &mdash; empty CSV raises an unhandled exception, and duplicate records cause a database integrity error. Agent reads the error output, identifies the root causes, updates the validation logic to handle empty files and adds upsert logic for duplicates.<br><br>
+                                    <strong>Step 6 &mdash; Verify:</strong> Reruns all tests. All 6 pass. Agent adds one more edge case test (CSV with extra columns) to ensure robustness. Final test run: 7/7 passing.</p>
                                 </div>
                             </div>
                         </div>
@@ -489,21 +502,27 @@
 
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Reading Comprehension</span>
+                            <span class="accordion-title">Multi-Agent Collaboration</span>
                             <span class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                         </button>
                         <div class="accordion-content">
                             <div class="technique-demo">
                                 <div class="technique-demo__prompt">
-                                    <span class="technique-demo__tag">Correct Reasoning Chain</span>
-                                    <p><strong>Passage:</strong> "The company's Q3 revenue grew 12% year-over-year, driven primarily by expansion in the European market. However, operating margins declined due to increased hiring costs."</p>
-                                    <p><strong>Question:</strong> Is the company in good financial health?</p>
-                                    <p><strong>Analysis:</strong> The picture is mixed. Revenue growth of 12% is positive and shows demand is increasing. However, declining operating margins mean that costs are growing faster than revenue. The company is growing its top line but needs to manage expenses. A balanced assessment would be: growing but facing profitability pressure.</p>
+                                    <span class="technique-demo__tag">System Design</span>
+                                    <p><strong>Three agents with distinct roles:</strong><br>
+                                    <strong>Researcher</strong> &mdash; Tools: web_search, read_url<br>
+                                    <strong>Analyst</strong> &mdash; Tools: analyze_data, create_chart<br>
+                                    <strong>Writer</strong> &mdash; Tools: write_document, edit_text<br><br>
+                                    <strong>Goal:</strong> Produce a quarterly market report for the board of directors.<br><br>
+                                    <strong>Orchestration:</strong> A coordinator agent manages handoffs, resolves conflicts, and ensures the final deliverable meets quality criteria.</p>
                                 </div>
                                 <div class="technique-demo__response">
-                                    <span class="technique-demo__tag">Incorrect Reasoning Chain (Common Mistake)</span>
-                                    <p><strong>Analysis:</strong> Revenue grew 12%, so the company is doing great financially. Growth means health.</p>
-                                    <p><strong>ERROR ANNOTATION:</strong> This is the over-generalization fallacy — focusing on one positive data point while ignoring contradictory evidence in the same passage. The passage explicitly states that operating margins declined. Revenue growth alone does not equal financial health; profitability, margins, and cost management are equally important. A correct reading must weigh ALL information presented, not cherry-pick the favorable parts.</p>
+                                    <span class="technique-demo__tag">Agent Execution</span>
+                                    <p><strong>Phase 1 &mdash; Research:</strong> The Researcher agent gathers market data and competitor updates from 15 sources. It searches for quarterly earnings reports, industry analyst publications, and regulatory filings. Delivers a structured data package to the Analyst.<br><br>
+                                    <strong>Phase 2 &mdash; Analysis:</strong> The Analyst receives the raw data, identifies key trends, creates comparison charts, and builds a trend analysis. It flags a data inconsistency &mdash; two sources report conflicting revenue figures for a major competitor.<br><br>
+                                    <strong>Phase 3 &mdash; Conflict resolution:</strong> The orchestrator routes the inconsistency back to the Researcher, who investigates and determines that one source used GAAP accounting while the other used non-GAAP. The Researcher provides both figures with context. The Analyst updates the analysis accordingly.<br><br>
+                                    <strong>Phase 4 &mdash; Writing:</strong> The Writer receives the analysis and charts, produces an executive summary and full report. The orchestrator runs a final quality check, identifies that one chart label is unclear, and routes it back to the Analyst for revision.<br><br>
+                                    <strong>Final deliverable:</strong> A board-ready quarterly report with executive summary, 8 data visualizations, competitive analysis, and strategic recommendations &mdash; produced by three specialized agents coordinating through structured handoffs.</p>
                                 </div>
                             </div>
                         </div>
@@ -516,8 +535,8 @@
         <!-- === WHEN TO USE === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">When to Use Contrastive CoT</h2>
-                <p class="section-subtitle fade-in-up">Best for domains with identifiable, recurring reasoning errors</p>
+                <h2 class="section-title fade-in-up">When to Use Agentic Prompting</h2>
+                <p class="section-subtitle fade-in-up">Best for tasks that require planning, tool use, and adaptive execution</p>
 
                 <div class="split-section fade-in-up">
                     <div class="split-section__content">
@@ -529,8 +548,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Error-Prone Domains</strong>
-                                    <p>Math, logic, and analytical tasks where specific mistakes recur consistently across both human and AI reasoning.</p>
+                                    <strong>Complex Multi-Step Tasks</strong>
+                                    <p>When the task requires planning, multiple tool calls, and adaptive execution &mdash; research, data gathering, code development, or report generation.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -539,8 +558,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Training and Education</strong>
-                                    <p>Building prompts that teach not just correct solutions but common pitfalls — ideal for educational AI applications.</p>
+                                    <strong>Real-Time Data Requirements</strong>
+                                    <p>When the AI must access current information from the web, databases, APIs, or file systems rather than relying on training data.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -549,8 +568,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Quality-Critical Tasks</strong>
-                                    <p>When even small reasoning errors have outsized impact — financial calculations, compliance analysis, safety assessments.</p>
+                                    <strong>Error Recovery Scenarios</strong>
+                                    <p>When tasks may encounter failures, edge cases, or unexpected results that require the AI to adapt its approach without human intervention.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--positive">
@@ -559,8 +578,8 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                                 <div>
-                                    <strong>Known Error Patterns</strong>
-                                    <p>When you can identify and document the specific mistakes to avoid — the technique is only as good as your error catalogue.</p>
+                                    <strong>End-to-End Automation</strong>
+                                    <p>When the goal is to automate an entire workflow from start to finish &mdash; including the decision-making about how to proceed at each step.</p>
                                 </div>
                             </div>
                         </div>
@@ -574,8 +593,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Open-Ended Creativity</strong>
-                                    <p>Creative writing, brainstorming, and generative tasks where there is no objectively "wrong" reasoning path to contrast against.</p>
+                                    <strong>Simple Question-Answer Tasks</strong>
+                                    <p>When a single prompt produces a satisfactory answer without any tool use or multi-step reasoning required.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -584,8 +603,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Simple Factual Queries</strong>
-                                    <p>Direct lookups and retrieval tasks that don't involve reasoning chains — the model either knows the fact or it doesn't.</p>
+                                    <strong>Low-Risk Informational Queries</strong>
+                                    <p>When the cost of an incorrect answer is minimal and the overhead of agentic infrastructure is not justified.</p>
                                 </div>
                             </div>
                             <div class="feature-list__item feature-list__item--neutral">
@@ -594,8 +613,8 @@
                                     <line x1="8" y1="12" x2="16" y2="12"/>
                                 </svg>
                                 <div>
-                                    <strong>Unknown Error Patterns</strong>
-                                    <p>If you can't identify what specific mistakes to demonstrate, standard CoT may suffice. Vague or generic "bad examples" add noise, not clarity.</p>
+                                    <strong>Tightly Controlled Environments</strong>
+                                    <p>When regulatory or security requirements demand that every AI action be pre-approved by a human &mdash; full autonomy is inappropriate.</p>
                                 </div>
                             </div>
                         </div>
@@ -609,9 +628,20 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Use Cases</h2>
-                <p class="section-subtitle fade-in-up">Where Contrastive CoT delivers the most value</p>
+                <p class="section-subtitle fade-in-up">Where Agentic Prompting delivers the most value</p>
 
                 <div class="use-case-showcase fade-in-up">
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Software Development</h3>
+                        <p class="use-case-showcase__desc">Agents that plan features, write code, run tests, debug failures, and iterate until the implementation meets specifications.</p>
+                    </div>
+
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -619,19 +649,8 @@
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Standardized Testing</h3>
-                        <p class="use-case-showcase__desc">Improve accuracy on SAT, GRE, and GMAT-style math by showing common trap answers alongside correct solution paths.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <path d="M9 9h6M9 13h6M9 17h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Financial Analysis</h3>
-                        <p class="use-case-showcase__desc">Avoid common calculation errors in compound interest, tax rates, and margin computations by contrasting correct and incorrect formulas.</p>
+                        <h3 class="use-case-showcase__title">Research and Analysis</h3>
+                        <p class="use-case-showcase__desc">Agents that search multiple sources, cross-reference findings, resolve contradictions, and produce source-backed research reports.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -640,8 +659,21 @@
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Medical Reasoning</h3>
-                        <p class="use-case-showcase__desc">Show diagnostic pitfalls — like anchoring bias or base rate neglect — alongside correct differential diagnosis patterns.</p>
+                        <h3 class="use-case-showcase__title">Data Pipeline Automation</h3>
+                        <p class="use-case-showcase__desc">Agents that ingest raw data, clean and transform it, identify anomalies, and produce analytical dashboards.</p>
+                    </div>
+
+                    <div class="use-case-showcase__item">
+                        <div class="use-case-showcase__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="use-case-showcase__title">Customer Onboarding</h3>
+                        <p class="use-case-showcase__desc">Agents that guide new customers through setup: configuring accounts, integrating APIs, running diagnostic checks, and resolving issues.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
@@ -653,31 +685,20 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Legal Analysis</h3>
-                        <p class="use-case-showcase__desc">Demonstrate correct and incorrect applications of legal precedent, showing how misapplied case law leads to faulty conclusions.</p>
+                        <h3 class="use-case-showcase__title">Content Production</h3>
+                        <p class="use-case-showcase__desc">Agents that research topics, draft content, fact-check claims against sources, optimize for SEO, and publish through CMS integrations.</p>
                     </div>
 
                     <div class="use-case-showcase__item">
                         <div class="use-case-showcase__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
                             </svg>
                         </div>
-                        <h3 class="use-case-showcase__title">Code Review</h3>
-                        <p class="use-case-showcase__desc">Show both correct implementations and common anti-patterns with explanations of why the anti-pattern fails or degrades performance.</p>
-                    </div>
-
-                    <div class="use-case-showcase__item">
-                        <div class="use-case-showcase__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                                <polyline points="2 17 12 22 22 17"/>
-                                <polyline points="2 12 12 17 22 12"/>
-                            </svg>
-                        </div>
-                        <h3 class="use-case-showcase__title">Scientific Reasoning</h3>
-                        <p class="use-case-showcase__desc">Contrast correct experimental design with common confounding variable errors and correlation-causation mix-ups.</p>
+                        <h3 class="use-case-showcase__title">IT Operations</h3>
+                        <p class="use-case-showcase__desc">Agents that monitor system health, diagnose issues from logs, apply fixes, verify resolutions, and escalate when automated remediation fails.</p>
                     </div>
                 </div>
             </div>
@@ -687,35 +708,35 @@
         <!-- === FRAMEWORK POSITIONING === -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="section-title fade-in-up">Where Contrastive CoT Fits</h2>
-                <p class="section-subtitle fade-in-up">From basic examples to error-aware reasoning</p>
+                <h2 class="section-title fade-in-up">Where Agentic Prompting Fits</h2>
+                <p class="section-subtitle fade-in-up">The evolution from static prompts to autonomous agents</p>
 
                 <div class="evolution-timeline fade-in-up">
                     <div class="era-marker">
-                        <span class="era-marker__year">Few-Shot Learning</span>
-                        <span class="era-marker__title">Example-Based</span>
-                        <span class="era-marker__desc">Learning from demonstrations</span>
+                        <span class="era-marker__year">Single Prompts</span>
+                        <span class="era-marker__title">Static Responses</span>
+                        <span class="era-marker__desc">One question, one answer</span>
                     </div>
                     <div class="era-marker">
-                        <span class="era-marker__year">Chain-of-Thought</span>
-                        <span class="era-marker__title">Correct Examples</span>
-                        <span class="era-marker__desc">Step-by-step reasoning</span>
+                        <span class="era-marker__year">Prompt Chaining</span>
+                        <span class="era-marker__title">Sequential Steps</span>
+                        <span class="era-marker__desc">Output-to-input linked calls</span>
+                    </div>
+                    <div class="era-marker">
+                        <span class="era-marker__year">ReAct</span>
+                        <span class="era-marker__title">Tool-Augmented</span>
+                        <span class="era-marker__desc">Reasoning with external actions</span>
                     </div>
                     <div class="era-marker era-marker--active">
-                        <span class="era-marker__year">Contrastive CoT</span>
-                        <span class="era-marker__title">Dual Examples</span>
-                        <span class="era-marker__desc">Correct + incorrect reasoning</span>
-                    </div>
-                    <div class="era-marker">
-                        <span class="era-marker__year">Self-Consistency</span>
-                        <span class="era-marker__title">Path Sampling</span>
-                        <span class="era-marker__desc">Multiple reasoning paths</span>
+                        <span class="era-marker__year">Agentic Prompting</span>
+                        <span class="era-marker__title">Autonomous Execution</span>
+                        <span class="era-marker__desc">Goal-directed planning with tool use</span>
                     </div>
                 </div>
 
                 <div class="callout tip fade-in-up">
-                    <div class="callout-title">Stack Them</div>
-                    <p>Use Contrastive CoT to teach the model what to avoid, then Self-Consistency to sample multiple reasoning paths. The model avoids known pitfalls across all sampled chains, combining error awareness with path diversity for maximum reasoning accuracy.</p>
+                    <div class="callout-title">The Next Chapter in AI</div>
+                    <p>Agentic AI represents the most significant shift in how we use language models since the introduction of chat interfaces. Instead of asking the AI for answers, we are asking it to solve problems. The transition from prompt engineering to agent design changes the skill set required: instead of crafting the perfect question, practitioners now design goal specifications, tool interfaces, memory systems, and evaluation criteria. Understanding agentic prompting is increasingly essential for anyone building AI-powered products.</p>
                 </div>
             </div>
         </section>
@@ -725,19 +746,21 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Related Frameworks</h2>
-                <p class="section-subtitle fade-in-up">Explore complementary reasoning techniques</p>
+                <p class="section-subtitle fade-in-up">Explore the foundations and extensions of agentic systems</p>
 
-                <a href="chain-of-thought.html" class="evolution-callout fade-in-up">
+                <a href="react.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                            <path d="M21 3v9h-9"/>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Foundation</span>
-                        <span class="evolution-callout__title">Chain-of-Thought</span>
-                        <span class="evolution-callout__desc">Standard correct-only reasoning demonstrations — the baseline that Contrastive CoT enhances with negative examples.</span>
+                        <span class="evolution-callout__title">ReAct</span>
+                        <span class="evolution-callout__desc">ReAct introduced the reasoning-action-observation loop that forms the core of every agentic system &mdash; the fundamental cycle that makes autonomous AI behavior possible.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -746,17 +769,16 @@
                     </span>
                 </a>
 
-                <a href="few-shot-learning.html" class="evolution-callout fade-in-up">
+                <a href="prompt-chaining.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                     </span>
                     <div class="evolution-callout__content">
-                        <span class="evolution-callout__label">Technique</span>
-                        <span class="evolution-callout__title">Few-Shot Learning</span>
-                        <span class="evolution-callout__desc">Provide examples for the model to learn from — Contrastive CoT extends this to include what NOT to do.</span>
+                        <span class="evolution-callout__label">Building Block</span>
+                        <span class="evolution-callout__title">Prompt Chaining</span>
+                        <span class="evolution-callout__desc">Agentic systems are built on chains &mdash; but where static chains follow a fixed sequence, agents dynamically choose which step to execute next based on observed results.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -765,7 +787,7 @@
                     </span>
                 </a>
 
-                <a href="self-consistency.html" class="evolution-callout fade-in-up">
+                <a href="reflexion.html" class="evolution-callout fade-in-up">
                     <span class="evolution-callout__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 2l4 4-4 4"/>
@@ -776,8 +798,8 @@
                     </span>
                     <div class="evolution-callout__content">
                         <span class="evolution-callout__label">Enhancement</span>
-                        <span class="evolution-callout__title">Self-Consistency</span>
-                        <span class="evolution-callout__desc">Sample multiple reasoning paths and vote — combines well with contrastive examples to avoid repeated errors.</span>
+                        <span class="evolution-callout__title">Reflexion</span>
+                        <span class="evolution-callout__desc">Reflexion adds structured self-reflection after task completion &mdash; agents evaluate their own performance and generate insights that improve future execution.</span>
                     </div>
                     <span class="evolution-callout__arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -790,16 +812,16 @@
         <!-- /RELATED FRAMEWORKS -->
 
         <!-- === CTA SECTION === -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="cta-corporate cta-corporate--dark fade-in-up">
                     <canvas id="cta-neural-bg" class="cta-corporate__canvas"></canvas>
                     <div class="cta-corporate__content">
-                        <h2 class="cta-corporate__title">Sharpen Your Reasoning</h2>
-                        <p class="cta-corporate__text">Build Contrastive CoT prompts that teach AI what to avoid, or explore more reasoning frameworks across the Praxis Library.</p>
+                        <h2 class="cta-corporate__title">Build Your First Agent</h2>
+                        <p class="cta-corporate__text">Design agentic workflows with our Prompt Builder or explore the framework foundations that make autonomous AI possible.</p>
                         <div class="cta-corporate__actions">
                             <a href="../tools/guidance.html" class="btn btn-primary">Prompt Builder</a>
-                            <a href="../foundations/index.html" class="btn btn-secondary">All Foundations</a>
+                            <a href="index.html" class="btn btn-secondary">All Frameworks</a>
                         </div>
                     </div>
                 </div>
@@ -807,6 +829,7 @@
         </section>
         <!-- /CTA SECTION -->
     </main>
+
 
         <footer class="footer">
     <canvas id="footer-neural-bg" class="footer-neural-bg"></canvas>
