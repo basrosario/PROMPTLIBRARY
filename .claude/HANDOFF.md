@@ -1,7 +1,7 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-07 (Session 57)
-**Last Commit:** Session 57 (Code page upgrades + 4 emerging frameworks + mobile nav fixes)
+**Last Updated:** 2026-02-08 (Session 58)
+**Last Commit:** Session 58 (Sidebar flip + AI ethics banner + CLAUDE.md rule)
 **Current Phase:** Post-build. Emerging frameworks + page upgrades.
 
 ---
@@ -25,6 +25,27 @@
 - **First Full Audit** — EXECUTED Session 54, ALL items resolved Session 55
 - **Emerging Frameworks** — COMPLETE (Session 57, 4 new pages + 3 Code upgrades)
 - **Site totals:** 108 framework pages (all 13-section), 2,141+ glossary terms, 149 HTML files, 2,328 search entries
+
+---
+
+## SESSION 58 — Mega-Menu UX + AI Ethics Banner (2026-02-08)
+
+### Completed This Session
+
+1. **Mobile mega-menu layout fix** — `.mega-menu--tabbed` was overridden by later `.mega-menu { display: grid }` due to equal CSS specificity. Fixed by increasing specificity to `.mega-menu.mega-menu--tabbed` and resetting `columns: 1` on mobile sections.
+
+2. **Mobile nav split-color branding** — New `splitNavAccent()` function in app.js applies the white/red split-color treatment (matching `</Praxis Library>` logo) to parent nav links and accordion headers. Multi-word: last word red. Hyphenated: split at hyphen. Single words: split at midpoint. Uses `<span class="nav-accent-wrap">` container to prevent flex gap issues.
+
+3. **Desktop mega-menu sidebar flip** — Moved sidebar from left to right using CSS `order: 2`, swapped `border-right` to `border-left`, flipped `border-radius`, and changed tab active indicators from `border-left` to `border-right`.
+
+4. **AI Ethics reminder banner** — Slim, muted banner injected via JS on all 108 framework pages (pages with `.cta-corporate` under `/learn/`). Placed above CTA section. CSP-compliant: uses DOM API only (createElement, textContent, appendChild — no innerHTML). CSS component: `.ai-reminder-bar` with subtle slate background, left border accent, 0.78rem font. Dark theme support included.
+
+5. **AI Ethics critical rule** — Added "AI Ethics & Disclosure (Required)" as Critical Rule #6 in CLAUDE.md: all prompt examples must model responsible AI use, demonstrate verification, no blind trust encouragement, AI disclosure best practices.
+
+### Files Modified
+- `styles.css` — Sidebar flip CSS, mobile mega-menu fix, `.ai-reminder-bar` component
+- `app.js` — `splitNavAccent()` function, AI ethics banner injection IIFE
+- `CLAUDE.md` — AI Ethics & Disclosure critical rule added
 
 ---
 

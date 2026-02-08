@@ -103,6 +103,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // AI ETHICS REMINDER BANNER
+    // Injected on framework pages before CTA section
+    // ==========================================
+    (function() {
+        var ctaCorp = document.querySelector('.cta-corporate');
+        if (!ctaCorp) return;
+        var pathname = window.location.pathname;
+        if (!(/\/learn\//i.test(pathname))) return;
+        var ctaSection = ctaCorp.closest('section');
+        if (!ctaSection) return;
+
+        var bar = document.createElement('div');
+        bar.className = 'ai-reminder-bar';
+        var strong = document.createElement('strong');
+        strong.textContent = 'Responsible AI: ';
+        bar.appendChild(strong);
+        bar.appendChild(document.createTextNode(
+            'Always verify AI-generated content before use \u2014 AI can produce confident but incorrect responses. ' +
+            'When using AI professionally, disclosure is best practice. 48 US states now require transparency in key areas.'
+        ));
+
+        var wrapper = document.createElement('section');
+        wrapper.className = 'section';
+        var container = document.createElement('div');
+        container.className = 'container';
+        container.appendChild(bar);
+        wrapper.appendChild(container);
+        ctaSection.parentNode.insertBefore(wrapper, ctaSection);
+    })();
+
+    // ==========================================
     // ACCORDION NAVIGATION (Mega Menu)
     // Click-based expand/collapse for dropdown menus
     // ==========================================

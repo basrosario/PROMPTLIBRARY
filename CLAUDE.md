@@ -72,6 +72,14 @@ JS:    // === SECTION === ... /** JSDoc comments */
 [id^="letter-"], [id^="term-"] { scroll-margin-top: 160px; }
 ```
 
+### AI Ethics & Disclosure (Required)
+- All prompt examples must model responsible AI use — no exceptions
+- Examples should demonstrate verification of AI output
+- No examples that encourage blind trust in AI responses
+- AI disclosure best practices reflected in content
+- Remind users to verify AI-generated content before use
+- Respect that 48 US states have AI transparency requirements
+
 ---
 
 ## Prompt Management Rules
