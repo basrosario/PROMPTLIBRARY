@@ -289,6 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const label = h4.textContent.trim();
                 const slug = section.getAttribute('data-tab');
 
+                // Insert modality group divider + label before first modality tab
+                if (slug === 'code') {
+                    var divider = document.createElement('div');
+                    divider.className = 'mega-menu-tab-divider';
+                    divider.setAttribute('role', 'separator');
+                    tablist.appendChild(divider);
+                    var groupLabel = document.createElement('span');
+                    groupLabel.className = 'mega-menu-tab-label';
+                    groupLabel.textContent = 'Modality';
+                    tablist.appendChild(groupLabel);
+                }
+
                 const btn = document.createElement('button');
                 btn.className = 'mega-menu-tab';
                 btn.setAttribute('role', 'tab');

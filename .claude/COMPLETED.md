@@ -4,6 +4,95 @@
 
 ---
 
+## Session 58 (2026-02-08)
+**Mega-Menu UX + AI Ethics Banner — Completed Items**
+
+### Mobile Mega-Menu Layout Fix
+- [x] `.mega-menu--tabbed` overridden by later `.mega-menu { display: grid }` (equal specificity, later wins)
+- [x] Fixed by increasing specificity to `.mega-menu.mega-menu--tabbed` (0,2,0 vs 0,1,0)
+- [x] Added `columns: 1; column-gap: 0` to mobile sections
+
+### Mobile Nav Split-Color Branding
+- [x] `splitNavAccent()` function in app.js (~line 61) — splits text into white + red spans
+- [x] Multi-word: last word red. Hyphenated: split at hyphen. Single words: split at midpoint
+- [x] Applied to nav links and h4 accordion headers
+- [x] Uses `<span class="nav-accent-wrap">` container to prevent flex gap issues
+- [x] CSS: `.nav-accent { color: var(--primary); }`, h4 base changed from red to white
+
+### Desktop Mega-Menu Sidebar Flip
+- [x] `.mega-menu-sidebar`: `order: 2`, `border-left` (was `border-right`), radius flipped
+- [x] `.mega-menu-tab`: `border-right: 3px solid transparent` (was `border-left`)
+- [x] `.mega-menu-tab.is-active`: `border-right-color` (was `border-left-color`)
+- [x] `.header.scrolled .mega-menu-sidebar`: `border-left-color` (was `border-right-color`)
+
+### AI Ethics Reminder Banner
+- [x] CSS component: `.ai-reminder-bar` — slate background, left border accent, 0.78rem font, dark theme
+- [x] JS injection IIFE in app.js (~line 105) — detects `.cta-corporate` + `/learn/` pathname
+- [x] Uses DOM API only (createElement, textContent, appendChild — CSP-compliant, no innerHTML)
+- [x] Inserted before CTA section on all 108 framework pages
+- [x] Content: "Responsible AI: Always verify AI-generated content..."
+
+### AI Ethics Critical Rule
+- [x] Added "AI Ethics & Disclosure (Required)" as Critical Rule #6 in CLAUDE.md (line 75)
+- [x] All prompt examples must model responsible AI use — no exceptions
+- [x] Covers: verification, no blind trust, disclosure best practices, 48 US states
+
+### Commits
+- `27034fd` — Mobile nav split-color branding + mega-menu layout fix
+- `7308933` — Desktop sidebar flip, AI ethics banner, CLAUDE.md rule
+
+---
+
+## Session 57 (2026-02-07)
+**Code Upgrades + Emerging Frameworks (4 new pages + 3 Code upgrades)**
+
+### 3 Code Page 13-Section Upgrades
+- [x] `code-prompting.html` — Rebuilt with full rich content (hero, 3-paragraph concept, element-timeline, comparison, 3 accordions, 6 use cases, evolution-callout, CTA)
+- [x] `self-debugging.html` — Same full rebuild
+- [x] `structured-output.html` — Same full rebuild
+
+### 4 New Emerging Framework Pages
+- [x] `learn/system-prompting.html` — Prompting Strategies. System-level instruction design.
+- [x] `learn/rag.html` — Prompting Strategies. Retrieval-Augmented Generation.
+- [x] `learn/agentic-prompting.html` — Prompting Strategies. Autonomous AI agents.
+- [x] `learn/skeleton-of-thought.html` — Decomposition. Parallel generation via outline-first.
+
+### Integration
+- [x] Mega-menu batch update — `update_nav_emerging.py` added 4 new links across 149 files
+- [x] Search index — 4 new entries (2,328 total)
+- [x] Discover hub — 4 new cards, Prompting Strategies 11→14, Decomposition 7→8
+- [x] Category pages — `prompting-strategies.html` (+3 cards), `decomposition.html` (+1 card)
+- [x] Homepage counter — 101+ → 108+
+
+### Mobile Nav Fixes (5 issues)
+- [x] Scroll fix — `body.menu-open .header { backdrop-filter: none; }` (CSS containing block bug)
+- [x] Expanded by default — All accordion sections open on mobile init
+- [x] Resources formatting — Reset desktop centering (`translateX(-50%)`) on mobile
+- [x] Scrolled color inversion — Force dark theme on mobile regardless of scroll state
+- [x] Quick links expansion — Added Glossary + AI Foundations (149 files, 2x2 mobile grid)
+
+---
+
+## Session 56 (2026-02-07)
+**Search + Navigation UX**
+
+### Main Search 8-Tier Glossary Scoring
+- [x] `scoreGlossaryEntry()` function with 8-tier algorithm matching glossary inline search
+- [x] Helper functions: `extractSearchAcronym()`, `normalizeSearchMatch()`
+- [x] Applied to Glossary category entries in main `searchPraxis()` function
+
+### Glossary Hash Scroll Fix
+- [x] `content-visibility: auto` uses 500px placeholder heights, breaking scroll position
+- [x] Fix: disable content-visibility on all 26 sections, double-rAF for layout reflow, `getBoundingClientRect()`, manual `window.scrollTo()` with 220px offset, restore after 1.5s
+
+### Mega-Menu Sidebar Redesign
+- [x] Getting Started removed as a tab (only had 2 links)
+- [x] Prompt Basics + Facts & Fictions pinned as quick links at top of sidebar
+- [x] `.mega-menu-sidebar` wraps `.mega-menu-quick-links` + `.mega-menu-tabs`
+- [x] 145 HTML files + CSS updated via `update_nav_sidebar.py`
+
+---
+
 ## Session 55 (2026-02-07)
 **Full Audit Remediation — ALL Critical + Warning Items Resolved**
 

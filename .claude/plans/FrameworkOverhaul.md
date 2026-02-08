@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-07 (Session 54)
+**Last Updated:** 2026-02-08 (Session 58)
 
 ---
 
@@ -777,6 +777,74 @@ Resources (mega-menu)
 ---
 
 # SESSION LOG
+
+## Session 58 (2026-02-08)
+
+**Focus:** Mega-Menu UX Polish + AI Ethics Banner + Project Standards
+**Status:** IN PROGRESS — Modality group divider pending
+
+**Completed:**
+- [x] **Mobile mega-menu layout fix** — CSS specificity cascade fix (`.mega-menu.mega-menu--tabbed`)
+- [x] **Mobile nav split-color branding** — `splitNavAccent()` in app.js, white/red split matching logo
+- [x] **Desktop mega-menu sidebar flip** — Sidebar moved from left to right (CSS `order: 2`)
+- [x] **AI Ethics reminder banner** — Slim bar injected on 108 framework pages via DOM API (CSP-safe)
+- [x] **AI Ethics critical rule** — Added to CLAUDE.md as Critical Rule #6
+- [x] **Commits pushed** — `27034fd`, `7308933`
+
+**In Progress (UNCOMMITTED):**
+- [ ] **Modality group divider + label** — JS + CSS code written in app.js (~line 292) and styles.css (~line 6193). Inserts `<div class="mega-menu-tab-divider">` + `<span class="mega-menu-tab-label">Modality</span>` before Code tab in TabbedMenu.setup(). Needs visual verification then commit.
+- [ ] **Facts & Fictions page restoration** — Original myth/fact card content lost during Session 37 remake. Need to retrieve from git history (pre-`17009ee`), extract original content, integrate into current 13-section template. Not started.
+
+**Files Modified:**
+- `styles.css` (sidebar flip, mobile mega-menu fix, `.ai-reminder-bar`, `.mega-menu-tab-divider`, `.mega-menu-tab-label`)
+- `app.js` (`splitNavAccent()`, AI ethics banner IIFE, modality divider injection in TabbedMenu.setup)
+- `CLAUDE.md` (AI Ethics & Disclosure critical rule)
+- `.claude/HANDOFF.md`
+
+---
+
+## Session 57 (2026-02-07)
+
+**Focus:** Code Upgrades + Emerging Frameworks (4 new pages + 3 Code upgrades)
+**Status:** COMPLETE
+
+**Completed:**
+- [x] **3 Code page 13-section upgrades** — code-prompting, self-debugging, structured-output rebuilt with full rich content
+- [x] **4 new framework pages** — system-prompting, rag, agentic-prompting, skeleton-of-thought
+- [x] **Mega-menu batch update** — `update_nav_emerging.py` added 4 new links across all 149 files
+- [x] **Search index** — 4 new entries (2,328 total)
+- [x] **Discover hub** — 4 new cards, category counts updated
+- [x] **Category pages** — prompting-strategies (11→14), decomposition (7→8)
+- [x] **Homepage counter** — 101+ → 108+
+- [x] **Mobile nav fixes** — scroll fix (backdrop-filter containing block), expanded by default, Resources formatting, scrolled color inversion
+- [x] **Mega-menu quick links** — Added Glossary + AI Foundations to sidebar (149 files)
+
+**Files Created:**
+- `learn/system-prompting.html`, `learn/rag.html`, `learn/agentic-prompting.html`, `learn/skeleton-of-thought.html`
+
+**Files Modified:**
+- 149 HTML files (nav updates), `styles.css`, `app.js`, `data/search-index.json`, `learn/index.html`, `index.html`, category pages
+
+---
+
+## Session 56 (2026-02-07)
+
+**Focus:** Search + Navigation UX
+**Status:** COMPLETE
+
+**Completed:**
+- [x] **Main search 8-tier glossary scoring** — `scoreGlossaryEntry()` + helper functions
+- [x] **Glossary hash scroll fix** — content-visibility workaround with double-rAF
+- [x] **Mega-menu sidebar redesign** — Getting Started removed as tab, quick links pinned at top
+
+---
+
+## Session 55 (2026-02-07)
+
+**Focus:** Full Audit Remediation
+**Status:** COMPLETE — ALL Critical + Warning items resolved (see COMPLETED.md)
+
+---
 
 ## Session 54 (2026-02-07)
 

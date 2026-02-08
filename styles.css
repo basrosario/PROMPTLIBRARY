@@ -6190,6 +6190,23 @@ body.menu-open {
     background: rgba(220, 53, 69, 0.08);
 }
 
+/* Tab group divider + label (separates text tabs from modality tabs) */
+.mega-menu-tab-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: var(--space-xs) var(--space-md);
+}
+
+.mega-menu-tab-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: var(--space-xs) var(--space-md) 0;
+}
+
 /* Right column: content panels (sections are direct flex children) */
 .mega-menu--tabbed .mega-menu-section[data-tab] {
     flex: 1;
