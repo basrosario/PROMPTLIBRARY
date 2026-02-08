@@ -1,0 +1,20 @@
+# Claude Code / Development
+.claude/
+CLAUDE.md
+
+# IDE / Editor
+.github/
+.vscode/
+
+# Project documentation (not website content)
+COMPLETION-CHECKLIST.md
+SECURITY-REPORT.md
+SECURITY.md
+projectstandards.md
+
+# Build and batch scripts
+*.py
+
+# Large files
+*.pdf
+*.png.bak
