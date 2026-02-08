@@ -7730,24 +7730,56 @@ document.addEventListener('DOMContentLoaded', () => {
         initGlossarySearch();
 
         // After terms are loaded, scroll to hash target if present
-        // This handles links from search results like glossary.html#term-xxx
-        // Uses delayed scroll to ensure browser has completed layout of all 2,141 terms
+        // This handles links from main search like glossary.html#term-xxx
+        // Uses the same pattern as selectResult() — disable content-visibility on all
+        // sections to force real heights, then getBoundingClientRect() for accurate position.
+        // scrollIntoView() does NOT work with content-visibility:auto placeholder heights.
         var glossaryHash = window.location.hash;
         if (glossaryHash && (glossaryHash.startsWith('#term-') || glossaryHash.startsWith('#letter-'))) {
-            var scrollToGlossaryTarget = function() {
-                var targetEl = document.getElementById(glossaryHash.substring(1));
-                if (targetEl) {
-                    window.scrollTo(0, 0);
-                    setTimeout(function() {
-                        requestAnimationFrame(function() {
-                            requestAnimationFrame(function() {
-                                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            });
-                        });
-                    }, 150);
+            var hashTarget = document.getElementById(glossaryHash.substring(1));
+            if (hashTarget) {
+                // Ensure target is visible (not filtered out)
+                hashTarget.classList.remove('hidden');
+                var hashParentSection = hashTarget.closest('.glossary-section');
+                if (hashParentSection) {
+                    hashParentSection.classList.remove('hidden');
                 }
-            };
-            scrollToGlossaryTarget();
+
+                // Disable content-visibility on ALL glossary sections so the browser
+                // computes real heights for every section, giving accurate positions
+                var hashAllSections = document.querySelectorAll('.glossary-section');
+                hashAllSections.forEach(function(section) {
+                    section.style.contentVisibility = 'visible';
+                });
+
+                // Double-rAF: first frame triggers layout reflow with real heights,
+                // second frame ensures paint is complete before measuring
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        var rect = hashTarget.getBoundingClientRect();
+                        var scrollOffset = 220;
+                        var targetY = window.pageYOffset + rect.top - scrollOffset;
+
+                        window.scrollTo({
+                            top: Math.max(0, targetY),
+                            behavior: 'smooth'
+                        });
+
+                        // Restore content-visibility after scroll animation finishes
+                        setTimeout(function() {
+                            hashAllSections.forEach(function(section) {
+                                section.style.contentVisibility = '';
+                            });
+                        }, 1500);
+
+                        // Highlight the term for visual feedback
+                        hashTarget.classList.add('glossary-term--highlighted');
+                        setTimeout(function() {
+                            hashTarget.classList.remove('glossary-term--highlighted');
+                        }, 2500);
+                    });
+                });
+            }
         }
     });
 
