@@ -1,6 +1,6 @@
 {
   "letter": "m",
-  "count": 145,
+  "count": 162,
   "terms": [
     {
       "id": "term-machine-learning",
@@ -59,6 +59,18 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-magnitude-pruning",
+      "term": "Magnitude Pruning",
+      "definition": "A model compression technique that removes weights with the smallest absolute values. Based on the assumption that small weights contribute least to model output. Can be applied as one-shot or iteratively with fine-tuning between rounds.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -267,6 +279,18 @@
       "related": []
     },
     {
+      "id": "term-matrix-multiplication",
+      "term": "Matrix Multiplication",
+      "definition": "The fundamental algebraic operation of multiplying two matrices used extensively in neural networks for layer computations attention mechanisms and embedding lookups. Computational complexity is O(n^3) for naive implementation with faster algorithms existing.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-matryoshka-embeddings",
       "term": "Matryoshka Embeddings",
       "definition": "An embedding training approach that produces vectors where any prefix of the full embedding is itself a useful embedding, allowing flexible dimensionality reduction without retraining.",
@@ -345,6 +369,18 @@
       "tags": [
         "Statistics",
         "Inference"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-maxout",
+      "term": "Maxout",
+      "definition": "An activation function that computes the maximum across k linear projections of the input. Generalizes ReLU and Leaky ReLU as special cases. Proposed by Goodfellow et al. in 2013 as a complement to dropout regularization.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,
@@ -435,6 +471,18 @@
       "related": []
     },
     {
+      "id": "term-mean-shift",
+      "term": "Mean Shift",
+      "definition": "A non-parametric clustering algorithm that iteratively shifts each data point toward the mode of the local density. Does not require specifying the number of clusters and can discover clusters of arbitrary shape. Uses kernel density estimation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-mean-squared-error",
       "term": "Mean Squared Error",
       "definition": "A regression loss function computed as the average of the squared differences between predicted and actual values. It penalizes larger errors more heavily due to the squaring operation.",
@@ -471,6 +519,19 @@
       "related": []
     },
     {
+      "id": "term-mechanistic-interpretability",
+      "term": "Mechanistic Interpretability",
+      "definition": "A research approach that aims to reverse-engineer the learned algorithms inside neural networks by identifying interpretable circuits and features. Studies superposition polysemanticity and circuit-level computations in transformers.",
+      "tags": [
+        "Algorithms",
+        "Technical",
+        "Safety"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-medical-imaging-ai",
       "term": "Medical Imaging AI",
       "definition": "The application of deep learning to medical images (X-rays, CT scans, MRIs, pathology slides) for tasks like disease detection, segmentation of anatomical structures, and treatment planning assistance.",
@@ -503,6 +564,30 @@
         "Model Optimization"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-mel-spectrogram",
+      "term": "Mel Spectrogram",
+      "definition": "A visual representation of the frequency content of an audio signal over time using the mel scale which approximates human auditory perception. Input representation for many modern speech and audio deep learning models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-mel-frequency-cepstral-coefficients",
+      "term": "Mel-Frequency Cepstral Coefficients",
+      "definition": "A compact representation of the power spectrum of an audio signal on a perceptually motivated mel frequency scale. Standard feature extraction technique for speech recognition and audio classification. Captures the shape of the vocal tract.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -591,6 +676,18 @@
       "related": []
     },
     {
+      "id": "term-message-passing",
+      "term": "Message Passing",
+      "definition": "A computational framework in graph neural networks where nodes iteratively exchange and aggregate information with their neighbors. Each node updates its representation based on messages received from connected nodes. Foundation of most GNN architectures.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-message-passing-neural-network",
       "term": "Message Passing Neural Network",
       "definition": "A framework for graph neural networks where nodes iteratively update their representations by exchanging and aggregating messages with neighboring nodes through learned message and update functions.",
@@ -671,6 +768,18 @@
         "Text Processing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-meteor-score",
+      "term": "METEOR Score",
+      "definition": "Metric for Evaluation of Translation with Explicit Ordering evaluates machine translation using unigram matching with stemming synonymy and paraphrase support. Addresses BLEU limitations by considering recall and incorporating linguistic knowledge beyond exact matching.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -819,6 +928,18 @@
       "related": []
     },
     {
+      "id": "term-mirror-descent",
+      "term": "Mirror Descent",
+      "definition": "A generalization of gradient descent that uses Bregman divergences instead of Euclidean distance for parameter updates. Naturally handles constrained optimization and non-Euclidean parameter spaces. Useful for optimization on simplices and other manifolds.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-mirror-prompting",
       "term": "Mirror Prompting",
       "definition": "A prompting approach that instructs the model to first restate the user's request back in its own words, confirming mutual understanding before proceeding with task execution, reducing misalignment between user intent and model interpretation.",
@@ -827,6 +948,18 @@
         "Clarification"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-mish",
+      "term": "Mish",
+      "definition": "A self-regularizing non-monotonic activation function defined as f(x) = x * tanh(softplus(x)). Known for smooth gradients and strong empirical performance particularly in computer vision tasks such as object detection.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -887,6 +1020,18 @@
         "Hardware"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-mixmatch",
+      "term": "MixMatch",
+      "definition": "A semi-supervised learning method that combines consistency regularization entropy minimization and MixUp augmentation. Produces sharpened pseudo-labels for unlabeled data and mixes labeled and unlabeled examples for training.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1019,6 +1164,18 @@
         "Fundamentals"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-model-averaging",
+      "term": "Model Averaging",
+      "definition": "An ensemble technique that combines predictions from multiple models by averaging their outputs. Can use uniform weights or learned weights. Simple yet effective at reducing prediction variance and improving generalization.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1227,6 +1384,18 @@
       "related": []
     },
     {
+      "id": "term-monte-carlo-dropout",
+      "term": "Monte Carlo Dropout",
+      "definition": "An approximate Bayesian inference technique that uses dropout at inference time to generate multiple stochastic predictions. The variance of predictions provides uncertainty estimates. Theoretically connected to Gaussian processes.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-monte-carlo-method",
       "term": "Monte Carlo Method",
       "definition": "A broad class of computational algorithms that use repeated random sampling to obtain numerical results, such as estimating integrals, simulating complex systems, or approximating probability distributions.",
@@ -1347,6 +1516,18 @@
       "related": []
     },
     {
+      "id": "term-movement-pruning",
+      "term": "Movement Pruning",
+      "definition": "A pruning method that removes weights based on their movement during fine-tuning rather than their magnitude. Weights that move toward zero are pruned. More effective than magnitude pruning for pretrained models being fine-tuned.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-moving-average-model",
       "term": "Moving Average Model",
       "definition": "A time series model where the current value is expressed as a linear combination of the current and past white noise error terms. It captures short-term dependencies in the data.",
@@ -1439,6 +1620,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-multi-layer-perceptron",
+      "term": "Multi-Layer Perceptron",
+      "definition": "A feedforward neural network with one or more hidden layers between input and output. Uses nonlinear activation functions enabling it to learn non-linear decision boundaries. Trained with backpropagation. The classic deep learning architecture.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1641,6 +1834,18 @@
       "tags": [
         "Statistics",
         "Data Science"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-multidimensional-scaling",
+      "term": "Multidimensional Scaling",
+      "definition": "A dimensionality reduction technique that positions points in low-dimensional space such that pairwise distances approximate the original high-dimensional distances. Used for visualization and analysis of similarity or dissimilarity data.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

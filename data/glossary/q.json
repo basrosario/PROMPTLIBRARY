@@ -1,6 +1,6 @@
 {
   "letter": "q",
-  "count": 14,
+  "count": 15,
   "terms": [
     {
       "id": "term-q-function",
@@ -59,6 +59,18 @@
         "Multi-Agent"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-qr-decomposition",
+      "term": "QR Decomposition",
+      "definition": "A matrix factorization that expresses a matrix as the product of an orthogonal matrix Q and an upper triangular matrix R. Used in solving least squares problems computing eigenvalues and stabilizing numerical computations.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

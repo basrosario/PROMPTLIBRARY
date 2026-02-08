@@ -1,6 +1,6 @@
 {
   "letter": "f",
-  "count": 75,
+  "count": 87,
   "terms": [
     {
       "id": "term-f-distribution",
@@ -83,6 +83,18 @@
         "Fairness"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-factor-analysis",
+      "term": "Factor Analysis",
+      "definition": "A statistical method that models observed variables as linear combinations of latent factors plus noise. Unlike PCA it explicitly models observation noise. Used to identify underlying structure in high-dimensional data and reduce measurement error.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -203,6 +215,18 @@
         "Evaluation"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fast-fourier-transform",
+      "term": "Fast Fourier Transform",
+      "definition": "An efficient algorithm for computing the discrete Fourier transform that reduces computational complexity from O(n^2) to O(n log n). Discovered by Cooley and Tukey in 1965. Essential for real-time signal processing and frequency analysis.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -351,6 +375,18 @@
       "related": []
     },
     {
+      "id": "term-federated-averaging",
+      "term": "Federated Averaging",
+      "definition": "The foundational algorithm for federated learning that trains models across decentralized devices by averaging locally trained model updates. Each device trains on its local data and only shares model updates preserving data privacy.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-federated-learning",
       "term": "Federated Learning",
       "definition": "A machine learning approach where models are trained across multiple decentralized devices or servers holding local data samples, without exchanging raw data, thereby preserving privacy while enabling collaborative learning.",
@@ -423,6 +459,30 @@
       "related": []
     },
     {
+      "id": "term-fgsm",
+      "term": "FGSM",
+      "definition": "Fast Gradient Sign Method is an adversarial attack that perturbs inputs in the direction of the gradient of the loss with respect to the input. Creates adversarial examples with a single gradient computation. Introduced by Goodfellow et al. in 2015.",
+      "tags": [
+        "Algorithms",
+        "Safety"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fid-score",
+      "term": "FID Score",
+      "definition": "Frechet Inception Distance measures the quality of generated images by comparing the statistics of generated and real image features extracted from an Inception network. Lower FID indicates generated images are more similar to real images in feature space.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fill-in-the-middle",
       "term": "Fill-in-the-Middle",
       "definition": "A training objective where the model learns to generate text that fills a gap between a given prefix and suffix, enabling code completion, text infilling, and document editing capabilities.",
@@ -483,6 +543,18 @@
       "related": []
     },
     {
+      "id": "term-fixmatch",
+      "term": "FixMatch",
+      "definition": "A semi-supervised learning algorithm that combines consistency regularization with pseudo-labeling. Generates pseudo-labels from weakly augmented inputs and trains on strongly augmented versions of those inputs. Achieves strong results with very few labels.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-flan",
       "term": "FLAN (Fine-tuned Language Net)",
       "definition": "Google's approach to instruction tuning, fine-tuning models on many tasks described with natural language instructions. FLAN models showed strong zero-shot performance.",
@@ -503,6 +575,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-flash-decoding",
+      "term": "Flash Decoding",
+      "definition": "An optimized inference algorithm for autoregressive language models that parallelizes the attention computation across the key-value sequence dimension. Improves decoding throughput especially for long sequences and small batch sizes.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -615,6 +699,18 @@
       "related": []
     },
     {
+      "id": "term-focal-loss-function",
+      "term": "Focal Loss Function",
+      "definition": "A modification of cross-entropy loss that down-weights easy examples and focuses training on hard misclassified examples. Addresses class imbalance by adding a modulating factor. Introduced for dense object detection in RetinaNet.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fomo",
       "term": "FOMO (AI Context)",
       "definition": "Fear Of Missing Out on AI advancements. The rapid pace of AI development creates pressure to constantly learn new tools and techniques. Balance enthusiasm with focused skill-building.",
@@ -639,6 +735,18 @@
       "related": []
     },
     {
+      "id": "term-forward-backward-algorithm",
+      "term": "Forward-Backward Algorithm",
+      "definition": "An inference algorithm for Hidden Markov Models that computes the posterior probability of each hidden state given the entire observation sequence. Combines forward and backward passes. Used in the Baum-Welch algorithm for HMM parameter estimation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-foundation-model",
       "term": "Foundation Model",
       "definition": "A large AI model trained on broad data that can be adapted to many downstream tasks. Examples include GPT-4, Claude, and Llama. The base layer for most modern AI applications.",
@@ -647,6 +755,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fourier-transform",
+      "term": "Fourier Transform",
+      "definition": "A mathematical transform that decomposes a function of time or space into its constituent frequencies. Converts signals between time/spatial domain and frequency domain. Fundamental to signal processing spectral analysis and certain neural network architectures.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -771,6 +891,18 @@
       "related": []
     },
     {
+      "id": "term-frank-wolfe-algorithm",
+      "term": "Frank-Wolfe Algorithm",
+      "definition": "A constrained optimization algorithm also known as conditional gradient that replaces the projection step with a linear minimization over the constraint set. Produces sparse solutions and avoids projections which can be expensive for complex constraints.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-frequency-penalty",
       "term": "Frequency Penalty",
       "definition": "A parameter that penalizes tokens proportionally to how often they have appeared in the output so far, encouraging lexical diversity in generated text.",
@@ -839,6 +971,18 @@
         "Search"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fully-sharded-data-parallel",
+      "term": "Fully Sharded Data Parallel",
+      "definition": "A memory-efficient distributed training technique that shards model parameters gradients and optimizer states across data-parallel workers. Each worker only stores a fraction of the model reducing memory requirements while maintaining training throughput.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "v",
-  "count": 48,
+  "count": 50,
   "terms": [
     {
       "id": "term-variational-autoencoder",
@@ -71,6 +71,18 @@
         "Value Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-value-iteration",
+      "term": "Value Iteration",
+      "definition": "A dynamic programming algorithm that computes the optimal value function by iteratively applying the Bellman optimality equation. Converges to the optimal policy and is simpler than policy iteration but may require more iterations.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -275,6 +287,18 @@
         "Infrastructure"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vector-jacobian-product",
+      "term": "Vector-Jacobian Product",
+      "definition": "An efficient computation that multiplies a vector by the Jacobian matrix without explicitly forming the full Jacobian. The fundamental operation of reverse-mode automatic differentiation and backpropagation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "r",
-  "count": 124,
+  "count": 134,
   "terms": [
     {
       "id": "term-r-squared",
@@ -35,6 +35,18 @@
         "Governance"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-radam",
+      "term": "RAdam",
+      "definition": "Rectified Adam addresses the large variance in early training steps of the Adam optimizer by introducing a variance rectification term. Automatically adapts between SGD and Adam behavior providing more stable training without learning rate warmup.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -167,6 +179,30 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-random-search-for-hyperparameters",
+      "term": "Random Search for Hyperparameters",
+      "definition": "A hyperparameter optimization method that samples configurations randomly from specified distributions. Shown by Bergstra and Bengio in 2012 to be more efficient than grid search because it explores more values of important parameters.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-random-walk",
+      "term": "Random Walk",
+      "definition": "A stochastic process consisting of successive random steps on a graph or in a space. Used in graph algorithms like DeepWalk and Node2Vec for learning node embeddings and in PageRank for measuring node importance.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -339,6 +375,18 @@
       "related": []
     },
     {
+      "id": "term-reconstruction-loss",
+      "term": "Reconstruction Loss",
+      "definition": "A loss function that measures how well a model can reconstruct its input from a compressed or encoded representation. Used in autoencoders and variational autoencoders. Can be implemented as MSE for continuous data or cross-entropy for discrete data.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-rectified-flow",
       "term": "Rectified Flow",
       "definition": "A generative modeling approach that learns straight-line paths between noise and data distributions, enabling faster sampling than curved diffusion trajectories while maintaining sample quality.",
@@ -408,6 +456,18 @@
       ],
       "domain": "safety",
       "link": "ai-safety.html",
+      "related": []
+    },
+    {
+      "id": "term-reduce-on-plateau",
+      "term": "Reduce on Plateau",
+      "definition": "A learning rate scheduling strategy that reduces the learning rate by a factor when a monitored metric stops improving for a specified number of epochs. Commonly used as a simple adaptive schedule in practice.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
       "related": []
     },
     {
@@ -555,6 +615,18 @@
       "related": []
     },
     {
+      "id": "term-rejection-sampling-for-alignment",
+      "term": "Rejection Sampling for Alignment",
+      "definition": "A training data curation technique that generates multiple responses per prompt and keeps only those above a reward threshold for fine-tuning. Creates high-quality training data from the model's own best outputs.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-relabeling",
       "term": "Relabeling",
       "definition": "A data augmentation technique in RL that modifies components of stored transitions (such as goals, rewards, or actions) to generate additional training signal from existing data. Relabeling is central to HER and goal-conditioned RL.",
@@ -575,6 +647,18 @@
         "Text Processing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-relative-position-encoding",
+      "term": "Relative Position Encoding",
+      "definition": "A position encoding scheme that represents the distance between tokens rather than their absolute positions. Allows the model to generalize to different sequence lengths. Variants include Shaw et al. and the T5 relative position bias.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -611,6 +695,18 @@
         "Function"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-reparameterization-trick",
+      "term": "Reparameterization Trick",
+      "definition": "A technique that enables gradient-based optimization through stochastic sampling by expressing random variables as deterministic functions of parameters and independent noise. Essential for training variational autoencoders with backpropagation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -903,6 +999,18 @@
       "related": []
     },
     {
+      "id": "term-retrieval-augmented-generation",
+      "term": "Retrieval-Augmented Generation",
+      "definition": "A technique that enhances language model outputs by retrieving relevant documents from an external knowledge base and conditioning generation on the retrieved context. Reduces hallucination and enables knowledge updates without retraining.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": "learn/rag.html",
+      "related": []
+    },
+    {
       "id": "term-retrieval-augmented-lm",
       "term": "Retrieval-Augmented Language Model",
       "definition": "A language model architecture that incorporates a retrieval component to fetch relevant documents from an external corpus during generation, grounding responses in retrieved evidence.",
@@ -1163,6 +1271,19 @@
         "Alignment"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-rlhf-algorithm",
+      "term": "RLHF Algorithm",
+      "definition": "Reinforcement Learning from Human Feedback trains language models using human preference data. Involves supervised fine-tuning reward model training and policy optimization using PPO or similar algorithms. Core technique behind ChatGPT alignment.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals",
+        "Safety"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

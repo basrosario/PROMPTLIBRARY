@@ -1,6 +1,6 @@
 {
   "letter": "k",
-  "count": 31,
+  "count": 33,
   "terms": [
     {
       "id": "term-k-fold",
@@ -23,6 +23,18 @@
         "Clustering"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-k-means-clustering",
+      "term": "K-Means Clustering",
+      "definition": "An unsupervised learning algorithm that partitions data into K clusters by iteratively assigning points to the nearest centroid and updating centroids. Simple and scalable but assumes spherical clusters and requires specifying K in advance.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -227,6 +239,18 @@
         "LLM"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-knowledge-distillation",
+      "term": "Knowledge Distillation",
+      "definition": "A model compression technique where a smaller student model is trained to mimic the outputs of a larger teacher model. The teacher's soft probability distribution provides richer training signal than hard labels enabling the student to learn more effectively.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

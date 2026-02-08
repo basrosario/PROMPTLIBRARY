@@ -1,6 +1,6 @@
 {
   "letter": "s",
-  "count": 206,
+  "count": 234,
   "terms": [
     {
       "id": "term-s4",
@@ -47,6 +47,18 @@
         "Safety"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-saliency-map",
+      "term": "Saliency Map",
+      "definition": "A visualization technique that highlights which parts of an input are most relevant to a model's prediction by computing gradients of the output with respect to the input. Simple to compute but can be noisy and difficult to interpret.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -279,6 +291,18 @@
       "related": []
     },
     {
+      "id": "term-scheduled-sampling",
+      "term": "Scheduled Sampling",
+      "definition": "A training technique that gradually transitions from teacher forcing to using the model's own predictions as inputs during training. Reduces the exposure bias gap between training and inference. The curriculum linearly interpolates between the two modes.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-scikit-learn",
       "term": "Scikit-learn",
       "definition": "A popular Python library for traditional machine learning algorithms. Provides simple APIs for classification, regression, clustering, and preprocessing. The go-to for non-deep-learning ML.",
@@ -297,6 +321,18 @@
       "tags": [
         "Statistics",
         "Inference"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-score-matching",
+      "term": "Score Matching",
+      "definition": "A method for estimating probability density functions by matching the gradient of the log-density (score function) rather than the density itself. Avoids computing the normalizing constant. Foundation of score-based generative models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,
@@ -507,6 +543,18 @@
       "related": []
     },
     {
+      "id": "term-self-supervised-learning",
+      "term": "Self-Supervised Learning",
+      "definition": "A machine learning paradigm where the model generates its own supervisory signal from unlabeled data through pretext tasks. Examples include masked language modeling next-token prediction and contrastive learning. Foundation of modern pretrained models.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-self-training",
       "term": "Self-Training",
       "definition": "A semi-supervised learning method where a model trained on labeled data generates pseudo-labels for unlabeled data, then retrains on both real and pseudo-labeled examples, iteratively expanding the training set.",
@@ -527,6 +575,18 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-selu",
+      "term": "SELU",
+      "definition": "Scaled Exponential Linear Unit that enables self-normalizing neural networks. Combines the ELU function with specific scale and alpha constants derived mathematically to ensure that activations converge toward zero mean and unit variance during training.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -879,6 +939,18 @@
       "related": []
     },
     {
+      "id": "term-shannon-entropy",
+      "term": "Shannon Entropy",
+      "definition": "A measure of the average information content or uncertainty in a random variable defined as the expected value of the negative log probability. Higher entropy indicates more uncertainty. Foundation of information theory introduced by Claude Shannon in 1948.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-shap-values",
       "term": "SHAP Values",
       "definition": "SHapley Additive exPlanations, a unified framework for feature importance that assigns each feature a contribution value for a specific prediction based on Shapley values from cooperative game theory, satisfying desirable theoretical properties.",
@@ -927,6 +999,18 @@
       "related": []
     },
     {
+      "id": "term-sharpness-aware-minimization",
+      "term": "Sharpness-Aware Minimization",
+      "definition": "An optimization procedure that seeks parameters in neighborhoods with uniformly low loss rather than just minimizing the loss at a single point. Improves generalization by preferring flat minima over sharp ones in the loss landscape.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-shrdlu",
       "term": "SHRDLU",
       "definition": "A natural language understanding program created by Terry Winograd at MIT in 1970 that could converse about and manipulate objects in a simulated blocks world, demonstrating early natural language processing capabilities.",
@@ -947,6 +1031,18 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sigmoid",
+      "term": "Sigmoid",
+      "definition": "A classic activation function that maps inputs to values between 0 and 1 using the formula f(x) = 1 / (1 + exp(-x)). Historically important in neural networks and still used for binary classification output layers and gating mechanisms.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -983,6 +1079,18 @@
         "Metrics"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-silu",
+      "term": "SiLU",
+      "definition": "Sigmoid Linear Unit activation function defined as f(x) = x * sigmoid(x). Mathematically equivalent to Swish with beta equal to 1. Widely used in modern architectures including diffusion models and large language models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1047,6 +1155,30 @@
       "related": []
     },
     {
+      "id": "term-simulated-annealing",
+      "term": "Simulated Annealing",
+      "definition": "A probabilistic optimization algorithm inspired by the annealing process in metallurgy. Accepts worse solutions with decreasing probability over time allowing escape from local optima. Temperature parameter controls the exploration-exploitation tradeoff.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-singular-learning-theory",
+      "term": "Singular Learning Theory",
+      "definition": "A mathematical framework using algebraic geometry to study the loss landscapes of neural networks. Provides tools for understanding generalization phase transitions and model selection in singular statistical models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-singular-value-decomposition",
       "term": "Singular Value Decomposition",
       "definition": "A matrix factorization technique that decomposes a matrix into three matrices (U, S, V^T), where S contains singular values. It is foundational for PCA, latent semantic analysis, and matrix completion.",
@@ -1067,6 +1199,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sinusoidal-position-encoding",
+      "term": "Sinusoidal Position Encoding",
+      "definition": "The original position encoding used in the Transformer architecture. Uses sine and cosine functions of different frequencies to generate unique position vectors. Enables the model to learn relative positions through linear projections of the encodings.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1191,6 +1335,18 @@
       "related": []
     },
     {
+      "id": "term-snapshot-ensemble",
+      "term": "Snapshot Ensemble",
+      "definition": "An ensemble technique that collects multiple models from a single training run by saving checkpoints at different local minima reached through cyclic learning rate schedules. Creates diverse ensembles with no additional training cost.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-social-scoring-systems",
       "term": "Social Scoring Systems",
       "definition": "AI-driven systems that assign scores to individuals based on their behavior, social connections, or characteristics, used to determine access to services. Banned as unacceptable risk under the EU AI Act.",
@@ -1271,6 +1427,54 @@
         "Function"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-softmax-function",
+      "term": "Softmax Function",
+      "definition": "A function that normalizes a vector of real numbers into a probability distribution by exponentiating each element and dividing by the sum. Used in attention mechanisms classification outputs and Boltzmann distributions. Numerically stabilized by subtracting the max.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-softmax-temperature",
+      "term": "Softmax Temperature",
+      "definition": "A parameter that controls the sharpness of the softmax probability distribution. Temperature values below 1 sharpen the distribution making it more peaked while values above 1 flatten it making it more uniform. Used in knowledge distillation and sampling.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-softplus",
+      "term": "Softplus",
+      "definition": "A smooth approximation of ReLU defined as f(x) = log(1 + exp(x)). Always positive and differentiable everywhere. Used in various contexts including variational autoencoders where positive outputs are required.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-softsign",
+      "term": "Softsign",
+      "definition": "An activation function defined as f(x) = x / (1 + |x|) that provides similar output range to tanh but with polynomial decay instead of exponential. Converges more slowly near its asymptotes and can be more resistant to saturation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1395,6 +1599,30 @@
       "related": []
     },
     {
+      "id": "term-spectral-normalization",
+      "term": "Spectral Normalization",
+      "definition": "A weight normalization technique that constrains the spectral norm of weight matrices to stabilize training. Widely used in GANs to enforce Lipschitz continuity in the discriminator. Controls the largest singular value of each layer.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-spectrogram",
+      "term": "Spectrogram",
+      "definition": "A visual representation of the spectrum of frequencies in a signal as they vary over time. Commonly displayed as a heatmap with time on the x-axis frequency on the y-axis and intensity as color. Fundamental in audio and speech processing.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-speculative-decoding",
       "term": "Speculative Decoding",
       "definition": "A technique to speed up LLM inference by using a smaller model to draft tokens that the larger model verifies in parallel. Maintains output quality while reducing latency.",
@@ -1467,6 +1695,18 @@
       "related": []
     },
     {
+      "id": "term-spin",
+      "term": "SPIN",
+      "definition": "Self-Play Fine-Tuning is an alignment method where the language model generates training data by distinguishing its own outputs from human-written text in a self-play framework. Progressively improves alignment without requiring additional human preference data.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-splade",
       "term": "SPLADE",
       "definition": "SParse Lexical AnD Expansion model, a learned sparse retrieval method that predicts importance weights for vocabulary terms including expansion terms not present in the original text, combining the efficiency of sparse indexes with neural relevance estimation.",
@@ -1515,6 +1755,18 @@
       "related": []
     },
     {
+      "id": "term-squeeze-and-excitation",
+      "term": "Squeeze-and-Excitation",
+      "definition": "A channel attention mechanism that adaptively recalibrates channel-wise feature responses. Uses global average pooling followed by two fully connected layers to learn channel importance weights. Proposed by Hu et al. in 2018.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-squeeze-and-excitation-network",
       "term": "Squeeze-and-Excitation Network",
       "definition": "A CNN enhancement that adaptively recalibrates channel-wise feature responses by using global average pooling followed by a small network to learn channel interdependencies and attention weights.",
@@ -1559,6 +1811,18 @@
         "Object Detection"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ssim",
+      "term": "SSIM",
+      "definition": "Structural Similarity Index Measure compares images based on luminance contrast and structure. Designed to be more perceptually relevant than pixel-wise metrics like MSE. Ranges from -1 to 1 with 1 indicating identical images.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1643,6 +1907,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-star-attention",
+      "term": "Star Attention",
+      "definition": "An efficient attention pattern that uses a set of anchor tokens visible to all positions reducing communication in distributed settings. Enables near-linear scaling of attention for very long sequences across multiple devices.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1887,6 +2163,18 @@
       "related": []
     },
     {
+      "id": "term-straight-through-estimator",
+      "term": "Straight-Through Estimator",
+      "definition": "A gradient estimation technique for non-differentiable operations that passes gradients through the operation unchanged during backpropagation. Used for quantization binarization and other discrete operations in neural networks.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-stratified-k-fold",
       "term": "Stratified K-Fold",
       "definition": "A cross-validation variant that ensures each fold preserves approximately the same proportion of samples for each class as the complete dataset, particularly important for imbalanced classification problems.",
@@ -1905,6 +2193,18 @@
       "tags": [
         "Data Science",
         "Statistics"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-stratified-sampling-for-cv",
+      "term": "Stratified Sampling for CV",
+      "definition": "A cross-validation variant that ensures each fold maintains the same class distribution as the full dataset. Essential for imbalanced classification problems where random splitting could create folds with missing classes.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,
@@ -2139,6 +2439,18 @@
       "related": []
     },
     {
+      "id": "term-successive-halving",
+      "term": "Successive Halving",
+      "definition": "A hyperparameter optimization algorithm that allocates exponentially more resources to promising configurations while discarding poor ones. Starts with many configurations and small budgets progressively eliminating the worst performers.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-successor-feature",
       "term": "Successor Feature",
       "definition": "A generalization of the successor representation to the function approximation setting, where expected cumulative discounted feature occupancies replace state occupancies. Successor features enable zero-shot transfer across tasks with different reward functions.",
@@ -2331,6 +2643,18 @@
       "related": []
     },
     {
+      "id": "term-swish",
+      "term": "Swish",
+      "definition": "An activation function defined as f(x) = x * sigmoid(beta * x) discovered through automated search by Google Brain in 2017. Empirically outperforms ReLU on deeper networks. When beta equals 1 it is equivalent to SiLU.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-swish-activation",
       "term": "Swish Activation",
       "definition": "A smooth, non-monotonic activation function defined as x times sigmoid of x, which often outperforms ReLU in deep networks by allowing small negative values to propagate gradients.",
@@ -2363,6 +2687,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-symbolic-differentiation",
+      "term": "Symbolic Differentiation",
+      "definition": "Computing derivatives by algebraically manipulating mathematical expressions according to differentiation rules. Produces exact closed-form derivatives but can lead to expression explosion for complex functions. Distinct from automatic differentiation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

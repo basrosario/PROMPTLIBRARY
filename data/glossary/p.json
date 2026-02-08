@@ -1,6 +1,6 @@
 {
   "letter": "p",
-  "count": 135,
+  "count": 148,
   "terms": [
     {
       "id": "term-p-value",
@@ -108,6 +108,18 @@
       ],
       "domain": "general",
       "link": "../learn/crisp.html",
+      "related": []
+    },
+    {
+      "id": "term-parametric-relu",
+      "term": "Parametric ReLU",
+      "definition": "An activation function that generalizes Leaky ReLU by making the negative slope a learnable parameter. Introduced by He et al. in 2015 as part of the work on deep residual networks allowing the model to adaptively learn the appropriate slope for negative inputs.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
       "related": []
     },
     {
@@ -227,6 +239,18 @@
         "Governance"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-particle-swarm-optimization",
+      "term": "Particle Swarm Optimization",
+      "definition": "A population-based optimization algorithm inspired by the social behavior of bird flocking and fish schooling. Particles move through the search space guided by their own best-known position and the swarm's best-known position.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -747,6 +771,30 @@
       "related": []
     },
     {
+      "id": "term-policy-iteration",
+      "term": "Policy Iteration",
+      "definition": "A dynamic programming algorithm for solving Markov Decision Processes that alternates between policy evaluation and policy improvement until convergence. Guaranteed to find the optimal policy in a finite number of iterations.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-polyak-averaging",
+      "term": "Polyak Averaging",
+      "definition": "A technique that maintains a running average of model parameters during optimization and uses the averaged parameters for final predictions. Proven to achieve optimal convergence rates for convex problems and widely used as exponential moving average in practice.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-polynomial-kernel",
       "term": "Polynomial Kernel",
       "definition": "A kernel function that computes the inner product of feature vectors raised to a specified power, enabling SVMs and other kernel methods to learn polynomial decision boundaries of a given degree.",
@@ -827,6 +875,18 @@
         "Transformers"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-positional-interpolation",
+      "term": "Positional Interpolation",
+      "definition": "A method for extending the context length of pretrained language models by linearly interpolating position encodings to fit longer sequences. Requires minimal fine-tuning and preserves model quality on the original context length.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -921,6 +981,18 @@
       "tags": [
         "Training",
         "Algorithm"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ppo-clip",
+      "term": "PPO-Clip",
+      "definition": "The clipped surrogate objective variant of Proximal Policy Optimization that limits policy updates by clipping the probability ratio. Simpler than the KL-penalty variant and the dominant algorithm for RLHF training of language models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,
@@ -1119,6 +1191,18 @@
       "related": []
     },
     {
+      "id": "term-prefix-attention",
+      "term": "Prefix Attention",
+      "definition": "An attention pattern used in prefix language models where a set of prefix tokens can attend to each other bidirectionally while subsequent tokens use causal attention. Combines encoder-like and decoder-like attention in a single model.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-prefix-caching",
       "term": "Prefix Caching",
       "definition": "An inference optimization that reuses the computed KV cache of shared prompt prefixes across multiple requests, avoiding redundant computation for system prompts or common instruction templates.",
@@ -1251,6 +1335,18 @@
       "related": []
     },
     {
+      "id": "term-probing",
+      "term": "Probing",
+      "definition": "An interpretability technique that trains simple classifiers on the internal representations of a neural network to test what linguistic or semantic information is encoded. Reveals how different layers capture different levels of abstraction.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-probit-model",
       "term": "Probit Model",
       "definition": "A regression model for binary outcomes that uses the cumulative distribution function of the standard normal distribution as the link function, relating the linear predictor to the probability of the positive class.",
@@ -1307,6 +1403,30 @@
         "Code-Augmented"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-progressive-training",
+      "term": "Progressive Training",
+      "definition": "A training strategy that gradually increases model or data complexity during training. Examples include progressive growing of GANs and curriculum learning. Helps stabilize training for complex models by building capabilities incrementally.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-projected-gradient-descent-attack",
+      "term": "Projected Gradient Descent Attack",
+      "definition": "An iterative adversarial attack that applies FGSM multiple times with small step sizes projecting back onto the epsilon-ball after each step. Produces stronger adversarial examples than single-step FGSM. A standard benchmark for adversarial robustness.",
+      "tags": [
+        "Algorithms",
+        "Safety"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1575,6 +1695,18 @@
       "related": []
     },
     {
+      "id": "term-proximal-gradient-method",
+      "term": "Proximal Gradient Method",
+      "definition": "An optimization algorithm for minimizing composite objective functions consisting of a smooth term and a non-smooth regularizer. Combines gradient descent on the smooth part with a proximal operator on the regularizer. Underlies algorithms like ISTA and FISTA.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-proxy-discrimination",
       "term": "Proxy Discrimination",
       "definition": "Discrimination that occurs when an AI system uses features that are correlated with protected attributes as proxies, achieving discriminatory outcomes even when protected attributes are explicitly excluded.",
@@ -1607,6 +1739,30 @@
         "Inference Infrastructure"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pseudo-labeling",
+      "term": "Pseudo-Labeling",
+      "definition": "A semi-supervised learning technique where a model trained on labeled data generates predictions for unlabeled data and uses high-confidence predictions as additional training labels. Simple yet effective when the initial model has reasonable accuracy.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-psnr",
+      "term": "PSNR",
+      "definition": "Peak Signal-to-Noise Ratio measures image quality by comparing the maximum possible pixel value to the mean squared error between original and reconstructed images. Expressed in decibels with higher values indicating better quality. Standard metric in image compression.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

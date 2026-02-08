@@ -1,6 +1,6 @@
 {
   "letter": "i",
-  "count": 88,
+  "count": 96,
   "terms": [
     {
       "id": "term-ian-goodfellow",
@@ -267,6 +267,18 @@
       "related": []
     },
     {
+      "id": "term-implicit-differentiation",
+      "term": "Implicit Differentiation",
+      "definition": "A technique for computing gradients through fixed-point iterations or optimization problems without unrolling the computation graph. Enables memory-efficient backpropagation through iterative solvers and equilibrium models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-implicit-neural-representation",
       "term": "Implicit Neural Representation",
       "definition": "A neural network that learns a continuous function mapping coordinates to signal values, representing signals like images, shapes, or scenes as the weights of a neural network.",
@@ -359,6 +371,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-inception-score",
+      "term": "Inception Score",
+      "definition": "A metric for evaluating the quality and diversity of generated images. Measures how confidently an Inception network classifies generated images and how diverse the predicted labels are. Higher scores indicate better quality and variety.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -515,6 +539,30 @@
         "Distributed Computing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-infonce-loss",
+      "term": "InfoNCE Loss",
+      "definition": "Information Noise-Contrastive Estimation is a contrastive loss function that trains models to distinguish positive pairs from negative pairs. Forms the basis of contrastive learning methods like CPC SimCLR and CLIP. Maximizes mutual information between representations.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-information-bottleneck",
+      "term": "Information Bottleneck",
+      "definition": "A theoretical framework that characterizes the optimal tradeoff between compression and prediction. A representation should retain as little information about the input as possible while preserving information relevant to the output. Applied to understanding deep learning.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -759,6 +807,18 @@
       "related": []
     },
     {
+      "id": "term-integrated-gradients",
+      "term": "Integrated Gradients",
+      "definition": "An attribution method that computes feature importance by integrating gradients along a straight path from a baseline to the actual input. Satisfies desirable axioms including sensitivity and implementation invariance. Model-agnostic for differentiable models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-intel-gaudi-3",
       "term": "Intel Gaudi 3",
       "definition": "Intel's third-generation AI training accelerator featuring integrated 400GbE networking and high memory bandwidth. Gaudi 3 targets the competitive AI training market with a focus on price-performance efficiency.",
@@ -879,6 +939,18 @@
       "related": []
     },
     {
+      "id": "term-inverse-reinforcement-learning",
+      "term": "Inverse Reinforcement Learning",
+      "definition": "A branch of reinforcement learning that infers the reward function from observed expert behavior. Instead of learning a policy from rewards it learns what rewards would explain the demonstrated behavior. Used in imitation learning.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-inverse-reward-design",
       "term": "Inverse Reward Design",
       "definition": "A framework that treats the specified reward function as an observation of the designer's true intent rather than the literal objective, reasoning about what reward the designer likely meant. This approach helps mitigate reward misspecification.",
@@ -935,6 +1007,18 @@
         "Text Processing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-iou-loss",
+      "term": "IoU Loss",
+      "definition": "Intersection over Union loss measures the overlap between predicted and ground truth bounding boxes or segmentation masks. Directly optimizes the IoU metric rather than using surrogate losses. Used in object detection and instance segmentation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1032,6 +1116,18 @@
       ],
       "domain": "general",
       "link": "../tools/analyzer.html",
+      "related": []
+    },
+    {
+      "id": "term-iterative-dpo",
+      "term": "Iterative DPO",
+      "definition": "An extension of Direct Preference Optimization that performs multiple rounds of preference optimization. In each iteration new preference pairs are generated from the updated model creating a self-improving alignment loop.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
       "related": []
     },
     {

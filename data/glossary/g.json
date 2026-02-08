@@ -1,6 +1,6 @@
 {
   "letter": "g",
-  "count": 93,
+  "count": 101,
   "terms": [
     {
       "id": "term-g-eval",
@@ -327,6 +327,18 @@
       "related": []
     },
     {
+      "id": "term-genetic-algorithm",
+      "term": "Genetic Algorithm",
+      "definition": "An evolutionary optimization algorithm inspired by natural selection. Maintains a population of candidate solutions that undergo selection crossover and mutation over generations. Effective for black-box optimization and combinatorial problems.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-genetic-algorithms",
       "term": "Genetic Algorithms",
       "definition": "Optimization algorithms inspired by natural selection, developed by John Holland in the 1960s-1970s, that evolve candidate solutions through selection, crossover, and mutation operators to find optimal or near-optimal solutions.",
@@ -455,6 +467,18 @@
         "Embeddings"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-glu",
+      "term": "GLU",
+      "definition": "Gated Linear Unit that splits input into two halves and applies a sigmoid gate to one half then multiplies element-wise. Introduced for language modeling by Dauphin et al. in 2017. Enables the network to control information flow through learned gating.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -807,6 +831,18 @@
       "related": []
     },
     {
+      "id": "term-gradient-surgery",
+      "term": "Gradient Surgery",
+      "definition": "A technique for multi-task learning that modifies conflicting gradients from different tasks to reduce interference. Projects conflicting gradients so they do not oppose each other enabling better optimization across all tasks simultaneously.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-gradient-synchronization",
       "term": "Gradient Synchronization",
       "definition": "The process of aggregating gradients across multiple GPUs or nodes in distributed training, typically via all-reduce. Synchronous methods wait for all workers while asynchronous methods allow stale gradients for faster iteration.",
@@ -843,6 +879,18 @@
       "related": []
     },
     {
+      "id": "term-graph-attention",
+      "term": "Graph Attention",
+      "definition": "An attention mechanism applied to graph-structured data that learns to weight the importance of different neighbor nodes. Introduced in Graph Attention Networks allowing nodes to attend to their neighbors with different importance weights.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-gat",
       "term": "Graph Attention Network",
       "definition": "A graph neural network that uses attention mechanisms to weight the importance of neighboring nodes' features during aggregation, learning to focus on the most relevant connections.",
@@ -851,6 +899,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-graph-convolution",
+      "term": "Graph Convolution",
+      "definition": "An operation that extends convolution to graph-structured data by aggregating features from neighboring nodes. Spectral approaches use graph Fourier transforms while spatial approaches directly aggregate neighbor features. Core operation in GCNs.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1047,6 +1107,18 @@
       "related": []
     },
     {
+      "id": "term-group-relative-policy-optimization",
+      "term": "Group Relative Policy Optimization",
+      "definition": "A reinforcement learning algorithm for language model alignment that uses group-based normalization of advantages rather than a separate critic model. Simplifies the RLHF pipeline while maintaining alignment quality. Used in DeepSeek models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-grouped-query-attention",
       "term": "Grouped Query Attention",
       "definition": "An attention mechanism that groups multiple query heads to share a single key-value head, interpolating between multi-head and multi-query attention to balance quality and inference speed.",
@@ -1103,6 +1175,30 @@
         "Decoding"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gumbel-max-trick",
+      "term": "Gumbel-Max Trick",
+      "definition": "A method for sampling from categorical distributions using Gumbel noise. Adds independent Gumbel noise to log-probabilities and takes the argmax. Enables efficient sampling and is the basis for the Gumbel-Softmax relaxation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gumbel-softmax",
+      "term": "Gumbel-Softmax",
+      "definition": "A continuous relaxation of categorical sampling that allows gradient-based optimization of discrete variables. Uses the Gumbel-Max trick with a temperature-controlled softmax to produce approximately one-hot vectors that are differentiable.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

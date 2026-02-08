@@ -1,6 +1,6 @@
 {
   "letter": "o",
-  "count": 47,
+  "count": 52,
   "terms": [
     {
       "id": "term-object-tracking",
@@ -147,6 +147,30 @@
       "related": []
     },
     {
+      "id": "term-one-class-svm",
+      "term": "One-Class SVM",
+      "definition": "A variant of support vector machines for anomaly detection that learns a decision boundary enclosing the normal data. Maps data to a high-dimensional feature space and finds the hyperplane with maximum margin from the origin.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-one-cycle-policy",
+      "term": "One-Cycle Policy",
+      "definition": "A learning rate schedule that uses a single cycle of increasing then decreasing learning rate combined with inverse momentum scheduling. Proposed by Smith and Topin in 2018 as super-convergence enabling training with very high learning rates.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-one-hot-encoding",
       "term": "One-Hot Encoding",
       "definition": "A feature encoding technique that converts each categorical value into a binary vector with a single 1 at the position corresponding to that category and 0s elsewhere, creating one new binary feature per category.",
@@ -191,6 +215,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-online-learning-algorithm",
+      "term": "Online Learning Algorithm",
+      "definition": "A learning paradigm where the model updates incrementally as new data arrives one example at a time. Suitable for streaming data and non-stationary environments. Algorithms include online gradient descent and online convex optimization.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -375,6 +411,18 @@
       "related": []
     },
     {
+      "id": "term-optics",
+      "term": "OPTICS",
+      "definition": "Ordering Points To Identify the Clustering Structure is a density-based clustering algorithm that creates an ordering of points reflecting their density connectivity. Unlike DBSCAN it can identify clusters with varying densities without a global density threshold.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-optimization",
       "term": "Optimization",
       "definition": "The process of adjusting model parameters to minimize loss. Includes algorithms (Adam, SGD), learning rate schedules, and techniques for finding good solutions efficiently.",
@@ -431,6 +479,18 @@
         "Generative AI"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-orthogonal-initialization",
+      "term": "Orthogonal Initialization",
+      "definition": "A weight initialization technique that initializes weight matrices as random orthogonal matrices. Helps preserve gradient norms during forward and backward propagation. Particularly beneficial for recurrent neural networks.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

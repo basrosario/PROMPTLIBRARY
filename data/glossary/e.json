@@ -1,6 +1,6 @@
 {
   "letter": "e",
-  "count": 85,
+  "count": 93,
   "terms": [
     {
       "id": "term-early-stopping",
@@ -9,6 +9,18 @@
       "tags": [
         "Training",
         "Regularization"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-early-stopping-criterion",
+      "term": "Early Stopping Criterion",
+      "definition": "A regularization technique that monitors validation performance during training and stops when it begins to deteriorate. Prevents overfitting by selecting the model from the epoch with best validation performance. Uses a patience parameter.",
+      "tags": [
+        "Algorithms",
+        "Training"
       ],
       "domain": "algorithms",
       "link": null,
@@ -111,6 +123,30 @@
       "related": []
     },
     {
+      "id": "term-eigendecomposition",
+      "term": "Eigendecomposition",
+      "definition": "The factorization of a square matrix into eigenvalues and eigenvectors revealing the directions along which the transformation acts by simple scaling. Fundamental to PCA spectral clustering and many numerical methods in machine learning.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-einsum",
+      "term": "Einsum",
+      "definition": "Einstein Summation notation is a compact way to express multi-dimensional array operations including matrix multiplication outer products contractions and transpositions. Widely used in deep learning frameworks for expressing tensor operations concisely.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-elastic-net",
       "term": "Elastic Net",
       "definition": "A regularization method that linearly combines L1 and L2 penalty terms, balancing feature selection (sparsity) with weight shrinkage. The mixing ratio controls the relative contribution of each penalty.",
@@ -131,6 +167,18 @@
         "Model Optimization"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-elastic-weight-consolidation",
+      "term": "Elastic Weight Consolidation",
+      "definition": "A continual learning technique that slows down learning on weights important for previous tasks. Uses the diagonal of the Fisher information matrix to estimate parameter importance. Allows sequential task learning while mitigating catastrophic forgetting.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -227,6 +275,18 @@
         "Ranking"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-elu",
+      "term": "ELU",
+      "definition": "Exponential Linear Unit activation function that uses an exponential curve for negative inputs. Defined as f(x) = x if x > 0 and f(x) = alpha * (exp(x) - 1) otherwise. Produces negative outputs which helps push mean activations closer to zero and improves learning dynamics.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -515,6 +575,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ensemble-learning",
+      "term": "Ensemble Learning",
+      "definition": "A machine learning paradigm that combines predictions from multiple models to produce a more robust and accurate prediction. Methods include bagging boosting and stacking. Generally outperforms individual models by reducing variance or bias.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -975,12 +1047,36 @@
       "related": []
     },
     {
+      "id": "term-exponential-moving-average-model",
+      "term": "Exponential Moving Average Model",
+      "definition": "A technique that maintains a running exponential average of model weights during training and uses the averaged model for evaluation. Provides smoother more stable predictions than the final training checkpoint. Standard practice in modern training.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-exponential-smoothing",
       "term": "Exponential Smoothing",
       "definition": "A family of time series forecasting methods that compute weighted averages of past observations with exponentially decreasing weights. Variants include simple, double (Holt's), and triple (Holt-Winters) exponential smoothing.",
       "tags": [
         "Data Science",
         "Statistics"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-extra-trees",
+      "term": "Extra Trees",
+      "definition": "Extremely Randomized Trees is an ensemble method similar to random forests but with additional randomization. Splits are chosen completely at random rather than searching for the best split. Faster training with competitive accuracy.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

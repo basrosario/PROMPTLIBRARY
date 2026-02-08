@@ -1,7 +1,19 @@
 {
   "letter": "a",
-  "count": 173,
+  "count": 191,
   "terms": [
+    {
+      "id": "term-a-search",
+      "term": "A* Search",
+      "definition": "A graph search algorithm that finds the shortest path by combining the actual cost from the start node with a heuristic estimate of the remaining cost. Guarantees optimality when the heuristic is admissible. Used in planning and game-playing AI.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
     {
       "id": "term-a-star-search-algorithm",
       "term": "A* Search Algorithm",
@@ -47,6 +59,18 @@
         "Methodology"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-absolute-position-encoding",
+      "term": "Absolute Position Encoding",
+      "definition": "A method of injecting position information into transformer inputs by adding a fixed or learned vector to each position. The original transformer used sinusoidal functions while later models like BERT used learned embeddings.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -207,6 +231,18 @@
       "related": []
     },
     {
+      "id": "term-activation-patching",
+      "term": "Activation Patching",
+      "definition": "An interpretability technique that replaces activations at specific positions and layers with activations from a different input to determine causal effects. Identifies which components are responsible for specific model behaviors.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-activation-quantization",
       "term": "Activation Quantization",
       "definition": "The process of quantizing intermediate activations (not just weights) during inference to reduce memory bandwidth requirements and enable INT8 or lower-precision arithmetic. Activation quantization is more challenging than weight quantization due to dynamic ranges.",
@@ -227,6 +263,18 @@
         "Technique"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-active-learning-algorithm",
+      "term": "Active Learning Algorithm",
+      "definition": "A machine learning approach where the model selectively queries an oracle for labels on the most informative unlabeled examples. Reduces labeling costs by identifying which examples would most improve the model if labeled.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -279,6 +327,30 @@
       "related": []
     },
     {
+      "id": "term-adadelta",
+      "term": "AdaDelta",
+      "definition": "An adaptive learning rate optimizer that eliminates the need for a manually set global learning rate. Adapts based on a moving window of gradient updates rather than accumulating all past gradients like AdaGrad. Proposed by Zeiler in 2012.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-adafactor",
+      "term": "Adafactor",
+      "definition": "A memory-efficient adaptive optimizer that factorizes the second moment accumulator into row and column factors. Reduces optimizer memory usage from O(mn) to O(m+n) for weight matrices. Default optimizer for T5 model training.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-adagrad",
       "term": "AdaGrad",
       "definition": "An optimization algorithm that adapts the learning rate for each parameter individually by dividing by the square root of the sum of all historical squared gradients. It performs well on sparse data but can prematurely reduce learning rates.",
@@ -303,6 +375,18 @@
       "related": []
     },
     {
+      "id": "term-adamw",
+      "term": "AdamW",
+      "definition": "A variant of the Adam optimizer that decouples weight decay from the gradient update. Proposed by Loshchilov and Hutter in 2019. Shown to provide better generalization than Adam with L2 regularization. The default optimizer for most transformer training.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-adapter-layer",
       "term": "Adapter Layer",
       "definition": "A small trainable module inserted between frozen pretrained layers that learns task-specific transformations with minimal additional parameters, enabling efficient fine-tuning without modifying the base model.",
@@ -315,6 +399,30 @@
       "related": []
     },
     {
+      "id": "term-adapter-layers",
+      "term": "Adapter Layers",
+      "definition": "Small trainable modules inserted between the layers of a pretrained model for parameter-efficient fine-tuning. Typically consist of a down-projection nonlinearity and up-projection with a residual connection. Only adapter parameters are updated during fine-tuning.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-adaptive-pooling",
+      "term": "Adaptive Pooling",
+      "definition": "A pooling operation that automatically adjusts its kernel size and stride to produce a specified output size regardless of input dimensions. Commonly used in PyTorch to handle variable-size inputs in classification networks.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-additive-attention",
       "term": "Additive Attention",
       "definition": "An attention mechanism that computes compatibility scores by passing the concatenation of query and key through a feedforward layer, also known as Bahdanau attention from its use in early seq2seq models.",
@@ -323,6 +431,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-adjusted-rand-index",
+      "term": "Adjusted Rand Index",
+      "definition": "A clustering evaluation metric that measures agreement between two clusterings adjusted for chance. Ranges from -1 to 1 with 1 indicating perfect agreement and 0 indicating random clustering. Corrects the Rand Index for expected agreement.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -407,6 +527,30 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-adversarial-training",
+      "term": "Adversarial Training",
+      "definition": "A training procedure that augments the training set with adversarial examples generated during training. The model learns to correctly classify both clean and adversarial inputs improving robustness. Currently the most effective defense against adversarial attacks.",
+      "tags": [
+        "Algorithms",
+        "Safety"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-affinity-propagation",
+      "term": "Affinity Propagation",
+      "definition": "A clustering algorithm that identifies exemplars among data points by passing messages between pairs. Does not require specifying the number of clusters. Each data point sends messages about how suitable other points are as exemplars.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -510,7 +654,10 @@
       "id": "term-ai",
       "term": "AI (Artificial Intelligence)",
       "definition": "Computer systems designed to perform tasks that typically require human intelligence, such as understanding language, recognizing patterns, making decisions, and generating content.",
-      "tags": ["Fundamentals", "Core Concept"],
+      "tags": [
+        "Fundamentals",
+        "Core Concept"
+      ],
       "domain": "general",
       "link": null,
       "related": []
@@ -723,7 +870,10 @@
       "id": "term-ai-readiness",
       "term": "AI Readiness",
       "definition": "The skills, knowledge, and mindset needed to use AI tools effectively and responsibly. Includes understanding both capabilities and limitations.",
-      "tags": ["Fundamentals", "Skill"],
+      "tags": [
+        "Fundamentals",
+        "Skill"
+      ],
       "domain": "general",
       "link": "../tools/index.html",
       "related": []
@@ -1641,6 +1791,18 @@
       "related": []
     },
     {
+      "id": "term-attention-masking",
+      "term": "Attention Masking",
+      "definition": "A technique that prevents attention from attending to certain positions by setting their attention scores to negative infinity before softmax. Used for causal masking in autoregressive models and padding masking in batched processing.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-attention",
       "term": "Attention Mechanism",
       "definition": "A technique that allows models to focus on relevant parts of the input when producing output. The foundation of transformer architecture, enabling models to capture long-range dependencies in text.",
@@ -1649,6 +1811,18 @@
         "Transformers"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-attention-mechanism",
+      "term": "Attention Mechanism",
+      "definition": "A neural network component that allows the model to focus on relevant parts of the input when producing output. Computes weighted sums of values where weights are determined by compatibility between queries and keys. Foundational to transformer architecture.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1701,6 +1875,18 @@
       "related": []
     },
     {
+      "id": "term-attention-visualization",
+      "term": "Attention Visualization",
+      "definition": "A model interpretability technique that displays attention weight patterns as heatmaps showing which input tokens the model attends to when making predictions. Useful for understanding transformer behavior though interpretation requires caution.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-attention-based-parsing",
       "term": "Attention-Based Parsing",
       "definition": "A parsing approach that uses attention mechanisms from neural networks to determine syntactic structure, often achieving state-of-the-art results by attending over possible head words or constituents.",
@@ -1745,6 +1931,30 @@
         "Metrics"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-auc-pr",
+      "term": "AUC-PR",
+      "definition": "Area Under the Precision-Recall Curve measures classifier performance focusing on the positive class. More informative than AUC-ROC for imbalanced datasets. Baseline equals the proportion of positive samples in the dataset.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-auc-roc",
+      "term": "AUC-ROC",
+      "definition": "Area Under the Receiver Operating Characteristic Curve measures a classifier's ability to distinguish between classes across all threshold values. Ranges from 0 to 1 with 0.5 indicating random performance. Threshold-independent evaluation metric.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1877,6 +2087,18 @@
         "Reasoning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-automatic-differentiation",
+      "term": "Automatic Differentiation",
+      "definition": "A family of techniques for efficiently computing derivatives of numerical functions by decomposing them into elementary operations. Includes forward mode and reverse mode. The foundation of gradient computation in all modern deep learning frameworks.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

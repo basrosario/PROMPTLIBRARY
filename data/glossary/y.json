@@ -1,6 +1,6 @@
 {
   "letter": "y",
-  "count": 6,
+  "count": 7,
   "terms": [
     {
       "id": "term-yann-lecun",
@@ -11,6 +11,18 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-yarn",
+      "term": "YaRN",
+      "definition": "Yet another RoPE extensioN method combines NTK-aware interpolation with attention scaling for robust context length extension. Achieves state-of-the-art performance on extended context benchmarks with minimal fine-tuning.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

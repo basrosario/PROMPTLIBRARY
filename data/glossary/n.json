@@ -1,6 +1,6 @@
 {
   "letter": "n",
-  "count": 61,
+  "count": 70,
   "terms": [
     {
       "id": "term-n-gram",
@@ -23,6 +23,18 @@
         "Value Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nadam",
+      "term": "Nadam",
+      "definition": "Nesterov-accelerated Adaptive Moment estimation combines the Adam optimizer with Nesterov momentum. Provides faster convergence by incorporating the look-ahead gradient computation from Nesterov accelerated gradient into Adam.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -327,6 +339,18 @@
       "related": []
     },
     {
+      "id": "term-neural-architecture-search",
+      "term": "Neural Architecture Search",
+      "definition": "An automated method for designing neural network architectures by searching over a defined search space. Methods include reinforcement learning evolutionary algorithms and differentiable approaches. Discovered architectures like EfficientNet and NASNet.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-nas-vision",
       "term": "Neural Architecture Search for Vision",
       "definition": "Automated methods for discovering optimal CNN or ViT architectures by searching over design choices (kernel sizes, channel widths, layer connections) using reinforcement learning or evolutionary algorithms.",
@@ -423,6 +447,18 @@
       "related": []
     },
     {
+      "id": "term-newtons-method",
+      "term": "Newton's Method",
+      "definition": "A second-order optimization algorithm that uses the Hessian matrix to find the minimum of a function. Converges quadratically near the optimum but requires computing and inverting the full Hessian which is expensive for high-dimensional problems.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-next-token-prediction",
       "term": "Next Token Prediction",
       "definition": "The core training objective of autoregressive LLMs: predict the next token given all previous tokens. This simple objective, at scale, produces sophisticated language understanding.",
@@ -491,6 +527,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-node2vec",
+      "term": "Node2Vec",
+      "definition": "A graph embedding algorithm that learns continuous feature representations for nodes by optimizing a neighborhood-preserving objective. Uses biased random walks with parameters controlling the balance between BFS-like and DFS-like exploration.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -615,6 +663,18 @@
       "related": []
     },
     {
+      "id": "term-normalized-mutual-information",
+      "term": "Normalized Mutual Information",
+      "definition": "A clustering evaluation metric that normalizes mutual information between predicted and ground truth clusterings to account for chance. Ranges from 0 to 1 and is useful for comparing clusterings with different numbers of clusters.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-normalizing-flow",
       "term": "Normalizing Flow",
       "definition": "A generative model that transforms a simple base distribution into a complex target distribution through a sequence of invertible and differentiable transformations with tractable Jacobian determinants.",
@@ -627,6 +687,18 @@
       "related": []
     },
     {
+      "id": "term-normalizing-flows",
+      "term": "Normalizing Flows",
+      "definition": "A class of generative models that transform a simple base distribution into a complex target distribution through a sequence of invertible and differentiable mappings. Allows exact likelihood computation and efficient sampling.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-novel-view-synthesis",
       "term": "Novel View Synthesis",
       "definition": "The task of generating photorealistic images of a scene from viewpoints not present in the input photographs, using techniques like NeRF, Gaussian splatting, or light field interpolation.",
@@ -635,6 +707,30 @@
         "3D Vision"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nt-xent-loss",
+      "term": "NT-Xent Loss",
+      "definition": "Normalized Temperature-scaled Cross-Entropy loss used in SimCLR for self-supervised contrastive learning. Normalizes embeddings and scales by a temperature parameter before computing cross-entropy over positive and negative pairs within a mini-batch.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ntk-aware-scaling",
+      "term": "NTK-Aware Scaling",
+      "definition": "A position encoding extension method based on Neural Tangent Kernel theory that modifies the frequency basis of rotary embeddings. Enables context length extension without fine-tuning by adjusting the base frequency of the rotation.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -657,6 +753,18 @@
       "tags": [
         "Statistics",
         "Inference"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-numerical-differentiation",
+      "term": "Numerical Differentiation",
+      "definition": "Approximating derivatives using finite differences. Simple to implement but subject to numerical errors from truncation and rounding. Used as a verification tool for gradient implementations but too inaccurate for optimization.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

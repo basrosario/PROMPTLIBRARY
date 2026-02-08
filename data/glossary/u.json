@@ -1,6 +1,6 @@
 {
   "letter": "u",
-  "count": 20,
+  "count": 21,
   "terms": [
     {
       "id": "term-u-net",
@@ -81,6 +81,18 @@
       "tags": [
         "Statistics",
         "Probability"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-unigram-language-model-tokenizer",
+      "term": "Unigram Language Model Tokenizer",
+      "definition": "A subword tokenization method that starts with a large vocabulary and iteratively removes tokens that least affect the overall likelihood. Unlike BPE which builds up vocabulary this approach prunes down. Used in SentencePiece.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

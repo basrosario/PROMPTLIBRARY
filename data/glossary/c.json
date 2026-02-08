@@ -1,6 +1,6 @@
 {
   "letter": "c",
-  "count": 238,
+  "count": 255,
   "terms": [
     {
       "id": "term-c2pa",
@@ -207,6 +207,18 @@
       "related": []
     },
     {
+      "id": "term-causal-convolution",
+      "term": "Causal Convolution",
+      "definition": "A convolution that only uses current and past inputs ensuring the output at time t depends only on inputs at times t and earlier. Essential for autoregressive sequence modeling in architectures like WaveNet and temporal convolutional networks.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-causal-language-model",
       "term": "Causal Language Model",
       "definition": "A model that predicts the next token based only on previous tokens (left-to-right). GPT and most text generation models are causal. Contrast with bidirectional models like BERT.",
@@ -239,6 +251,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-causal-masking",
+      "term": "Causal Masking",
+      "definition": "A specific attention mask pattern that prevents each position from attending to future positions ensuring autoregressive behavior. Implemented as a lower triangular mask matrix. Essential for language model training and generation.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -408,6 +432,19 @@
       ],
       "domain": "general",
       "link": "../learn/index.html",
+      "related": []
+    },
+    {
+      "id": "term-chain-of-thought-prompting",
+      "term": "Chain-of-Thought Prompting",
+      "definition": "A prompting technique that elicits step-by-step reasoning from language models by including intermediate reasoning steps in the prompt. Dramatically improves performance on arithmetic commonsense and symbolic reasoning tasks.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals",
+        "Prompting"
+      ],
+      "domain": "algorithms",
+      "link": "learn/chain-of-thought.html",
       "related": []
     },
     {
@@ -675,6 +712,18 @@
       "related": []
     },
     {
+      "id": "term-chunked-prefill",
+      "term": "Chunked Prefill",
+      "definition": "An inference optimization that breaks the prompt processing phase into smaller chunks to be interleaved with decoding steps. Reduces time-to-first-token latency for long prompts and enables better GPU utilization in serving systems.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-chunking",
       "term": "Chunking",
       "definition": "Splitting long documents into smaller pieces for processing. Essential for RAG and embedding systems where input length exceeds model limits or affects retrieval quality.",
@@ -927,6 +976,18 @@
       "related": []
     },
     {
+      "id": "term-cma-es",
+      "term": "CMA-ES",
+      "definition": "Covariance Matrix Adaptation Evolution Strategy is a derivative-free optimization algorithm that adapts its search distribution by updating the covariance matrix of a multivariate normal. Considered state-of-the-art for continuous black-box optimization.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cmu-ai-research",
       "term": "CMU AI Research",
       "definition": "Carnegie Mellon University's AI research programs, including the work of Allen Newell and Herbert Simon, the development of expert systems, and pioneering contributions to robotics, speech recognition, and autonomous vehicles.",
@@ -959,6 +1020,18 @@
         "Embeddings"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-co-training",
+      "term": "Co-Training",
+      "definition": "A semi-supervised learning method that trains two classifiers on different views or feature sets of the data. Each classifier labels unlabeled examples for the other creating a mutual teaching loop. Requires conditionally independent feature views.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1563,6 +1636,18 @@
       "related": []
     },
     {
+      "id": "term-conjugate-gradient-method",
+      "term": "Conjugate Gradient Method",
+      "definition": "An iterative optimization algorithm for solving systems of linear equations with symmetric positive-definite matrices. Also adapted for nonlinear optimization. Converges in at most n steps for an n-dimensional problem.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-conjugate-prior",
       "term": "Conjugate Prior",
       "definition": "A prior distribution that, when combined with a particular likelihood function via Bayes' theorem, yields a posterior distribution in the same family as the prior. It simplifies Bayesian computations to closed-form updates.",
@@ -1631,6 +1716,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-consistency-regularization",
+      "term": "Consistency Regularization",
+      "definition": "A semi-supervised learning principle that enforces the model to produce similar predictions for perturbed versions of the same input. Encourages smooth decision boundaries. Used in methods like Mean Teacher and FixMatch.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1782,7 +1879,10 @@
       "id": "term-context",
       "term": "Context",
       "definition": "Background information provided to AI that helps it understand your situation and needs. Essential for getting relevant, accurate responses.",
-      "tags": ["Prompting", "Core Concept"],
+      "tags": [
+        "Prompting",
+        "Core Concept"
+      ],
       "domain": "general",
       "link": "../learn/crisp.html",
       "related": []
@@ -2040,6 +2140,18 @@
       "related": []
     },
     {
+      "id": "term-contrastive-search",
+      "term": "Contrastive Search",
+      "definition": "A text generation method that selects tokens based on both probability and degeneration penalty. Balances the confidence of the model with the distinctiveness of the generated token relative to previous context. Reduces repetition in generated text.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-control-problem",
       "term": "Control Problem",
       "definition": "The challenge of ensuring that a highly capable AI system remains under meaningful human control and pursues objectives aligned with human values, even as its capabilities may exceed human oversight capacity.",
@@ -2124,6 +2236,18 @@
       "related": []
     },
     {
+      "id": "term-convolution",
+      "term": "Convolution",
+      "definition": "A mathematical operation that combines two functions to produce a third expressing how one modifies the other. In deep learning convolution layers apply learned filters to input data to detect local patterns and features across spatial or temporal dimensions.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-convolutional-filter",
       "term": "Convolutional Filter",
       "definition": "A learnable weight matrix (kernel) that slides across an input image or feature map, computing element-wise products and sums to detect specific patterns such as edges, textures, or shapes.",
@@ -2180,6 +2304,18 @@
         "Multi-Agent"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-coordinate-descent",
+      "term": "Coordinate Descent",
+      "definition": "An optimization algorithm that minimizes along one coordinate direction at a time while holding others fixed. Particularly effective for problems with separable structure or when coordinate-wise updates have closed-form solutions like in Lasso regression.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -2286,6 +2422,18 @@
       "tags": [
         "Machine Learning",
         "Optimization"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cosine-annealing-with-warm-restarts",
+      "term": "Cosine Annealing with Warm Restarts",
+      "definition": "An extension of cosine annealing that periodically resets the learning rate to its initial value creating a series of cosine decay cycles. Proposed by Loshchilov and Hutter in 2017. Enables exploration of different regions of the loss landscape.",
+      "tags": [
+        "Algorithms",
+        "Training"
       ],
       "domain": "algorithms",
       "link": null,
@@ -2568,6 +2716,18 @@
       "related": []
     },
     {
+      "id": "term-cross-encoder",
+      "term": "Cross-Encoder",
+      "definition": "A text similarity model that processes both texts jointly through a single transformer encoder. Produces more accurate similarity scores than bi-encoders but is computationally expensive as it cannot precompute embeddings. Used for reranking.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cross-encoder-re-ranking",
       "term": "Cross-Encoder Re-Ranking",
       "definition": "A re-ranking approach that jointly encodes the query and each candidate document through a single transformer model, enabling rich cross-attention interactions that produce more accurate relevance scores than independent bi-encoder representations.",
@@ -2576,6 +2736,18 @@
         "Ranking"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cross-entropy",
+      "term": "Cross-Entropy",
+      "definition": "A measure of the difference between two probability distributions. In machine learning used as a loss function measuring the divergence between predicted and true label distributions. Equivalent to negative log-likelihood for classification tasks.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -2660,6 +2832,18 @@
         "Process"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ctc-loss",
+      "term": "CTC Loss",
+      "definition": "Connectionist Temporal Classification is a loss function for training sequence-to-sequence models when the alignment between input and output is unknown. Marginalizes over all possible alignments. Widely used in speech recognition and handwriting recognition.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -2808,6 +2992,18 @@
       "related": []
     },
     {
+      "id": "term-cutout",
+      "term": "Cutout",
+      "definition": "A data augmentation technique that randomly masks square regions of input images during training. Forces the model to attend to less discriminative parts of the image improving robustness. Proposed by DeVries and Taylor in 2017.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cutout-augmentation",
       "term": "Cutout Augmentation",
       "definition": "A regularization technique that randomly masks out square regions of training images, forcing the model to learn from partial information and reducing overfitting to specific spatial features.",
@@ -2852,6 +3048,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cyclic-learning-rate",
+      "term": "Cyclic Learning Rate",
+      "definition": "A learning rate schedule that oscillates the learning rate between minimum and maximum bounds during training. Proposed by Smith in 2017 and shown to improve convergence speed. Eliminates the need to find the optimal fixed learning rate.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     }

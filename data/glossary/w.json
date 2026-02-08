@@ -1,6 +1,6 @@
 {
   "letter": "w",
-  "count": 37,
+  "count": 43,
   "terms": [
     {
       "id": "term-wafer-scale-computing",
@@ -23,6 +23,42 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-warm-restarts",
+      "term": "Warm Restarts",
+      "definition": "A training technique that periodically resets the learning rate to a high value during training. Helps the optimizer escape local minima and explore different regions of the loss landscape. Often combined with cosine annealing schedules.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-warm-starting",
+      "term": "Warm Starting",
+      "definition": "A training strategy that initializes model parameters from a previously trained model rather than random values. Accelerates convergence and can improve performance especially when training data changes incrementally or for transfer learning.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-warm-up-cosine-decay",
+      "term": "Warm-up Cosine Decay",
+      "definition": "A learning rate schedule that combines a linear warmup phase with cosine decay. Starts with a low learning rate gradually increases to peak then smoothly decreases following a cosine curve. Standard schedule for transformer training.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -83,6 +119,18 @@
         "LLM"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wavelet-transform",
+      "term": "Wavelet Transform",
+      "definition": "A transform that represents signals using wavelets which are localized oscillating functions. Unlike Fourier transforms wavelets provide both time and frequency information simultaneously. Used in signal compression denoising and feature extraction.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -179,6 +227,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-weight-normalization",
+      "term": "Weight Normalization",
+      "definition": "A reparameterization of weight vectors that decouples the magnitude and direction of weight vectors. Proposed by Salimans and Kingma in 2016 as a simpler alternative to batch normalization that does not introduce dependencies between examples.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -299,6 +359,18 @@
         "Preprocessing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-windowed-attention",
+      "term": "Windowed Attention",
+      "definition": "An attention mechanism that restricts each token to attend only to tokens within a fixed window around its position. Reduces computational complexity from quadratic to linear in sequence length. Used in efficient transformer variants.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

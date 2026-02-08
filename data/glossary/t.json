@@ -1,6 +1,6 @@
 {
   "letter": "t",
-  "count": 97,
+  "count": 105,
   "terms": [
     {
       "id": "term-t-sne",
@@ -39,6 +39,18 @@
       "related": []
     },
     {
+      "id": "term-tabu-search",
+      "term": "Tabu Search",
+      "definition": "A metaheuristic optimization method that enhances local search by maintaining a memory of recently visited solutions to avoid cycling. Uses adaptive memory and strategic diversification to explore the search space effectively.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-tabular-chain-of-thought",
       "term": "Tabular Chain-of-Thought",
       "definition": "A prompting variant that formats intermediate reasoning steps as structured tables rather than free-form text, improving clarity and consistency in multi-step reasoning by organizing variables, values, and operations in tabular form.",
@@ -47,6 +59,18 @@
         "Reasoning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tanh",
+      "term": "Tanh",
+      "definition": "Hyperbolic tangent activation function that maps inputs to values between -1 and 1. Defined as f(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x)). Provides zero-centered outputs which can improve convergence compared to sigmoid.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -83,6 +107,18 @@
         "Value Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-teacher-forcing",
+      "term": "Teacher Forcing",
+      "definition": "A training strategy for sequence models that uses ground truth tokens as input at each step rather than the model's own predictions. Accelerates training convergence but can cause exposure bias when the model encounters its own predictions at inference.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -131,6 +167,18 @@
         "Generation"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-temperature-scaling",
+      "term": "Temperature Scaling",
+      "definition": "A technique that adjusts the softmax distribution over token probabilities by dividing logits by a temperature parameter. Lower temperatures sharpen the distribution toward greedy decoding while higher temperatures produce more uniform and diverse sampling.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -735,6 +783,18 @@
       "related": []
     },
     {
+      "id": "term-top-k-sampling",
+      "term": "Top-K Sampling",
+      "definition": "A text generation method that restricts sampling to the K most probable next tokens at each step. Prevents the model from selecting highly improbable tokens while maintaining diversity. The parameter K controls the tradeoff between quality and variety.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-top-p",
       "term": "Top-P (Nucleus Sampling)",
       "definition": "A generation strategy that considers tokens until their cumulative probability reaches P. Dynamically adjusts the candidate pool based on the probability distribution.",
@@ -743,6 +803,18 @@
         "Generation"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-top-p-sampling",
+      "term": "Top-P Sampling",
+      "definition": "A text generation method also called nucleus sampling that dynamically selects the smallest set of tokens whose cumulative probability exceeds a threshold P. Adapts the number of candidates based on the model's confidence at each step.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1047,6 +1119,18 @@
       "related": []
     },
     {
+      "id": "term-truncated-bptt",
+      "term": "Truncated BPTT",
+      "definition": "A practical approximation of backpropagation through time that limits gradient computation to a fixed number of time steps. Reduces memory and computation requirements while maintaining reasonable gradient estimates for training RNNs.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-truncation",
       "term": "Truncation",
       "definition": "Cutting off input that exceeds a model's context window. Can occur at the start (losing context) or end (losing instructions). Requires careful prompt design for long inputs.",
@@ -1161,6 +1245,18 @@
       "tags": [
         "Statistics",
         "Inference"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-typical-decoding",
+      "term": "Typical Decoding",
+      "definition": "A text generation strategy that samples tokens whose information content is close to the expected information content of the model. Avoids both high-probability repetitive tokens and low-probability incoherent tokens.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

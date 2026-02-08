@@ -1,6 +1,6 @@
 {
   "letter": "d",
-  "count": 142,
+  "count": 154,
   "terms": [
     {
       "id": "term-dagger",
@@ -71,6 +71,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-darts",
+      "term": "DARTS",
+      "definition": "Differentiable Architecture Search relaxes the discrete architecture search space to be continuous enabling gradient-based optimization. Jointly optimizes architecture parameters and network weights using bilevel optimization.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -615,6 +627,18 @@
       "related": []
     },
     {
+      "id": "term-deepwalk",
+      "term": "DeepWalk",
+      "definition": "A graph embedding algorithm that learns node representations by treating truncated random walks on graphs as sentences and applying Word2Vec. Demonstrates that random walks can capture graph structure similar to how sentences capture language structure.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-deformable-attention",
       "term": "Deformable Attention",
       "definition": "An attention mechanism that attends to a small set of sampling points around a reference point with learnable offsets, dramatically reducing the computational cost of applying attention to high-resolution feature maps.",
@@ -719,6 +743,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dense-connection",
+      "term": "Dense Connection",
+      "definition": "A network pattern where each layer receives inputs from all preceding layers. Used in DenseNet architectures. Encourages feature reuse reduces parameters and strengthens gradient flow throughout the network.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -987,6 +1023,18 @@
       "related": []
     },
     {
+      "id": "term-dice-loss",
+      "term": "Dice Loss",
+      "definition": "A loss function based on the Dice coefficient measuring overlap between predicted and ground truth segmentation masks. Ranges from 0 to 1 and handles class imbalance well. Widely used in medical image segmentation tasks.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-differencing",
       "term": "Differencing",
       "definition": "A time series transformation that computes the difference between consecutive observations (or seasonal periods) to achieve stationarity. First-order differencing removes linear trends; higher orders remove higher-order trends.",
@@ -1011,6 +1059,18 @@
       "related": []
     },
     {
+      "id": "term-differentiable-programming",
+      "term": "Differentiable Programming",
+      "definition": "A programming paradigm where programs are differentiable end-to-end enabling gradient-based optimization of arbitrary computations. Extends deep learning beyond standard neural network layers to include control flow physics simulations and more.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-differentiable-rendering",
       "term": "Differentiable Rendering",
       "definition": "Rendering techniques where the image formation process is differentiable with respect to scene parameters, enabling gradient-based optimization of 3D geometry, materials, and lighting from 2D images.",
@@ -1019,6 +1079,18 @@
         "3D Vision"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-differential-evolution",
+      "term": "Differential Evolution",
+      "definition": "A population-based optimization algorithm that creates new candidates by combining existing ones using vector differences. Effective for continuous optimization problems. Does not require gradient information making it suitable for non-differentiable objectives.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1251,6 +1323,18 @@
       "related": []
     },
     {
+      "id": "term-discriminative-learning-rates",
+      "term": "Discriminative Learning Rates",
+      "definition": "A fine-tuning technique that applies different learning rates to different layers of a pretrained model. Earlier layers with more general features use smaller learning rates while later layers use larger rates. Popularized by ULMFiT.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-disinformation",
       "term": "Disinformation",
       "definition": "False or misleading information deliberately created and spread with the intent to deceive. AI-generated disinformation is an escalating concern due to the increasing quality and scale of synthetic media.",
@@ -1467,6 +1551,18 @@
       "related": []
     },
     {
+      "id": "term-domain-adaptation-algorithm",
+      "term": "Domain Adaptation Algorithm",
+      "definition": "A transfer learning technique that adapts a model trained on a source domain to perform well on a different but related target domain. Methods include adversarial training distribution matching and self-training approaches.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-domain-randomization",
       "term": "Domain Randomization",
       "definition": "A sim-to-real transfer technique that trains vision models on synthetic images with heavily randomized visual properties (lighting, textures, backgrounds), making the model robust when deployed on real-world data.",
@@ -1539,6 +1635,18 @@
       "related": []
     },
     {
+      "id": "term-double-q-learning",
+      "term": "Double Q-Learning",
+      "definition": "A reinforcement learning variant that addresses the overestimation bias in standard Q-learning by using two separate value estimators. One selects the action while the other evaluates it. Produces more accurate value estimates.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-douglas-lenat",
       "term": "Douglas Lenat",
       "definition": "American computer scientist (1950-2023) who created the Cyc project in 1984, an ambitious effort to build a comprehensive ontology of common-sense knowledge to enable AI reasoning about everyday situations.",
@@ -1583,6 +1691,30 @@
         "Planning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dropblock",
+      "term": "DropBlock",
+      "definition": "A structured dropout method that drops contiguous regions of feature maps rather than individual elements. More effective than standard dropout for convolutional networks because spatially correlated features require spatial dropping patterns.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dropconnect",
+      "term": "DropConnect",
+      "definition": "A regularization method that randomly sets individual weights rather than activations to zero during training. Generalizes dropout by operating on the weight matrix instead of the hidden layer outputs. Proposed by Wan et al. in 2013.",
+      "tags": [
+        "Algorithms",
+        "Training"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1679,6 +1811,18 @@
         "Hardware"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dynamic-programming",
+      "term": "Dynamic Programming",
+      "definition": "An algorithmic technique that solves complex problems by breaking them into simpler overlapping subproblems and storing their solutions to avoid redundant computation. Fundamental to many sequence alignment and optimization algorithms in AI.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

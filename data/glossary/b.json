@@ -1,6 +1,6 @@
 {
   "letter": "b",
-  "count": 101,
+  "count": 110,
   "terms": [
     {
       "id": "term-back-translation",
@@ -47,6 +47,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-backpropagation-through-time",
+      "term": "Backpropagation Through Time",
+      "definition": "An extension of backpropagation for training recurrent neural networks that unrolls the network through time steps and applies the chain rule. Computational cost is proportional to sequence length. Can suffer from vanishing or exploding gradients for long sequences.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -231,6 +243,18 @@
       "related": []
     },
     {
+      "id": "term-batch-renormalization",
+      "term": "Batch Renormalization",
+      "definition": "An extension of batch normalization that introduces correction terms to reduce dependence on mini-batch statistics. Proposed by Ioffe in 2017 to address batch normalization failures with small batch sizes or non-i.i.d. mini-batches.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-batch-scheduling",
       "term": "Batch Scheduling for Inference",
       "definition": "The strategy of grouping multiple inference requests together for simultaneous processing on a GPU, improving hardware utilization and throughput. Batch scheduling involves tradeoffs between latency (waiting to fill batches) and throughput (processing more requests per second).",
@@ -381,6 +405,18 @@
       "tags": [
         "Generation",
         "Algorithm"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-beam-search-decoding",
+      "term": "Beam Search Decoding",
+      "definition": "A search algorithm for sequence generation that maintains the top-K partial sequences at each step. Explores multiple hypotheses simultaneously and selects the highest-scoring complete sequence. Widely used in machine translation and speech recognition.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
       ],
       "domain": "algorithms",
       "link": null,
@@ -675,6 +711,18 @@
       "related": []
     },
     {
+      "id": "term-bidirectional-attention",
+      "term": "Bidirectional Attention",
+      "definition": "An attention pattern that allows each token to attend to all other tokens in both directions. Used in encoder models like BERT for building contextual representations. Contrasts with causal attention used in decoder models.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-bidirectional-rnn",
       "term": "Bidirectional RNN",
       "definition": "A recurrent architecture that processes input sequences in both forward and backward directions simultaneously, combining both context directions to produce richer representations at each time step.",
@@ -731,6 +779,18 @@
         "Classification"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-binary-cross-entropy",
+      "term": "Binary Cross-Entropy",
+      "definition": "A loss function for binary classification that measures the divergence between predicted probabilities and binary labels. Defined as -[y*log(p) + (1-y)*log(1-p)]. Equivalent to the negative log-likelihood of a Bernoulli distribution.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -803,6 +863,18 @@
         "Regulation"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-birch",
+      "term": "BIRCH",
+      "definition": "Balanced Iterative Reducing and Clustering using Hierarchies is a clustering algorithm designed for large datasets. Builds a compact summary called a CF-tree in a single pass through the data then applies standard clustering to the summary.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -911,6 +983,18 @@
         "Evaluation"
       ],
       "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bleu-score",
+      "term": "BLEU Score",
+      "definition": "Bilingual Evaluation Understudy is a metric for evaluating machine translation quality by comparing n-gram overlap between candidate and reference translations. Introduced by Papineni et al. in 2002. Ranges from 0 to 1 with higher scores indicating better quality.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -1107,6 +1191,18 @@
       "related": []
     },
     {
+      "id": "term-branch-and-bound",
+      "term": "Branch and Bound",
+      "definition": "An algorithmic paradigm for solving combinatorial optimization problems that systematically enumerates candidates while pruning large portions of the search space using bounds on the optimal solution. Used in integer programming and scheduling.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-brier-score",
       "term": "Brier Score",
       "definition": "A scoring metric that measures the accuracy of probabilistic predictions by computing the mean squared difference between predicted probabilities and actual binary outcomes. Lower values indicate better calibrated predictions.",
@@ -1187,6 +1283,18 @@
         "Tokenization"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-byte-pair-encoding",
+      "term": "Byte Pair Encoding",
+      "definition": "A subword tokenization algorithm that iteratively merges the most frequent pair of consecutive bytes or characters. Originally a data compression technique adapted for NLP by Sennrich et al. in 2016. Used in GPT models for vocabulary construction.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },

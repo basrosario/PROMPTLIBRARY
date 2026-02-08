@@ -1,6 +1,6 @@
 {
   "letter": "j",
-  "count": 22,
+  "count": 23,
   "terms": [
     {
       "id": "term-jaccard-index",
@@ -33,6 +33,18 @@
       "tags": [
         "Statistics",
         "Inference"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-jacobian-vector-product",
+      "term": "Jacobian-Vector Product",
+      "definition": "An efficient computation that multiplies the Jacobian matrix of a function by a vector without explicitly forming the full Jacobian. Used in forward-mode automatic differentiation and various second-order optimization methods.",
+      "tags": [
+        "Algorithms",
+        "Technical"
       ],
       "domain": "algorithms",
       "link": null,

@@ -1,6 +1,6 @@
 {
   "letter": "h",
-  "count": 53,
+  "count": 58,
   "terms": [
     {
       "id": "term-habana",
@@ -95,6 +95,30 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hard-sigmoid",
+      "term": "Hard Sigmoid",
+      "definition": "A piecewise linear approximation of the sigmoid function that is computationally cheaper to evaluate. Defined as f(x) = clip((x + 1) / 2 at 0 and 1). Used in mobile and embedded applications where computational efficiency is critical.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hard-swish",
+      "term": "Hard Swish",
+      "definition": "A piecewise linear approximation of the Swish activation function designed for efficient inference on mobile devices. Used in MobileNetV3 and defined as f(x) = x * hard_sigmoid(x). Balances accuracy and computational cost.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
@@ -312,6 +336,18 @@
       ],
       "domain": "safety",
       "link": "ai-safety.html",
+      "related": []
+    },
+    {
+      "id": "term-hill-climbing",
+      "term": "Hill Climbing",
+      "definition": "A local search optimization algorithm that iteratively moves toward higher-valued neighbors until no improvement is found. Simple and fast but easily trapped in local optima. Variants include stochastic and steepest-ascent hill climbing.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
+      "link": null,
       "related": []
     },
     {
@@ -543,6 +579,18 @@
       "related": []
     },
     {
+      "id": "term-hybrid-retrieval",
+      "term": "Hybrid Retrieval",
+      "definition": "An information retrieval approach that combines sparse retrieval methods like BM25 with dense retrieval using neural embeddings. Leverages the strengths of both exact term matching and semantic similarity for improved recall and precision.",
+      "tags": [
+        "Algorithms",
+        "Technical"
+      ],
+      "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-hybrid-search",
       "term": "Hybrid Search",
       "definition": "A retrieval approach that combines dense vector similarity search with traditional keyword-based (sparse) retrieval, leveraging the strengths of both methods for more robust document matching.",
@@ -599,6 +647,18 @@
         "Configuration"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hyperparameter-optimization",
+      "term": "Hyperparameter Optimization",
+      "definition": "The process of finding optimal hyperparameter configurations for machine learning models. Methods include grid search random search Bayesian optimization and evolutionary approaches. Critical for model performance in practice.",
+      "tags": [
+        "Algorithms",
+        "Fundamentals"
+      ],
+      "domain": "algorithms",
       "link": null,
       "related": []
     },
