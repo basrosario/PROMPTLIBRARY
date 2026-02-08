@@ -8971,6 +8971,85 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     /**
+     * Extract acronym or parenthetical from a term title
+     * e.g. "Large Language Model (LLM)" -> "llm"
+     * @param {string} title - The entry title
+     * @returns {string} Lowercase acronym or empty string
+     */
+    function extractSearchAcronym(title) {
+        var parenMatch = title.match(/\(([^)]+)\)/);
+        if (parenMatch) return parenMatch[1].toLowerCase();
+        return '';
+    }
+
+    /**
+     * Normalize a string for matching: lowercase, collapse hyphens/spaces
+     * @param {string} str - Input string
+     * @returns {string} Normalized string
+     */
+    function normalizeSearchMatch(str) {
+        return str.toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    /**
+     * Score a Glossary entry using the same 8-tier algorithm as the glossary page search.
+     * Scoring priority:
+     *   200 - Exact full title match (case-insensitive)
+     *   190 - Exact acronym match ("LLM" matches "Large Language Model (LLM)")
+     *   170 - Normalized exact match (hyphens/spaces collapsed)
+     *   150 - Title starts with query
+     *   120 - Acronym starts with query
+     *   100 - Title contains query as a whole word
+     *    80 - Title contains query as substring
+     *    30 - Excerpt (definition) contains query
+     * @param {Object} entry - Search index entry with category "Glossary"
+     * @param {string} lowerQuery - Lowercase trimmed query
+     * @param {string} normalizedQuery - Normalized query (hyphens/spaces collapsed)
+     * @param {RegExp|null} wordBoundaryRegex - Regex for whole-word matching
+     * @returns {number} Score (0 if no match)
+     */
+    function scoreGlossaryEntry(entry, lowerQuery, normalizedQuery, wordBoundaryRegex) {
+        var titleLower = entry.title.toLowerCase();
+        var normalizedTitle = normalizeSearchMatch(entry.title);
+        var acronym = extractSearchAcronym(entry.title);
+        var excerptLower = entry.excerpt.toLowerCase();
+
+        // 1. Exact full title match
+        if (titleLower === lowerQuery || normalizedTitle === normalizedQuery) {
+            return 200;
+        }
+        // 2. Exact acronym match
+        if (acronym && acronym === lowerQuery) {
+            return 190;
+        }
+        // 3. Normalized exact match
+        if (normalizedTitle === normalizedQuery) {
+            return 170;
+        }
+        // 4. Title starts with query
+        if (titleLower.startsWith(lowerQuery) || normalizedTitle.startsWith(normalizedQuery)) {
+            return 150;
+        }
+        // 5. Acronym starts with query
+        if (acronym && acronym.startsWith(lowerQuery)) {
+            return 120;
+        }
+        // 6. Title contains query as a whole word
+        if (wordBoundaryRegex && wordBoundaryRegex.test(entry.title)) {
+            return 100;
+        }
+        // 7. Title contains query as substring
+        if (titleLower.indexOf(lowerQuery) !== -1 || normalizedTitle.indexOf(normalizedQuery) !== -1) {
+            return 80;
+        }
+        // 8. Excerpt (definition) contains query
+        if (excerptLower.indexOf(lowerQuery) !== -1) {
+            return 30;
+        }
+        return 0;
+    }
+
+    /**
      * Search function that queries the index
      * @param {string} query - The search query
      * @param {Object} options - Search options
@@ -8982,44 +9061,68 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ensure search index is loaded
         await loadSearchIndex();
 
-        const searchTerms = query.toLowerCase().trim().split(/\s+/);
+        const trimmedQuery = query.trim();
+        const lowerQuery = trimmedQuery.toLowerCase();
+        const normalizedQuery = normalizeSearchMatch(trimmedQuery);
+        const searchTerms = lowerQuery.split(/\s+/);
+
+        // Word boundary regex for glossary whole-word matching
+        var wordBoundaryRegex;
+        try {
+            wordBoundaryRegex = new RegExp('\\b' + lowerQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+        } catch (e) {
+            wordBoundaryRegex = null;
+        }
+
         const results = [];
 
         PRAXIS_SEARCH_INDEX.forEach(entry => {
             let score = 0;
-            const titleLower = entry.title.toLowerCase();
-            const excerptLower = entry.excerpt.toLowerCase();
-            const keywordsLower = entry.keywords.join(' ').toLowerCase();
 
-            searchTerms.forEach(term => {
-                // Title matches (highest weight)
-                if (titleLower.includes(term)) {
-                    score += titleLower === term ? 100 : 50;
-                }
-                // Keyword matches (high weight)
-                if (keywordsLower.includes(term)) {
-                    score += 30;
-                }
-                // Excerpt matches (medium weight)
-                if (excerptLower.includes(term)) {
-                    score += 10;
-                }
-                // Category/subcategory matches
-                if (entry.category.toLowerCase().includes(term)) {
-                    score += 15;
-                }
-                if (entry.subcategory.toLowerCase().includes(term)) {
-                    score += 15;
-                }
-            });
+            if (entry.category === 'Glossary') {
+                // Glossary entries use the 8-tier scoring algorithm
+                // matching the glossary page search behavior
+                score = scoreGlossaryEntry(entry, lowerQuery, normalizedQuery, wordBoundaryRegex);
+            } else {
+                // Non-glossary entries use standard term-by-term scoring
+                const titleLower = entry.title.toLowerCase();
+                const excerptLower = entry.excerpt.toLowerCase();
+                const keywordsLower = entry.keywords.join(' ').toLowerCase();
+
+                searchTerms.forEach(term => {
+                    // Title matches (highest weight)
+                    if (titleLower.includes(term)) {
+                        score += titleLower === term ? 100 : 50;
+                    }
+                    // Keyword matches (high weight)
+                    if (keywordsLower.includes(term)) {
+                        score += 30;
+                    }
+                    // Excerpt matches (medium weight)
+                    if (excerptLower.includes(term)) {
+                        score += 10;
+                    }
+                    // Category/subcategory matches
+                    if (entry.category.toLowerCase().includes(term)) {
+                        score += 15;
+                    }
+                    if (entry.subcategory.toLowerCase().includes(term)) {
+                        score += 15;
+                    }
+                });
+            }
 
             if (score > 0) {
                 results.push({ ...entry, score });
             }
         });
 
-        // Sort by score descending
-        results.sort((a, b) => b.score - a.score);
+        // Sort by score descending, then by title length (shorter = more relevant), then alphabetically
+        results.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            if (a.title.length !== b.title.length) return a.title.length - b.title.length;
+            return a.title.localeCompare(b.title);
+        });
 
         // Group by category
         const grouped = {};
