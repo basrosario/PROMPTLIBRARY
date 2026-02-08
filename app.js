@@ -333,11 +333,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Mobile accordion: h4 click toggles section
+            // Clicking the parent <a> navigates; clicking h4 area toggles
             sections.forEach(section => {
                 const h4 = section.querySelector('h4');
                 if (!h4) return;
                 h4.addEventListener('click', (e) => {
                     if (this.isMobile()) {
+                        if (e.target.closest('a')) return;
                         e.preventDefault();
                         this.toggleAccordion(menu, section);
                     }
@@ -373,9 +375,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Mobile: expand all sections by default
+            // Mobile: start collapsed, add Expand/Collapse All button
             if (this.isMobile()) {
-                sections.forEach(s => s.classList.add('is-expanded'));
+                sections.forEach(s => s.classList.remove('is-expanded'));
+                var toggleBtn = document.createElement('button');
+                toggleBtn.className = 'mega-menu-toggle-all';
+                toggleBtn.textContent = 'Expand All';
+                toggleBtn.setAttribute('type', 'button');
+                toggleBtn.addEventListener('click', function() {
+                    var allExpanded = Array.from(sections).every(function(s) {
+                        return s.classList.contains('is-expanded');
+                    });
+                    sections.forEach(function(s) {
+                        if (allExpanded) {
+                            s.classList.remove('is-expanded');
+                        } else {
+                            s.classList.add('is-expanded');
+                        }
+                    });
+                    toggleBtn.textContent = allExpanded ? 'Expand All' : 'Collapse All';
+                });
+                var sidebar = menu.querySelector('.mega-menu-sidebar');
+                if (sidebar) {
+                    sidebar.parentNode.insertBefore(toggleBtn, sidebar.nextSibling);
+                } else {
+                    menu.insertBefore(toggleBtn, menu.firstChild);
+                }
             }
         },
 
@@ -410,6 +435,14 @@ document.addEventListener('DOMContentLoaded', () => {
          */
         toggleAccordion(menu, section) {
             section.classList.toggle('is-expanded');
+            var toggleBtn = menu.querySelector('.mega-menu-toggle-all');
+            if (toggleBtn) {
+                var sections = menu.querySelectorAll('.mega-menu-section[data-tab]');
+                var allExpanded = Array.from(sections).every(function(s) {
+                    return s.classList.contains('is-expanded');
+                });
+                toggleBtn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+            }
         }
     };
 

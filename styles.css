@@ -6239,6 +6239,11 @@ body.menu-open {
 }
 
 
+/* Hidden on desktop (injected by JS on mobile) */
+.mega-menu-toggle-all {
+    display: none;
+}
+
 /* Tabbed mega-menu mobile accordion ---- */
 @media (max-width: 767px) {
     /* Override generic mobile grid: tabbed menu is a vertical accordion */
@@ -6355,18 +6360,42 @@ body.menu-open {
         color: #fff !important;
     }
 
-    /* Hide links by default, show when expanded */
-    .mega-menu--tabbed .mega-menu-section[data-tab] a {
+    /* Hide sub-links by default, show when expanded (h4 a stays visible) */
+    .mega-menu--tabbed .mega-menu-section[data-tab] > a {
         display: none;
     }
 
-    .mega-menu--tabbed .mega-menu-section[data-tab].is-expanded a {
+    .mega-menu--tabbed .mega-menu-section[data-tab].is-expanded > a {
         display: block;
         padding: var(--space-xs) var(--space-sm);
         padding-left: var(--space-md);
         font-size: 0.92rem;
         color: #fff !important;
         background: transparent !important;
+    }
+
+    /* Expand/Collapse All button ---- */
+    .mega-menu-toggle-all {
+        display: block;
+        width: 100%;
+        padding: var(--space-xs) var(--space-sm);
+        margin-bottom: var(--space-xs);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-sm);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .mega-menu-toggle-all:hover,
+    .mega-menu-toggle-all:focus-visible {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
     }
 
     /* Override desktop hover/active transform for tabbed */
