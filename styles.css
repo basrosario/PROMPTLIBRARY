@@ -25391,6 +25391,160 @@ html[data-text-scale="3"] {
     align-items: center;
 }
 
+/* === PROMPT INFOGRAPHIC ===
+   Visual template showing a complete framework prompt
+   Used on framework pages to show professional prompt examples */
+.prompt-infographic {
+    background: linear-gradient(145deg, #0D1117 0%, #161B22 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    position: relative;
+}
+
+.prompt-infographic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #DC3545, #E8590C, #D9A012, #0CA678, #228BE6, #7C3AED);
+}
+
+/* Infographic Header ---- */
+.prompt-infographic__header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.prompt-infographic__letters {
+    display: inline-flex;
+    gap: 6px;
+    margin-bottom: var(--space-sm);
+}
+
+.prompt-infographic__letters span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+.prompt-infographic__letters span:nth-child(1) { background: #DC3545; }
+.prompt-infographic__letters span:nth-child(2) { background: #E8590C; }
+.prompt-infographic__letters span:nth-child(3) { background: #D9A012; }
+.prompt-infographic__letters span:nth-child(4) { background: #0CA678; }
+.prompt-infographic__letters span:nth-child(5) { background: #228BE6; }
+.prompt-infographic__letters span:nth-child(6) { background: #7C3AED; }
+
+.prompt-infographic__title {
+    color: #F9FAFB;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+}
+
+/* Infographic Rows ---- */
+.prompt-infographic__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prompt-infographic__row {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: stretch;
+}
+
+.prompt-infographic__letter {
+    flex: 0 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+.prompt-infographic__row:nth-child(1) .prompt-infographic__letter { background: #DC3545; }
+.prompt-infographic__row:nth-child(2) .prompt-infographic__letter { background: #E8590C; }
+.prompt-infographic__row:nth-child(3) .prompt-infographic__letter { background: #D9A012; }
+.prompt-infographic__row:nth-child(4) .prompt-infographic__letter { background: #0CA678; }
+.prompt-infographic__row:nth-child(5) .prompt-infographic__letter { background: #228BE6; }
+.prompt-infographic__row:nth-child(6) .prompt-infographic__letter { background: #7C3AED; }
+
+.prompt-infographic__field {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    border-left: 3px solid;
+    transition: background var(--transition-fast);
+}
+
+.prompt-infographic__field:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.prompt-infographic__row:nth-child(1) .prompt-infographic__field { border-left-color: #DC3545; }
+.prompt-infographic__row:nth-child(2) .prompt-infographic__field { border-left-color: #E8590C; }
+.prompt-infographic__row:nth-child(3) .prompt-infographic__field { border-left-color: #D9A012; }
+.prompt-infographic__row:nth-child(4) .prompt-infographic__field { border-left-color: #0CA678; }
+.prompt-infographic__row:nth-child(5) .prompt-infographic__field { border-left-color: #228BE6; }
+.prompt-infographic__row:nth-child(6) .prompt-infographic__field { border-left-color: #7C3AED; }
+
+.prompt-infographic__label {
+    display: block;
+    font-weight: 700;
+    color: #E5E7EB;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.prompt-infographic__text {
+    color: #9CA3AF;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Infographic Footer ---- */
+.prompt-infographic__footer {
+    text-align: center;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.prompt-infographic__footer-text {
+    color: #6B7280;
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.prompt-infographic__footer-text strong {
+    color: var(--primary);
+    font-style: normal;
+}
+
 /* ============================================
    MOBILE PERFORMANCE OPTIMIZATIONS
    iPhone 14 Pro+ and modern mobile devices
