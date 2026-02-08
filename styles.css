@@ -6069,19 +6069,53 @@ body.menu-open {
     transform: translateY(0);
 }
 
-/* Left column: tab buttons */
-.mega-menu-tabs {
+/* Left column: sidebar wrapper (quick links + tab buttons) */
+.mega-menu-sidebar {
     flex: 0 0 190px;
     display: flex;
     flex-direction: column;
-    padding: var(--space-sm) 0;
     border-right: 1px solid var(--border-color);
     background: rgba(0, 0, 0, 0.03);
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
-[data-theme="dark"] .mega-menu-tabs {
+[data-theme="dark"] .mega-menu-sidebar {
     background: rgba(255, 255, 255, 0.03);
+}
+
+/* Quick links: Getting Started pinned at top of sidebar */
+.mega-menu-quick-links {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm) var(--space-sm) var(--space-xs);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mega-menu-quick-links a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.mega-menu-quick-links a:hover {
+    color: var(--primary);
+    background: rgba(220, 53, 69, 0.05);
+}
+
+/* Tab buttons container */
+.mega-menu-tabs {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm) 0;
+}
+
+[data-theme="dark"] .mega-menu-tabs {
+    background: transparent;
 }
 
 /* Individual tab button */
@@ -6142,58 +6176,11 @@ body.menu-open {
 }
 
 /* Scrolled header: tabbed menu adjustments */
-.header.scrolled .mega-menu-tabs {
+.header.scrolled .mega-menu-sidebar {
     background: rgba(0, 0, 0, 0.02);
     border-right-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Desktop: Getting Started + In-Context Learning paired at top ---- */
-@media (min-width: 768px) {
-    .mega-menu-tabs {
-        flex: 0 0 240px;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .mega-menu-tab {
-        width: 100%;
-    }
-
-    #tab-getting-started,
-    #tab-in-context-learning {
-        width: 50%;
-        order: -1;
-        white-space: normal;
-        text-align: center;
-        font-size: 0.75rem;
-        line-height: 1.3;
-        padding: var(--space-xs) var(--space-xs);
-        border-left: none;
-        border-bottom: 2px solid transparent;
-        margin-bottom: 0;
-    }
-
-    #tab-getting-started {
-        order: -2;
-        border-radius: var(--radius-lg) 0 0 0;
-    }
-
-    #tab-in-context-learning {
-        border-radius: 0;
-    }
-
-    #tab-getting-started.is-active,
-    #tab-in-context-learning.is-active {
-        border-left-color: transparent;
-        border-bottom-color: var(--primary);
-        background: rgba(220, 53, 69, 0.08);
-    }
-
-    #tab-getting-started:hover,
-    #tab-in-context-learning:hover {
-        border-bottom-color: rgba(220, 53, 69, 0.3);
-    }
-}
 
 /* Tabbed mega-menu mobile accordion ---- */
 @media (max-width: 767px) {
@@ -6206,8 +6193,42 @@ body.menu-open {
     }
 
     /* Hide desktop tab buttons on mobile */
+    /* Hide tab buttons on mobile (accordion replaces them) */
     .mega-menu--tabbed .mega-menu-tabs {
         display: none;
+    }
+
+    /* Sidebar: show quick links, hide border */
+    .mega-menu--tabbed .mega-menu-sidebar {
+        border-right: none;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    /* Quick links: visible on mobile as styled nav links */
+    .mega-menu--tabbed .mega-menu-quick-links {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-sm);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: var(--space-xs);
+    }
+
+    .mega-menu--tabbed .mega-menu-quick-links a {
+        flex: 1;
+        text-align: center;
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #fff;
+        background: rgba(220, 53, 69, 0.15);
+        border-radius: var(--radius-sm);
+    }
+
+    .mega-menu--tabbed .mega-menu-quick-links a:hover {
+        background: rgba(220, 53, 69, 0.3);
+        color: #fff;
     }
 
     /* Sections are blocks, not display:contents */
