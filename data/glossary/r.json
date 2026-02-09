@@ -1,6 +1,6 @@
 {
   "letter": "r",
-  "count": 167,
+  "count": 189,
   "terms": [
     {
       "id": "term-r-squared",
@@ -23,6 +23,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-race",
+      "term": "RACE",
+      "definition": "A reading comprehension dataset collected from English exams for Chinese middle and high school students. Contains nearly 28000 passages with 100000 questions testing various comprehension skills.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -327,6 +339,32 @@
       "related": []
     },
     {
+      "id": "term-realtoxicityprompts",
+      "term": "RealToxicityPrompts",
+      "definition": "A dataset of 100000 naturally occurring prompts for measuring the risk of neural toxic degeneration. Tests how often language models generate toxic text given various prompt conditions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-realworldqa",
+      "term": "RealWorldQA",
+      "definition": "A multimodal benchmark of questions about real-world images testing practical visual understanding. Covers everyday scenarios that require common sense and world knowledge.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-reasoning",
       "term": "Reasoning (AI)",
       "definition": "AI's ability to draw logical conclusions, follow multi-step chains, and solve complex problems. A key capability that distinguishes modern LLMs from simpler systems.",
@@ -411,6 +449,19 @@
       "related": []
     },
     {
+      "id": "term-reclor",
+      "term": "ReClor",
+      "definition": "A reading comprehension dataset requiring logical reasoning derived from standardized graduate admission tests. Tests the ability to apply logical principles to text understanding.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-reconstruction-loss",
       "term": "Reconstruction Loss",
       "definition": "A loss function that measures how well a model can reconstruct its input from a compressed or encoded representation. Used in autoencoders and variational autoencoders. Can be implemented as MSE for continuous data or cross-entropy for discrete data.",
@@ -419,6 +470,18 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-record",
+      "term": "ReCoRD",
+      "definition": "Reading Comprehension with Commonsense Reasoning Dataset a cloze-style reading comprehension dataset requiring commonsense reasoning to fill in masked entities from news articles.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -519,6 +582,18 @@
       "related": []
     },
     {
+      "id": "term-reddit-dataset",
+      "term": "Reddit Dataset",
+      "definition": "A graph dataset of Reddit posts where each post is a node and connections represent user co-commenting patterns. Used for graph-based semi-supervised node classification benchmarking.",
+      "tags": [
+        "Benchmark",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-redpajama",
       "term": "RedPajama",
       "definition": "An open-source effort to reproduce the LLaMA training dataset and model. Provides a fully open training pipeline including the 1.2 trillion token dataset and model checkpoints at various sizes.",
@@ -527,6 +602,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-redpajama-v2",
+      "term": "RedPajama V2",
+      "definition": "The second version of the RedPajama dataset containing over 30 trillion tokens from 5 languages with quality signals and deduplication annotations. One of the largest open pretraining datasets.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -551,6 +638,30 @@
         "Model Optimization"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-refcoco",
+      "term": "RefCOCO",
+      "definition": "A referring expression comprehension dataset based on COCO images where models must localize objects described by natural language expressions. Tests language-guided visual grounding.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-refinedweb",
+      "term": "RefinedWeb",
+      "definition": "A 5 trillion token web dataset created by Falcon/TII using careful deduplication and filtering of Common Crawl data. Demonstrates that properly cleaned web data alone can match curated corpora.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -923,6 +1034,31 @@
         "Infrastructure"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-repobench",
+      "term": "RepoBench",
+      "definition": "A benchmark for repository-level code completion evaluating the ability to use cross-file context. Tests real-world coding scenarios requiring understanding of project structure.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-repoeval",
+      "term": "RepoEval",
+      "definition": "A benchmark for evaluating code completion and generation at the repository level. Tests the ability to generate code consistent with project conventions and dependencies.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1335,6 +1471,18 @@
       "related": []
     },
     {
+      "id": "term-reuters-21578",
+      "term": "Reuters-21578",
+      "definition": "A collection of 21578 news articles from Reuters categorized into 135 topics. One of the earliest and most widely used text classification benchmark datasets.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-reward",
       "term": "Reward",
       "definition": "A scalar signal received by an agent from the environment after taking an action, indicating how good or bad the outcome was. Rewards drive learning by defining the optimization objective.",
@@ -1467,6 +1615,32 @@
       "related": []
     },
     {
+      "id": "term-rgb",
+      "term": "RGB",
+      "definition": "Reasoning over Grounded and Biased knowledge a benchmark testing LLM behavior when retrieved knowledge conflicts with parametric knowledge. Tests knowledge conflict resolution.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-rgb-benchmark",
+      "term": "RGB Benchmark",
+      "definition": "A Retrieval and Generation Benchmark testing language models on the interplay between retrieved context and model knowledge for question answering.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-rst",
       "term": "Rhetorical Structure Theory",
       "definition": "A theory of text organization that describes how clauses and larger text spans are connected through rhetorical relations like elaboration, contrast, and cause, forming a hierarchical discourse tree.",
@@ -1587,6 +1761,19 @@
       "related": []
     },
     {
+      "id": "term-rlbench",
+      "term": "RLBench",
+      "definition": "A large-scale robot learning benchmark providing 100 manipulation tasks in simulation with demonstrations. Tests learning from demonstration and reinforcement learning for robotic manipulation.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning",
+        "Robotics"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-rlhf",
       "term": "RLHF (Reinforcement Learning from Human Feedback)",
       "definition": "A training technique that uses human preferences to guide model behavior. Human raters compare outputs, and these preferences train a reward model that shapes the LLM.",
@@ -1696,6 +1883,19 @@
       "related": []
     },
     {
+      "id": "term-robosuite",
+      "term": "RoboSuite",
+      "definition": "A modular simulation framework for robot learning providing standardized manipulation tasks controllers and environments for benchmarking robot learning algorithms.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning",
+        "Robotics"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-robot-rights",
       "term": "Robot Rights",
       "definition": "The concept that sufficiently advanced robots or AI systems might deserve legal protections or moral consideration analogous to those granted to humans or animals, a topic of active philosophical and legal debate.",
@@ -1774,6 +1974,18 @@
       "tags": [
         "Machine Learning",
         "Metrics"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-rocstories",
+      "term": "ROCStories",
+      "definition": "A corpus of 50000 five-sentence commonsense stories capturing a rich set of causal and temporal relations between daily events. Used with the StoryCloze test for narrative understanding.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
       ],
       "domain": "datasets",
       "link": null,
@@ -1876,6 +2088,19 @@
       "related": []
     },
     {
+      "id": "term-roots",
+      "term": "ROOTS",
+      "definition": "The corpus used to train the BLOOM multilingual language model containing 1.6TB of text in 46 natural languages and 13 programming languages. Curated by the BigScience project with documentation.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-rope",
       "term": "RoPE (Rotary Position Embedding)",
       "definition": "A positional encoding technique that encodes position through rotation in complex space. Enables better length generalization than absolute position encodings.",
@@ -1884,6 +2109,19 @@
         "Transformers"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ropes",
+      "term": "Ropes",
+      "definition": "Reasoning Over Paragraph Effects in Situations a dataset requiring understanding of cause-and-effect in given situations. Tests qualitative reasoning about physical and biological processes.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1996,6 +2234,31 @@
       "related": []
     },
     {
+      "id": "term-rte",
+      "term": "RTE",
+      "definition": "Recognizing Textual Entailment a collection of datasets from annual PASCAL challenges testing whether a hypothesis sentence is entailed by a premise sentence. Part of GLUE and SuperGLUE.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ruler",
+      "term": "RULER",
+      "definition": "A synthetic benchmark for evaluating long-context language models with controllable complexity. Tests retrieval reasoning and multi-hop abilities across varying context lengths.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-rwkv",
       "term": "RWKV",
       "definition": "A linear attention-based architecture that combines the parallelizable training of transformers with the efficient inference of RNNs, using a novel time-mixing and channel-mixing approach.",
@@ -2004,6 +2267,19 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-rxrx1",
+      "term": "RxRx1",
+      "definition": "A biological image dataset of fluorescent microscopy images showing cells under 1108 different genetic perturbations. Used for drug discovery and cellular phenotype classification.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

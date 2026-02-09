@@ -1,6 +1,6 @@
 {
   "letter": "j",
-  "count": 32,
+  "count": 36,
   "terms": [
     {
       "id": "term-jaccard-index",
@@ -123,6 +123,19 @@
       "related": []
     },
     {
+      "id": "term-jeebench",
+      "term": "JEEBench",
+      "definition": "A benchmark of questions from the Joint Entrance Examination testing reasoning in physics chemistry and mathematics. Tests advanced STEM problem solving at college entrance level.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-jeff-dean",
       "term": "Jeff Dean",
       "definition": "American computer scientist and head of Google AI who co-developed foundational large-scale systems including MapReduce TensorFlow and the Transformer architecture team at Google. Instrumental in scaling deep learning from research to production systems.",
@@ -155,6 +168,32 @@
         "Probability"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-jglue",
+      "term": "JGLUE",
+      "definition": "Japanese General Language Understanding Evaluation a benchmark of Japanese NLU tasks analogous to GLUE. Tests language understanding capabilities specific to the Japanese language.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-jigsaw-toxic-comment",
+      "term": "Jigsaw Toxic Comment",
+      "definition": "A dataset of Wikipedia talk page comments annotated for multiple types of toxicity including threats obscenity and identity-based attacks. Used in Kaggle competitions for content moderation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -251,6 +290,18 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-journeydb",
+      "term": "JourneyDB",
+      "definition": "A dataset of 4 million Midjourney prompt-image pairs with style and content annotations. Used for studying text-to-image generation and prompt engineering patterns.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,0 +1,31 @@
+{
+  "letter": "_other",
+  "count": 2,
+  "terms": [
+    {
+      "id": "term-20-newsgroups",
+      "term": "20 Newsgroups",
+      "definition": "A collection of approximately 20000 newsgroup documents partitioned across 20 different discussion groups. A classic benchmark for text classification and topic modeling algorithms.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-2wikimultihopqa",
+      "term": "2WikiMultiHopQA",
+      "definition": "A multi-hop question answering dataset constructed from Wikipedia requiring reasoning across two documents. Provides structured evidence chains for evaluating multi-hop reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    }
+  ]
+}

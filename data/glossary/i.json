@@ -1,6 +1,6 @@
 {
   "letter": "i",
-  "count": 125,
+  "count": 140,
   "terms": [
     {
       "id": "term-ian-goodfellow",
@@ -71,6 +71,19 @@
         "Conferences"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-iconqa",
+      "term": "IconQA",
+      "definition": "A diagram question answering benchmark testing abstract diagrammatic reasoning. Contains questions about icons and abstract diagrams requiring spatial and logical reasoning.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -267,6 +280,18 @@
       "related": []
     },
     {
+      "id": "term-image-paragraph-captioning",
+      "term": "Image Paragraph Captioning",
+      "definition": "A dataset requiring generation of detailed multi-sentence paragraph descriptions of images. Tests the ability to produce rich extended descriptions beyond single-sentence captions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-image-registration",
       "term": "Image Registration",
       "definition": "The process of aligning two or more images of the same scene taken at different times, viewpoints, or by different sensors, by computing a spatial transformation that maps corresponding points.",
@@ -363,6 +388,18 @@
       "related": []
     },
     {
+      "id": "term-imagenet-large-scale-visual-recognition-challenge",
+      "term": "ImageNet Large Scale Visual Recognition Challenge",
+      "definition": "An annual competition from 2010 to 2017 that measured progress in image classification and object detection on the ImageNet dataset. The 2012 edition was won by AlexNet marking the start of the deep learning era.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-imagenet-moment",
       "term": "ImageNet Moment",
       "definition": "The pivotal moment in 2012 when Alex Krizhevsky's deep convolutional neural network (AlexNet) won the ImageNet Large Scale Visual Recognition Challenge by a dramatic margin. This event is widely considered the starting point of the modern deep learning revolution.",
@@ -371,6 +408,31 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-imagereward",
+      "term": "ImageReward",
+      "definition": "A dataset and reward model for text-to-image generation aligned with human preferences. Provides systematic evaluation of image generation quality across multiple dimensions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-imdb-reviews",
+      "term": "IMDB Reviews",
+      "definition": "A dataset of 50000 movie reviews from the Internet Movie Database labeled as positive or negative. A standard benchmark for binary sentiment classification in NLP.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -515,6 +577,32 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-in22",
+      "term": "IN22",
+      "definition": "The IndicTrans2 evaluation benchmark covering 22 Indian languages for machine translation evaluation. Provides standardized comparison of translation quality for Indic languages.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-inaturalist",
+      "term": "iNaturalist",
+      "definition": "A large-scale fine-grained species classification dataset from the iNaturalist citizen science platform. Contains hundreds of thousands of images across thousands of plant and animal species.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -675,6 +763,19 @@
       "related": []
     },
     {
+      "id": "term-indicnlpsuite",
+      "term": "IndicNLPSuite",
+      "definition": "A comprehensive NLP benchmark for 11 Indian languages covering text classification sentiment analysis and question answering. Advances NLP research for Indic languages.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-indigenous-data-sovereignty",
       "term": "Indigenous Data Sovereignty",
       "definition": "The right of indigenous peoples to govern the collection ownership and application of data about their communities and territories. Particularly relevant when AI training data includes indigenous knowledge.",
@@ -783,6 +884,19 @@
       "related": []
     },
     {
+      "id": "term-infinitebench",
+      "term": "InfiniteBench",
+      "definition": "A benchmark for evaluating language models on contexts exceeding 100000 tokens. Tests comprehension retrieval and reasoning across extremely long input sequences.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-infonce-loss",
       "term": "InfoNCE Loss",
       "definition": "Information Noise-Contrastive Estimation is a contrastive loss function that trains models to distinguish positive pairs from negative pairs. Forms the basis of contrastive learning methods like CPC SimCLR and CLIP. Maximizes mutual information between representations.",
@@ -887,6 +1001,18 @@
         "AI Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-infovqa",
+      "term": "InfoVQA",
+      "definition": "Infographic VQA a dataset of questions about infographic images requiring reasoning over complex visual layouts. Tests understanding of charts diagrams and information design.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1179,6 +1305,31 @@
       "related": []
     },
     {
+      "id": "term-intercode",
+      "term": "InterCode",
+      "definition": "An interactive code generation benchmark where models execute code in a sandboxed environment and use execution feedback to iteratively improve solutions.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-interleaved-image-text-data",
+      "term": "Interleaved Image-Text Data",
+      "definition": "Datasets of naturally interleaved image and text content from web pages used for training multimodal models. Captures real-world multimodal document structure.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-internist-1",
       "term": "INTERNIST-1",
       "definition": "A medical diagnostic expert system developed by Jack Myers and Harry Pople at the University of Pittsburgh in the 1970s. It covered approximately 500 diseases and 3500 manifestations in internal medicine representing one of the largest early medical AI systems.",
@@ -1199,6 +1350,19 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-internvid",
+      "term": "InternVid",
+      "definition": "A large-scale video-text dataset containing 7 million video clips with generated descriptions. Designed for learning transferable video-language representations.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1395,6 +1559,18 @@
       "related": []
     },
     {
+      "id": "term-iris-dataset",
+      "term": "Iris Dataset",
+      "definition": "A 150-sample dataset of iris flower measurements across 3 species introduced by Ronald Fisher in 1936. One of the most famous datasets in pattern recognition history.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-iso-ai-standards",
       "term": "ISO AI Standards",
       "definition": "International standards developed by ISO/IEC JTC 1/SC 42 for artificial intelligence, including ISO/IEC 42001 for AI management systems and ISO/IEC 23894 for AI risk management.",
@@ -1499,6 +1675,19 @@
         "Index Structure"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-iwildcam",
+      "term": "iWildCam",
+      "definition": "A camera trap image classification challenge dataset from diverse global locations. Tests the ability of models to identify wildlife species across different camera deployments.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Conservation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

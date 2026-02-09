@@ -1,7 +1,19 @@
 {
   "letter": "d",
-  "count": 199,
+  "count": 226,
   "terms": [
+    {
+      "id": "term-d4rl",
+      "term": "D4RL",
+      "definition": "Datasets for Deep Data-Driven Reinforcement Learning a collection of offline RL datasets covering locomotion navigation and manipulation tasks. Standard benchmark for offline RL algorithm evaluation.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
     {
       "id": "term-dagger",
       "term": "DAgger",
@@ -11,6 +23,19 @@
         "Imitation"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dailydialog",
+      "term": "DailyDialog",
+      "definition": "A dataset of 13118 human-written daily conversations annotated with communication acts topics and emotion labels. Tests everyday conversational ability in dialogue systems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -387,6 +412,19 @@
       "related": []
     },
     {
+      "id": "term-datacomp",
+      "term": "DataComp",
+      "definition": "A benchmark for designing multimodal datasets where participants compete to build the best CLIP training set from a fixed candidate pool of image-text pairs from Common Crawl.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-dataset",
       "term": "Dataset",
       "definition": "A collection of data used for training, validating, or testing AI models. Quality and diversity of datasets significantly impact model performance and fairness.",
@@ -435,6 +473,19 @@
       "related": []
     },
     {
+      "id": "term-dbpedia",
+      "term": "DBpedia",
+      "definition": "A structured knowledge base extracted from Wikipedia containing millions of entities and relationships. Used both as a knowledge source and as a text classification benchmark in NLP.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Knowledge"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-dbscan",
       "term": "DBSCAN",
       "definition": "Density-Based Spatial Clustering of Applications with Noise, an algorithm that groups together points that are closely packed based on a distance threshold and minimum point count, identifying clusters of arbitrary shape and labeling outliers.",
@@ -443,6 +494,18 @@
         "Clustering"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dcase",
+      "term": "DCASE",
+      "definition": "Detection and Classification of Acoustic Scenes and Events challenge datasets covering acoustic scene classification sound event detection and audio tagging.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -503,6 +566,19 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-debugbench",
+      "term": "DebugBench",
+      "definition": "A benchmark for evaluating the debugging capabilities of large language models across multiple programming languages and bug types.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -623,6 +699,20 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-decodingtrust",
+      "term": "DecodingTrust",
+      "definition": "A comprehensive trustworthiness benchmark for large language models evaluating 8 dimensions including toxicity stereotype bias robustness and privacy.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -915,6 +1005,18 @@
       "related": []
     },
     {
+      "id": "term-defects4j",
+      "term": "Defects4J",
+      "definition": "A database of real bugs from Java projects with test cases that expose each bug. Used for evaluating automated program repair and fault localization techniques.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-defense-in-depth-for-ai",
       "term": "Defense in Depth for AI",
       "definition": "A security strategy that uses multiple layers of protection to secure AI systems. No single defense is considered sufficient so overlapping safeguards address different threat vectors.",
@@ -972,6 +1074,19 @@
       ],
       "domain": "general",
       "link": "../learn/index.html",
+      "related": []
+    },
+    {
+      "id": "term-delphi-training-data",
+      "term": "Delphi Training Data",
+      "definition": "The training data for the Delphi moral reasoning system containing millions of ethical judgments about everyday situations. Explores descriptive ethics at scale.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
       "related": []
     },
     {
@@ -1311,6 +1426,19 @@
       "related": []
     },
     {
+      "id": "term-devbench",
+      "term": "DevBench",
+      "definition": "A comprehensive benchmark for evaluating AI coding assistants on realistic software development tasks. Tests project-level understanding including design implementation and testing.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-deviance",
       "term": "Deviance",
       "definition": "A goodness-of-fit statistic for generalized linear models, computed as twice the difference in log-likelihoods between the fitted model and the saturated model. It generalizes the residual sum of squares.",
@@ -1367,6 +1495,19 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-didemo",
+      "term": "DiDeMo",
+      "definition": "Distinct Describable Moments a video retrieval dataset where models must localize moments in video described by natural language queries. Tests temporal video-language alignment.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1499,6 +1640,18 @@
         "Image Processing"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-diffusiondb",
+      "term": "DiffusionDB",
+      "definition": "A large-scale dataset of 14 million text-to-image prompt and generation pairs from Stable Diffusion. Provides real user prompts and their corresponding generated images for research.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1947,6 +2100,32 @@
       "related": []
     },
     {
+      "id": "term-dm-control-suite",
+      "term": "DM Control Suite",
+      "definition": "DeepMind Control Suite a set of continuous control tasks built on the MuJoCo physics engine. Provides standardized benchmarks for evaluating reinforcement learning algorithms.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-do-not-answer",
+      "term": "Do-Not-Answer",
+      "definition": "A dataset of 939 prompts that responsible language models should refuse to answer. Used for evaluating safety guardrails and content policy compliance in LLMs.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-document-ai",
       "term": "Document AI",
       "definition": "AI systems that understand and extract structured information from documents by combining OCR, layout analysis, and language understanding to process invoices, forms, contracts, and other document types.",
@@ -2007,6 +2186,42 @@
       "related": []
     },
     {
+      "id": "term-docvqa",
+      "term": "DocVQA",
+      "definition": "A document visual question answering dataset with questions about document images. Tests the ability to extract and reason about information from document layouts.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dolly-20-dataset",
+      "term": "Dolly 2.0 Dataset",
+      "definition": "A dataset of 15000 instruction-following records generated by Databricks employees. One of the first commercially usable instruction-following datasets created by humans.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dolma",
+      "term": "Dolma",
+      "definition": "An open pretraining corpus of 3 trillion tokens created by AI2 for training the OLMo language model. Combines web data code scientific papers and encyclopedic content with transparent documentation.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-domain-adaptation",
       "term": "Domain Adaptation",
       "definition": "Techniques for adapting a model trained on one domain (e.g., general text) to perform well on another domain (e.g., medical or legal text) with limited target domain data.",
@@ -2055,6 +2270,18 @@
       "related": []
     },
     {
+      "id": "term-domainnet",
+      "term": "DomainNet",
+      "definition": "A domain adaptation dataset containing 600000 images across 345 categories in 6 visual domains. Tests the ability of models to generalize across different visual styles.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-donald-hebb",
       "term": "Donald Hebb",
       "definition": "Canadian neuropsychologist (1904-1985) who proposed Hebbian learning theory in his 1949 book The Organization of Behavior, providing a neurobiological basis for learning that inspired computational models of neural plasticity.",
@@ -2087,6 +2314,19 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dota",
+      "term": "DOTA",
+      "definition": "A large-scale dataset for object detection in aerial images containing 188282 instances across 15 categories. Addresses challenges unique to overhead imagery like arbitrary orientation.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Remote Sensing"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2151,6 +2391,19 @@
       "related": []
     },
     {
+      "id": "term-dpg-bench",
+      "term": "DPG-Bench",
+      "definition": "Dense Prompt Graph Benchmark for evaluating text-to-image models on detailed long-form prompts. Tests the ability to follow complex multi-attribute image descriptions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-dpo",
       "term": "DPO (Direct Preference Optimization)",
       "definition": "A simpler alternative to RLHF for aligning language models. Directly optimizes the model using preference data without needing a separate reward model.",
@@ -2171,6 +2424,19 @@
         "Systems"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-drawbench",
+      "term": "DrawBench",
+      "definition": "A benchmark of text prompts for evaluating text-to-image generation models across categories like color spatial relationships and compositionality.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2207,6 +2473,19 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-drop",
+      "term": "DROP",
+      "definition": "Discrete Reasoning Over Paragraphs a reading comprehension benchmark requiring numerical reasoning over text. Questions involve counting sorting comparison and arithmetic operations on passage content.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2271,6 +2550,43 @@
       "related": []
     },
     {
+      "id": "term-ds-1000",
+      "term": "DS-1000",
+      "definition": "A code generation benchmark of 1000 data science problems spanning seven Python libraries including NumPy Pandas and Scikit-learn. Tests practical data science programming ability.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dstc",
+      "term": "DSTC",
+      "definition": "Dialogue State Tracking Challenge a series of shared tasks and datasets for evaluating dialogue state tracking in task-oriented dialogue systems. Covers multiple domains and languages.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dtd",
+      "term": "DTD",
+      "definition": "The Describable Textures Dataset containing 5640 images across 47 texture categories annotated with human-describable attributes. Used for texture recognition and material classification research.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-dual-use-concern",
       "term": "Dual-Use Concern",
       "definition": "The recognition that AI technologies developed for beneficial purposes can also be used for harmful applications. Requires researchers and developers to consider potential misuse and implement safeguards.",
@@ -2319,6 +2635,18 @@
       "related": []
     },
     {
+      "id": "term-dvqa",
+      "term": "DVQA",
+      "definition": "Document Visual QA a benchmark for answering questions about bar charts. Tests understanding of chart elements legend interpretation and quantitative reasoning about visualizations.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-dyna-architecture",
       "term": "Dyna Architecture",
       "definition": "A model-based RL framework that integrates direct learning from real experience with planning through simulated experience generated by a learned environment model. Dyna interleaves model learning, planning, and acting in a unified loop.",
@@ -2327,6 +2655,19 @@
         "Planning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-dynabench",
+      "term": "Dynabench",
+      "definition": "A platform for dynamic benchmarking where humans create adversarial examples targeting model weaknesses. Addresses the problem of static benchmarks becoming saturated over time.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

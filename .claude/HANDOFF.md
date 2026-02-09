@@ -1,8 +1,8 @@
 # Praxis Project Handoff Document
 
-**Last Updated:** 2026-02-08 (Session 65 — Directory Migration + Batch 004 Safety)
-**Last Commit:** `1ed8844` — chore: Track .claude/ project files in repository
-**Uncommitted Changes:** This handoff doc update (commit before starting work)
+**Last Updated:** 2026-02-08 (Session 66 — Batch 005 Datasets)
+**Last Commit:** `75c5bfa` — docs: Session 65 handoff
+**Uncommitted Changes:** Batch 005 datasets (606 terms added)
 **Current Phase:** Phase 7 — World Source Archive (Glossary 15K+ Expansion)
 **Working Directory:** `C:\Users\basro\Music\PraxisLibrary`
 
@@ -17,7 +17,7 @@
 - **Phase 5: Navigation UX** — COMPLETE
 - **Phase 6: Prompt Infographic Rollout** — PAUSED (2/108 done: costar + crisp)
 - **Phase 7: World Source Archive** — IN PROGRESS (4 batches done, term farming active)
-- **Site totals:** 108 framework pages, 3,072 glossary terms (sharded), 149 HTML files, 187 site search entries
+- **Site totals:** 108 framework pages, 3,678 glossary terms (sharded), 149 HTML files, 187 site search entries
 
 ---
 
@@ -31,15 +31,15 @@
 | 002 | Models | 252 | 150 | 102 | 0 | `c86cc39` |
 | 003 | History | 464 | 290 | 174 | 0 | `183fc50` |
 | 004 | Safety | 304 | 297 | 7 | 0 | `16a1da6` |
+| 005 | Datasets | 634 | 606 | 28 | 0 | *pending* |
 
-**Running total:** 2,141 → 2,357 → 2,335 (post-dedup) → 2,485 → 2,775 → 3,072
+**Running total:** 2,141 → 2,357 → 2,335 (post-dedup) → 2,485 → 2,775 → 3,072 → 3,678
 
 ### Next Steps (Term Farming)
 
-Goal: 15,000+ verified terms. Current: 3,072. Remaining: ~11,928.
+Goal: 15,000+ verified terms. Current: 3,678. Remaining: ~11,322.
 
 **Next batches (planned order):**
-- Batch 005: Datasets (~500 terms) — benchmarks, evaluation suites, training corpora
 - Batch 006: Hardware (~500 terms) — GPUs, TPUs, chips, infrastructure
 - Batch 007+: Second round — Models, Algorithms, General (larger batches to fill gaps)
 
@@ -78,6 +78,7 @@ glossary_factory/              # LOCAL ONLY — not on GitHub
     batch-002-models.csv       # 252 terms (150 added)
     batch-003-history.csv      # 464 terms (290 added)
     batch-004-safety.csv       # 304 terms (297 added)
+    batch-005-datasets.csv     # 634 terms (606 added)
 ```
 
 ### Term Domain Taxonomy (7 domains)
@@ -90,7 +91,7 @@ glossary_factory/              # LOCAL ONLY — not on GitHub
 | algorithms | 445 | ~3,000 | Math, optimization, algorithmic mechanics |
 | history | 442 | ~2,000 | Pre-2010 milestones, pioneers, systems |
 | hardware | 226 | ~1,500 | GPUs, TPUs, chips, compute |
-| datasets | 119 | ~2,500 | Datasets, benchmarks, evaluation suites |
+| datasets | 725 | ~2,500 | Datasets, benchmarks, evaluation suites |
 
 ---
 
@@ -119,6 +120,12 @@ Progress: 2/108 done (costar + crisp).
 ---
 
 ## PREVIOUS SESSION SUMMARIES
+
+### Session 66 (2026-02-08) — Batch 005 Datasets
+- Batch 005 Datasets: 634 CSV terms, 606 added, 28 dupes skipped, 0 invalid
+- Coverage: benchmarks, evaluation suites, training corpora, multimodal datasets, code datasets, speech/audio, video, RL environments, medical/scientific, multilingual, fairness/safety benchmarks
+- Datasets domain grew from 119 to 725 terms
+- Total glossary: 3,678 terms (up from 3,072)
 
 ### Session 65 (2026-02-08) — Directory Migration + Batch 004 Safety + Git Cleanup
 - Migrated working directory from `_public_html` to `PraxisLibrary`

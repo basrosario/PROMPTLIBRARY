@@ -1,7 +1,20 @@
 {
   "letter": "b",
-  "count": 133,
+  "count": 158,
   "terms": [
+    {
+      "id": "term-babilong",
+      "term": "Babilong",
+      "definition": "A benchmark for evaluating long-context reasoning by extending bAbI tasks to very long contexts. Tests whether models can reason over relevant information buried in long sequences.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
     {
       "id": "term-back-translation",
       "term": "Back-Translation",
@@ -87,6 +100,19 @@
       "related": []
     },
     {
+      "id": "term-bactrian-x",
+      "term": "Bactrian-X",
+      "definition": "A multilingual instruction-following dataset covering 52 languages created by translating Alpaca instructions. Tests whether translated instructions produce effective multilingual models.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-bag-of-words",
       "term": "Bag of Words",
       "definition": "A simple text representation that counts word occurrences, ignoring order and grammar. Despite its simplicity, still useful for some classification tasks and as a baseline.",
@@ -119,6 +145,19 @@
         "Chinese AI"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bamboogle",
+      "term": "Bamboogle",
+      "definition": "A dataset of multi-hop questions specifically designed to be answerable by combining multiple Google searches. Tests the ability to integrate information from multiple sources.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -459,6 +498,31 @@
       "related": []
     },
     {
+      "id": "term-bbq",
+      "term": "BBQ",
+      "definition": "Bias Benchmark for QA a dataset of 58000 question-answer pairs testing social biases in language models across 11 categories. Evaluates whether models exhibit biased behavior in ambiguous contexts.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bdd100k",
+      "term": "BDD100K",
+      "definition": "The Berkeley Deep Drive dataset containing 100000 driving videos with diverse annotations including image-level tagging object detection lane marking and semantic segmentation.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-beam-search",
       "term": "Beam Search",
       "definition": "A search algorithm used in text generation that maintains multiple candidate sequences at each step, selecting the most promising ones. Balances quality and computational cost compared to exhaustive search.",
@@ -479,6 +543,33 @@
         "Fundamentals"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-beavertails",
+      "term": "BeaverTails",
+      "definition": "A dataset of harmful LLM outputs categorized across 14 harm categories with safety labels. Used for training content safety classifiers and harmlessness reward models.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-begin",
+      "term": "BEGIN",
+      "definition": "Benchmark for Evaluation of Grounded Interaction in Natural Language a dataset for evaluating grounded dialogue systems on faithfulness to source knowledge.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation",
+        "Dialogue"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -531,6 +622,19 @@
       "related": []
     },
     {
+      "id": "term-beir",
+      "term": "BEIR",
+      "definition": "Benchmarking Information Retrieval a heterogeneous benchmark of 18 retrieval datasets for zero-shot evaluation. Tests generalization of retrieval models across diverse domains.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-beit",
       "term": "BEiT",
       "definition": "Bidirectional Encoder representation from Image Transformers applies masked image modeling as a pretraining task for vision transformers. Tokenizes image patches into visual tokens and predicts masked tokens similar to BERT in NLP.",
@@ -539,6 +643,19 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-belebele",
+      "term": "Belebele",
+      "definition": "A reading comprehension benchmark covering 122 language variants with parallel passages and questions. One of the most linguistically diverse NLP evaluation benchmarks available.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -927,6 +1044,30 @@
       "related": []
     },
     {
+      "id": "term-big-bench",
+      "term": "BIG-bench",
+      "definition": "The Beyond the Imitation Game Benchmark a collaborative benchmark of over 200 tasks contributed by 450 researchers. Tests language model capabilities including reasoning knowledge and social understanding.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-big-bench-hard",
+      "term": "BIG-bench Hard",
+      "definition": "A subset of 23 particularly challenging BIG-bench tasks where prior language model evaluations fell below average human performance. Used to test frontier model reasoning abilities.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-bigbench",
       "term": "BigBench",
       "definition": "Beyond the Imitation Game Benchmark, a large collaborative benchmark containing over 200 diverse tasks contributed by researchers, designed to probe language model capabilities including reasoning, translation, and social understanding that go beyond standard benchmarks.",
@@ -947,6 +1088,32 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bigcodebench",
+      "term": "BigCodeBench",
+      "definition": "A comprehensive benchmark for evaluating code generation models on practical programming tasks. Tests functional correctness across diverse real-world programming scenarios.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bigearthnet",
+      "term": "BigEarthNet",
+      "definition": "A large-scale Sentinel-2 satellite image benchmark containing 590326 image patches with multiple land cover labels. One of the largest remote sensing classification datasets.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Remote Sensing"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1047,6 +1214,19 @@
       "related": []
     },
     {
+      "id": "term-bioasq",
+      "term": "BioASQ",
+      "definition": "A biomedical semantic indexing and question answering challenge providing datasets for biomedical information retrieval and QA. Includes yes/no factoid list and summary questions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Medical"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-bioes-tagging",
       "term": "BIOES Tagging",
       "definition": "An extended sequence labeling scheme that adds End and Single tags to the BIO format, providing more precise boundary information for named entities and improving recognition accuracy.",
@@ -1091,6 +1271,19 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bird",
+      "term": "BIRD",
+      "definition": "A large text-to-SQL benchmark featuring real-world databases with dirty data and external knowledge requirements. More challenging than Spider with practical database scenarios.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1167,6 +1360,19 @@
       "related": []
     },
     {
+      "id": "term-blended-skill-talk",
+      "term": "Blended Skill Talk",
+      "definition": "A dialogue dataset requiring models to blend multiple conversational skills including knowledge personality and empathy in a single conversation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-bletchley-declaration-on-ai",
       "term": "Bletchley Declaration on AI",
       "definition": "A declaration signed by 28 countries at the November 2023 AI Safety Summit at Bletchley Park, acknowledging the potential for serious harm from frontier AI and committing to international cooperation on safety.",
@@ -1199,6 +1405,20 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bleu-reference-data",
+      "term": "BLEU Reference Data",
+      "definition": "Standard reference translation datasets used for computing BLEU scores in machine translation evaluation. Provides human translations as gold standards for automatic metrics.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation",
+        "Translation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1287,6 +1507,19 @@
       "related": []
     },
     {
+      "id": "term-bold",
+      "term": "BOLD",
+      "definition": "Bias in Open-ended Language Generation Dataset a benchmark of 23679 prompts for evaluating social biases across 5 domains in open-ended text generation by language models.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-boltzmann-exploration",
       "term": "Boltzmann Exploration",
       "definition": "An exploration strategy that selects actions with probability proportional to exponentiated Q-values divided by a temperature parameter. Higher temperatures increase randomness while lower temperatures converge toward greedy selection.",
@@ -1323,6 +1556,30 @@
       "related": []
     },
     {
+      "id": "term-bookcorpus",
+      "term": "BookCorpus",
+      "definition": "A dataset of 11000 free books from unpublished authors used to train the original BERT model alongside Wikipedia. Provides narrative text that complements encyclopedic knowledge.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-booksum",
+      "term": "BookSum",
+      "definition": "A dataset for long-form narrative summarization of full-length books and their chapter-level and book-level summaries. Tests the ability to comprehend and summarize very long documents.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-boolean-retrieval",
       "term": "Boolean Retrieval",
       "definition": "Search using AND, OR, NOT operators to combine terms. Simple but limited compared to semantic search. Still used in specialized databases and advanced search interfaces.",
@@ -1331,6 +1588,31 @@
         "Traditional"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-boolq",
+      "term": "BoolQ",
+      "definition": "A question answering dataset of 15942 yes/no questions naturally generated from Google search queries. Tests the ability to perform boolean reasoning about short Wikipedia passages.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-boolq-contrast-set",
+      "term": "BoolQ Contrast Set",
+      "definition": "A modified version of BoolQ with expert-crafted perturbations that change the correct answer. Tests model robustness to small but meaningful input changes.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1379,6 +1661,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-boston-housing",
+      "term": "Boston Housing",
+      "definition": "A classic regression dataset containing housing prices in Boston suburbs with 13 features. Widely used for teaching regression analysis though criticized for racial bias issues.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1467,6 +1761,19 @@
       "related": []
     },
     {
+      "id": "term-breast-cancer-wisconsin",
+      "term": "Breast Cancer Wisconsin",
+      "definition": "A dataset of 569 fine needle aspirate cell measurements for classifying breast tumors as malignant or benign. Widely used for binary classification benchmarking.",
+      "tags": [
+        "Benchmark",
+        "Tabular",
+        "Medical"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-brier-score",
       "term": "Brier Score",
       "definition": "A scoring metric that measures the accuracy of probabilistic predictions by computing the mean squared difference between predicted probabilities and actual binary outcomes. Lower values indicate better calibrated predictions.",
@@ -1511,6 +1818,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-bugsinpy",
+      "term": "BugsInPy",
+      "definition": "A database of real bugs from Python programs with test cases for each bug. Used for benchmarking automated debugging and program repair approaches in Python.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

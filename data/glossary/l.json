@@ -1,6 +1,6 @@
 {
   "letter": "l",
-  "count": 122,
+  "count": 148,
   "terms": [
     {
       "id": "term-l-bfgs",
@@ -11,6 +11,19 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-l-eval",
+      "term": "L-Eval",
+      "definition": "A comprehensive long-context evaluation benchmark containing diverse tasks with inputs ranging from 3000 to 60000 words. Tests summarization QA and reasoning on long documents.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -123,6 +136,42 @@
       "related": []
     },
     {
+      "id": "term-laion-400m",
+      "term": "LAION-400M",
+      "definition": "A dataset of 400 million image-text pairs from Common Crawl filtered using CLIP similarity scores. Used for training open-source vision-language and image generation models.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-laion-5b",
+      "term": "LAION-5B",
+      "definition": "A dataset of 5.85 billion image-text pairs filtered from Common Crawl. One of the largest publicly available datasets for training multimodal models like Stable Diffusion.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-laion-aesthetics",
+      "term": "LAION-Aesthetics",
+      "definition": "A subset of LAION-5B filtered for aesthetic quality using a learned aesthetic predictor. Used to train image generation models that produce more visually appealing outputs.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-lamb",
       "term": "LAMB",
       "definition": "Layer-wise Adaptive Moments optimizer designed for large-batch distributed training. Extends LARS with Adam-style momentum. Used to train BERT in 76 minutes on TPU pods by enabling effective training with very large batch sizes.",
@@ -143,6 +192,18 @@
         "Distributed Computing"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lambada",
+      "term": "LAMBADA",
+      "definition": "Language Modeling Broadened to Account for Discourse Aspects a dataset testing the ability of language models to predict the final word of passages requiring broad discourse understanding.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -315,6 +376,19 @@
       "related": []
     },
     {
+      "id": "term-lastletterconcat",
+      "term": "LastLetterConcat",
+      "definition": "A benchmark testing the ability of language models to concatenate the last letters of a sequence of words. Tests basic symbolic manipulation capabilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-late-chunking",
       "term": "Late Chunking",
       "definition": "A technique that first encodes an entire document through a long-context embedding model and then pools token embeddings into chunk-level representations, preserving cross-chunk contextual information.",
@@ -383,6 +457,18 @@
         "Data Science"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lave",
+      "term": "LAVE",
+      "definition": "Language-Aligned Visual Evaluation a methodology for evaluating generated images using language-vision models. Provides automated assessment of text-image alignment quality.",
+      "tags": [
+        "Evaluation",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -555,6 +641,18 @@
       "related": []
     },
     {
+      "id": "term-leetcode-dataset",
+      "term": "LeetCode Dataset",
+      "definition": "Collections of programming problems from LeetCode with solutions used for evaluating code generation capabilities on algorithmic and data structure challenges.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-legal-personhood-for-ai",
       "term": "Legal Personhood for AI",
       "definition": "The concept of granting AI systems legal rights and obligations similar to those of corporations. Debated as a potential framework for liability and accountability but criticized for potentially deflecting human responsibility.",
@@ -675,6 +773,18 @@
       "related": []
     },
     {
+      "id": "term-lfw",
+      "term": "LFW",
+      "definition": "Labeled Faces in the Wild a dataset of 13000 face images of 5749 people collected from the web. The standard benchmark for evaluating face verification algorithms in unconstrained conditions.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-liability-for-ai",
       "term": "Liability for AI",
       "definition": "Legal responsibility for harm caused by AI systems. Current legal frameworks struggle to assign liability when AI makes autonomous decisions and new frameworks are being developed in various jurisdictions.",
@@ -683,6 +793,18 @@
         "Policy"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-librilight",
+      "term": "LibriLight",
+      "definition": "A large-scale semi-supervised speech dataset containing 60000 hours of unlabeled English speech from LibriVox. Designed for research on low-resource and self-supervised speech recognition.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -779,6 +901,31 @@
         "Inference"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lila",
+      "term": "LILA",
+      "definition": "Labeled Information Library of Alexandria a repository of camera trap datasets for wildlife conservation. Aggregates millions of annotated wildlife images from conservation projects worldwide.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Conservation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lima-dataset",
+      "term": "Lima Dataset",
+      "definition": "A carefully curated dataset of 1000 high-quality instruction-response pairs demonstrating that a small amount of excellent data can produce capable instruction-following models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -915,6 +1062,43 @@
       "related": []
     },
     {
+      "id": "term-livebench",
+      "term": "LiveBench",
+      "definition": "A continuously updated benchmark for language models using questions from recent sources to prevent contamination. Provides fresh evaluation that models cannot have memorized.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-livecodebench",
+      "term": "LiveCodeBench",
+      "definition": "A continuously updated benchmark of competitive programming problems collected after model training cutoffs. Designed to prevent data contamination in code generation evaluation.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lj-speech",
+      "term": "LJ Speech",
+      "definition": "A public domain speech dataset of 13100 short audio clips from a single speaker reading passages from 7 non-fiction books. Widely used for text-to-speech system development.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-llama",
       "term": "Llama",
       "definition": "Meta's open-weight family of large language models. Released with relatively permissive licenses, enabling widespread research and commercial use of capable open models.",
@@ -1011,6 +1195,18 @@
       "related": []
     },
     {
+      "id": "term-llava-visual-instruct",
+      "term": "LLaVA Visual Instruct",
+      "definition": "A multimodal instruction-following dataset combining visual inputs with text instructions. Used to train the LLaVA vision-language model for visual chat and reasoning.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-llemma",
       "term": "Llemma",
       "definition": "An open language model for mathematics built by continuing pretraining of Code Llama on a blend of mathematical documents and code. Achieves strong math performance while being fully open-source.",
@@ -1043,6 +1239,30 @@
         "Compression"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lmsys-elo-ratings",
+      "term": "LMSys Elo Ratings",
+      "definition": "A ranking system for language models based on human preference votes from the Chatbot Arena. Provides empirical performance rankings based on crowdsourced comparisons.",
+      "tags": [
+        "Evaluation",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lmsys-chat-1m",
+      "term": "LMSYS-Chat-1M",
+      "definition": "A dataset of one million real-world conversations with 25 LLMs collected from the LMSYS Chatbot Arena platform. Provides diverse user interactions for studying LLM behavior.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1091,6 +1311,18 @@
         "Index Structure"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-localized-narratives",
+      "term": "Localized Narratives",
+      "definition": "A dataset of detailed spoken descriptions of images where narrators simultaneously move their mouse over the image regions they describe. Provides grounded dense image captions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1215,6 +1447,33 @@
       "related": []
     },
     {
+      "id": "term-logiqa",
+      "term": "LogiQA",
+      "definition": "A logical reasoning QA dataset from the Chinese National Civil Service Examination. Tests deductive reasoning categorical reasoning and logical analysis abilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-logiqa-20",
+      "term": "LogiQA 2.0",
+      "definition": "An expanded bilingual version of LogiQA with improved question quality and English translations. Tests formal and informal logical reasoning in both Chinese and English.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-logistic-regression",
       "term": "Logistic Regression",
       "definition": "A linear classification model that predicts class probabilities using the logistic (sigmoid) function applied to a linear combination of input features. Despite its name, it is used for classification rather than regression.",
@@ -1311,6 +1570,19 @@
       "related": []
     },
     {
+      "id": "term-longbench",
+      "term": "Longbench",
+      "definition": "A comprehensive benchmark for evaluating long-context capabilities of language models across 6 task categories. Tests performance on inputs up to 100K tokens.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-longformer",
       "term": "Longformer",
       "definition": "A transformer variant that combines local sliding window attention with task-specific global attention on selected tokens, enabling efficient processing of documents with thousands of tokens.",
@@ -1367,6 +1639,19 @@
         "Generative AI"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lora-land",
+      "term": "LoRA-Land",
+      "definition": "A benchmark and analysis of Low-Rank Adaptation fine-tuned models across 25 tasks. Studies the effectiveness and characteristics of LoRA fine-tuning compared to full fine-tuning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1463,6 +1748,43 @@
         "Historical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lsun",
+      "term": "LSUN",
+      "definition": "The Large-scale Scene Understanding dataset containing millions of labeled images across 10 scene categories and 20 object categories. Used for benchmarking image generation and scene classification models.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lvis",
+      "term": "LVIS",
+      "definition": "Large Vocabulary Instance Segmentation dataset containing over 2 million instance annotations for 1203 object categories in COCO images. Addresses long-tail recognition with rare category evaluation.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-lvlm-ehub",
+      "term": "LVLM-eHub",
+      "definition": "A comprehensive evaluation hub for large vision-language models testing across multiple multimodal capabilities. Provides standardized comparison of LVLM performance.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

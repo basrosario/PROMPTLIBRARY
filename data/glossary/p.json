@@ -1,6 +1,6 @@
 {
   "letter": "p",
-  "count": 184,
+  "count": 220,
   "terms": [
     {
       "id": "term-p-value",
@@ -15,6 +15,18 @@
       "related": []
     },
     {
+      "id": "term-p3",
+      "term": "P3",
+      "definition": "The Public Pool of Prompts a collection of prompted templates for over 170 NLP datasets. Used to train T0 demonstrating the effectiveness of multitask prompted training.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-pac-learning",
       "term": "PAC Learning",
       "definition": "Probably Approximately Correct learning, a theoretical framework that defines the conditions under which a learning algorithm can, with high probability, produce a hypothesis that is approximately correct, given sufficient training data.",
@@ -23,6 +35,19 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-padchest",
+      "term": "PadChest",
+      "definition": "A large multilabeled chest X-ray dataset from Spain containing over 160000 images with 174 radiographic findings. Provides one of the most extensively labeled medical imaging datasets.",
+      "tags": [
+        "Benchmark",
+        "Medical",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -99,6 +124,19 @@
       "related": []
     },
     {
+      "id": "term-panda-70m",
+      "term": "Panda-70M",
+      "definition": "A large-scale video dataset of 70 million high-quality video clips with captions. Provides massive video-text data for pretraining video understanding and generation models.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-pandemonium-architecture",
       "term": "Pandemonium Architecture",
       "definition": "The hierarchical pattern recognition system proposed by Oliver Selfridge in 1959 at the National Physical Laboratory. Multiple levels of demons (computational units) process sensory input through feature detection cognitive evaluation and decision-making in parallel.",
@@ -143,6 +181,31 @@
         "Alignment"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-papers-with-code",
+      "term": "Papers With Code",
+      "definition": "A platform linking machine learning papers with their code implementations and benchmark results. Tracks state-of-the-art results across thousands of benchmarks and tasks.",
+      "tags": [
+        "Platform",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-paracrawl",
+      "term": "ParaCrawl",
+      "definition": "A large web-crawled parallel corpus covering 42 language pairs with billions of sentence pairs. Used for training neural machine translation systems especially for lower-resource languages.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Translation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -327,6 +390,19 @@
       "related": []
     },
     {
+      "id": "term-partiprompts",
+      "term": "PartiPrompts",
+      "definition": "A collection of 1600 text prompts for evaluating text-to-image generation models created by Google for the Parti model. Covers diverse categories of increasing complexity.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-partnership-on-ai",
       "term": "Partnership on AI",
       "definition": "A multi-stakeholder organization founded in 2016 by major technology companies to study and formulate best practices on AI technologies, advancing understanding of AI's impact on people and society.",
@@ -375,6 +451,19 @@
       "related": []
     },
     {
+      "id": "term-pathvqa",
+      "term": "PathVQA",
+      "definition": "A visual question answering dataset for pathology containing over 32000 questions about 4998 pathology images. Tests multimodal reasoning in the medical domain.",
+      "tags": [
+        "Benchmark",
+        "Medical",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-patrick-winston",
       "term": "Patrick Winston",
       "definition": "American computer scientist (1943-2019) who directed the MIT AI Lab from 1972 to 1997 and authored the influential AI textbook, making significant contributions to learning theory and knowledge representation.",
@@ -395,6 +484,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-paws",
+      "term": "PAWS",
+      "definition": "Paraphrase Adversaries from Word Scrambling a dataset of sentence pairs with high lexical overlap that tests whether models rely on superficial cues for paraphrase detection.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -423,6 +524,18 @@
       "related": []
     },
     {
+      "id": "term-pdbbind",
+      "term": "PDBBind",
+      "definition": "A database of experimentally measured binding affinity data for biomolecular complexes from the Protein Data Bank. Used for training molecular docking and drug discovery models.",
+      "tags": [
+        "Benchmark",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-peft",
       "term": "PEFT (Parameter-Efficient Fine-Tuning)",
       "definition": "Techniques that fine-tune models by training only a small subset of parameters. Includes LoRA, prefix tuning, and adapters. Dramatically reduces compute and memory needs.",
@@ -443,6 +556,18 @@
         "Linguistics"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-peoplespeech",
+      "term": "PeopleSpeech",
+      "definition": "A dataset of 30000 hours of English speech from diverse public domain sources for training speech recognition systems. Provides large-scale open ASR training data.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -579,6 +704,45 @@
       "related": []
     },
     {
+      "id": "term-personachat",
+      "term": "PersonaChat",
+      "definition": "A dialogue dataset where conversations are conditioned on assigned persona descriptions. Contains over 160000 utterances testing the ability to maintain consistent personality in dialogue.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-personalitychat",
+      "term": "PersonalityChat",
+      "definition": "A dataset of conversational responses exhibiting different personality traits for training dialogue systems with consistent and controllable personalities.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pes2o",
+      "term": "PeS2o",
+      "definition": "A preprocessed version of S2ORC designed for efficient pretraining containing cleaned text from millions of academic papers. Used as a component in several open pretraining datasets.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-peter-norvig",
       "term": "Peter Norvig",
       "definition": "American computer scientist and co-author of Artificial Intelligence: A Modern Approach the most widely used AI textbook. Former Director of Research at Google and NASA computational sciences director. Known for contributions to natural language processing and AI education.",
@@ -611,6 +775,18 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-phi-training-data",
+      "term": "Phi Training Data",
+      "definition": "Carefully curated datasets used to train Microsoft Phi models combining filtered web data with synthetic textbook-quality content. Demonstrates the importance of data quality over quantity.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -651,6 +827,20 @@
       "related": []
     },
     {
+      "id": "term-physbench",
+      "term": "PhysBench",
+      "definition": "A physics reasoning benchmark testing language models on problems from undergraduate physics. Evaluates quantitative scientific reasoning capabilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-physical-symbol-system-hypothesis",
       "term": "Physical Symbol System Hypothesis",
       "definition": "The 1976 hypothesis by Newell and Simon that a physical symbol system has the necessary and sufficient means for intelligent action, providing the theoretical foundation for symbolic AI approaches.",
@@ -659,6 +849,19 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pick-a-pic",
+      "term": "Pick-a-Pic",
+      "definition": "A dataset of text-to-image generation preferences where users chose between pairs of generated images. Used for training reward models for image generation quality.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -683,6 +886,19 @@
         "Technical"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pile-of-law",
+      "term": "Pile of Law",
+      "definition": "A 256GB corpus of legal and administrative text for pretraining and studying legal language models. Includes court opinions legislation contracts and regulatory filings from US and international sources.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Legal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -723,6 +939,19 @@
       "related": []
     },
     {
+      "id": "term-piqa",
+      "term": "PIQA",
+      "definition": "Physical Intuition QA a benchmark of 20000 everyday physical commonsense reasoning questions. Tests understanding of how the physical world works through goal-oriented question answering.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-pix2pix",
       "term": "Pix2Pix",
       "definition": "A conditional GAN framework for paired image-to-image translation that uses a U-Net generator and PatchGAN discriminator to learn mappings between aligned image pairs.",
@@ -731,6 +960,31 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pku-saferlhf",
+      "term": "PKU-SafeRLHF",
+      "definition": "A safety alignment dataset from Peking University containing human preference labels for helpfulness and harmlessness. Supports safety-focused RLHF training.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-places365",
+      "term": "Places365",
+      "definition": "A scene recognition dataset containing over 1.8 million images across 365 scene categories. Developed at MIT to advance visual understanding of scenes and environments.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -803,6 +1057,32 @@
         "Interface"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-plotqa",
+      "term": "PlotQA",
+      "definition": "A question answering dataset about scientific plots containing over 8 million questions about 224000 plots. Tests structural data reasoning and numerical understanding of visualizations.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pmc-oa",
+      "term": "PMC-OA",
+      "definition": "PubMed Central Open Access a large collection of biomedical literature with full text available for text mining. Provides millions of scientific articles for biomedical NLP research.",
+      "tags": [
+        "Training Corpus",
+        "Medical",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1023,6 +1303,32 @@
       "related": []
     },
     {
+      "id": "term-pope",
+      "term": "POPE",
+      "definition": "Polling-based Object Probing Evaluation a benchmark for measuring object hallucination in large vision-language models. Tests whether models generate descriptions of objects not present in images.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-popqa",
+      "term": "PopQA",
+      "definition": "A long-tail knowledge QA benchmark testing language model knowledge of entities with varying popularity. Reveals how model performance degrades for less common entities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-population-based-training",
       "term": "Population-Based Training (PBT)",
       "definition": "A hyperparameter optimization method that trains a population of agents in parallel, periodically replacing poorly performing agents with mutated copies of better ones. PBT adapts hyperparameters during training rather than searching beforehand.",
@@ -1187,6 +1493,19 @@
         "Feature Engineering"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ppi",
+      "term": "PPI",
+      "definition": "Protein-Protein Interaction dataset containing graphs representing interactions between proteins in different human tissues. Used for benchmarking graph neural networks on biological networks.",
+      "tags": [
+        "Benchmark",
+        "Graph",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1683,6 +2002,18 @@
       "related": []
     },
     {
+      "id": "term-procgen",
+      "term": "ProcGen",
+      "definition": "Procedurally generated game environments for reinforcement learning research testing generalization across different levels. Contains 16 unique game environments with controlled difficulty.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-product-quantization",
       "term": "Product Quantization",
       "definition": "A vector compression technique that splits high-dimensional vectors into sub-vectors and quantizes each independently using a learned codebook, enabling dramatic memory reduction while supporting fast approximate distance computation via lookup tables.",
@@ -1739,6 +2070,31 @@
         "Training"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-project-euler-dataset",
+      "term": "Project Euler Dataset",
+      "definition": "Mathematical programming problems from the Project Euler platform testing the intersection of mathematical reasoning and programming ability.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-project-gutenberg-corpus",
+      "term": "Project Gutenberg Corpus",
+      "definition": "A collection of over 70000 public domain books from Project Gutenberg used as a pretraining data source. Provides high-quality literary and non-fiction text spanning centuries.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1983,6 +2339,19 @@
       "related": []
     },
     {
+      "id": "term-promptbench",
+      "term": "PromptBench",
+      "definition": "A benchmark for evaluating the robustness of large language models to adversarial prompts. Tests model performance under various prompt perturbations and attack strategies.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-pronoun-resolution",
       "term": "Pronoun Resolution",
       "definition": "The specific task of determining which entity a pronoun refers to in context, requiring understanding of gender, number, syntactic position, and semantic plausibility.",
@@ -1991,6 +2360,45 @@
         "Linguistics"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-proof-pile",
+      "term": "Proof Pile",
+      "definition": "A dataset of mathematical text including textbooks proofs and lecture notes curated for training language models on mathematical reasoning. Used for the Llemma math model.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-proof-pile-2",
+      "term": "Proof Pile 2",
+      "definition": "An expanded mathematical pretraining corpus combining arXiv papers open-source math textbooks and mathematical web pages. Provides over 55 billion tokens of mathematical content.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-proofwriter",
+      "term": "ProofWriter",
+      "definition": "A dataset for evaluating deductive reasoning requiring models to prove or disprove statements given a set of rules and facts expressed in natural language.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2031,6 +2439,20 @@
       "related": []
     },
     {
+      "id": "term-prosocial-dialog",
+      "term": "Prosocial Dialog",
+      "definition": "A dataset of conversations about prosocial behavior containing dialogues that model constructive and empathetic responses to problematic situations.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Dialogue",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-prospector",
       "term": "PROSPECTOR",
       "definition": "An expert system developed at SRI International in the late 1970s for mineral exploration. PROSPECTOR used Bayesian probability networks to evaluate geological data and notably predicted the location of a molybdenum deposit in Washington state.",
@@ -2039,6 +2461,19 @@
         "Systems"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-prost",
+      "term": "PROST",
+      "definition": "Physical Reasoning about Objects Through Space and Time a benchmark testing physical commonsense reasoning about object properties and spatial relationships.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2159,6 +2594,32 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pubmed-abstracts",
+      "term": "PubMed Abstracts",
+      "definition": "A collection of over 35 million biomedical literature abstracts from the PubMed database. Used for biomedical NLP research including information extraction and question answering.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Medical"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-pubmedqa",
+      "term": "PubMedQA",
+      "definition": "A biomedical question answering dataset where questions are derived from PubMed article titles and answers must be yes/no/maybe with supporting reasoning from abstracts.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Medical"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

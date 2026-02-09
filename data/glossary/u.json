@@ -1,6 +1,6 @@
 {
   "letter": "u",
-  "count": 29,
+  "count": 35,
   "terms": [
     {
       "id": "term-u-net",
@@ -11,6 +11,67 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ucf-101",
+      "term": "UCF-101",
+      "definition": "A dataset of 13320 video clips from 101 action categories collected from YouTube. One of the most widely used benchmarks for human action recognition in video.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-uci-adult",
+      "term": "UCI Adult",
+      "definition": "A dataset from the 1994 Census database predicting whether income exceeds 50000 dollars per year. One of the most commonly used tabular classification benchmarks.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-uci-machine-learning-repository",
+      "term": "UCI Machine Learning Repository",
+      "definition": "A collection of databases domain theories and data generators used by the machine learning community since 1987. One of the oldest and most cited dataset repositories.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ultrachat",
+      "term": "UltraChat",
+      "definition": "A large-scale multi-round dialogue dataset containing 1.5 million conversations covering diverse topics. Generated through carefully designed prompting strategies for instruction tuning.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ultrafeedback",
+      "term": "UltraFeedback",
+      "definition": "A large-scale preference dataset containing 64000 prompts with multiple model responses rated by GPT-4. Used for training reward models and direct preference optimization.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -311,6 +372,18 @@
         "Data"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-urbansound8k",
+      "term": "UrbanSound8K",
+      "definition": "A dataset of 8732 labeled sound excerpts of urban sounds in 10 categories including sirens drilling and street music. Used for urban environment audio classification research.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "w",
-  "count": 54,
+  "count": 82,
   "terms": [
     {
       "id": "term-wafer-scale-computing",
@@ -195,6 +195,31 @@
       "related": []
     },
     {
+      "id": "term-waymo-open-dataset",
+      "term": "Waymo Open Dataset",
+      "definition": "A large-scale autonomous driving dataset from Waymo containing lidar and camera data with 3D bounding box annotations. One of the largest and most diverse self-driving perception datasets.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wbb",
+      "term": "WBB",
+      "definition": "The WebBodies Benchmark a dataset of 3D human body models and poses for evaluating human shape estimation algorithms. Tests reconstruction of human body geometry from images.",
+      "tags": [
+        "Benchmark",
+        "3D",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-weak-supervision",
       "term": "Weak Supervision",
       "definition": "Training with noisy, imprecise, or automatically generated labels instead of perfect human annotations. Can dramatically reduce labeling costs while achieving good results.",
@@ -227,6 +252,68 @@
         "Open Source"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-webarena",
+      "term": "WebArena",
+      "definition": "A benchmark for evaluating autonomous web agents on realistic web tasks across self-hosted websites. Tests the ability of AI agents to complete complex multi-step web interactions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-webdataset",
+      "term": "WebDataset",
+      "definition": "A format and library for efficiently storing and loading large-scale datasets using tar archives. Designed for distributed training with sequential access patterns.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-webquestions",
+      "term": "WebQuestions",
+      "definition": "A question answering dataset of 5810 questions collected using Google Suggest. Tests factoid question answering using knowledge bases like Freebase.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-webtext",
+      "term": "WebText",
+      "definition": "The training corpus for GPT-2 containing 8 million web pages selected through Reddit link quality filtering. Approximately 40GB of text demonstrating the effectiveness of internet-scale pretraining.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-webvid-10m",
+      "term": "WebVid-10M",
+      "definition": "A large-scale dataset of 10 million video-text pairs scraped from the web. Used for pretraining video-language models and text-to-video generation systems.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -339,6 +426,19 @@
       "related": []
     },
     {
+      "id": "term-wenetspeech",
+      "term": "WenetSpeech",
+      "definition": "A large-scale Mandarin speech corpus of 10000 hours from YouTube and podcasts with multi-domain coverage. One of the largest open Chinese ASR training datasets.",
+      "tags": [
+        "Training Corpus",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-whisper",
       "term": "Whisper",
       "definition": "OpenAI's speech recognition model that transcribes audio to text with high accuracy across many languages. Open-sourced, enabling widespread use in transcription applications.",
@@ -395,6 +495,131 @@
         "Technical"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-widerface",
+      "term": "WiderFace",
+      "definition": "A face detection benchmark containing 32203 images with 393703 annotated faces showing large variations in scale pose occlusion expression and lighting conditions.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikidata",
+      "term": "Wikidata",
+      "definition": "A free and open knowledge base maintained by the Wikimedia Foundation containing structured data about millions of entities. Used as a training resource for knowledge-intensive NLP tasks.",
+      "tags": [
+        "Knowledge",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikilingua",
+      "term": "WikiLingua",
+      "definition": "A cross-lingual summarization dataset of how-to guides from WikiHow covering 18 languages. Tests the ability to produce cross-lingual summaries of procedural text.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikipedia-dumps",
+      "term": "Wikipedia Dumps",
+      "definition": "Regular snapshots of all Wikipedia articles available in multiple languages. A standard high-quality pretraining data source for language models providing factual encyclopedic knowledge.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikisql",
+      "term": "WikiSQL",
+      "definition": "A dataset of 80654 hand-annotated SQL queries and natural language questions on 24241 Wikipedia tables. One of the earliest large-scale text-to-SQL benchmarks.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikitablequestions",
+      "term": "WikiTableQuestions",
+      "definition": "A question answering dataset of complex questions over Wikipedia tables requiring operations like comparison aggregation and arithmetic. Tests compositional reasoning over tables.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wikitext-103",
+      "term": "WikiText-103",
+      "definition": "A language modeling dataset containing over 103 million tokens from verified Good and Featured Wikipedia articles. Provides long-range dependency context for language model evaluation.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wildbench",
+      "term": "WildBench",
+      "definition": "A benchmark of challenging real-world user queries for evaluating LLMs on complex instruction-following tasks. Collected from actual user interactions with AI assistants.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wildchat",
+      "term": "WildChat",
+      "definition": "A dataset of one million conversations between users and ChatGPT with demographic and toxicity annotations. Provides realistic user interaction data for studying LLM usage patterns.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wildguard",
+      "term": "WildGuard",
+      "definition": "A dataset for evaluating safety classifiers on in-the-wild user prompts and model responses. Tests the ability to detect harmful content in realistic conversational settings.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -459,6 +684,31 @@
       "related": []
     },
     {
+      "id": "term-wine-quality",
+      "term": "Wine Quality",
+      "definition": "A dataset of physicochemical properties and quality ratings for red and white Portuguese wines. Used for regression and classification benchmarking in machine learning.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-winobias",
+      "term": "WinoBias",
+      "definition": "A Winograd-schema dataset for evaluating gender bias in coreference resolution systems. Contains sentence pairs that test whether models rely on gender stereotypes about occupations.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-winograd-schema",
       "term": "Winograd Schema",
       "definition": "A coreference resolution challenge requiring commonsense reasoning to determine what a pronoun refers to, designed as an alternative to the Turing test with pairs of sentences differing by one word.",
@@ -495,6 +745,19 @@
       "related": []
     },
     {
+      "id": "term-winoground",
+      "term": "Winoground",
+      "definition": "A benchmark of 400 image-caption pairs testing compositional understanding in vision-language models. Each example has two captions differing only in word order paired with matching images.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-winsorization",
       "term": "Winsorization",
       "definition": "A technique for handling outliers by replacing extreme values with specified percentile values rather than removing them. For example, values below the 5th percentile might be set to the 5th percentile value.",
@@ -503,6 +766,32 @@
         "Statistics"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wit",
+      "term": "WIT",
+      "definition": "Wikipedia-based Image Text a dataset of 37 million image-text pairs from Wikipedia in 108 languages. Provides high-quality curated multimodal data for multilingual vision-language research.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wizard-of-wikipedia",
+      "term": "Wizard of Wikipedia",
+      "definition": "A dataset of conversations grounded in Wikipedia knowledge where one participant has access to relevant articles. Tests knowledge-grounded dialogue generation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -519,6 +808,20 @@
       "related": []
     },
     {
+      "id": "term-wmt-metrics",
+      "term": "WMT Metrics",
+      "definition": "Shared task datasets for evaluating machine translation evaluation metrics. Tests how well automatic metrics correlate with human judgments of translation quality.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-wmt-translation",
       "term": "WMT Translation",
       "definition": "The Workshop on Machine Translation (formerly Workshop on Statistical Machine Translation) held annually since 2006. WMT provides standardized translation tasks and evaluation campaigns that have driven progress in machine translation research.",
@@ -527,6 +830,44 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wmt-translation-datasets",
+      "term": "WMT Translation Datasets",
+      "definition": "Annual shared task datasets from the Conference on Machine Translation covering dozens of language pairs. The standard benchmark for evaluating machine translation systems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wn18rr",
+      "term": "WN18RR",
+      "definition": "A knowledge graph completion benchmark derived from WordNet with 40943 entities and 11 relation types. Removes inverse relations from WN18 to provide a more challenging evaluation.",
+      "tags": [
+        "Benchmark",
+        "Knowledge",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wnli",
+      "term": "WNLI",
+      "definition": "Winograd NLI a natural language inference dataset derived from the Winograd Schema Challenge. Tests pronoun coreference resolution reframed as a textual entailment problem within the GLUE benchmark.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -647,6 +988,18 @@
         "Planning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-wsj-corpus",
+      "term": "WSJ Corpus",
+      "definition": "The Wall Street Journal speech corpus containing read speech from WSJ articles. A classic benchmark for large-vocabulary continuous speech recognition systems.",
+      "tags": [
+        "Benchmark",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

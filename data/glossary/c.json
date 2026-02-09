@@ -1,7 +1,20 @@
 {
   "letter": "c",
-  "count": 321,
+  "count": 396,
   "terms": [
+    {
+      "id": "term-c-eval",
+      "term": "C-Eval",
+      "definition": "A comprehensive Chinese evaluation benchmark spanning 52 subjects across four difficulty levels. Tests Chinese language model capabilities on domain-specific knowledge and reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
     {
       "id": "term-c2pa",
       "term": "C2PA",
@@ -11,6 +24,18 @@
         "Governance"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-c4",
+      "term": "C4",
+      "definition": "The Colossal Clean Crawled Corpus a 750GB cleaned version of Common Crawl created by Google for training the T5 model. Applies deduplication and quality filtering to raw web text.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -75,6 +100,18 @@
       "related": []
     },
     {
+      "id": "term-california-housing",
+      "term": "California Housing",
+      "definition": "A dataset of housing prices in California districts used for regression benchmarking. Contains median house values and socioeconomic features from the 1990 census.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-callback",
       "term": "Callback",
       "definition": "A function called at specific points during training or inference. Used for logging, checkpointing, early stopping, and custom behaviors in ML pipelines.",
@@ -87,6 +124,30 @@
       "related": []
     },
     {
+      "id": "term-caltech-101",
+      "term": "Caltech-101",
+      "definition": "A dataset of images from 101 object categories plus a background category with 40 to 800 images per class. Created at Caltech and widely used for object recognition benchmarking in the 2000s.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-caltech-256",
+      "term": "Caltech-256",
+      "definition": "An extension of Caltech-101 containing 30607 images across 256 object categories plus a clutter class. Provides a more challenging and diverse object recognition benchmark.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-camera-calibration",
       "term": "Camera Calibration",
       "definition": "The process of estimating the intrinsic parameters (focal length, principal point, distortion) and extrinsic parameters (position, orientation) of a camera, essential for accurate 3D reconstruction and measurement.",
@@ -95,6 +156,19 @@
         "3D Vision"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-canaicode",
+      "term": "CanAICode",
+      "definition": "A benchmark for evaluating the coding abilities of language models across multiple programming languages and problem types. Provides standardized code generation evaluation.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -171,6 +245,31 @@
       "related": []
     },
     {
+      "id": "term-capybara",
+      "term": "Capybara",
+      "definition": "A multi-turn conversational dataset designed for training helpful and detailed AI assistants. Covers diverse topics with extended conversation chains.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-carla",
+      "term": "CARLA",
+      "definition": "An open-source simulator for autonomous driving research providing urban driving environments with dynamic weather and traffic. Used for training and evaluating self-driving policies.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-carnegie-mellon-ai",
       "term": "Carnegie Mellon AI",
       "definition": "AI research programs at Carnegie Mellon University including the work of Herbert Simon Allen Newell and Raj Reddy. Home to the Robotics Institute and the Machine Learning Department one of the first dedicated ML departments at any university.",
@@ -191,6 +290,19 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-casual-conversations",
+      "term": "Casual Conversations",
+      "definition": "A Meta dataset of 45186 videos of paid participants with self-provided age gender and skin tone labels. Designed for evaluating fairness and bias in face and speech analysis.",
+      "tags": [
+        "Benchmark",
+        "Fairness",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -351,6 +463,31 @@
       "related": []
     },
     {
+      "id": "term-causalbench",
+      "term": "CausalBench",
+      "definition": "A benchmark for evaluating causal reasoning capabilities of language models. Tests the ability to identify causes effects and causal mechanisms in text.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cb",
+      "term": "CB",
+      "definition": "CommitmentBank a corpus of naturally occurring discourses with embedded clauses annotated for speaker commitment. Part of the SuperGLUE benchmark testing fine-grained textual entailment.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cbam",
       "term": "CBAM",
       "definition": "Convolutional Block Attention Module, a lightweight attention module that sequentially applies channel and spatial attention to feature maps, enhancing representational power with minimal overhead.",
@@ -375,12 +512,87 @@
       "related": []
     },
     {
+      "id": "term-cc-news",
+      "term": "CC-News",
+      "definition": "A dataset of 63 million English news articles collected from Common Crawl between 2016 and 2019. Used as a pretraining component for RoBERTa and other language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cc-stories",
+      "term": "CC-Stories",
+      "definition": "A subset of Common Crawl filtered to contain narrative and story-like text. Used as part of the GPT-2 training methodology to include fiction and narrative reasoning data.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cc100",
+      "term": "CC100",
+      "definition": "A monolingual dataset extracted from Common Crawl snapshots covering 100 languages. Created for pretraining multilingual models and language-specific language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ccaligned",
+      "term": "CCAligned",
+      "definition": "A parallel corpus of 68 language pairs extracted from Common Crawl using document alignment. Provides web-mined translation data for training multilingual NLP models.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Translation",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-ceiling-effect",
       "term": "Ceiling Effect",
       "definition": "When a benchmark becomes too easy to distinguish between models, all scoring near the maximum. Prompts creation of harder benchmarks to continue measuring progress.",
       "tags": [
         "Evaluation",
         "Benchmark"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-celeba",
+      "term": "CelebA",
+      "definition": "A large-scale face attributes dataset with over 200000 celebrity images each annotated with 40 binary attributes and 5 landmark locations. Widely used for face generation and attribute prediction.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-celeba-hq",
+      "term": "CelebA-HQ",
+      "definition": "A high-quality version of CelebA containing 30000 face images at 1024x1024 resolution. Created for training high-resolution generative models particularly progressive GANs.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
       ],
       "domain": "datasets",
       "link": null,
@@ -676,6 +888,18 @@
       "related": []
     },
     {
+      "id": "term-charades",
+      "term": "Charades",
+      "definition": "A dataset of 10000 videos of daily indoor activities with temporal annotations for 157 action classes. Collected by workers acting out scripts in their own homes.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-charles-babbage",
       "term": "Charles Babbage",
       "definition": "English mathematician and inventor (1791-1871) who conceived the Difference Engine and the Analytical Engine, mechanical general-purpose computers that anticipated key concepts in modern computing and AI.",
@@ -684,6 +908,18 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chartqa",
+      "term": "ChartQA",
+      "definition": "A benchmark for question answering about charts and data visualizations. Tests the ability to extract trends comparisons and specific values from chart images.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -708,6 +944,32 @@
         "Generative AI"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chatbot-arena",
+      "term": "Chatbot Arena",
+      "definition": "An open platform for evaluating LLMs through crowdsourced pairwise comparisons. Produces Elo ratings for language models based on thousands of human preference judgments.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chatbot-arena-conversations",
+      "term": "Chatbot Arena Conversations",
+      "definition": "A dataset of conversations from LMSYS Chatbot Arena where users compare responses from different LLMs. Provides human preference data through pairwise model comparisons.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -748,6 +1010,19 @@
       "related": []
     },
     {
+      "id": "term-checklist",
+      "term": "CheckList",
+      "definition": "A task-agnostic methodology for behavioral testing of NLP models using linguistic capabilities. Provides templates for testing robustness fairness and specific linguistic phenomena.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-checkpoint",
       "term": "Checkpoint",
       "definition": "A saved snapshot of model weights during training. Enables resuming training after interruption, comparing different training stages, and selecting the best performing version.",
@@ -768,6 +1043,46 @@
         "Model Optimization"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chem-bench",
+      "term": "CHEM-Bench",
+      "definition": "A chemistry reasoning benchmark covering diverse chemistry subdisciplines. Tests the ability of AI systems to solve chemical problems and understand molecular properties.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chestx-ray14",
+      "term": "ChestX-ray14",
+      "definition": "A dataset of 112000 frontal-view chest X-ray images from over 30000 patients annotated with 14 disease labels. One of the first large-scale chest X-ray datasets for deep learning.",
+      "tags": [
+        "Benchmark",
+        "Medical",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-chexpert",
+      "term": "CheXpert",
+      "definition": "A large chest X-ray dataset from Stanford containing 224000 images with automated labels for 14 radiological observations. Includes an uncertainty-aware labeling approach.",
+      "tags": [
+        "Benchmark",
+        "Medical",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1024,6 +1339,18 @@
       "related": []
     },
     {
+      "id": "term-cifar-100",
+      "term": "CIFAR-100",
+      "definition": "An extension of CIFAR-10 containing 60000 32x32 color images in 100 fine-grained classes grouped into 20 superclasses. More challenging than CIFAR-10 due to fewer examples per class.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-citation-generation",
       "term": "Citation Generation",
       "definition": "The capability of a language model to produce inline references to source documents that support its claims, enabling users to verify the accuracy of generated content.",
@@ -1032,6 +1359,44 @@
         "Generative AI"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-citeseer",
+      "term": "Citeseer",
+      "definition": "A citation network dataset of 3312 scientific papers across 6 classes. Alongside Cora one of the classic small-scale benchmarks for graph-based semi-supervised learning.",
+      "tags": [
+        "Benchmark",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cityscapes",
+      "term": "Cityscapes",
+      "definition": "A dataset of 5000 finely annotated and 20000 coarsely annotated street scene images from 50 cities. Standard benchmark for urban scene understanding and autonomous driving perception.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-civil-comments",
+      "term": "Civil Comments",
+      "definition": "A dataset of over 2 million public comments annotated for toxicity and identity-based harassment. Used for training content moderation systems and evaluating toxicity detection.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1056,6 +1421,19 @@
         "Parsing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cladder",
+      "term": "CLadder",
+      "definition": "A causal reasoning benchmark testing language models on causal inference questions. Evaluates understanding of causation through questions requiring counterfactual and interventional reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1104,6 +1482,18 @@
         "Optimization"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-classeval",
+      "term": "ClassEval",
+      "definition": "A benchmark for evaluating class-level code generation requiring models to generate complete Python classes with multiple methods and complex interdependencies.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1228,6 +1618,18 @@
       "related": []
     },
     {
+      "id": "term-cleaned-alpaca",
+      "term": "Cleaned Alpaca",
+      "definition": "A cleaned version of the Stanford Alpaca dataset with improved data quality by fixing hallucinations empty outputs and other issues in the original synthetic training data.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-clever-hans-effect",
       "term": "Clever Hans Effect",
       "definition": "Named after a horse that appeared to perform arithmetic but was actually reading its trainer's body language. In AI it refers to models that appear to perform well on a task but are actually using spurious correlations or shortcuts rather than genuine understanding.",
@@ -1236,6 +1638,19 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-clevr",
+      "term": "CLEVR",
+      "definition": "Compositional Language and Elementary Visual Reasoning a synthetic visual QA dataset testing compositional reasoning about 3D rendered objects. Isolates visual reasoning from recognition.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1324,6 +1739,19 @@
       "related": []
     },
     {
+      "id": "term-clutrr",
+      "term": "CLUTRR",
+      "definition": "Compositional Language Understanding and Textual Reasoning a benchmark testing systematic generalization in kinship reasoning. Tests the ability to infer family relationships from stories.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cma-es",
       "term": "CMA-ES",
       "definition": "Covariance Matrix Adaptation Evolution Strategy is a derivative-free optimization algorithm that adapts its search distribution by updating the covariance matrix of a multivariate normal. Considered state-of-the-art for continuous black-box optimization.",
@@ -1332,6 +1760,19 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cmmlu",
+      "term": "CMMLU",
+      "definition": "Chinese Massive Multitask Language Understanding a comprehensive benchmark testing knowledge and reasoning across 67 Chinese-specific subjects covering STEM humanities and social sciences.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1360,6 +1801,18 @@
       "related": []
     },
     {
+      "id": "term-cnndailymail",
+      "term": "CNN/DailyMail",
+      "definition": "A dataset of over 300000 news articles from CNN and the Daily Mail paired with multi-sentence summaries. One of the most widely used benchmarks for abstractive text summarization.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-co-occurrence-matrix",
       "term": "Co-occurrence Matrix",
       "definition": "A matrix recording how often pairs of words appear together within a defined context window across a corpus, used as the basis for distributional word representations like GloVe.",
@@ -1384,6 +1837,31 @@
       "related": []
     },
     {
+      "id": "term-coco",
+      "term": "COCO",
+      "definition": "The Common Objects in Context dataset containing over 330000 images with object detection segmentation and captioning annotations for 80 object categories. A primary benchmark for computer vision tasks.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-coco-captions",
+      "term": "COCO Captions",
+      "definition": "A subset of the COCO dataset with five human-written captions per image totaling over 1.5 million captions. Widely used for training and evaluating image captioning models.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-coco-dataset",
       "term": "COCO Dataset",
       "definition": "Common Objects in Context, a large-scale benchmark dataset containing images with annotations for object detection, instance segmentation, keypoint detection, and image captioning across 80 object categories.",
@@ -1392,6 +1870,30 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-coco-panoptic",
+      "term": "COCO Panoptic",
+      "definition": "An extension of COCO that unifies instance and semantic segmentation into panoptic segmentation where every pixel receives both a semantic label and an instance identity.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-code-alpaca",
+      "term": "Code Alpaca",
+      "definition": "A dataset of 20000 code instruction-following examples generated using the Self-Instruct framework. Used for fine-tuning language models on coding tasks.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1480,6 +1982,30 @@
       "related": []
     },
     {
+      "id": "term-codecontests",
+      "term": "CodeContests",
+      "definition": "A competitive programming dataset from Google DeepMind containing problems from Codeforces and other platforms. Used to train AlphaCode with problems solutions and test cases.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-codeforces-dataset",
+      "term": "Codeforces Dataset",
+      "definition": "A collection of competitive programming problems from the Codeforces platform with solutions and test cases. Used for evaluating advanced algorithmic problem solving in AI.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-codegen",
       "term": "CodeGen",
       "definition": "A family of large language models for program synthesis that convert natural language descriptions into executable code. Trained with multi-turn program synthesis enabling iterative code generation through conversation.",
@@ -1492,6 +2018,30 @@
       "related": []
     },
     {
+      "id": "term-codeparrot",
+      "term": "CodeParrot",
+      "definition": "An open-source dataset of Python code from GitHub used to train the CodeParrot code generation model. Contains approximately 180GB of deduplicated Python source code.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-codesearchnet",
+      "term": "CodeSearchNet",
+      "definition": "A dataset and benchmark for code search and code summarization spanning six programming languages. Contains 2 million code-comment pairs for training code understanding models.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-codex",
       "term": "Codex",
       "definition": "An OpenAI model fine-tuned from GPT-3 on publicly available code from GitHub. Powers GitHub Copilot for code completion and generation. Proficient in Python and supports dozens of programming languages.",
@@ -1500,6 +2050,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-codexglue",
+      "term": "CodeXGLUE",
+      "definition": "A benchmark for code intelligence covering 10 code-related tasks including code completion translation and summarization. Tests broad code understanding and generation capabilities.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1612,6 +2174,19 @@
       "related": []
     },
     {
+      "id": "term-coinflip",
+      "term": "CoinFlip",
+      "definition": "A simple benchmark testing language models on symbolic reasoning by tracking coin flip state changes. Tests the ability to maintain and update state through sequential operations.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cointegration",
       "term": "Cointegration",
       "definition": "A statistical property of two or more non-stationary time series that share a common stochastic trend, meaning a linear combination of them is stationary. It implies a long-run equilibrium relationship.",
@@ -1620,6 +2195,18 @@
         "Data Science"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cola",
+      "term": "CoLA",
+      "definition": "The Corpus of Linguistic Acceptability containing 10657 English sentences annotated for grammatical acceptability by expert linguists. Tests linguistic competence within the GLUE benchmark.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1732,6 +2319,20 @@
       "related": []
     },
     {
+      "id": "term-comet-reference-data",
+      "term": "COMET Reference Data",
+      "definition": "Evaluation data for the COMET machine translation metric which uses neural models to predict translation quality scores that correlate with human judgments.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-command-model",
       "term": "Command Model",
       "definition": "Cohere's instruction-tuned LLMs optimized for following commands and business applications. Includes Command R for RAG and enterprise use cases.",
@@ -1756,6 +2357,30 @@
       "related": []
     },
     {
+      "id": "term-commitbench",
+      "term": "CommitBench",
+      "definition": "A benchmark of code changes from real git commits testing the ability to generate meaningful code modifications. Tests understanding of incremental software development.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-commitpack",
+      "term": "CommitPack",
+      "definition": "A dataset of 4 terabytes of Git commits across 350 programming languages. Provides code change data for training models on code editing and commit message generation.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-common-crawl",
       "term": "Common Crawl",
       "definition": "A massive open repository of web data used to train many LLMs. Contains petabytes of text crawled from the internet, requiring careful filtering for quality and safety.",
@@ -1768,6 +2393,19 @@
       "related": []
     },
     {
+      "id": "term-common-voice",
+      "term": "Common Voice",
+      "definition": "A Mozilla project collecting a massively multilingual open-source dataset of human speech. Contains validated recordings in over 100 languages contributed by volunteers worldwide.",
+      "tags": [
+        "Training Corpus",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-commonsense-reasoning",
       "term": "Commonsense Reasoning",
       "definition": "AI's ability to understand everyday knowledge humans take for granted. That water is wet, objects fall down, people need sleep. A challenging area where LLMs have improved dramatically.",
@@ -1776,6 +2414,32 @@
         "Reasoning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-commonsenseqa",
+      "term": "CommonsenseQA",
+      "definition": "A question answering dataset requiring diverse types of commonsense knowledge. Contains 12247 questions generated from ConceptNet knowledge graph edges testing broad world knowledge.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-commonsenseqa-20",
+      "term": "CommonsenseQA 2.0",
+      "definition": "A successor to CommonsenseQA with harder commonsense reasoning questions generated through a gamified approach. Uses yes/no format with validated human agreement scores.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1996,6 +2660,43 @@
       "related": []
     },
     {
+      "id": "term-conceptnet",
+      "term": "ConceptNet",
+      "definition": "A multilingual knowledge graph connecting everyday concepts with labeled relationships. Contains over 21 million edges representing commonsense knowledge in multiple languages.",
+      "tags": [
+        "Knowledge",
+        "Graph",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-conceptual-12m",
+      "term": "Conceptual 12M",
+      "definition": "An expanded version of Conceptual Captions with 12 million image-caption pairs. Relaxes quality filters to provide more training data for vision-language pretraining at scale.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-conceptual-captions",
+      "term": "Conceptual Captions",
+      "definition": "A dataset of approximately 3.3 million image-caption pairs automatically harvested from the web. Used for pretraining vision-language models with weakly supervised image descriptions.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-conceptual-dependency-theory",
       "term": "Conceptual Dependency Theory",
       "definition": "A theory of natural language understanding developed by Roger Schank in the 1970s that represents the meaning of sentences using a small set of primitive actions and conceptual categories independent of the specific language used.",
@@ -2172,6 +2873,18 @@
         "Bayesian Methods"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-conll-shared-tasks",
+      "term": "CoNLL Shared Tasks",
+      "definition": "A series of influential NLP shared task datasets covering named entity recognition chunking semantic role labeling and coreference resolution. Standard benchmarks for sequence labeling.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2992,6 +3705,19 @@
       "related": []
     },
     {
+      "id": "term-copa",
+      "term": "COPA",
+      "definition": "Choice of Plausible Alternatives a causal reasoning dataset where models choose the more plausible cause or effect of a premise. Part of SuperGLUE testing commonsense causal reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-copernicus-of-ai",
       "term": "Copernicus of AI",
       "definition": "An informal designation sometimes given to researchers whose work fundamentally shifted the paradigm of AI research. Often applied to Geoffrey Hinton for persisting with neural network research during decades when it was out of favor in mainstream AI.",
@@ -3024,6 +3750,30 @@
         "Probability"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-coqa",
+      "term": "CoQA",
+      "definition": "Conversational Question Answering a dataset of 127000 questions in conversational form where answers depend on conversation history. Tests a models ability to understand dialogue context.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cora",
+      "term": "Cora",
+      "definition": "A citation network dataset of 2708 scientific publications classified into 7 classes. One of the most widely used benchmarks for graph neural network node classification.",
+      "tags": [
+        "Benchmark",
+        "Graph"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3136,6 +3886,32 @@
       "related": []
     },
     {
+      "id": "term-cosmopedia",
+      "term": "Cosmopedia",
+      "definition": "A large-scale synthetic dataset of textbook-style content generated by Mixtral covering diverse topics. Demonstrates the value of synthetic educational data for pretraining.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Synthetic"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cosql",
+      "term": "CoSQL",
+      "definition": "A conversational text-to-SQL dataset with 3000 dialogues over 200 databases. Tests the ability to translate multi-turn natural language conversations into SQL query sequences.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cost-function",
       "term": "Cost Function",
       "definition": "Another name for loss function - the metric being minimized during training. Different tasks use different cost functions: cross-entropy for classification, MSE for regression.",
@@ -3180,6 +3956,19 @@
         "Reasoning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-counterfactual-dataset",
+      "term": "Counterfactual Dataset",
+      "definition": "Datasets of minimally edited examples where small changes flip the correct answer. Used to evaluate whether models rely on spurious correlations versus genuine understanding.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3256,6 +4045,19 @@
       "related": []
     },
     {
+      "id": "term-covost",
+      "term": "CoVoST",
+      "definition": "Common Voice Speech Translation a multilingual speech translation dataset derived from Common Voice. Covers translation from 21 languages into English and from English into 15 languages.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cox-proportional-hazards",
       "term": "Cox Proportional Hazards",
       "definition": "A semi-parametric survival model that estimates the effect of covariates on the hazard rate without specifying the baseline hazard function. It assumes that covariate effects are multiplicative and constant over time.",
@@ -3276,6 +4078,18 @@
         "Hardware"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-crafter",
+      "term": "Crafter",
+      "definition": "An open-world survival game benchmark for reinforcement learning testing 22 achievement-based skills. Designed to evaluate broad agent capabilities in a procedurally generated environment.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3520,6 +4334,31 @@
       "related": []
     },
     {
+      "id": "term-crosscodeeval",
+      "term": "CrossCodeEval",
+      "definition": "A benchmark for evaluating cross-file code completion where models must use context from multiple source files to generate correct code completions.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-crossfit",
+      "term": "CrossFit",
+      "definition": "A collection of 160 NLP tasks for studying few-shot cross-task generalization. Provides a unified framework for evaluating how well models transfer across diverse NLP tasks.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-crowd-counting",
       "term": "Crowd Counting",
       "definition": "The task of estimating the number of people in crowded scenes from images, typically using density map regression to handle extreme occlusion and perspective variation.",
@@ -3552,6 +4391,57 @@
         "Process"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-crows-pairs",
+      "term": "CrowS-Pairs",
+      "definition": "A crowdsourced dataset of 1508 sentence pairs measuring social biases in language models across 9 categories including race gender and religion.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-crud-rag",
+      "term": "CRUD-RAG",
+      "definition": "A benchmark for evaluating RAG systems on Create Read Update and Delete operations over a knowledge base. Tests dynamic knowledge management capabilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cruxeval",
+      "term": "CRUXEval",
+      "definition": "A code reasoning benchmark testing models ability to predict the output of Python programs and to generate inputs that produce given outputs. Tests code understanding rather than generation.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-csqa",
+      "term": "CSQA",
+      "definition": "CommonsenseQA a five-way multiple-choice QA benchmark requiring commonsense reasoning. Questions are constructed using ConceptNet subgraphs to ensure diverse commonsense knowledge is tested.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3616,6 +4506,33 @@
       "related": []
     },
     {
+      "id": "term-culturalqa",
+      "term": "CulturaLQA",
+      "definition": "A benchmark of culturally diverse questions testing whether language models have balanced knowledge across different cultures and regions of the world.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-culturax",
+      "term": "CulturaX",
+      "definition": "A large multilingual dataset of 6.3 trillion tokens across 167 languages. Created by combining mC4 and OSCAR with additional quality filtering for improved pretraining data.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-cumulative-reasoning",
       "term": "Cumulative Reasoning",
       "definition": "A prompting paradigm where a proposer generates potential reasoning steps, a verifier checks each step's validity, and a reporter determines when sufficient reasoning has accumulated to produce a final answer, mimicking collaborative human reasoning.",
@@ -3636,6 +4553,18 @@
         "Governance"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-curatedtrec",
+      "term": "CuratedTREC",
+      "definition": "A collection of factoid question answering data from TREC QA tracks. Provides curated evaluation sets for open-domain question answering research.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3756,6 +4685,20 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-cvalues",
+      "term": "CValues",
+      "definition": "A Chinese-language benchmark for evaluating safety and values alignment in language models. Tests adherence to human values across culturally relevant scenarios.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

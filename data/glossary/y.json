@@ -1,6 +1,6 @@
 {
   "letter": "y",
-  "count": 9,
+  "count": 12,
   "terms": [
     {
       "id": "term-yann-lecun",
@@ -23,6 +23,18 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-yelp-reviews",
+      "term": "Yelp Reviews",
+      "definition": "A dataset of millions of business reviews from Yelp used for sentiment analysis and text classification. Available in multiple versions for different NLP tasks.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -107,6 +119,32 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-youcook2",
+      "term": "YouCook2",
+      "definition": "A video dataset of 2000 cooking videos from YouTube with procedure step annotations and recipe descriptions. Used for video-language understanding and procedure learning research.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-yt-temporal-180m",
+      "term": "YT-Temporal-180M",
+      "definition": "A dataset of 180 million video clips from YouTube with ASR transcripts for temporal video-language pretraining. One of the largest video-text datasets used for VideoCLIP.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

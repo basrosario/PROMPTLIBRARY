@@ -1,6 +1,6 @@
 {
   "letter": "k",
-  "count": 44,
+  "count": 53,
   "terms": [
     {
       "id": "term-k-fold",
@@ -83,6 +83,18 @@
         "Organizations"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kaggle-datasets",
+      "term": "Kaggle Datasets",
+      "definition": "A repository of thousands of publicly available datasets hosted on the Kaggle platform. Covers diverse domains and is widely used for data science competitions and education.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -267,6 +279,69 @@
       "related": []
     },
     {
+      "id": "term-kinetics-400",
+      "term": "Kinetics-400",
+      "definition": "A large-scale video action recognition dataset containing 400 human action classes with at least 400 video clips per class sourced from YouTube. A primary benchmark for video understanding.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kinetics-600",
+      "term": "Kinetics-600",
+      "definition": "An expanded version of Kinetics-400 with 600 action classes and approximately 480000 video clips. Provides broader coverage of human activities for video recognition research.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kinetics-700",
+      "term": "Kinetics-700",
+      "definition": "The largest version of the Kinetics series with 700 action classes and over 650000 video clips. Includes trimmed clips of approximately 10 seconds each showing human actions.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kitti",
+      "term": "KITTI",
+      "definition": "A benchmark suite for autonomous driving containing stereo imagery optical flow 3D object detection and tracking data captured from a car driving through Karlsruhe Germany.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kitti-depth",
+      "term": "KITTI Depth",
+      "definition": "The depth prediction benchmark from the KITTI suite containing sparse depth maps from lidar projected onto camera images. Standard evaluation for monocular and stereo depth estimation.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "3D",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-kl-divergence",
       "term": "KL Divergence",
       "definition": "Kullback-Leibler divergence, a non-symmetric measure of how one probability distribution differs from a reference distribution. It quantifies the information lost when approximating the true distribution with the model distribution.",
@@ -287,6 +362,31 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-klue",
+      "term": "KLUE",
+      "definition": "Korean Language Understanding Evaluation a comprehensive benchmark of 8 Korean NLU tasks. Provides standardized evaluation for Korean language model development.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kmnist",
+      "term": "KMNIST",
+      "definition": "Kuzushiji-MNIST a dataset of 70000 28x28 grayscale images of cursive Japanese Kuzushiji characters. Created to preserve historical Japanese documents through machine learning-based character recognition.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -443,6 +543,19 @@
         "Inference"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-kornli",
+      "term": "KorNLI",
+      "definition": "Korean Natural Language Inference a benchmark for evaluating Korean language understanding. Tests textual entailment and semantic similarity in Korean text.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "v",
-  "count": 60,
+  "count": 78,
   "terms": [
     {
       "id": "term-variational-autoencoder",
@@ -219,6 +219,20 @@
       "related": []
     },
     {
+      "id": "term-vatex",
+      "term": "VATEX",
+      "definition": "A video-and-text dataset containing 41269 videos with both English and Chinese descriptions totaling over 826000 captions. Supports multilingual video captioning research.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-vc-dimension",
       "term": "VC Dimension",
       "definition": "Vapnik-Chervonenkis dimension, a measure of the capacity or complexity of a hypothesis class, defined as the largest set of points that can be shattered (perfectly classified in all possible labelings) by the class.",
@@ -227,6 +241,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vctk",
+      "term": "VCTK",
+      "definition": "Voice Cloning Toolkit dataset containing speech data from 110 English speakers with various accents. Used for multi-speaker text-to-speech and voice conversion research.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -423,6 +449,31 @@
       "related": []
     },
     {
+      "id": "term-vggface2",
+      "term": "VGGFace2",
+      "definition": "A large-scale face recognition dataset containing 3.31 million images of 9131 subjects with large variations in pose age illumination and ethnicity. Used to train robust face recognition systems.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vggsound",
+      "term": "VGGSound",
+      "definition": "A dataset of 200000 audio-visual clips from YouTube covering 310 sound classes. Tests audio classification with corresponding visual information for multimodal learning.",
+      "tags": [
+        "Benchmark",
+        "Audio",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-vicuna",
       "term": "Vicuna",
       "definition": "An open-source chatbot fine-tuned from LLaMA on user-shared conversations from ShareGPT. Achieved quality close to ChatGPT according to GPT-4 evaluation. Demonstrated that strong chat models can be created from open base models.",
@@ -471,6 +522,32 @@
       "related": []
     },
     {
+      "id": "term-video-mme",
+      "term": "Video-MME",
+      "definition": "A comprehensive benchmark for evaluating multimodal LLMs on video understanding tasks. Tests temporal reasoning action recognition and video-language alignment.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vimeo-90k",
+      "term": "Vimeo-90K",
+      "definition": "A large-scale high-quality video dataset containing 89800 video clips for video processing tasks. Used for training video super-resolution frame interpolation and denoising models.",
+      "tags": [
+        "Training Corpus",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-virtue-ethics-in-ai",
       "term": "Virtue Ethics in AI",
       "definition": "An approach to AI ethics that focuses on cultivating good character and judgment in AI practitioners rather than following rules or maximizing outcomes. Emphasizes professional responsibility and moral wisdom.",
@@ -479,6 +556,18 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-visda",
+      "term": "VisDA",
+      "definition": "Visual Domain Adaptation challenge datasets providing synthetic-to-real transfer benchmarks. Tests the ability of models trained on synthetic data to recognize real-world objects.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -503,6 +592,43 @@
         "Multimodal"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-visual-commonsense-reasoning",
+      "term": "Visual Commonsense Reasoning",
+      "definition": "A dataset requiring models to answer visual questions and provide rationales for their answers. Goes beyond VQA by requiring explicit reasoning justification.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-visual-entailment",
+      "term": "Visual Entailment",
+      "definition": "A visual NLI dataset where models determine whether an image semantically entails a text hypothesis. Extends textual entailment to the multimodal setting.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-visual-genome",
+      "term": "Visual Genome",
+      "definition": "A dataset of 108000 images with dense annotations including region descriptions objects attributes relationships and question-answer pairs. Provides rich structured visual knowledge.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -555,6 +681,19 @@
       "related": []
     },
     {
+      "id": "term-visualwebarena",
+      "term": "VisualWebArena",
+      "definition": "An extension of WebArena that tests multimodal web agents on tasks requiring visual understanding. Combines web navigation with image and layout comprehension.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-viterbi-algorithm",
       "term": "Viterbi Algorithm",
       "definition": "A dynamic programming algorithm that finds the most likely sequence of hidden states in an HMM or CRF, used for optimal decoding in sequence labeling and speech recognition.",
@@ -563,6 +702,19 @@
         "Text Processing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vizwiz",
+      "term": "VizWiz",
+      "definition": "A visual question answering dataset where questions are asked by blind people taking photos with smartphones. Contains 31000 image-question pairs reflecting real accessibility needs.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Accessibility"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -675,6 +827,30 @@
       "related": []
     },
     {
+      "id": "term-voxceleb",
+      "term": "VoxCeleb",
+      "definition": "A large-scale speaker recognition dataset containing over 100000 utterances from 1251 celebrities extracted from YouTube videos. Used for speaker verification and identification research.",
+      "tags": [
+        "Benchmark",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-voxceleb2",
+      "term": "VoxCeleb2",
+      "definition": "An expanded speaker recognition dataset with over 1 million utterances from 6112 speakers. Provides greater speaker diversity and acoustic variability than the original VoxCeleb.",
+      "tags": [
+        "Benchmark",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-voxel",
       "term": "Voxel",
       "definition": "A volumetric pixel representing a value on a regular 3D grid, used as a discrete representation for 3D data in neural networks, analogous to pixels in 2D images.",
@@ -683,6 +859,32 @@
         "3D Vision"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-voxlingua107",
+      "term": "VoxLingua107",
+      "definition": "A dataset for spoken language identification covering 107 languages extracted from YouTube videos. Tests the ability to identify spoken languages from short audio segments.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-voxpopuli",
+      "term": "VoxPopuli",
+      "definition": "A large-scale multilingual speech corpus from European Parliament recordings covering 23 languages with transcriptions and speech-to-speech translation data.",
+      "tags": [
+        "Training Corpus",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -707,6 +909,30 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vqa",
+      "term": "VQA",
+      "definition": "Visual Question Answering a dataset of open-ended questions about images requiring understanding of vision language and commonsense knowledge. Contains over 250000 images with human-posed questions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-vqa-20",
+      "term": "VQA 2.0",
+      "definition": "The second version of VQA with balanced pairs of similar images that require different answers reducing bias. Contains over 1.1 million questions about COCO images.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "n",
-  "count": 92,
+  "count": 108,
   "terms": [
     {
       "id": "term-n-gram",
@@ -99,6 +99,18 @@
       "related": []
     },
     {
+      "id": "term-narrativeqa",
+      "term": "NarrativeQA",
+      "definition": "A question answering dataset requiring understanding of entire books and movie scripts. Questions are written about summaries but must be answered from full-length source documents.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-narrow-ai",
       "term": "Narrow AI (ANI)",
       "definition": "AI systems designed for specific tasks, like playing chess or generating text. All current AI is narrow, as opposed to hypothetical artificial general intelligence (AGI).",
@@ -143,6 +155,18 @@
         "Pioneers"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-natural-instructions",
+      "term": "Natural Instructions",
+      "definition": "A community effort collecting over 1600 diverse NLP tasks with expert-written instructions and examples. Used for training and evaluating instruction-following language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -231,6 +255,18 @@
       "related": []
     },
     {
+      "id": "term-natural-questions-open",
+      "term": "Natural Questions Open",
+      "definition": "The open-domain version of Natural Questions where models must answer Google queries without a specified evidence document. Tests open-domain question answering ability.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-nccl",
       "term": "NCCL",
       "definition": "NVIDIA Collective Communications Library, a highly optimized library for multi-GPU and multi-node collective communication operations. NCCL automatically selects the best communication algorithms and topologies for the available hardware interconnects.",
@@ -263,6 +299,18 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nectar",
+      "term": "Nectar",
+      "definition": "A preference ranking dataset created by aggregating multiple existing preference datasets into a unified format. Provides diverse comparison data for RLHF training of language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -407,6 +455,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nethack-learning-environment",
+      "term": "NetHack Learning Environment",
+      "definition": "A reinforcement learning environment based on the classic roguelike game NetHack. Tests long-horizon planning and exploration in procedurally generated dungeons.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -591,6 +651,32 @@
       "related": []
     },
     {
+      "id": "term-next-gpt-data",
+      "term": "NExT-GPT Data",
+      "definition": "Training data for the NExT-GPT any-to-any multimodal model covering text image audio and video modalities. Supports cross-modal generation and understanding.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-next-qa",
+      "term": "NeXT-QA",
+      "definition": "A video question answering benchmark requiring causal and temporal reasoning about video events. Tests understanding of cause-and-effect relationships in video content.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-nf4",
       "term": "NF4 (Normal Float 4-bit)",
       "definition": "A 4-bit quantization format based on the assumption that neural network weights follow a normal distribution, using quantile quantization for optimal information-theoretic representation. NF4 is used in QLoRA for memory-efficient fine-tuning.",
@@ -599,6 +685,19 @@
         "Inference Infrastructure"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-niah",
+      "term": "NIAH",
+      "definition": "Needle in a Haystack a test that places a specific fact within a long context and asks the model to retrieve it. Measures long-context retrieval ability across different context positions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -651,6 +750,32 @@
       "related": []
     },
     {
+      "id": "term-nllb-dataset",
+      "term": "NLLB Dataset",
+      "definition": "The No Language Left Behind parallel corpus used by Meta to train translation models covering 200 languages. One of the most comprehensive multilingual translation resources available.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Translation",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nlvr2",
+      "term": "NLVR2",
+      "definition": "Natural Language Visual Reasoning a benchmark where models determine whether a statement is true about a pair of images. Tests compositional visual reasoning grounded in natural language.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-no-free-lunch-theorem",
       "term": "No Free Lunch Theorem",
       "definition": "A set of theoretical results stating that no single learning algorithm performs best across all possible problems. When averaged over all possible data distributions, all algorithms perform equally.",
@@ -675,6 +800,18 @@
       "related": []
     },
     {
+      "id": "term-no-robots",
+      "term": "No Robots",
+      "definition": "A high-quality dataset of 10000 instructions and demonstrations created entirely by skilled human annotators. Demonstrates the value of human-written data over synthetic generation.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-nobel-prize-for-ai",
       "term": "Nobel Prize for AI",
       "definition": "Recognition of AI contributions through Nobel Prizes including the 2024 Nobel Prize in Physics awarded to John Hopfield and Geoffrey Hinton for foundational discoveries enabling machine learning with artificial neural networks and the 2024 Chemistry Prize for AlphaFold.",
@@ -683,6 +820,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nocaps",
+      "term": "Nocaps",
+      "definition": "Novel Object Captioning at Scale a benchmark testing image captioning models on images containing objects not seen during training. Evaluates generalization to novel visual concepts.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -951,6 +1100,31 @@
       "related": []
     },
     {
+      "id": "term-nq-swap",
+      "term": "NQ-Swap",
+      "definition": "A modified version of Natural Questions with swapped entities testing whether models rely on parametric memory versus retrieved context for question answering.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nsynth",
+      "term": "NSynth",
+      "definition": "A large-scale dataset of 305979 musical notes from 1006 instruments with rich annotations. Used for audio synthesis and musical instrument sound generation research.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-nt-xent-loss",
       "term": "NT-Xent Loss",
       "definition": "Normalized Temperature-scaled Cross-Entropy loss used in SimCLR for self-supervised contrastive learning. Normalizes embeddings and scales by a temperature parameter before computing cross-entropy over positive and negative pairs within a mini-batch.",
@@ -1019,6 +1193,18 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nuscenes",
+      "term": "nuScenes",
+      "definition": "A multimodal autonomous driving dataset with 1000 driving scenes from Boston and Singapore. Provides 3D bounding boxes from lidar and camera with full 360-degree sensor coverage.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1103,6 +1289,19 @@
         "Distributed Computing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-nyu-depth-v2",
+      "term": "NYU Depth V2",
+      "definition": "A dataset of 1449 densely labeled RGB-D images of indoor scenes from 464 different scenes. A standard benchmark for monocular depth estimation and indoor scene segmentation.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "3D"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

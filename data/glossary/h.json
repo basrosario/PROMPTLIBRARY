@@ -1,6 +1,6 @@
 {
   "letter": "h",
-  "count": 72,
+  "count": 85,
   "terms": [
     {
       "id": "term-habana",
@@ -11,6 +11,19 @@
         "Distributed Computing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-habitat",
+      "term": "Habitat",
+      "definition": "A simulation platform for training embodied AI agents in photorealistic 3D environments. Enables research in visual navigation and interaction using scanned real-world spaces.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning",
+        "Robotics"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -59,6 +72,19 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-halueval",
+      "term": "HaluEval",
+      "definition": "A benchmark for evaluating hallucination in large language models across QA dialogue and summarization tasks. Tests the ability to generate factually grounded responses.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -171,6 +197,19 @@
       "related": []
     },
     {
+      "id": "term-hateful-memes",
+      "term": "Hateful Memes",
+      "definition": "A multimodal dataset from Facebook AI of 10000 memes annotated for hate speech. Tests the ability to understand hateful content that requires joint reasoning over image and text.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-hazard-function",
       "term": "Hazard Function",
       "definition": "The instantaneous rate at which events occur for subjects who have survived up to a given time point. It is a fundamental quantity in survival analysis, describing how the risk of an event changes over time.",
@@ -179,6 +218,19 @@
         "Data Science"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hd-vila-100m",
+      "term": "HD-VILA-100M",
+      "definition": "A large-scale high-resolution video-language dataset containing 100 million video-text pairs. Provides diverse video data for pretraining video-language foundation models.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -267,6 +319,19 @@
       "related": []
     },
     {
+      "id": "term-helm",
+      "term": "HELM",
+      "definition": "The Holistic Evaluation of Language Models framework from Stanford CRFM. Evaluates language models across multiple scenarios and metrics including accuracy calibration robustness fairness and efficiency.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-herbert-gelernter",
       "term": "Herbert Gelernter",
       "definition": "American computer scientist who created the Geometry Theorem Prover in 1959 at IBM. The program could prove theorems in Euclidean geometry from axioms and represented an early success in automated reasoning and mathematical problem solving by computers.",
@@ -323,6 +388,18 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hi-fi-multi-speaker-english-tts",
+      "term": "Hi-Fi Multi-Speaker English TTS",
+      "definition": "A high-fidelity multi-speaker text-to-speech dataset containing 291.6 hours of speech from 10 speakers. Provides high-quality data for training neural TTS systems.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -495,6 +572,18 @@
       "related": []
     },
     {
+      "id": "term-hmdb-51",
+      "term": "HMDB-51",
+      "definition": "A dataset of 6849 video clips from 51 action categories collected from movies and web videos. Tests human motion recognition in realistic uncontrolled video conditions.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-hnsw",
       "term": "HNSW",
       "definition": "Hierarchical Navigable Small World, a graph-based approximate nearest neighbor algorithm that builds multi-layered proximity graphs with logarithmic search complexity, offering an excellent balance of search speed, accuracy, and memory usage for high-dimensional vector search.",
@@ -591,6 +680,46 @@
       "related": []
     },
     {
+      "id": "term-hotpotqa",
+      "term": "HotpotQA",
+      "definition": "A question answering dataset requiring multi-hop reasoning across multiple Wikipedia paragraphs. Contains 113000 questions that cannot be answered from a single passage alone.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-how2",
+      "term": "How2",
+      "definition": "A multimodal dataset of 80000 instructional videos with English subtitles and Portuguese translations. Used for multimodal machine translation and video summarization research.",
+      "tags": [
+        "Training Corpus",
+        "Video",
+        "Multimodal",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hpd",
+      "term": "HPD",
+      "definition": "Human Preference Dataset for image generation containing human preference judgments between pairs of generated images. Used for aligning image generation models with human aesthetics.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-huber-loss",
       "term": "Huber Loss",
       "definition": "A loss function that is quadratic for small residuals and linear for large residuals, combining the best properties of mean squared error and mean absolute error. It is more robust to outliers than squared error loss.",
@@ -635,6 +764,31 @@
         "Open Source"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hugging-face-datasets-library",
+      "term": "Hugging Face Datasets Library",
+      "definition": "A library for easily accessing and sharing datasets with efficient data loading and processing. Provides a unified API for thousands of NLP vision and audio datasets.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-hugging-face-hub",
+      "term": "Hugging Face Hub",
+      "definition": "A platform hosting over 200000 machine learning models datasets and demo applications. The largest open repository for sharing and discovering ML resources.",
+      "tags": [
+        "Platform",
+        "NLP",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -728,6 +882,19 @@
       "definition": "A benchmark for evaluating code generation capabilities of LLMs. Contains programming problems with test cases, measuring how often generated code passes all tests.",
       "tags": [
         "Benchmark",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-humanitys-last-exam",
+      "term": "Humanity's Last Exam",
+      "definition": "A benchmark of extremely challenging expert-level questions crowdsourced from academics and professionals. Designed to test the upper limits of AI knowledge and reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
         "Evaluation"
       ],
       "domain": "datasets",

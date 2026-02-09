@@ -1,7 +1,33 @@
 {
   "letter": "s",
-  "count": 304,
+  "count": 359,
   "terms": [
+    {
+      "id": "term-s2orc",
+      "term": "S2ORC",
+      "definition": "The Semantic Scholar Open Research Corpus containing full text and metadata for 81 million academic papers. A comprehensive resource for scientific language modeling and information extraction.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-s3dis",
+      "term": "S3DIS",
+      "definition": "Stanford Large-Scale 3D Indoor Spaces a dataset of 6 large indoor areas with dense 3D point clouds annotated with 13 semantic categories. Used for 3D semantic segmentation benchmarking.",
+      "tags": [
+        "Benchmark",
+        "3D",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
     {
       "id": "term-s4",
       "term": "S4",
@@ -47,6 +73,19 @@
         "Safety"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-saferlhf",
+      "term": "SafeRLHF",
+      "definition": "A dataset of human preference annotations focused on safety and helpfulness tradeoffs. Used for training AI systems to balance being helpful while avoiding harmful outputs.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -105,6 +144,20 @@
       "tags": [
         "Evaluation",
         "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-safetybench",
+      "term": "SafetyBench",
+      "definition": "A comprehensive benchmark for evaluating the safety of large language models across multiple risk categories including ethics legality and physical harm.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety",
+        "Evaluation"
       ],
       "domain": "datasets",
       "link": null,
@@ -183,6 +236,18 @@
       "related": []
     },
     {
+      "id": "term-samsum",
+      "term": "SAMSum",
+      "definition": "A dialogue summarization dataset containing 16000 messenger-style conversations with human-written summaries. Tests the ability to summarize informal conversational text.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-samuels-checkers-program",
       "term": "Samuel's Checkers Program",
       "definition": "A checkers-playing program developed by Arthur Samuel at IBM beginning in 1959. The program used machine learning techniques including rote learning and generalization to improve its play. It is one of the earliest demonstrations of machine learning in practice.",
@@ -251,6 +316,18 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sbu-captions",
+      "term": "SBU Captions",
+      "definition": "Stony Brook University Captions a dataset of 1 million image-caption pairs collected from Flickr. Used for image captioning and vision-language pretraining.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -339,6 +416,19 @@
       "related": []
     },
     {
+      "id": "term-scannet",
+      "term": "ScanNet",
+      "definition": "A richly annotated 3D reconstruction dataset of real-world indoor scenes containing 2.5 million RGB-D frames across 1513 scenes with semantic segmentation and object detection annotations.",
+      "tags": [
+        "Benchmark",
+        "3D",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-scene-graph-generation",
       "term": "Scene Graph Generation",
       "definition": "The task of detecting objects in an image and predicting their pairwise relationships to construct a graph representation where nodes are objects and edges are visual relationships.",
@@ -375,6 +465,20 @@
       "related": []
     },
     {
+      "id": "term-scibench",
+      "term": "SciBench",
+      "definition": "A benchmark of college-level science problems from textbooks in mathematics physics and chemistry. Tests the ability to solve problems requiring scientific domain knowledge.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-scibert",
       "term": "SciBERT",
       "definition": "A BERT model pretrained on a large corpus of scientific papers from the Semantic Scholar corpus. Outperforms BERT on scientific NLP tasks including named entity recognition relation extraction and document classification.",
@@ -387,6 +491,45 @@
       "related": []
     },
     {
+      "id": "term-scidocs",
+      "term": "SCIDOCS",
+      "definition": "A benchmark for evaluating scientific document embeddings across seven document-level tasks including citation prediction recommendation and classification.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-scienceqa",
+      "term": "ScienceQA",
+      "definition": "A multimodal science question answering benchmark with lectures explanations and multiple-choice questions. Covers diverse science topics with both text and image contexts.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-scifact",
+      "term": "SciFact",
+      "definition": "A dataset for scientific claim verification containing 1409 expert-annotated claims paired with evidence from scientific abstracts. Tests the ability to verify scientific statements.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-scikit-learn",
       "term": "Scikit-learn",
       "definition": "A popular Python library for traditional machine learning algorithms. Provides simple APIs for classification, regression, clustering, and preprocessing. The go-to for non-deep-learning ML.",
@@ -395,6 +538,33 @@
         "ML"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sciq",
+      "term": "SciQ",
+      "definition": "A science question answering dataset of 13679 crowdsourced multiple-choice science exam questions with supporting passages. Tests scientific knowledge and reading comprehension.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-scirepeval",
+      "term": "SciRepEval",
+      "definition": "A benchmark for scientific document representation spanning 4 task formats across 24 scientific datasets. Tests the quality of learned representations of scientific text.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Scientific",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -443,6 +613,19 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-scrolls",
+      "term": "SCROLLS",
+      "definition": "Standardized CompaRison Over Long Language Sequences a benchmark of 7 tasks requiring reasoning over long texts. Tests language model capabilities on long-context NLU tasks.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -515,6 +698,19 @@
         "AI Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-seed-bench",
+      "term": "SEED-Bench",
+      "definition": "A multimodal benchmark evaluating large multimodal models across 19000 questions covering 12 evaluation dimensions from image to video understanding.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -647,6 +843,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-self-instruct",
+      "term": "Self-Instruct",
+      "definition": "A framework and dataset for bootstrapping instruction-following data from a language model's own generations. Generates 52000 instructions and demonstrations from minimal seeds.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -839,6 +1047,19 @@
         "Linguistics"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-semantic-scholar-corpus",
+      "term": "Semantic Scholar Corpus",
+      "definition": "A comprehensive corpus of academic papers with metadata citations and abstracts maintained by AI2. Used for scientific information extraction and citation analysis.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1203,6 +1424,19 @@
       "related": []
     },
     {
+      "id": "term-shapenet",
+      "term": "ShapeNet",
+      "definition": "A large-scale repository of 3D CAD models with rich annotations covering 55 common object categories. Used for 3D object classification reconstruction and generation research.",
+      "tags": [
+        "Benchmark",
+        "3D",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-shapiro-wilk-test",
       "term": "Shapiro-Wilk Test",
       "definition": "A statistical test for normality that evaluates whether a random sample comes from a normal distribution. It is considered one of the most powerful normality tests, especially for small sample sizes.",
@@ -1223,6 +1457,18 @@
         "GPU"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sharegpt",
+      "term": "ShareGPT",
+      "definition": "A collection of user-shared conversations with ChatGPT used for training open-source instruction-following language models. Provides diverse real-world conversational data.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1383,6 +1629,19 @@
       "related": []
     },
     {
+      "id": "term-simpleqa",
+      "term": "SimpleQA",
+      "definition": "A benchmark of factual questions with definitive short answers for evaluating the factual accuracy of language models. Tests whether models provide correct and well-calibrated responses.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-simpsons-paradox",
       "term": "Simpson's Paradox",
       "definition": "A statistical phenomenon where a trend that appears in several different groups of data disappears or reverses when these groups are combined. It highlights the importance of accounting for confounding variables.",
@@ -1475,6 +1734,19 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-siqa",
+      "term": "SIQA",
+      "definition": "Social Interaction QA a benchmark for commonsense reasoning about peoples actions and their social implications. Contains 38000 multiple-choice questions about emotional and social intelligence.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1611,6 +1883,30 @@
       "related": []
     },
     {
+      "id": "term-slimorca",
+      "term": "SlimOrca",
+      "definition": "A curated subset of the OpenOrca dataset with improved quality through GPT-4 filtering and decontamination. Provides cleaner instruction-following data for fine-tuning.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-slimpajama",
+      "term": "SlimPajama",
+      "definition": "A cleaned and deduplicated version of RedPajama containing 627 billion tokens. Created by Cerebras to improve data quality through global deduplication across all subsets.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-slot-filling",
       "term": "Slot Filling",
       "definition": "The task of extracting specific pieces of information (slot values) from user utterances in a task-oriented dialogue system, such as extracting dates, locations, or names to fill predefined slots.",
@@ -1631,6 +1927,18 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-smac",
+      "term": "SMAC",
+      "definition": "StarCraft Multi-Agent Challenge a benchmark for cooperative multi-agent reinforcement learning based on StarCraft II micromanagement scenarios. Tests coordination among multiple learning agents.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1683,6 +1991,30 @@
       "related": []
     },
     {
+      "id": "term-snips",
+      "term": "SNIPS",
+      "definition": "A dataset for natural language understanding in voice assistants containing 14484 utterances across 7 intent categories with slot annotations. Used for intent classification benchmarking.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-snli",
+      "term": "SNLI",
+      "definition": "The Stanford Natural Language Inference corpus containing 570000 human-written sentence pairs labeled for entailment contradiction and neutrality. A foundational benchmark for natural language inference.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-soar",
       "term": "SOAR",
       "definition": "A cognitive architecture developed by John Laird Allen Newell and Paul Rosenbloom at Carnegie Mellon in the 1980s. SOAR models general intelligence through a unified theory of cognition combining problem solving learning and memory in a single framework.",
@@ -1691,6 +2023,19 @@
         "Systems"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-social-chemistry-101",
+      "term": "Social Chemistry 101",
+      "definition": "A dataset of 292000 rules-of-thumb about social and moral norms covering 104000 everyday situations. Provides fine-grained annotations of social expectations and judgments.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1787,6 +2132,19 @@
         "Reasoning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-soda",
+      "term": "SODA",
+      "definition": "Social Dialogue Dataset a large-scale dialogue dataset with social commonsense context. Contains 1.5 million conversations grounded in social scenarios for training socially aware chatbots.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1899,6 +2257,18 @@
       "related": []
     },
     {
+      "id": "term-something-something-v2",
+      "term": "Something-Something V2",
+      "definition": "A video dataset of 220000 clips showing humans performing 174 predefined actions with everyday objects. Focuses on temporal reasoning about object interactions.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-sora",
       "term": "Sora",
       "definition": "A text-to-video generation model by OpenAI that produces realistic videos up to a minute long from text prompts. Uses a diffusion transformer architecture operating on spacetime patches. Demonstrates understanding of physical world dynamics.",
@@ -1907,6 +2277,19 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sparc",
+      "term": "SParC",
+      "definition": "Cross-Domain Semantic Parsing in Context a context-dependent text-to-SQL benchmark with multi-turn interactions. Tests the ability to handle context-dependent SQL generation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2187,6 +2570,31 @@
       "related": []
     },
     {
+      "id": "term-spgispeech",
+      "term": "SPGISpeech",
+      "definition": "A 5000-hour English speech corpus of earnings calls and financial presentations with professional transcriptions. Provides domain-specific speech data for financial ASR applications.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-spider",
+      "term": "Spider",
+      "definition": "A complex text-to-SQL benchmark covering 200 databases with 10181 questions and SQL queries. Tests cross-database generalization for natural language to SQL translation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-spillover-effects-of-ai",
       "term": "Spillover Effects of AI",
       "definition": "Unintended consequences of AI deployment that affect parties or domains beyond the intended scope of the system. Can be positive or negative and are often difficult to predict or measure.",
@@ -2259,6 +2667,18 @@
       "related": []
     },
     {
+      "id": "term-squad-20",
+      "term": "SQuAD 2.0",
+      "definition": "An extension of SQuAD that includes 50000 unanswerable questions combined with the original answerable ones. Tests whether models can determine when a passage does not contain the answer.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-squad-dataset",
       "term": "SQuAD Dataset",
       "definition": "The Stanford Question Answering Dataset created in 2016 consisting of questions posed about Wikipedia articles where the answer is a segment of text from the article. SQuAD became a standard benchmark for reading comprehension and question answering systems.",
@@ -2267,6 +2687,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-squality",
+      "term": "SQuALITY",
+      "definition": "A long-document summarization dataset with question-focused summaries written by expert annotators. Tests the ability to summarize long texts in response to specific questions.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2367,6 +2799,30 @@
       "related": []
     },
     {
+      "id": "term-sst-2",
+      "term": "SST-2",
+      "definition": "The Stanford Sentiment Treebank binary classification task containing movie review sentences labeled as positive or negative. Part of the GLUE benchmark for sentiment analysis evaluation.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sst-5",
+      "term": "SST-5",
+      "definition": "The Stanford Sentiment Treebank with five-class sentiment labels ranging from very negative to very positive. Provides fine-grained sentiment annotations for 11855 movie review sentences.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-stable-diffusion",
       "term": "Stable Diffusion",
       "definition": "An open-source text-to-image model from Stability AI. Its open nature enabled a large ecosystem of fine-tuned models, extensions, and applications.",
@@ -2423,6 +2879,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-stackoverflow-dataset",
+      "term": "StackOverflow Dataset",
+      "definition": "Curated collections of questions answers and code from Stack Overflow used for training programming-related language models and code QA systems.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2487,6 +2955,18 @@
       "related": []
     },
     {
+      "id": "term-stanford-cars",
+      "term": "Stanford Cars",
+      "definition": "A dataset of 16185 images across 196 car classes defined by make model and year. Used for fine-grained visual classification where differences between classes are subtle.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-stanford-cart",
       "term": "Stanford Cart",
       "definition": "An early autonomous vehicle project at Stanford University begun in the 1960s. The Cart used computer vision to navigate obstacle courses demonstrating early capabilities in machine perception and autonomous navigation that influenced later robotics research.",
@@ -2495,6 +2975,18 @@
         "Systems"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-stanford-dogs",
+      "term": "Stanford Dogs",
+      "definition": "A dataset of 20580 images across 120 dog breeds built from ImageNet. Used for fine-grained image classification research where visual differences between classes are minimal.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2531,6 +3023,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-starcoder-training-data",
+      "term": "StarCoder Training Data",
+      "definition": "The pretraining data for the StarCoder code generation model containing over 783GB of code from 86 programming languages sourced from permissively licensed GitHub repositories.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2727,12 +3231,37 @@
       "related": []
     },
     {
+      "id": "term-stereoset",
+      "term": "StereoSet",
+      "definition": "A dataset for measuring stereotypical bias in pretrained language models across four domains of bias: gender profession race and religion. Tests both language modeling and stereotype detection.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-stereotype-score",
       "term": "Stereotype Score",
       "definition": "An evaluation metric that measures how frequently a model generates or reinforces social stereotypes related to gender, race, religion, or other protected attributes, used to assess and mitigate representational harms.",
       "tags": [
         "Evaluation",
         "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-stl-10",
+      "term": "STL-10",
+      "definition": "An image recognition dataset with 10 classes derived from ImageNet designed for developing unsupervised feature learning algorithms. Contains 5000 labeled training images and 100000 unlabeled images.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
       ],
       "domain": "datasets",
       "link": null,
@@ -2823,6 +3352,19 @@
       "related": []
     },
     {
+      "id": "term-storycloze",
+      "term": "StoryCloze",
+      "definition": "A commonsense reasoning dataset where models choose the correct ending for a four-sentence story from two candidates. Tests understanding of narrative structure and causal reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-straight-through-estimator",
       "term": "Straight-Through Estimator",
       "definition": "A gradient estimation technique for non-differentiable operations that passes gradients through the operation unchanged during backpropagation. Used for quantization binarization and other discrete operations in neural networks.",
@@ -2831,6 +3373,19 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-strategyqa",
+      "term": "StrategyQA",
+      "definition": "A question answering dataset requiring implicit multi-step reasoning where the reasoning strategy is not specified in the question. Tests whether models can decompose complex questions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3063,6 +3618,18 @@
       "related": []
     },
     {
+      "id": "term-sts-b",
+      "term": "STS-B",
+      "definition": "The Semantic Textual Similarity Benchmark containing sentence pairs annotated with similarity scores from 1 to 5. Tests graded semantic similarity in the GLUE benchmark using Pearson correlation.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-stuart-russell",
       "term": "Stuart Russell",
       "definition": "British computer scientist and co-author of the standard AI textbook Artificial Intelligence: A Modern Approach with Peter Norvig. Professor at UC Berkeley known for work on rational agents decision theory and AI safety. Advocate for beneficial AI development.",
@@ -3243,6 +3810,43 @@
       "related": []
     },
     {
+      "id": "term-summeval",
+      "term": "SummEval",
+      "definition": "A benchmark for evaluating summarization evaluation metrics containing 16 model summaries for 100 CNN/DailyMail articles with human annotations for consistency relevance coherence and fluency.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-sun-database",
+      "term": "SUN Database",
+      "definition": "The Scene Understanding dataset containing over 130000 images across 908 scene categories with detailed annotations. One of the largest and most diverse scene recognition benchmarks.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-super-natural-instructions",
+      "term": "Super-Natural Instructions",
+      "definition": "An expansion of Natural Instructions to over 1600 tasks spanning 76 task types with expert-written instructions. Tests cross-task generalization of instruction-following models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-super-resolution",
       "term": "Super-Resolution",
       "definition": "A computer vision task that reconstructs a high-resolution image from a low-resolution input, using deep learning models to predict fine details and textures that are not present in the degraded source.",
@@ -3251,6 +3855,19 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-superb",
+      "term": "SUPERB",
+      "definition": "Speech processing Universal PERformance Benchmark a leaderboard of 10 speech tasks for evaluating self-supervised speech representations including ASR and speaker identification.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3399,6 +4016,18 @@
       "related": []
     },
     {
+      "id": "term-svhn",
+      "term": "SVHN",
+      "definition": "The Street View House Numbers dataset containing over 600000 digit images obtained from house numbers in Google Street View imagery. More challenging than MNIST due to real-world noise and distractors.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-swarm-intelligence",
       "term": "Swarm Intelligence",
       "definition": "The collective intelligent behavior emerging from decentralized, self-organized systems such as ant colonies or bird flocks, formalized computationally in the 1990s and applied to optimization and robotics problems.",
@@ -3407,6 +4036,30 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-swe-bench",
+      "term": "SWE-bench",
+      "definition": "Software Engineering Bench a benchmark of real-world GitHub issues paired with their resolutions. Tests the ability of AI systems to autonomously resolve actual software engineering tasks.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-swe-bench-verified",
+      "term": "SWE-bench Verified",
+      "definition": "A human-validated subset of SWE-bench where each task has been verified by software engineers. Provides more reliable evaluation of autonomous coding agent capabilities.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3467,6 +4120,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-switchboard",
+      "term": "Switchboard",
+      "definition": "A collection of approximately 2400 two-sided telephone conversations among 543 speakers. A foundational dataset for conversational speech recognition and dialogue research.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3579,6 +4244,18 @@
       "related": []
     },
     {
+      "id": "term-synthetic-data-vault",
+      "term": "Synthetic Data Vault",
+      "definition": "A system for generating synthetic tabular data that preserves the statistical properties of real datasets. Used for privacy-preserving data sharing and augmentation.",
+      "tags": [
+        "Synthetic",
+        "Platform"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-synthetic-media",
       "term": "Synthetic Media",
       "definition": "Media content including images, video, audio, and text that is generated or substantially modified by AI systems, encompassing deepfakes, AI-generated art, voice cloning, and large language model outputs.",
@@ -3587,6 +4264,19 @@
         "AI Safety"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-synthetic-text-to-sql",
+      "term": "Synthetic Text-to-SQL",
+      "definition": "Synthetic datasets of natural language to SQL pairs generated by LLMs for training text-to-SQL models. Augments human-annotated data with diverse synthetic examples.",
+      "tags": [
+        "Training Corpus",
+        "Code",
+        "Synthetic"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

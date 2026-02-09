@@ -1,6 +1,6 @@
 {
   "letter": "t",
-  "count": 127,
+  "count": 152,
   "terms": [
     {
       "id": "term-t-sne",
@@ -11,6 +11,19 @@
         "Dimensionality Reduction"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-t2i-compbench",
+      "term": "T2I-CompBench",
+      "definition": "A benchmark for evaluating compositional text-to-image generation. Tests the ability to generate images with correct attributes spatial relationships and complex compositions.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -39,6 +52,19 @@
       "related": []
     },
     {
+      "id": "term-tabfact",
+      "term": "TabFact",
+      "definition": "A table fact verification dataset containing 118000 statements about Wikipedia tables labeled as entailed or refuted. Tests the ability to reason about structured tabular data.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Tabular"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-table-extraction",
       "term": "Table Extraction",
       "definition": "The task of detecting tables in document images and extracting their structure (rows, columns, cells) and content into machine-readable format, combining visual detection with text recognition.",
@@ -59,6 +85,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tabnet-benchmark",
+      "term": "TabNet Benchmark",
+      "definition": "A collection of tabular datasets used to evaluate deep learning methods for structured data. Tests whether neural networks can match gradient boosted trees on tabular tasks.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -119,6 +157,58 @@
         "Value Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-taskmatrix-benchmark",
+      "term": "TaskMatrix Benchmark",
+      "definition": "A benchmark evaluating the ability of AI systems to use visual foundation models as tools for complex visual tasks. Tests multimodal tool-use capabilities.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-taskonomy",
+      "term": "Taskonomy",
+      "definition": "A dataset of 4 million images from 600 buildings with annotations for 26 visual tasks. Used to study relationships between visual tasks and transfer learning efficiency.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tatoeba",
+      "term": "Tatoeba",
+      "definition": "A collection of sentences and translations in over 400 languages maintained by volunteers. Used as a multilingual sentence similarity and translation evaluation benchmark.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Translation",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-taxi1500",
+      "term": "Taxi1500",
+      "definition": "A text classification benchmark covering 1500 languages with Bible verse topic classification. One of the most linguistically diverse NLP evaluation resources available.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -351,6 +441,18 @@
       "related": []
     },
     {
+      "id": "term-tensorflow-datasets",
+      "term": "TensorFlow Datasets",
+      "definition": "A collection of ready-to-use datasets for TensorFlow with standardized loading and preprocessing. Covers computer vision NLP audio and reinforcement learning tasks.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-tensorflow-release",
       "term": "TensorFlow Release",
       "definition": "The open-source release of TensorFlow by Google Brain in November 2015. TensorFlow provided a comprehensive framework for building and training neural networks and became one of the most widely used deep learning libraries accelerating AI research and deployment.",
@@ -567,6 +669,18 @@
       "related": []
     },
     {
+      "id": "term-textcaps",
+      "term": "TextCaps",
+      "definition": "A dataset for image captioning that requires reading and reasoning about text in images. Contains 28000 images with captions that incorporate OCR text visible in the scene.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-textrank",
       "term": "TextRank",
       "definition": "A graph-based ranking algorithm for NLP that applies PageRank-style computation to a graph of text units, used for keyword extraction and extractive summarization.",
@@ -615,6 +729,18 @@
       "related": []
     },
     {
+      "id": "term-textvqa",
+      "term": "TextVQA",
+      "definition": "A visual question answering dataset requiring models to read and reason about text present in images. Contains 45336 questions about 28408 images with scene text.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-tf-idf",
       "term": "TF-IDF",
       "definition": "Term Frequency-Inverse Document Frequency, a numerical statistic that reflects the importance of a word in a document relative to a collection. It increases with word frequency in the document but decreases with frequency across documents.",
@@ -639,6 +765,18 @@
       "related": []
     },
     {
+      "id": "term-tfds",
+      "term": "TFDS",
+      "definition": "TensorFlow Datasets a collection and API for loading datasets into TensorFlow pipelines. Provides deterministic dataset preparation with standardized splits and features.",
+      "tags": [
+        "Platform",
+        "General"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-the-pile",
       "term": "The Pile",
       "definition": "A large-scale diverse open-source language modeling dataset created by EleutherAI in 2020. The Pile consists of 825 GiB of text from 22 high-quality sources and was designed to improve the diversity and quality of training data for language models.",
@@ -647,6 +785,30 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-the-stack",
+      "term": "The Stack",
+      "definition": "A 6.4TB dataset of permissively licensed source code in 358 programming languages. Created by BigCode for training code generation models with opt-out mechanisms for code authors.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-the-stack-v2",
+      "term": "The Stack V2",
+      "definition": "An expanded version of The Stack containing code from Software Heritage with improved licensing detection and deduplication. Covers over 600 programming languages for code model pretraining.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -671,6 +833,32 @@
         "Linguistics"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-theoremqa",
+      "term": "TheoremQA",
+      "definition": "A benchmark of 800 theorem-based questions spanning mathematics physics engineering and finance. Tests the ability to apply scientific theorems to solve complex problems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-thepile-arxiv",
+      "term": "ThePile Arxiv",
+      "definition": "The Arxiv subset of The Pile containing scientific papers in LaTeX format. Provides technical scientific text for pretraining language models on research content.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -783,6 +971,18 @@
       "related": []
     },
     {
+      "id": "term-timit",
+      "term": "TIMIT",
+      "definition": "A corpus of phonemically and lexically transcribed speech of American English speakers. Created by Texas Instruments and MIT for developing and evaluating automatic speech recognition systems.",
+      "tags": [
+        "Benchmark",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-timnit-gebru",
       "term": "Timnit Gebru",
       "definition": "Ethiopian-American computer scientist known for research on algorithmic bias and the ethical implications of AI. Co-authored the influential 2018 Gender Shades study revealing racial and gender bias in commercial facial recognition systems and co-founded the DAIR Institute.",
@@ -803,6 +1003,43 @@
         "AI Ethics"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tiny-imagenet",
+      "term": "Tiny ImageNet",
+      "definition": "A subset of ImageNet containing 200 classes with 500 training images per class scaled to 64x64 pixels. Used as a computationally efficient benchmark for image classification research.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tinystories",
+      "term": "TinyStories",
+      "definition": "A synthetic dataset of short stories generated by GPT-3.5 and GPT-4 using simple vocabulary. Shows that small models can learn coherent language generation from curated synthetic data.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Synthetic"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-titanic-dataset",
+      "term": "Titanic Dataset",
+      "definition": "A dataset of 891 passengers from the RMS Titanic with features predicting survival. One of the most popular introductory datasets for machine learning education.",
+      "tags": [
+        "Benchmark",
+        "Tabular"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -927,6 +1164,19 @@
       "related": []
     },
     {
+      "id": "term-toolbench",
+      "term": "ToolBench",
+      "definition": "A benchmark for evaluating tool-use capabilities of large language models across 16000 real-world APIs. Tests the ability to select and use appropriate tools for complex tasks.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-toolformer",
       "term": "Toolformer",
       "definition": "A research approach that teaches language models to autonomously decide when and how to call external tools (calculators, search engines, APIs) by embedding tool calls directly in the training data.",
@@ -1035,6 +1285,18 @@
       "related": []
     },
     {
+      "id": "term-torchvision-datasets",
+      "term": "torchvision Datasets",
+      "definition": "Built-in dataset classes in PyTorch's torchvision library providing easy access to common computer vision benchmarks including CIFAR ImageNet COCO and more.",
+      "tags": [
+        "Platform",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-tortoise-tts",
       "term": "Tortoise TTS",
       "definition": "A text-to-speech model that achieves high naturalness through an autoregressive approach with CLVP conditioning. Known for producing very natural-sounding speech with diverse voice options. Open-source implementation available.",
@@ -1052,6 +1314,19 @@
       "definition": "A metric that quantifies the degree of harmful, offensive, or abusive content in generated text, typically computed using classifier models trained on annotated toxicity data to produce a probability score from 0 to 1.",
       "tags": [
         "Evaluation",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-toxigen",
+      "term": "ToxiGen",
+      "definition": "A machine-generated dataset of 274000 toxic and benign statements about 13 minority groups. Designed for training and evaluating toxic language detection systems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
         "Safety"
       ],
       "domain": "datasets",
@@ -1479,6 +1754,19 @@
       "related": []
     },
     {
+      "id": "term-tvqa",
+      "term": "TVQA",
+      "definition": "A video question answering dataset based on 6 popular TV shows requiring joint understanding of video subtitles and situated dialogue for answer selection.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-td3",
       "term": "Twin Delayed DDPG (TD3)",
       "definition": "An improvement over DDPG that addresses overestimation bias using twin Q-networks, delayed policy updates, and target policy smoothing. TD3 takes the minimum of two critic estimates to form a more conservative value target.",
@@ -1487,6 +1775,31 @@
         "Policy Optimization"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-twitter-sentiment",
+      "term": "Twitter Sentiment",
+      "definition": "Various datasets of tweets annotated for sentiment polarity and emotion. Used for social media NLP research including SemEval shared tasks on sentiment analysis.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-tydi-qa",
+      "term": "TyDi QA",
+      "definition": "A typologically diverse question answering benchmark covering 11 languages with questions written by native speakers. Avoids translation artifacts by collecting questions independently in each language.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

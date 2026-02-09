@@ -1,6 +1,6 @@
 {
   "letter": "f",
-  "count": 118,
+  "count": 142,
   "terms": [
     {
       "id": "term-f-distribution",
@@ -207,6 +207,19 @@
       "related": []
     },
     {
+      "id": "term-fairface",
+      "term": "FairFace",
+      "definition": "A face attribute dataset balanced across 7 racial groups for reducing bias in face analysis. Provides annotations for race gender and age to support fairness-aware computer vision.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Fairness"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fairness",
       "term": "Fairness (AI)",
       "definition": "The principle that AI systems should not discriminate or produce biased outcomes across different demographic groups. Multiple mathematical definitions exist, sometimes in tension with each other.",
@@ -279,6 +292,20 @@
       "related": []
     },
     {
+      "id": "term-faithdial",
+      "term": "FaithDial",
+      "definition": "A benchmark for evaluating faithfulness in knowledge-grounded dialogue. Tests whether dialogue systems generate responses consistent with provided knowledge sources.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation",
+        "Dialogue"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-faithful-chain-of-thought",
       "term": "Faithful Chain-of-Thought",
       "definition": "A reasoning framework that decomposes questions into interleaved natural language reasoning and symbolic operations, ensuring that the reasoning chain is faithful to the actual computation by grounding intermediate steps in executable code.",
@@ -297,6 +324,18 @@
       "tags": [
         "Evaluation",
         "Metrics"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-faker",
+      "term": "Faker",
+      "definition": "A Python library for generating synthetic structured data including names addresses and dates. Used for creating test data and populating databases with realistic fake information.",
+      "tags": [
+        "Synthetic",
+        "Platform"
       ],
       "domain": "datasets",
       "link": null,
@@ -339,6 +378,18 @@
       "related": []
     },
     {
+      "id": "term-fashion-mnist",
+      "term": "Fashion-MNIST",
+      "definition": "A drop-in replacement for MNIST containing 70000 grayscale images of clothing items in 10 categories. Created by Zalando Research to provide a more challenging benchmark than handwritten digits.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fast-fourier-transform",
       "term": "Fast Fourier Transform",
       "definition": "An efficient algorithm for computing the discrete Fourier transform that reduces computational complexity from O(n^2) to O(n log n). Discovered by Cooley and Tukey in 1965. Essential for real-time signal processing and frequency analysis.",
@@ -371,6 +422,19 @@
         "Embeddings"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fb15k-237",
+      "term": "FB15k-237",
+      "definition": "A knowledge graph completion benchmark derived from Freebase containing 14541 entities and 237 relation types. Tests link prediction and knowledge graph embedding methods.",
+      "tags": [
+        "Benchmark",
+        "Knowledge",
+        "Graph"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -639,6 +703,18 @@
       "related": []
     },
     {
+      "id": "term-ffhq",
+      "term": "FFHQ",
+      "definition": "Flickr-Faces-HQ a dataset of 70000 high-quality face images at 1024x1024 resolution. Created by NVIDIA for training StyleGAN and subsequent face generation architectures.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fgsm",
       "term": "FGSM",
       "definition": "Fast Gradient Sign Method is an adversarial attack that perturbs inputs in the direction of the gradient of the loss with respect to the input. Creates adversarial examples with a single gradient computation. Introduced by Goodfellow et al. in 2015.",
@@ -647,6 +723,18 @@
         "Safety"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fgvc-aircraft",
+      "term": "FGVC Aircraft",
+      "definition": "A fine-grained visual classification dataset containing 10200 images of aircraft spanning 100 aircraft model variants. Each image is annotated with model variant family and manufacturer.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -683,6 +771,19 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-figureqa",
+      "term": "FigureQA",
+      "definition": "A visual reasoning dataset of questions about synthetically generated figures including bar plots pie charts and line graphs. Tests basic numerical reasoning about visualizations.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -731,6 +832,30 @@
         "Customization"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fineweb",
+      "term": "FineWeb",
+      "definition": "A large-scale web text dataset derived from Common Crawl with careful quality filtering. Designed for pretraining language models with improved data quality over raw web scrapes.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fineweb-edu",
+      "term": "FineWeb-Edu",
+      "definition": "A subset of FineWeb filtered for educational content using a classifier trained on high-quality educational text. Produces higher quality pretraining data for knowledge-intensive applications.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -819,6 +944,18 @@
       "related": []
     },
     {
+      "id": "term-flan-collection",
+      "term": "FLAN Collection",
+      "definition": "A collection of datasets used for instruction tuning the FLAN language models. Combines over 1800 tasks with diverse instruction templates to improve zero-shot generalization.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-flan-t5",
       "term": "Flan-T5",
       "definition": "A version of T5 fine-tuned on a large collection of tasks phrased as instructions. Demonstrates that instruction tuning dramatically improves zero-shot and few-shot performance across a wide range of tasks.",
@@ -879,12 +1016,62 @@
       "related": []
     },
     {
+      "id": "term-fld",
+      "term": "FLD",
+      "definition": "Formal Logic Deduction a benchmark testing language models on formal logical reasoning including propositional and predicate logic inference.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fleiss-kappa",
       "term": "Fleiss' Kappa",
       "definition": "A statistical measure that extends Cohen's Kappa to assess inter-rater agreement among three or more annotators making categorical judgments, accounting for chance agreement across the full annotator pool.",
       "tags": [
         "Evaluation",
         "Methodology"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fleurs",
+      "term": "FLEURS",
+      "definition": "Few-shot Learning Evaluation of Universal Representations of Speech a multilingual speech benchmark covering 102 languages. Used to evaluate speech understanding systems across diverse languages.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-flickr30k",
+      "term": "Flickr30k",
+      "definition": "A dataset of 31000 images collected from Flickr with five human-written captions per image. A standard benchmark for image-text retrieval and image captioning evaluation.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-flickr30k-entities",
+      "term": "Flickr30k Entities",
+      "definition": "An extension of Flickr30k with coreference chains linking mentions in captions to bounding boxes in images. Supports phrase grounding and referring expression comprehension.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
       ],
       "domain": "datasets",
       "link": null,
@@ -923,6 +1110,20 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-flores",
+      "term": "FLORES",
+      "definition": "A benchmark for machine translation evaluation covering over 200 languages with professional translations. Enables standardized comparison of translation quality across many language pairs.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Translation",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -999,6 +1200,19 @@
       "related": []
     },
     {
+      "id": "term-folio",
+      "term": "FOLIO",
+      "definition": "First-Order Logic Inference a benchmark of natural language reasoning problems annotated with first-order logic formulas. Tests the ability to perform logical reasoning in natural language.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-fomo",
       "term": "FOMO (AI Context)",
       "definition": "Fear Of Missing Out on AI advancements. The rapid pace of AI development creates pressure to constantly learn new tools and techniques. Balance enthusiasm with focused skill-building.",
@@ -1007,6 +1221,18 @@
         "Learning"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-food-101",
+      "term": "Food-101",
+      "definition": "A dataset of 101000 food images across 101 categories with 1000 images per class. Training images contain noise while test images are manually cleaned making it a realistic benchmark.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1191,6 +1417,19 @@
       "related": []
     },
     {
+      "id": "term-frames",
+      "term": "FRAMES",
+      "definition": "Factuality Rating And Measurement for Evaluation of Summarization a benchmark for evaluating factual consistency in text summarization. Tests whether summaries contain hallucinated information.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-frames-minsky",
       "term": "Frames (Minsky)",
       "definition": "A knowledge representation scheme proposed by Marvin Minsky in 1974 where stereotyped situations are represented as data structures with slots for expected information, influencing object-oriented programming and AI knowledge bases.",
@@ -1239,6 +1478,18 @@
       "related": []
     },
     {
+      "id": "term-freebase",
+      "term": "Freebase",
+      "definition": "A large collaborative knowledge base containing over 1.9 billion facts about 39 million entities. Acquired by Google in 2010 and used as the basis for the Google Knowledge Graph.",
+      "tags": [
+        "Knowledge",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-frequency-penalty",
       "term": "Frequency Penalty",
       "definition": "A parameter that penalizes tokens proportionally to how often they have appeared in the output so far, encouraging lexical diversity in generated text.",
@@ -1247,6 +1498,19 @@
         "Decoding"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-freshqa",
+      "term": "FreshQA",
+      "definition": "A dynamic QA benchmark where questions have answers that may change over time. Tests whether language models have up-to-date knowledge and can handle temporal reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1295,6 +1559,32 @@
         "Governance"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-frontiermath",
+      "term": "FrontierMath",
+      "definition": "A benchmark of original research-level mathematics problems testing mathematical reasoning beyond standard competitions. Designed to measure frontier AI mathematical capability.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-fsd50k",
+      "term": "FSD50K",
+      "definition": "Freesound Dataset 50K containing 51197 audio clips from Freesound with labels from the AudioSet ontology. Provides a large open dataset for sound event recognition research.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1365,6 +1655,19 @@
       "tags": [
         "Evaluation",
         "Benchmarks"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-functional-map-of-the-world",
+      "term": "Functional Map of the World",
+      "definition": "A satellite imagery dataset containing over 1 million images of 63 categories of functional land use. Tests the ability to classify building and land use from overhead imagery.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Remote Sensing"
       ],
       "domain": "datasets",
       "link": null,

@@ -1,6 +1,6 @@
 {
   "letter": "q",
-  "count": 17,
+  "count": 23,
   "terms": [
     {
       "id": "term-q-function",
@@ -23,6 +23,19 @@
         "Value Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-qasper",
+      "term": "Qasper",
+      "definition": "A question answering dataset based on NLP research papers where questions are written by NLP practitioners. Tests the ability to answer questions from long scientific documents.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -51,6 +64,18 @@
       "related": []
     },
     {
+      "id": "term-qm9",
+      "term": "QM9",
+      "definition": "A dataset of 134000 small organic molecules with quantum chemical properties computed using density functional theory. Standard benchmark for molecular property prediction models.",
+      "tags": [
+        "Benchmark",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-qmix",
       "term": "QMIX",
       "definition": "A multi-agent RL algorithm that factorizes the joint action-value function as a monotonic combination of per-agent utilities through a mixing network. QMIX enables centralized training with decentralized execution in cooperative settings.",
@@ -63,6 +88,30 @@
       "related": []
     },
     {
+      "id": "term-qnli",
+      "term": "QNLI",
+      "definition": "Question Natural Language Inference a dataset derived from the Stanford Question Answering Dataset converted into sentence pair classification. Tests whether a context sentence contains the answer.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-qqp",
+      "term": "QQP",
+      "definition": "Quora Question Pairs a dataset of over 400000 question pairs from Quora annotated for semantic equivalence. Tests the ability to determine whether two questions have the same meaning.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-qr-decomposition",
       "term": "QR Decomposition",
       "definition": "A matrix factorization that expresses a matrix as the product of an orthogonal matrix Q and an upper triangular matrix R. Used in solving least squares problems computing eigenvalues and stabilizing numerical computations.",
@@ -71,6 +120,18 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-quac",
+      "term": "QuAC",
+      "definition": "Question Answering in Context a dataset of 14000 information-seeking dialogues about Wikipedia sections. Models must answer questions in the context of a conversation with incomplete information.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -95,6 +156,18 @@
         "Fundamentals"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-quality",
+      "term": "QuALITY",
+      "definition": "A question answering benchmark requiring reading and understanding of long documents averaging 5000 words. Tests long-context comprehension with multiple-choice questions.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "o",
-  "count": 68,
+  "count": 98,
   "terms": [
     {
       "id": "term-o1",
@@ -27,6 +27,55 @@
       "related": []
     },
     {
+      "id": "term-oasst1",
+      "term": "OASST1",
+      "definition": "The first release of the OpenAssistant dataset containing 161443 messages in 35 languages organized as conversation trees with human quality ratings.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-obelics",
+      "term": "OBELICS",
+      "definition": "An open dataset of 141 million web pages with interleaved images and text filtered for quality. Used for pretraining multimodal models like IDEFICS on web-scale data.",
+      "tags": [
+        "Training Corpus",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-objaverse",
+      "term": "Objaverse",
+      "definition": "A massive dataset of over 800000 annotated 3D objects with diverse categories materials and annotations. Provides large-scale 3D data for training generalist 3D understanding models.",
+      "tags": [
+        "Training Corpus",
+        "3D"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-objaverse-xl",
+      "term": "Objaverse-XL",
+      "definition": "An expanded version of Objaverse containing over 10 million 3D objects from diverse sources. One of the largest 3D object datasets for training 3D generation and understanding models.",
+      "tags": [
+        "Training Corpus",
+        "3D"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-object-tracking",
       "term": "Object Tracking",
       "definition": "The task of following one or more objects across video frames by maintaining consistent identity assignments, using methods that combine detection, appearance features, and motion prediction.",
@@ -35,6 +84,18 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-objectnet",
+      "term": "ObjectNet",
+      "definition": "A test-only object recognition dataset with controlled real-world variations in viewpoint background and rotation. Designed to measure true recognition ability without dataset bias.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -111,6 +172,18 @@
       "related": []
     },
     {
+      "id": "term-odex",
+      "term": "ODEX",
+      "definition": "Open-Domain Execution-based evaluation for code generation spanning diverse Python libraries beyond standard competitive programming. Tests real-world coding in 79 Python libraries.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-oecd-ai-principles",
       "term": "OECD AI Principles",
       "definition": "Principles adopted by OECD member countries in 2019 promoting AI that is innovative, trustworthy, and respects human rights, including recommendations on transparency, robustness, accountability, and inclusive growth.",
@@ -131,6 +204,18 @@
         "Text Processing"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-office-31",
+      "term": "Office-31",
+      "definition": "A domain adaptation benchmark containing 4652 images across 31 categories from Amazon webcam and DSLR domains. One of the earliest and most used domain adaptation datasets.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -159,6 +244,42 @@
       "related": []
     },
     {
+      "id": "term-ogb",
+      "term": "OGB",
+      "definition": "Open Graph Benchmark a collection of realistic large-scale graph datasets for benchmarking graph neural networks. Covers node prediction link prediction and graph prediction tasks.",
+      "tags": [
+        "Benchmark",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ogb-lsc",
+      "term": "OGB-LSC",
+      "definition": "The Open Graph Benchmark Large-Scale Challenge providing industrial-scale graph datasets for evaluating graph learning methods at realistic scales.",
+      "tags": [
+        "Benchmark",
+        "Graph"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ok-vqa",
+      "term": "OK-VQA",
+      "definition": "Outside Knowledge VQA a visual question answering benchmark requiring external knowledge beyond what is visible in the image. Tests integration of visual understanding with world knowledge.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-oliver-selfridge",
       "term": "Oliver Selfridge",
       "definition": "American computer scientist (1926-2008) who created the Pandemonium model for pattern recognition in 1959 and made early contributions to machine learning, often called the father of machine perception.",
@@ -183,6 +304,19 @@
       "related": []
     },
     {
+      "id": "term-omni-math",
+      "term": "Omni-MATH",
+      "definition": "A comprehensive mathematics benchmark covering problems from olympiad-level competitions across multiple mathematical domains. Tests the upper limits of AI mathematical reasoning.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-on-policy-vs-off-policy",
       "term": "On-Policy vs Off-Policy",
       "definition": "A distinction between RL methods that learn about the policy currently being executed (on-policy, e.g., SARSA) and those that learn about a different target policy using data from a behavior policy (off-policy, e.g., Q-learning). Off-policy methods enable experience replay and greater data efficiency.",
@@ -191,6 +325,18 @@
         "Core Concepts"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-once",
+      "term": "ONCE",
+      "definition": "A one million scenes dataset for autonomous driving with 3D object annotations from a diverse range of driving conditions. Designed to address data efficiency in 3D perception.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -315,6 +461,55 @@
       "related": []
     },
     {
+      "id": "term-ontonotes",
+      "term": "OntoNotes",
+      "definition": "A large multilingual corpus annotated with structural information including syntax predicate-argument structure word sense coreference and named entities across English Chinese and Arabic.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-open-images",
+      "term": "Open Images",
+      "definition": "A Google dataset of approximately 9 million images annotated with image-level labels bounding boxes visual relationships and segmentation masks across thousands of object classes.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-open-images-v7",
+      "term": "Open Images V7",
+      "definition": "The seventh version of the Open Images dataset adding point-level annotations and expanded visual relationship annotations to the existing 9 million images with hierarchical labels.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-open-llm-leaderboard",
+      "term": "Open LLM Leaderboard",
+      "definition": "A public leaderboard by Hugging Face tracking performance of open language models across standardized benchmarks. Provides transparent comparison of model capabilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-open-source",
       "term": "Open Source / Open Weight",
       "definition": "AI models with publicly available weights that can be downloaded and run locally. Ranges from fully open (Llama) to restricted licenses. Enables customization and transparency.",
@@ -411,6 +606,18 @@
       "related": []
     },
     {
+      "id": "term-openai-gym",
+      "term": "OpenAI Gym",
+      "definition": "A toolkit providing a standardized interface for reinforcement learning environments. Includes classic control problems Atari games MuJoCo tasks and more for RL algorithm development.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-openai-capped-profit",
       "term": "OpenAI Transition to Capped Profit",
       "definition": "OpenAI's 2019 restructuring from a non-profit to a capped-profit company to attract the capital needed for large-scale AI research, creating a hybrid governance structure that later became controversial.",
@@ -423,6 +630,69 @@
       "related": []
     },
     {
+      "id": "term-openassistant-conversations",
+      "term": "OpenAssistant Conversations",
+      "definition": "A human-generated conversational dataset created by thousands of volunteers for training open-source AI assistants. Contains conversation trees with quality rankings.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-openbookqa",
+      "term": "OpenBookQA",
+      "definition": "A question answering dataset modeled after open book exams requiring combination of elementary science knowledge with commonsense reasoning. Contains 6000 multiple-choice questions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-opendialkg",
+      "term": "OpenDialKG",
+      "definition": "Open Dialogue Knowledge Graph a dataset linking dialogues to knowledge graph paths for knowledge-grounded conversation. Tests the ability to use structured knowledge in dialogue.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue",
+        "Knowledge"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-openhermes",
+      "term": "OpenHermes",
+      "definition": "A large collection of synthetic instruction-following data combining multiple open-source instruction datasets. Used for training capable open-source language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-openml",
+      "term": "OpenML",
+      "definition": "An open platform for sharing machine learning datasets experiments and workflows. Provides standardized dataset formats and automated benchmarking infrastructure.",
+      "tags": [
+        "Platform",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-openpose",
       "term": "OpenPose",
       "definition": "A real-time multi-person pose estimation system that uses part affinity fields and confidence maps to detect body, hand, facial, and foot keypoints in images with multiple people.",
@@ -431,6 +701,30 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-openwebtext",
+      "term": "OpenWebText",
+      "definition": "An open-source recreation of the WebText corpus used to train GPT-2. Collected by extracting URLs from Reddit submissions with at least 3 upvotes and scraping the linked web pages.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-openwebtext2",
+      "term": "OpenWebText2",
+      "definition": "An expanded version of OpenWebText containing more than 65 billion tokens from web pages. Created as part of The Pile to provide a larger open-source web text corpus for pretraining.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -567,6 +861,19 @@
       "related": []
     },
     {
+      "id": "term-opus",
+      "term": "OPUS",
+      "definition": "An open collection of parallel corpora covering hundreds of language pairs from various sources including subtitles legislation and web crawls. The largest collection of freely available parallel data.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-oracle",
       "term": "Oracle (ML)",
       "definition": "A theoretical perfect model or information source used as a benchmark. In evaluation, comparing to an oracle helps understand the ceiling of achievable performance.",
@@ -587,6 +894,19 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-orca-math",
+      "term": "Orca Math",
+      "definition": "A dataset of 200000 math word problems with step-by-step solutions generated for training mathematical reasoning in smaller language models.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -647,6 +967,31 @@
         "Alignment"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-oscar",
+      "term": "OSCAR",
+      "definition": "Open Super-large Crawled Aggregated Corpus a multilingual web corpus derived from Common Crawl covering 166 languages. Provides large-scale text for multilingual NLP research.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-osworld",
+      "term": "OSWorld",
+      "definition": "A benchmark for evaluating AI agents on real-world computer tasks across operating systems. Tests the ability to complete desktop computing tasks through GUI interaction.",
+      "tags": [
+        "Benchmark",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -815,6 +1160,30 @@
         "Policy"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-oxford-flowers-102",
+      "term": "Oxford Flowers 102",
+      "definition": "A dataset of 8189 images across 102 flower categories commonly found in the United Kingdom. Each category has between 40 and 258 images with significant variation in scale pose and lighting.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-oxford-iiit-pet-dataset",
+      "term": "Oxford-IIIT Pet Dataset",
+      "definition": "A dataset containing 7349 images of 37 pet breeds with 200 images per breed. Includes pixel-level segmentation masks and breed classification labels for fine-grained visual categorization.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

@@ -1,6 +1,6 @@
 {
   "letter": "x",
-  "count": 9,
+  "count": 19,
   "terms": [
     {
       "id": "term-x-risk",
@@ -51,6 +51,20 @@
       "related": []
     },
     {
+      "id": "term-xcopa",
+      "term": "XCOPA",
+      "definition": "Cross-lingual Choice of Plausible Alternatives a benchmark for cross-lingual commonsense reasoning in 11 languages. Translates the COPA causal reasoning task across typologically diverse languages.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-xgboost",
       "term": "XGBoost",
       "definition": "An optimized implementation of gradient boosting that uses regularized objectives, column subsampling, and efficient tree construction algorithms. It includes built-in handling of missing values and parallel processing.",
@@ -59,6 +73,19 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xglue",
+      "term": "XGLUE",
+      "definition": "A cross-lingual benchmark covering 11 tasks in 19 languages for evaluating multilingual pretrained models on both understanding and generation tasks.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -108,6 +135,110 @@
       ],
       "domain": "general",
       "link": "../learn/index.html",
+      "related": []
+    },
+    {
+      "id": "term-xnli",
+      "term": "XNLI",
+      "definition": "Cross-lingual Natural Language Inference a benchmark for evaluating cross-lingual sentence understanding across 15 languages. Extends MNLI premises with translations for multilingual NLI evaluation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xp3",
+      "term": "xP3",
+      "definition": "A multilingual extension of P3 covering prompted templates for datasets in 46 languages. Used to train the BLOOMZ multilingual instruction-following model.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xquad",
+      "term": "XQuAD",
+      "definition": "Cross-lingual Question Answering Dataset a benchmark of 1190 SQuAD question-answer pairs translated into 11 languages by professional translators for cross-lingual QA evaluation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xstest",
+      "term": "XSTest",
+      "definition": "A benchmark for identifying exaggerated safety behaviors in language models. Contains 250 safe prompts that overly cautious models incorrectly refuse to answer.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xsum",
+      "term": "XSum",
+      "definition": "Extreme Summarization a dataset of 226000 BBC news articles paired with single-sentence summaries. Tests the ability to generate concise abstractive summaries of news content.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xtreme",
+      "term": "XTREME",
+      "definition": "Cross-lingual TRansfer Evaluation of Multilingual Encoders a benchmark of 9 tasks covering 40 diverse languages. Tests cross-lingual transfer of multilingual language models.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xtreme-r",
+      "term": "XTREME-R",
+      "definition": "An updated version of XTREME with more challenging tasks and broader language coverage. Addresses limitations of the original benchmark in evaluating multilingual transfer.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-xview",
+      "term": "xView",
+      "definition": "A large overhead imagery dataset containing over 1 million object instances across 60 classes from high-resolution satellite images. Tests fine-grained object detection in aerial views.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Remote Sensing"
+      ],
+      "domain": "datasets",
+      "link": null,
       "related": []
     }
   ]

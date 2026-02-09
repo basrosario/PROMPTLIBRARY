@@ -1,6 +1,6 @@
 {
   "letter": "a",
-  "count": 315,
+  "count": 356,
   "terms": [
     {
       "id": "term-a-search",
@@ -23,6 +23,18 @@
         "Milestones"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-a-okvqa",
+      "term": "A-OKVQA",
+      "definition": "Augmented OK-VQA an expanded visual QA benchmark with rationales and multiple-choice answers requiring broad world knowledge and commonsense reasoning about images.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -83,6 +95,18 @@
         "Systems"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-abc-dataset",
+      "term": "ABC Dataset",
+      "definition": "A collection of one million Computer-Aided Design models for geometric deep learning research. Provides diverse 3D shapes with sharp features and parametric curves.",
+      "tags": [
+        "Training Corpus",
+        "3D"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -423,6 +447,18 @@
       "related": []
     },
     {
+      "id": "term-activitynet",
+      "term": "ActivityNet",
+      "definition": "A large-scale video benchmark for human activity understanding containing 20000 YouTube videos across 200 activity classes with temporal annotations.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-actor-critic",
       "term": "Actor-Critic",
       "definition": "An RL architecture combining a policy network (actor) that selects actions with a value network (critic) that evaluates those actions. The critic's value estimates reduce the variance of policy gradient updates compared to pure policy gradient methods.",
@@ -591,6 +627,18 @@
       "related": []
     },
     {
+      "id": "term-ade20k",
+      "term": "ADE20K",
+      "definition": "A scene parsing dataset with dense pixel-level annotations for 150 semantic categories across 25000 images. Used as the primary benchmark for the MIT Scene Parsing challenge.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-adjusted-rand-index",
       "term": "Adjusted Rand Index",
       "definition": "A clustering evaluation metric that measures agreement between two clusterings adjusted for chance. Ranges from -1 to 1 with 1 indicating perfect agreement and 0 indicating random clustering. Corrects the Rand Index for expected agreement.",
@@ -639,6 +687,19 @@
       "related": []
     },
     {
+      "id": "term-advbench",
+      "term": "AdvBench",
+      "definition": "A benchmark for evaluating adversarial attacks on large language models containing harmful instructions and jailbreak prompts. Used for testing LLM safety and alignment.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-adversarial-attack",
       "term": "Adversarial Attack",
       "definition": "Deliberate attempts to deceive AI systems by providing specially crafted inputs. These can cause models to make incorrect predictions or generate harmful outputs.",
@@ -659,6 +720,19 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-adversarial-glue",
+      "term": "Adversarial GLUE",
+      "definition": "An adversarial version of the GLUE benchmark where examples are modified to fool models while preserving human comprehension. Tests robustness of NLU systems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -735,6 +809,31 @@
       "related": []
     },
     {
+      "id": "term-afrisenti",
+      "term": "AfriSenti",
+      "definition": "A sentiment analysis dataset for 14 African languages from Twitter. Addresses the underrepresentation of African languages in NLP benchmarks and resources.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ag-news",
+      "term": "AG News",
+      "definition": "A collection of over 1 million news articles from more than 2000 news sources organized into 4 topic categories. Commonly used for text classification benchmarking.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-age-verification-in-ai",
       "term": "Age Verification in AI",
       "definition": "Technical and policy mechanisms to verify user age before granting access to AI systems that may be inappropriate for minors. Raises tensions between child safety and privacy concerns.",
@@ -779,6 +878,19 @@
         "Technical"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-agentbench",
+      "term": "AgentBench",
+      "definition": "A comprehensive benchmark for evaluating LLM-based agents across 8 distinct environments including web browsing coding database management and game playing.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -863,6 +975,19 @@
         "Alignment"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-agieval",
+      "term": "AGIEVAL",
+      "definition": "A benchmark for evaluating foundation models on human-centric standardized tests including college entrance exams law school admissions and math competitions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2103,6 +2228,71 @@
       "related": []
     },
     {
+      "id": "term-ai2-thor",
+      "term": "AI2-THOR",
+      "definition": "An interactive 3D simulation environment for embodied AI research providing near-photorealistic indoor scenes. Agents can navigate and interact with objects for task completion.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning",
+        "Robotics"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ai2d",
+      "term": "AI2D",
+      "definition": "Allen Institute for AI Diagrams a dataset of science diagrams with question-answer pairs. Tests the ability to understand and reason about diagrammatic representations.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Scientific"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-aime",
+      "term": "AIME",
+      "definition": "American Invitational Mathematics Examination problems used as a challenging benchmark for mathematical reasoning in AI. Tests advanced competition-level problem solving ability.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-aishell",
+      "term": "AISHELL",
+      "definition": "A Mandarin Chinese speech corpus containing 178 hours of speech from 400 speakers. A primary benchmark for Chinese automatic speech recognition research.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-aishell-4",
+      "term": "AISHELL-4",
+      "definition": "A real meeting speech corpus in Mandarin containing 120 hours of recordings from 211 meetings. Tests far-field speech recognition and speaker diarization in meeting scenarios.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-akaike-information-criterion",
       "term": "Akaike Information Criterion",
       "definition": "A model selection metric that balances goodness of fit with model complexity by adding a penalty proportional to the number of parameters. Lower AIC values indicate a better tradeoff between fit and parsimony.",
@@ -2439,6 +2629,18 @@
       "related": []
     },
     {
+      "id": "term-alpaca-dataset",
+      "term": "Alpaca Dataset",
+      "definition": "A dataset of 52000 instruction-following examples generated by GPT-3.5 for training Stanford Alpaca. Demonstrated that instruction tuning could be done with synthetic data.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-alpacaeval",
       "term": "AlpacaEval",
       "definition": "An automatic evaluation framework that compares model outputs against a reference model using LLM-based pairwise judgments, providing a fast and cost-effective proxy for human evaluation of instruction-following ability with high human agreement rates.",
@@ -2571,6 +2773,18 @@
       "related": []
     },
     {
+      "id": "term-amazon-reviews",
+      "term": "Amazon Reviews",
+      "definition": "A massive collection of product reviews from Amazon spanning multiple categories and languages. One of the largest sentiment analysis datasets with ratings and review text.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-amd-mi300x",
       "term": "AMD MI300X",
       "definition": "AMD's data center GPU accelerator featuring 192GB HBM3 memory and CDNA 3 architecture, competing with NVIDIA's H100 for AI training and inference. The MI300X offers the largest memory capacity of any GPU accelerator.",
@@ -2579,6 +2793,32 @@
         "GPU"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-americasnli",
+      "term": "AmericasNLI",
+      "definition": "A natural language inference benchmark for 10 indigenous languages of the Americas. Tests cross-lingual transfer to extremely low-resource indigenous languages.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ami-meeting-corpus",
+      "term": "AMI Meeting Corpus",
+      "definition": "A multi-modal dataset of 100 hours of meeting recordings with audio video and text annotations. Used for research in meeting understanding speech recognition and speaker diarization.",
+      "tags": [
+        "Benchmark",
+        "Speech",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2711,6 +2951,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-anli",
+      "term": "ANLI",
+      "definition": "Adversarial NLI a natural language inference benchmark created through iterative human-and-model-in-the-loop annotation. Three rounds of increasingly difficult examples test robust language understanding.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2859,6 +3111,43 @@
       "related": []
     },
     {
+      "id": "term-anthropic-hh-rlhf",
+      "term": "Anthropic HH-RLHF",
+      "definition": "A dataset of human preference data used for training helpful and harmless AI assistants through reinforcement learning from human feedback. Contains comparisons between model responses.",
+      "tags": [
+        "Training Corpus",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-anthropic-model-card-dataset",
+      "term": "Anthropic Model Card Dataset",
+      "definition": "A collection of model evaluation data published alongside Anthropic model releases documenting capabilities limitations and safety evaluations.",
+      "tags": [
+        "Evaluation",
+        "Safety"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-anthropic-persuasion-dataset",
+      "term": "Anthropic Persuasion Dataset",
+      "definition": "A dataset measuring the persuasive capabilities of AI language models across different argumentation strategies. Used for evaluating potential misuse risks of LLMs.",
+      "tags": [
+        "Benchmark",
+        "Safety",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-anthropomorphism-risk",
       "term": "Anthropomorphism Risk",
       "definition": "The danger that designing AI systems with human-like characteristics leads users to attribute human emotions intentions and reliability to systems that lack these qualities.",
@@ -2891,6 +3180,31 @@
         "Integration"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-apibench",
+      "term": "APIBench",
+      "definition": "A benchmark for evaluating the ability of LLMs to generate correct API calls. Contains thousands of API specifications and corresponding natural language queries.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-apolloscape",
+      "term": "ApolloScape",
+      "definition": "A large-scale autonomous driving dataset from Baidu containing per-pixel semantic labeling 3D car instance understanding and self-localization data from Chinese urban environments.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -2931,12 +3245,73 @@
       "related": []
     },
     {
+      "id": "term-apps",
+      "term": "APPS",
+      "definition": "Automated Programming Progress Standard a benchmark of 10000 coding problems at varying difficulty levels from introductory to competition level. Tests program synthesis from natural language specifications.",
+      "tags": [
+        "Benchmark",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arc",
+      "term": "ARC",
+      "definition": "The AI2 Reasoning Challenge a dataset of 7787 science exam questions divided into easy and challenge sets. Tests scientific reasoning and world knowledge in multiple-choice format.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-arc-benchmark",
       "term": "ARC Benchmark",
       "definition": "The AI2 Reasoning Challenge, a question-answering benchmark consisting of elementary and middle school science exam questions in easy and challenge sets, testing scientific reasoning and world knowledge in language models.",
       "tags": [
         "Evaluation",
         "Benchmarks"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arc-challenge",
+      "term": "ARC Challenge",
+      "definition": "The difficult subset of the ARC benchmark containing 2590 science questions that require complex reasoning beyond simple retrieval. Frequently used in language model evaluation suites.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arc-agi",
+      "term": "ARC-AGI",
+      "definition": "A benchmark inspired by the Abstraction and Reasoning Corpus testing pattern recognition and abstract reasoning in AI systems. Designed to evaluate general intelligence capabilities.",
+      "tags": [
+        "Benchmark",
+        "Reasoning",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arcade-learning-environment",
+      "term": "Arcade Learning Environment",
+      "definition": "A framework providing an interface to hundreds of Atari 2600 game environments for reinforcement learning research. Standardized evaluation platform for deep RL algorithms.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
       ],
       "domain": "datasets",
       "link": null,
@@ -2973,6 +3348,43 @@
       "tags": [
         "Evaluation",
         "Ranking"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arena-hard",
+      "term": "Arena-Hard",
+      "definition": "A challenging benchmark derived from Chatbot Arena conversations containing 500 difficult prompts. Uses pairwise comparisons against baseline models for robust evaluation.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ares",
+      "term": "ARES",
+      "definition": "Automated Retrieval-Augmented Generation Evaluation System providing automatic evaluation of RAG system performance across retrieval and generation quality metrics.",
+      "tags": [
+        "Evaluation",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-argoverse",
+      "term": "Argoverse",
+      "definition": "A dataset for autonomous driving research providing 3D tracking and motion forecasting data with high-definition maps from Pittsburgh and Miami. Includes lidar point clouds and camera images.",
+      "tags": [
+        "Benchmark",
+        "Autonomous Driving"
       ],
       "domain": "datasets",
       "link": null,
@@ -3059,6 +3471,19 @@
         "Fundamentals"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-arxiv-dataset",
+      "term": "ArXiv Dataset",
+      "definition": "A collection of over 2 million scientific preprints from the arXiv repository with metadata abstracts and full text. Used for scientific NLP and citation network research.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3167,6 +3592,57 @@
         "Model Optimization"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-atari-2600-games",
+      "term": "Atari 2600 Games",
+      "definition": "A collection of Atari 2600 video games used as reinforcement learning environments through the Arcade Learning Environment. Popularized by DeepMind's DQN achieving human-level play.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-atis",
+      "term": "ATIS",
+      "definition": "Airline Travel Information Systems a dataset of spoken language queries about air travel annotated for intent and slots. A classic benchmark for spoken language understanding systems.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-atomic",
+      "term": "ATOMIC",
+      "definition": "A commonsense knowledge graph containing 877000 inferential triples about everyday events and their causes effects and mental states. Used for commonsense reasoning in NLP systems.",
+      "tags": [
+        "Knowledge",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-atomic-2020",
+      "term": "ATOMIC 2020",
+      "definition": "An expanded commonsense knowledge graph with 1.33 million triples covering physical social and eventive commonsense knowledge. Adds new relation types over the original ATOMIC.",
+      "tags": [
+        "Knowledge",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3411,6 +3887,18 @@
       "related": []
     },
     {
+      "id": "term-audio-spectrogram-transformer-data",
+      "term": "Audio Spectrogram Transformer Data",
+      "definition": "Training data used for the Audio Spectrogram Transformer including AudioSet with spectrogram representations for audio classification and sound event detection.",
+      "tags": [
+        "Training Corpus",
+        "Audio"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-audiolm",
       "term": "AudioLM",
       "definition": "A language model for audio generation by Google that treats audio as a sequence of discrete tokens. Generates natural-sounding speech and music with long-term coherence by modeling both semantic and acoustic tokens.",
@@ -3419,6 +3907,18 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-audioset",
+      "term": "AudioSet",
+      "definition": "A large-scale audio classification dataset from Google containing over 2 million 10-second audio clips labeled with 632 event categories from an ontology of everyday sounds.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -3767,6 +4267,19 @@
         "Distributed Computing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-aya-dataset",
+      "term": "Aya Dataset",
+      "definition": "A multilingual instruction-following dataset covering 65 languages with human-curated instructions. Created by an international community of annotators for multilingual AI research.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Multilingual"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

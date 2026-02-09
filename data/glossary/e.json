@@ -1,6 +1,6 @@
 {
   "letter": "e",
-  "count": 125,
+  "count": 139,
   "terms": [
     {
       "id": "term-e5",
@@ -123,6 +123,19 @@
       "related": []
     },
     {
+      "id": "term-editeval",
+      "term": "EditEval",
+      "definition": "A benchmark for evaluating code editing capabilities of language models. Tests the ability to modify existing code based on natural language instructions.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-edmund-clarke",
       "term": "Edmund Clarke",
       "definition": "American computer scientist who pioneered model checking a technique for automatically verifying the correctness of finite-state systems. Received the 2007 Turing Award for this work which has applications in verifying AI system safety and correctness.",
@@ -215,6 +228,32 @@
         "Technical"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ego4d",
+      "term": "Ego4D",
+      "definition": "A massive egocentric video dataset containing 3670 hours of daily life activity from over 900 participants across 74 locations worldwide. Advances first-person visual understanding research.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-egoschema",
+      "term": "EgoSchema",
+      "definition": "A long-form video question answering benchmark derived from Ego4D testing temporal understanding over 3-minute egocentric video clips.",
+      "tags": [
+        "Benchmark",
+        "Video",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -323,6 +362,18 @@
         "Organizations"
       ],
       "domain": "history",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-eli5",
+      "term": "ELI5",
+      "definition": "Explain Like Im 5 a long-form question answering dataset from Reddit where answers explain complex topics simply. Tests the ability to generate detailed accessible explanations.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -579,6 +630,18 @@
       "related": []
     },
     {
+      "id": "term-emnist",
+      "term": "EMNIST",
+      "definition": "Extended MNIST dataset that includes handwritten letters in addition to digits providing 814000 character images across multiple splits. Useful for broader handwriting recognition research.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-emnlp",
       "term": "EMNLP",
       "definition": "The Conference on Empirical Methods in Natural Language Processing first held in 1996. A top-tier NLP conference known for emphasis on empirical and data-driven approaches to language processing alongside ACL and NAACL.",
@@ -647,6 +710,19 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-empatheticdialogues",
+      "term": "EmpatheticDialogues",
+      "definition": "A dataset of 25000 conversations grounded in emotional situations where one participant responds empathetically to another's described experience. Tests emotional intelligence in dialogue.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Dialogue"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -831,6 +907,19 @@
       "related": []
     },
     {
+      "id": "term-entityquestions",
+      "term": "EntityQuestions",
+      "definition": "A benchmark of simple factual questions about entities testing parametric knowledge stored in language models. Evaluates entity knowledge across different popularity levels.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-entropy",
       "term": "Entropy",
       "definition": "A measure from information theory quantifying the uncertainty or disorder in a random variable's distribution. In machine learning, it is used as a splitting criterion and as a component of loss functions like cross-entropy.",
@@ -875,6 +964,18 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-epic-kitchens",
+      "term": "Epic-Kitchens",
+      "definition": "A large egocentric video dataset of cooking activities captured in participants kitchens. Contains fine-grained action annotations for action recognition and anticipation research.",
+      "tags": [
+        "Benchmark",
+        "Video"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -963,6 +1064,18 @@
       "related": []
     },
     {
+      "id": "term-esc-50",
+      "term": "ESC-50",
+      "definition": "Environmental Sound Classification dataset containing 2000 five-second recordings across 50 environmental sound categories. Used for benchmarking environmental sound recognition systems.",
+      "tags": [
+        "Benchmark",
+        "Audio"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-escalation-protocol",
       "term": "Escalation Protocol",
       "definition": "A defined procedure for elevating AI safety concerns from technical teams to management and potentially to external regulators when certain risk thresholds are exceeded.",
@@ -1007,6 +1120,19 @@
         "Ethics"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-ethics",
+      "term": "ETHICS",
+      "definition": "A benchmark testing language models on basic ethical judgments across five moral domains: justice deontology virtue ethics utilitarianism and commonsense morality.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Safety"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1083,6 +1209,45 @@
       "related": []
     },
     {
+      "id": "term-europarl",
+      "term": "Europarl",
+      "definition": "A parallel corpus extracted from European Parliament proceedings containing text in 21 European languages. Widely used for training and evaluating statistical and neural machine translation.",
+      "tags": [
+        "Training Corpus",
+        "NLP",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-eurosat",
+      "term": "EuroSAT",
+      "definition": "A dataset of 27000 labeled satellite images across 10 land use classes derived from Sentinel-2 satellite data. Used for benchmarking remote sensing and land cover classification algorithms.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision",
+        "Remote Sensing"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-evalplus",
+      "term": "EvalPlus",
+      "definition": "An enhanced evaluation framework for code generation that augments existing benchmarks with additional test cases. Addresses test case insufficiency in code generation evaluation.",
+      "tags": [
+        "Benchmark",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-evaluation",
       "term": "Evaluation",
       "definition": "The process of measuring model performance using metrics, benchmarks, and human assessment. Critical for comparing models and ensuring they meet quality standards.",
@@ -1151,6 +1316,18 @@
         "Bayesian Methods"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-evol-instruct",
+      "term": "Evol-Instruct",
+      "definition": "A method and dataset that uses LLMs to progressively evolve simple instructions into complex ones. Used to create the WizardLM training data for improved instruction following.",
+      "tags": [
+        "Training Corpus",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },

@@ -1,6 +1,6 @@
 {
   "letter": "g",
-  "count": 132,
+  "count": 148,
   "terms": [
     {
       "id": "term-g-eval",
@@ -11,6 +11,19 @@
         "LLM-Based"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gaia",
+      "term": "GAIA",
+      "definition": "A benchmark for General AI Assistants testing real-world problem solving that requires web browsing multi-step reasoning and tool use. Designed to resist shortcuts and memorization.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -291,6 +304,19 @@
       "related": []
     },
     {
+      "id": "term-genai-bench",
+      "term": "GenAI-Bench",
+      "definition": "A benchmark for evaluating generative AI models across multiple modalities including text-to-image and text-to-video generation. Tests complex compositional generation abilities.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-gender-bias-in-ai",
       "term": "Gender Bias in AI",
       "definition": "Systematic unfairness in AI system behavior related to gender. Common in language models hiring tools and image generation systems due to historical gender imbalances in training data.",
@@ -471,6 +497,19 @@
       "related": []
     },
     {
+      "id": "term-geneval",
+      "term": "GenEval",
+      "definition": "A benchmark for evaluating compositional image generation testing object counting color binding spatial relationships and overall image quality.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-geoffrey-hinton",
       "term": "Geoffrey Hinton",
       "definition": "British-Canadian computer scientist known as a godfather of deep learning, who co-developed backpropagation, Boltzmann machines, and deep belief networks. He won the 2024 Nobel Prize in Physics for foundational work on neural networks.",
@@ -491,6 +530,19 @@
         "Image Processing"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-geoqa",
+      "term": "GeoQA",
+      "definition": "A geometric problem solving dataset requiring mathematical reasoning about geometric figures. Tests the ability to combine visual understanding with mathematical problem solving.",
+      "tags": [
+        "Benchmark",
+        "Multimodal",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -555,6 +607,31 @@
       "related": []
     },
     {
+      "id": "term-gigaspeech",
+      "term": "GigaSpeech",
+      "definition": "A 10000-hour English speech recognition corpus from audiobooks podcasts and YouTube. Designed to provide large-scale speech data with accurate transcriptions for ASR research.",
+      "tags": [
+        "Training Corpus",
+        "Speech"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gigast",
+      "term": "GigaST",
+      "definition": "A large-scale speech translation dataset containing over 10000 hours of speech with translations. Created by aligning GigaSpeech audio with machine translations for speech translation research.",
+      "tags": [
+        "Training Corpus",
+        "Speech",
+        "Translation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-gini-impurity",
       "term": "Gini Impurity",
       "definition": "A measure of the probability that a randomly chosen sample would be misclassified if labeled according to the class distribution at a node. It is commonly used as a splitting criterion in decision tree algorithms.",
@@ -563,6 +640,18 @@
         "Model Selection"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-github-code",
+      "term": "GitHub Code",
+      "definition": "Large-scale collections of source code from public GitHub repositories used to train code generation models. Various filtered versions exist including those used for Codex and CodeGen.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -591,6 +680,18 @@
       "related": []
     },
     {
+      "id": "term-github-issues-dataset",
+      "term": "GitHub Issues Dataset",
+      "definition": "Collections of GitHub issue reports and discussions used for training models on software engineering tasks including bug reporting and feature requests.",
+      "tags": [
+        "Training Corpus",
+        "Code"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-global-average-pooling",
       "term": "Global Average Pooling",
       "definition": "A pooling operation that computes the mean of each feature map across all spatial dimensions, reducing the feature map to a single value per channel and often replacing fully connected layers.",
@@ -599,6 +700,20 @@
         "Architecture"
       ],
       "domain": "models",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-globalbench",
+      "term": "GlobalBench",
+      "definition": "A benchmark measuring NLP model performance and data availability across the worlds languages. Highlights the disparity between high-resource and low-resource language support.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Multilingual",
+        "Evaluation"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -623,6 +738,18 @@
         "Technical"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-glue",
+      "term": "GLUE",
+      "definition": "The General Language Understanding Evaluation benchmark containing nine natural language understanding tasks including sentiment analysis textual entailment and semantic similarity. Created by NYU and others in 2018.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -747,6 +874,18 @@
       "related": []
     },
     {
+      "id": "term-google-landmarks",
+      "term": "Google Landmarks",
+      "definition": "A large-scale dataset of landmark images for instance recognition and retrieval containing over 5 million images of 200000 landmarks worldwide.",
+      "tags": [
+        "Benchmark",
+        "Computer Vision"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-tpu-v5",
       "term": "Google TPU v5",
       "definition": "The fifth generation of Google's Tensor Processing Unit featuring improved matrix multiply units, increased memory bandwidth, and better inter-chip interconnect. TPU v5 pods scale to thousands of chips for training the largest foundation models.",
@@ -795,12 +934,52 @@
       "related": []
     },
     {
+      "id": "term-gorilla-apibench",
+      "term": "Gorilla APIBench",
+      "definition": "A benchmark of over 1600 API calls testing the ability of LLMs to generate accurate and up-to-date API function calls from natural language descriptions.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Code",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-govreport",
+      "term": "GovReport",
+      "definition": "A dataset of long government reports paired with expert-written summaries for evaluating long document summarization. Reports average 9000 words testing models ability to handle lengthy inputs.",
+      "tags": [
+        "Benchmark",
+        "NLP"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
       "id": "term-gpqa",
       "term": "GPQA",
       "definition": "Graduate-Level Google-Proof Question Answering, an extremely difficult benchmark of expert-crafted questions across biology, physics, and chemistry that even domain experts struggle with, designed to evaluate advanced reasoning beyond what search engines can resolve.",
       "tags": [
         "Evaluation",
         "Benchmarks"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gpqa-diamond",
+      "term": "GPQA Diamond",
+      "definition": "The most challenging subset of GPQA containing expert-validated graduate-level questions. Tests the frontier of AI reasoning on problems that challenge domain experts.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning",
+        "Evaluation"
       ],
       "domain": "datasets",
       "link": null,
@@ -1019,6 +1198,18 @@
         "GPU"
       ],
       "domain": "hardware",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gqa",
+      "term": "GQA",
+      "definition": "A visual question answering dataset with 22 million questions grounded in scene graphs from Visual Genome. Designed for real-world visual reasoning with reduced language bias.",
+      "tags": [
+        "Benchmark",
+        "Multimodal"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -1583,6 +1774,18 @@
         "Core Concepts"
       ],
       "domain": "general",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-gymnasium",
+      "term": "Gymnasium",
+      "definition": "The maintained successor to OpenAI Gym providing standardized RL environment interfaces. Managed by the Farama Foundation with improved documentation and compatibility.",
+      "tags": [
+        "Benchmark",
+        "Reinforcement Learning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }

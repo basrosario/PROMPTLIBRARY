@@ -1,6 +1,6 @@
 {
   "letter": "z",
-  "count": 10,
+  "count": 13,
   "terms": [
     {
       "id": "term-z-score",
@@ -11,6 +11,19 @@
         "Data Science"
       ],
       "domain": "algorithms",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-zebralogic",
+      "term": "ZebraLogic",
+      "definition": "A logical reasoning benchmark testing language models on constraint satisfaction problems. Evaluates systematic logical deduction capabilities.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Reasoning"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     },
@@ -119,6 +132,31 @@
         "Technical"
       ],
       "domain": "safety",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-zeroscrolls",
+      "term": "ZeroSCROLLS",
+      "definition": "A zero-shot benchmark for long text understanding covering summarization question answering and aggregation tasks over long documents.",
+      "tags": [
+        "Benchmark",
+        "NLP",
+        "Evaluation"
+      ],
+      "domain": "datasets",
+      "link": null,
+      "related": []
+    },
+    {
+      "id": "term-zinc",
+      "term": "ZINC",
+      "definition": "A database of commercially available chemical compounds for virtual screening. Contains over 230 million compounds used for drug discovery and molecular generation research.",
+      "tags": [
+        "Training Corpus",
+        "Scientific"
+      ],
+      "domain": "datasets",
       "link": null,
       "related": []
     }
