@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
     (function() {
         var ctaCorp = document.querySelector('.cta-corporate');
         if (!ctaCorp) return;
-        var pathname = window.location.pathname;
-        if (!(/\/learn\//i.test(pathname))) return;
+        var pathname = window.location.pathname.toLowerCase();
+        if (pathname.indexOf('/learn/') === -1 && pathname.indexOf('learn/') !== 0) return;
         var ctaSection = ctaCorp.closest('section');
         if (!ctaSection) return;
 
@@ -8029,21 +8029,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Double-rAF for accurate position after layout reflow
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
-                var rect = target.getBoundingClientRect();
-                var scrollOffset = 220;
-                var targetY = window.pageYOffset + rect.top - scrollOffset;
+                // Use scrollIntoView with instant behavior to avoid
+                // smooth-scroll animation loop on mobile devices.
+                // CSS scroll-margin-top (220px) handles the sticky header offset.
+                target.scrollIntoView({ behavior: 'instant', block: 'start' });
 
-                window.scrollTo({
-                    top: Math.max(0, targetY),
-                    behavior: 'smooth'
-                });
-
-                // Restore content-visibility after scroll animation
+                // Restore content-visibility after browser has painted
                 setTimeout(function() {
                     allSections.forEach(function(section) {
                         section.style.contentVisibility = '';
                     });
-                }, 1500);
+                }, 300);
 
                 // Highlight the term
                 target.classList.add('glossary-term--highlighted');
