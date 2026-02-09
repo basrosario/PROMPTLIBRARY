@@ -4,6 +4,58 @@
 
 ---
 
+## Session 65 (2026-02-08)
+**Directory Migration + Batch 004 Safety + Git Cleanup**
+
+### Directory Migration (PraxisLibrary)
+- [x] Migrated working directory from `C:\Users\basro\Music\_public_html` to `C:\Users\basro\Music\PraxisLibrary`
+- [x] Identified 3 missing commits in PraxisLibrary vs `_public_html` (fc884b7, 183fc50, 5c95725)
+- [x] Resolved untracked `batch-003-history.csv` conflict — removed local copy, pulled fast-forward
+- [x] Dropped stale stash (contained app.js search fix already committed in `_public_html`)
+- [x] Copied 3 doc files from `_public_html` to PraxisLibrary (.claude/ docs)
+- [x] Committed and pushed sync: `a08bb28`
+
+### Batch 003 — History Domain (pulled from _public_html)
+- [x] 464 CSV terms, 290 added, 174 dupes skipped: `183fc50` (done in Session 64, pulled here)
+
+### Batch 004 — Safety Domain
+- [x] Extracted all 206 existing safety terms to avoid duplicates
+- [x] Created `glossary_factory/seeds/batch-004-safety.csv` — 304 safety terms covering ethics, alignment, policy, regulation, bias, fairness, transparency, governance, adversarial ML, privacy, accountability
+- [x] Ran `add_terms.py` → 297 added, 7 duplicates skipped
+- [x] Ran `dedup_terms.py` → 0 additional duplicates found
+- [x] Ran `build_index.py` → 3,072 total terms
+- [x] Ran `validate.py` → 0 errors, 0 warnings
+- [x] Updated `index.html` — counter `data-counter="3072"`, highlight-box "3,072+"
+- [x] Updated `pages/glossary.html` — 5 occurrences of 2775 → 3072
+- [x] Committed and pushed: `16a1da6`
+
+### Git Repository Cleanup
+- [x] Removed seed CSVs from GitHub tracking — `git rm --cached` on batch-001 and batch-003 CSVs: `0d7f4f8`
+- [x] Rewrote `.gitignore` to whitelist approach — everything ignored by default (`*`), only public directories and files explicitly allowed via `!` negation
+- [x] Removed 5 non-public tracked files from GitHub (glossary_factory/README.md, old .claude docs): `59bad9c`
+- [x] Re-added `.claude/` directory to tracking (15 project files, excluded `settings.local.json`): `1ed8844`
+
+### Files Created
+- `glossary_factory/seeds/batch-004-safety.csv` — 304 safety terms (local only, gitignored)
+
+### Files Modified
+- `.gitignore` — Complete rewrite to whitelist approach
+- `index.html` — Term counter 2775 → 3072
+- `pages/glossary.html` — Term counts 2775 → 3072 (5 occurrences)
+- `data/glossary/*.json` — 23 shard files updated with safety terms
+- `data/glossary/manifest.json` — Rebuilt (3,072 total, safety domain 206→503)
+- `data/glossary/search-compact.json` — Rebuilt (~1.3MB)
+- `.claude/HANDOFF.md` — Full rewrite with current state
+
+### Commits
+- `a08bb28` — chore: Sync PraxisLibrary with _public_html (directory migration)
+- `16a1da6` — feat: Term farming batch 004 — add 297 safety terms (2,775 → 3,072)
+- `0d7f4f8` — chore: Remove seed CSVs from GitHub tracking
+- `59bad9c` — chore: Whitelist gitignore — only track public site files
+- `1ed8844` — chore: Track .claude/ project files in repository
+
+---
+
 ## Session 64 (2026-02-08)
 **Phase 7: World Source Archive — Term Farming Batches 1-2 + Search Fix**
 

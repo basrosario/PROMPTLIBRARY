@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-08 (Session 64)
+**Last Updated:** 2026-02-08 (Session 65)
 
 ---
 
@@ -811,12 +811,12 @@ Add a prompt-mini legend to the concept section of ALL 108 framework pages. The 
 ## Phase 7: World Source Archive (Glossary Expansion)
 
 **Priority:** ACTIVE — Current work
-**Status:** Infrastructure COMPLETE. Term farming IN PROGRESS (2 batches done, 2,485 terms).
+**Status:** Infrastructure COMPLETE. Term farming IN PROGRESS (4 batches done, 3,072 terms).
 **Plan:** `.claude/plans/dreamy-foraging-raven.md` (full architecture plan)
 **Pipeline:** `glossary_factory/README.md` (build pipeline docs)
 
 ### Overview
-Expand the Praxis Library glossary from 2,141 terms to 15,000+ verified AI terms. Covers 6 taxonomy domains: Models (~4K), Hardware (~1.5K), Datasets/Benchmarks (~2.5K), Algorithms (~3K), History (~2K), Safety/Policy (~2K).
+Expand the Praxis Library glossary from 2,141 terms to 15,000+ verified AI terms. Covers 7 taxonomy domains: General, Models (~4K), Hardware (~1.5K), Datasets/Benchmarks (~2.5K), Algorithms (~3K), History (~2K), Safety/Policy (~2K).
 
 ### Infrastructure (COMPLETE — Session 63)
 1. **Alphabetical sharding** — Migrated monolithic `data/glossary.json` (819KB) to 26 per-letter JSON shards in `data/glossary/`
@@ -832,10 +832,10 @@ Expand the Praxis Library glossary from 2,141 terms to 15,000+ verified AI terms
 |--------|---------|--------|-------------|
 | general | 672 | — | Uncategorized (to be redistributed) |
 | models | 665 | ~4,000 | Named architectures, model families |
+| safety | 503 | ~2,000 | Ethics, alignment, policy, regulation |
 | algorithms | 445 | ~3,000 | Math, optimization, algorithmic mechanics |
+| history | 442 | ~2,000 | Pre-2010 milestones, pioneers, systems |
 | hardware | 226 | ~1,500 | GPUs, TPUs, chips, compute |
-| safety | 206 | ~2,000 | Ethics, alignment, policy, regulation |
-| history | 152 | ~2,000 | Pre-2010 milestones, pioneers, systems |
 | datasets | 119 | ~2,500 | Datasets, benchmarks, evaluation suites |
 
 ### Term Farming Workflow
@@ -847,8 +847,16 @@ Expand the Praxis Library glossary from 2,141 terms to 15,000+ verified AI terms
 5. Verify on glossary page → git commit
 ```
 
-### Planned Batches (500 terms each)
-Batch 1: Algorithms → Batch 2: Models → Batch 3: History → Batch 4: Safety → Batch 5: Datasets → Batch 6: Hardware → repeat
+### Batch History
+| Batch | Domain | CSV Terms | Added | Dupes | Commit |
+|-------|--------|-----------|-------|-------|--------|
+| 001 | Algorithms | 407 | 216 | 191 | `e5c7505` |
+| 002 | Models | 252 | 150 | 102 | `c86cc39` |
+| 003 | History | 464 | 290 | 174 | `183fc50` |
+| 004 | Safety | 304 | 297 | 7 | `16a1da6` |
+
+### Planned Batches (next)
+Batch 5: Datasets (~500 terms) → Batch 6: Hardware (~500 terms) → Batch 7+: Second round (Models, Algorithms, General — larger batches to fill gaps)
 
 ### Quality Rules
 - Every term must be a **specific, verifiable entity** — no generic fluff
@@ -860,6 +868,23 @@ Batch 1: Algorithms → Batch 2: Models → Batch 3: History → Batch 4: Safety
 ---
 
 # SESSION LOG
+
+## Session 65 (2026-02-08)
+
+**Focus:** Directory Migration + Batch 004 Safety + Git Cleanup
+**Status:** 4 batches complete (3,072 terms total). Repository cleaned to whitelist gitignore.
+
+**Completed:**
+- [x] **Directory migration** — Moved from `_public_html` to `PraxisLibrary`, pulled 3 missing commits (fc884b7, 183fc50, 5c95725): `a08bb28`
+- [x] **Batch 004 Safety** — 304 CSV terms, 297 added, 7 dupes. Safety domain: 206→503: `16a1da6`
+- [x] **Updated site counts** — index.html + glossary.html: 2,775 → 3,072
+- [x] **Gitignore overhaul** — Whitelist approach (`*` then `!` exceptions). Removed seed CSVs + non-public files from tracking: `0d7f4f8`, `59bad9c`
+- [x] **Re-added .claude/** — 15 project files tracked, `settings.local.json` excluded: `1ed8844`
+- [x] **Updated handoff docs** — HANDOFF.md fully rewritten, COMPLETED.md + FrameworkOverhaul.md updated
+
+**Commits:** `a08bb28`, `16a1da6`, `0d7f4f8`, `59bad9c`, `1ed8844`
+
+---
 
 ## Session 64 (2026-02-08)
 
