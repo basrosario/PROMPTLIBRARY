@@ -311,8 +311,7 @@ p {
 
 .ethics-ticker__label {
     display: inline-block;
-    color: #1a1a2e;
-    background: #DC3545;
+    background: #fff;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.6rem;
@@ -321,6 +320,14 @@ p {
     border-radius: 2px;
     margin-right: 10px;
     vertical-align: middle;
+}
+
+.ethics-ticker__label-ai {
+    color: #1a1a2e;
+}
+
+.ethics-ticker__label-ethics {
+    color: #DC3545;
 }
 
 [data-theme="dark"] .ethics-ticker {
