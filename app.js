@@ -8368,7 +8368,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /**
          * Search glossary terms by name and definition
          * Scoring priority:
-         *   200 - Exact full name match (case-insensitive)
+         *   200 - Exact full name match (case-insensitive, includes base name before parenthetical)
          *   190 - Exact acronym match ("LLM" matches "Large Language Model (LLM)")
          *   170 - Normalized exact match (hyphens/spaces collapsed)
          *   150 - Name starts with query
@@ -8410,8 +8410,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 var score = 0;
                 var matchType = '';
 
-                // 1. Exact full name match
-                if (lowerName === lowerQuery || normalizedName === normalizedQuery) {
+                // 1. Exact full name match (includes base name before parenthetical)
+                var baseName = lowerName.replace(/\s*\([^)]*\)\s*$/, '').trim();
+                var normalizedBase = normalizeForMatch(baseName);
+                if (lowerName === lowerQuery || normalizedName === normalizedQuery || baseName === lowerQuery || normalizedBase === normalizedQuery) {
                     score = 200;
                     matchType = 'Exact match';
                 }
@@ -9385,8 +9387,10 @@ document.addEventListener('DOMContentLoaded', () => {
         var acronym = extractSearchAcronym(entry.title);
         var excerptLower = entry.excerpt.toLowerCase();
 
-        // 1. Exact full title match
-        if (titleLower === lowerQuery || normalizedTitle === normalizedQuery) {
+        // 1. Exact full title match (includes base name before parenthetical)
+        var baseTitle = titleLower.replace(/\s*\([^)]*\)\s*$/, '').trim();
+        var normalizedBase = normalizeSearchMatch(baseTitle);
+        if (titleLower === lowerQuery || normalizedTitle === normalizedQuery || baseTitle === lowerQuery || normalizedBase === normalizedQuery) {
             return 200;
         }
         // 2. Exact acronym match
