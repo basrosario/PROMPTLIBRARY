@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Build effective AI prompts using guided frameworks. Choose CRISP, COSTAR, CRISPE, ReAct, or Flipped Interaction framework to structure your prompts.">
+    <meta name="description" content="Build effective AI prompts step by step using 22 proven frameworks across 6 categories including Structured, Reasoning, Decomposition, and more.">
     <title>Prompt Builder - Praxis</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../styles.css">
@@ -182,7 +182,7 @@
                             <a href="../quiz/index.html">Readiness Quiz</a>
                             <a href="../tools/analyzer.html">Prompt Analyzer</a>
                             <a href="../tools/guidance.html">Prompt Builder</a>
-                            <a href="../tools/matcher.html">Framework Matcher</a>
+                            <a href="../tools/matcher.html">Framework Finder</a>
                             <a href="../tools/checklist.html">Preflight Checklist</a>
                             <a href="../tools/persona.html">Persona Architect</a>
                             <a href="../patterns/index.html">Patterns Library</a>
@@ -244,84 +244,50 @@
                     <span class="current">Prompt Builder</span>
                 </nav>
                 <h1 class="page-title fade-in">Prompt Builder</h1>
-                <p class="page-subtitle fade-in">Build well-structured prompts step by step using proven frameworks. Answer the questions, and we'll combine them into an effective prompt.</p>
+                <p class="page-subtitle fade-in">Build well-structured prompts step by step using 22 proven frameworks across 6 categories. Pick a framework, answer the guided questions, and get a ready-to-use prompt.</p>
             </div>
         </section>
 
         <!-- Builder Tool -->
         <section class="section">
             <div class="container">
-                <div class="content-badges fade-in-up">
-                    <span class="content-badge content-badge--ai" data-badge-type="ai">
-                        <span class="badge-label">AI for</span>
-                        <span class="badge-value">Everybody</span>
-                    </span>
-                    <span class="content-badge content-badge--udl" data-badge-type="udl">
-                        <span class="badge-label">Built With</span>
-                        <span class="badge-value">UD/UDL</span>
-                    </span>
-                    <span class="content-badge content-badge--security" data-badge-type="security">
-                        <span class="badge-label">Security</span>
-                        <span class="badge-value">A+ 100%</span>
-                    </span>
-                    <span class="content-badge content-badge--performance" data-badge-type="performance">
-                        <span class="badge-label">Performance</span>
-                        <span class="badge-value">100%</span>
-                    </span>
-                    <span class="content-badge content-badge--claude" data-badge-type="claude">
-                        <span class="badge-label">AI Assisted Building</span>
-                        <span class="badge-value">Claude Code</span>
-                    </span>
-                    <a href="https://github.com/basrosario/PROMPTLIBRARY" target="_blank" rel="noopener noreferrer" class="content-badge content-badge--github" data-badge-type="github">
-                        <span class="badge-label">Community</span>
-                        <span class="badge-value">GitHub</span>
-                    </a>
-                </div>
-
                 <div class="tool-container fade-in-up">
                     <!-- Methodology Selector -->
                     <div class="guided-mode-panel">
-                        <div class="guided-mode-header">
-                            <h2>Choose Your Framework</h2>
-                            <p>Select a framework and answer the questions to build your prompt</p>
-                        </div>
-
-                        <div class="framework-selector" id="framework-selector">
-                            <button type="button" class="framework-btn active" data-method="CRISP">
-                                <strong>CRISP</strong>
-                                <span>Context, Role, Instructions, Specifics, Parameters</span>
-                            </button>
-                            <button type="button" class="framework-btn" data-method="COSTAR">
-                                <strong>COSTAR</strong>
-                                <span>Context, Objective, Style, Tone, Audience, Response</span>
-                            </button>
-                            <button type="button" class="framework-btn" data-method="CRISPE">
-                                <strong>CRISPE</strong>
-                                <span>Context, Role, Instruction, Specifics, Parameters, Example</span>
-                            </button>
-                            <button type="button" class="framework-btn" data-method="REACT">
-                                <strong>ReAct</strong>
-                                <span>Reasoning + Acting for complex problems</span>
-                            </button>
-                            <button type="button" class="framework-btn" data-method="FLIPPED">
-                                <strong>Flipped</strong>
-                                <span>AI asks questions before answering</span>
-                            </button>
-                        </div>
-
-                        <!-- Format Toggle -->
-                        <div class="format-toggle-container">
-                            <span class="format-toggle-label">Output Format:</span>
-                            <div class="format-toggle" role="radiogroup" aria-label="Output format selection">
-                                <button type="button" class="format-toggle-btn active" data-format="natural" aria-pressed="true">
-                                    Natural Language
-                                </button>
-                                <button type="button" class="format-toggle-btn" data-format="labeled" aria-pressed="false">
-                                    Labeled Format
-                                </button>
+                        <div class="guided-mode-header builder-header-row">
+                            <div class="builder-header-text">
+                                <h2>Choose Your Framework</h2>
+                                <p>Select a framework and answer the questions to build your prompt</p>
                             </div>
-                            <span class="format-toggle-hint" id="format-hint">Conversational style—reads like you'd explain to a colleague</span>
+                            <!-- Format Toggle -->
+                            <div class="format-toggle-container">
+                                <span class="format-toggle-label">Output Format:</span>
+                                <div class="format-toggle" role="radiogroup" aria-label="Output format selection">
+                                    <button type="button" class="format-toggle-btn active" data-format="natural" aria-pressed="true">
+                                        Natural Language
+                                    </button>
+                                    <button type="button" class="format-toggle-btn" data-format="labeled" aria-pressed="false">
+                                        Labeled Format
+                                    </button>
+                                </div>
+                                <span class="format-toggle-hint" id="format-hint">Conversational style—reads like you'd explain to a colleague</span>
+                            </div>
                         </div>
+
+                        <!-- === BUILDER PICKER === -->
+                        <div id="builder-picker" class="builder-picker">
+                            <div class="builder-categories" role="tablist" aria-label="Framework categories">
+                                <!-- Populated by JS from BUILDER_CATEGORIES -->
+                            </div>
+                            <div id="builder-frameworks" class="builder-frameworks">
+                                <!-- Populated by JS when category selected -->
+                            </div>
+                            <div id="builder-active-label" class="builder-active-label" hidden>
+                                Building with: <strong id="builder-active-name"></strong>
+                                <a id="builder-active-link" class="builder-active-learn">Learn more</a>
+                            </div>
+                        </div>
+                        <!-- /BUILDER PICKER -->
 
                         <!-- Dynamic Questions Container -->
                         <div id="guided-questions" class="guided-questions">
@@ -381,26 +347,76 @@
 
                 <div class="frameworks-overview fade-in-up">
                     <h3>Learn More About Each Framework</h3>
+
+                    <h4 class="frameworks-overview-category">Structured</h4>
                     <div class="framework-cards">
                         <a href="../learn/crisp.html" class="framework-mini-card">
                             <strong>CRISP</strong>
-                            <span>Best for task-oriented prompts with clear deliverables</span>
+                            <span>Task-oriented prompts with clear deliverables</span>
                         </a>
                         <a href="../learn/costar.html" class="framework-mini-card">
                             <strong>COSTAR</strong>
-                            <span>Best for content creation with specific tone and audience</span>
+                            <span>Content creation with specific tone and audience</span>
                         </a>
                         <a href="../learn/crispe.html" class="framework-mini-card">
                             <strong>CRISPE</strong>
-                            <span>Best when you have examples of desired output</span>
+                            <span>CRISP plus examples for consistent output</span>
                         </a>
+                    </div>
+
+                    <h4 class="frameworks-overview-category">Reasoning and CoT</h4>
+                    <div class="framework-cards">
+                        <a href="../learn/chain-of-thought.html" class="framework-mini-card">
+                            <strong>Chain-of-Thought</strong>
+                            <span>Step-by-step reasoning for complex problems</span>
+                        </a>
+                        <a href="../learn/zero-shot-cot.html" class="framework-mini-card">
+                            <strong>Zero-Shot CoT</strong>
+                            <span>Reasoning without providing examples</span>
+                        </a>
+                        <a href="../learn/step-back.html" class="framework-mini-card">
+                            <strong>Step-Back</strong>
+                            <span>Abstract first then solve specifically</span>
+                        </a>
+                    </div>
+
+                    <h4 class="frameworks-overview-category">Decomposition</h4>
+                    <div class="framework-cards">
+                        <a href="../learn/least-to-most.html" class="framework-mini-card">
+                            <strong>Least-to-Most</strong>
+                            <span>Build from simple sub-problems to complex</span>
+                        </a>
+                        <a href="../learn/plan-and-solve.html" class="framework-mini-card">
+                            <strong>Plan-and-Solve</strong>
+                            <span>Plan your approach then execute</span>
+                        </a>
+                        <a href="../learn/tree-of-thought.html" class="framework-mini-card">
+                            <strong>Tree of Thought</strong>
+                            <span>Explore multiple reasoning paths</span>
+                        </a>
+                        <a href="../learn/skeleton-of-thought.html" class="framework-mini-card">
+                            <strong>Skeleton-of-Thought</strong>
+                            <span>Outline first then expand sections</span>
+                        </a>
+                    </div>
+
+                    <h4 class="frameworks-overview-category">Strategies</h4>
+                    <div class="framework-cards">
                         <a href="../learn/react.html" class="framework-mini-card">
                             <strong>ReAct</strong>
-                            <span>Best for complex multi-step reasoning problems</span>
+                            <span>Reasoning plus acting for multi-step problems</span>
                         </a>
                         <a href="../learn/flipped-interaction.html" class="framework-mini-card">
                             <strong>Flipped Interaction</strong>
-                            <span>Best when unsure what you need or want personalized advice</span>
+                            <span>AI asks clarifying questions first</span>
+                        </a>
+                        <a href="../learn/role-prompting.html" class="framework-mini-card">
+                            <strong>Role Prompting</strong>
+                            <span>Assign a specific persona to the AI</span>
+                        </a>
+                        <a href="../learn/rag.html" class="framework-mini-card">
+                            <strong>RAG</strong>
+                            <span>Ground answers in provided documents</span>
                         </a>
                     </div>
                 </div>
@@ -454,7 +470,7 @@
                 <h4>AI Readiness</h4>
                 <a href="../tools/analyzer.html">Prompt Analyzer</a>
                 <a href="../tools/guidance.html">Prompt Builder</a>
-                <a href="../tools/matcher.html">Framework Matcher</a>
+                <a href="../tools/matcher.html">Framework Finder</a>
                 <a href="../tools/checklist.html">Preflight Checklist</a>
                 <a href="../tools/hallucination.html">Hallucination Spotter</a>
                 <a href="../quiz/index.html">Readiness Quiz</a>
@@ -478,7 +494,7 @@
 
         <div class="footer-bottom">
             <p>AI for Everybody</p>
-            <p class="footer-quote">&ldquo;True innovation in AI isn&rsquo;t just about companies adopting AI as a new technology&mdash;it&rsquo;s about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential.&rdquo; <span class="footer-quote-author">&mdash; Bas</span></p>
+            <p class="footer-quote">&ldquo;True innovation in AI isn&rsquo;t just about companies adopting AI as a new technology&mdash;it&rsquo;s about people learning about, adapting to, and adopting Artificial Intelligence into their daily lives to empower and unlock their own human potential.&rdquo; <span class="footer-quote-author">&mdash; Basiliso (Bas) Rosario</span></p>
         </div>
     </div>
 </footer>

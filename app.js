@@ -6226,6 +6226,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // TOOL PAGE: PROMPT BUILDER (Guidance)
     // ==========================================
 
+    /** Category groupings for the builder picker */
+    const BUILDER_CATEGORIES = [
+        { key: 'structured', label: 'Structured', frameworks: ['CRISP', 'COSTAR', 'CRISPE'] },
+        { key: 'reasoning', label: 'Reasoning & CoT', frameworks: ['CHAIN_OF_THOUGHT', 'ZERO_SHOT_COT', 'STEP_BACK'] },
+        { key: 'decomposition', label: 'Decomposition', frameworks: ['LEAST_TO_MOST', 'PLAN_AND_SOLVE', 'TREE_OF_THOUGHT', 'SKELETON_OF_THOUGHT'] },
+        { key: 'self-correction', label: 'Self-Correction', frameworks: ['SELF_REFINE', 'CHAIN_OF_VERIFICATION'] },
+        { key: 'learning', label: 'In-Context Learning', frameworks: ['FEW_SHOT', 'ZERO_SHOT'] },
+        { key: 'strategies', label: 'Strategies', frameworks: ['REACT', 'FLIPPED', 'ROLE_PROMPTING', 'SYSTEM_PROMPTING', 'PROMPT_CHAINING', 'EMOTION_PROMPTING', 'RAG', 'S2A'] }
+    ];
+
+    /** Display metadata for each builder framework */
+    const BUILDER_FRAMEWORK_META = {
+        CRISP: { name: 'CRISP', desc: 'Context, Role, Instructions, Specifics, Parameters', link: 'learn/crisp.html' },
+        COSTAR: { name: 'COSTAR', desc: 'Context, Objective, Style, Tone, Audience, Response', link: 'learn/costar.html' },
+        CRISPE: { name: 'CRISPE', desc: 'CRISP + Examples for consistent output', link: 'learn/crispe.html' },
+        CHAIN_OF_THOUGHT: { name: 'Chain-of-Thought', desc: 'Step-by-step reasoning for complex problems', link: 'learn/chain-of-thought.html' },
+        ZERO_SHOT_COT: { name: 'Zero-Shot CoT', desc: 'Reasoning without providing examples', link: 'learn/zero-shot-cot.html' },
+        STEP_BACK: { name: 'Step-Back', desc: 'Abstract first then solve specifically', link: 'learn/step-back.html' },
+        LEAST_TO_MOST: { name: 'Least-to-Most', desc: 'Build from simple sub-problems to complex', link: 'learn/least-to-most.html' },
+        PLAN_AND_SOLVE: { name: 'Plan-and-Solve', desc: 'Plan your approach then execute', link: 'learn/plan-and-solve.html' },
+        TREE_OF_THOUGHT: { name: 'Tree of Thought', desc: 'Explore multiple reasoning paths', link: 'learn/tree-of-thought.html' },
+        SKELETON_OF_THOUGHT: { name: 'Skeleton-of-Thought', desc: 'Outline first then expand sections', link: 'learn/skeleton-of-thought.html' },
+        SELF_REFINE: { name: 'Self-Refine', desc: 'Generate, critique, then improve', link: 'learn/self-refine.html' },
+        CHAIN_OF_VERIFICATION: { name: 'Chain-of-Verification', desc: 'Verify claims systematically', link: 'learn/chain-of-verification.html' },
+        FEW_SHOT: { name: 'Few-Shot', desc: 'Teach by example with input/output pairs', link: 'learn/few-shot-learning.html' },
+        ZERO_SHOT: { name: 'Zero-Shot', desc: 'Direct instruction without examples', link: 'learn/zero-shot.html' },
+        REACT: { name: 'ReAct', desc: 'Reasoning + Acting for multi-step problems', link: 'learn/react.html' },
+        FLIPPED: { name: 'Flipped', desc: 'AI asks clarifying questions first', link: 'learn/flipped-interaction.html' },
+        ROLE_PROMPTING: { name: 'Role Prompting', desc: 'Assign a specific persona to the AI', link: 'learn/role-prompting.html' },
+        SYSTEM_PROMPTING: { name: 'System Prompting', desc: 'Set persistent behavioral instructions', link: 'learn/system-prompting.html' },
+        PROMPT_CHAINING: { name: 'Prompt Chaining', desc: 'Sequential multi-step prompts', link: 'learn/prompt-chaining.html' },
+        EMOTION_PROMPTING: { name: 'Emotion Prompting', desc: 'Add stakes and urgency for better output', link: 'learn/emotion-prompting.html' },
+        RAG: { name: 'RAG', desc: 'Ground answers in provided documents', link: 'learn/rag.html' },
+        S2A: { name: 'S2A', desc: 'Filter out irrelevant info before answering', link: 'learn/s2a.html' }
+    };
+
     const BUILDER_QUESTIONS = {
         CRISP: [
             { key: 'context', letter: 'C', label: 'Set the scene - what\'s the background?', placeholder: 'e.g., I\'m planning a family vacation to Italy with two teenagers...' },
@@ -6261,6 +6297,107 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'goal', letter: 'G', label: 'What\'s your ultimate goal?', placeholder: 'e.g., Find a fulfilling career that offers work-life balance and good income...' },
             { key: 'expertise', letter: 'E', label: 'What expertise should AI have?', placeholder: 'e.g., Career counselor with tech industry knowledge...' },
             { key: 'questions', letter: 'Q', label: 'How many questions should AI ask first?', placeholder: 'e.g., Ask me 5-7 clarifying questions before giving advice...' }
+        ],
+        // --- Reasoning & CoT ---
+        CHAIN_OF_THOUGHT: [
+            { key: 'question', letter: 'Q', label: 'What question or problem needs solving?', placeholder: 'e.g., What is the most cost-effective way to heat a 2000 sq ft home?', fullWidth: true },
+            { key: 'context', letter: 'C', label: 'What background info is relevant?', placeholder: 'e.g., Located in Minnesota, current gas furnace is 15 years old, budget is $10k...' },
+            { key: 'reasoning', letter: 'R', label: 'How should the AI reason through this?', placeholder: 'e.g., Think step by step. Consider each option\'s upfront cost, efficiency, and long-term savings...' },
+            { key: 'format', letter: 'F', label: 'What output format do you want?', placeholder: 'e.g., Numbered steps with a final recommendation and cost comparison table...', optional: true }
+        ],
+        ZERO_SHOT_COT: [
+            { key: 'task', letter: 'T', label: 'What task or question?', placeholder: 'e.g., Is it better to pay off debt or invest the extra money each month?', fullWidth: true },
+            { key: 'approach', letter: 'A', label: 'How should the AI approach reasoning?', placeholder: 'e.g., Think through this step by step. Consider the math and also practical factors...' },
+            { key: 'constraints', letter: 'C', label: 'Any constraints or format preferences?', placeholder: 'e.g., Keep the explanation under 300 words. Use simple language...', optional: true }
+        ],
+        STEP_BACK: [
+            { key: 'problem', letter: 'P', label: 'What specific problem are you facing?', placeholder: 'e.g., My React app re-renders too often and feels sluggish...', fullWidth: true },
+            { key: 'abstraction', letter: 'A', label: 'What general principle should be considered first?', placeholder: 'e.g., First explain how React\'s rendering cycle and reconciliation work in general...' },
+            { key: 'reasoning', letter: 'R', label: 'Now apply that principle to the specific problem.', placeholder: 'e.g., Then apply that understanding to diagnose why my specific component tree re-renders...' },
+            { key: 'constraints', letter: 'C', label: 'Any constraints?', placeholder: 'e.g., Focus on solutions that don\'t require rewriting the whole app...', optional: true }
+        ],
+        // --- Decomposition ---
+        LEAST_TO_MOST: [
+            { key: 'problem', letter: 'P', label: 'What complex problem needs solving?', placeholder: 'e.g., I need to migrate my company\'s monolithic app to microservices...', fullWidth: true },
+            { key: 'sub1', letter: '1', label: 'First (simplest) sub-problem to solve?', placeholder: 'e.g., First, identify which parts of the monolith have the clearest boundaries...' },
+            { key: 'sub2', letter: '2', label: 'Next sub-problem (builds on the first)?', placeholder: 'e.g., Then, design the API contracts between the first extracted service and the monolith...' },
+            { key: 'synthesis', letter: 'S', label: 'Final goal - combine everything?', placeholder: 'e.g., Finally, create a phased migration plan with timelines for each service extraction...' }
+        ],
+        PLAN_AND_SOLVE: [
+            { key: 'problem', letter: 'P', label: 'What problem needs solving?', placeholder: 'e.g., I need to organize a charity fundraiser that raises at least $5000...', fullWidth: true },
+            { key: 'plan', letter: 'L', label: 'What should the plan phase cover?', placeholder: 'e.g., First, create a detailed plan: identify the target audience, choose the event format, list required resources...' },
+            { key: 'execution', letter: 'E', label: 'How should the AI execute the plan?', placeholder: 'e.g., Then solve each part of the plan step by step with specific, actionable recommendations...' }
+        ],
+        TREE_OF_THOUGHT: [
+            { key: 'problem', letter: 'P', label: 'What decision or problem to explore?', placeholder: 'e.g., Should I build a mobile app with React Native, Flutter, or native Swift/Kotlin?', fullWidth: true },
+            { key: 'option1', letter: '1', label: 'First path or option to evaluate?', placeholder: 'e.g., Path 1: React Native - evaluate developer availability, performance, and code reuse...' },
+            { key: 'option2', letter: '2', label: 'Second path or option to evaluate?', placeholder: 'e.g., Path 2: Flutter - evaluate learning curve, widget library, and platform support...' },
+            { key: 'evaluation', letter: 'E', label: 'How should options be compared?', placeholder: 'e.g., Compare all paths on: development speed, performance, hiring ease, long-term maintenance. Pick the best...' }
+        ],
+        SKELETON_OF_THOUGHT: [
+            { key: 'topic', letter: 'T', label: 'What topic or content to create?', placeholder: 'e.g., A comprehensive guide to starting a small business...', fullWidth: true },
+            { key: 'outline', letter: 'O', label: 'What skeleton or outline should be created first?', placeholder: 'e.g., First, create a skeleton outline with 6-8 main sections and 2-3 bullet points each...' },
+            { key: 'expansion', letter: 'E', label: 'How should each section be expanded?', placeholder: 'e.g., Then expand each section into 2-3 detailed paragraphs with practical examples and actionable advice...' }
+        ],
+        // --- Self-Correction ---
+        SELF_REFINE: [
+            { key: 'task', letter: 'T', label: 'What task should the AI perform?', placeholder: 'e.g., Write a professional cover letter for a senior marketing manager position...', fullWidth: true },
+            { key: 'criteria', letter: 'C', label: 'What quality criteria should it check against?', placeholder: 'e.g., Check for: specific achievements with metrics, company research, confident but not arrogant tone...' },
+            { key: 'iteration', letter: 'I', label: 'How should it improve?', placeholder: 'e.g., After your first draft, critique it against the criteria. Then rewrite an improved version addressing each weakness...' }
+        ],
+        CHAIN_OF_VERIFICATION: [
+            { key: 'claim', letter: 'C', label: 'What claim, task, or output to verify?', placeholder: 'e.g., List the 10 largest cities in Europe by population with their populations...', fullWidth: true },
+            { key: 'questions', letter: 'Q', label: 'What verification questions should be asked?', placeholder: 'e.g., For each city: Is this actually in Europe? Is the population figure from a reliable recent source? Is the ranking correct?' },
+            { key: 'verdict', letter: 'V', label: 'How should the final verified answer be presented?', placeholder: 'e.g., After verification, present only the confirmed facts. Flag any uncertain items. Note your confidence level...' }
+        ],
+        // --- In-Context Learning ---
+        FEW_SHOT: [
+            { key: 'task', letter: 'T', label: 'What task should the AI learn to do?', placeholder: 'e.g., Classify customer feedback as positive, negative, or neutral...', fullWidth: true },
+            { key: 'example1', letter: '1', label: 'Example 1: input and desired output', placeholder: 'e.g., Input: "Love the new update!" -> Output: Positive' },
+            { key: 'example2', letter: '2', label: 'Example 2: input and desired output', placeholder: 'e.g., Input: "App crashed again" -> Output: Negative' },
+            { key: 'example3', letter: '3', label: 'Example 3: input and desired output', placeholder: 'e.g., Input: "Updated to version 3" -> Output: Neutral', optional: true },
+            { key: 'input', letter: 'I', label: 'New input to classify or process', placeholder: 'e.g., Input: "The interface is confusing but the speed improved"' }
+        ],
+        ZERO_SHOT: [
+            { key: 'task', letter: 'T', label: 'What task should the AI perform?', placeholder: 'e.g., Summarize the following article in 3 bullet points...', fullWidth: true },
+            { key: 'instructions', letter: 'I', label: 'Specific instructions for the task', placeholder: 'e.g., Focus on the main argument, key evidence, and conclusion. Use simple language...' },
+            { key: 'constraints', letter: 'C', label: 'Any constraints or format requirements?', placeholder: 'e.g., Each bullet point should be one sentence. No jargon...', optional: true }
+        ],
+        // --- Strategies ---
+        ROLE_PROMPTING: [
+            { key: 'role', letter: 'R', label: 'What role should the AI adopt?', placeholder: 'e.g., You are a seasoned data scientist with 15 years of experience at FAANG companies...', fullWidth: true },
+            { key: 'expertise', letter: 'E', label: 'What specific expertise should they have?', placeholder: 'e.g., Specializing in NLP, recommendation systems, and A/B testing at scale...' },
+            { key: 'task', letter: 'T', label: 'What task should they perform?', placeholder: 'e.g., Review my machine learning pipeline and suggest improvements for production readiness...' },
+            { key: 'constraints', letter: 'C', label: 'Any constraints on their response?', placeholder: 'e.g., Prioritize practical suggestions. Assume we use Python and AWS...', optional: true }
+        ],
+        SYSTEM_PROMPTING: [
+            { key: 'identity', letter: 'I', label: 'Who is the AI? (system identity)', placeholder: 'e.g., You are a helpful writing assistant that specializes in academic papers...', fullWidth: true },
+            { key: 'behavior', letter: 'B', label: 'What behavioral rules should it follow?', placeholder: 'e.g., Always cite sources. Use formal academic tone. Flag unsupported claims...' },
+            { key: 'task', letter: 'T', label: 'What task to perform?', placeholder: 'e.g., Help me draft the methodology section of my research paper on urban heat islands...' },
+            { key: 'constraints', letter: 'C', label: 'Boundaries or things to avoid?', placeholder: 'e.g., Do not fabricate citations. If unsure about a fact, say so. Stay under 500 words...', optional: true }
+        ],
+        PROMPT_CHAINING: [
+            { key: 'step1', letter: '1', label: 'Step 1: What should happen first?', placeholder: 'e.g., First, analyze this customer feedback data and identify the top 5 recurring themes...', fullWidth: true },
+            { key: 'step2', letter: '2', label: 'Step 2: What comes next (using Step 1 output)?', placeholder: 'e.g., Using those themes, draft a survey with 10 questions to dig deeper into each issue...' },
+            { key: 'step3', letter: '3', label: 'Step 3: Final step (using previous outputs)?', placeholder: 'e.g., Finally, create an executive summary combining the themes and survey into an action plan...' },
+            { key: 'connection', letter: 'C', label: 'How should the steps connect?', placeholder: 'e.g., Each step should explicitly reference the output of the previous step. Present all steps together...', optional: true }
+        ],
+        EMOTION_PROMPTING: [
+            { key: 'context', letter: 'C', label: 'What is the situation?', placeholder: 'e.g., I\'m preparing for a critical job interview at my dream company tomorrow...', fullWidth: true },
+            { key: 'task', letter: 'T', label: 'What do you need help with?', placeholder: 'e.g., Help me prepare answers for the most likely behavioral interview questions...' },
+            { key: 'stakes', letter: 'S', label: 'Why does this matter? (what is at stake)', placeholder: 'e.g., This is incredibly important to me. This role would be a career-defining opportunity and I\'ve been working toward it for 3 years...' },
+            { key: 'urgency', letter: 'U', label: 'How urgent is this?', placeholder: 'e.g., The interview is in 12 hours so I need concise, actionable preparation I can review tonight...', optional: true }
+        ],
+        RAG: [
+            { key: 'documents', letter: 'D', label: 'What documents or sources should be used?', placeholder: 'e.g., Use the following company policy document: [paste text here]...', fullWidth: true },
+            { key: 'question', letter: 'Q', label: 'What question should be answered from those sources?', placeholder: 'e.g., Based on the policy document, what is the process for requesting parental leave?' },
+            { key: 'sourcing', letter: 'S', label: 'How should sources be cited?', placeholder: 'e.g., Quote the relevant sections directly. If the answer isn\'t in the document, say so clearly...' },
+            { key: 'format', letter: 'F', label: 'What output format?', placeholder: 'e.g., Bullet points with direct quotes and section references...', optional: true }
+        ],
+        S2A: [
+            { key: 'question', letter: 'Q', label: 'What is the full question (may contain extra context)?', placeholder: 'e.g., My friend John who is a doctor says I should invest in crypto. Should I put my retirement savings into Bitcoin?', fullWidth: true },
+            { key: 'irrelevant', letter: 'I', label: 'What information should be ignored?', placeholder: 'e.g., Ignore the appeal to authority (friend being a doctor is irrelevant to financial advice)...' },
+            { key: 'focused', letter: 'F', label: 'What is the actual core question?', placeholder: 'e.g., Focus only on: Is investing retirement savings in Bitcoin a sound financial strategy? Evaluate the risk objectively...' }
         ]
     };
 
@@ -6349,6 +6486,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (answers.goal?.trim()) parts.push(`Goal: ${answers.goal.trim()}`);
                 if (answers.expertise?.trim()) parts.push(`Expertise: ${answers.expertise.trim()}`);
                 if (answers.questions?.trim()) parts.push(`Questions: ${answers.questions.trim()}`);
+            } else if (methodology === 'CHAIN_OF_THOUGHT') {
+                if (answers.question?.trim()) parts.push(`Question: ${answers.question.trim()}`);
+                if (answers.context?.trim()) parts.push(`Context: ${answers.context.trim()}`);
+                if (answers.reasoning?.trim()) parts.push(`Reasoning: ${answers.reasoning.trim()}`);
+                if (answers.format?.trim()) parts.push(`Format: ${answers.format.trim()}`);
+            } else if (methodology === 'ZERO_SHOT_COT') {
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.approach?.trim()) parts.push(`Approach: ${answers.approach.trim()}`);
+                if (answers.constraints?.trim()) parts.push(`Constraints: ${answers.constraints.trim()}`);
+            } else if (methodology === 'STEP_BACK') {
+                if (answers.problem?.trim()) parts.push(`Problem: ${answers.problem.trim()}`);
+                if (answers.abstraction?.trim()) parts.push(`Abstraction: ${answers.abstraction.trim()}`);
+                if (answers.reasoning?.trim()) parts.push(`Reasoning: ${answers.reasoning.trim()}`);
+                if (answers.constraints?.trim()) parts.push(`Constraints: ${answers.constraints.trim()}`);
+            } else if (methodology === 'LEAST_TO_MOST') {
+                if (answers.problem?.trim()) parts.push(`Problem: ${answers.problem.trim()}`);
+                if (answers.sub1?.trim()) parts.push(`Sub-problem 1: ${answers.sub1.trim()}`);
+                if (answers.sub2?.trim()) parts.push(`Sub-problem 2: ${answers.sub2.trim()}`);
+                if (answers.synthesis?.trim()) parts.push(`Synthesis: ${answers.synthesis.trim()}`);
+            } else if (methodology === 'PLAN_AND_SOLVE') {
+                if (answers.problem?.trim()) parts.push(`Problem: ${answers.problem.trim()}`);
+                if (answers.plan?.trim()) parts.push(`Plan: ${answers.plan.trim()}`);
+                if (answers.execution?.trim()) parts.push(`Execution: ${answers.execution.trim()}`);
+            } else if (methodology === 'TREE_OF_THOUGHT') {
+                if (answers.problem?.trim()) parts.push(`Problem: ${answers.problem.trim()}`);
+                if (answers.option1?.trim()) parts.push(`Option 1: ${answers.option1.trim()}`);
+                if (answers.option2?.trim()) parts.push(`Option 2: ${answers.option2.trim()}`);
+                if (answers.evaluation?.trim()) parts.push(`Evaluation: ${answers.evaluation.trim()}`);
+            } else if (methodology === 'SKELETON_OF_THOUGHT') {
+                if (answers.topic?.trim()) parts.push(`Topic: ${answers.topic.trim()}`);
+                if (answers.outline?.trim()) parts.push(`Outline: ${answers.outline.trim()}`);
+                if (answers.expansion?.trim()) parts.push(`Expansion: ${answers.expansion.trim()}`);
+            } else if (methodology === 'SELF_REFINE') {
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.criteria?.trim()) parts.push(`Criteria: ${answers.criteria.trim()}`);
+                if (answers.iteration?.trim()) parts.push(`Iteration: ${answers.iteration.trim()}`);
+            } else if (methodology === 'CHAIN_OF_VERIFICATION') {
+                if (answers.claim?.trim()) parts.push(`Claim: ${answers.claim.trim()}`);
+                if (answers.questions?.trim()) parts.push(`Verification Questions: ${answers.questions.trim()}`);
+                if (answers.verdict?.trim()) parts.push(`Verdict: ${answers.verdict.trim()}`);
+            } else if (methodology === 'FEW_SHOT') {
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.example1?.trim()) parts.push(`Example 1: ${answers.example1.trim()}`);
+                if (answers.example2?.trim()) parts.push(`Example 2: ${answers.example2.trim()}`);
+                if (answers.example3?.trim()) parts.push(`Example 3: ${answers.example3.trim()}`);
+                if (answers.input?.trim()) parts.push(`New Input: ${answers.input.trim()}`);
+            } else if (methodology === 'ZERO_SHOT') {
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.instructions?.trim()) parts.push(`Instructions: ${answers.instructions.trim()}`);
+                if (answers.constraints?.trim()) parts.push(`Constraints: ${answers.constraints.trim()}`);
+            } else if (methodology === 'ROLE_PROMPTING') {
+                if (answers.role?.trim()) parts.push(`Role: ${answers.role.trim()}`);
+                if (answers.expertise?.trim()) parts.push(`Expertise: ${answers.expertise.trim()}`);
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.constraints?.trim()) parts.push(`Constraints: ${answers.constraints.trim()}`);
+            } else if (methodology === 'SYSTEM_PROMPTING') {
+                if (answers.identity?.trim()) parts.push(`System: ${answers.identity.trim()}`);
+                if (answers.behavior?.trim()) parts.push(`Behavior: ${answers.behavior.trim()}`);
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.constraints?.trim()) parts.push(`Constraints: ${answers.constraints.trim()}`);
+            } else if (methodology === 'PROMPT_CHAINING') {
+                if (answers.step1?.trim()) parts.push(`Step 1: ${answers.step1.trim()}`);
+                if (answers.step2?.trim()) parts.push(`Step 2: ${answers.step2.trim()}`);
+                if (answers.step3?.trim()) parts.push(`Step 3: ${answers.step3.trim()}`);
+                if (answers.connection?.trim()) parts.push(`Connection: ${answers.connection.trim()}`);
+            } else if (methodology === 'EMOTION_PROMPTING') {
+                if (answers.context?.trim()) parts.push(`Context: ${answers.context.trim()}`);
+                if (answers.task?.trim()) parts.push(`Task: ${answers.task.trim()}`);
+                if (answers.stakes?.trim()) parts.push(`Stakes: ${answers.stakes.trim()}`);
+                if (answers.urgency?.trim()) parts.push(`Urgency: ${answers.urgency.trim()}`);
+            } else if (methodology === 'RAG') {
+                if (answers.documents?.trim()) parts.push(`Documents: ${answers.documents.trim()}`);
+                if (answers.question?.trim()) parts.push(`Question: ${answers.question.trim()}`);
+                if (answers.sourcing?.trim()) parts.push(`Sourcing: ${answers.sourcing.trim()}`);
+                if (answers.format?.trim()) parts.push(`Format: ${answers.format.trim()}`);
+            } else if (methodology === 'S2A') {
+                if (answers.question?.trim()) parts.push(`Original Question: ${answers.question.trim()}`);
+                if (answers.irrelevant?.trim()) parts.push(`Ignore: ${answers.irrelevant.trim()}`);
+                if (answers.focused?.trim()) parts.push(`Focused Question: ${answers.focused.trim()}`);
             }
         } else {
             // Natural language format (default)
@@ -6384,6 +6600,87 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (answers.topic?.trim()) parts.push(answers.topic.trim());
                 if (answers.goal?.trim()) parts.push(`My goal is ${answers.goal.trim()}.`);
                 if (answers.questions?.trim()) parts.push(`Before giving me advice, ${answers.questions.trim()} to better understand my situation.`);
+            } else if (methodology === 'CHAIN_OF_THOUGHT') {
+                if (answers.question?.trim()) parts.push(answers.question.trim());
+                if (answers.context?.trim()) parts.push(answers.context.trim());
+                if (answers.reasoning?.trim()) parts.push(answers.reasoning.trim());
+                if (answers.format?.trim()) parts.push(answers.format.trim());
+            } else if (methodology === 'ZERO_SHOT_COT') {
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                if (answers.approach?.trim()) parts.push(answers.approach.trim());
+                if (answers.constraints?.trim()) parts.push(answers.constraints.trim());
+            } else if (methodology === 'STEP_BACK') {
+                if (answers.problem?.trim()) parts.push(answers.problem.trim());
+                if (answers.abstraction?.trim()) parts.push(answers.abstraction.trim());
+                if (answers.reasoning?.trim()) parts.push(answers.reasoning.trim());
+                if (answers.constraints?.trim()) parts.push(answers.constraints.trim());
+            } else if (methodology === 'LEAST_TO_MOST') {
+                if (answers.problem?.trim()) parts.push(answers.problem.trim());
+                if (answers.sub1?.trim()) parts.push(answers.sub1.trim());
+                if (answers.sub2?.trim()) parts.push(answers.sub2.trim());
+                if (answers.synthesis?.trim()) parts.push(answers.synthesis.trim());
+            } else if (methodology === 'PLAN_AND_SOLVE') {
+                if (answers.problem?.trim()) parts.push(answers.problem.trim());
+                if (answers.plan?.trim()) parts.push(answers.plan.trim());
+                if (answers.execution?.trim()) parts.push(answers.execution.trim());
+            } else if (methodology === 'TREE_OF_THOUGHT') {
+                if (answers.problem?.trim()) parts.push(answers.problem.trim());
+                if (answers.option1?.trim()) parts.push(`Option 1: ${answers.option1.trim()}`);
+                if (answers.option2?.trim()) parts.push(`Option 2: ${answers.option2.trim()}`);
+                if (answers.evaluation?.trim()) parts.push(answers.evaluation.trim());
+            } else if (methodology === 'SKELETON_OF_THOUGHT') {
+                if (answers.topic?.trim()) parts.push(answers.topic.trim());
+                if (answers.outline?.trim()) parts.push(answers.outline.trim());
+                if (answers.expansion?.trim()) parts.push(answers.expansion.trim());
+            } else if (methodology === 'SELF_REFINE') {
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                if (answers.criteria?.trim()) parts.push(answers.criteria.trim());
+                if (answers.iteration?.trim()) parts.push(answers.iteration.trim());
+            } else if (methodology === 'CHAIN_OF_VERIFICATION') {
+                if (answers.claim?.trim()) parts.push(answers.claim.trim());
+                if (answers.questions?.trim()) parts.push(answers.questions.trim());
+                if (answers.verdict?.trim()) parts.push(answers.verdict.trim());
+            } else if (methodology === 'FEW_SHOT') {
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                var examples = [];
+                if (answers.example1?.trim()) examples.push(answers.example1.trim());
+                if (answers.example2?.trim()) examples.push(answers.example2.trim());
+                if (answers.example3?.trim()) examples.push(answers.example3.trim());
+                if (examples.length) parts.push('Examples:\n' + examples.join('\n'));
+                if (answers.input?.trim()) parts.push(`Now do the same for: ${answers.input.trim()}`);
+            } else if (methodology === 'ZERO_SHOT') {
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                if (answers.instructions?.trim()) parts.push(answers.instructions.trim());
+                if (answers.constraints?.trim()) parts.push(answers.constraints.trim());
+            } else if (methodology === 'ROLE_PROMPTING') {
+                if (answers.role?.trim()) parts.push(`You are ${answers.role.trim()}.`);
+                if (answers.expertise?.trim()) parts.push(`Your expertise: ${answers.expertise.trim()}.`);
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                if (answers.constraints?.trim()) parts.push(answers.constraints.trim());
+            } else if (methodology === 'SYSTEM_PROMPTING') {
+                if (answers.identity?.trim()) parts.push(`[System] ${answers.identity.trim()}`);
+                if (answers.behavior?.trim()) parts.push(answers.behavior.trim());
+                if (answers.task?.trim()) parts.push(`[User] ${answers.task.trim()}`);
+                if (answers.constraints?.trim()) parts.push(answers.constraints.trim());
+            } else if (methodology === 'PROMPT_CHAINING') {
+                if (answers.step1?.trim()) parts.push(`Step 1: ${answers.step1.trim()}`);
+                if (answers.step2?.trim()) parts.push(`Step 2: ${answers.step2.trim()}`);
+                if (answers.step3?.trim()) parts.push(`Step 3: ${answers.step3.trim()}`);
+                if (answers.connection?.trim()) parts.push(answers.connection.trim());
+            } else if (methodology === 'EMOTION_PROMPTING') {
+                if (answers.context?.trim()) parts.push(answers.context.trim());
+                if (answers.task?.trim()) parts.push(answers.task.trim());
+                if (answers.stakes?.trim()) parts.push(answers.stakes.trim());
+                if (answers.urgency?.trim()) parts.push(answers.urgency.trim());
+            } else if (methodology === 'RAG') {
+                if (answers.documents?.trim()) parts.push(`Given the following information:\n${answers.documents.trim()}`);
+                if (answers.question?.trim()) parts.push(answers.question.trim());
+                if (answers.sourcing?.trim()) parts.push(answers.sourcing.trim());
+                if (answers.format?.trim()) parts.push(answers.format.trim());
+            } else if (methodology === 'S2A') {
+                if (answers.question?.trim()) parts.push(answers.question.trim());
+                if (answers.irrelevant?.trim()) parts.push(answers.irrelevant.trim());
+                if (answers.focused?.trim()) parts.push(answers.focused.trim());
             }
         }
 
@@ -6399,38 +6696,113 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize Builder Page
-    const methodologySelector = document.getElementById('methodology-selector');
+    const builderPicker = document.getElementById('builder-picker');
     const combineBtn = document.getElementById('combine-prompt-btn');
     const copyBtn = document.getElementById('copy-btn');
     const guidedQuestionsContainer = document.getElementById('guided-questions');
     const formatToggle = document.querySelector('.format-toggle');
     const formatHint = document.getElementById('format-hint');
 
-    if (methodologySelector && guidedQuestionsContainer && combineBtn) {
-        // Initial render
-        renderBuilderQuestions('CRISP');
+    /** Render category pill buttons */
+    function renderBuilderCategories() {
+        var catContainer = builderPicker.querySelector('.builder-categories');
+        if (!catContainer) return;
+        var html = '';
+        BUILDER_CATEGORIES.forEach(function(cat, i) {
+            html += '<button type="button" class="builder-category-btn' + (i === 0 ? ' active' : '') + '" data-category="' + cat.key + '" role="tab" aria-selected="' + (i === 0 ? 'true' : 'false') + '">' + cat.label + '</button>';
+        });
+        catContainer.innerHTML = html;
+    }
 
-        // Methodology buttons
-        methodologySelector.querySelectorAll('.methodology-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const method = btn.dataset.method;
-                BuilderState.methodology = method;
+    /** Render framework cards for a given category */
+    function renderBuilderFrameworkCards(categoryKey) {
+        var fwContainer = document.getElementById('builder-frameworks');
+        if (!fwContainer) return;
+        var category = BUILDER_CATEGORIES.find(function(c) { return c.key === categoryKey; });
+        if (!category) return;
+        var html = '';
+        category.frameworks.forEach(function(fwKey) {
+            var meta = BUILDER_FRAMEWORK_META[fwKey];
+            if (!meta) return;
+            var isActive = BuilderState.methodology === fwKey;
+            html += '<button type="button" class="builder-fw-card' + (isActive ? ' active' : '') + '" data-framework="' + fwKey + '"><strong>' + meta.name + '</strong><span>' + meta.desc + '</span></button>';
+        });
+        fwContainer.innerHTML = html;
+    }
 
-                methodologySelector.querySelectorAll('.methodology-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+    /** Select a framework and update the active label */
+    function selectBuilderFramework(frameworkKey) {
+        BuilderState.methodology = frameworkKey;
+        var meta = BUILDER_FRAMEWORK_META[frameworkKey];
+        if (!meta) return;
 
-                renderBuilderQuestions(method);
+        // Update active card states
+        var allCards = document.querySelectorAll('.builder-fw-card');
+        allCards.forEach(function(c) { c.classList.remove('active'); });
+        var activeCard = document.querySelector('.builder-fw-card[data-framework="' + frameworkKey + '"]');
+        if (activeCard) activeCard.classList.add('active');
+
+        // Update active label
+        var labelEl = document.getElementById('builder-active-label');
+        var nameEl = document.getElementById('builder-active-name');
+        var linkEl = document.getElementById('builder-active-link');
+        if (labelEl && nameEl) {
+            nameEl.textContent = meta.name;
+            labelEl.hidden = false;
+        }
+        if (linkEl) {
+            linkEl.href = resolveInternalUrl(meta.link);
+        }
+
+        // Render questions
+        renderBuilderQuestions(frameworkKey);
+    }
+
+    if (builderPicker && guidedQuestionsContainer && combineBtn) {
+        // Render category pills and initial framework cards
+        renderBuilderCategories();
+        renderBuilderFrameworkCards('structured');
+        selectBuilderFramework('CRISP');
+
+        // Category pill clicks
+        builderPicker.querySelector('.builder-categories').addEventListener('click', function(e) {
+            var btn = e.target.closest('.builder-category-btn');
+            if (!btn) return;
+            var catKey = btn.dataset.category;
+
+            // Update active pill
+            builderPicker.querySelectorAll('.builder-category-btn').forEach(function(b) {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
             });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            // Render cards for this category
+            renderBuilderFrameworkCards(catKey);
+
+            // Auto-select first framework in category
+            var cat = BUILDER_CATEGORIES.find(function(c) { return c.key === catKey; });
+            if (cat && cat.frameworks.length > 0) {
+                selectBuilderFramework(cat.frameworks[0]);
+            }
+        });
+
+        // Framework card clicks (delegated)
+        document.getElementById('builder-frameworks').addEventListener('click', function(e) {
+            var card = e.target.closest('.builder-fw-card');
+            if (!card) return;
+            selectBuilderFramework(card.dataset.framework);
         });
 
         // Format toggle buttons
         if (formatToggle) {
-            formatToggle.querySelectorAll('.format-toggle-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const format = btn.dataset.format;
+            formatToggle.querySelectorAll('.format-toggle-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var format = btn.dataset.format;
                     BuilderState.outputFormat = format;
 
-                    formatToggle.querySelectorAll('.format-toggle-btn').forEach(b => {
+                    formatToggle.querySelectorAll('.format-toggle-btn').forEach(function(b) {
                         b.classList.remove('active');
                         b.setAttribute('aria-pressed', 'false');
                     });
@@ -6452,12 +6824,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Copy button
         if (copyBtn) {
-            copyBtn.addEventListener('click', () => {
-                const outputTextarea = document.getElementById('combined-output');
+            copyBtn.addEventListener('click', function() {
+                var outputTextarea = document.getElementById('combined-output');
                 if (outputTextarea && outputTextarea.value) {
-                    navigator.clipboard.writeText(outputTextarea.value).then(() => {
+                    navigator.clipboard.writeText(outputTextarea.value).then(function() {
                         showToast('Copied to clipboard!', 'success');
-                    }).catch(() => {
+                    }).catch(function() {
                         outputTextarea.select();
                         document.execCommand('copy');
                         showToast('Copied to clipboard!', 'success');
