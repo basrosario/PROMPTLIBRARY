@@ -4,6 +4,72 @@
 
 ---
 
+## Session 64 (2026-02-08)
+**Phase 7: World Source Archive — Term Farming Batches 1-2 + Search Fix**
+
+### Commit: Session 63 Uncommitted Work
+- [x] Committed all glossary sharding architecture (36 files): `197a5fd`
+
+### Batch 001 — Algorithms Domain
+- [x] Created `glossary_factory/seeds/batch-001-algorithms.csv` — 407 terms covering activation functions, attention mechanisms, convolution types, optimization, evaluation metrics, tokenization, search/decoding, clustering, regularization, training techniques, model compression, alignment, interpretability, distributed training
+- [x] Ran `add_terms.py` → 216 added, 191 duplicates skipped
+- [x] Ran `build_index.py` → rebuilt manifest + search-compact
+- [x] Ran `validate.py` → 0 errors
+- [x] Updated glossary.html and index.html counts (2141 → 2357)
+- [x] Committed: `e5c7505`
+
+### Duplicate Detection & Fix
+- [x] User found duplicate "BLEU Score" entries on live server — two entries with same name, different IDs (`term-bleu` vs `term-bleu-score`)
+- [x] Root cause: `add_terms.py` only checked IDs, not term names. `slugify()` produced different IDs for same name
+- [x] Created `glossary_factory/dedup_terms.py` — scans all shards, removes duplicate names, keeps longer definition
+- [x] Ran dedup: removed 22 total duplicates across shards (e.g., `term-attention` vs `term-attention-mechanism`, `term-gpt4` vs `term-gpt-4`)
+- [x] Total reduced from 2357 → 2335
+- [x] Rebuilt index, validated clean
+- [x] Committed: `96646d4`
+
+### Pipeline Upgrade — Name-Based Deduplication
+- [x] Upgraded `add_terms.py` to check both term IDs AND term names (case-insensitive) during ingestion
+- [x] `load_existing_terms()` now returns both `existing_ids` set and `existing_names` set
+- [x] New check: `if term_name_lower in existing_names: skip`
+- [x] Confirmed working in Batch 002 — 6 terms caught by name-based check
+
+### Batch 002 — Models Domain
+- [x] Created `glossary_factory/seeds/batch-002-models.csv` — 252 terms covering CNNs (ResNet, EfficientNet, MobileNet), LLMs (GPT family, LLaMA, Mistral, Claude, Gemini), diffusion models (Stable Diffusion, DALL-E, Flux), vision transformers, audio models, GNNs, embedding models, domain-specific models
+- [x] Ran improved `add_terms.py` → 150 added, 102 skipped (6 caught by new name-based dedup)
+- [x] Ran `dedup_terms.py` → 0 duplicates (pipeline working correctly now)
+- [x] Ran `build_index.py` + `validate.py` → clean
+- [x] Updated glossary.html and index.html counts (2335 → 2485)
+- [x] Committed: `c86cc39`
+
+### Glossary Search Scoring Fix (UNCOMMITTED)
+- [x] User reported "LoRA" exact match appearing 3rd in search results, behind "LoRA Fusion" and "LoRA for Diffusion"
+- [x] Root cause: Term "LoRA (Low-Rank Adaptation)" has `lowerName = "lora (low-rank adaptation)"` which !== "lora", so tier-1 exact match fails. All three fall to tier-4 (starts-with, score 150), sort by name length puts exact term last
+- [x] Fix: Extract base name before trailing parenthetical, include in tier-1 exact match check
+- [x] Applied to both `searchGlossaryTerms()` (glossary inline search, app.js ~8414) and `scoreGlossaryEntry()` (Ctrl+K site search, app.js ~9391)
+- [x] Affects all terms with parenthetical expansions (LoRA, GAN, NLP, BERT, etc.)
+
+### Files Created
+- `glossary_factory/dedup_terms.py` — Duplicate name removal script
+- `glossary_factory/seeds/batch-001-algorithms.csv` — 407 algorithm terms
+- `glossary_factory/seeds/batch-002-models.csv` — 252 model terms
+
+### Files Modified
+- `app.js` — Search scoring fix (2 functions: `searchGlossaryTerms` + `scoreGlossaryEntry`)
+- `data/glossary/*.json` — 26 shard files updated by term additions and dedup
+- `data/glossary/manifest.json` — Rebuilt (2485 total terms)
+- `data/glossary/search-compact.json` — Rebuilt (~1MB)
+- `pages/glossary.html` — Updated term counts
+- `index.html` — Updated term counter and highlight-box title
+- `glossary_factory/add_terms.py` — Added name-based deduplication
+
+### Commits
+- `197a5fd` — feat: Glossary sharding architecture (Session 63 uncommitted)
+- `e5c7505` — feat: Batch 001 algorithms domain (216 terms, 2357 total)
+- `96646d4` — fix: Remove 22 duplicate term names + add dedup_terms.py
+- `c86cc39` — feat: Batch 002 models domain (150 terms, 2485 total)
+
+---
+
 ## Session 63 (2026-02-08)
 **Phase 7: World Source Archive — Glossary Sharding Architecture**
 

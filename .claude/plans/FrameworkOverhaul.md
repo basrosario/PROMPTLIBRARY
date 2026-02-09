@@ -3,7 +3,7 @@
 **Project:** Comprehensive expansion of Praxis Library frameworks based on The Prompt Report
 **Source:** arXiv:2406.06608v6 - "The Prompt Report: A Systematic Survey of Prompting Techniques"
 **Start Date:** 2026-02-04
-**Last Updated:** 2026-02-08 (Session 63)
+**Last Updated:** 2026-02-08 (Session 64)
 
 ---
 
@@ -811,7 +811,7 @@ Add a prompt-mini legend to the concept section of ALL 108 framework pages. The 
 ## Phase 7: World Source Archive (Glossary Expansion)
 
 **Priority:** ACTIVE — Current work
-**Status:** Infrastructure COMPLETE. Term farming NEXT.
+**Status:** Infrastructure COMPLETE. Term farming IN PROGRESS (2 batches done, 2,485 terms).
 **Plan:** `.claude/plans/dreamy-foraging-raven.md` (full architecture plan)
 **Pipeline:** `glossary_factory/README.md` (build pipeline docs)
 
@@ -830,13 +830,13 @@ Expand the Praxis Library glossary from 2,141 terms to 15,000+ verified AI terms
 ### Term Domain Taxonomy
 | Domain | Current | Target | Description |
 |--------|---------|--------|-------------|
-| models | 521 | ~4,000 | Named architectures, model families |
-| algorithms | 231 | ~3,000 | Math, optimization, algorithmic mechanics |
-| hardware | 230 | ~1,500 | GPUs, TPUs, chips, compute |
-| safety | 207 | ~2,000 | Ethics, alignment, policy, regulation |
-| history | 153 | ~2,000 | Pre-2010 milestones, pioneers, systems |
-| datasets | 121 | ~2,500 | Datasets, benchmarks, evaluation suites |
-| general | 678 | — | Uncategorized (to be redistributed) |
+| general | 672 | — | Uncategorized (to be redistributed) |
+| models | 665 | ~4,000 | Named architectures, model families |
+| algorithms | 445 | ~3,000 | Math, optimization, algorithmic mechanics |
+| hardware | 226 | ~1,500 | GPUs, TPUs, chips, compute |
+| safety | 206 | ~2,000 | Ethics, alignment, policy, regulation |
+| history | 152 | ~2,000 | Pre-2010 milestones, pioneers, systems |
+| datasets | 119 | ~2,500 | Datasets, benchmarks, evaluation suites |
 
 ### Term Farming Workflow
 ```
@@ -860,6 +860,36 @@ Batch 1: Algorithms → Batch 2: Models → Batch 3: History → Batch 4: Safety
 ---
 
 # SESSION LOG
+
+## Session 64 (2026-02-08)
+
+**Focus:** Term Farming Batches 1-2 + Pipeline Hardening + Search Scoring Fix
+**Status:** 2 batches complete (366 net new terms). Search fix uncommitted.
+
+**Completed:**
+- [x] **Committed Session 63 work** — 36 files, glossary sharding architecture: `197a5fd`
+- [x] **Batch 001 Algorithms** — 407 CSV terms, 216 added (191 existing dupes): `e5c7505`
+- [x] **Discovered duplicate problem** — User found "BLEU Score" appearing twice on live site (different IDs, same name)
+- [x] **Created dedup_terms.py** — Scans all shards, removes duplicate names, keeps longer definition. Found 22 total dupes: `96646d4`
+- [x] **Upgraded add_terms.py** — Added name-based deduplication (checks both IDs and names, case-insensitive)
+- [x] **Batch 002 Models** — 252 CSV terms, 150 added (102 existing dupes, 6 caught by new name check): `c86cc39`
+- [x] **Fixed search scoring** — Terms with parenthetical expansions (e.g., "LoRA (Low-Rank Adaptation)") now correctly rank as exact matches when searching base name. Applied to both glossary inline search and Ctrl+K site search. **UNCOMMITTED.**
+
+**Key files changed:**
+- `app.js` — Search scoring: `searchGlossaryTerms()` (~8414), `scoreGlossaryEntry()` (~9391)
+- `glossary_factory/add_terms.py` — Name-based deduplication
+- `glossary_factory/dedup_terms.py` — NEW: duplicate name removal
+- `glossary_factory/seeds/batch-001-algorithms.csv` — NEW: 407 algorithm terms
+- `glossary_factory/seeds/batch-002-models.csv` — NEW: 252 model terms
+- `data/glossary/*.json` — All 26 shards updated
+- `data/glossary/manifest.json` — Rebuilt (2485 total)
+- `pages/glossary.html` — Term counts updated
+- `index.html` — Term counter updated
+
+**Commits:** `197a5fd`, `e5c7505`, `96646d4`, `c86cc39`
+**Uncommitted:** app.js search scoring fix (baseName parenthetical matching)
+
+---
 
 ## Session 63 (2026-02-08)
 
