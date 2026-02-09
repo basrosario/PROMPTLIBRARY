@@ -310,12 +310,17 @@ p {
 }
 
 .ethics-ticker__label {
-    color: #fff;
+    display: inline-block;
+    color: #1a1a2e;
+    background: #DC3545;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    margin-right: 8px;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 [data-theme="dark"] .ethics-ticker {
