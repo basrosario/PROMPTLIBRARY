@@ -257,7 +257,12 @@ p {
     padding-right: calc(var(--space-md) + var(--safe-area-inset-right));
     background: transparent;
     transition: background var(--transition-normal),
-                backdrop-filter var(--transition-normal);
+                backdrop-filter var(--transition-normal),
+                top 0.35s ease;
+}
+
+.header.header--ticker-offset {
+    top: var(--ticker-height, 30px);
 }
 
 .header.scrolled {
@@ -272,30 +277,29 @@ p {
 }
 
 /* Ethics Ticker Bar ---- */
-/* Full-width bar that slides in below the header on scroll */
+/* Full-width bar above the header, pushes header down on scroll */
 .ethics-ticker {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 1001;
     background: #1a1a2e;
     color: #fff;
     text-align: center;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.03em;
     line-height: 1.4;
     padding: 6px var(--space-md);
     transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.35s ease, opacity 0.3s ease;
+    transition: transform 0.35s ease;
     pointer-events: none;
     border-bottom: 2px solid #DC3545;
 }
 
 .ethics-ticker.ethics-ticker--visible {
     transform: translateY(0);
-    opacity: 1;
     pointer-events: auto;
 }
 
@@ -306,7 +310,7 @@ p {
 }
 
 .ethics-ticker__label {
-    color: #DC3545;
+    color: #fff;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.65rem;

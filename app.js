@@ -670,14 +670,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show/hide ethics ticker and cycle message on transition
         if (ethicsTickerEl) {
             if (isScrolled && !headerWasScrolled) {
-                // Transition: transparent -> scrolled -- show ticker with next message
-                ethicsTickerEl.style.top = header.offsetHeight + 'px';
+                // Transition: transparent -> scrolled -- show ticker above header
                 ethicsTickerTextEl.textContent = ethicsTickerMessages[ethicsTickerIndex];
                 ethicsTickerIndex = (ethicsTickerIndex + 1) % ethicsTickerMessages.length;
                 ethicsTickerEl.classList.add('ethics-ticker--visible');
+                // Push header down by ticker height
+                header.style.setProperty('--ticker-height', ethicsTickerEl.offsetHeight + 'px');
+                header.classList.add('header--ticker-offset');
             } else if (!isScrolled && headerWasScrolled) {
                 // Transition: scrolled -> transparent -- hide ticker
                 ethicsTickerEl.classList.remove('ethics-ticker--visible');
+                header.classList.remove('header--ticker-offset');
             }
         }
 
