@@ -504,8 +504,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(typeIn, typeSpeed);
             } else {
                 ethicsTickerTextEl.textContent = fullText;
-                // Eyeball only on every other message (even index = skip, odd = play)
-                if (ethicsTickerIndex % 2 === 1) {
+                // Eyeball on ~2 out of 3 messages (skip every 3rd)
+                if (ethicsTickerIndex % 3 !== 0) {
                     setTimeout(eyeballLookAround, 8000);
                 } else {
                     setTimeout(typeOut, 8000);

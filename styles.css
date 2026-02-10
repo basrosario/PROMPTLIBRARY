@@ -5629,25 +5629,24 @@ textarea:focus-visible {
 /* About Page */
 .about-mission {
     display: flex;
-    align-items: center;
-    gap: 25px;
+    align-items: flex-start;
+    gap: var(--space-xl);
     padding: var(--space-xl);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
 }
 
 .about-mission-image {
-    width: 150px;
+    width: 240px;
     height: auto;
-    max-height: 180px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: var(--radius-lg);
     flex-shrink: 0;
 }
 
 .about-mission-content {
     flex: 1;
-    text-align: center;
+    text-align: left;
 }
 
 .about-mission h2 {
@@ -6051,11 +6050,16 @@ textarea:focus-visible {
     .about-mission {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .about-mission-image {
-        width: 120px;
-        height: 120px;
+        width: 180px;
+        height: auto;
+    }
+
+    .about-mission-content {
+        text-align: center;
     }
 
     .about-intro {
@@ -28376,8 +28380,8 @@ h3 + .nav-cards--compact {
     top: 14px;
     width: 10px;
     height: 10px;
-    background: #f59e0b;
-    border: 2px solid #f59e0b;
+    background: #8b5cf6;
+    border: 2px solid #8b5cf6;
     border-radius: 50%;
     z-index: 2;
 }
@@ -28386,8 +28390,8 @@ h3 + .nav-cards--compact {
 .history-event__marker {
     position: relative;
     z-index: 2;
-    background: #f59e0b;
-    border: 1px solid #f59e0b;
+    background: #8b5cf6;
+    border: 1px solid #8b5cf6;
     border-bottom: none;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     padding: var(--space-sm) var(--space-lg);
@@ -28407,7 +28411,7 @@ h3 + .nav-cards--compact {
     position: relative;
     z-index: 1;
     background: var(--bg-card);
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.3);
     border-top: none;
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     padding: var(--space-lg);
