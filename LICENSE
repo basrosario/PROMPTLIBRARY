@@ -1,10 +1,10 @@
-Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
 
 Copyright (c) 2026 Basiliso Rosario
 
-This work is licensed under the Creative Commons Attribution-NonCommercial 4.0
-International License. To view a copy of this license, visit:
-https://creativecommons.org/licenses/by-nc/4.0/
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives
+4.0 International License. To view a copy of this license, visit:
+https://creativecommons.org/licenses/by-nc-nd/4.0/
 
 ---
 
@@ -13,8 +13,6 @@ https://creativecommons.org/licenses/by-nc/4.0/
 ### You are free to:
 
 **Share** — copy and redistribute the material in any medium or format
-
-**Adapt** — remix, transform, and build upon the material
 
 The licensor cannot revoke these freedoms as long as you follow the license terms.
 
@@ -28,6 +26,9 @@ your use.
 **NonCommercial** — You may not use the material for commercial purposes without
 explicit written permission from Basiliso Rosario.
 
+**NoDerivatives** — If you remix, transform, or build upon the material, you may
+not distribute the modified material.
+
 **No additional restrictions** — You may not apply legal terms or technological
 measures that legally restrict others from doing anything the license permits.
 
@@ -35,18 +36,14 @@ measures that legally restrict others from doing anything the license permits.
 
 ## Attribution Requirements
 
-When using any content from this project, you MUST:
+When sharing or referencing any content from this project, you MUST:
 
 1. **Credit the Author**
    - Include: "Created by Basiliso Rosario"
    - Link to: https://basiliso-rosario.com
    - Or link to: https://linkedin.com/in/basiliso-rosario
 
-2. **Indicate Modifications**
-   - If you modified the original content, clearly state what changes were made
-   - Example: "Adapted from work by Basiliso Rosario"
-
-3. **Visible Attribution**
+2. **Visible Attribution**
    - Attribution must be reasonably visible and not hidden
    - For websites: include in footer, about page, or credits section
    - For presentations: include on a credits slide
@@ -54,22 +51,22 @@ When using any content from this project, you MUST:
 
 ---
 
-## Personal Use Guidelines
+## Educational Use Guidelines
 
-**You MAY (for personal, non-commercial use):**
-- Use this code as a template for your own portfolio
-- Modify and customize the design and functionality
-- Learn from the implementation patterns
-- Reference the prompt engineering methodologies
-- Share with others (with attribution)
+This project is provided as a **learning resource**. You are encouraged to study
+the code, frameworks, and methodologies to further your understanding of AI,
+prompt engineering, and web development.
 
-**You MUST:**
-- Provide attribution as specified above
-- Replace all personal information (name, photo, bio, contact info)
-- Replace prompt examples with your own content if using as portfolio
-- Not imply endorsement by Basiliso Rosario
+**You MAY:**
+- View and study the source code for personal learning
+- Reference the prompt engineering methodologies in your own words
+- Share the project link with others (with attribution)
+- Use the live site as a learning tool
 
 **You MAY NOT (without written permission):**
+- Copy, adapt, or redistribute the code in any project
+- Use the code as a template for your own website or application
+- Modify and distribute derivative works
 - Use for commercial purposes (selling, monetizing, business use)
 - Use in paid training materials or courses
 - Include in products or services sold to others

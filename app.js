@@ -7150,7 +7150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // QUIZ: AI READINESS - LEVEL-BASED
-    // Version 4.0 - 50 questions across 5 levels
+    // Version 5.0 - 80 questions across 8 levels
     // Level 1 (Q1-10): Good - Basic prompting
     // Level 2 (Q11-20): Pro - Methodology knowledge
     // Level 3 (Q21-30): Expert - Advanced details
@@ -7161,10 +7161,125 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('readiness-quiz');
 
     if (quizContainer) {
-        // 50 Questions across 5 levels based on Praxis site content
+        // 80 Questions across 8 levels based on Praxis site content
+        // Order: Beginner, Good, Pro, Expert, Advanced, Champion, Master, Legendary
         const questions = [
             // ============================================
-            // LEVEL 1: GOOD (Q1-10) - Basic Prompting
+            // LEVEL 1: BEGINNER (Q1-10) - AI Fundamentals
+            // ============================================
+            {
+                question: "What does 'AI' stand for?",
+                options: [
+                    "Automated Internet",
+                    "Artificial Intelligence",
+                    "Advanced Integration",
+                    "Algorithmic Interface"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "Which of these is an example of an AI chatbot?",
+                options: [
+                    "Microsoft Excel",
+                    "Google Maps",
+                    "ChatGPT",
+                    "Adobe Photoshop"
+                ],
+                correct: 2,
+                level: 1
+            },
+            {
+                question: "What is a 'prompt' in AI?",
+                options: [
+                    "A warning message from the computer",
+                    "The text or question you type to communicate with AI",
+                    "The AI's internal programming code",
+                    "A timer that counts down before AI responds"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "AI chatbots generate responses by:",
+                options: [
+                    "Searching the internet in real-time for every answer",
+                    "Predicting likely text based on patterns learned during training",
+                    "Copying and pasting from a database of pre-written answers",
+                    "Connecting to a human operator who types the response"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "Which of these tasks can AI help with?",
+                options: [
+                    "Writing and editing text",
+                    "Physical activities like cooking",
+                    "Making moral decisions for you",
+                    "Guaranteeing 100% correct answers"
+                ],
+                correct: 0,
+                level: 1
+            },
+            {
+                question: "What should you always do after receiving an AI response?",
+                options: [
+                    "Accept it immediately as fact",
+                    "Share it on social media right away",
+                    "Review it and verify important claims",
+                    "Delete it and start over"
+                ],
+                correct: 2,
+                level: 1
+            },
+            {
+                question: "AI is called 'artificial' because:",
+                options: [
+                    "It is fake and cannot do anything useful",
+                    "It is created by humans, not a natural form of intelligence",
+                    "It always gives artificial or made-up answers",
+                    "It only works on artificial or virtual things"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "What is one thing AI cannot do?",
+                options: [
+                    "Summarize a long article",
+                    "Translate text between languages",
+                    "Truly understand emotions and feelings",
+                    "Generate creative writing ideas"
+                ],
+                correct: 2,
+                level: 1
+            },
+            {
+                question: "The best way to start using AI is to:",
+                options: [
+                    "Memorize all available AI commands first",
+                    "Start with a simple question and see how it responds",
+                    "Read the entire AI documentation before trying anything",
+                    "Only use it for complex professional tasks"
+                ],
+                correct: 1,
+                level: 1
+            },
+            {
+                question: "Why do different AI chatbots sometimes give different answers to the same question?",
+                options: [
+                    "Some chatbots are broken and give wrong answers",
+                    "They were trained on different data and have different designs",
+                    "Only one chatbot can be correct at a time",
+                    "The internet connection affects the quality of answers"
+                ],
+                correct: 1,
+                level: 1
+            },
+
+            // ============================================
+            // LEVEL 2: GOOD (Q11-20) - Basic Prompting
             // ============================================
             {
                 question: "What's the most important first step when preparing to use AI for a task?",
@@ -7175,7 +7290,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Think about how to verify the AI's eventual output"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "Which statement about AI accuracy is correct?",
@@ -7186,7 +7301,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Premium AI subscriptions eliminate accuracy issues"
                 ],
                 correct: 2,
-                level: 1
+                level: 2
             },
             {
                 question: "Why does providing context in a prompt matter?",
@@ -7197,7 +7312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "It prevents the AI from asking follow-up questions"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "What is a 'hallucination' in AI terms?",
@@ -7208,7 +7323,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "When AI misunderstands your language"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "A good prompt should include:",
@@ -7219,7 +7334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Multiple unrelated questions at once"
                 ],
                 correct: 2,
-                level: 1
+                level: 2
             },
             {
                 question: "When AI gives you an answer with specific statistics, you should:",
@@ -7230,7 +7345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Only trust round numbers like 50% or 100%"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "What makes natural language prompting effective?",
@@ -7241,7 +7356,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "It requires less computing power"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "If AI output isn't what you wanted, the best approach is to:",
@@ -7252,7 +7367,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Report the AI for giving wrong answers"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "Why is specifying tone in a prompt helpful?",
@@ -7263,7 +7378,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "It reduces the response length"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
             {
                 question: "The main purpose of prompting frameworks like CRISP is to:",
@@ -7274,11 +7389,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Make prompts work on all AI platforms equally"
                 ],
                 correct: 1,
-                level: 1
+                level: 2
             },
 
             // ============================================
-            // LEVEL 2: PRO (Q11-20) - Methodology Knowledge
+            // LEVEL 3: PRO (Q21-30) - Methodology Knowledge
             // ============================================
             {
                 question: "What does CRISP stand for?",
@@ -7289,7 +7404,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Concise, Rational, Intelligent, Simple, Practical"
                 ],
                 correct: 0,
-                level: 2
+                level: 3
             },
             {
                 question: "In CRISP, 'Parameters' refers to:",
@@ -7300,7 +7415,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Variables the AI uses during text generation"
                 ],
                 correct: 2,
-                level: 2
+                level: 3
             },
             {
                 question: "How does CRISPE differ from CRISP?",
@@ -7311,7 +7426,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "CRISPE uses numbered steps instead of letters"
                 ],
                 correct: 0,
-                level: 2
+                level: 3
             },
             {
                 question: "When is CRISPE better suited than CRISP?",
@@ -7322,7 +7437,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "When you don't know what you want"
                 ],
                 correct: 1,
-                level: 2
+                level: 3
             },
             {
                 question: "What unique element does COSTAR include that CRISP doesn't?",
@@ -7333,7 +7448,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Instructions"
                 ],
                 correct: 1,
-                level: 2
+                level: 3
             },
             {
                 question: "Why does COSTAR specifically include 'Audience' as an element?",
@@ -7344,7 +7459,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "To comply with accessibility standards in outputs"
                 ],
                 correct: 1,
-                level: 2
+                level: 3
             },
             {
                 question: "In CRISPE, assigning a Role to the AI helps because it:",
@@ -7355,7 +7470,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Unlocks advanced capabilities within the model"
                 ],
                 correct: 0,
-                level: 2
+                level: 3
             },
             {
                 question: "AI output includes technical jargon for a beginner audience. This happened because:",
@@ -7366,7 +7481,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "The AI couldn't simplify the complex concepts enough"
                 ],
                 correct: 2,
-                level: 2
+                level: 3
             },
             {
                 question: "Your prompt returns content that's too formal and wordy. The best approach is to:",
@@ -7377,7 +7492,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Rewrite the prompt specifying tone and length upfront"
                 ],
                 correct: 3,
-                level: 2
+                level: 3
             },
             {
                 question: "Which framework is described as 'leaner' and better for quick tasks?",
@@ -7388,11 +7503,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     "ReAct"
                 ],
                 correct: 2,
-                level: 2
+                level: 3
             },
 
             // ============================================
-            // LEVEL 3: EXPERT (Q21-30) - Advanced Details
+            // LEVEL 4: EXPERT (Q31-40) - Advanced Details
             // ============================================
             {
                 question: "Chain-of-thought prompting improves AI output by:",
@@ -7403,7 +7518,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Revealing reasoning steps for easier verification"
                 ],
                 correct: 3,
-                level: 3
+                level: 4
             },
             {
                 question: "What phrase triggers Chain-of-Thought reasoning?",
@@ -7414,7 +7529,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "'Use your best judgment'"
                 ],
                 correct: 1,
-                level: 3
+                level: 4
             },
             {
                 question: "Few-shot prompting (providing examples) is most valuable when:",
@@ -7425,7 +7540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Your prompt is too short and needs more content"
                 ],
                 correct: 2,
-                level: 3
+                level: 4
             },
             {
                 question: "How many examples are typically recommended for few-shot learning?",
@@ -7436,7 +7551,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "As many as possible"
                 ],
                 correct: 1,
-                level: 3
+                level: 4
             },
             {
                 question: "What is the ReAct method?",
@@ -7447,7 +7562,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Reacting to user feedback in real-time"
                 ],
                 correct: 1,
-                level: 3
+                level: 4
             },
             {
                 question: "The ReAct loop consists of which three phases?",
@@ -7458,7 +7573,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Review, Analyze, Complete"
                 ],
                 correct: 2,
-                level: 3
+                level: 4
             },
             {
                 question: "When is ReAct most useful?",
@@ -7469,7 +7584,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "When creativity is more important than accuracy"
                 ],
                 correct: 2,
-                level: 3
+                level: 4
             },
             {
                 question: "What is the Flipped Interaction method?",
@@ -7480,7 +7595,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Using opposite meanings in prompts"
                 ],
                 correct: 1,
-                level: 3
+                level: 4
             },
             {
                 question: "Why does Flipped Interaction produce better results?",
@@ -7491,7 +7606,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "It uses less AI processing power"
                 ],
                 correct: 1,
-                level: 3
+                level: 4
             },
             {
                 question: "A limitation of Role Prompting is that it:",
@@ -7502,11 +7617,239 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Makes responses too short"
                 ],
                 correct: 2,
-                level: 3
+                level: 4
             },
 
             // ============================================
-            // LEVEL 4: MASTER (Q31-40) - IDEs, APIs, Combining Methods
+            // LEVEL 5: ADVANCED (Q41-50) - Applied AI & Deeper Techniques
+            // ============================================
+            {
+                question: "What is 'zero-shot' prompting?",
+                options: [
+                    "Giving the AI no examples and relying on its training alone",
+                    "A prompt that produces no useful output",
+                    "Asking the AI to start from zero knowledge",
+                    "A technique that only works the first time you use it"
+                ],
+                correct: 0,
+                level: 5
+            },
+            {
+                question: "What is 'temperature' in AI model settings?",
+                options: [
+                    "How fast the AI generates text",
+                    "A control for randomness — lower is more focused, higher is more creative",
+                    "The energy cost of running the model",
+                    "How emotionally warm or cold the AI's tone is"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "Tree-of-Thought prompting differs from Chain-of-Thought by:",
+                options: [
+                    "Using shorter reasoning chains",
+                    "Exploring multiple reasoning paths simultaneously before choosing the best",
+                    "Only working with tree-shaped data structures",
+                    "Requiring the AI to think in reverse order"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "What is 'prompt decomposition'?",
+                options: [
+                    "Deleting parts of a prompt to make it shorter",
+                    "Breaking a complex task into smaller sub-prompts that are easier to solve",
+                    "Analyzing why a prompt failed after the fact",
+                    "Converting a prompt from one language to another"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "Self-consistency in prompting means:",
+                options: [
+                    "Always using the exact same prompt every time",
+                    "Running the same prompt multiple times and choosing the most common answer",
+                    "Making sure the AI agrees with itself in every sentence",
+                    "A technique where the AI checks its own grammar"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "What is 'Retrieval-Augmented Generation' (RAG)?",
+                options: [
+                    "An AI that generates images from text descriptions",
+                    "Combining AI generation with real-time retrieval of relevant documents",
+                    "A method for making AI responses shorter and faster",
+                    "Training an AI model on a single specific topic"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "Why might an AI perform differently on the same prompt across sessions?",
+                options: [
+                    "The AI remembers previous conversations and gets bored",
+                    "Randomness in generation, model updates, and context differences all affect output",
+                    "The internet connection speed changes the AI's intelligence",
+                    "AI models only work well during certain hours of the day"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "What is 'role stacking' in prompt engineering?",
+                options: [
+                    "Assigning the AI multiple expert roles to get a more rounded response",
+                    "Creating separate AI accounts for different tasks",
+                    "Stacking multiple prompts on top of each other in one message",
+                    "Using role-playing games to train AI models"
+                ],
+                correct: 0,
+                level: 5
+            },
+            {
+                question: "When using AI for data analysis, the most important thing to specify is:",
+                options: [
+                    "The color scheme for charts and graphs",
+                    "The exact data format, what patterns to look for, and desired output structure",
+                    "Which programming language the AI should think in",
+                    "How many decimal places to use in calculations"
+                ],
+                correct: 1,
+                level: 5
+            },
+            {
+                question: "What is a 'system prompt' in AI applications?",
+                options: [
+                    "The first message the user types in a conversation",
+                    "Hidden instructions that set the AI's behavior and constraints before user interaction",
+                    "A diagnostic message when the AI encounters an error",
+                    "The operating system requirements to run the AI"
+                ],
+                correct: 1,
+                level: 5
+            },
+
+            // ============================================
+            // LEVEL 6: CHAMPION (Q51-60) - Professional AI Application
+            // ============================================
+            {
+                question: "What does 'AI guardrails' refer to?",
+                options: [
+                    "Physical barriers around AI server rooms",
+                    "Safety constraints and boundaries built into AI systems to prevent harmful outputs",
+                    "The metal casing that protects AI hardware",
+                    "Speed limits on how fast AI can process data"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "A/B testing AI prompts means:",
+                options: [
+                    "Testing prompts in alphabetical order",
+                    "Comparing two prompt versions to see which produces better results",
+                    "Running prompts on model A and model B simultaneously",
+                    "Testing prompts that start with the letter A or B"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "What is an 'AI agent' in the context of modern AI systems?",
+                options: [
+                    "A human who sells AI products to businesses",
+                    "An AI system that can autonomously plan, use tools, and take actions to complete tasks",
+                    "A chatbot that only answers frequently asked questions",
+                    "An AI that pretends to be a specific real person"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "What is 'Chain-of-Verification' prompting?",
+                options: [
+                    "Having a human verify each sentence the AI writes",
+                    "Asking the AI to generate an answer, then verify its own claims step by step",
+                    "Connecting multiple AI models in a chain to check each other",
+                    "A blockchain-based method for verifying AI output"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "When creating a structured output schema for AI, you should:",
+                options: [
+                    "Let the AI decide the best format on its own",
+                    "Define exact field names, types, and an example of the expected output",
+                    "Only use plain text because AI cannot handle structured data",
+                    "Use the most complex schema possible for maximum detail"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "What is 'prompt leaking' and why is it a concern?",
+                options: [
+                    "When a prompt takes too long to process and times out",
+                    "When users trick an AI into revealing its hidden system instructions",
+                    "When AI generates text that accidentally contains the user's password",
+                    "When prompts are accidentally sent to the wrong AI model"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "Multi-turn conversation design for AI should account for:",
+                options: [
+                    "Keeping every message under 10 words",
+                    "Context accumulation, reference resolution, and conversation state tracking",
+                    "Only using yes/no questions to keep things simple",
+                    "Ending every conversation after exactly 5 messages"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "What is 'model distillation' in AI?",
+                options: [
+                    "Filtering out toxic content from AI training data",
+                    "Training a smaller model to replicate a larger model's behavior",
+                    "Converting an AI model from one programming language to another",
+                    "The process of cooling down AI servers to improve performance"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "When adapting prompts across different AI models (Claude, GPT, Gemini), you should:",
+                options: [
+                    "Use the exact same prompt — all models understand prompts identically",
+                    "Adjust for each model's strengths, formatting preferences, and instruction style",
+                    "Only use one model and never switch",
+                    "Remove all specific instructions since models interpret them differently"
+                ],
+                correct: 1,
+                level: 6
+            },
+            {
+                question: "What does 'grounding' an AI response mean?",
+                options: [
+                    "Connecting the AI to the electrical ground for safety",
+                    "Anchoring AI outputs to verified source material or real data to reduce fabrication",
+                    "Making the AI write in a more down-to-earth conversational style",
+                    "Restricting the AI to only discuss ground-level topics, not abstract ones"
+                ],
+                correct: 1,
+                level: 6
+            },
+
+            // ============================================
+            // LEVEL 7: MASTER (Q61-70) - IDEs, APIs, Combining Methods
             // ============================================
             {
                 question: "What is Cursor?",
@@ -7517,7 +7860,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "A database management system"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "What is an IDE?",
@@ -7528,7 +7871,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Internal Document Engine"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "Which AI coding assistant is built by Anthropic?",
@@ -7539,7 +7882,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Amazon CodeWhisperer"
                 ],
                 correct: 2,
-                level: 4
+                level: 7
             },
             {
                 question: "When combining CRISP with Chain-of-Thought, you should:",
@@ -7550,7 +7893,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Use CRISP for simple tasks and CoT for complex ones only"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "Constrained Output Formats (like JSON) are essential for:",
@@ -7561,7 +7904,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Improving AI creativity"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "How can you use ReAct for debugging code with AI?",
@@ -7572,7 +7915,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Let AI guess what the problem might be"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "When using AI in VS Code or Cursor, prompting skills help you:",
@@ -7583,7 +7926,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Install extensions automatically"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "Prompt chaining means:",
@@ -7594,7 +7937,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Repeating the same prompt multiple times"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "For complex multi-step tasks, the most effective approach is to:",
@@ -7605,7 +7948,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Only use the simplest prompting framework"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
             {
                 question: "A 'Master' level prompter would likely:",
@@ -7616,11 +7959,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Avoid using advanced techniques"
                 ],
                 correct: 1,
-                level: 4
+                level: 7
             },
 
             // ============================================
-            // LEVEL 5: LEGENDARY (Q41-50) - Cutting-Edge AI
+            // LEVEL 8: LEGENDARY (Q71-80) - Cutting-Edge AI
             // ============================================
             {
                 question: "What is a 'prompt injection' attack?",
@@ -7631,7 +7974,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Using special characters that crash the AI model"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "Constitutional AI is best described as:",
@@ -7642,7 +7985,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "A legal framework for AI copyright issues"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "In RLHF (Reinforcement Learning from Human Feedback), the 'human feedback' primarily helps the model learn:",
@@ -7653,7 +7996,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Programming languages and syntax"
                 ],
                 correct: 2,
-                level: 5
+                level: 8
             },
             {
                 question: "A model's 'context window' filling up means:",
@@ -7664,7 +8007,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "The conversation has been flagged for safety review"
                 ],
                 correct: 0,
-                level: 5
+                level: 8
             },
             {
                 question: "When prompting a multi-modal AI with both image and text, you should:",
@@ -7675,7 +8018,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Use image prompts only for creative tasks, never analytical ones"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "The most effective strategy for reducing AI hallucinations in factual tasks is:",
@@ -7686,7 +8029,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Making prompts shorter so the AI has less room to fabricate"
                 ],
                 correct: 2,
-                level: 5
+                level: 8
             },
             {
                 question: "In prompt chaining with conditional logic, 'branching' means:",
@@ -7697,7 +8040,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Creating backup prompts in case the primary one fails"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "When should you prefer fine-tuning over in-context learning (few-shot)?",
@@ -7708,7 +8051,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "When you want the AI to forget its general knowledge"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "AI alignment research primarily focuses on:",
@@ -7719,7 +8062,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Synchronizing multiple AI models to give identical answers"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             },
             {
                 question: "Meta-prompting (using AI to generate or refine prompts) is most valuable when:",
@@ -7730,24 +8073,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     "You want to bypass the AI's safety guidelines"
                 ],
                 correct: 1,
-                level: 5
+                level: 8
             }
         ];
 
-        // Level definitions
+        // Level definitions — 8 levels
         const LEVELS = {
-            1: { name: 'Good', range: [0, 9], color: 'level-good', emoji: '👍' },
-            2: { name: 'Pro', range: [10, 19], color: 'level-pro', emoji: '⭐' },
-            3: { name: 'Expert', range: [20, 29], color: 'level-expert', emoji: '🎯' },
-            4: { name: 'Master', range: [30, 39], color: 'level-master', emoji: '🏆' },
-            5: { name: 'Legendary', range: [40, 49], color: 'level-legendary', emoji: '🔥' }
+            1: { name: 'Beginner', color: 'level-beginner', emoji: '🌱' },
+            2: { name: 'Good', color: 'level-good', emoji: '👍' },
+            3: { name: 'Pro', color: 'level-pro', emoji: '⭐' },
+            4: { name: 'Expert', color: 'level-expert', emoji: '🎯' },
+            5: { name: 'Advanced', color: 'level-advanced', emoji: '⚡' },
+            6: { name: 'Champion', color: 'level-champion', emoji: '🛡️' },
+            7: { name: 'Master', color: 'level-master', emoji: '🏆' },
+            8: { name: 'Legendary', color: 'level-legendary', emoji: '🔥' }
         };
 
-        // Game constants: 50 questions, 5 levels, 3 lives
-        // Timer activates at Level 4 (Master) and continues through Level 5 (Legendary)
+        // Game constants: 80 questions, 8 levels, 3 lives
+        // Timer activates at Level 4 (Expert) onward
         const MAX_STRIKES = 3;
         const TIMER_SECONDS = 15;
-        const TOTAL_QUESTIONS = 50;
+        const TOTAL_QUESTIONS = 80;
 
         // Game state
         let currentQuestion = 0;
@@ -7755,6 +8101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let strikes = 0;
         let timerInterval = null;
         let timerRemaining = 0;
+        let hintUsed = false; // tracks if hint was used on current question
 
         /** Returns true when timer should be active (Level 4+ = question 31+) */
         function isTimedQuestion() {
@@ -7766,12 +8113,51 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentQuestion < 20) return 2;
             if (currentQuestion < 30) return 3;
             if (currentQuestion < 40) return 4;
-            return 5;
+            if (currentQuestion < 50) return 5;
+            if (currentQuestion < 60) return 6;
+            if (currentQuestion < 70) return 7;
+            return 8;
         }
 
         function getStrikesDisplay() {
             const remaining = MAX_STRIKES - strikes;
             return '❤️'.repeat(remaining) + '🖤'.repeat(strikes);
+        }
+
+        /** Use a hint: costs 1 life, removes 2 wrong answers */
+        function useHint() {
+            if (hintUsed || strikes >= MAX_STRIKES - 1) return; // need at least 1 life remaining after hint
+            hintUsed = true;
+            strikes++;
+
+            // Update lives display
+            const strikesEl = quizContainer.querySelector('.strikes-hearts');
+            if (strikesEl) strikesEl.textContent = getStrikesDisplay();
+
+            // Disable hint button
+            const hintBtn = quizContainer.querySelector('.quiz-hint-btn');
+            if (hintBtn) {
+                hintBtn.disabled = true;
+                hintBtn.textContent = 'Hint Used';
+            }
+
+            // Remove 2 wrong options
+            const q = questions[currentQuestion];
+            const wrongIndices = [];
+            q.options.forEach((_, i) => { if (i !== q.correct) wrongIndices.push(i); });
+            // Shuffle and pick 2 to hide
+            for (let i = wrongIndices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const tmp = wrongIndices[i]; wrongIndices[i] = wrongIndices[j]; wrongIndices[j] = tmp;
+            }
+            const toHide = wrongIndices.slice(0, 2);
+            const buttons = quizContainer.querySelectorAll('.quiz-option');
+            toHide.forEach(idx => {
+                if (buttons[idx]) {
+                    buttons[idx].disabled = true;
+                    buttons[idx].classList.add('quiz-option--eliminated');
+                }
+            });
         }
 
         /** Clear any running timer */
@@ -7830,7 +8216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 strikesEl.textContent = getStrikesDisplay();
             }
 
-            if (strikes >= maxStrikes) {
+            if (strikes >= MAX_STRIKES) {
                 setTimeout(() => showQuizResults(false), 1500);
             } else {
                 setTimeout(() => {
@@ -7842,8 +8228,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function renderQuestion() {
             clearTimer();
+            hintUsed = false;
 
-            // Check if game is over (completed all 50 questions)
+            // Check if game is over (completed all 80 questions)
             if (currentQuestion >= TOTAL_QUESTIONS) {
                 showQuizResults(true);
                 return;
@@ -7860,6 +8247,11 @@ document.addEventListener('DOMContentLoaded', () => {
                        <div class="quiz-timer__fill" data-width="100"></div>
                    </div>`
                 : '';
+            // Hint available if player has 2+ lives remaining (need 1 after spending)
+            const canHint = strikes < MAX_STRIKES - 1;
+            const hintHtml = canHint
+                ? '<button class="quiz-hint-btn" aria-label="Use a hint: costs 1 life, removes 2 wrong answers">💡 Hint (costs 1 ❤️)</button>'
+                : '<button class="quiz-hint-btn" disabled aria-label="Not enough lives for hint">💡 Hint (need 2+ ❤️)</button>';
 
             quizContainer.innerHTML = `
                 <div class="quiz-level-indicator ${levelInfo.color}">
@@ -7870,6 +8262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="quiz-strikes">
                     <span class="strikes-label">Lives:</span>
                     <span class="strikes-hearts">${getStrikesDisplay()}</span>
+                    ${hintHtml}
                 </div>
                 ${timerHtml}
                 <div class="quiz-progress">
@@ -7899,6 +8292,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     timerFill.style.width = '100%';
                 }
                 startTimer();
+            }
+
+            // Wire hint button
+            const hintBtn = quizContainer.querySelector('.quiz-hint-btn');
+            if (hintBtn && canHint) {
+                hintBtn.addEventListener('click', useHint);
             }
 
             quizContainer.querySelectorAll('.quiz-option').forEach(btn => {
@@ -7963,22 +8362,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Set messages based on achieved level
             if (completedAll && currentQuestion >= TOTAL_QUESTIONS) {
-                achievedLevel = 5;
-                message = '🔥 LEGENDARY! You conquered all 50 questions with cutting-edge AI mastery!';
+                achievedLevel = 8;
+                message = '🔥 LEGENDARY! You conquered all 80 questions — true AI mastery!';
                 recommendedPath = '../patterns/index.html';
             } else if (achievedLevel === 0) {
                 message = 'Keep learning! Study the basics and try again.';
                 recommendedPath = '../learn/prompt-basics.html';
             } else if (achievedLevel === 1) {
+                message = 'Good start! Keep going to build a solid foundation.';
+                recommendedPath = '../learn/prompt-basics.html';
+            } else if (achievedLevel === 2) {
                 message = 'Good foundation! Learn the methodologies to reach Pro level.';
                 recommendedPath = '../learn/crisp.html';
-            } else if (achievedLevel === 2) {
-                message = 'Pro skills! Study advanced techniques to reach Expert level.';
-                recommendedPath = '../learn/advanced.html';
             } else if (achievedLevel === 3) {
-                message = 'Expert level! Explore our resources to reach Master level.';
-                recommendedPath = '../pages/chatgpt-guide.html';
+                message = 'Pro skills! Study advanced techniques to reach Expert.';
+                recommendedPath = '../learn/chain-of-thought.html';
             } else if (achievedLevel === 4) {
+                message = 'Expert level! Push into Advanced territory next.';
+                recommendedPath = '../learn/react.html';
+            } else if (achievedLevel === 5) {
+                message = 'Advanced! Champion level awaits — keep climbing!';
+                recommendedPath = '../learn/index.html';
+            } else if (achievedLevel === 6) {
+                message = 'Champion! Master level is within reach.';
+                recommendedPath = '../pages/chatgpt-guide.html';
+            } else if (achievedLevel === 7) {
                 message = 'Master level! So close to Legendary — try again!';
                 recommendedPath = '../patterns/index.html';
             }
@@ -7987,7 +8395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Build game over message — Legendary gets special badge
             let gameOverMsg;
-            if (completedAll && achievedLevel === 5) {
+            if (completedAll && achievedLevel === 8) {
                 gameOverMsg = '<div class="quiz-legendary-badge">🔥 LEGENDARY COMPLETE 🔥</div>';
             } else if (completedAll) {
                 gameOverMsg = '<div class="quiz-complete-badge">🏆 QUIZ COMPLETE! 🏆</div>';
@@ -7996,7 +8404,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Challenge message
-            const challengeMsg = achievedLevel < 5
+            const challengeMsg = achievedLevel < 8
                 ? '<p class="result-challenge">Can you reach Legendary level? Try again!</p>'
                 : '';
 
@@ -8017,7 +8425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="result-message">${message}</p>
                     ${challengeMsg}
                     <div class="result-actions">
-                        <button class="btn btn-primary" id="quiz-retake-btn">${achievedLevel < 5 ? 'Try Again' : 'Play Again'}</button>
+                        <button class="btn btn-primary" id="quiz-retake-btn">${achievedLevel < 8 ? 'Try Again' : 'Play Again'}</button>
                         <a href="${recommendedPath}" class="btn btn-secondary">Study & Improve</a>
                     </div>
                 </div>

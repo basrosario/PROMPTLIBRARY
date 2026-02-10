@@ -5180,11 +5180,62 @@ textarea:focus-visible {
     border-left: 3px solid var(--primary);
 }
 
+/* Additional Level Colors */
+.level-beginner {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.level-advanced {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(249, 115, 22, 0.05));
+    color: #F97316;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.level-champion {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05));
+    color: #0EA5E9;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
 /* Level Legendary Color */
 .level-legendary {
     background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(220, 53, 69, 0.05));
     color: var(--primary);
     border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+/* Quiz Hint Button
+   -------------------------------------------- */
+.quiz-hint-btn {
+    padding: 4px 12px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-sm);
+    color: #F59E0B;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-left: auto;
+}
+
+.quiz-hint-btn:hover:not(:disabled) {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: #F59E0B;
+}
+
+.quiz-hint-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Eliminated option (after hint) */
+.quiz-option--eliminated {
+    opacity: 0.3;
+    text-decoration: line-through;
+    pointer-events: none;
 }
 
 /* Quiz Timer
