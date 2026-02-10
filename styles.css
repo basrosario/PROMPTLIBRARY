@@ -4589,6 +4589,213 @@ textarea:focus-visible {
     margin: var(--space-md) 0;
 }
 
+/* Hallucination Game — AI Response Bubble ---- */
+.ai-response-bubble {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: left;
+    margin-bottom: var(--space-lg);
+    position: relative;
+}
+
+.ai-response-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+}
+
+.ai-response-label svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ai-response-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+/* Hallucination Game — Category Badge ---- */
+.hallucination-category-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(220, 53, 69, 0.08);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Hallucination Game — Progress Bar ---- */
+.hallucination-progress {
+    height: 4px;
+    background: var(--border-color);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+}
+
+.hallucination-progress-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: var(--radius-full);
+    transition: width 0.4s ease;
+}
+
+/* Hallucination Game — Explanation Panel ---- */
+.hallucination-explanation {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-md);
+    text-align: left;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.4s ease;
+}
+
+.hallucination-explanation.visible {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.hallucination-explanation.correct {
+    border-left: 3px solid #10B981;
+}
+
+.hallucination-explanation.incorrect {
+    border-left: 3px solid var(--primary);
+}
+
+.hallucination-type-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.hallucination-explanation p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.hallucination-verify-tip {
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    margin-top: var(--space-md);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.hallucination-verify-tip strong {
+    color: #059669;
+}
+
+.hallucination-next-btn {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.hallucination-next-btn:hover {
+    opacity: 0.85;
+}
+
+/* Hallucination Game — End Summary ---- */
+.hallucination-summary {
+    text-align: center;
+    padding: var(--space-lg) 0;
+}
+
+.hallucination-summary-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.hallucination-summary-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+}
+
+.hallucination-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-md);
+    text-align: left;
+    margin-bottom: var(--space-lg);
+}
+
+.hallucination-summary-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+}
+
+.hallucination-summary-card__label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xs);
+}
+
+.hallucination-summary-card__value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.hallucination-summary-card--perfect .hallucination-summary-card__value {
+    color: #10B981;
+}
+
+.hallucination-summary-feedback {
+    text-align: left;
+    margin-bottom: var(--space-lg);
+}
+
+.hallucination-summary-feedback h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.hallucination-summary-feedback p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
 /* Quiz */
 .quiz-container {
     background: var(--bg-card);
@@ -18283,11 +18490,6 @@ h3 + .nav-cards--compact {
 .feature-list__text {
     font-size: 0.9375rem;
     color: var(--text-secondary);
-}
-
-/* Check style */
-.feature-list--check .feature-list__icon {
-    background: #10b981;
 }
 
 /* Number style */

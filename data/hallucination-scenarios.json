@@ -1,0 +1,182 @@
+[
+  {
+    "category": "citation",
+    "categoryLabel": "Citation Check",
+    "aiResponse": "According to a 2024 study by Dr. Rachel Torres at MIT's Computer Science and Artificial Intelligence Laboratory, prompt chaining increases task accuracy by 43% compared to single-prompt approaches.",
+    "isHallucination": true,
+    "type": "Fabricated Citation",
+    "explanation": "No researcher named Dr. Rachel Torres is affiliated with MIT CSAIL, and no such study exists. AI invented a plausible-sounding academic citation complete with institution, percentage, and year.",
+    "verifyTip": "Search Google Scholar or the institution's faculty directory for the researcher name. If you can't find them, the citation is likely fabricated."
+  },
+  {
+    "category": "citation",
+    "categoryLabel": "Citation Check",
+    "aiResponse": "Research published in the Journal of Applied Cognitive Technology (2025) found that users who include role-based prompts receive outputs that are 2.7x more contextually relevant than generic prompts.",
+    "isHallucination": true,
+    "type": "Fabricated Citation",
+    "explanation": "The \"Journal of Applied Cognitive Technology\" does not exist. AI generated a convincing journal name and precise-sounding statistic (2.7x) from patterns in its training data.",
+    "verifyTip": "Verify journal names by searching for them on databases like PubMed, IEEE Xplore, or the journal's own website. Fake journals often have no web presence."
+  },
+  {
+    "category": "citation",
+    "categoryLabel": "Citation Check",
+    "aiResponse": "As documented by Professor James Chen in his 2024 Stanford HAI white paper \"Reasoning Chains in Large Language Models,\" chain-of-thought prompting was first formalized in a 2022 paper by Wei et al. at Google Research.",
+    "isHallucination": true,
+    "type": "Fabricated Citation",
+    "explanation": "The second half is real \u2014 Wei et al. (2022) at Google did formalize chain-of-thought prompting. But \"Professor James Chen\" and his \"Stanford HAI white paper\" are fabricated. AI mixed a real fact with an invented attribution.",
+    "verifyTip": "When a response mixes familiar facts with specific people or papers, verify each claim independently. One real detail doesn't validate the rest."
+  },
+  {
+    "category": "citation",
+    "categoryLabel": "Citation Check",
+    "aiResponse": "NIST's AI Risk Management Framework (AI RMF 1.0), released in January 2023, provides organizations with voluntary guidance for managing risks associated with AI systems throughout their lifecycle.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is accurate. NIST released AI RMF 1.0 in January 2023 as voluntary guidance for AI risk management. The framework, dates, and description are all correct.",
+    "verifyTip": "Government publications (.gov) are easy to verify directly. Search the agency website for the document name and publication date."
+  },
+  {
+    "category": "wrongfact",
+    "categoryLabel": "Fact Verification",
+    "aiResponse": "Python was created by James Gosling at Sun Microsystems in 1991 as a general-purpose programming language designed for readability and simplicity.",
+    "isHallucination": true,
+    "type": "Confident Wrong Fact",
+    "explanation": "Python was created by Guido van Rossum and first released in 1991. James Gosling created Java at Sun Microsystems. AI swapped two well-known programming language creators while keeping the date correct.",
+    "verifyTip": "When AI attributes specific achievements to specific people, cross-reference with the official project documentation or Wikipedia."
+  },
+  {
+    "category": "wrongfact",
+    "categoryLabel": "Fact Verification",
+    "aiResponse": "The Transformer architecture that powers modern LLMs was introduced in a landmark 2017 paper titled \"Attention Is All You Need\" by researchers at Google.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is correct. Vaswani et al. published \"Attention Is All You Need\" in 2017 while at Google, introducing the Transformer architecture that underlies GPT, BERT, and most modern LLMs.",
+    "verifyTip": "Landmark papers in AI are well-documented. A quick search confirms this widely-cited work."
+  },
+  {
+    "category": "wrongfact",
+    "categoryLabel": "Fact Verification",
+    "aiResponse": "OpenAI was founded in 2015 as a nonprofit AI research organization. Its founding members included Elon Musk, Sam Altman, and Bill Gates, who together committed $1 billion in initial funding.",
+    "isHallucination": true,
+    "type": "Confident Wrong Fact",
+    "explanation": "OpenAI was founded in 2015 by Musk, Altman, and others \u2014 but Bill Gates was not a co-founder. AI inserted a famous tech figure into a partially correct founding story. The $1 billion figure was a pledge from the broader group of founders.",
+    "verifyTip": "When a list of names feels \"too star-studded,\" verify each person's involvement individually. AI tends to cluster famous names together."
+  },
+  {
+    "category": "wrongfact",
+    "categoryLabel": "Fact Verification",
+    "aiResponse": "GPT-4, released by OpenAI in March 2023, is a multimodal large language model capable of processing both text and image inputs to generate text outputs.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is accurate. GPT-4 was announced on March 14, 2023, and is a multimodal model that can accept image and text inputs and produce text outputs.",
+    "verifyTip": "Major product launches from well-known companies are easy to verify through press releases and news coverage."
+  },
+  {
+    "category": "fabricated",
+    "categoryLabel": "Plausibility Check",
+    "aiResponse": "The EU AI Act, which entered into force in August 2024, classifies AI systems into four risk categories: unacceptable risk, high risk, limited risk, and minimal risk.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is correct. The EU AI Act entered into force on August 1, 2024, and does classify AI systems into these four risk tiers. The categories and timeline are accurate.",
+    "verifyTip": "Major legislation can be verified through official government websites (eur-lex.europa.eu for EU law)."
+  },
+  {
+    "category": "fabricated",
+    "categoryLabel": "Plausibility Check",
+    "aiResponse": "Section 12(b) of the U.S. AI Accountability Act of 2024 requires all companies deploying customer-facing AI chatbots to conduct quarterly bias audits and publish the results publicly.",
+    "isHallucination": true,
+    "type": "Plausible Fabrication",
+    "explanation": "There is no \"U.S. AI Accountability Act of 2024\" with this specific provision. AI fabricated a realistic-sounding law with a specific section number and requirement. Several AI bills exist, but not this one.",
+    "verifyTip": "Verify legislation by searching congress.gov or official legislative databases. Specific section numbers and act names are easy to check."
+  },
+  {
+    "category": "fabricated",
+    "categoryLabel": "Plausibility Check",
+    "aiResponse": "The \"temperature\" parameter in LLMs controls the randomness of outputs. A temperature of 0 produces the most deterministic responses, while higher values (e.g., 1.0 or above) increase creativity and variation.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is an accurate description of the temperature parameter. Temperature 0 is deterministic (greedy decoding), and higher values increase randomness in token selection.",
+    "verifyTip": "Technical AI concepts can be verified through official API documentation (e.g., OpenAI's API docs explain temperature in detail)."
+  },
+  {
+    "category": "fabricated",
+    "categoryLabel": "Plausibility Check",
+    "aiResponse": "Prompt injection attacks were first classified as a security vulnerability by OWASP in their 2022 report \"Top 10 Vulnerabilities for Large Language Model Applications,\" making it the #1 ranked LLM security risk.",
+    "isHallucination": true,
+    "type": "Plausible Fabrication",
+    "explanation": "OWASP did publish an \"OWASP Top 10 for LLM Applications\" and prompt injection is ranked #1 \u2014 but it was published in 2023, not 2022, and the exact title is slightly different. AI got the ranking right but the date and exact title wrong.",
+    "verifyTip": "Even when the gist seems right, verify exact dates and document titles. Small factual errors in AI output are common and can undermine credibility."
+  },
+  {
+    "category": "mixed",
+    "categoryLabel": "Mixed Claims",
+    "aiResponse": "Stanford HAI publishes an annual AI Index report tracking global AI progress. Their 2025 report found that 92% of Fortune 500 companies now have dedicated AI ethics review boards overseeing model deployment.",
+    "isHallucination": true,
+    "type": "Mixed Truth",
+    "explanation": "Stanford HAI does publish an annual AI Index report \u2014 that's real. But the \"92% of Fortune 500\" statistic about AI ethics boards is fabricated. AI anchored a fake statistic to a real, credible source to make it more believable.",
+    "verifyTip": "When AI cites a real organization with a specific statistic, verify the statistic at the actual source. Real reports are searchable online."
+  },
+  {
+    "category": "mixed",
+    "categoryLabel": "Mixed Claims",
+    "aiResponse": "Few-shot prompting, where you provide examples in the prompt to guide AI behavior, was formalized in the GPT-3 paper by Brown et al. (2020). The technique typically requires between 3 and 5 examples for optimal performance, as confirmed by MIT research in 2024.",
+    "isHallucination": true,
+    "type": "Mixed Truth",
+    "explanation": "The first sentence is correct \u2014 few-shot prompting was formalized in the GPT-3 paper (Brown et al., 2020). But the claim about \"3 to 5 examples\" being optimal according to \"MIT research in 2024\" is fabricated. The optimal number varies by task.",
+    "verifyTip": "When a response builds from a true statement to a more specific claim, check each claim separately. AI often uses real foundations to support invented specifics."
+  },
+  {
+    "category": "mixed",
+    "categoryLabel": "Mixed Claims",
+    "aiResponse": "The White House issued an Executive Order on AI safety in October 2023, which established new standards for AI safety testing. The order mandated that all AI companies with models exceeding 10 billion parameters must submit safety reports to the Department of Commerce.",
+    "isHallucination": true,
+    "type": "Mixed Truth",
+    "explanation": "The Executive Order on AI (October 30, 2023) is real. However, the threshold was about compute used in training (not parameter count), and the specific requirement described here is oversimplified and partially incorrect.",
+    "verifyTip": "Executive orders are public documents. When AI summarizes policy details, check the actual text at whitehouse.gov rather than trusting the summary."
+  },
+  {
+    "category": "mixed",
+    "categoryLabel": "Mixed Claims",
+    "aiResponse": "Retrieval-Augmented Generation (RAG) combines an LLM with an external knowledge base to ground responses in real documents. The approach was introduced by Lewis et al. at Facebook AI Research in 2020.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "Both claims are accurate. RAG was introduced by Patrick Lewis et al. at Facebook AI Research (now Meta AI) in their 2020 paper. The description of how RAG works is also correct.",
+    "verifyTip": "The RAG paper is one of the most cited works in modern NLP. It's easily verifiable through academic search."
+  },
+  {
+    "category": "statistics",
+    "categoryLabel": "Stat Check",
+    "aiResponse": "According to the Bureau of Labor Statistics, data scientist roles are projected to grow 35.2% from 2022 to 2032, making it one of the fastest-growing occupations in the United States.",
+    "isHallucination": true,
+    "type": "Fabricated Statistic",
+    "explanation": "The BLS does project strong growth for data scientists, but the exact figure cited here (35.2% from 2022-2032) is fabricated. The real BLS projection uses different numbers and date ranges. AI generated a plausible-sounding but incorrect percentage.",
+    "verifyTip": "Always check statistics directly at the source (bls.gov for labor data). AI frequently invents precise-sounding numbers that are close to but not quite right."
+  },
+  {
+    "category": "statistics",
+    "categoryLabel": "Stat Check",
+    "aiResponse": "A 2025 McKinsey Global Survey found that 72% of organizations have adopted AI in at least one business function, up from 55% in 2023.",
+    "isHallucination": true,
+    "type": "Fabricated Statistic",
+    "explanation": "McKinsey does publish AI adoption surveys, but these specific percentages (72% in 2025, 55% in 2023) are fabricated. AI generated numbers that follow a plausible upward trend to make the claim seem credible.",
+    "verifyTip": "Verify survey data by going to the publisher's website. McKinsey, Gartner, and similar firms publish their findings publicly."
+  },
+  {
+    "category": "statistics",
+    "categoryLabel": "Stat Check",
+    "aiResponse": "ChatGPT reached 100 million monthly active users within two months of its launch in November 2022, making it the fastest-growing consumer application in history at that time.",
+    "isHallucination": false,
+    "type": "Verified Fact",
+    "explanation": "This is accurate. ChatGPT launched November 30, 2022, and reached an estimated 100 million monthly active users by January 2023 \u2014 roughly two months \u2014 according to multiple reports.",
+    "verifyTip": "Major tech milestones are widely reported. When AI cites widely-known facts, a quick news search confirms them."
+  },
+  {
+    "category": "statistics",
+    "categoryLabel": "Stat Check",
+    "aiResponse": "A landmark 2024 Georgetown CSET analysis found that approximately 19.8% of U.S. workers are in occupations with high exposure to language modeling AI, with another 60.3% having moderate exposure.",
+    "isHallucination": true,
+    "type": "Fabricated Statistic",
+    "explanation": "Georgetown CSET does publish workforce AI exposure research, but these precise percentages (19.8% and 60.3%) are fabricated. AI generated specific-looking figures that sound like real survey data.",
+    "verifyTip": "Precise percentages with one decimal place (19.8%, 60.3%) are a hallucination red flag. Real studies rarely produce such conveniently round-ish numbers in summaries."
+  }
+]

@@ -380,6 +380,7 @@
                             <p><em>Looks plausible, but is it correct? No verification step — the user must manually check.</em></p>
                         </div>
                     </div>
+                    <div class="comparison-panel__divider"><span>VS</span></div>
                     <div class="comparison-panel__side comparison-panel__side--after">
                         <h3 class="comparison-panel__title">With Self-Verification</h3>
                         <div class="comparison-panel__content">
@@ -537,21 +538,84 @@
                     <div class="split-section__content">
                         <span class="section-eyebrow">When to Use</span>
                         <h2 class="section-title">Perfect For</h2>
-                        <ul class="feature-list feature-list--check">
-                            <li>Math and logic problems where answers can be substituted back into equations</li>
-                            <li>Constraint satisfaction tasks (scheduling, resource allocation, configuration)</li>
-                            <li>Code generation where outputs can be tested against requirements</li>
-                            <li>Any problem with clearly defined correctness criteria that can be checked independently</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Math &amp; Logic Problems</strong>
+                                    <p>Where answers can be substituted back into equations to confirm correctness &mdash; the most natural fit for backward verification.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Constraint Satisfaction</strong>
+                                    <p>Scheduling, resource allocation, and configuration tasks where every constraint can be independently verified against the solution.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Testable Code Generation</strong>
+                                    <p>Code outputs that can be tested against requirements &mdash; run the code, check the results, verify edge cases.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Clear Correctness Criteria</strong>
+                                    <p>Any problem with well-defined correctness criteria that can be checked independently of the generation process.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="split-section__media">
                         <span class="section-eyebrow">Limitations</span>
                         <h2 class="section-title">Skip It When</h2>
-                        <ul class="feature-list feature-list--cross">
-                            <li>Subjective tasks where "correct" is a matter of taste (creative writing, design opinions)</li>
-                            <li>Open-ended questions without definite verification criteria</li>
-                            <li>The verification itself requires the same knowledge that produced the error (blind spot problem)</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Subjective Tasks</strong>
+                                    <p>Creative writing and design opinions where &ldquo;correct&rdquo; is a matter of taste, not verifiable criteria.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Open-Ended Questions</strong>
+                                    <p>Questions without definite verification criteria &mdash; there&rsquo;s nothing concrete to check the answer against.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Same-Knowledge Blind Spots</strong>
+                                    <p>When verification requires the same knowledge that produced the error &mdash; the model can&rsquo;t catch what it doesn&rsquo;t know it got wrong.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -380,6 +380,9 @@
                             <p><em>Presented with full confidence — but the date and context may be inaccurate. The user has no way to gauge reliability.</em></p>
                         </div>
                     </div>
+                    <div class="comparison-panel__divider">
+                        <span>VS</span>
+                    </div>
                     <div class="comparison-panel__side comparison-panel__side--after">
                         <h3 class="comparison-panel__title">With Self-Calibration</h3>
                         <div class="comparison-panel__content">
@@ -522,21 +525,84 @@
                     <div class="split-section__content">
                         <span class="section-eyebrow">When to Use</span>
                         <h2 class="section-title">Perfect For</h2>
-                        <ul class="feature-list feature-list--check">
-                            <li>High-stakes decisions where wrong answers have real consequences (medical, legal, financial)</li>
-                            <li>Research tasks where you need to know which findings require verification</li>
-                            <li>Factual queries about statistics, dates, or specific claims that could be fabricated</li>
-                            <li>Domains where the model's training data may be incomplete or outdated</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>High-Stakes Decisions</strong>
+                                    <p>Where wrong answers have real consequences &mdash; medical, legal, and financial contexts where confidence signals prevent costly mistakes.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Research Verification</strong>
+                                    <p>Tasks where you need to know which findings require verification versus which can be trusted as-is.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Factual Claims</strong>
+                                    <p>Queries about statistics, dates, or specific claims that could be fabricated &mdash; calibration flags what needs checking.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Uncertain Domains</strong>
+                                    <p>Where the model&rsquo;s training data may be incomplete or outdated, and confidence levels help set appropriate expectations.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="split-section__media">
                         <span class="section-eyebrow">Limitations</span>
                         <h2 class="section-title">Skip It When</h2>
-                        <ul class="feature-list feature-list--cross">
-                            <li>Creative tasks where confidence ratings don't apply (writing fiction, brainstorming)</li>
-                            <li>Simple, well-defined tasks like formatting or code syntax where correctness is binary</li>
-                            <li>Speed is critical and the additional assessment step adds unwanted latency</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Creative Tasks</strong>
+                                    <p>Writing fiction or brainstorming where confidence ratings don&rsquo;t meaningfully apply.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Binary Correctness Tasks</strong>
+                                    <p>Simple, well-defined tasks like formatting or code syntax where the answer is either right or wrong.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Speed-Critical Workflows</strong>
+                                    <p>When the additional assessment step adds unwanted latency and fast output matters more than confidence metadata.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

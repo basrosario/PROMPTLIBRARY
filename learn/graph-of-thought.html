@@ -537,21 +537,84 @@
                     <div class="split-section__content">
                         <span class="section-eyebrow">When to Use</span>
                         <h2 class="section-title">Perfect For</h2>
-                        <ul class="feature-list feature-list--check">
-                            <li>Problems that decompose into independent sub-tasks whose results need to be combined (sorting, summarisation, multi-criteria analysis)</li>
-                            <li>Multi-perspective analysis where insights from one domain should inform conclusions in another</li>
-                            <li>Creative work that benefits from divergent exploration followed by convergent synthesis</li>
-                            <li>Complex decisions requiring iterative refinement after an initial round of analysis</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Decomposable Sub-Tasks</strong>
+                                    <p>Problems that break into independent sub-tasks whose results need to be combined &mdash; sorting, summarisation, and multi-criteria analysis.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Multi-Perspective Analysis</strong>
+                                    <p>Where insights from one domain should inform conclusions in another, requiring cross-pollination between reasoning branches.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Divergent-Convergent Creativity</strong>
+                                    <p>Creative work that benefits from wide exploration followed by convergent synthesis into a unified output.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--positive">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <div>
+                                    <strong>Iterative Decision Refinement</strong>
+                                    <p>Complex decisions requiring iterative refinement after an initial round of analysis, where feedback loops strengthen the conclusion.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="split-section__media">
                         <span class="section-eyebrow">Limitations</span>
                         <h2 class="section-title">Skip It When</h2>
-                        <ul class="feature-list feature-list--cross">
-                            <li>The task is inherently linear &mdash; a simple question-answer or step-by-step procedure does not benefit from graph structure</li>
-                            <li>Token budget or latency is tight &mdash; GoT requires multiple LLM calls for branching, aggregating, and refining</li>
-                            <li>You lack orchestration tooling &mdash; without software to manage the graph, manual multi-prompt workflows become error-prone at scale</li>
-                        </ul>
+                        <div class="feature-list">
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Linear Tasks</strong>
+                                    <p>Simple question-answer or step-by-step procedures that do not benefit from graph structure.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>Tight Token Budgets</strong>
+                                    <p>GoT requires multiple LLM calls for branching, aggregating, and refining &mdash; not ideal when latency or cost is constrained.</p>
+                                </div>
+                            </div>
+                            <div class="feature-list__item feature-list__item--neutral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="8" y1="12" x2="16" y2="12"/>
+                                </svg>
+                                <div>
+                                    <strong>No Orchestration Tooling</strong>
+                                    <p>Without software to manage the graph, manual multi-prompt workflows become error-prone at scale.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -249,36 +249,45 @@
             </div>
         </section>
 
-        <!-- Game Section -->
+        <!-- === GAME SECTION === -->
         <section class="section section-alt">
             <div class="container">
                 <h2 class="section-title fade-in-up">Practice: Spot the Hallucination</h2>
-                <p class="section-intro fade-in-up">Can you tell which statements are true and which are AI fabrications?</p>
+                <p class="section-intro fade-in-up">Read each AI response carefully. Does it contain fabricated information?</p>
 
                 <div class="tool-container fade-in-up">
                     <div id="hallucination-game" class="hallucination-game">
                         <div class="game-header">
                             <span class="game-score">Score: 0</span>
-                            <span class="game-progress">1/8</span>
+                            <span class="hallucination-category-badge" id="game-category-badge"></span>
+                            <span class="game-progress">1/20</span>
                         </div>
 
-                        <div class="statement-container">
-                            <p class="statement-label">Is this statement true or false?</p>
-                            <p class="statement-text">Loading...</p>
+                        <div class="hallucination-progress">
+                            <div class="hallucination-progress-fill" id="game-progress-bar"></div>
                         </div>
 
-                        <div class="game-buttons">
-                            <button class="btn btn-true">True</button>
-                            <button class="btn btn-false">False</button>
+                        <div class="ai-response-bubble">
+                            <div class="ai-response-label">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg>
+                                AI Response
+                            </div>
+                            <p class="ai-response-text" id="ai-response-text">Loading...</p>
                         </div>
 
-                        <div class="result-display">
-                            <!-- Result will be shown here -->
+                        <div class="game-buttons" id="game-buttons">
+                            <button class="btn btn-true" id="btn-accurate">Looks Accurate</button>
+                            <button class="btn btn-false" id="btn-hallucination">Hallucination Detected</button>
+                        </div>
+
+                        <div class="hallucination-explanation" id="game-explanation">
+                            <!-- Explanation populated by JavaScript -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- /GAME SECTION -->
 
         <!-- Real Examples -->
         <section class="section">

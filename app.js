@@ -6891,98 +6891,260 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // TOOL PAGE: HALLUCINATION SPOTTER
+    // Scenarios lazy-loaded from data/hallucination-scenarios.json
     // ==========================================
     const hallucinationGame = document.getElementById('hallucination-game');
 
     if (hallucinationGame) {
-        const statements = [
-            { text: "The Great Wall of China is visible from space with the naked eye.", isTrue: false, explanation: "This is a common misconception. The Great Wall is not visible from space without aid." },
-            { text: "Honey never spoils and edible honey has been found in ancient Egyptian tombs.", isTrue: true, explanation: "True! Honey's low moisture content and acidic pH make it resistant to bacteria." },
-            { text: "Goldfish have a memory span of only 3 seconds.", isTrue: false, explanation: "False! Studies show goldfish can remember things for months." },
-            { text: "Lightning never strikes the same place twice.", isTrue: false, explanation: "False! Tall buildings like the Empire State Building get struck multiple times per year." },
-            { text: "The Eiffel Tower can grow up to 6 inches taller in summer due to thermal expansion.", isTrue: true, explanation: "True! Metal expands in heat, making the tower grow slightly in warm weather." },
-            { text: "Humans only use 10% of their brains.", isTrue: false, explanation: "False! Brain imaging shows we use virtually all parts of our brain." },
-            { text: "Octopuses have three hearts.", isTrue: true, explanation: "True! Two pump blood to the gills, one pumps it to the rest of the body." },
-            { text: "The Amazon River is the longest river in the world.", isTrue: false, explanation: "False! The Nile River is generally considered the longest, though this is debated." }
-        ];
+        /** Scenario pool — lazy-loaded from JSON */
+        var HALLUCINATION_SCENARIOS = null;
 
         let currentIndex = 0;
         let score = 0;
-        let shuffledStatements = [...statements].sort(() => Math.random() - 0.5);
+        /** Category tracking for end-of-game summary */
+        let categoryResults = {};
+        let shuffledScenarios = [];
+        let waitingForNext = false;
 
-        const statementText = hallucinationGame.querySelector('.statement-text');
-        const trueBtn = hallucinationGame.querySelector('.btn-true');
-        const falseBtn = hallucinationGame.querySelector('.btn-false');
-        const resultDisplay = hallucinationGame.querySelector('.result-display');
+        const aiResponseText = document.getElementById('ai-response-text');
+        const categoryBadge = document.getElementById('game-category-badge');
+        const progressBar = document.getElementById('game-progress-bar');
+        const explanationPanel = document.getElementById('game-explanation');
+        const btnAccurate = document.getElementById('btn-accurate');
+        const btnHallucination = document.getElementById('btn-hallucination');
+        const gameButtons = document.getElementById('game-buttons');
         const scoreDisplay = hallucinationGame.querySelector('.game-score');
         const progressDisplay = hallucinationGame.querySelector('.game-progress');
 
-        function showStatement() {
-            if (currentIndex >= shuffledStatements.length) {
-                showFinalScore();
+        /** Shuffle and pick 20 scenarios for this round */
+        function initGame() {
+            shuffledScenarios = [...HALLUCINATION_SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 20);
+            currentIndex = 0;
+            score = 0;
+            waitingForNext = false;
+            categoryResults = {};
+            HALLUCINATION_SCENARIOS.forEach(s => {
+                if (!categoryResults[s.category]) {
+                    categoryResults[s.category] = { label: s.categoryLabel, correct: 0, total: 0 };
+                }
+            });
+            showScenario();
+        }
+
+        /** Display the current scenario */
+        function showScenario() {
+            if (currentIndex >= shuffledScenarios.length) {
+                showFinalSummary();
                 return;
             }
 
-            const current = shuffledStatements[currentIndex];
-            statementText.textContent = current.text;
-            resultDisplay.classList.remove('visible', 'correct', 'incorrect');
-            trueBtn.disabled = false;
-            falseBtn.disabled = false;
-            progressDisplay.textContent = `${currentIndex + 1}/${shuffledStatements.length}`;
+            const scenario = shuffledScenarios[currentIndex];
+            aiResponseText.textContent = scenario.aiResponse;
+            categoryBadge.textContent = scenario.categoryLabel;
+            progressDisplay.textContent = (currentIndex + 1) + '/' + shuffledScenarios.length;
+            scoreDisplay.textContent = 'Score: ' + score;
+
+            // Update progress bar
+            var pct = Math.round(((currentIndex) / shuffledScenarios.length) * 100);
+            progressBar.style.width = pct + '%';
+
+            // Reset UI state
+            explanationPanel.classList.remove('visible', 'correct', 'incorrect');
+            explanationPanel.innerHTML = '';
+            btnAccurate.disabled = false;
+            btnHallucination.disabled = false;
+            gameButtons.style.display = '';
+            waitingForNext = false;
         }
 
-        function checkAnswer(userAnswer) {
-            const current = shuffledStatements[currentIndex];
-            const isCorrect = userAnswer === current.isTrue;
+        /** Check the user's answer and show explanation */
+        function checkAnswer(userSaysHallucination) {
+            if (waitingForNext) return;
+            waitingForNext = true;
 
+            var scenario = shuffledScenarios[currentIndex];
+            var isCorrect = userSaysHallucination === scenario.isHallucination;
+
+            // Track category results
+            if (!categoryResults[scenario.category]) {
+                categoryResults[scenario.category] = { label: scenario.categoryLabel, correct: 0, total: 0 };
+            }
+            categoryResults[scenario.category].total++;
             if (isCorrect) {
                 score++;
-                resultDisplay.classList.add('correct');
-                resultDisplay.innerHTML = `<strong>Correct!</strong> ${current.explanation}`;
-            } else {
-                resultDisplay.classList.add('incorrect');
-                resultDisplay.innerHTML = `<strong>Incorrect.</strong> ${current.explanation}`;
+                categoryResults[scenario.category].correct++;
             }
 
-            resultDisplay.classList.add('visible');
-            trueBtn.disabled = true;
-            falseBtn.disabled = true;
-            scoreDisplay.textContent = `Score: ${score}`;
+            scoreDisplay.textContent = 'Score: ' + score;
+            btnAccurate.disabled = true;
+            btnHallucination.disabled = true;
 
-            setTimeout(() => {
+            // Build explanation panel
+            var resultLabel = document.createElement('div');
+            resultLabel.className = 'hallucination-type-label';
+            resultLabel.textContent = isCorrect ? 'Correct! — ' + scenario.type : 'Incorrect — ' + scenario.type;
+
+            var explainP = document.createElement('p');
+            explainP.textContent = scenario.explanation;
+
+            var tipDiv = document.createElement('div');
+            tipDiv.className = 'hallucination-verify-tip';
+            var tipStrong = document.createElement('strong');
+            tipStrong.textContent = 'How to verify: ';
+            tipDiv.appendChild(tipStrong);
+            tipDiv.appendChild(document.createTextNode(scenario.verifyTip));
+
+            var nextBtn = document.createElement('button');
+            nextBtn.className = 'hallucination-next-btn';
+            nextBtn.textContent = currentIndex < shuffledScenarios.length - 1 ? 'Next Scenario' : 'See Results';
+            nextBtn.addEventListener('click', function() {
                 currentIndex++;
-                showStatement();
-            }, 3000);
+                showScenario();
+            });
+
+            explanationPanel.innerHTML = '';
+            explanationPanel.appendChild(resultLabel);
+            explanationPanel.appendChild(explainP);
+            explanationPanel.appendChild(tipDiv);
+            explanationPanel.appendChild(nextBtn);
+
+            explanationPanel.classList.remove('correct', 'incorrect');
+            explanationPanel.classList.add(isCorrect ? 'correct' : 'incorrect');
+            // Force reflow for transition
+            void explanationPanel.offsetWidth;
+            explanationPanel.classList.add('visible');
         }
 
-        // === FINAL SCORE DISPLAY ===
-        // Purpose: Shows final hallucination game results
-        // Security: CSP-compliant (no inline onclick, uses event listener)
-        // OWASP: No user input processed, displays hardcoded score values
-        function showFinalScore() {
-            const percent = Math.round((score / shuffledStatements.length) * 100);
-            statementText.innerHTML = `
-                <div class="final-score">
-                    <h3>Game Complete!</h3>
-                    <p class="score-big">${score}/${shuffledStatements.length}</p>
-                    <p>${percent}% accuracy</p>
-                    <button class="btn btn-primary" id="hallucination-replay-btn">Play Again</button>
-                </div>
-            `;
-            trueBtn.style.display = 'none';
-            falseBtn.style.display = 'none';
+        // === FINAL SUMMARY DISPLAY ===
+        // Purpose: Shows category breakdown and detection feedback
+        // Security: CSP-compliant (DOM API only, no innerHTML with user input)
+        function showFinalSummary() {
+            var percent = Math.round((score / shuffledScenarios.length) * 100);
 
-            // Attach event listener after DOM insertion (CSP-compliant)
-            const replayBtn = document.getElementById('hallucination-replay-btn');
-            if (replayBtn) {
-                replayBtn.addEventListener('click', () => location.reload());
+            // Hide game controls
+            gameButtons.style.display = 'none';
+            explanationPanel.classList.remove('visible');
+            categoryBadge.textContent = 'Complete';
+            progressBar.style.width = '100%';
+            progressDisplay.textContent = shuffledScenarios.length + '/' + shuffledScenarios.length;
+
+            // Build summary in the AI response area
+            var summary = document.createElement('div');
+            summary.className = 'hallucination-summary';
+
+            var scoreEl = document.createElement('div');
+            scoreEl.className = 'hallucination-summary-score';
+            scoreEl.textContent = score + '/' + shuffledScenarios.length;
+            summary.appendChild(scoreEl);
+
+            var subtitleEl = document.createElement('div');
+            subtitleEl.className = 'hallucination-summary-subtitle';
+            subtitleEl.textContent = percent + '% detection accuracy';
+            summary.appendChild(subtitleEl);
+
+            // Category breakdown grid
+            var grid = document.createElement('div');
+            grid.className = 'hallucination-summary-grid';
+
+            Object.entries(categoryResults).forEach(function(entry) {
+                var cat = entry[1];
+                if (cat.total === 0) return;
+                var card = document.createElement('div');
+                card.className = 'hallucination-summary-card';
+                if (cat.correct === cat.total) card.classList.add('hallucination-summary-card--perfect');
+
+                var label = document.createElement('div');
+                label.className = 'hallucination-summary-card__label';
+                label.textContent = cat.label;
+                card.appendChild(label);
+
+                var value = document.createElement('div');
+                value.className = 'hallucination-summary-card__value';
+                value.textContent = cat.correct + '/' + cat.total;
+                card.appendChild(value);
+
+                grid.appendChild(card);
+            });
+            summary.appendChild(grid);
+
+            // Feedback
+            var feedback = document.createElement('div');
+            feedback.className = 'hallucination-summary-feedback';
+
+            var fbTitle = document.createElement('h4');
+            var weakCategories = [];
+            var strongCategories = [];
+            Object.entries(categoryResults).forEach(function(entry) {
+                var key = entry[0];
+                var cat = entry[1];
+                if (cat.total === 0) return;
+                var rate = cat.correct / cat.total;
+                if (rate >= 0.8) strongCategories.push(cat.label);
+                if (rate < 0.6) weakCategories.push(cat.label);
+            });
+
+            if (percent >= 80) {
+                fbTitle.textContent = 'Strong Detection Skills';
+            } else if (percent >= 60) {
+                fbTitle.textContent = 'Good Foundation — Keep Practicing';
+            } else {
+                fbTitle.textContent = 'Building Your Skills';
+            }
+            feedback.appendChild(fbTitle);
+
+            var fbText = document.createElement('p');
+            if (weakCategories.length > 0) {
+                fbText.textContent = 'Focus on improving: ' + weakCategories.join(', ') + '. These are the trickiest hallucination types to catch. The VERIFY framework below can help sharpen your detection skills.';
+            } else if (percent === 100) {
+                fbText.textContent = 'Perfect score! You have excellent hallucination detection instincts. Keep applying the VERIFY framework to stay sharp.';
+            } else {
+                fbText.textContent = 'You\'re building solid detection skills across all categories. Review the VERIFY framework below to strengthen your approach further.';
+            }
+            feedback.appendChild(fbText);
+            summary.appendChild(feedback);
+
+            // Play Again button
+            var replayBtn = document.createElement('button');
+            replayBtn.className = 'btn btn-primary';
+            replayBtn.textContent = 'Play Again';
+            replayBtn.addEventListener('click', function() {
+                // Reset the bubble area
+                var bubble = aiResponseText.closest('.ai-response-bubble');
+                if (bubble) {
+                    // Remove summary, restore response text
+                    while (bubble.lastChild !== aiResponseText) {
+                        bubble.removeChild(bubble.lastChild);
+                    }
+                    aiResponseText.style.display = '';
+                }
+                gameButtons.style.display = '';
+                initGame();
+            });
+            summary.appendChild(replayBtn);
+
+            // Replace the response text with summary
+            aiResponseText.style.display = 'none';
+            var bubble = aiResponseText.closest('.ai-response-bubble');
+            if (bubble) {
+                bubble.appendChild(summary);
             }
         }
 
-        if (trueBtn && falseBtn) {
-            trueBtn.addEventListener('click', () => checkAnswer(true));
-            falseBtn.addEventListener('click', () => checkAnswer(false));
-            showStatement();
+        if (btnAccurate && btnHallucination) {
+            btnAccurate.addEventListener('click', function() { checkAnswer(false); });
+            btnHallucination.addEventListener('click', function() { checkAnswer(true); });
+
+            // Lazy-load scenarios from external JSON
+            var scenarioUrl = resolveInternalUrl('data/hallucination-scenarios.json');
+            fetch(scenarioUrl)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    HALLUCINATION_SCENARIOS = data;
+                    initGame();
+                })
+                .catch(function() {
+                    aiResponseText.textContent = 'Could not load scenarios. Please refresh the page.';
+                });
         }
     }
 

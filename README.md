@@ -7,12 +7,12 @@
 *A comprehensive, living library of 5,300+ terms, 117 learning techniques, and 7 interactive AI tools.
 Designed to standardize how the world understands and interacts with Artificial Intelligence.*
 
-![AI for Everybody](https://img.shields.io/badge/AI_for-Everybody-DC3545?style=for-the-badge&labelColor=ffffff&logoColor=1f2937)
-![UD/UDL](https://img.shields.io/badge/Built_With-UD%2FUDL-0891B2?style=for-the-badge&labelColor=06B6D4)
-![Security Grade](https://img.shields.io/badge/Security-A+_100%25-16A34A?style=for-the-badge&labelColor=22C55E)
-![Performance](https://img.shields.io/badge/Performance-100%25-7C3AED?style=for-the-badge&labelColor=8B5CF6)
-![Built With](https://img.shields.io/badge/Human_Code_Generation_%26_Review-AI_Assisted_with_Claude_Code-EA580C?style=for-the-badge&labelColor=F97316)
-[![Community](https://img.shields.io/badge/Community-GitHub-1F2937?style=for-the-badge&labelColor=6B7280&logo=github&logoColor=white)](https://github.com/basrosario/PROMPTLIBRARY)
+[![AI for Everybody](https://img.shields.io/badge/AI_for-Everybody-DC3545?style=for-the-badge&labelColor=ffffff&logoColor=1f2937)](https://praxislibrary.com/pages/ai-for-everybody.html)
+[![UD/UDL](https://img.shields.io/badge/Built_With-UD%2FUDL-0891B2?style=for-the-badge&labelColor=06B6D4)](https://praxislibrary.com/pages/universal-design.html)
+[![Security Grade](https://img.shields.io/badge/Security-A+_100%25-16A34A?style=for-the-badge&labelColor=22C55E)](https://praxislibrary.com/pages/security.html)
+[![Performance](https://img.shields.io/badge/Performance-100%25-7C3AED?style=for-the-badge&labelColor=8B5CF6)](https://praxislibrary.com/pages/performance.html)
+[![Built With](https://img.shields.io/badge/Human_Code_Generation_%26_Review-AI_Assisted_with_Claude_Code-EA580C?style=for-the-badge&labelColor=F97316)](https://praxislibrary.com/pages/ai-assisted-building.html)
+[![Community](https://img.shields.io/badge/Community-GitHub-1F2937?style=for-the-badge&labelColor=6B7280&logo=github&logoColor=white)](https://github.com/PowerOfPraxis/PraxisLibrary)
 
 <img src="assets/images/praxishome.png" alt="Praxis Library" width="100%">
 
@@ -698,7 +698,7 @@ Want to build something similar? Here's the exact process:
 
 ```bash
 # Clone this repo for reference
-git clone https://github.com/basrosario/PROMPTLIBRARY.git
+git clone https://github.com/PowerOfPraxis/PraxisLibrary.git
 
 # Install Claude Code
 npm install -g @anthropic-ai/claude-code
