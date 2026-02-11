@@ -1215,7 +1215,7 @@ body.menu-open .header .search-trigger {
     opacity: 0.15;
     background:
         radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, #4F46E5 0%, transparent 50%);
+        radial-gradient(circle at 80% 70%, #000000 0%, transparent 50%);
 }
 
 /* Neural Network Canvas */
@@ -1972,7 +1972,7 @@ body.menu-open .header .search-trigger {
     opacity: 0.15;
     background:
         radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, #4F46E5 0%, transparent 50%);
+        radial-gradient(circle at 80% 70%, #000000 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -6805,13 +6805,51 @@ body.menu-open {
 
 /* === CATEGORY MEGA MENU === */
 
-/* Quick links row at top of category menu */
+/* Category menu — 3-column layout (Discover | Techniques | Modality) */
+.nav-item.has-dropdown:has(.mega-menu--categories) {
+    position: static;
+}
+
+.mega-menu--categories {
+    display: flex;
+    gap: var(--space-sm) var(--space-md);
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(10px);
+}
+
+.nav-item.has-dropdown:hover .mega-menu.mega-menu--categories,
+.nav-item.has-dropdown.is-active .mega-menu.mega-menu--categories {
+    transform: translateY(0);
+}
+
+/* Quick links column (Discover) */
 .mega-menu--categories .mega-menu-quick-links {
     display: flex;
     flex-direction: column;
-    padding: var(--space-sm) var(--space-sm) var(--space-xs);
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Generated "DISCOVER" heading for quick-links column */
+.mega-menu--categories .mega-menu-quick-links::before {
+    content: "DISCOVER";
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: var(--space-xs);
 }
 
 .mega-menu--categories .mega-menu-quick-links a {
@@ -6822,6 +6860,7 @@ body.menu-open {
     text-decoration: none;
     border-radius: var(--radius-sm);
     transition: background var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
 }
 
 .mega-menu--categories .mega-menu-quick-links a:hover {
@@ -6829,24 +6868,29 @@ body.menu-open {
     color: var(--primary);
 }
 
-/* Category group (Techniques, Modality) */
+/* Category group columns (Techniques, Modality) */
 .mega-menu-group {
-    padding: var(--space-xs) 0;
+    padding: 0;
+    flex: 0 0 auto;
+    min-width: 0;
 }
 
 .mega-menu-group + .mega-menu-group {
-    border-top: 1px solid var(--border-color);
+    border-top: none;
 }
 
-/* Group label — split black/red, larger than sub-links */
+/* Group label — styled like mega-menu-section h4 */
 .mega-menu-group__label {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     color: var(--text-primary, #000);
-    padding: var(--space-xs) var(--space-sm) 0;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .mega-menu-group__label .nav-accent {
@@ -6898,8 +6942,8 @@ body.menu-open {
 .mega-menu-section--featured {
     background: rgba(var(--primary-rgb, 220, 53, 69), 0.05);
     border-radius: var(--radius);
-    padding: var(--space-sm);
-    margin: calc(-1 * var(--space-xs)) 0;
+    padding: 0 var(--space-sm) var(--space-sm) var(--space-sm);
+    margin: 0;
 }
 
 .mega-menu-section--featured h4 {
@@ -7004,6 +7048,14 @@ body.menu-open {
         padding: var(--space-xs) var(--space-sm);
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         margin-bottom: var(--space-xs);
+    }
+
+    .mega-menu--categories .mega-menu-quick-links::before {
+        display: none;
+    }
+
+    .mega-menu-group + .mega-menu-group {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .mega-menu--categories .mega-menu-quick-links a {
