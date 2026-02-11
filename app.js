@@ -3873,27 +3873,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // FOUNDATIONS ERA NAVIGATION
-    // Purpose: Fixed floating nav for AI Foundations page
-    // Shows on scroll, highlights active era via IntersectionObserver
+    // Purpose: Sticky nav for AI Foundations page (glossary-style)
+    // Highlights active era via IntersectionObserver
     // ==========================================
     const foundationsNav = document.querySelector('.foundations-nav');
     if (foundationsNav) {
         const eraButtons = foundationsNav.querySelectorAll('.foundations-nav__btn');
         const eraSections = document.querySelectorAll('[id^="era-"]');
-        /** Show/hide nav on scroll past hero */
-        const heroSection = document.querySelector('.page-hero');
-        if (heroSection) {
-            const heroObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        foundationsNav.classList.remove('is-visible');
-                    } else {
-                        foundationsNav.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            heroObserver.observe(heroSection);
-        }
         /** Highlight active era button */
         if (eraSections.length > 0) {
             const eraObserver = new IntersectionObserver((entries) => {
