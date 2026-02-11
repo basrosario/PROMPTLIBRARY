@@ -154,6 +154,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 img {
@@ -3878,7 +3879,7 @@ textarea:focus-visible {
 
 .excerpts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-md);
 }
 
@@ -4070,7 +4071,7 @@ textarea:focus-visible {
 /* Analysis Info Cards */
 .analysis-info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -4143,7 +4144,7 @@ textarea:focus-visible {
    -------------------------------------------- */
 .score-tips-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-xl);
 }
@@ -5387,7 +5388,7 @@ textarea:focus-visible {
 .info-cards, .score-info-grid, .coverage-grid, .values-grid,
 .safety-principles, .risks-grid, .caution-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-md);
     margin-top: var(--space-lg);
     margin-bottom: var(--space-xl);
@@ -8651,7 +8652,7 @@ body.menu-open {
 /* Example Types (CRISPE E section) */
 .example-types {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-lg);
 }
@@ -13456,7 +13457,7 @@ html[data-text-scale="3"] {
 /* --- Feature Matrix Grid --- */
 .feature-matrix {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-md);
     margin: var(--space-xl) 0;
 }
@@ -14198,7 +14199,7 @@ html[data-text-scale="3"] {
 /* --- Use Case Cards --- */
 .use-case-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-lg);
     margin: var(--space-xl) 0;
 }
@@ -14995,7 +14996,7 @@ html[data-text-scale="3"] {
 
 .bias-example-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: var(--space-sm);
 }
 
@@ -15757,7 +15758,7 @@ html[data-text-scale="3"] {
    Cards that reveal content on hover/click */
 .flip-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -15903,7 +15904,7 @@ html[data-text-scale="3"] {
    Large icon + heading + description */
 .icon-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -17206,7 +17207,7 @@ html[data-text-scale="3"] {
    Large icon-based navigation cards */
 .nav-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -20815,7 +20816,7 @@ h3 + .nav-cards--compact {
    Grid layout for tool cards within tabs */
 .tab-tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
     padding: var(--space-xl);
 }
@@ -21413,7 +21414,7 @@ h3 + .nav-cards--compact {
    Horizontal layout for featured tool cards */
 .icon-features-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -21675,7 +21676,7 @@ h3 + .nav-cards--compact {
    Sequential learning path cards */
 .journey-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -21929,7 +21930,7 @@ h3 + .nav-cards--compact {
    Horizontal cards with arrow indicating next action */
 .next-steps-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -22797,7 +22798,7 @@ h3 + .nav-cards--compact {
    Grid of use case cards with icons */
 .use-case-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -23082,7 +23083,7 @@ h3 + .nav-cards--compact {
    Grid of element cards */
 .element-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -23171,7 +23172,7 @@ h3 + .nav-cards--compact {
    Cards showing different example types */
 .example-types-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -23354,7 +23355,7 @@ h3 + .nav-cards--compact {
    Side-by-side comparison cards */
 .decision-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--space-xl);
 }
 
@@ -26071,11 +26072,11 @@ h3 + .nav-cards--compact {
 }
 
 .pillar-grid--2 {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
 .pillar-grid--3 {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
 }
 
 @media (min-width: 900px) {
@@ -26525,7 +26526,7 @@ h3 + .nav-cards--compact {
 /* Button Showcase */
 .button-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-xl);
     padding: var(--space-xl);
     background: var(--bg-card);
@@ -26593,7 +26594,7 @@ h3 + .nav-cards--compact {
 /* Reference Grid */
 .reference-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -26654,7 +26655,7 @@ h3 + .nav-cards--compact {
 /* === COMPONENT LIBRARY GRID === */
 .component-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -29429,7 +29430,7 @@ h3 + .nav-cards--compact {
 /* Insight Cards ---- */
 .insight-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-xl);
 }
@@ -29550,7 +29551,7 @@ h3 + .nav-cards--compact {
 /* Discover Grid ---- */
 .discover-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: var(--space-md);
     margin-top: var(--space-xl);
 }
@@ -29940,7 +29941,7 @@ h3 + .nav-cards--compact {
 
 .benchmark-chart-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -29971,6 +29972,35 @@ h3 + .nav-cards--compact {
     width: 100%;
     aspect-ratio: 16 / 10;
     display: block;
+}
+
+/* Benchmark Chart Empty State ---- */
+.benchmark-chart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 2rem;
+    color: #9ca3af;
+}
+
+.benchmark-chart-empty__icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
+}
+
+.benchmark-chart-empty__text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.benchmark-chart-empty__detail {
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 280px;
 }
 
 /* Benchmark canvas accessibility fallback */
@@ -30017,7 +30047,7 @@ h3 + .nav-cards--compact {
 /* Provider Company Cards (Hub Page) ---- */
 .provider-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -30264,7 +30294,7 @@ h3 + .nav-cards--compact {
 /* Benchmark Description Blocks ---- */
 .benchmark-explainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }

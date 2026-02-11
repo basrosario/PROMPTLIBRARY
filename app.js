@@ -14777,54 +14777,185 @@ function initBenchmarkHubPage() {
 }
 
 /**
- * initBenchmarkCompanyPage — Sets up charts on individual company pages.
- * Detects the provider from the page's canvas IDs (e.g., "anthropic-bar-scores").
+ * initBenchmarkCompanyPage — Builds full per-category chart dashboard on company pages.
+ * Reads provider key from data-benchmark-company attribute, dynamically creates
+ * flagship donut, bar, radar, and 6 per-category evolution charts.
  */
 function initBenchmarkCompanyPage() {
+    var section = document.querySelector('[data-benchmark-company]');
+    if (!section) return;
+
+    var providerKey = section.getAttribute('data-benchmark-company');
     var data = BENCHMARK_DATA;
-
-    // Detect provider from any canvas ID starting with a provider key
-    var providerKey = null;
-    var canvases = document.querySelectorAll('.benchmark-chart-canvas');
-    canvases.forEach(function(c) {
-        var id = c.id || '';
-        Object.keys(data.providers).forEach(function(key) {
-            if (id.indexOf(key) === 0) providerKey = key;
-        });
-    });
-
-    if (!providerKey || !data.providers[providerKey]) return;
+    if (!data.providers[providerKey]) return;
 
     var provider = data.providers[providerKey];
     var models = provider.models;
+    var modelNames = Object.keys(models);
+    var flagship = models[provider.flagship];
+    var container = section.querySelector('.container');
 
-    // Flagship scores bar chart
-    var scoresCanvas = document.getElementById(providerKey + '-bar-scores');
-    if (scoresCanvas) {
-        var flagship = models[provider.flagship];
-        if (flagship) {
-            var chart = new BenchmarkBarChart(scoresCanvas, {
-                labels: data.categories,
-                values: flagship.scores,
-                colors: data.categoryColors || flagship.scores.map(function() { return provider.color; }),
-                maxValue: 100
+    // Chart type constructors for each category (matches hub page variety)
+    var ChartTypes = [
+        BenchmarkBarChart,         // 0: Knowledge (MMLU) — horizontal bar
+        BenchmarkLollipopChart,    // 1: Reasoning (GPQA Diamond) — lollipop
+        BenchmarkVerticalBarChart, // 2: Coding (HumanEval) — vertical bar
+        BenchmarkBarChart,         // 3: Math (AIME) — horizontal bar
+        BenchmarkLollipopChart,    // 4: Multimodal (MMMU) — lollipop
+        BenchmarkVerticalBarChart  // 5: Instruction (IFEval) — vertical bar
+    ];
+
+    /** Helper: create DOM element with class and optional text */
+    function makeEl(tag, cls, text) {
+        var el = document.createElement(tag);
+        if (cls) el.className = cls;
+        if (text) el.textContent = text;
+        return el;
+    }
+
+    // === FLAGSHIP DONUT (full width) ===
+    if (flagship) {
+        var validScores = [];
+        var validLabels = [];
+        var validColors = [];
+        for (var i = 0; i < data.categories.length; i++) {
+            if (flagship.scores[i] !== null) {
+                validScores.push(flagship.scores[i]);
+                validLabels.push(data.categories[i]);
+                validColors.push(data.categoryColors[i]);
+            }
+        }
+
+        if (validScores.length > 0) {
+            var donutCard = makeEl('div', 'benchmark-chart-card benchmark-chart-card--full');
+            donutCard.appendChild(makeEl('h3', 'benchmark-chart-card__title', provider.flagship + ': Overall Performance'));
+
+            var donutRow = makeEl('div', 'benchmark-donut-row');
+            var donutCanvas = makeEl('canvas', 'benchmark-chart-canvas benchmark-chart-canvas--donut');
+            donutCanvas.setAttribute('role', 'img');
+            donutCanvas.setAttribute('aria-label', 'Donut chart showing ' + provider.flagship + ' scores across benchmark categories');
+            donutRow.appendChild(donutCanvas);
+
+            // Legend
+            var legend = makeEl('div', 'benchmark-legend benchmark-legend--vertical');
+            for (var li = 0; li < validLabels.length; li++) {
+                var item = makeEl('span', 'benchmark-legend__item');
+                var swatch = makeEl('span', 'benchmark-legend__swatch');
+                swatch.style.backgroundColor = validColors[li];
+                item.appendChild(swatch);
+                item.appendChild(document.createTextNode(validLabels[li] + ' \u2014 ' + validScores[li].toFixed(1)));
+                legend.appendChild(item);
+            }
+            donutRow.appendChild(legend);
+            donutCard.appendChild(donutRow);
+            container.appendChild(donutCard);
+
+            var donutChart = new BenchmarkDonutChart(donutCanvas, {
+                labels: validLabels,
+                values: validScores,
+                colors: validColors
             });
-            scoresCanvas._benchmarkChart = chart;
+            donutCanvas._benchmarkChart = donutChart;
         }
     }
 
-    // Evolution bar chart (knowledge scores over time)
-    var evoCanvas = document.getElementById(providerKey + '-bar-evolution');
-    if (evoCanvas) {
-        var modelNames = Object.keys(models);
-        var knowledgeScores = modelNames.map(function(name) { return models[name].scores[0]; });
-        var evoChart = new BenchmarkBarChart(evoCanvas, {
-            labels: modelNames,
-            values: knowledgeScores,
-            colors: modelNames.map(function() { return provider.color; }),
+    // === ROW: Flagship Bar + Flagship Radar ===
+    if (flagship) {
+        var flagshipGrid = makeEl('div', 'benchmark-chart-grid');
+
+        // Flagship bar chart (category scores)
+        var barCard = makeEl('div', 'benchmark-chart-card');
+        barCard.appendChild(makeEl('h3', 'benchmark-chart-card__title', provider.flagship + ': Category Scores'));
+        var barCanvas = makeEl('canvas', 'benchmark-chart-canvas');
+        barCanvas.setAttribute('role', 'img');
+        barCanvas.setAttribute('aria-label', 'Bar chart of ' + provider.flagship + ' scores across benchmark categories');
+        barCard.appendChild(barCanvas);
+        flagshipGrid.appendChild(barCard);
+
+        var barChart = new BenchmarkBarChart(barCanvas, {
+            labels: data.categories,
+            values: flagship.scores,
+            colors: data.categoryColors,
             maxValue: 100
         });
-        evoCanvas._benchmarkChart = evoChart;
+        barCanvas._benchmarkChart = barChart;
+
+        // Flagship radar chart (6-axis profile)
+        var radarCard = makeEl('div', 'benchmark-chart-card');
+        radarCard.appendChild(makeEl('h3', 'benchmark-chart-card__title', provider.flagship + ': Radar Profile'));
+        var radarCanvas = makeEl('canvas', 'benchmark-chart-canvas');
+        radarCanvas.setAttribute('role', 'img');
+        radarCanvas.setAttribute('aria-label', 'Radar chart showing ' + provider.flagship + ' performance across 6 benchmark dimensions');
+        radarCard.appendChild(radarCanvas);
+        flagshipGrid.appendChild(radarCard);
+
+        var radarChart = new BenchmarkRadarChart(radarCanvas, {
+            labels: data.categories,
+            datasets: [{
+                name: provider.flagship,
+                values: flagship.scores,
+                color: provider.color
+            }],
+            maxValue: 100
+        });
+        radarCanvas._benchmarkChart = radarChart;
+
+        container.appendChild(flagshipGrid);
+    }
+
+    // === PER-CATEGORY EVOLUTION CHARTS (3 rows of 2) ===
+    for (var row = 0; row < 3; row++) {
+        var grid = makeEl('div', 'benchmark-chart-grid');
+
+        for (var col = 0; col < 2; col++) {
+            var catIdx = row * 2 + col;
+            var catName = data.categories[catIdx];
+            var catFull = data.categoryFull[catIdx];
+
+            var card = makeEl('div', 'benchmark-chart-card');
+            card.appendChild(makeEl('h3', 'benchmark-chart-card__title', catName + ' (' + catFull + ')'));
+
+            // Collect models with data for this category
+            var catLabels = [];
+            var catValues = [];
+            var catColors = [];
+            for (var mi = 0; mi < modelNames.length; mi++) {
+                var score = models[modelNames[mi]].scores[catIdx];
+                if (score !== null) {
+                    catLabels.push(modelNames[mi]);
+                    catValues.push(score);
+                    catColors.push(provider.color);
+                }
+            }
+
+            if (catLabels.length > 0) {
+                // Has data — create chart
+                var catCanvas = makeEl('canvas', 'benchmark-chart-canvas');
+                catCanvas.setAttribute('role', 'img');
+                catCanvas.setAttribute('aria-label', catName + ' benchmark scores for ' + provider.name + ' models');
+                card.appendChild(catCanvas);
+
+                var ChartCtor = ChartTypes[catIdx];
+                var catChart = new ChartCtor(catCanvas, {
+                    labels: catLabels,
+                    values: catValues,
+                    colors: catColors,
+                    maxValue: 100
+                });
+                catCanvas._benchmarkChart = catChart;
+            } else {
+                // No data — show empty state
+                var empty = makeEl('div', 'benchmark-chart-empty');
+                empty.appendChild(makeEl('div', 'benchmark-chart-empty__icon', '\u2014'));
+                empty.appendChild(makeEl('div', 'benchmark-chart-empty__text', 'Not available at this time'));
+                empty.appendChild(makeEl('div', 'benchmark-chart-empty__detail', 'No ' + provider.name + ' models have verified ' + catFull + ' scores yet.'));
+                card.appendChild(empty);
+            }
+
+            grid.appendChild(card);
+        }
+
+        container.appendChild(grid);
     }
 
     initBenchmarkCharts();
@@ -14837,20 +14968,15 @@ document.addEventListener('DOMContentLoaded', function() {
         initBenchmarkHubPage();
         return;
     }
-    // Company pages with provider-specific charts
+    // Company pages with data-benchmark-company attribute
+    if (document.querySelector('[data-benchmark-company]')) {
+        initBenchmarkCompanyPage();
+        return;
+    }
+    // Other pages with benchmark charts
     var canvases = document.querySelectorAll('.benchmark-chart-canvas');
     if (canvases.length) {
-        var hasProviderChart = false;
-        canvases.forEach(function(c) {
-            Object.keys(BENCHMARK_DATA.providers).forEach(function(key) {
-                if ((c.id || '').indexOf(key) === 0) hasProviderChart = true;
-            });
-        });
-        if (hasProviderChart) {
-            initBenchmarkCompanyPage();
-        } else {
-            initBenchmarkCharts();
-        }
+        initBenchmarkCharts();
     }
 });
 
