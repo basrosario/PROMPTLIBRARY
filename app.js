@@ -8934,7 +8934,8 @@ document.addEventListener('DOMContentLoaded', () => {
             textScale: '1',
             contrast: 'normal',
             dimLevel: 0,
-            readAloudSpeed: 'normal'
+            readAloudSpeed: 'normal',
+            volume: 100
         };
 
         /**
@@ -9021,12 +9022,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update dim slider
             const dimSlider = adlPanel.querySelector('#adl-dim-slider');
-            const dimValue = adlPanel.querySelector('.adl-range-value');
+            const dimValue = dimSlider ? dimSlider.parentElement.querySelector('.adl-range-value') : null;
             if (dimSlider) {
                 dimSlider.value = prefs.dimLevel;
             }
             if (dimValue) {
                 dimValue.textContent = prefs.dimLevel + '%';
+            }
+
+            // Update volume slider (dynamically injected)
+            const volSlider = adlPanel.querySelector('#adl-volume-slider');
+            const volValue = volSlider ? volSlider.parentElement.querySelector('.adl-range-value') : null;
+            if (volSlider) {
+                volSlider.value = prefs.volume != null ? prefs.volume : 100;
+            }
+            if (volValue) {
+                volValue.textContent = (prefs.volume != null ? prefs.volume : 100) + '%';
             }
         }
 
@@ -9080,7 +9091,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const speedRates = {
             slow: 0.7,
             normal: 1.0,
-            fast: 1.4
+            fast: 1.4,
+            faster: 1.6,
+            fastest: 1.85
         };
 
         const playBtn = adlPanel.querySelector('.adl-play-btn');
@@ -9092,6 +9105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.speechSynthesis.cancel();
             }
             readAloudState.isPlaying = false;
+            document.body.classList.remove('adl-reading-mode');
             if (playBtn) playBtn.classList.remove('is-playing');
             if (readingIndicator) {
                 readingIndicator.textContent = '';
@@ -9103,7 +9117,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        function readPageContent() {
+        /** Content selector shared between full-page and click-to-read */
+        const ADL_CONTENT_SELECTOR = 'h1, h2, h3, h4, p, li, td, th, label, .card-title, .tool-description';
+
+        /**
+         * Read page content — optionally starting from a specific element
+         * @param {Element|null} startFrom - Element to start reading from (null = whole page)
+         */
+        function readPageContent(startFrom) {
             if (!('speechSynthesis' in window)) {
                 if (readingIndicator) readingIndicator.textContent = 'Not supported in this browser';
                 return;
@@ -9112,12 +9133,24 @@ document.addEventListener('DOMContentLoaded', () => {
             stopReading();
 
             // Get main content text
-            const mainContent = document.querySelector('main') || document.body;
-            const textElements = mainContent.querySelectorAll('h1, h2, h3, h4, p, li, td, th, label, .card-title, .tool-description');
+            var mainContent = document.querySelector('main') || document.body;
+            var textElements = Array.from(mainContent.querySelectorAll(ADL_CONTENT_SELECTOR));
 
-            let fullText = '';
-            textElements.forEach(el => {
-                const text = el.textContent.trim();
+            // If starting from a specific element, slice from that point onward
+            if (startFrom) {
+                var startIdx = -1;
+                for (var i = 0; i < textElements.length; i++) {
+                    if (textElements[i] === startFrom || textElements[i].contains(startFrom) || startFrom.contains(textElements[i])) {
+                        startIdx = i;
+                        break;
+                    }
+                }
+                if (startIdx >= 0) textElements = textElements.slice(startIdx);
+            }
+
+            var fullText = '';
+            textElements.forEach(function(el) {
+                var text = el.textContent.trim();
                 if (text && !el.closest('.adl-panel') && !el.closest('nav') && !el.closest('footer')) {
                     fullText += text + '. ';
                 }
@@ -9128,25 +9161,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Highlight starting element
+            if (startFrom) {
+                readAloudState.currentElement = startFrom.closest(ADL_CONTENT_SELECTOR) || startFrom;
+                readAloudState.currentElement.setAttribute('data-reading', 'true');
+            }
+
             readAloudState.utterance = new SpeechSynthesisUtterance(fullText);
             readAloudState.utterance.rate = speedRates[currentPrefs.readAloudSpeed] || 1.0;
+            readAloudState.utterance.volume = (currentPrefs.volume != null ? currentPrefs.volume : 100) / 100;
             readAloudState.utterance.lang = 'en-US';
 
-            readAloudState.utterance.onstart = () => {
+            var indicatorPrefix = startFrom ? 'Reading from: ' + fullText.substring(0, 40).trim() + '...' : 'Reading page content...';
+
+            readAloudState.utterance.onstart = function() {
                 readAloudState.isPlaying = true;
+                document.body.classList.add('adl-reading-mode');
                 if (playBtn) playBtn.classList.add('is-playing');
                 if (readingIndicator) {
-                    readingIndicator.textContent = 'Reading page content...';
+                    readingIndicator.textContent = indicatorPrefix;
                     readingIndicator.classList.add('is-active');
                 }
             };
 
-            readAloudState.utterance.onend = () => {
+            readAloudState.utterance.onend = function() {
                 stopReading();
                 if (readingIndicator) readingIndicator.textContent = 'Finished reading';
             };
 
-            readAloudState.utterance.onerror = () => {
+            readAloudState.utterance.onerror = function() {
                 stopReading();
                 if (readingIndicator) readingIndicator.textContent = 'Error reading content';
             };
@@ -9176,6 +9219,96 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // --- Dynamically add Faster and Fastest speed buttons ---
+        var speedGroup = adlPanel.querySelector('.adl-speed-group');
+        if (speedGroup) {
+            [{ key: 'faster', label: 'Faster' }, { key: 'fastest', label: 'Fastest' }].forEach(function(item) {
+                var btn = document.createElement('button');
+                btn.className = 'adl-speed-btn';
+                btn.dataset.speed = item.key;
+                btn.textContent = item.label;
+                btn.addEventListener('click', function() {
+                    currentPrefs.readAloudSpeed = item.key;
+                    saveADLPreferences(currentPrefs);
+                    applyADLPreferences(currentPrefs);
+                    if (readAloudState.isPlaying) {
+                        readPageContent();
+                    }
+                });
+                speedGroup.appendChild(btn);
+            });
+        }
+
+        // --- Volume Control (dynamically injected) ---
+        var readAloudSection = adlPanel.querySelector('.adl-readaloud');
+        if (readAloudSection) {
+            var volControl = document.createElement('div');
+            volControl.className = 'adl-control adl-volume-control';
+            var volLabel = document.createElement('span');
+            volLabel.className = 'adl-label';
+            volLabel.textContent = 'Volume';
+            var volWrapper = document.createElement('div');
+            volWrapper.className = 'adl-range-wrapper';
+            // Speaker icon
+            var volIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            volIcon.setAttribute('viewBox', '0 0 24 24');
+            volIcon.setAttribute('fill', 'none');
+            volIcon.setAttribute('stroke', 'currentColor');
+            volIcon.setAttribute('stroke-width', '2');
+            volIcon.className.baseVal = 'adl-volume-icon';
+            var volPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            volPath.setAttribute('d', 'M11 5L6 9H2v6h4l5 4V5zm2 4a3 3 0 010 6m2-8a7 7 0 010 10');
+            volIcon.appendChild(volPath);
+            // Range slider
+            var volSlider = document.createElement('input');
+            volSlider.type = 'range';
+            volSlider.className = 'adl-range';
+            volSlider.id = 'adl-volume-slider';
+            volSlider.min = '0';
+            volSlider.max = '100';
+            volSlider.value = String(currentPrefs.volume != null ? currentPrefs.volume : 100);
+            // Value display
+            var volValue = document.createElement('span');
+            volValue.className = 'adl-range-value';
+            volValue.textContent = (currentPrefs.volume != null ? currentPrefs.volume : 100) + '%';
+
+            volWrapper.appendChild(volIcon);
+            volWrapper.appendChild(volSlider);
+            volWrapper.appendChild(volValue);
+            volControl.appendChild(volLabel);
+            volControl.appendChild(volWrapper);
+            // Insert after read-aloud section
+            readAloudSection.parentNode.insertBefore(volControl, readAloudSection.nextSibling);
+
+            volSlider.addEventListener('input', function() {
+                currentPrefs.volume = parseInt(volSlider.value, 10);
+                volValue.textContent = currentPrefs.volume + '%';
+            });
+            volSlider.addEventListener('change', function() {
+                saveADLPreferences(currentPrefs);
+            });
+        }
+
+        // Re-apply preferences after dynamic elements exist
+        applyADLPreferences(currentPrefs);
+
+        // --- Click-to-Read from Point ---
+        var mainContent = document.querySelector('main');
+        if (mainContent) {
+            mainContent.addEventListener('click', function(e) {
+                // Only activate when read-aloud is playing
+                if (!readAloudState.isPlaying) return;
+                // Don't trigger on links or buttons
+                if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.adl-panel')) return;
+                // Find nearest readable element
+                var target = e.target.closest(ADL_CONTENT_SELECTOR);
+                if (target && !target.closest('nav') && !target.closest('footer') && !target.closest('.adl-panel')) {
+                    e.preventDefault();
+                    readPageContent(target);
+                }
+            });
+        }
 
         // Stop reading when page unloads
         window.addEventListener('beforeunload', stopReading);
