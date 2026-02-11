@@ -17774,6 +17774,7 @@ h3 + .nav-cards--compact {
 }
 
 .icon-box {
+    position: relative;
     padding: var(--space-xl);
     background: var(--bg-card);
     border-radius: var(--radius-lg);
@@ -17994,6 +17995,52 @@ h3 + .nav-cards--compact {
 
 .icon-box--dark .icon-box__icon {
     background: rgba(255, 255, 255, 0.1);
+}
+
+/* Icon Box Popular Ribbon ---- */
+.icon-box--popular {
+    overflow: hidden;
+}
+
+.icon-box--popular::before {
+    content: "Popular";
+    position: absolute;
+    top: 18px;
+    right: -32px;
+    width: 130px;
+    padding: 4px 0;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+}
+
+.icon-box--popular::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: -32px;
+    width: 130px;
+    height: 100%;
+    padding: 4px 0;
+    transform: rotate(45deg);
+    z-index: 3;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: popularShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+    max-height: 22px;
+}
+
+@keyframes popularShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 @media (min-width: 768px) {
@@ -28638,16 +28685,18 @@ h3 + .nav-cards--compact {
     flex-wrap: nowrap;
     justify-content: center;
     gap: 8px;
-    margin-bottom: var(--space-lg);
-    position: sticky;
+    position: fixed;
     top: calc(70px + var(--ticker-offset, 0px));
+    left: 0;
+    right: 0;
     z-index: 100;
     background: var(--bg-primary);
-    padding: var(--space-md) 0;
+    padding: var(--space-md) var(--space-lg);
     overflow-x: auto;
     border-bottom: 1px solid var(--border-color);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .foundations-nav::-webkit-scrollbar {
