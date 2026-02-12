@@ -337,7 +337,7 @@ praxis-library/
 ├── app.js                             # Single script (12,631 lines)
 ├── .htaccess                          # Server security config
 │
-├── learn/                             # 115 technique & concept pages
+├── learn/                             # 109 technique & concept pages
 │   ├── index.html                     # Learning hub
 │   ├── prompt-basics.html             # Fundamentals
 │   ├── crisp.html                     # CRISP methodology
