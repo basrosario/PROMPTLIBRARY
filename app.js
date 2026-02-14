@@ -14876,6 +14876,7 @@ document.addEventListener('DOMContentLoaded', function() {
             renderCategoryGrid(data.categories);
             renderChecksChart(data.categories);
             renderIssueAccordion(data.categories);
+            renderVerifiedRepository(data.categories);
             renderReportMetadata(data.metadata, data.site_snapshot);
             animateGaugeOnScroll();
         })
@@ -14942,6 +14943,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setText('audit-severity-errors', fmtNum(summary.total_errors));
         setText('audit-severity-warnings', fmtNum(summary.total_warnings));
         setText('audit-severity-info', fmtNum(summary.total_info));
+        setText('audit-severity-verified', fmtNum(summary.total_verified || 0));
     }
 
     // --- 4. Category Grid ---
@@ -15208,7 +15210,8 @@ document.addEventListener('DOMContentLoaded', function() {
         accordion.innerHTML = '';
 
         categories.forEach(function(cat) {
-            var totalIssues = cat.error_count + cat.warning_count + cat.info_count;
+            var verifiedCount = cat.verified_count || 0;
+            var totalIssues = cat.error_count + cat.warning_count + cat.info_count + verifiedCount;
             var item = el('div', 'audit-issue-item');
 
             // Header (clickable)
@@ -15225,9 +15228,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var badgeText;
             if (cat.error_count > 0) {
                 badgeText = cat.error_count + 'E / ' + cat.warning_count + 'W / ' + cat.info_count + 'I';
+                if (verifiedCount > 0) badgeText += ' / ' + verifiedCount + 'V';
             } else if (cat.warning_count > 0) {
                 badgeCls += ' audit-issue-item__count-badge--warning';
                 badgeText = cat.warning_count + 'W / ' + cat.info_count + 'I';
+                if (verifiedCount > 0) badgeText += ' / ' + verifiedCount + 'V';
+            } else if (verifiedCount > 0) {
+                badgeCls += ' audit-issue-item__count-badge--clean';
+                badgeText = cat.info_count + 'I / ' + verifiedCount + 'V';
             } else {
                 badgeCls += ' audit-issue-item__count-badge--clean';
                 badgeText = 'Clean';
@@ -15274,7 +15282,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cat.checks && cat.checks.length) {
                 var checksBlock = el('div', 'audit-detail-block');
                 checksBlock.appendChild(el('div', 'audit-detail-block__label', 'Checks performed (' + cat.checks.length + ')'));
-                var checksList = el('div', 'audit-checks-list');
+                var checksScroll = el('div', 'audit-checks-scroll');
                 cat.checks.forEach(function(check) {
                     var row = el('div', 'audit-check-row');
                     var sevCls = 'audit-check-row__severity audit-check-row__severity--' + check.severity.toLowerCase();
@@ -15283,9 +15291,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     details.appendChild(el('div', 'audit-check-row__name', check.name));
                     details.appendChild(el('div', 'audit-check-row__desc', check.description));
                     row.appendChild(details);
-                    checksList.appendChild(row);
+                    checksScroll.appendChild(row);
                 });
-                checksBlock.appendChild(checksList);
+                checksBlock.appendChild(checksScroll);
                 content.appendChild(checksBlock);
             }
 
@@ -15293,51 +15301,70 @@ document.addEventListener('DOMContentLoaded', function() {
             var hasErrors = cat.error_count > 0;
             var hasWarnings = cat.warning_count > 0;
             var hasInfos = cat.info_count > 0;
+            var hasVerified = cat.verified && cat.verified.length > 0;
             var hasIssues = hasErrors || hasWarnings;
 
-            if (hasIssues || hasInfos) {
+            if (hasIssues || hasInfos || hasVerified) {
                 var findingsBlock = el('div', 'audit-detail-block');
+                var labelAdded = false;
 
                 // Errors
                 if (cat.errors && cat.errors.length) {
                     findingsBlock.appendChild(el('div', 'audit-detail-block__label', 'Findings'));
+                    labelAdded = true;
                     findingsBlock.appendChild(el('div', 'audit-findings-subhead', 'Errors (' + cat.errors.length + ')'));
+                    var errScroll = el('div', 'audit-findings-scroll');
                     cat.errors.forEach(function(issue) {
-                        findingsBlock.appendChild(buildIssueRow(issue, 'error'));
+                        errScroll.appendChild(buildIssueRow(issue, 'error'));
                     });
+                    findingsBlock.appendChild(errScroll);
                 }
 
                 // Warnings
                 if (cat.warnings && cat.warnings.length) {
-                    if (!hasErrors) {
+                    if (!labelAdded) {
                         findingsBlock.appendChild(el('div', 'audit-detail-block__label', 'Findings'));
+                        labelAdded = true;
                     }
                     findingsBlock.appendChild(el('div', 'audit-findings-subhead', 'Warnings (' + cat.warnings.length + ')'));
+                    var warnScroll = el('div', 'audit-findings-scroll');
                     cat.warnings.forEach(function(issue) {
-                        findingsBlock.appendChild(buildIssueRow(issue, 'warning'));
+                        warnScroll.appendChild(buildIssueRow(issue, 'warning'));
                     });
+                    findingsBlock.appendChild(warnScroll);
                 }
 
-                // Info — informational items (verified only when explicitly marked)
+                // Info — unverified informational items only
                 if (cat.infos && cat.infos.length) {
+                    if (!labelAdded) {
+                        findingsBlock.appendChild(el('div', 'audit-detail-block__label', 'Findings'));
+                        labelAdded = true;
+                    }
                     if (!hasIssues) {
                         var noIssues = el('div', 'audit-no-issues');
                         noIssues.textContent = 'No issues found.';
                         findingsBlock.appendChild(noIssues);
                     }
-                    var verifiedCount = cat.infos.filter(function(i) { return i.verified; }).length;
-                    var infoLabel = 'Info (' + cat.infos.length + ')';
-                    var infoClass = 'audit-findings-subhead audit-findings-subhead--info';
-                    if (verifiedCount > 0 && verifiedCount === cat.infos.length) {
-                        infoLabel = 'Human Verified (' + cat.infos.length + ')';
-                        infoClass = 'audit-findings-subhead audit-findings-subhead--verified';
-                    } else if (verifiedCount > 0) {
-                        infoLabel = 'Info (' + cat.infos.length + ' — ' + verifiedCount + ' verified)';
-                    }
-                    findingsBlock.appendChild(el('div', infoClass, infoLabel));
+                    findingsBlock.appendChild(el('div', 'audit-findings-subhead audit-findings-subhead--info', 'Info (' + cat.infos.length + ')'));
+                    var infoScroll = el('div', 'audit-findings-scroll');
                     cat.infos.forEach(function(issue) {
-                        findingsBlock.appendChild(buildIssueRow(issue, 'info'));
+                        infoScroll.appendChild(buildIssueRow(issue, 'info'));
                     });
+                    findingsBlock.appendChild(infoScroll);
+                }
+
+                // Verified Repository — human-verified items (green)
+                if (hasVerified) {
+                    if (!labelAdded) {
+                        findingsBlock.appendChild(el('div', 'audit-detail-block__label', 'Findings'));
+                        labelAdded = true;
+                    }
+                    findingsBlock.appendChild(el('div', 'audit-findings-subhead audit-findings-subhead--verified', 'Verified Repository (' + cat.verified.length + ')'));
+                    var verScroll = el('div', 'audit-findings-scroll');
+                    cat.verified.forEach(function(issue) {
+                        verScroll.appendChild(buildIssueRow(issue, 'verified'));
+                    });
+                    findingsBlock.appendChild(verScroll);
                 }
 
                 content.appendChild(findingsBlock);
@@ -15371,6 +15398,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var cls = 'audit-issue';
         if (severity === 'warning') cls += ' audit-issue--warning';
         else if (severity === 'info') cls += ' audit-issue--info';
+        else if (severity === 'verified') cls += ' audit-issue--verified';
         var row = el('div', cls);
 
         if (issue.file_path) {
@@ -15383,7 +15411,7 @@ document.addEventListener('DOMContentLoaded', function() {
         msg.textContent = issue.message || '';
         row.appendChild(msg);
 
-        if (severity === 'info' && issue.verified) {
+        if (severity === 'verified') {
             row.appendChild(el('span', 'audit-issue__verified-badge', 'Human Verified'));
         }
 
@@ -15396,7 +15424,175 @@ document.addEventListener('DOMContentLoaded', function() {
         return row;
     }
 
-    // --- 7. Report Metadata ---
+    // --- 7. Verified Repository Table ---
+    /**
+     * Parse URL from an UNVERIFIED warning message.
+     * Patterns: "UNVERIFIED bot-blocked link: <URL>" or "UNVERIFIED (200): \"<anchor>\" -> <URL>"
+     * @param {string} msg
+     * @returns {{ url: string, anchor: string }}
+     */
+    function parseUnverifiedMessage(msg) {
+        // Pattern: "UNVERIFIED (200): \"anchor text\" -> https://..."
+        var citMatch = msg.match(/UNVERIFIED\s+\([^)]+\):\s+"([^"]+)"\s+->\s+(https?:\/\/\S+)/);
+        if (citMatch) return { url: citMatch[2], anchor: citMatch[1] };
+        // Pattern: "UNVERIFIED bot-blocked link: https://..."
+        var botMatch = msg.match(/UNVERIFIED\s+bot-blocked\s+link:\s+(https?:\/\/\S+)/);
+        if (botMatch) return { url: botMatch[1], anchor: '' };
+        // Pattern: "Unverified external link: https://..."
+        var extMatch = msg.match(/Unverified\s+external\s+link:\s+(https?:\/\/\S+)/);
+        if (extMatch) return { url: extMatch[1], anchor: '' };
+        return { url: '', anchor: '' };
+    }
+
+    /**
+     * Render the Verified Repository section — all citations requiring verification.
+     * Shows verified items (green) AND unverified warnings (yellow) in one table.
+     * @param {Object[]} categories - audit category data
+     */
+    function renderVerifiedRepository(categories) {
+        var container = document.getElementById('audit-verified-repo');
+        if (!container) return;
+
+        var seen = {};
+        var verifiedItems = [];
+        var unverifiedItems = [];
+
+        // Collect verified items across categories, deduplicate by URL
+        categories.forEach(function(cat) {
+            if (!cat.verified || !cat.verified.length) return;
+            cat.verified.forEach(function(v) {
+                var key = v.url || v.message;
+                if (seen[key]) return;
+                seen[key] = true;
+                verifiedItems.push({
+                    url: v.url || '',
+                    anchor: v.anchor || '',
+                    filePath: v.file_path || '',
+                    line: v.line_number || 0,
+                    category: cat.name,
+                    status: 'verified'
+                });
+            });
+        });
+
+        // Collect unverified WARNING items (UNVERIFIED messages), deduplicate by URL
+        categories.forEach(function(cat) {
+            if (!cat.warnings || !cat.warnings.length) return;
+            cat.warnings.forEach(function(w) {
+                if (!w.message || w.message.indexOf('UNVERIFIED') === -1) return;
+                var parsed = parseUnverifiedMessage(w.message);
+                if (!parsed.url) return;
+                if (seen[parsed.url]) return;
+                seen[parsed.url] = true;
+                unverifiedItems.push({
+                    url: parsed.url,
+                    anchor: parsed.anchor,
+                    filePath: w.file_path || '',
+                    line: w.line_number || 0,
+                    category: cat.name,
+                    status: 'unverified'
+                });
+            });
+        });
+
+        var allItems = verifiedItems.concat(unverifiedItems);
+
+        container.innerHTML = '';
+
+        if (allItems.length === 0) {
+            container.appendChild(el('div', 'audit-verified-repo__empty', 'No citations found. Run the audit to populate this section.'));
+            return;
+        }
+
+        // Table header
+        var header = el('div', 'audit-verified-repo__header');
+        header.appendChild(el('span', '', 'Link'));
+        header.appendChild(el('span', '', 'Citation'));
+        header.appendChild(el('span', '', 'Status'));
+        container.appendChild(header);
+
+        // Render rows — verified first, then unverified
+        allItems.forEach(function(item) {
+            var rowCls = 'audit-verified-repo__row';
+            if (item.status === 'unverified') rowCls += ' audit-verified-repo__row--unverified';
+            var row = el('div', rowCls);
+
+            // Link column
+            var linkCell = el('div', 'audit-verified-repo__link');
+            if (item.url) {
+                var a = document.createElement('a');
+                a.href = item.url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = item.url;
+                linkCell.appendChild(a);
+            }
+            row.appendChild(linkCell);
+
+            // Citation column (anchor text + source file)
+            var citCell = el('div', 'audit-verified-repo__citation');
+            citCell.textContent = item.anchor || '(no anchor text)';
+            if (item.filePath) {
+                var fileRef = el('div', 'audit-verified-repo__citation-file');
+                fileRef.textContent = item.filePath + (item.line ? ':' + item.line : '');
+                citCell.appendChild(fileRef);
+            }
+            row.appendChild(citCell);
+
+            // Status column
+            var statusCell = el('div', 'audit-verified-repo__status');
+            var svgNS = 'http://www.w3.org/2000/svg';
+            if (item.status === 'verified') {
+                var badge = el('span', 'audit-verified-repo__badge');
+                var checkSvg = document.createElementNS(svgNS, 'svg');
+                checkSvg.setAttribute('viewBox', '0 0 24 24');
+                checkSvg.setAttribute('fill', 'none');
+                checkSvg.setAttribute('stroke', 'currentColor');
+                checkSvg.setAttribute('stroke-width', '2');
+                var checkPath = document.createElementNS(svgNS, 'polyline');
+                checkPath.setAttribute('points', '20 6 9 17 4 12');
+                checkSvg.appendChild(checkPath);
+                badge.appendChild(checkSvg);
+                badge.appendChild(document.createTextNode('Verified'));
+                statusCell.appendChild(badge);
+            } else {
+                var pending = el('span', 'audit-verified-repo__badge audit-verified-repo__badge--pending');
+                var warnSvg = document.createElementNS(svgNS, 'svg');
+                warnSvg.setAttribute('viewBox', '0 0 24 24');
+                warnSvg.setAttribute('fill', 'none');
+                warnSvg.setAttribute('stroke', 'currentColor');
+                warnSvg.setAttribute('stroke-width', '2');
+                var warnPath = document.createElementNS(svgNS, 'path');
+                warnPath.setAttribute('d', 'M12 9v4M12 17h.01');
+                warnSvg.appendChild(warnPath);
+                var warnCircle = document.createElementNS(svgNS, 'circle');
+                warnCircle.setAttribute('cx', '12');
+                warnCircle.setAttribute('cy', '12');
+                warnCircle.setAttribute('r', '10');
+                warnSvg.appendChild(warnCircle);
+                pending.appendChild(warnSvg);
+                pending.appendChild(document.createTextNode('Pending'));
+                statusCell.appendChild(pending);
+            }
+            row.appendChild(statusCell);
+
+            container.appendChild(row);
+        });
+
+        // Footer count
+        var countRow = el('div', 'audit-verified-repo__count');
+        var strong = document.createElement('strong');
+        strong.textContent = verifiedItems.length;
+        countRow.appendChild(strong);
+        countRow.appendChild(document.createTextNode(' verified \u00B7 '));
+        var pendingStrong = document.createElement('strong');
+        pendingStrong.textContent = unverifiedItems.length;
+        countRow.appendChild(pendingStrong);
+        countRow.appendChild(document.createTextNode(' pending human review'));
+        container.appendChild(countRow);
+    }
+
+    // --- 8. Report Metadata ---
     function renderReportMetadata(metadata, snap) {
         setText('audit-meta-date', metadata.date || '--');
         setText('audit-meta-time', metadata.time || '--');
@@ -15406,7 +15602,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setText('audit-meta-files', fmtNum(snap.total_html_files));
     }
 
-    // --- 8. Gauge Scroll Animation ---
+    // --- 9. Gauge Scroll Animation ---
     function animateGaugeOnScroll() {
         var circle = document.getElementById('audit-gauge-circle');
         var valueEl = document.getElementById('audit-gauge-value');

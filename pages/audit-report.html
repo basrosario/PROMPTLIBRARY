@@ -240,7 +240,7 @@
                         </div>
                         <div class="audit-severity-card__value" id="audit-severity-errors">--</div>
                         <div class="audit-severity-card__label">Errors</div>
-                        <div class="audit-severity-card__desc">Standards violations that must be fixed</div>
+                        <div class="audit-severity-card__desc">Errors are confirmed violations of enforced standards that directly compromise security, accessibility, or content integrity. Examples include inline scripts breaking CSP A+ compliance, stale citations older than 2024, and unreachable source URLs. Every error must be resolved before the site is considered production-ready.</div>
                     </div>
                     <div class="audit-severity-card audit-severity-card--warning">
                         <div class="audit-severity-card__icon">
@@ -252,7 +252,7 @@
                         </div>
                         <div class="audit-severity-card__value" id="audit-severity-warnings">--</div>
                         <div class="audit-severity-card__label">Warnings</div>
-                        <div class="audit-severity-card__desc">Best-practice deviations to review</div>
+                        <div class="audit-severity-card__desc">Warnings flag best-practice deviations that do not fail the audit but signal quality gaps. Common examples include highlight boxes missing source attribution, deprecated component patterns, and links without date-tracking attributes. Each warning includes a specific fix suggestion to prevent it from becoming an error in future updates.</div>
                     </div>
                     <div class="audit-severity-card audit-severity-card--info">
                         <div class="audit-severity-card__icon">
@@ -264,7 +264,18 @@
                         </div>
                         <div class="audit-severity-card__value" id="audit-severity-info">--</div>
                         <div class="audit-severity-card__label">Info</div>
-                        <div class="audit-severity-card__desc">Inventory data and advisory notes</div>
+                        <div class="audit-severity-card__desc">Info items are inventory records and transparency notes, not problems to fix. They document per-page citation counts, source status, bot-blocked URLs, and bias term coverage so nothing is hidden or silently skipped.</div>
+                    </div>
+                    <div class="audit-severity-card audit-severity-card--verified">
+                        <div class="audit-severity-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="audit-severity-card__value" id="audit-severity-verified">--</div>
+                        <div class="audit-severity-card__label">Verified Repository</div>
+                        <div class="audit-severity-card__desc">Items confirmed by human review with screenshot proof stored in assets/Citation images/. Each entry is registered in Audit/verified-items.json and the proof file must exist on disk for the verification to hold.</div>
                     </div>
                 </div>
             </div>
@@ -306,6 +317,18 @@
             </div>
         </section>
         <!-- /ISSUE DETAILS -->
+
+        <!-- === VERIFIED REPOSITORY === -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2 class="audit-section-title fade-in-up">Verified Repository</h2>
+                <p class="audit-section-subtitle fade-in-up">Complete verification tracker for all external citations. Verified items have screenshot proof; pending items await human review.</p>
+                <div class="audit-verified-repo fade-in-up" id="audit-verified-repo">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+        <!-- /VERIFIED REPOSITORY -->
 
         <!-- === REPORT METADATA === -->
         <section class="section section-alt">
