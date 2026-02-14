@@ -8,6 +8,14 @@
     "url": "https://qwenlm.github.io/blog/qwen2.5-llm/"
   },
   {
+    "id": "BMAL-CIT02",
+    "page": "benchmarks/alibaba.html",
+    "cite_num": 2,
+    "line": 202,
+    "title": "86.1% on MMLU",
+    "url": "https://qwenlm.github.io/blog/qwen2.5-llm/"
+  },
+  {
     "id": "BMAN-CIT01",
     "page": "benchmarks/anthropic.html",
     "cite_num": 1,
@@ -22,6 +30,22 @@
     "line": 241,
     "title": "Anthropic announcement",
     "url": "https://www.anthropic.com/news/claude-opus-4-6"
+  },
+  {
+    "id": "BMAN-CIT03",
+    "page": "benchmarks/anthropic.html",
+    "cite_num": 3,
+    "line": 281,
+    "title": "Anthropic announcement",
+    "url": "https://www.anthropic.com/news/claude-4"
+  },
+  {
+    "id": "BMAN-CIT04",
+    "page": "benchmarks/anthropic.html",
+    "cite_num": 4,
+    "line": 294,
+    "title": "Anthropic announcement",
+    "url": "https://www.anthropic.com/news/claude-4"
   },
   {
     "id": "BMAN-CIT05",
@@ -40,11 +64,27 @@
     "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf"
   },
   {
+    "id": "BMAN-CIT07",
+    "page": "benchmarks/anthropic.html",
+    "cite_num": 7,
+    "line": 335,
+    "title": "Anthropic model card (PDF)",
+    "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf"
+  },
+  {
     "id": "BMCO-CIT01",
     "page": "benchmarks/cohere.html",
     "cite_num": 1,
     "line": 187,
     "title": "Command A Technical Report",
+    "url": "https://cohere.com/research/papers/command-a-technical-report.pdf"
+  },
+  {
+    "id": "BMCO-CIT02",
+    "page": "benchmarks/cohere.html",
+    "cite_num": 2,
+    "line": 193,
+    "title": "85.5% on MMLU",
     "url": "https://cohere.com/research/papers/command-a-technical-report.pdf"
   },
   {
@@ -88,7 +128,15 @@
     "url": "https://mistral.ai/news/mistral-large-2407"
   },
   {
-    "id": "BMOP-CIT01",
+    "id": "BMMI-CIT02",
+    "page": "benchmarks/mistral.html",
+    "cite_num": 2,
+    "line": 203,
+    "title": "84.0% on MMLU",
+    "url": "https://mistral.ai/news/mistral-large-2407"
+  },
+  {
+    "id": "BMOA-CIT01",
     "page": "benchmarks/openai.html",
     "cite_num": 1,
     "line": 249,
@@ -96,7 +144,15 @@
     "url": "https://openai.com/index/introducing-o3-and-o4-mini/"
   },
   {
-    "id": "BMOP-CIT03",
+    "id": "BMOA-CIT02",
+    "page": "benchmarks/openai.html",
+    "cite_num": 2,
+    "line": 259,
+    "title": "OpenAI announcement",
+    "url": "https://openai.com/index/introducing-o3-and-o4-mini/"
+  },
+  {
+    "id": "BMOA-CIT03",
     "page": "benchmarks/openai.html",
     "cite_num": 3,
     "line": 269,
@@ -104,7 +160,7 @@
     "url": "https://openai.com/index/gpt-4-1/"
   },
   {
-    "id": "BMOP-CIT04",
+    "id": "BMOA-CIT04",
     "page": "benchmarks/openai.html",
     "cite_num": 4,
     "line": 287,
@@ -112,7 +168,7 @@
     "url": "https://openai.com/index/openai-o3-mini/"
   },
   {
-    "id": "BMOP-CIT05",
+    "id": "BMOA-CIT05",
     "page": "benchmarks/openai.html",
     "cite_num": 5,
     "line": 295,
@@ -120,7 +176,15 @@
     "url": "https://openai.com/index/learning-to-reason-with-llms/"
   },
   {
-    "id": "BMOP-CIT07",
+    "id": "BMOA-CIT06",
+    "page": "benchmarks/openai.html",
+    "cite_num": 6,
+    "line": 306,
+    "title": "OpenAI blog",
+    "url": "https://openai.com/index/learning-to-reason-with-llms/"
+  },
+  {
+    "id": "BMOA-CIT07",
     "page": "benchmarks/openai.html",
     "cite_num": 7,
     "line": 316,
@@ -139,248 +203,256 @@
     "id": "FNIX-CIT01",
     "page": "foundations/index.html",
     "cite_num": 1,
-    "line": 1551,
-    "title": "Computing Machinery and Intelligence",
-    "url": "https://doi.org/10.1093/mind/LIX.236.433"
+    "line": 209,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "FNIX-CIT02",
     "page": "foundations/index.html",
     "cite_num": 2,
-    "line": 1558,
-    "title": "Artificial Intelligence (AI) Coined at Dartmouth",
-    "url": "https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth"
+    "line": 1551,
+    "title": "Computing Machinery and Intelligence",
+    "url": "https://doi.org/10.1093/mind/LIX.236.433"
   },
   {
     "id": "FNIX-CIT03",
     "page": "foundations/index.html",
     "cite_num": 3,
-    "line": 1565,
-    "title": "ELIZA — A Computer Program For the Study of Natural Language Communication",
-    "url": "https://dl.acm.org/doi/10.1145/365153.365168"
+    "line": 1558,
+    "title": "Artificial Intelligence (AI) Coined at Dartmouth",
+    "url": "https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth"
   },
   {
     "id": "FNIX-CIT04",
     "page": "foundations/index.html",
     "cite_num": 4,
-    "line": 1572,
-    "title": "Attention Is All You Need",
-    "url": "https://arxiv.org/abs/1706.03762"
+    "line": 1565,
+    "title": "ELIZA — A Computer Program For the Study of Natural Language Communication",
+    "url": "https://dl.acm.org/doi/10.1145/365153.365168"
   },
   {
     "id": "FNIX-CIT05",
     "page": "foundations/index.html",
     "cite_num": 5,
-    "line": 1579,
-    "title": "Language Models are Few-Shot Learners",
-    "url": "https://arxiv.org/abs/2005.14165"
+    "line": 1572,
+    "title": "Attention Is All You Need",
+    "url": "https://arxiv.org/abs/1706.03762"
   },
   {
     "id": "FNIX-CIT06",
     "page": "foundations/index.html",
     "cite_num": 6,
-    "line": 1586,
-    "title": "Chain-of-Thought Prompting Elicits Reasoning in LLMs",
-    "url": "https://arxiv.org/abs/2201.11903"
+    "line": 1579,
+    "title": "Language Models are Few-Shot Learners",
+    "url": "https://arxiv.org/abs/2005.14165"
   },
   {
     "id": "FNIX-CIT07",
     "page": "foundations/index.html",
     "cite_num": 7,
-    "line": 1593,
-    "title": "Self-Consistency Improves Chain of Thought Reasoning",
-    "url": "https://arxiv.org/abs/2203.11171"
+    "line": 1586,
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in LLMs",
+    "url": "https://arxiv.org/abs/2201.11903"
   },
   {
     "id": "FNIX-CIT08",
     "page": "foundations/index.html",
     "cite_num": 8,
-    "line": 1600,
-    "title": "Large Language Models are Zero-Shot Reasoners",
-    "url": "https://arxiv.org/abs/2205.11916"
+    "line": 1593,
+    "title": "Self-Consistency Improves Chain of Thought Reasoning",
+    "url": "https://arxiv.org/abs/2203.11171"
   },
   {
     "id": "FNIX-CIT09",
     "page": "foundations/index.html",
     "cite_num": 9,
-    "line": 1607,
-    "title": "ReAct: Synergizing Reasoning and Acting in LLMs",
-    "url": "https://arxiv.org/abs/2210.03629"
+    "line": 1600,
+    "title": "Large Language Models are Zero-Shot Reasoners",
+    "url": "https://arxiv.org/abs/2205.11916"
   },
   {
     "id": "FNIX-CIT10",
     "page": "foundations/index.html",
     "cite_num": 10,
-    "line": 1614,
-    "title": "Defining ChatGPT",
-    "url": "https://hai.stanford.edu/news/defining-chatgpt"
+    "line": 1607,
+    "title": "ReAct: Synergizing Reasoning and Acting in LLMs",
+    "url": "https://arxiv.org/abs/2210.03629"
   },
   {
     "id": "FNIX-CIT11",
     "page": "foundations/index.html",
     "cite_num": 11,
-    "line": 1621,
-    "title": "The Prompt Report: A Systematic Survey of Prompting Techniques",
-    "url": "https://arxiv.org/abs/2406.06608"
+    "line": 1614,
+    "title": "Defining ChatGPT",
+    "url": "https://hai.stanford.edu/news/defining-chatgpt"
   },
   {
     "id": "FNIX-CIT12",
     "page": "foundations/index.html",
     "cite_num": 12,
-    "line": 1628,
-    "title": "The Logic Theory Machine",
-    "url": "https://ieeexplore.ieee.org/document/1056797"
+    "line": 1621,
+    "title": "The Prompt Report: A Systematic Survey of Prompting Techniques",
+    "url": "https://arxiv.org/abs/2406.06608"
   },
   {
     "id": "FNIX-CIT13",
     "page": "foundations/index.html",
     "cite_num": 13,
-    "line": 1635,
-    "title": "GPS, A Program that Simulates Human Thought",
-    "url": "https://digitalcollections.library.cmu.edu/node/31390"
+    "line": 1628,
+    "title": "The Logic Theory Machine",
+    "url": "https://ieeexplore.ieee.org/document/1056797"
   },
   {
     "id": "FNIX-CIT14",
     "page": "foundations/index.html",
     "cite_num": 14,
-    "line": 1642,
-    "title": "Some Studies in Machine Learning Using the Game of Checkers",
-    "url": "https://ieeexplore.ieee.org/document/5392560"
+    "line": 1635,
+    "title": "GPS, A Program that Simulates Human Thought",
+    "url": "https://digitalcollections.library.cmu.edu/node/31390"
   },
   {
     "id": "FNIX-CIT15",
     "page": "foundations/index.html",
     "cite_num": 15,
-    "line": 1649,
-    "title": "Language and Machines: Computers in Translation and Linguistics",
-    "url": "https://nap.nationalacademies.org/catalog/9547/language-and-machines-computers-in-translation-and-linguistics"
+    "line": 1642,
+    "title": "Some Studies in Machine Learning Using the Game of Checkers",
+    "url": "https://ieeexplore.ieee.org/document/5392560"
   },
   {
     "id": "FNIX-CIT16",
     "page": "foundations/index.html",
     "cite_num": 16,
-    "line": 1656,
-    "title": "Perceptrons: An Introduction to Computational Geometry",
-    "url": "https://mitpress.mit.edu/9780262630221/perceptrons/"
+    "line": 1649,
+    "title": "Language and Machines: Computers in Translation and Linguistics",
+    "url": "https://nap.nationalacademies.org/catalog/9547/language-and-machines-computers-in-translation-and-linguistics"
   },
   {
     "id": "FNIX-CIT17",
     "page": "foundations/index.html",
     "cite_num": 17,
-    "line": 1663,
-    "title": "Artificial Intelligence: A General Survey",
-    "url": "https://www.aiai.ed.ac.uk/events/lighthill1973/lighthill.pdf"
+    "line": 1656,
+    "title": "Perceptrons: An Introduction to Computational Geometry",
+    "url": "https://mitpress.mit.edu/9780262630221/perceptrons/"
   },
   {
     "id": "FNIX-CIT18",
     "page": "foundations/index.html",
     "cite_num": 18,
-    "line": 1670,
-    "title": "History of Artificial Intelligence",
-    "url": "https://hai.stanford.edu/news/history-artificial-intelligence"
+    "line": 1663,
+    "title": "Artificial Intelligence: A General Survey",
+    "url": "https://www.aiai.ed.ac.uk/events/lighthill1973/lighthill.pdf"
   },
   {
     "id": "FNIX-CIT19",
     "page": "foundations/index.html",
     "cite_num": 19,
-    "line": 1677,
-    "title": "Learning Representations by Back-propagating Errors",
-    "url": "https://doi.org/10.1038/323533a0"
+    "line": 1670,
+    "title": "History of Artificial Intelligence",
+    "url": "https://hai.stanford.edu/news/history-artificial-intelligence"
   },
   {
     "id": "FNIX-CIT20",
     "page": "foundations/index.html",
     "cite_num": 20,
-    "line": 1684,
-    "title": "AI: The Tumultuous History of the Search for Artificial Intelligence",
-    "url": "https://archive.org/details/aitumultuoushist00crev"
+    "line": 1677,
+    "title": "Learning Representations by Back-propagating Errors",
+    "url": "https://doi.org/10.1038/323533a0"
   },
   {
     "id": "FNIX-CIT21",
     "page": "foundations/index.html",
     "cite_num": 21,
-    "line": 1691,
-    "title": "AI Index Report 2025",
-    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+    "line": 1684,
+    "title": "AI: The Tumultuous History of the Search for Artificial Intelligence",
+    "url": "https://archive.org/details/aitumultuoushist00crev"
   },
   {
     "id": "FNIX-CIT22",
     "page": "foundations/index.html",
     "cite_num": 22,
-    "line": 1698,
-    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
-    "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks"
+    "line": 1691,
+    "title": "AI Index Report 2025",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
   },
   {
     "id": "FNIX-CIT23",
     "page": "foundations/index.html",
     "cite_num": 23,
-    "line": 1705,
-    "title": "Training Language Models to Follow Instructions with Human Feedback",
-    "url": "https://arxiv.org/abs/2203.02155"
+    "line": 1698,
+    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+    "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks"
   },
   {
     "id": "FNIX-CIT24",
     "page": "foundations/index.html",
     "cite_num": 24,
-    "line": 1712,
-    "title": "Agentic AI: 4 New Studies from MIT Initiative on the Digital Economy",
-    "url": "https://mitsloan.mit.edu/ideas-made-to-matter/4-new-studies-about-agentic-ai-mit-initiative-digital-economy"
+    "line": 1705,
+    "title": "Training Language Models to Follow Instructions with Human Feedback",
+    "url": "https://arxiv.org/abs/2203.02155"
   },
   {
     "id": "FNIX-CIT25",
     "page": "foundations/index.html",
     "cite_num": 25,
-    "line": 1719,
-    "title": "byLLM: Meaning-Typed Language Abstraction for AI-Integrated Programming",
-    "url": "https://arxiv.org/abs/2405.08965"
+    "line": 1712,
+    "title": "Agentic AI: 4 New Studies from MIT Initiative on the Digital Economy",
+    "url": "https://mitsloan.mit.edu/ideas-made-to-matter/4-new-studies-about-agentic-ai-mit-initiative-digital-economy"
   },
   {
     "id": "FNIX-CIT26",
     "page": "foundations/index.html",
     "cite_num": 26,
-    "line": 1726,
-    "title": "AgentFlow: In-the-Flow Agentic System Optimization",
-    "url": "https://agentflow.stanford.edu/"
+    "line": 1719,
+    "title": "byLLM: Meaning-Typed Language Abstraction for AI-Integrated Programming",
+    "url": "https://arxiv.org/abs/2405.08965"
   },
   {
     "id": "FNIX-CIT27",
     "page": "foundations/index.html",
     "cite_num": 27,
-    "line": 1733,
-    "title": "How Embodied AI Is Transforming Robotics",
-    "url": "https://hai.stanford.edu/news/how-embodied-ai-transforming-robotics"
+    "line": 1726,
+    "title": "AgentFlow: In-the-Flow Agentic System Optimization",
+    "url": "https://agentflow.stanford.edu/"
   },
   {
     "id": "FNIX-CIT28",
     "page": "foundations/index.html",
     "cite_num": 28,
-    "line": 1740,
-    "title": "AI Risk Management Framework: Generative AI Profile",
-    "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    "line": 1733,
+    "title": "How Embodied AI Is Transforming Robotics",
+    "url": "https://hai.stanford.edu/news/how-embodied-ai-transforming-robotics"
   },
   {
     "id": "FNIX-CIT29",
     "page": "foundations/index.html",
     "cite_num": 29,
-    "line": 1747,
-    "title": "Artificial Intelligence-Enabled Medical Devices",
-    "url": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices"
+    "line": 1740,
+    "title": "AI Risk Management Framework: Generative AI Profile",
+    "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
   },
   {
     "id": "FNIX-CIT30",
     "page": "foundations/index.html",
     "cite_num": 30,
-    "line": 1754,
-    "title": "The State of Generative AI Adoption in 2025",
-    "url": "https://www.stlouisfed.org/on-the-economy/2025/nov/state-generative-ai-adoption-2025"
+    "line": 1747,
+    "title": "Artificial Intelligence-Enabled Medical Devices",
+    "url": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices"
   },
   {
     "id": "FNIX-CIT31",
     "page": "foundations/index.html",
     "cite_num": 31,
+    "line": 1754,
+    "title": "The State of Generative AI Adoption in 2025",
+    "url": "https://www.stlouisfed.org/on-the-economy/2025/nov/state-generative-ai-adoption-2025"
+  },
+  {
+    "id": "FNIX-CIT32",
+    "page": "foundations/index.html",
+    "cite_num": 32,
     "line": 1761,
-    "title": "AI Chatbot Snapshot - JCOTS",
+    "title": "AI Chatbot Snapshot &mdash; JCOTS",
     "url": "https://dls.virginia.gov/commissions/jcots/materials/snapshot_%20ai_chatbot_june2025.pdf"
   },
   {
@@ -388,7 +460,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 1,
     "line": 1381,
-    "title": "Can Large Language Models Figure Out the Real World? - MIT News (August 2025)",
+    "title": "Can Large Language Models Figure Out the Real World? &mdash; MIT News (August 2025)",
     "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825"
   },
   {
@@ -396,7 +468,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 2,
     "line": 1384,
-    "title": "Prompt Engineering is Complicated and Contingent - Wharton Generative AI Labs",
+    "title": "Prompt Engineering is Complicated and Contingent &mdash; Wharton Generative AI Labs",
     "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/"
   },
   {
@@ -404,7 +476,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 3,
     "line": 1387,
-    "title": "The Decreasing Value of Chain of Thought in Prompting - Wharton Generative AI Labs",
+    "title": "The Decreasing Value of Chain of Thought in Prompting &mdash; Wharton Generative AI Labs",
     "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/"
   },
   {
@@ -412,7 +484,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 4,
     "line": 1390,
-    "title": "Seven Myths About AI and Productivity - California Management Review / UC Berkeley (2025)",
+    "title": "Seven Myths About AI and Productivity &mdash; California Management Review / UC Berkeley (2025)",
     "url": "https://cmr.berkeley.edu/2025/10/seven-myths-about-ai-and-productivity-what-the-evidence-really-says/"
   },
   {
@@ -420,7 +492,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 5,
     "line": 1393,
-    "title": "AI Myths Vs. Reality - UC Colorado Springs Library",
+    "title": "AI Myths Vs. Reality &mdash; UC Colorado Springs Library",
     "url": "https://libguides.uccs.edu/c.php?g=1357807&amp;p=10026003"
   },
   {
@@ -428,15 +500,23 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 6,
     "line": 1396,
-    "title": "Debunking 5 Artificial Intelligence Myths - University of Minnesota Carlson School",
+    "title": "Debunking 5 Artificial Intelligence Myths &mdash; University of Minnesota Carlson School",
     "url": "https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths"
+  },
+  {
+    "id": "LNFF-CIT07",
+    "page": "learn/facts-fictions.html",
+    "cite_num": 7,
+    "line": 1399,
+    "title": "Can Large Language Models Figure Out the Real World? &mdash; MIT News (Aug 2025)",
+    "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825"
   },
   {
     "id": "LNFF-CIT08",
     "page": "learn/facts-fictions.html",
     "cite_num": 8,
     "line": 1402,
-    "title": "National Artificial Intelligence Policy - The White House (Dec 2025)",
+    "title": "National Artificial Intelligence Policy &mdash; The White House (Dec 2025)",
     "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/"
   },
   {
@@ -444,7 +524,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 9,
     "line": 1405,
-    "title": "AI Risk Management Framework - NIST",
+    "title": "AI Risk Management Framework &mdash; NIST",
     "url": "https://www.nist.gov/itl/ai-risk-management-framework"
   },
   {
@@ -452,7 +532,7 @@
     "page": "learn/facts-fictions.html",
     "cite_num": 10,
     "line": 1408,
-    "title": "Unpacking Large Language Model Bias - MIT News (June 2025)",
+    "title": "Unpacking Large Language Model Bias &mdash; MIT News (June 2025)",
     "url": "https://news.mit.edu/2025/unpacking-large-language-model-bias-0617"
   },
   {
@@ -460,7 +540,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 1,
     "line": 243,
-    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine - How AI helps researchers with medical chart rev",
+    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine &mdash; How AI helps research",
     "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
   },
   {
@@ -468,7 +548,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 2,
     "line": 251,
-    "title": "The Future of ADHD (2026)\n                        Stanford Engineering - How technology and AI are shaping the future of",
+    "title": "The Future of ADHD (2026)\n                        Stanford Engineering &mdash; How technology and AI",
     "url": "https://engineering.stanford.edu/news/future-adhd"
   },
   {
@@ -476,7 +556,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 3,
     "line": 259,
-    "title": "AI for Neurodevelopmental Detection (2025)\n                        Northeastern University - Innovative AI technology fo",
+    "title": "AI for Neurodevelopmental Detection (2025)\n                        Northeastern University &mdash; I",
     "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/"
   },
   {
@@ -484,7 +564,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 4,
     "line": 267,
-    "title": "AI for Mental Health Lab (2025)\n                        Stanford Medicine - Data-driven methods and AI tools to improve ",
+    "title": "AI for Mental Health Lab (2025)\n                        Stanford Medicine &mdash; Data-driven method",
     "url": "https://med.stanford.edu/ai-4-mental-health-lab.html"
   },
   {
@@ -492,7 +572,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 5,
     "line": 292,
-    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University - Curated guide to AI tools and resources ",
+    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University &mdash; Curated guide ",
     "url": "https://guides.library.ttu.edu/c.php?g=1398509"
   },
   {
@@ -500,7 +580,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 6,
     "line": 300,
-    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University - Research on AI innovations makin",
+    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University &mdash; Resear",
     "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
   },
   {
@@ -508,7 +588,7 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 7,
     "line": 308,
-    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine - Annual summit on AI, neurodiversity, emp",
+    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine &mdash; Annual summit ",
     "url": "https://med.stanford.edu/neurodiversity/SNS2025.html"
   },
   {
@@ -516,7 +596,47 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 8,
     "line": 316,
-    "title": "U.S. Access Board: AI & Disability\n                        Federal agency - Standards and guidance for accessible AI tec",
+    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
+    "url": "https://www.access-board.gov/ai/"
+  },
+  {
+    "id": "NDAD-CIT09",
+    "page": "neurodivergence/adhd.html",
+    "cite_num": 9,
+    "line": 384,
+    "title": "AI May Help Researchers with Medical Chart Review for ADHD &mdash; Stanford Medicine (Dec 2024)",
+    "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
+  },
+  {
+    "id": "NDAD-CIT10",
+    "page": "neurodivergence/adhd.html",
+    "cite_num": 10,
+    "line": 387,
+    "title": "The Future of ADHD &mdash; Stanford University School of Engineering (Jan 2026)",
+    "url": "https://engineering.stanford.edu/news/future-adhd"
+  },
+  {
+    "id": "NDAD-CIT11",
+    "page": "neurodivergence/adhd.html",
+    "cite_num": 11,
+    "line": 390,
+    "title": "Innovative AI Technology Used to Detect Neurodevelopmental Disorders &mdash; Northeastern University",
+    "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/"
+  },
+  {
+    "id": "NDAD-CIT12",
+    "page": "neurodivergence/adhd.html",
+    "cite_num": 12,
+    "line": 393,
+    "title": "Advanced Informatics for Mental Health Lab &mdash; Stanford Medicine (2025)",
+    "url": "https://med.stanford.edu/ai-4-mental-health-lab.html"
+  },
+  {
+    "id": "NDAD-CIT13",
+    "page": "neurodivergence/adhd.html",
+    "cite_num": 13,
+    "line": 396,
+    "title": "U.S. Access Board: AI &amp; Disability (2025)",
     "url": "https://www.access-board.gov/ai/"
   },
   {
@@ -524,7 +644,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 1,
     "line": 248,
-    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI - Algorithm that detects autism in brain scans and",
+    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI &mdash; Algorithm that detects",
     "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
   },
   {
@@ -532,7 +652,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 2,
     "line": 256,
-    "title": "Gamifying Autism Diagnosis with AI\n                        Stanford HAI - Using AI and gamification to transform autism ",
+    "title": "Gamifying Autism Diagnosis with AI\n                        Stanford HAI &mdash; Using AI and gamific",
     "url": "https://hai.stanford.edu/news/gamifying-autism-diagnosis-and-treatment"
   },
   {
@@ -540,7 +660,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 3,
     "line": 264,
-    "title": "AI Robots for Autistic Workers (2025)\n                        Virginia Tech - Collaborative robots designed to support a",
+    "title": "AI Robots for Autistic Workers (2025)\n                        Virginia Tech &mdash; Collaborative ro",
     "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html"
   },
   {
@@ -548,7 +668,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 4,
     "line": 272,
-    "title": "AI for Autism Digital Therapy\n                        Stanford Neuroscience - AI-powered digital therapy with embedded e",
+    "title": "AI for Autism Digital Therapy\n                        Stanford Neuroscience &mdash; AI-powered digit",
     "url": "https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal"
   },
   {
@@ -556,7 +676,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 5,
     "line": 280,
-    "title": "NIH Autism Research Data Center (2025)\n                        Weill Cornell Medicine - $5.1M NIH grant for the Autism R",
+    "title": "NIH Autism Research Data Center (2025)\n                        Weill Cornell Medicine &mdash; $5.1M ",
     "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center"
   },
   {
@@ -564,7 +684,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 6,
     "line": 305,
-    "title": "Disability, Access & AI Summit\n                        Cornell Tech - First-ever summit on disability, access, and AI br",
+    "title": "Disability, Access &amp; AI Summit\n                        Cornell Tech &mdash; First-ever summit on",
     "url": "https://tech.cornell.edu/news/disability-access-tech-ai-summit-cornell-tech/"
   },
   {
@@ -572,7 +692,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 7,
     "line": 313,
-    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine - Annual summit on AI, neurodiversity, emp",
+    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine &mdash; Annual summit ",
     "url": "https://med.stanford.edu/neurodiversity/SNS2025.html"
   },
   {
@@ -580,7 +700,7 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 8,
     "line": 321,
-    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University - Curated guide to AI tools and resources ",
+    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University &mdash; Curated guide ",
     "url": "https://guides.library.ttu.edu/c.php?g=1398509"
   },
   {
@@ -588,15 +708,55 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 9,
     "line": 329,
-    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University - Research on AI innovations makin",
+    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University &mdash; Resear",
     "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
+  },
+  {
+    "id": "NDAU-CIT10",
+    "page": "neurodivergence/autism.html",
+    "cite_num": 10,
+    "line": 397,
+    "title": "New AI-Driven Algorithm Can Detect Autism in Brain Fingerprints &mdash; Stanford HAI (2025)",
+    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+  },
+  {
+    "id": "NDAU-CIT11",
+    "page": "neurodivergence/autism.html",
+    "cite_num": 11,
+    "line": 400,
+    "title": "Gamifying Autism Diagnosis and Treatment &mdash; Stanford HAI (2025)",
+    "url": "https://hai.stanford.edu/news/gamifying-autism-diagnosis-and-treatment"
+  },
+  {
+    "id": "NDAU-CIT12",
+    "page": "neurodivergence/autism.html",
+    "cite_num": 12,
+    "line": 403,
+    "title": "Smarter Robots Could Help Autistic Adults Thrive in Manufacturing &mdash; Virginia Tech (Nov 2025)",
+    "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html"
+  },
+  {
+    "id": "NDAU-CIT13",
+    "page": "neurodivergence/autism.html",
+    "cite_num": 13,
+    "line": 406,
+    "title": "Autism Digital Therapy with AI for Progress Tracking &mdash; Stanford Wu Tsai Neurosciences (2025)",
+    "url": "https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal"
+  },
+  {
+    "id": "NDAU-CIT14",
+    "page": "neurodivergence/autism.html",
+    "cite_num": 14,
+    "line": 409,
+    "title": "NIH Grant Will Fund Autism Research Center &mdash; Weill Cornell Medicine (Oct 2025)",
+    "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center"
   },
   {
     "id": "NDAU-CIT15",
     "page": "neurodivergence/autism.html",
     "cite_num": 15,
     "line": 412,
-    "title": "U.S. Access Board: AI & Disability (2025)",
+    "title": "U.S. Access Board: AI &amp; Disability (2025)",
     "url": "https://www.access-board.gov/ai/"
   },
   {
@@ -604,7 +764,7 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 1,
     "line": 244,
-    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo - AI tool screens for language and ",
+    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo &mdash; AI tool",
     "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
   },
   {
@@ -612,7 +772,7 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 2,
     "line": 252,
-    "title": "AI-Powered Dyslexia Detection (2025)\n                        University at Buffalo - AI-powered handwriting analysis cou",
+    "title": "AI-Powered Dyslexia Detection (2025)\n                        University at Buffalo &mdash; AI-powere",
     "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html"
   },
   {
@@ -620,7 +780,7 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 3,
     "line": 277,
-    "title": "How AI Will Help Students with Dyslexia\n                        University of Michigan - Overview of emerging AI tools a",
+    "title": "How AI Will Help Students with Dyslexia\n                        University of Michigan &mdash; Overv",
     "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/"
   },
   {
@@ -628,7 +788,7 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 4,
     "line": 285,
-    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University - Curated guide to AI tools and resources ",
+    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University &mdash; Curated guide ",
     "url": "https://guides.library.ttu.edu/c.php?g=1398509"
   },
   {
@@ -636,7 +796,7 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 5,
     "line": 293,
-    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University - Research on AI innovations makin",
+    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University &mdash; Resear",
     "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
   },
   {
@@ -644,7 +804,39 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 6,
     "line": 301,
-    "title": "U.S. Access Board: AI & Disability\n                        Federal agency - Standards and guidance for accessible AI tec",
+    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
+    "url": "https://www.access-board.gov/ai/"
+  },
+  {
+    "id": "NDDY-CIT07",
+    "page": "neurodivergence/dyslexia.html",
+    "cite_num": 7,
+    "line": 369,
+    "title": "AI to Screen for Language and Speech Disorders Among Children &mdash; University at Buffalo (April 2",
+    "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
+  },
+  {
+    "id": "NDDY-CIT08",
+    "page": "neurodivergence/dyslexia.html",
+    "cite_num": 8,
+    "line": 372,
+    "title": "Key to Spotting Dyslexia Early Could Be AI-Powered Handwriting Analysis &mdash; University at Buffal",
+    "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html"
+  },
+  {
+    "id": "NDDY-CIT09",
+    "page": "neurodivergence/dyslexia.html",
+    "cite_num": 9,
+    "line": 375,
+    "title": "How AI Will Help Students with Dyslexia &mdash; University of Michigan (Aug 2025)",
+    "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/"
+  },
+  {
+    "id": "NDDY-CIT10",
+    "page": "neurodivergence/dyslexia.html",
+    "cite_num": 10,
+    "line": 378,
+    "title": "U.S. Access Board: AI &amp; Disability (2025)",
     "url": "https://www.access-board.gov/ai/"
   },
   {
@@ -652,7 +844,7 @@
     "page": "neurodivergence/index.html",
     "cite_num": 1,
     "line": 429,
-    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine - How AI helps researchers with medical chart rev",
+    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine &mdash; How AI helps research",
     "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
   },
   {
@@ -660,7 +852,7 @@
     "page": "neurodivergence/index.html",
     "cite_num": 2,
     "line": 437,
-    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI - Algorithm that detects autism in brain scans and",
+    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI &mdash; Algorithm that detects",
     "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
   },
   {
@@ -668,7 +860,7 @@
     "page": "neurodivergence/index.html",
     "cite_num": 3,
     "line": 445,
-    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo - AI tool screens for language and ",
+    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo &mdash; AI tool",
     "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
   },
   {
@@ -676,7 +868,7 @@
     "page": "neurodivergence/index.html",
     "cite_num": 4,
     "line": 453,
-    "title": "Access Board: AI & Disability Findings (2025)\n                        UW CREATE - Preliminary findings on how AI impacts",
+    "title": "Access Board: AI &amp; Disability Findings (2025)\n                        UW CREATE &mdash; Prelimin",
     "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/"
   },
   {
@@ -684,7 +876,7 @@
     "page": "neurodivergence/index.html",
     "cite_num": 5,
     "line": 461,
-    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University - Research on AI innovations makin",
+    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University &mdash; Resear",
     "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
   },
   {
@@ -692,7 +884,55 @@
     "page": "neurodivergence/index.html",
     "cite_num": 6,
     "line": 469,
-    "title": "U.S. Access Board: AI & Disability\n                        Federal agency - Standards and guidance for accessible AI tec",
+    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
+    "url": "https://www.access-board.gov/ai/"
+  },
+  {
+    "id": "NDIX-CIT07",
+    "page": "neurodivergence/index.html",
+    "cite_num": 7,
+    "line": 498,
+    "title": "AI May Help Researchers with Medical Chart Review for ADHD &mdash; Stanford Medicine (Dec 2024)",
+    "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
+  },
+  {
+    "id": "NDIX-CIT08",
+    "page": "neurodivergence/index.html",
+    "cite_num": 8,
+    "line": 501,
+    "title": "New AI-Driven Algorithm Can Detect Autism in Brain Fingerprints &mdash; Stanford HAI (2025)",
+    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+  },
+  {
+    "id": "NDIX-CIT09",
+    "page": "neurodivergence/index.html",
+    "cite_num": 9,
+    "line": 504,
+    "title": "AI to Screen for Language and Speech Disorders Among Children &mdash; University at Buffalo (April 2",
+    "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
+  },
+  {
+    "id": "NDIX-CIT10",
+    "page": "neurodivergence/index.html",
+    "cite_num": 10,
+    "line": 507,
+    "title": "Access Board's Preliminary Findings on AI and People with Disabilities &mdash; UW CREATE (Jan 2025)",
+    "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/"
+  },
+  {
+    "id": "NDIX-CIT11",
+    "page": "neurodivergence/index.html",
+    "cite_num": 11,
+    "line": 510,
+    "title": "AI and the Future of Accessibility &mdash; Carnegie Mellon University (Nov 2025)",
+    "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
+  },
+  {
+    "id": "NDIX-CIT12",
+    "page": "neurodivergence/index.html",
+    "cite_num": 12,
+    "line": 513,
+    "title": "U.S. Access Board: AI &amp; Disability (2025)",
     "url": "https://www.access-board.gov/ai/"
   },
   {
@@ -700,7 +940,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 1,
     "line": 235,
-    "title": "NIMH: ADHD\n                        Symptoms, diagnosis, treatment, and emerging tech research.\n                        ",
+    "title": "NIMH: ADHD\n                        Symptoms, diagnosis, treatment, and emerging tech research.\n     ",
     "url": "https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd"
   },
   {
@@ -708,7 +948,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 2,
     "line": 243,
-    "title": "NIMH: Autism\n                        Research focus areas, clinical trials, and federal resources.\n                     ",
+    "title": "NIMH: Autism\n                        Research focus areas, clinical trials, and federal resources.\n ",
     "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
   },
   {
@@ -716,7 +956,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 3,
     "line": 251,
-    "title": "CDC: Autism Data\n                        Prevalence data, Milestone Tracker app, and ADDM network.\n                     ",
+    "title": "CDC: Autism Data\n                        Prevalence data, Milestone Tracker app, and ADDM network.\n ",
     "url": "https://www.cdc.gov/autism/index.html"
   },
   {
@@ -724,7 +964,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 4,
     "line": 259,
-    "title": "CDC: 2025 Report\n                        Latest ADDM prevalence estimates and demographic data.\n                        ",
+    "title": "CDC: 2025 Report\n                        Latest ADDM prevalence estimates and demographic data.\n    ",
     "url": "https://www.cdc.gov/autism/communication-resources/community-reports.html"
   },
   {
@@ -732,7 +972,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 5,
     "line": 271,
-    "title": "AI & ND Gene Discovery (2025)\n                        Baylor College of Medicine - AI accelerates discovery of genes ass",
+    "title": "AI &amp; ND Gene Discovery (2025)\n                        Baylor College of Medicine &mdash; AI acce",
     "url": "https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/"
   },
   {
@@ -740,7 +980,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 6,
     "line": 279,
-    "title": "AI & Accessibility (2025)\n                        Cornell University - Guide to generative AI accessibility for teaching",
+    "title": "AI &amp; Accessibility (2025)\n                        Cornell University &mdash; Guide to generative",
     "url": "https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility"
   },
   {
@@ -748,7 +988,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 7,
     "line": 304,
-    "title": "ED.gov: AI Guidance\n                        Federal hub for AI policy in schools and responsible AI use.\n               ",
+    "title": "ED.gov: AI Guidance\n                        Federal hub for AI policy in schools and responsible AI ",
     "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance"
   },
   {
@@ -756,7 +996,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 8,
     "line": 312,
-    "title": "IES/NSF: AI + Disability\n                        Funding AI innovations for learners with disabilities.\n                ",
+    "title": "IES/NSF: AI + Disability\n                        Funding AI innovations for learners with disabiliti",
     "url": "https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities"
   },
   {
@@ -764,7 +1004,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 9,
     "line": 320,
-    "title": "AI4ExceptionalEd\n                        NSF institute building AI tools for speech and language disorders.\n            ",
+    "title": "AI4ExceptionalEd\n                        NSF institute building AI tools for speech and language dis",
     "url": "https://www.buffalo.edu/ai4exceptionaled.html"
   },
   {
@@ -772,7 +1012,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 10,
     "line": 328,
-    "title": "NSF Track H\n                        $11.8M funding 16 teams building accessible AI technology.\n                        ",
+    "title": "NSF Track H\n                        $11.8M funding 16 teams building accessible AI technology.\n     ",
     "url": "https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons"
   },
   {
@@ -780,7 +1020,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 11,
     "line": 336,
-    "title": "Stanford Neurodiversity\n                        AI job-matching, REACH program, clinic, and annual summit.\n             ",
+    "title": "Stanford Neurodiversity\n                        AI job-matching, REACH program, clinic, and annual s",
     "url": "https://med.stanford.edu/neurodiversity.html"
   },
   {
@@ -788,7 +1028,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 12,
     "line": 361,
-    "title": "ADA.gov: AI & Hiring\n                        DOJ guidance on AI discrimination and your right to accommodations.\n       ",
+    "title": "ADA.gov: AI &amp; Hiring\n                        DOJ guidance on AI discrimination and your right to",
     "url": "https://www.ada.gov/resources/ai-guidance/"
   },
   {
@@ -796,7 +1036,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 13,
     "line": 369,
-    "title": "EEOC: AI & the ADA\n                        How the ADA applies to AI in employment decisions.\n                        ",
+    "title": "EEOC: AI &amp; the ADA\n                        How the ADA applies to AI in employment decisions.\n  ",
     "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada"
   },
   {
@@ -804,7 +1044,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 14,
     "line": 389,
-    "title": "CHADD: AI + ADHD\n                        Using ChatGPT and Claude for ADHD task management.\n                        ",
+    "title": "CHADD: AI + ADHD\n                        Using ChatGPT and Claude for ADHD task management.\n        ",
     "url": "https://chadd.org/attention-article/harnessing-artificial-intelligence-to-live-better-with-adhd/"
   },
   {
@@ -812,7 +1052,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 15,
     "line": 397,
-    "title": "IDA: Assistive Tech\n                        Instructional vs. assistive technology for struggling readers.\n             ",
+    "title": "IDA: Assistive Tech\n                        Instructional vs. assistive technology for struggling re",
     "url": "https://dyslexiaida.org/instructional-and-assistive-technology-maximizing-the-benefits-for-students-who-struggle/"
   },
   {
@@ -820,7 +1060,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 16,
     "line": 405,
-    "title": "ASAN: Self-Advocacy\n                        Autistic-led advocacy, policy, and campus inclusion programs.\n              ",
+    "title": "ASAN: Self-Advocacy\n                        Autistic-led advocacy, policy, and campus inclusion prog",
     "url": "https://autisticadvocacy.org/"
   },
   {
@@ -828,7 +1068,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 17,
     "line": 425,
-    "title": "W3C: Cognitive A11y\n                        COGA Task Force guidance for ADHD, autism, and dyslexia.\n                   ",
+    "title": "W3C: Cognitive A11y\n                        COGA Task Force guidance for ADHD, autism, and dyslexia.",
     "url": "https://www.w3.org/WAI/cognitive/"
   },
   {
@@ -836,7 +1076,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 18,
     "line": 433,
-    "title": "W3C: COGA Usable\n                        Design patterns and personas for cognitive accessibility.\n                     ",
+    "title": "W3C: COGA Usable\n                        Design patterns and personas for cognitive accessibility.\n ",
     "url": "https://www.w3.org/TR/coga-usable/"
   },
   {
@@ -844,7 +1084,7 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 19,
     "line": 441,
-    "title": "NIST: AI Risk Technique\n                        AI governance with DEIA and accessibility principles built in.\n         ",
+    "title": "NIST: AI Risk Technique\n                        AI governance with DEIA and accessibility principles",
     "url": "https://www.nist.gov/itl/ai-risk-management-framework"
   },
   {
@@ -852,7 +1092,183 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 20,
     "line": 449,
-    "title": "Section 508\n                        Federal ICT accessibility standards for AI systems.\n                        ",
+    "title": "Section 508\n                        Federal ICT accessibility standards for AI systems.\n            ",
+    "url": "https://www.section508.gov/"
+  },
+  {
+    "id": "NDRS-CIT21",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 21,
+    "line": 557,
+    "title": "ADA.gov guidance",
+    "url": "https://www.ada.gov/resources/ai-guidance/"
+  },
+  {
+    "id": "NDRS-CIT22",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 22,
+    "line": 557,
+    "title": "EEOC resources",
+    "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada"
+  },
+  {
+    "id": "NDRS-CIT23",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 23,
+    "line": 673,
+    "title": "NIMH: Attention-Deficit/Hyperactivity Disorder (ADHD)",
+    "url": "https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd"
+  },
+  {
+    "id": "NDRS-CIT24",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 24,
+    "line": 676,
+    "title": "NIMH: Autism Spectrum Disorder (ASD)",
+    "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
+  },
+  {
+    "id": "NDRS-CIT25",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 25,
+    "line": 679,
+    "title": "CDC: Autism Spectrum Disorder Resources",
+    "url": "https://www.cdc.gov/autism/index.html"
+  },
+  {
+    "id": "NDRS-CIT26",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 26,
+    "line": 682,
+    "title": "CDC: Community Report on Autism 2025",
+    "url": "https://www.cdc.gov/autism/communication-resources/community-reports.html"
+  },
+  {
+    "id": "NDRS-CIT27",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 27,
+    "line": 685,
+    "title": "AI Accelerates Discovery of Genes Associated with Neurodevelopmental Disorders &mdash; Baylor Colleg",
+    "url": "https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/"
+  },
+  {
+    "id": "NDRS-CIT28",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 28,
+    "line": 688,
+    "title": "Generative AI and Accessibility &mdash; Cornell University Center for Teaching Innovation (2025)",
+    "url": "https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility"
+  },
+  {
+    "id": "NDRS-CIT29",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 29,
+    "line": 691,
+    "title": "U.S. Department of Education: AI Guidance",
+    "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance"
+  },
+  {
+    "id": "NDRS-CIT30",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 30,
+    "line": 694,
+    "title": "IES/NSF: AI-Augmented Learning for Individuals with Disabilities",
+    "url": "https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities"
+  },
+  {
+    "id": "NDRS-CIT31",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 31,
+    "line": 697,
+    "title": "National AI Institute for Exceptional Education (AI4ExceptionalEd)",
+    "url": "https://www.buffalo.edu/ai4exceptionaled.html"
+  },
+  {
+    "id": "NDRS-CIT32",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 32,
+    "line": 700,
+    "title": "NSF Convergence Accelerator Track H: Enhancing Opportunities for Persons with Disabilities",
+    "url": "https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons"
+  },
+  {
+    "id": "NDRS-CIT33",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 33,
+    "line": 703,
+    "title": "Stanford Neurodiversity Project",
+    "url": "https://med.stanford.edu/neurodiversity.html"
+  },
+  {
+    "id": "NDRS-CIT34",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 34,
+    "line": 706,
+    "title": "ADA.gov: Algorithms, AI, and Disability Discrimination in Hiring",
+    "url": "https://www.ada.gov/resources/ai-guidance/"
+  },
+  {
+    "id": "NDRS-CIT35",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 35,
+    "line": 709,
+    "title": "EEOC: Artificial Intelligence and the ADA",
+    "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada"
+  },
+  {
+    "id": "NDRS-CIT36",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 36,
+    "line": 712,
+    "title": "CHADD: Harnessing Artificial Intelligence to Live Better with ADHD",
+    "url": "https://chadd.org/attention-article/harnessing-artificial-intelligence-to-live-better-with-adhd/"
+  },
+  {
+    "id": "NDRS-CIT37",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 37,
+    "line": 715,
+    "title": "IDA: Instructional and Assistive Technology for Struggling Students",
+    "url": "https://dyslexiaida.org/instructional-and-assistive-technology-maximizing-the-benefits-for-students-who-struggle/"
+  },
+  {
+    "id": "NDRS-CIT38",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 38,
+    "line": 718,
+    "title": "Autistic Self Advocacy Network (ASAN)",
+    "url": "https://autisticadvocacy.org/"
+  },
+  {
+    "id": "NDRS-CIT39",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 39,
+    "line": 721,
+    "title": "W3C WAI: Cognitive Accessibility",
+    "url": "https://www.w3.org/WAI/cognitive/"
+  },
+  {
+    "id": "NDRS-CIT40",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 40,
+    "line": 724,
+    "title": "W3C: Making Content Usable for People with Cognitive and Learning Disabilities",
+    "url": "https://www.w3.org/TR/coga-usable/"
+  },
+  {
+    "id": "NDRS-CIT41",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 41,
+    "line": 727,
+    "title": "NIST: AI Risk Management Framework",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+  },
+  {
+    "id": "NDRS-CIT42",
+    "page": "neurodivergence/resources.html",
+    "cite_num": 42,
+    "line": 730,
+    "title": "Section508.gov: Federal ICT Accessibility Standards",
     "url": "https://www.section508.gov/"
   },
   {
@@ -860,7 +1276,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 1,
     "line": 185,
-    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine - How AI helps researchers with medical chart rev",
+    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine &mdash; How AI helps research",
     "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
   },
   {
@@ -868,7 +1284,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 2,
     "line": 193,
-    "title": "The Future of ADHD (2026)\n                        Stanford Engineering - How technology and AI are shaping the future of",
+    "title": "The Future of ADHD (2026)\n                        Stanford Engineering &mdash; How technology and AI",
     "url": "https://engineering.stanford.edu/news/future-adhd"
   },
   {
@@ -876,7 +1292,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 3,
     "line": 201,
-    "title": "AI for Neurodevelopmental Detection (2025)\n                        Northeastern University - Innovative AI technology fo",
+    "title": "AI for Neurodevelopmental Detection (2025)\n                        Northeastern University &mdash; I",
     "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/"
   },
   {
@@ -884,7 +1300,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 4,
     "line": 209,
-    "title": "AI for Mental Health Lab (2025)\n                        Stanford Medicine - Data-driven methods and AI tools to improve ",
+    "title": "AI for Mental Health Lab (2025)\n                        Stanford Medicine &mdash; Data-driven method",
     "url": "https://med.stanford.edu/ai-4-mental-health-lab.html"
   },
   {
@@ -892,7 +1308,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 5,
     "line": 229,
-    "title": "AI-Driven Autism Brain Detection (2025)\n                        Stanford HAI - New AI algorithm detects autism through b",
+    "title": "AI-Driven Autism Brain Detection (2025)\n                        Stanford HAI &mdash; New AI algorith",
     "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
   },
   {
@@ -900,7 +1316,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 6,
     "line": 237,
-    "title": "Gamifying Autism Diagnosis with AI (2025)\n                        Stanford HAI - AI-powered games for earlier autism dia",
+    "title": "Gamifying Autism Diagnosis with AI (2025)\n                        Stanford HAI &mdash; AI-powered ga",
     "url": "https://hai.stanford.edu/news/gamifying-autism-diagnosis-and-treatment"
   },
   {
@@ -908,7 +1324,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 7,
     "line": 245,
-    "title": "AI Robots for Autistic Workers (2025)\n                        Virginia Tech - Smarter robots designed to support autisti",
+    "title": "AI Robots for Autistic Workers (2025)\n                        Virginia Tech &mdash; Smarter robots d",
     "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html"
   },
   {
@@ -916,7 +1332,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 8,
     "line": 253,
-    "title": "AI for Autism Digital Therapy (2025)\n                        Stanford Neuroscience - AI-powered digital therapy with emb",
+    "title": "AI for Autism Digital Therapy (2025)\n                        Stanford Neuroscience &mdash; AI-powere",
     "url": "https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal"
   },
   {
@@ -924,7 +1340,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 9,
     "line": 261,
-    "title": "NIH Autism Research Data Center (2025)\n                        Weill Cornell Medicine - NIH-funded center for autism res",
+    "title": "NIH Autism Research Data Center (2025)\n                        Weill Cornell Medicine &mdash; NIH-fu",
     "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center"
   },
   {
@@ -932,7 +1348,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 10,
     "line": 281,
-    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo - AI tool screens for language and ",
+    "title": "AI Screens for Speech Disorders (2025)\n                        University at Buffalo &mdash; AI tool",
     "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
   },
   {
@@ -940,7 +1356,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 11,
     "line": 289,
-    "title": "AI-Powered Dyslexia Detection (2025)\n                        University at Buffalo - AI-powered handwriting analysis cou",
+    "title": "AI-Powered Dyslexia Detection (2025)\n                        University at Buffalo &mdash; AI-powere",
     "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html"
   },
   {
@@ -948,7 +1364,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 12,
     "line": 297,
-    "title": "How AI Will Help Students with Dyslexia (2025)\n                        University of Michigan - Overview of emerging AI ",
+    "title": "How AI Will Help Students with Dyslexia (2025)\n                        University of Michigan &mdash",
     "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/"
   },
   {
@@ -956,7 +1372,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 13,
     "line": 317,
-    "title": "Access Board: AI & Disability Findings (2025)\n                        UW CREATE - Access Board preliminary findings on A",
+    "title": "Access Board: AI &amp; Disability Findings (2025)\n                        UW CREATE &mdash; Access B",
     "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/"
   },
   {
@@ -964,7 +1380,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 14,
     "line": 325,
-    "title": "Autonomous Wheelchair & Robot Arm (2025)\n                        Northeastern University - AI-powered autonomous wheelch",
+    "title": "Autonomous Wheelchair &amp; Robot Arm (2025)\n                        Northeastern University &mdash;",
     "url": "https://news.northeastern.edu/2025/11/05/autonomous-wheelchair-robot-arm-research/"
   },
   {
@@ -972,7 +1388,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 15,
     "line": 333,
-    "title": "How AI Is Transforming Accessibility (2025)\n                        San Diego State University - How AI is transforming ",
+    "title": "How AI Is Transforming Accessibility (2025)\n                        San Diego State University &mdas",
     "url": "https://accessibility.sdsu.edu/news/how-ai-is-transforming-accessibility"
   },
   {
@@ -980,7 +1396,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 16,
     "line": 341,
-    "title": "Assistive Technologies Research (2025)\n                        University of Pittsburgh - Research report on AI-powered ",
+    "title": "Assistive Technologies Research (2025)\n                        University of Pittsburgh &mdash; Rese",
     "url": "https://www.pittwire.pitt.edu/features-articles/2025/02/17/research-report-assistive-technologies"
   },
   {
@@ -988,7 +1404,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 17,
     "line": 361,
-    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University - Research on AI innovations makin",
+    "title": "AI and the Future of Accessibility\n                        Carnegie Mellon University &mdash; Resear",
     "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
   },
   {
@@ -996,7 +1412,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 18,
     "line": 369,
-    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine - Annual summit on AI, neurodiversity, emp",
+    "title": "Stanford Neurodiversity Summit 2025\n                        Stanford Medicine &mdash; Annual summit ",
     "url": "https://med.stanford.edu/neurodiversity/SNS2025.html"
   },
   {
@@ -1004,7 +1420,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 19,
     "line": 377,
-    "title": "Disability, Access & AI Summit\n                        Cornell Tech - First-ever summit on disability, access, and AI br",
+    "title": "Disability, Access &amp; AI Summit\n                        Cornell Tech &mdash; First-ever summit on",
     "url": "https://tech.cornell.edu/news/disability-access-tech-ai-summit-cornell-tech/"
   },
   {
@@ -1012,7 +1428,7 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 20,
     "line": 385,
-    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University - Curated guide to AI tools and resources ",
+    "title": "AI-Based Disability Tools Guide\n                        Texas Tech University &mdash; Curated guide ",
     "url": "https://guides.library.ttu.edu/c.php?g=1398509"
   },
   {
@@ -1020,21 +1436,109 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 21,
     "line": 393,
-    "title": "U.S. Access Board: AI & Disability\n                        Federal agency - Standards and guidance for accessible AI tec",
+    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
     "url": "https://www.access-board.gov/ai/"
+  },
+  {
+    "id": "NDTL-CIT22",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 22,
+    "line": 461,
+    "title": "AI for Pediatric ADHD &mdash; Stanford Medicine (Dec 2024)",
+    "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
+  },
+  {
+    "id": "NDTL-CIT23",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 23,
+    "line": 464,
+    "title": "AI-Driven Algorithm Detects Autism Brain Fingerprints &mdash; Stanford HAI (2025)",
+    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+  },
+  {
+    "id": "NDTL-CIT24",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 24,
+    "line": 467,
+    "title": "AI Screens for Language and Speech Disorders in Children &mdash; University at Buffalo (April 2025)",
+    "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html"
+  },
+  {
+    "id": "NDTL-CIT25",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 25,
+    "line": 470,
+    "title": "Access Board Preliminary Findings on AI and People with Disabilities &mdash; UW CREATE (Jan 2025)",
+    "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/"
+  },
+  {
+    "id": "NDTL-CIT26",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 26,
+    "line": 473,
+    "title": "AI and the Future of Accessibility &mdash; Carnegie Mellon University (Nov 2025)",
+    "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html"
+  },
+  {
+    "id": "NDTL-CIT27",
+    "page": "neurodivergence/tools.html",
+    "cite_num": 27,
+    "line": 476,
+    "title": "U.S. Access Board: AI &amp; Disability (2025)",
+    "url": "https://www.access-board.gov/ai/"
+  },
+  {
+    "id": "PGAT-CIT01",
+    "page": "pages/about.html",
+    "cite_num": 1,
+    "line": 199,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGAT-CIT02",
+    "page": "pages/about.html",
+    "cite_num": 2,
+    "line": 395,
+    "title": "Connect on LinkedIn",
+    "url": "https://www.linkedin.com/in/basiliso-rosario/"
+  },
+  {
+    "id": "PGAT-CIT03",
+    "page": "pages/about.html",
+    "cite_num": 3,
+    "line": 396,
+    "title": "View on GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGAB-CIT01",
     "page": "pages/ai-assisted-building.html",
     "cite_num": 1,
-    "line": 637,
-    "title": "Generative AI in Software Engineering - Carnegie Mellon SEI",
-    "url": "https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGAB-CIT02",
     "page": "pages/ai-assisted-building.html",
     "cite_num": 2,
+    "line": 623,
+    "title": "View on GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGAB-CIT03",
+    "page": "pages/ai-assisted-building.html",
+    "cite_num": 3,
+    "line": 637,
+    "title": "Generative AI in Software Engineering - Carnegie Mellon SEI",
+    "url": "https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/"
+  },
+  {
+    "id": "PGAB-CIT04",
+    "page": "pages/ai-assisted-building.html",
+    "cite_num": 4,
     "line": 640,
     "title": "AI-Augmented Software Engineering - Carnegie Mellon SEI",
     "url": "https://insights.sei.cmu.edu/ai-augmented-software-engineering/"
@@ -1044,7 +1548,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 1,
     "line": 647,
-    "title": "The State of Generative AI Adoption in 2025 - Federal Reserve Bank of St. Louis, November 2025",
+    "title": "The State of Generative AI Adoption in 2025 &mdash; Federal Reserve Bank of St. Louis, November 2025",
     "url": "https://www.stlouisfed.org/on-the-economy/2025/nov/state-generative-ai-adoption-2025"
   },
   {
@@ -1052,7 +1556,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 2,
     "line": 650,
-    "title": "AI in Americans Lives: Awareness, Experiences, and Attitudes - Pew Research, September 2025",
+    "title": "AI in Americans&rsquo; Lives: Awareness, Experiences, and Attitudes &mdash; Pew Research, September ",
     "url": "https://www.pewresearch.org/science/2025/09/17/ai-in-americans-lives-awareness-experiences-and-attitudes/"
   },
   {
@@ -1060,7 +1564,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 3,
     "line": 653,
-    "title": "About 1 in 5 U.S. Workers Now Use AI in Their Job - Pew Research, October 2025",
+    "title": "About 1 in 5 U.S. Workers Now Use AI in Their Job &mdash; Pew Research, October 2025",
     "url": "https://www.pewresearch.org/short-reads/2025/10/06/about-1-in-5-us-workers-now-use-ai-in-their-job-up-since-last-year/"
   },
   {
@@ -1068,7 +1572,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 4,
     "line": 656,
-    "title": "Teens, Social Media, and AI Chatbots 2025 - Pew Research, December 2025",
+    "title": "Teens, Social Media, and AI Chatbots 2025 &mdash; Pew Research, December 2025",
     "url": "https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/"
   },
   {
@@ -1076,7 +1580,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 5,
     "line": 659,
-    "title": "Survey Highlights Emerging Divide Over Artificial Intelligence in the U.S. - Rutgers University, 2025",
+    "title": "Survey Highlights Emerging Divide Over Artificial Intelligence in the U.S. &mdash; Rutgers Universit",
     "url": "https://newbrunswick.rutgers.edu/news/survey-highlights-emerging-divide-over-artificial-intelligence-us"
   },
   {
@@ -1084,7 +1588,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 6,
     "line": 662,
-    "title": "Technology Impact on Businesses - U.S. Census Bureau, September 2025",
+    "title": "Technology Impact on Businesses &mdash; U.S. Census Bureau, September 2025",
     "url": "https://www.census.gov/library/stories/2025/09/technology-impact.html"
   },
   {
@@ -1092,7 +1596,7 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 7,
     "line": 665,
-    "title": "AI Literacy and the New Digital Divide: A Global Call to Action - UNESCO, September 2025",
+    "title": "AI Literacy and the New Digital Divide: A Global Call to Action &mdash; UNESCO, September 2025",
     "url": "https://www.unesco.org/ethics-ai/en/articles/ai-literacy-and-new-digital-divide-global-call-action"
   },
   {
@@ -1100,21 +1604,29 @@
     "page": "pages/ai-for-everybody.html",
     "cite_num": 8,
     "line": 668,
-    "title": "2025 AI Index Report - Stanford HAI (Stanford University), 2025",
+    "title": "2025 AI Index Report &mdash; Stanford HAI (Stanford University), 2025",
     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
   },
   {
     "id": "PGAS-CIT01",
     "page": "pages/ai-safety.html",
     "cite_num": 1,
-    "line": 553,
-    "title": "AI Risk Management Framework - NIST",
-    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGAS-CIT02",
     "page": "pages/ai-safety.html",
     "cite_num": 2,
+    "line": 553,
+    "title": "AI Risk Management Framework - NIST",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+  },
+  {
+    "id": "PGAS-CIT03",
+    "page": "pages/ai-safety.html",
+    "cite_num": 3,
     "line": 556,
     "title": "Generative AI Risk Profile (NIST-AI-600-1) - NIST",
     "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
@@ -1123,14 +1635,22 @@
     "id": "PGCG-CIT01",
     "page": "pages/chatgpt-guide.html",
     "cite_num": 1,
-    "line": 697,
-    "title": "AI Index Report 2025 - Stanford Human-Centered AI Institute (2025)",
-    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGCG-CIT02",
     "page": "pages/chatgpt-guide.html",
     "cite_num": 2,
+    "line": 697,
+    "title": "AI Index Report 2025 &mdash; Stanford Human-Centered AI Institute (2025)",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+  },
+  {
+    "id": "PGCG-CIT03",
+    "page": "pages/chatgpt-guide.html",
+    "cite_num": 3,
     "line": 700,
     "title": "AI Guidance for Education - U.S. Department of Education",
     "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance"
@@ -1139,30 +1659,54 @@
     "id": "PGFA-CIT01",
     "page": "pages/faq.html",
     "cite_num": 1,
-    "line": 808,
-    "title": "AI Index Report 2025 - Stanford Human-Centered AI Institute (2025)",
-    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+    "line": 371,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGFA-CIT02",
     "page": "pages/faq.html",
     "cite_num": 2,
+    "line": 808,
+    "title": "AI Index Report 2025 &mdash; Stanford Human-Centered AI Institute (2025)",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+  },
+  {
+    "id": "PGFA-CIT03",
+    "page": "pages/faq.html",
+    "cite_num": 3,
     "line": 811,
     "title": "AI Guidance for Education - U.S. Department of Education",
     "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance"
   },
   {
+    "id": "PGGL-CIT01",
+    "page": "pages/glossary.html",
+    "cite_num": 1,
+    "line": 210,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
     "id": "PGPF-CIT01",
     "page": "pages/performance.html",
     "cite_num": 1,
-    "line": 720,
-    "title": "Federal Website Standards - Digital.gov",
-    "url": "https://standards.digital.gov/standards/"
+    "line": 199,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGPF-CIT02",
     "page": "pages/performance.html",
     "cite_num": 2,
+    "line": 720,
+    "title": "Federal Website Standards - Digital.gov",
+    "url": "https://standards.digital.gov/standards/"
+  },
+  {
+    "id": "PGPF-CIT03",
+    "page": "pages/performance.html",
+    "cite_num": 3,
     "line": 723,
     "title": "FY 2024 Section 508 Assessment - Digital.gov",
     "url": "https://digital.gov/2024/12/20/fy-24-governmentwide-section-508-assessment/"
@@ -1172,7 +1716,7 @@
     "page": "pages/resources.html",
     "cite_num": 1,
     "line": 458,
-    "title": "White House AI Education Pledge\n                        135+ organizations committed to AI education for American youth\n",
+    "title": "White House AI Education Pledge\n                        135+ organizations committed to AI education",
     "url": "https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/"
   },
   {
@@ -1180,7 +1724,7 @@
     "page": "pages/resources.html",
     "cite_num": 2,
     "line": 470,
-    "title": "NSF EducateAI Program\n                        $8M investment in K-12 through graduate AI education\n                     ",
+    "title": "NSF EducateAI Program\n                        $8M investment in K-12 through graduate AI education\n ",
     "url": "https://www.nsf.gov/news/nsf-investing-nearly-8m-educateai-awards-develop-next"
   },
   {
@@ -1188,7 +1732,7 @@
     "page": "pages/resources.html",
     "cite_num": 3,
     "line": 482,
-    "title": "Stanford HAI 2025 AI Index\n                        Comprehensive annual report on AI trends, economy, and education\n    ",
+    "title": "Stanford HAI 2025 AI Index\n                        Comprehensive annual report on AI trends, economy",
     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
   },
   {
@@ -1196,21 +1740,77 @@
     "page": "pages/resources.html",
     "cite_num": 4,
     "line": 493,
-    "title": "Georgetown CSET Workforce Report\n                        Analysis of AIs impact on workforce skills and training needs\n ",
+    "title": "Georgetown CSET Workforce Report\n                        Analysis of AI&rsquo;s impact on workforce ",
     "url": "https://cset.georgetown.edu/publication/ai-and-the-future-of-workforce-training/"
   },
   {
     "id": "PGRA-CIT01",
     "page": "pages/responsible-ai.html",
     "cite_num": 1,
-    "line": 788,
-    "title": "AI Risk Management Framework - NIST",
-    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGRA-CIT02",
     "page": "pages/responsible-ai.html",
     "cite_num": 2,
+    "line": 260,
+    "title": "GitHub Repository",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGRA-CIT03",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 3,
+    "line": 318,
+    "title": "GitHub Repository",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGRA-CIT04",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 4,
+    "line": 502,
+    "title": "GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGRA-CIT05",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 5,
+    "line": 695,
+    "title": "Praxis Library repository",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary/issues"
+  },
+  {
+    "id": "PGRA-CIT06",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 6,
+    "line": 701,
+    "title": "repository",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "PGRA-CIT07",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 7,
+    "line": 701,
+    "title": "pull request",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary/pulls"
+  },
+  {
+    "id": "PGRA-CIT08",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 8,
+    "line": 788,
+    "title": "AI Risk Management Framework - NIST",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+  },
+  {
+    "id": "PGRA-CIT09",
+    "page": "pages/responsible-ai.html",
+    "cite_num": 9,
     "line": 791,
     "title": "Generative AI Risk Profile (NIST-AI-600-1) - NIST",
     "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
@@ -1219,86 +1819,110 @@
     "id": "PGSE-CIT01",
     "page": "pages/security.html",
     "cite_num": 1,
-    "line": 635,
-    "title": "Website Security Best Practices - CISA",
-    "url": "https://www.cisa.gov/news-events/news/website-security"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGSE-CIT02",
     "page": "pages/security.html",
     "cite_num": 2,
-    "line": 638,
-    "title": "Cybersecurity Technique 2.0 - NIST",
-    "url": "https://www.nist.gov/cyberframework"
+    "line": 635,
+    "title": "Website Security Best Practices - CISA",
+    "url": "https://www.cisa.gov/news-events/news/website-security"
   },
   {
     "id": "PGSE-CIT03",
     "page": "pages/security.html",
     "cite_num": 3,
-    "line": 641,
-    "title": "NIST Cybersecurity Technique 2.0 (PDF) - NIST Publications",
-    "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+    "line": 638,
+    "title": "Cybersecurity Technique 2.0 - NIST",
+    "url": "https://www.nist.gov/cyberframework"
   },
   {
     "id": "PGSE-CIT04",
     "page": "pages/security.html",
     "cite_num": 4,
-    "line": 650,
-    "title": "nist.gov/cybersecurity ",
-    "url": "https://www.nist.gov/cybersecurity"
+    "line": 641,
+    "title": "NIST Cybersecurity Technique 2.0 (PDF) - NIST Publications",
+    "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
   },
   {
     "id": "PGSE-CIT05",
     "page": "pages/security.html",
     "cite_num": 5,
-    "line": 656,
-    "title": "cisa.gov/cybersecurity ",
-    "url": "https://www.cisa.gov/cybersecurity"
+    "line": 650,
+    "title": "nist.gov/cybersecurity &rarr;",
+    "url": "https://www.nist.gov/cybersecurity"
   },
   {
     "id": "PGSE-CIT06",
     "page": "pages/security.html",
     "cite_num": 6,
-    "line": 662,
-    "title": "sei.cmu.edu ",
-    "url": "https://www.sei.cmu.edu/about/divisions/cert/"
+    "line": 656,
+    "title": "cisa.gov/cybersecurity &rarr;",
+    "url": "https://www.cisa.gov/cybersecurity"
   },
   {
     "id": "PGSE-CIT07",
     "page": "pages/security.html",
     "cite_num": 7,
+    "line": 662,
+    "title": "sei.cmu.edu &rarr;",
+    "url": "https://www.sei.cmu.edu/about/divisions/cert/"
+  },
+  {
+    "id": "PGSE-CIT08",
+    "page": "pages/security.html",
+    "cite_num": 8,
     "line": 668,
-    "title": "nvd.nist.gov ",
+    "title": "nvd.nist.gov &rarr;",
     "url": "https://nvd.nist.gov/"
+  },
+  {
+    "id": "PGSE-CIT09",
+    "page": "pages/security.html",
+    "cite_num": 9,
+    "line": 683,
+    "title": "View on GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGUD-CIT01",
     "page": "pages/universal-design.html",
     "cite_num": 1,
-    "line": 708,
-    "title": "Revised 508 Standards and 255 Guidelines - U.S. Access Board",
-    "url": "https://www.access-board.gov/ict/"
+    "line": 202,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PGUD-CIT02",
     "page": "pages/universal-design.html",
     "cite_num": 2,
-    "line": 711,
-    "title": "ICT Testing Baseline Portfolio - U.S. Access Board",
-    "url": "https://ictbaseline.access-board.gov/"
+    "line": 708,
+    "title": "Revised 508 Standards and 255 Guidelines - U.S. Access Board",
+    "url": "https://www.access-board.gov/ict/"
   },
   {
     "id": "PGUD-CIT03",
     "page": "pages/universal-design.html",
     "cite_num": 3,
-    "line": 714,
-    "title": "Federal Website Standards - Digital.gov",
-    "url": "https://standards.digital.gov/standards/"
+    "line": 711,
+    "title": "ICT Testing Baseline Portfolio - U.S. Access Board",
+    "url": "https://ictbaseline.access-board.gov/"
   },
   {
     "id": "PGUD-CIT04",
     "page": "pages/universal-design.html",
     "cite_num": 4,
+    "line": 714,
+    "title": "Federal Website Standards - Digital.gov",
+    "url": "https://standards.digital.gov/standards/"
+  },
+  {
+    "id": "PGUD-CIT05",
+    "page": "pages/universal-design.html",
+    "cite_num": 5,
     "line": 717,
     "title": "Universal Design for Learning - Virginia Tech",
     "url": "https://tlos.vt.edu/services/udl.html"
@@ -1307,48 +1931,104 @@
     "id": "PTIX-CIT01",
     "page": "patterns/index.html",
     "cite_num": 1,
-    "line": 604,
-    "title": "AI Index Report 2025 - Stanford Human-Centered AI Institute (2025)",
-    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+    "line": 199,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "PTIX-CIT02",
     "page": "patterns/index.html",
     "cite_num": 2,
-    "line": 607,
-    "title": "Chain of Thought Prompting Research - Wharton Generative AI Lab",
-    "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/"
+    "line": 604,
+    "title": "AI Index Report 2025 &mdash; Stanford Human-Centered AI Institute (2025)",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
   },
   {
     "id": "PTIX-CIT03",
     "page": "patterns/index.html",
     "cite_num": 3,
+    "line": 607,
+    "title": "Chain of Thought Prompting Research - Wharton Generative AI Lab",
+    "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/"
+  },
+  {
+    "id": "PTIX-CIT04",
+    "page": "patterns/index.html",
+    "cite_num": 4,
     "line": 610,
-    "title": "Can Large Language Models Figure Out the Real World? - MIT News (August 2025)",
+    "title": "Can Large Language Models Figure Out the Real World? &mdash; MIT News (August 2025)",
     "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825"
+  },
+  {
+    "id": "QZIX-CIT01",
+    "page": "quiz/index.html",
+    "cite_num": 1,
+    "line": 199,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "TLAZ-CIT01",
+    "page": "tools/analyzer.html",
+    "cite_num": 1,
+    "line": 204,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "TLCK-CIT01",
     "page": "tools/checklist.html",
     "cite_num": 1,
+    "line": 204,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "TLCK-CIT02",
+    "page": "tools/checklist.html",
+    "cite_num": 2,
     "line": 449,
-    "title": "AI Index Report 2025 - Stanford Human-Centered AI Institute (2025)",
+    "title": "AI Index Report 2025 &mdash; Stanford Human-Centered AI Institute (2025)",
     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
   },
   {
     "id": "TLHL-CIT01",
     "page": "tools/hallucination.html",
     "cite_num": 1,
-    "line": 456,
-    "title": "AI Risk Management Framework - NIST",
-    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    "line": 204,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   },
   {
     "id": "TLHL-CIT02",
     "page": "tools/hallucination.html",
     "cite_num": 2,
+    "line": 456,
+    "title": "AI Risk Management Framework - NIST",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+  },
+  {
+    "id": "TLHL-CIT03",
+    "page": "tools/hallucination.html",
+    "cite_num": 3,
     "line": 459,
     "title": "Generative AI Risk Profile (NIST-AI-600-1) - NIST",
     "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+  },
+  {
+    "id": "TLMT-CIT01",
+    "page": "tools/matcher.html",
+    "cite_num": 1,
+    "line": 204,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
+  },
+  {
+    "id": "TLPA-CIT01",
+    "page": "tools/persona.html",
+    "cite_num": 1,
+    "line": 204,
+    "title": "Community\n                        GitHub",
+    "url": "https://github.com/PowerOfPraxis/PraxisLibrary"
   }
 ]

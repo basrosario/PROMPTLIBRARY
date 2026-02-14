@@ -37,7 +37,23 @@
         "DS": "dspy.html",
         "CK": "checklist.html",
         "HL": "hallucination.html",
-        "AT": "about.html"
+        "AT": "about.html",
+        "GL": "glossary.html",
+        "DR": "data-retention-policy.html",
+        "AR": "audit-report.html",
+        "AL": "alibaba.html",
+        "AN": "anthropic.html",
+        "CO": "cohere.html",
+        "DE": "deepseek.html",
+        "GO": "google.html",
+        "ME": "meta.html",
+        "MI": "mistral.html",
+        "OA": "openai.html",
+        "XA": "xai.html",
+        "AZ": "analyzer.html",
+        "MT": "matcher.html",
+        "PA": "persona.html",
+        "PT": "patterns.html"
       }
     }
   },
@@ -176,6 +192,176 @@
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://www.unesco.org/ethics-ai/en/articles/ai-literacy-and-new-digital-divide-global-call-action",
       "verified_by": "human",
       "verified_date": "2026-02-13"
+    },
+    {
+      "id": "BMAL-CIT01",
+      "citation": "official Qwen team announcements",
+      "url": "https://qwenlm.github.io/blog/qwen2.5-llm/",
+      "page": "benchmarks/alibaba.html",
+      "line": 187,
+      "proof": "assets/Citation images/BMAL-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAL-CIT02",
+      "citation": "86.1% on MMLU",
+      "url": "https://qwenlm.github.io/blog/qwen2.5-llm/",
+      "page": "benchmarks/alibaba.html",
+      "line": 202,
+      "proof": "assets/Citation images/BMAL-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT01",
+      "citation": "official Anthropic announcements",
+      "url": "https://www.anthropic.com/news/claude-4",
+      "page": "benchmarks/anthropic.html",
+      "line": 235,
+      "proof": "assets/Citation images/BMAN-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT02",
+      "citation": "Anthropic announcement",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "page": "benchmarks/anthropic.html",
+      "line": 241,
+      "proof": "assets/Citation images/BMAN-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT03",
+      "citation": "Anthropic announcement",
+      "url": "https://www.anthropic.com/news/claude-4",
+      "page": "benchmarks/anthropic.html",
+      "line": 281,
+      "proof": "assets/Citation images/BMAN-CIT03.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT04",
+      "citation": "Anthropic announcement",
+      "url": "https://www.anthropic.com/news/claude-4",
+      "page": "benchmarks/anthropic.html",
+      "line": 294,
+      "proof": "assets/Citation images/BMAN-CIT04.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT05",
+      "citation": "Anthropic model card (PDF)",
+      "url": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
+      "page": "benchmarks/anthropic.html",
+      "line": 315,
+      "proof": "assets/Citation images/BMAN-CIT05.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT06",
+      "citation": "Anthropic model card (PDF)",
+      "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf",
+      "page": "benchmarks/anthropic.html",
+      "line": 323,
+      "proof": "assets/Citation images/BMAN-CIT06.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMAN-CIT07",
+      "citation": "Anthropic model card (PDF)",
+      "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf",
+      "page": "benchmarks/anthropic.html",
+      "line": 335,
+      "proof": "assets/Citation images/BMAN-CIT07.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMCO-CIT01",
+      "citation": "Command A Technical Report",
+      "url": "https://cohere.com/research/papers/command-a-technical-report.pdf",
+      "page": "benchmarks/cohere.html",
+      "line": 187,
+      "proof": "assets/Citation images/BMCO-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMCO-CIT02",
+      "citation": "85.5% on MMLU",
+      "url": "https://cohere.com/research/papers/command-a-technical-report.pdf",
+      "page": "benchmarks/cohere.html",
+      "line": 193,
+      "proof": "assets/Citation images/BMCO-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMDE-CIT01",
+      "citation": "DeepSeek-R1 paper",
+      "url": "https://arxiv.org/html/2501.12948v1",
+      "page": "benchmarks/deepseek.html",
+      "line": 185,
+      "proof": "assets/Citation images/BMDE-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMDE-CIT02",
+      "citation": "V3 technical report",
+      "url": "https://arxiv.org/html/2412.19437v1",
+      "page": "benchmarks/deepseek.html",
+      "line": 185,
+      "proof": "assets/Citation images/BMDE-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMGO-CIT01",
+      "citation": "official Google announcements",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
+      "page": "benchmarks/google.html",
+      "line": 215,
+      "proof": "assets/Citation images/BMGO-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMME-CIT01",
+      "citation": "official Meta pages",
+      "url": "https://www.llama.com/models/llama-4/",
+      "page": "benchmarks/meta.html",
+      "line": 191,
+      "proof": "assets/Citation images/BMME-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMMI-CIT01",
+      "citation": "official Mistral announcements",
+      "url": "https://mistral.ai/news/mistral-large-2407",
+      "page": "benchmarks/mistral.html",
+      "line": 187,
+      "proof": "assets/Citation images/BMMI-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "BMMI-CIT02",
+      "citation": "84.0% on MMLU",
+      "url": "https://mistral.ai/news/mistral-large-2407",
+      "page": "benchmarks/mistral.html",
+      "line": 203,
+      "proof": "assets/Citation images/BMMI-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
     }
   ]
 }
