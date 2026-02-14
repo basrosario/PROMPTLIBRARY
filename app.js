@@ -518,7 +518,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         var text = document.createElement('span');
         text.className = 'maintenance-banner__text';
-        text.textContent = 'Maintenance \u2014 Link verification in progress. External citations are pending review & verification.';
+        text.textContent = 'Maintenance \u2014 Link verification in progress. External citations are pending review & verification. \u2014 ';
+
+        var link = document.createElement('a');
+        link.className = 'maintenance-banner__link';
+        link.href = resolveInternalUrl('pages/audit-report.html');
+        link.textContent = 'Audit Report';
+        text.appendChild(link);
 
         inner.appendChild(icon);
         inner.appendChild(text);
