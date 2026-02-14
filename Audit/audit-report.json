@@ -1,9 +1,9 @@
 {
   "metadata": {
     "date": "2026-02-14",
-    "time": "01:11:08",
-    "timestamp": "2026-02-14T01:11:08.215960",
-    "duration": 27.4,
+    "time": "01:59:42",
+    "timestamp": "2026-02-14T01:59:42.060558",
+    "duration": 18.9,
     "tool_version": "PraxisLibraryAudit.py v3.0",
     "url_checks_enabled": true
   },
@@ -33,13 +33,13 @@
   },
   "summary": {
     "overall_score": 0.0,
-    "categories_passed": 7,
+    "categories_passed": 8,
     "categories_total": 11,
-    "total_errors": 184,
+    "total_errors": 180,
     "total_warnings": 0,
-    "total_info": 30,
+    "total_info": 9,
     "total_verified": 6,
-    "unique_error_types": 140,
+    "unique_error_types": 136,
     "unique_warning_types": 0,
     "citations_verified": 6
   },
@@ -50,7 +50,7 @@
       "slug": "security",
       "passed": true,
       "files_scanned": 236,
-      "checks_run": 204711,
+      "checks_run": 204788,
       "error_count": 0,
       "warning_count": 0,
       "info_count": 0,
@@ -250,8 +250,8 @@
       "slug": "link-integrity",
       "passed": false,
       "files_scanned": 235,
-      "checks_run": 16266,
-      "error_count": 15,
+      "checks_run": 16267,
+      "error_count": 14,
       "warning_count": 0,
       "info_count": 0,
       "verified_count": 4,
@@ -280,12 +280,6 @@
         }
       ],
       "errors": [
-        {
-          "file_path": "learn/dspy.html",
-          "line_number": 558,
-          "message": "Broken internal link: hero.jpg -> learn/hero.jpg",
-          "suggestion": "Fix the href path or create the missing file"
-        },
         {
           "file_path": "benchmarks/openai.html",
           "line_number": 249,
@@ -418,7 +412,7 @@
       "slug": "content-readiness",
       "passed": true,
       "files_scanned": 235,
-      "checks_run": 204711,
+      "checks_run": 204788,
       "error_count": 0,
       "warning_count": 0,
       "info_count": 1,
@@ -525,7 +519,7 @@
       "slug": "bias-inclusivity",
       "passed": true,
       "files_scanned": 235,
-      "checks_run": 72279,
+      "checks_run": 72314,
       "error_count": 0,
       "warning_count": 0,
       "info_count": 7,
@@ -618,7 +612,7 @@
       "slug": "accessibility",
       "passed": true,
       "files_scanned": 235,
-      "checks_run": 16262,
+      "checks_run": 16263,
       "error_count": 0,
       "warning_count": 0,
       "info_count": 0,
@@ -676,15 +670,15 @@
       "checks_run": 485,
       "error_count": 165,
       "warning_count": 0,
-      "info_count": 21,
+      "info_count": 0,
       "verified_count": 2,
-      "description": "Source verification — counts .gov/.edu citations, verifies sources with human oversight, and enforces the 2024+ freshness policy.",
-      "why": "An AI education site must cite authoritative, current sources. The project's sourcing policy requires .gov and .edu domains only (except benchmark pages). Citations older than 2024 are ERROR-level violations because AI research evolves rapidly and outdated data misleads users. Every statistic displayed in highlight boxes or stat cards must have visible source attribution. Citation tracking (`data-added` attributes) enables ongoing freshness auditing. This category enforces the full sourcing standards defined in `.claude/sourcingstandards.md`.",
+      "description": "Source verification — counts institutional citations (Tier 1-4 authority model), verifies sources with human oversight, and enforces the 2024+ freshness policy.",
+      "why": "An AI education site must cite authoritative, current sources. The project's 4-tier sourcing policy (v2.0) requires institutional sources: Tier 1 (gov/edu/intl orgs), Tier 2 (research bodies), Tier 3 (primary company data), Tier 4 (research-grade editorial). Citations older than 2024 are ERROR-level violations because AI research evolves rapidly and outdated data misleads users. Every statistic displayed in highlight boxes or stat cards must have visible source attribution. Citation tracking (`data-added` attributes) enables ongoing freshness auditing. This category enforces the full sourcing standards defined in `.claude/sourcingstandards.md`.",
       "checks": [
         {
-          "name": ".gov/.edu citation status",
-          "severity": "INFO",
-          "description": "Reports per-page .gov/.edu link count with verification status (verified by default, skip with --skip-urls)"
+          "name": "Institutional citation verification",
+          "severity": "ERROR/VERIFIED",
+          "description": "Each institutional URL is individually checked — unverified get ERROR, human-verified get VERIFIED badge"
         },
         {
           "name": "Highlight box attribution",
@@ -709,7 +703,7 @@
         {
           "name": "Citation URL reachability",
           "severity": "ERROR",
-          "description": "HTTP HEAD/GET check for each .gov/.edu URL. Bot-blocked domains require screenshot proof in assets/Citation images/ — verified get INFO, unverified get ERROR. Skip HTTP checks with `--skip-urls`."
+          "description": "HTTP HEAD/GET check for each institutional URL. Bot-blocked domains require screenshot proof in assets/Citation images/ — verified get INFO, unverified get ERROR. Skip HTTP checks with `--skip-urls`."
         }
       ],
       "errors": [
@@ -735,6 +729,18 @@
           "file_path": "foundations/index.html",
           "line_number": 1712,
           "message": "UNVERIFIED (200): \"Agentic AI: 4 New Studies from MIT Initiative on the Digital Economy\" -> https://mitsloan.mit.edu/ideas-made-to-matter/4-new-studies-about-agentic-ai-mit-initiative-digital-economy",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "foundations/index.html",
+          "line_number": 1670,
+          "message": "UNVERIFIED (200): \"History of Artificial Intelligence\" -> https://hai.stanford.edu/news/history-artificial-intelligence",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "foundations/index.html",
+          "line_number": 1614,
+          "message": "UNVERIFIED (200): \"Defining ChatGPT\" -> https://hai.stanford.edu/news/defining-chatgpt",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -781,18 +787,6 @@
         },
         {
           "file_path": "foundations/index.html",
-          "line_number": 1670,
-          "message": "UNVERIFIED (200): \"History of Artificial Intelligence\" -> https://hai.stanford.edu/news/history-artificial-intelligence",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "foundations/index.html",
-          "line_number": 1614,
-          "message": "UNVERIFIED (200): \"Defining ChatGPT\" -> https://hai.stanford.edu/news/defining-chatgpt",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "foundations/index.html",
           "line_number": 1726,
           "message": "UNVERIFIED (200): \"AgentFlow: In-the-Flow Agentic System Optimization\" -> https://agentflow.stanford.edu/",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
@@ -829,6 +823,12 @@
         },
         {
           "file_path": "learn/facts-fictions.html",
+          "line_number": 1384,
+          "message": "UNVERIFIED (200): \"Prompt Engineering is Complicated and Contingent - Wharton Generative AI Labs\" -> https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "learn/facts-fictions.html",
           "line_number": 1387,
           "message": "UNVERIFIED (200): \"The Decreasing Value of Chain of Thought in Prompting - Wharton Generative AI...\" -> https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
@@ -841,20 +841,14 @@
         },
         {
           "file_path": "learn/facts-fictions.html",
-          "line_number": 1384,
-          "message": "UNVERIFIED (200): \"Prompt Engineering is Complicated and Contingent - Wharton Generative AI Labs\" -> https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/",
+          "line_number": 1396,
+          "message": "UNVERIFIED (200): \"Debunking 5 Artificial Intelligence Myths - University of Minnesota Carlson S...\" -> https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
           "file_path": "learn/facts-fictions.html",
           "line_number": 1402,
           "message": "UNVERIFIED (200): \"National Artificial Intelligence Policy - The White House (Dec 2025)\" -> https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "learn/facts-fictions.html",
-          "line_number": 1396,
-          "message": "UNVERIFIED (200): \"Debunking 5 Artificial Intelligence Myths - University of Minnesota Carlson S...\" -> https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -895,7 +889,7 @@
         },
         {
           "file_path": "pages/responsible-ai.html",
-          "line_number": 715,
+          "line_number": 788,
           "message": "UNVERIFIED (200): \"AI Risk Management Framework - NIST\" -> https://www.nist.gov/itl/ai-risk-management-framework",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
@@ -903,24 +897,6 @@
           "file_path": "tools/hallucination.html",
           "line_number": 456,
           "message": "UNVERIFIED (200): \"AI Risk Management Framework - NIST\" -> https://www.nist.gov/itl/ai-risk-management-framework",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/adhd.html",
-          "line_number": 251,
-          "message": "UNVERIFIED (200): \"The Future of ADHD (2026) Stanford Engineering - How technology and AI are sh...\" -> https://engineering.stanford.edu/news/future-adhd",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/adhd.html",
-          "line_number": 387,
-          "message": "UNVERIFIED (200): \"The Future of ADHD - Stanford University School of Engineering (Jan 2026)\" -> https://engineering.stanford.edu/news/future-adhd",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 193,
-          "message": "UNVERIFIED (200): \"The Future of ADHD (2026) Stanford Engineering - How technology and AI are sh...\" -> https://engineering.stanford.edu/news/future-adhd",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -960,9 +936,33 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
+          "file_path": "neurodivergence/adhd.html",
+          "line_number": 251,
+          "message": "UNVERIFIED (200): \"The Future of ADHD (2026) Stanford Engineering - How technology and AI are sh...\" -> https://engineering.stanford.edu/news/future-adhd",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/adhd.html",
+          "line_number": 387,
+          "message": "UNVERIFIED (200): \"The Future of ADHD - Stanford University School of Engineering (Jan 2026)\" -> https://engineering.stanford.edu/news/future-adhd",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 193,
+          "message": "UNVERIFIED (200): \"The Future of ADHD (2026) Stanford Engineering - How technology and AI are sh...\" -> https://engineering.stanford.edu/news/future-adhd",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
           "file_path": "foundations/index.html",
           "line_number": 1761,
           "message": "UNVERIFIED (200): \"AI Chatbot Snapshot - JCOTS\" -> https://dls.virginia.gov/commissions/jcots/materials/snapshot_%20ai_chatbot_june2025.pdf",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "learn/facts-fictions.html",
+          "line_number": 1393,
+          "message": "UNVERIFIED (200): \"AI Myths Vs. Reality - UC Colorado Springs Library\" -> https://libguides.uccs.edu/c.php?g=1357807&amp;p=10026003",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -981,30 +981,6 @@
           "file_path": "neurodivergence/tools.html",
           "line_number": 209,
           "message": "UNVERIFIED (200): \"AI for Mental Health Lab (2025) Stanford Medicine - Data-driven methods and A...\" -> https://med.stanford.edu/ai-4-mental-health-lab.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "learn/facts-fictions.html",
-          "line_number": 1393,
-          "message": "UNVERIFIED (200): \"AI Myths Vs. Reality - UC Colorado Springs Library\" -> https://libguides.uccs.edu/c.php?g=1357807&amp;p=10026003",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/adhd.html",
-          "line_number": 308,
-          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 313,
-          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 369,
-          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1062,6 +1038,24 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
+          "file_path": "neurodivergence/adhd.html",
+          "line_number": 308,
+          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 313,
+          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 369,
+          "message": "UNVERIFIED (200): \"Stanford Neurodiversity Summit 2025 Stanford Medicine - Annual summit on AI, ...\" -> https://med.stanford.edu/neurodiversity/SNS2025.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
           "file_path": "neurodivergence/autism.html",
           "line_number": 248,
           "message": "UNVERIFIED (200): \"AI-Driven Autism Brain Detection Stanford HAI - Algorithm that detects autism...\" -> https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints",
@@ -1116,42 +1110,6 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 272,
-          "message": "UNVERIFIED (200): \"AI for Autism Digital Therapy Stanford Neuroscience - AI-powered digital ther...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 406,
-          "message": "UNVERIFIED (200): \"Autism Digital Therapy with AI for Progress Tracking - Stanford Wu Tsai Neuro...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 253,
-          "message": "UNVERIFIED (200): \"AI for Autism Digital Therapy (2025) Stanford Neuroscience - AI-powered digit...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 264,
-          "message": "UNVERIFIED (200): \"AI Robots for Autistic Workers (2025) Virginia Tech - Collaborative robots de...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 403,
-          "message": "UNVERIFIED (200): \"Smarter Robots Could Help Autistic Adults Thrive in Manufacturing - Virginia ...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 245,
-          "message": "UNVERIFIED (200): \"AI Robots for Autistic Workers (2025) Virginia Tech - Smarter robots designed...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
           "file_path": "neurodivergence/adhd.html",
           "line_number": 292,
           "message": "UNVERIFIED (200): \"AI-Based Disability Tools Guide Texas Tech University - Curated guide to AI t...\" -> https://guides.library.ttu.edu/c.php?g=1398509",
@@ -1173,6 +1131,42 @@
           "file_path": "neurodivergence/tools.html",
           "line_number": 385,
           "message": "UNVERIFIED (200): \"AI-Based Disability Tools Guide Texas Tech University - Curated guide to AI t...\" -> https://guides.library.ttu.edu/c.php?g=1398509",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 264,
+          "message": "UNVERIFIED (200): \"AI Robots for Autistic Workers (2025) Virginia Tech - Collaborative robots de...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 403,
+          "message": "UNVERIFIED (200): \"Smarter Robots Could Help Autistic Adults Thrive in Manufacturing - Virginia ...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 245,
+          "message": "UNVERIFIED (200): \"AI Robots for Autistic Workers (2025) Virginia Tech - Smarter robots designed...\" -> https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 280,
+          "message": "UNVERIFIED (200): \"NIH Autism Research Data Center (2025) Weill Cornell Medicine - $5.1M NIH gra...\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 409,
+          "message": "UNVERIFIED (200): \"NIH Grant Will Fund Autism Research Center - Weill Cornell Medicine (Oct 2025)\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 261,
+          "message": "UNVERIFIED (200): \"NIH Autism Research Data Center (2025) Weill Cornell Medicine - NIH-funded ce...\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1219,24 +1213,6 @@
         },
         {
           "file_path": "neurodivergence/autism.html",
-          "line_number": 280,
-          "message": "UNVERIFIED (200): \"NIH Autism Research Data Center (2025) Weill Cornell Medicine - $5.1M NIH gra...\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 409,
-          "message": "UNVERIFIED (200): \"NIH Grant Will Fund Autism Research Center - Weill Cornell Medicine (Oct 2025)\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 261,
-          "message": "UNVERIFIED (200): \"NIH Autism Research Data Center (2025) Weill Cornell Medicine - NIH-funded ce...\" -> https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
           "line_number": 305,
           "message": "UNVERIFIED (200): \"Disability, Access & AI Summit Cornell Tech - First-ever summit on disability...\" -> https://tech.cornell.edu/news/disability-access-tech-ai-summit-cornell-tech/",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
@@ -1263,6 +1239,24 @@
           "file_path": "neurodivergence/tools.html",
           "line_number": 201,
           "message": "UNVERIFIED (200): \"AI for Neurodevelopmental Detection (2025) Northeastern University - Innovati...\" -> https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 272,
+          "message": "UNVERIFIED (200): \"AI for Autism Digital Therapy Stanford Neuroscience - AI-powered digital ther...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/autism.html",
+          "line_number": 406,
+          "message": "UNVERIFIED (200): \"Autism Digital Therapy with AI for Progress Tracking - Stanford Wu Tsai Neuro...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 253,
+          "message": "UNVERIFIED (200): \"AI for Autism Digital Therapy (2025) Stanford Neuroscience - AI-powered digit...\" -> https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1302,18 +1296,6 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 235,
-          "message": "UNVERIFIED (200): \"NIMH: ADHD Symptoms, diagnosis, treatment, and emerging tech research.\" -> https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 673,
-          "message": "UNVERIFIED (200): \"NIMH: Attention-Deficit/Hyperactivity Disorder (ADHD)\" -> https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
           "file_path": "neurodivergence/dyslexia.html",
           "line_number": 252,
           "message": "UNVERIFIED (200): \"AI-Powered Dyslexia Detection (2025) University at Buffalo - AI-powered handw...\" -> https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html",
@@ -1329,6 +1311,18 @@
           "file_path": "neurodivergence/tools.html",
           "line_number": 289,
           "message": "UNVERIFIED (200): \"AI-Powered Dyslexia Detection (2025) University at Buffalo - AI-powered handw...\" -> https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 235,
+          "message": "UNVERIFIED (200): \"NIMH: ADHD Symptoms, diagnosis, treatment, and emerging tech research.\" -> https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 673,
+          "message": "UNVERIFIED (200): \"NIMH: Attention-Deficit/Hyperactivity Disorder (ADHD)\" -> https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1357,18 +1351,6 @@
         },
         {
           "file_path": "neurodivergence/resources.html",
-          "line_number": 279,
-          "message": "UNVERIFIED (200): \"AI & Accessibility (2025) Cornell University - Guide to generative AI accessi...\" -> https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 688,
-          "message": "UNVERIFIED (200): \"Generative AI and Accessibility - Cornell University Center for Teaching Inno...\" -> https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
           "line_number": 243,
           "message": "UNVERIFIED (200): \"NIMH: Autism Research focus areas, clinical trials, and federal resources.\" -> https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
@@ -1377,6 +1359,18 @@
           "file_path": "neurodivergence/resources.html",
           "line_number": 676,
           "message": "UNVERIFIED (200): \"NIMH: Autism Spectrum Disorder (ASD)\" -> https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 279,
+          "message": "UNVERIFIED (200): \"AI & Accessibility (2025) Cornell University - Guide to generative AI accessi...\" -> https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 688,
+          "message": "UNVERIFIED (200): \"Generative AI and Accessibility - Cornell University Center for Teaching Inno...\" -> https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1423,6 +1417,30 @@
         },
         {
           "file_path": "neurodivergence/resources.html",
+          "line_number": 328,
+          "message": "UNVERIFIED (200): \"NSF Track H $11.8M funding 16 teams building accessible AI technology.\" -> https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons (redirects to https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons-disabilities)",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 700,
+          "message": "UNVERIFIED (200): \"NSF Convergence Accelerator Track H: Enhancing Opportunities for Persons with...\" -> https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons (redirects to https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons-disabilities)",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 271,
+          "message": "UNVERIFIED (200): \"AI & ND Gene Discovery (2025) Baylor College of Medicine - AI accelerates dis...\" -> https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
+          "line_number": 685,
+          "message": "UNVERIFIED (200): \"AI Accelerates Discovery of Genes Associated with Neurodevelopmental Disorder...\" -> https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/resources.html",
           "line_number": 304,
           "message": "UNVERIFIED (200): \"ED.gov: AI Guidance Federal hub for AI policy in schools and responsible AI use.\" -> https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
@@ -1443,30 +1461,6 @@
           "file_path": "pages/faq.html",
           "line_number": 811,
           "message": "UNVERIFIED (200): \"AI Guidance for Education - U.S. Department of Education\" -> https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 271,
-          "message": "UNVERIFIED (200): \"AI & ND Gene Discovery (2025) Baylor College of Medicine - AI accelerates dis...\" -> https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 685,
-          "message": "UNVERIFIED (200): \"AI Accelerates Discovery of Genes Associated with Neurodevelopmental Disorder...\" -> https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 328,
-          "message": "UNVERIFIED (200): \"NSF Track H $11.8M funding 16 teams building accessible AI technology.\" -> https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons (redirects to https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons-disabilities)",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 700,
-          "message": "UNVERIFIED (200): \"NSF Convergence Accelerator Track H: Enhancing Opportunities for Persons with...\" -> https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons (redirects to https://www.nsf.gov/funding/initiatives/convergence-accelerator/updates/nsf-accelerates-use-inspired-solutions-persons-disabilities)",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1536,12 +1530,6 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 333,
-          "message": "UNVERIFIED (200): \"How AI Is Transforming Accessibility (2025) San Diego State University - How ...\" -> https://accessibility.sdsu.edu/news/how-ai-is-transforming-accessibility",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
           "file_path": "neurodivergence/resources.html",
           "line_number": 312,
           "message": "UNVERIFIED (200): \"IES/NSF: AI + Disability Funding AI innovations for learners with disabilities.\" -> https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities",
@@ -1551,6 +1539,12 @@
           "file_path": "neurodivergence/resources.html",
           "line_number": 694,
           "message": "UNVERIFIED (200): \"IES/NSF: AI-Augmented Learning for Individuals with Disabilities\" -> https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "neurodivergence/tools.html",
+          "line_number": 333,
+          "message": "UNVERIFIED (200): \"How AI Is Transforming Accessibility (2025) San Diego State University - How ...\" -> https://accessibility.sdsu.edu/news/how-ai-is-transforming-accessibility",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1572,39 +1566,9 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "pages/ai-safety.html",
-          "line_number": 556,
-          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "pages/responsible-ai.html",
-          "line_number": 718,
-          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "tools/hallucination.html",
-          "line_number": 459,
-          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "pages/ai-assisted-building.html",
-          "line_number": 637,
-          "message": "UNVERIFIED (200): \"Generative AI in Software Engineering - Carnegie Mellon SEI\" -> https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
           "file_path": "pages/ai-for-everybody.html",
           "line_number": 662,
           "message": "UNVERIFIED (200): \"Technology Impact on Businesses - U.S. Census Bureau, September 2025\" -> https://www.census.gov/library/stories/2025/09/technology-impact.html",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "pages/resources.html",
-          "line_number": 458,
-          "message": "UNVERIFIED (200): \"White House AI Education Pledge 135+ organizations committed to AI education ...\" -> https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1620,9 +1584,39 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
+          "file_path": "pages/ai-safety.html",
+          "line_number": 556,
+          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "pages/responsible-ai.html",
+          "line_number": 791,
+          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "tools/hallucination.html",
+          "line_number": 459,
+          "message": "UNVERIFIED (200): \"Generative AI Risk Profile (NIST-AI-600-1) - NIST\" -> https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
           "file_path": "pages/performance.html",
           "line_number": 723,
           "message": "UNVERIFIED (200): \"FY 2024 Section 508 Assessment - Digital.gov\" -> https://digital.gov/2024/12/20/fy-24-governmentwide-section-508-assessment/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "pages/resources.html",
+          "line_number": 458,
+          "message": "UNVERIFIED (200): \"White House AI Education Pledge 135+ organizations committed to AI education ...\" -> https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "pages/ai-for-everybody.html",
+          "line_number": 659,
+          "message": "UNVERIFIED (200): \"Survey Highlights Emerging Divide Over Artificial Intelligence in the U.S. - ...\" -> https://newbrunswick.rutgers.edu/news/survey-highlights-emerging-divide-over-artificial-intelligence-us",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1638,33 +1632,15 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "pages/resources.html",
-          "line_number": 470,
-          "message": "UNVERIFIED (200): \"NSF EducateAI Program $8M investment in K-12 through graduate AI education\" -> https://www.nsf.gov/news/nsf-investing-nearly-8m-educateai-awards-develop-next (redirects to https://www.nsf.gov/news)",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "pages/security.html",
-          "line_number": 638,
-          "message": "UNVERIFIED (200): \"Cybersecurity Technique 2.0 - NIST\" -> https://www.nist.gov/cyberframework",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
-          "file_path": "pages/ai-for-everybody.html",
-          "line_number": 659,
-          "message": "UNVERIFIED (200): \"Survey Highlights Emerging Divide Over Artificial Intelligence in the U.S. - ...\" -> https://newbrunswick.rutgers.edu/news/survey-highlights-emerging-divide-over-artificial-intelligence-us",
-          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
-        },
-        {
           "file_path": "pages/ai-assisted-building.html",
           "line_number": 640,
           "message": "UNVERIFIED (200): \"AI-Augmented Software Engineering - Carnegie Mellon SEI\" -> https://insights.sei.cmu.edu/ai-augmented-software-engineering/ (redirects to https://www.sei.cmu.edu/ai-augmented-software-engineering/)",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
-          "file_path": "pages/security.html",
-          "line_number": 650,
-          "message": "UNVERIFIED (200): \"nist.gov/cybersecurity\" -> https://www.nist.gov/cybersecurity (redirects to https://www.nist.gov/cybersecurity-and-privacy)",
+          "file_path": "pages/resources.html",
+          "line_number": 470,
+          "message": "UNVERIFIED (200): \"NSF EducateAI Program $8M investment in K-12 through graduate AI education\" -> https://www.nsf.gov/news/nsf-investing-nearly-8m-educateai-awards-develop-next (redirects to https://www.nsf.gov/news)",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1674,9 +1650,27 @@
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
+          "file_path": "pages/security.html",
+          "line_number": 638,
+          "message": "UNVERIFIED (200): \"Cybersecurity Technique 2.0 - NIST\" -> https://www.nist.gov/cyberframework",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "pages/security.html",
+          "line_number": 650,
+          "message": "UNVERIFIED (200): \"nist.gov/cybersecurity\" -> https://www.nist.gov/cybersecurity (redirects to https://www.nist.gov/cybersecurity-and-privacy)",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
           "file_path": "pages/universal-design.html",
           "line_number": 708,
           "message": "UNVERIFIED (200): \"Revised 508 Standards and 255 Guidelines - U.S. Access Board\" -> https://www.access-board.gov/ict/",
+          "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
+        },
+        {
+          "file_path": "pages/ai-assisted-building.html",
+          "line_number": 637,
+          "message": "UNVERIFIED (200): \"Generative AI in Software Engineering - Carnegie Mellon SEI\" -> https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/",
           "suggestion": "Link reachable but not yet human-verified — add screenshot proof to assets/Citation images/ and register in Audit/verified-items.json"
         },
         {
@@ -1705,134 +1699,7 @@
         }
       ],
       "warnings": [],
-      "infos": [
-        {
-          "file_path": "foundations/index.html",
-          "line_number": 0,
-          "message": "12 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "learn/facts-fictions.html",
-          "line_number": 0,
-          "message": "10 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/adhd.html",
-          "line_number": 0,
-          "message": "13 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/autism.html",
-          "line_number": 0,
-          "message": "15 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/dyslexia.html",
-          "line_number": 0,
-          "message": "10 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/index.html",
-          "line_number": 0,
-          "message": "12 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/resources.html",
-          "line_number": 0,
-          "message": "32 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "neurodivergence/tools.html",
-          "line_number": 0,
-          "message": "27 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/ai-assisted-building.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/ai-for-everybody.html",
-          "line_number": 0,
-          "message": "3 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/ai-safety.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/chatgpt-guide.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/faq.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/performance.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/resources.html",
-          "line_number": 0,
-          "message": "4 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/responsible-ai.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/security.html",
-          "line_number": 0,
-          "message": "7 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "pages/universal-design.html",
-          "line_number": 0,
-          "message": "4 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "patterns/index.html",
-          "line_number": 0,
-          "message": "3 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "tools/checklist.html",
-          "line_number": 0,
-          "message": "1 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        },
-        {
-          "file_path": "tools/hallucination.html",
-          "line_number": 0,
-          "message": "2 .gov/.edu citation(s) — all reachable (HTTP 200)",
-          "suggestion": ""
-        }
-      ],
+      "infos": [],
       "verified": [
         {
           "file_path": "foundations/index.html",
@@ -1980,10 +1847,10 @@
       "id": 11,
       "name": "Documentation",
       "slug": "documentation",
-      "passed": false,
-      "files_scanned": 4,
-      "checks_run": 16,
-      "error_count": 3,
+      "passed": true,
+      "files_scanned": 5,
+      "checks_run": 15,
+      "error_count": 0,
       "warning_count": 0,
       "info_count": 1,
       "verified_count": 0,
@@ -2007,8 +1874,8 @@
         },
         {
           "name": "MASTER-INVENTORY.md count accuracy",
-          "severity": "WARNING",
-          "description": "Cross-references HTML file count and glossary term count against actual filesystem"
+          "severity": "INFO",
+          "description": "Archived in Phase 12 (Session 113) — check skipped"
         },
         {
           "name": "Stale session references",
@@ -2016,26 +1883,7 @@
           "description": "Flags docs whose latest session reference is more than 5 sessions behind the most recent"
         }
       ],
-      "errors": [
-        {
-          "file_path": ".claude/SITEMAP.md",
-          "line_number": 0,
-          "message": "Required document missing: Site map with navigation architecture",
-          "suggestion": "Create .claude/SITEMAP.md"
-        },
-        {
-          "file_path": ".claude/MASTER-INVENTORY.md",
-          "line_number": 0,
-          "message": "Required document missing: Complete file inventory",
-          "suggestion": "Create .claude/MASTER-INVENTORY.md"
-        },
-        {
-          "file_path": ".claude/DOCUMENTATION-AUDIT.md",
-          "line_number": 0,
-          "message": "Required document missing: Documentation freshness audit",
-          "suggestion": "Create .claude/DOCUMENTATION-AUDIT.md"
-        }
-      ],
+      "errors": [],
       "warnings": [],
       "infos": [
         {

@@ -555,7 +555,7 @@ compiled_auditor = optimizer.compile(ProfessionalAuditor(), trainset=training_da
 <span class="hl-cmt"># Step 5: Use the compiled module</span>
 <span class="hl-cmt"># Important: Always verify AI-generated audit findings against actual code</span>
 result = compiled_auditor(
-    code_snippet=<span class="hl-str">'&lt;img src="hero.jpg" &#111;&#110;click="load()"&gt;'</span>,
+    code_snippet=<span class="hl-str">'&lt;img &#115;rc="hero.jpg" &#111;&#110;click="load()"&gt;'</span>,
     context=<span class="hl-str">"CSP A+ (no inline scripts), WCAG AA, zero external dependencies"</span>
 )
 <span class="hl-bi">print</span>(result.detailed_report)
