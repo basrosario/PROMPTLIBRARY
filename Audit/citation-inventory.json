@@ -540,8 +540,8 @@
     "page": "neurodivergence/adhd.html",
     "cite_num": 1,
     "line": 243,
-    "title": "AI for Pediatric ADHD (2024)\n                        Stanford Medicine &mdash; How AI helps research",
-    "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html"
+    "title": "AI for Children with ADHD (2025)\n                        PMC Scoping Review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12058481/"
   },
   {
     "id": "NDAD-CIT02",
@@ -644,16 +644,16 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 1,
     "line": 248,
-    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI &mdash; Algorithm that detects",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours & ASD Diagnosis (2025)\n                        Lancet eBioMedicine &mdash; Systematic review and meta-analysis",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDAU-CIT02",
     "page": "neurodivergence/autism.html",
     "cite_num": 2,
     "line": 256,
-    "title": "Gamifying Autism Diagnosis with AI\n                        Stanford HAI &mdash; Using AI and gamific",
-    "url": "https://hai.stanford.edu/news/gamifying-autism-diagnosis-and-treatment"
+    "title": "Gamified Interventions for Autism\n                        ScienceDirect &mdash; Systematic review and meta-analysis of gamified interventions enhancing social interaction and communication in ASD",
+    "url": "https://www.sciencedirect.com/science/article/pii/S002074892500046X"
   },
   {
     "id": "NDAU-CIT03",
@@ -668,8 +668,8 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 4,
     "line": 272,
-    "title": "AI for Autism Digital Therapy\n                        Stanford Neuroscience &mdash; AI-powered digit",
-    "url": "https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal"
+    "title": "AI Platform for Autism Therapies\n                        JMIR Neurotechnology &mdash; 12-month observational study of AI-based platform effectiveness",
+    "url": "https://neuro.jmir.org/2025/1/e70589"
   },
   {
     "id": "NDAU-CIT05",
@@ -716,16 +716,16 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 10,
     "line": 397,
-    "title": "New AI-Driven Algorithm Can Detect Autism in Brain Fingerprints &mdash; Stanford HAI (2025)",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours and Supporting ASD Diagnosis &mdash; Lancet eBioMedicine (2025)",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDAU-CIT11",
     "page": "neurodivergence/autism.html",
     "cite_num": 11,
     "line": 400,
-    "title": "Gamifying Autism Diagnosis and Treatment &mdash; Stanford HAI (2025)",
-    "url": "https://hai.stanford.edu/news/gamifying-autism-diagnosis-and-treatment"
+    "title": "Gamified Interventions for Social Interaction and Communication in ASD &mdash; ScienceDirect (2025)",
+    "url": "https://www.sciencedirect.com/science/article/pii/S002074892500046X"
   },
   {
     "id": "NDAU-CIT12",
@@ -740,8 +740,8 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 13,
     "line": 406,
-    "title": "Autism Digital Therapy with AI for Progress Tracking &mdash; Stanford Wu Tsai Neurosciences (2025)",
-    "url": "https://neuroscience.stanford.edu/research/funded-research/autism-digital-therapy-embedded-endpoints-and-artificial-intelligence-renewal"
+    "title": "AI-Based Platform for Autism Therapies: 12-Month Study &mdash; JMIR Neurotechnology (2025)",
+    "url": "https://neuro.jmir.org/2025/1/e70589"
   },
   {
     "id": "NDAU-CIT14",
@@ -756,8 +756,8 @@
     "page": "neurodivergence/autism.html",
     "cite_num": 15,
     "line": 412,
-    "title": "U.S. Access Board: AI &amp; Disability (2025)",
-    "url": "https://www.access-board.gov/ai/"
+    "title": "Designing Assistive Technologies for Neurodivergent Users &mdash; Oxford Academic (2025)",
+    "url": "https://academic.oup.com/iwc/advance-article/doi/10.1093/iwc/iwaf037/8276143"
   },
   {
     "id": "NDDY-CIT01",
@@ -804,8 +804,8 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 6,
     "line": 301,
-    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
-    "url": "https://www.access-board.gov/ai/"
+    "title": "AI Interventions for Learning Disabilities\n                        PMC &mdash; Systematic review of AI-based educational interventions for students with learning disabilities including dyslexia",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/"
   },
   {
     "id": "NDDY-CIT07",
@@ -836,8 +836,8 @@
     "page": "neurodivergence/dyslexia.html",
     "cite_num": 10,
     "line": 378,
-    "title": "U.S. Access Board: AI &amp; Disability (2025)",
-    "url": "https://www.access-board.gov/ai/"
+    "title": "AI-Based Interventions for Students with Learning Disabilities: Systematic Review &mdash; PMC (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/"
   },
   {
     "id": "NDIX-CIT01",

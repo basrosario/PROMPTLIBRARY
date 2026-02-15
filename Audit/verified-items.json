@@ -652,6 +652,172 @@
       "proof": "assets/Citation images/FNIX-CIT32.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
+    },
+    {
+      "id": "PGRA-CIT01",
+      "citation": "Community GitHub",
+      "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
+      "page": "pages/responsible-ai.html",
+      "line": 202,
+      "proof": "assets/Citation images/PGRA-CIT01.png",
+      "sig": "Source Verification|VERIFIED (200): \"Community GitHub\" -> https://github.com/PowerOfPraxis/PraxisLibrary",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "PGRA-CIT05",
+      "citation": "Praxis Library repository (Issues)",
+      "url": "https://github.com/PowerOfPraxis/PraxisLibrary/issues",
+      "page": "pages/responsible-ai.html",
+      "line": 695,
+      "proof": "assets/Citation images/PGRA-CIT05.png",
+      "sig": "Link Integrity|Human Verified (bot-blocked domain): https://github.com/PowerOfPraxis/PraxisLibrary/issues",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "PGRA-CIT07",
+      "citation": "pull request",
+      "url": "https://github.com/PowerOfPraxis/PraxisLibrary/pulls",
+      "page": "pages/responsible-ai.html",
+      "line": 701,
+      "proof": "assets/Citation images/PGRA-CIT07.png",
+      "sig": "Link Integrity|Human Verified (bot-blocked domain): https://github.com/PowerOfPraxis/PraxisLibrary/pulls",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "PGAT-CIT02",
+      "citation": "Connect on LinkedIn",
+      "url": "https://www.linkedin.com/in/basiliso-rosario/",
+      "page": "pages/about.html",
+      "line": 395,
+      "proof": "assets/Citation images/PGAT-CIT02.png",
+      "sig": "Link Integrity|Human Verified (bot-blocked domain): https://www.linkedin.com/in/basiliso-rosario/",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "PGSE-CIT04",
+      "citation": "NIST Cybersecurity Framework 2.0 (PDF)",
+      "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+      "page": "pages/security.html",
+      "line": 641,
+      "proof": "assets/Citation images/PGSE-CIT04.png",
+      "sig": "Link Integrity|Human Verified (bot-blocked domain): https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "NDAD-CIT01",
+      "citation": "AI for Children with ADHD — Scoping Review (2025)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12058481/",
+      "page": "neurodivergence/adhd.html",
+      "line": 243,
+      "proof": "assets/Citation images/NDAD-CIT01.png",
+      "sig": "Link Integrity|Human Verified (bot-blocked domain): https://pmc.ncbi.nlm.nih.gov/articles/PMC12058481/",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT01",
+      "citation": "Can Large Language Models Figure Out the Real World? — MIT News (August 2025)",
+      "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
+      "page": "learn/facts-fictions.html",
+      "line": 1381,
+      "proof": "assets/Citation images/LNFF-CIT01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT02",
+      "citation": "Prompt Engineering is Complicated and Contingent — Wharton Generative AI Labs",
+      "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/",
+      "page": "learn/facts-fictions.html",
+      "line": 1384,
+      "proof": "assets/Citation images/LNFF-CIT02.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT03",
+      "citation": "The Decreasing Value of Chain of Thought in Prompting — Wharton Generative AI Labs",
+      "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/",
+      "page": "learn/facts-fictions.html",
+      "line": 1387,
+      "proof": "assets/Citation images/LNFF-CIT03.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT04",
+      "citation": "Seven Myths About AI and Productivity — California Management Review / UC Berkeley (2025)",
+      "url": "https://cmr.berkeley.edu/2025/10/seven-myths-about-ai-and-productivity-what-the-evidence-really-says/",
+      "page": "learn/facts-fictions.html",
+      "line": 1390,
+      "proof": "assets/Citation images/LNFF-CIT04.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT05",
+      "citation": "AI Myths Vs. Reality — UC Colorado Springs Library",
+      "url": "https://libguides.uccs.edu/c.php?g=1357807&p=10026003",
+      "page": "learn/facts-fictions.html",
+      "line": 1393,
+      "proof": "assets/Citation images/LNFF-CIT05.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT06",
+      "citation": "Debunking 5 Artificial Intelligence Myths — University of Minnesota Carlson School",
+      "url": "https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths",
+      "page": "learn/facts-fictions.html",
+      "line": 1396,
+      "proof": "assets/Citation images/LNFF-CIT06.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT07",
+      "citation": "Can Large Language Models Figure Out the Real World? — MIT News (Aug 2025)",
+      "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
+      "page": "learn/facts-fictions.html",
+      "line": 1399,
+      "proof": "assets/Citation images/LNFF-CIT07.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT08",
+      "citation": "National Artificial Intelligence Policy — The White House (Dec 2025)",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+      "page": "learn/facts-fictions.html",
+      "line": 1402,
+      "proof": "assets/Citation images/LNFF-CIT08.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT09",
+      "citation": "AI Risk Management Framework — NIST",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "page": "learn/facts-fictions.html",
+      "line": 1405,
+      "proof": "assets/Citation images/LNFF-CIT09.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "id": "LNFF-CIT10",
+      "citation": "Unpacking Large Language Model Bias — MIT News (June 2025)",
+      "url": "https://news.mit.edu/2025/unpacking-large-language-model-bias-0617",
+      "page": "learn/facts-fictions.html",
+      "line": 1408,
+      "proof": "assets/Citation images/LNFF-CIT10.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-14"
     }
   ]
 }
