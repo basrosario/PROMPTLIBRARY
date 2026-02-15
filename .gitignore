@@ -4,8 +4,7 @@
 # Allow public website directories
 !assets/
 !assets/**
-# Citation screenshots are local-only (Trust Loop proof, not public)
-assets/Citation images/
+# Citation & INFO evidence images are public (Trust Loop screenshots)
 !data/
 !data/**
 !foundations/

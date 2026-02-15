@@ -3,7 +3,7 @@
     "description": "Human-verified citation registry. Each entry uses a 10-character ID (SSPP-CIT##) linking to screenshot evidence.",
     "last_updated": "2026-02-15",
     "screenshot_dir": "assets/Citation images/",
-    "info_screenshot_dir": "assets/information images/",
+    "info_screenshot_dir": "assets/Information Images/",
     "instructions": "Items are added here ONLY when the site owner verifies them with screenshot evidence. Evidence file must exist or the link triggers ERROR.",
     "convention": {
       "format": "SSPP-CIT##",
@@ -2618,7 +2618,7 @@
       "line_number": 664,
       "category": "Content Readiness",
       "reason": "Historical factual date — DPO technique was introduced in 2023, this is a factual reference not outdated content",
-      "evidence": "assets/information images/INFO-01.png",
+      "evidence": "assets/Information Images/INFO-01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2629,7 +2629,7 @@
       "line_number": 505,
       "category": "Bias/Inclusivity",
       "reason": "Neil Armstrong historical quote — 'one giant leap for mankind' is a direct quotation that must be preserved verbatim",
-      "evidence": "assets/information images/INFO-03a.png",
+      "evidence": "assets/Information Images/INFO-03a.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2640,7 +2640,7 @@
       "line_number": 507,
       "category": "Bias/Inclusivity",
       "reason": "Neil Armstrong historical quote verification example — 'one giant leap for mankind' preserved as direct quotation",
-      "evidence": "assets/information images/INFO-03b.png",
+      "evidence": "assets/Information Images/INFO-03b.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2651,7 +2651,7 @@
       "line_number": 0,
       "category": "Documentation",
       "reason": "Permanent reference document — session references are not applicable to sourcing standards specification",
-      "evidence": "assets/information images/INFO-06.png",
+      "evidence": "assets/Information Images/INFO-06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     }

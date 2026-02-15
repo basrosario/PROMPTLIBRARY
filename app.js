@@ -14922,7 +14922,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var data = results[0];
             var verifiedJson = results[1];
             var liveCount = getLiveVerifiedCount();
-            if (liveCount !== null) {
+            if (liveCount !== null && liveCount > (data.summary.citations_verified || 0)) {
                 data.summary.citations_verified = liveCount;
             }
             // Build URL→proof lookup from verified registry
