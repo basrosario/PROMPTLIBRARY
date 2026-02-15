@@ -520,6 +520,24 @@ document.addEventListener('DOMContentLoaded', () => {
         text.className = 'maintenance-banner__text';
         text.textContent = 'Maintenance \u2014 Link verification in progress. External citations are pending review & verification. \u2014 ';
 
+        // Live citation counter from citation-verify localStorage
+        var counterSpan = document.createElement('span');
+        counterSpan.className = 'maintenance-banner__counter';
+        var cvTotal = 254;
+        function updateBannerCounter() {
+            try {
+                var cvState = JSON.parse(localStorage.getItem('praxis-cv4') || '{}');
+                var cvCount = 0;
+                for (var k in cvState) { if (cvState[k]) cvCount++; }
+                counterSpan.textContent = cvCount + '/' + cvTotal + ' \u2014 ';
+            } catch (e) {
+                counterSpan.textContent = '';
+            }
+        }
+        updateBannerCounter();
+        window.addEventListener('storage', updateBannerCounter);
+        text.appendChild(counterSpan);
+
         var link = document.createElement('a');
         link.className = 'maintenance-banner__link';
         link.href = resolveInternalUrl('pages/audit-report.html');

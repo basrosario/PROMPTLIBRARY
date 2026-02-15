@@ -852,8 +852,8 @@
     "page": "neurodivergence/index.html",
     "cite_num": 2,
     "line": 437,
-    "title": "AI-Driven Autism Brain Detection\n                        Stanford HAI &mdash; Algorithm that detects",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours & ASD Diagnosis\n                        Lancet eBioMedicine &mdash; Systematic review and meta-analysis",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDIX-CIT03",
@@ -884,8 +884,8 @@
     "page": "neurodivergence/index.html",
     "cite_num": 6,
     "line": 469,
-    "title": "U.S. Access Board: AI &amp; Disability\n                        Federal agency &mdash; Standards and ",
-    "url": "https://www.access-board.gov/ai/"
+    "title": "Inclusive AI for Neurodivergent Users\n                        Taylor & Francis &mdash; Scoping review of inclusive and adaptive human-AI interaction design",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/17483107.2025.2579822"
   },
   {
     "id": "NDIX-CIT07",
@@ -900,8 +900,8 @@
     "page": "neurodivergence/index.html",
     "cite_num": 8,
     "line": 501,
-    "title": "New AI-Driven Algorithm Can Detect Autism in Brain Fingerprints &mdash; Stanford HAI (2025)",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours and Supporting ASD Diagnosis &mdash; Lancet eBioMedicine (2025)",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDIX-CIT09",
@@ -932,40 +932,40 @@
     "page": "neurodivergence/index.html",
     "cite_num": 12,
     "line": 513,
-    "title": "U.S. Access Board: AI &amp; Disability (2025)",
-    "url": "https://www.access-board.gov/ai/"
+    "title": "Inclusive and Adaptive Human-AI Interaction Design for Neurodivergent Users &mdash; Taylor & Francis (2025)",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/17483107.2025.2579822"
   },
   {
     "id": "NDRS-CIT01",
     "page": "neurodivergence/resources.html",
     "cite_num": 1,
     "line": 235,
-    "title": "NIMH: ADHD\n                        Symptoms, diagnosis, treatment, and emerging tech research.\n     ",
-    "url": "https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd"
+    "title": "AI in ADHD Assessment (2025) — PMC comprehensive review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12436382/"
   },
   {
     "id": "NDRS-CIT02",
     "page": "neurodivergence/resources.html",
     "cite_num": 2,
     "line": 243,
-    "title": "NIMH: Autism\n                        Research focus areas, clinical trials, and federal resources.\n ",
-    "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
+    "title": "AI in ASD Diagnosis (2025) — PMC scoping review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12620671/"
   },
   {
     "id": "NDRS-CIT03",
     "page": "neurodivergence/resources.html",
     "cite_num": 3,
     "line": 251,
-    "title": "CDC: Autism Data\n                        Prevalence data, Milestone Tracker app, and ADDM network.\n ",
-    "url": "https://www.cdc.gov/autism/index.html"
+    "title": "AI-Enabled ASD Identification (2025) — PMC review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12731361/"
   },
   {
     "id": "NDRS-CIT04",
     "page": "neurodivergence/resources.html",
     "cite_num": 4,
     "line": 259,
-    "title": "CDC: 2025 Report\n                        Latest ADDM prevalence estimates and demographic data.\n    ",
-    "url": "https://www.cdc.gov/autism/communication-resources/community-reports.html"
+    "title": "Explainable AI for Autism Detection (2025) — PMC literature review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12214148/"
   },
   {
     "id": "NDRS-CIT05",
@@ -1020,24 +1020,24 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 11,
     "line": 336,
-    "title": "Stanford Neurodiversity\n                        AI job-matching, REACH program, clinic, and annual s",
-    "url": "https://med.stanford.edu/neurodiversity.html"
+    "title": "AI for Adaptive ND Functioning (2025) — npj Digital Medicine systematic review",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11659516/"
   },
   {
     "id": "NDRS-CIT12",
     "page": "neurodivergence/resources.html",
     "cite_num": 12,
     "line": 361,
-    "title": "ADA.gov: AI &amp; Hiring\n                        DOJ guidance on AI discrimination and your right to",
-    "url": "https://www.ada.gov/resources/ai-guidance/"
+    "title": "AI Bias Against ND Terms (2025) — Autism Research",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12233132/"
   },
   {
     "id": "NDRS-CIT13",
     "page": "neurodivergence/resources.html",
     "cite_num": 13,
     "line": 369,
-    "title": "EEOC: AI &amp; the ADA\n                        How the ADA applies to AI in employment decisions.\n  ",
-    "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada"
+    "title": "AI & Disability Employment (2025) — PMC: Impact of AI on unemployment for people with disabilities",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12000049/"
   },
   {
     "id": "NDRS-CIT14",
@@ -1060,8 +1060,8 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 16,
     "line": 405,
-    "title": "ASAN: Self-Advocacy\n                        Autistic-led advocacy, policy, and campus inclusion prog",
-    "url": "https://autisticadvocacy.org/"
+    "title": "AI for ND Equity & Inclusion (2025) — Frontiers in Psychiatry",
+    "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2025.1611101/abstract"
   },
   {
     "id": "NDRS-CIT17",
@@ -1116,32 +1116,32 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 23,
     "line": 673,
-    "title": "NIMH: Attention-Deficit/Hyperactivity Disorder (ADHD)",
-    "url": "https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd"
+    "title": "AI in ADHD Assessment — PMC Comprehensive Review (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12436382/"
   },
   {
     "id": "NDRS-CIT24",
     "page": "neurodivergence/resources.html",
     "cite_num": 24,
     "line": 676,
-    "title": "NIMH: Autism Spectrum Disorder (ASD)",
-    "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
+    "title": "AI in ASD Diagnosis: Face, Voice, and Text Analysis — PMC Scoping Review (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12620671/"
   },
   {
     "id": "NDRS-CIT25",
     "page": "neurodivergence/resources.html",
     "cite_num": 25,
     "line": 679,
-    "title": "CDC: Autism Spectrum Disorder Resources",
-    "url": "https://www.cdc.gov/autism/index.html"
+    "title": "AI-Enabled Technologies and Biomarker Analysis for Early ASD Identification — PMC Review (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12731361/"
   },
   {
     "id": "NDRS-CIT26",
     "page": "neurodivergence/resources.html",
     "cite_num": 26,
     "line": 682,
-    "title": "CDC: Community Report on Autism 2025",
-    "url": "https://www.cdc.gov/autism/communication-resources/community-reports.html"
+    "title": "Explainable AI in Early Autism Detection — PMC Literature Review (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12214148/"
   },
   {
     "id": "NDRS-CIT27",
@@ -1196,24 +1196,24 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 33,
     "line": 703,
-    "title": "Stanford Neurodiversity Project",
-    "url": "https://med.stanford.edu/neurodiversity.html"
+    "title": "AI Technology to Support Adaptive Functioning in Neurodevelopmental Conditions — npj Digital Medicine (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11659516/"
   },
   {
     "id": "NDRS-CIT34",
     "page": "neurodivergence/resources.html",
     "cite_num": 34,
     "line": 706,
-    "title": "ADA.gov: Algorithms, AI, and Disability Discrimination in Hiring",
-    "url": "https://www.ada.gov/resources/ai-guidance/"
+    "title": "Prevalence of Bias Against Neurodivergence-Related Terms in AI Language Models — Autism Research (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12233132/"
   },
   {
     "id": "NDRS-CIT35",
     "page": "neurodivergence/resources.html",
     "cite_num": 35,
     "line": 709,
-    "title": "EEOC: Artificial Intelligence and the ADA",
-    "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada"
+    "title": "Impact of AI on Unemployment for People with Disabilities — PMC (2025)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12000049/"
   },
   {
     "id": "NDRS-CIT36",
@@ -1236,8 +1236,8 @@
     "page": "neurodivergence/resources.html",
     "cite_num": 38,
     "line": 718,
-    "title": "Autistic Self Advocacy Network (ASAN)",
-    "url": "https://autisticadvocacy.org/"
+    "title": "Generative AI for Neurodivergent Equity and Non-Verbal Autistic Inclusion — Frontiers in Psychiatry (2025)",
+    "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2025.1611101/abstract"
   },
   {
     "id": "NDRS-CIT39",
@@ -1308,8 +1308,8 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 5,
     "line": 229,
-    "title": "AI-Driven Autism Brain Detection (2025)\n                        Stanford HAI &mdash; New AI algorith",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours & ASD Diagnosis\n                        Lancet eBioMedicine &mdash; Systematic review and meta-analysis",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDTL-CIT06",
@@ -1452,8 +1452,8 @@
     "page": "neurodivergence/tools.html",
     "cite_num": 23,
     "line": 464,
-    "title": "AI-Driven Algorithm Detects Autism Brain Fingerprints &mdash; Stanford HAI (2025)",
-    "url": "https://hai.stanford.edu/news/new-ai-driven-algorithm-can-detect-autism-brain-fingerprints"
+    "title": "AI for Tracking Social Behaviours and Supporting ASD Diagnosis &mdash; Lancet eBioMedicine (2025)",
+    "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext"
   },
   {
     "id": "NDTL-CIT24",
