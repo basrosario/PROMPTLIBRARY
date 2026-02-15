@@ -462,24 +462,6 @@ document.addEventListener('DOMContentLoaded', () => {
         text.className = 'maintenance-banner__text';
         text.textContent = 'Audit Complete \u2014 All 11 categories passed. 254 citations verified. Score: 10.0/10 \u2014 ';
 
-        // Live citation counter from citation-verify localStorage
-        var counterSpan = document.createElement('span');
-        counterSpan.className = 'maintenance-banner__counter';
-        var cvTotal = 254;
-        function updateBannerCounter() {
-            try {
-                var cvState = JSON.parse(localStorage.getItem('praxis-cv4') || '{}');
-                var cvCount = 0;
-                for (var k in cvState) { if (cvState[k]) cvCount++; }
-                counterSpan.textContent = cvCount + '/' + cvTotal + ' \u2014 ';
-            } catch (e) {
-                counterSpan.textContent = '';
-            }
-        }
-        updateBannerCounter();
-        window.addEventListener('storage', updateBannerCounter);
-        text.appendChild(counterSpan);
-
         var link = document.createElement('a');
         link.className = 'maintenance-banner__link';
         link.href = resolveInternalUrl('pages/audit-report.html');
@@ -14930,24 +14912,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Fetch and render ---
     var jsonUrl = resolvePath('Audit/audit-report.json') + '?v=' + Date.now();
+    var verifiedUrl = resolvePath('Audit/verified-items.json') + '?v=' + Date.now();
 
-    fetch(jsonUrl)
-        .then(function(res) {
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            return res.json();
-        })
-        .then(function(data) {
+    Promise.all([
+        fetch(jsonUrl).then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }),
+        fetch(verifiedUrl).then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
+    ])
+        .then(function(results) {
+            var data = results[0];
+            var verifiedJson = results[1];
             var liveCount = getLiveVerifiedCount();
             if (liveCount !== null) {
                 data.summary.citations_verified = liveCount;
             }
+            // Build URL→proof lookup from verified registry
+            var registry = data.verified_repository || [];
+            var proofLookup = {};
+            registry.forEach(function(entry) {
+                if (entry.url && entry.id) {
+                    proofLookup[entry.url] = resolvePath('assets/Citation images/' + entry.id + '.png');
+                }
+            });
+
+            // Build INFO evidence lookup from info_verified registry (sourced from verified-items.json)
+            var infoRegistry = verifiedJson.info_verified || [];
+            var infoLookup = {};
+            infoRegistry.forEach(function(entry) {
+                if (entry.id && entry.evidence) {
+                    var key = (entry.file_path || '') + ':' + (entry.line_number || 0);
+                    infoLookup[key] = {
+                        evidence: resolvePath(entry.evidence),
+                        reason: entry.reason || ''
+                    };
+                }
+            });
+
+            // Create lightbox (shared by all proof panels)
+            initProofLightbox();
+
             renderOverallHealth(data.summary, data.metadata);
             renderSiteSnapshot(data.site_snapshot);
             renderSeverityDistribution(data.summary);
             renderCategoryGrid(data.categories);
             renderChecksChart(data.categories);
-            renderIssueAccordion(data.categories);
-            renderVerifiedRepository(data.categories, data.verified_repository || []);
+            renderIssueAccordion(data.categories, proofLookup, infoLookup);
+            renderVerifiedRepository(data.categories, registry, proofLookup);
             renderReportMetadata(data.metadata, data.site_snapshot);
             animateGaugeOnScroll();
         })
@@ -15115,8 +15124,9 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {number} w - canvas logical width
      * @param {number} h - canvas logical height
      * @param {number} progress - animation 0→1
+     * @param {number} hoveredIdx - index of hovered bar (-1 for none)
      */
-    function drawAuditChart(ctx, cats, w, h, progress) {
+    function drawAuditChart(ctx, cats, w, h, progress, hoveredIdx) {
         var count = cats.length;
         var pad = { top: 20, right: 70, bottom: 20, left: 140 };
         var barH = Math.min(32, (h - pad.top - pad.bottom) / count - 10);
@@ -15164,6 +15174,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var logVal = val > 0 ? Math.log10(val + 1) : 0;
             var barW = (logVal / logMax) * chartW * progress;
             var color = cat.passed ? AUDIT_CAT_COLORS[i % AUDIT_CAT_COLORS.length] : '#DC3545';
+            var isHovered = (hoveredIdx === i);
+
+            // Dim non-hovered bars when one is active
+            if (hoveredIdx >= 0 && !isHovered) {
+                ctx.globalAlpha = 0.4;
+            }
 
             // Category label
             ctx.fillStyle = '#d1d5db';
@@ -15189,28 +15205,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.roundRect(pad.left, y, barW, barH, 6);
                 ctx.fill();
 
-                // Glow effect
+                // Glow effect — amplified on hover
                 ctx.shadowColor = color;
-                ctx.shadowBlur = 12;
+                ctx.shadowBlur = isHovered ? 24 : 12;
                 ctx.shadowOffsetX = 0;
                 ctx.shadowOffsetY = 0;
-                ctx.fillStyle = color + '40';
+                ctx.fillStyle = color + (isHovered ? '66' : '40');
                 ctx.beginPath();
                 ctx.roundRect(pad.left, y + 2, barW, barH - 4, 4);
                 ctx.fill();
                 ctx.shadowBlur = 0;
 
                 // Inner highlight line
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.strokeStyle = isHovered ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.15)';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.roundRect(pad.left + 1, y + 1, barW - 2, barH / 2 - 1, [5, 5, 0, 0]);
                 ctx.stroke();
             }
 
+            // Restore alpha for value label
+            ctx.globalAlpha = 1;
+
             // Value label (right of bar)
             if (progress > 0.4) {
                 var alpha = Math.min(1, (progress - 0.4) / 0.3);
+                if (hoveredIdx >= 0 && !isHovered) alpha *= 0.4;
                 ctx.globalAlpha = alpha;
                 ctx.fillStyle = '#f3f4f6';
                 ctx.font = '700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
@@ -15221,12 +15241,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Pass/fail indicator dot
+            if (hoveredIdx >= 0 && !isHovered) ctx.globalAlpha = 0.4;
             var dotX = pad.left - 6;
             var dotY = y + barH / 2;
             ctx.beginPath();
             ctx.arc(dotX, dotY, 3, 0, Math.PI * 2);
             ctx.fillStyle = cat.passed ? '#10b981' : '#DC3545';
             ctx.fill();
+            ctx.globalAlpha = 1;
         }
 
         // "Log scale" label
@@ -15251,6 +15273,106 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.style.height = totalH + 'px';
 
         var animated = false;
+        var hoveredIdx = -1;
+
+        // --- Tooltip element ---
+        var tip = el('div', 'audit-chart-tooltip');
+        tip.setAttribute('aria-live', 'polite');
+        wrap.appendChild(tip);
+
+        /** Chart geometry — must match drawAuditChart pad/barH/gap */
+        function getGeometry() {
+            var pad = { top: 20, right: 70, bottom: 20, left: 140 };
+            var h = totalH;
+            var barH = Math.min(32, (h - pad.top - pad.bottom) / count - 10);
+            var gap = 10;
+            return { pad: pad, barH: barH, gap: gap };
+        }
+
+        /** Determine which bar index the cursor is over (-1 if none) */
+        function hitTest(canvasY) {
+            var g = getGeometry();
+            var idx = Math.floor((canvasY - g.pad.top) / (g.barH + g.gap));
+            if (idx < 0 || idx >= count) return -1;
+            var barTop = g.pad.top + idx * (g.barH + g.gap);
+            if (canvasY < barTop || canvasY > barTop + g.barH) return -1;
+            return idx;
+        }
+
+        /** Populate and position the tooltip for a given bar index */
+        function showTooltip(idx, mouseX, mouseY) {
+            var cat = categories[idx];
+            var color = cat.passed ? AUDIT_CAT_COLORS[idx % AUDIT_CAT_COLORS.length] : '#DC3545';
+
+            // Build content
+            var nameEl = el('div', 'audit-chart-tooltip__name', cat.name);
+            var statusEl = el('div', 'audit-chart-tooltip__status');
+            var dot = el('span', 'audit-chart-tooltip__status-dot');
+            dot.style.cssText = 'background:' + (cat.passed ? '#10b981' : '#DC3545');
+            statusEl.appendChild(dot);
+            statusEl.appendChild(document.createTextNode(cat.passed ? 'Passed' : 'Failed'));
+            statusEl.style.cssText = 'color:' + (cat.passed ? '#10b981' : '#DC3545');
+
+            var countEl = el('div', 'audit-chart-tooltip__count');
+            var strong = el('strong', '', fmtChecks(cat.checks_run));
+            countEl.appendChild(strong);
+            countEl.appendChild(document.createTextNode(' checks performed'));
+
+            var descEl = el('div', 'audit-chart-tooltip__desc', cat.description || '');
+
+            tip.innerHTML = '';
+            tip.appendChild(nameEl);
+            tip.appendChild(statusEl);
+            tip.appendChild(countEl);
+            tip.appendChild(descEl);
+
+            // Compact check list
+            if (cat.checks && cat.checks.length) {
+                var maxShow = 4;
+                var names = cat.checks.slice(0, maxShow).map(function(c) { return c.name; });
+                var label = el('div', 'audit-chart-tooltip__checks-label', 'Checks');
+                var listText = names.join(' \u00B7 ');
+                if (cat.checks.length > maxShow) {
+                    listText += ' +' + (cat.checks.length - maxShow) + ' more';
+                }
+                var listEl = el('div', 'audit-chart-tooltip__checks-list', listText);
+                tip.appendChild(label);
+                tip.appendChild(listEl);
+            }
+
+            // Dynamic glow color
+            tip.style.cssText = '--chart-tip-glow:' + color + '30;--chart-tip-color:' + color;
+
+            // Position — right of bar center, clamped within wrap
+            var wrapRect = wrap.getBoundingClientRect();
+            var g = getGeometry();
+            var barTop = g.pad.top + idx * (g.barH + g.gap);
+            var tipTop = barTop + g.barH / 2;
+
+            // Measure tooltip
+            tip.classList.add('audit-chart-tooltip--visible');
+            var tipW = tip.offsetWidth || 300;
+            var tipH = tip.offsetHeight || 150;
+
+            // Try right of cursor, fall back to left
+            var tipLeft = mouseX + 16;
+            if (tipLeft + tipW > wrapRect.width - 8) {
+                tipLeft = mouseX - tipW - 16;
+            }
+            if (tipLeft < 8) tipLeft = 8;
+
+            // Vertical — center on bar, clamp within wrap
+            tipTop = tipTop - tipH / 2;
+            if (tipTop < 8) tipTop = 8;
+            if (tipTop + tipH > totalH - 8) tipTop = totalH - tipH - 8;
+
+            tip.style.left = tipLeft + 'px';
+            tip.style.top = tipTop + 'px';
+        }
+
+        function hideTooltip() {
+            tip.classList.remove('audit-chart-tooltip--visible');
+        }
 
         function resizeAndDraw(progress) {
             var rect = wrap.getBoundingClientRect();
@@ -15260,8 +15382,63 @@ document.addEventListener('DOMContentLoaded', function() {
             canvas.style.width = rect.width + 'px';
             var ctx = canvas.getContext('2d');
             ctx.scale(dpr, dpr);
-            drawAuditChart(ctx, categories, rect.width, totalH, progress);
+            drawAuditChart(ctx, categories, rect.width, totalH, progress, hoveredIdx);
         }
+
+        // --- Mouse events ---
+        canvas.addEventListener('mousemove', function(e) {
+            if (!animated) return;
+            var rect = canvas.getBoundingClientRect();
+            var scaleY = totalH / rect.height;
+            var cy = (e.clientY - rect.top) * scaleY;
+            var cx = (e.clientX - rect.left) * (canvas.width / window.devicePixelRatio / rect.width);
+            var idx = hitTest(cy);
+            if (idx !== hoveredIdx) {
+                hoveredIdx = idx;
+                resizeAndDraw(1);
+                if (idx >= 0) {
+                    showTooltip(idx, cx, cy);
+                    canvas.style.cursor = 'pointer';
+                } else {
+                    hideTooltip();
+                    canvas.style.cursor = '';
+                }
+            } else if (idx >= 0) {
+                showTooltip(idx, cx, cy);
+            }
+        });
+
+        canvas.addEventListener('mouseleave', function() {
+            if (hoveredIdx >= 0) {
+                hoveredIdx = -1;
+                resizeAndDraw(1);
+            }
+            hideTooltip();
+            canvas.style.cursor = '';
+        });
+
+        // --- Touch events ---
+        var touchedIdx = -1;
+        canvas.addEventListener('touchstart', function(e) {
+            if (!animated) return;
+            var touch = e.touches[0];
+            var rect = canvas.getBoundingClientRect();
+            var scaleY = totalH / rect.height;
+            var cy = (touch.clientY - rect.top) * scaleY;
+            var cx = (touch.clientX - rect.left) * (canvas.width / window.devicePixelRatio / rect.width);
+            var idx = hitTest(cy);
+            if (idx >= 0 && idx !== touchedIdx) {
+                touchedIdx = idx;
+                hoveredIdx = idx;
+                resizeAndDraw(1);
+                showTooltip(idx, cx, cy);
+            } else {
+                touchedIdx = -1;
+                hoveredIdx = -1;
+                resizeAndDraw(1);
+                hideTooltip();
+            }
+        }, { passive: true });
 
         function animateChart() {
             if (animated) return;
@@ -15301,8 +15478,70 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Proof Screenshot Lightbox ---
+    var lightbox = null;
+    var lightboxImg = null;
+    var lightboxCaption = null;
+
+    function initProofLightbox() {
+        if (lightbox) return;
+        lightbox = el('div', 'audit-lightbox');
+        lightboxImg = document.createElement('img');
+        lightboxImg.className = 'audit-lightbox__img';
+        lightboxImg.alt = 'Citation screenshot proof';
+        var closeBtn = el('button', 'audit-lightbox__close', '\u00D7');
+        closeBtn.setAttribute('aria-label', 'Close lightbox');
+        lightboxCaption = el('div', 'audit-lightbox__caption');
+        lightbox.appendChild(lightboxImg);
+        lightbox.appendChild(closeBtn);
+        lightbox.appendChild(lightboxCaption);
+        document.body.appendChild(lightbox);
+
+        function closeLightbox() {
+            lightbox.classList.remove('audit-lightbox--open');
+        }
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('audit-lightbox--open')) {
+                closeLightbox();
+            }
+        });
+    }
+
+    function openProofLightbox(src, caption) {
+        if (!lightbox) return;
+        lightboxImg.src = src;
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.add('audit-lightbox--open');
+    }
+
+    /**
+     * Build an accordion proof panel with thumbnail that opens a lightbox.
+     * @param {string} proofSrc - resolved image path
+     * @param {string} caption - caption for lightbox
+     * @returns {HTMLElement} the proof panel div
+     */
+    function buildProofPanel(proofSrc, caption) {
+        var panel = el('div', 'audit-proof-panel');
+        var label = el('div', 'audit-proof-label', 'Screenshot Evidence');
+        var thumb = document.createElement('img');
+        thumb.className = 'audit-proof-thumb';
+        thumb.src = proofSrc;
+        thumb.alt = 'Screenshot evidence: ' + (caption || '');
+        thumb.loading = 'lazy';
+        thumb.addEventListener('click', function() {
+            openProofLightbox(proofSrc, caption);
+        });
+        panel.appendChild(label);
+        panel.appendChild(thumb);
+        return panel;
+    }
+
     // --- 6. Category Details Accordion ---
-    function renderIssueAccordion(categories) {
+    function renderIssueAccordion(categories, proofLookup, infoLookup) {
         var accordion = document.getElementById('audit-issue-accordion');
         if (!accordion) return;
 
@@ -15454,7 +15693,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     findingsBlock.appendChild(infoSubhead);
                     var infoScroll = el('div', 'audit-findings-scroll');
                     cat.infos.forEach(function(issue) {
-                        infoScroll.appendChild(buildIssueRow(issue, 'info'));
+                        infoScroll.appendChild(buildIssueRow(issue, 'info', proofLookup, infoLookup));
                     });
                     findingsBlock.appendChild(infoScroll);
                 }
@@ -15470,7 +15709,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     findingsBlock.appendChild(verSubhead);
                     var verScroll = el('div', 'audit-findings-scroll');
                     cat.verified.forEach(function(issue) {
-                        verScroll.appendChild(buildIssueRow(issue, 'verified'));
+                        verScroll.appendChild(buildIssueRow(issue, 'verified', proofLookup));
                     });
                     findingsBlock.appendChild(verScroll);
                 }
@@ -15501,8 +15740,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /** Build a single issue row */
-    function buildIssueRow(issue, severity) {
+    /** Build a single issue row (with optional proof panel for verified items) */
+    function buildIssueRow(issue, severity, proofLookup, infoLookup) {
         var cls = 'audit-issue';
         if (severity === 'warning') cls += ' audit-issue--warning';
         else if (severity === 'info') cls += ' audit-issue--info';
@@ -15520,7 +15759,36 @@ document.addEventListener('DOMContentLoaded', function() {
         row.appendChild(msg);
 
         if (severity === 'verified') {
-            row.appendChild(el('span', 'audit-issue__verified-badge', 'Human Verified'));
+            var proofSrc = proofLookup && issue.url ? proofLookup[issue.url] : null;
+            var badge = el('span', 'audit-issue__verified-badge' + (proofSrc ? ' audit-issue__verified-badge--clickable' : ''), 'Human Verified');
+            row.appendChild(badge);
+
+            if (proofSrc) {
+                var panel = buildProofPanel(proofSrc, issue.url || issue.anchor || '');
+                row.appendChild(panel);
+                badge.addEventListener('click', function() {
+                    var isOpen = panel.classList.toggle('audit-proof-panel--open');
+                    badge.classList.toggle('audit-issue__verified-badge--active', isOpen);
+                });
+            }
+        }
+
+        // Blue badge for verified INFO items
+        if (severity === 'info' && infoLookup) {
+            var infoKey = (issue.file_path || '') + ':' + (issue.line_number || 0);
+            var infoEntry = infoLookup[infoKey];
+            if (infoEntry) {
+                var infoBadge = el('span', 'audit-issue__info-badge audit-issue__info-badge--clickable', 'Human Verified');
+                row.appendChild(infoBadge);
+
+                var infoPanel = buildProofPanel(infoEntry.evidence, infoEntry.reason || issue.file_path + ':' + issue.line_number);
+                infoPanel.classList.add('audit-proof-panel--blue');
+                row.appendChild(infoPanel);
+                infoBadge.addEventListener('click', function() {
+                    var isOpen = infoPanel.classList.toggle('audit-proof-panel--open');
+                    infoBadge.classList.toggle('audit-issue__info-badge--active', isOpen);
+                });
+            }
         }
 
         if (issue.suggestion) {
@@ -15558,8 +15826,9 @@ document.addEventListener('DOMContentLoaded', function() {
      * Also shows unverified warnings (yellow) from audit errors.
      * @param {Object[]} categories - audit category data
      * @param {Object[]} registry - full verified-items.json entries
+     * @param {Object} proofLookup - URL→proof path map
      */
-    function renderVerifiedRepository(categories, registry) {
+    function renderVerifiedRepository(categories, registry, proofLookup) {
         var container = document.getElementById('audit-verified-repo');
         if (!container) return;
 
@@ -15568,13 +15837,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var unverifiedItems = [];
 
         // Source verified items from the full registry (all 254 entries)
+        // Keep the id for direct proof path resolution
         registry.forEach(function(entry) {
             verifiedItems.push({
                 url: entry.url || '',
                 anchor: entry.citation || '',
                 filePath: entry.page || '',
                 line: entry.line || 0,
-                status: 'verified'
+                status: 'verified',
+                id: entry.id || ''
             });
             if (entry.url) seen[entry.url] = true;
         });
@@ -15593,7 +15864,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     anchor: parsed.anchor,
                     filePath: item.file_path || '',
                     line: item.line_number || 0,
-                    status: 'unverified'
+                    status: 'unverified',
+                    id: ''
                 });
             });
         });
@@ -15619,6 +15891,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Render rows — verified first, then unverified
         allItems.forEach(function(item) {
+            // Wrapper holds grid row + proof panel beneath
+            var wrapper = el('div', 'audit-verified-repo__row-wrap');
+
             var rowCls = 'audit-verified-repo__row';
             if (item.status === 'unverified') rowCls += ' audit-verified-repo__row--unverified';
             var row = el('div', rowCls);
@@ -15649,7 +15924,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var statusCell = el('div', 'audit-verified-repo__status');
             var svgNS = 'http://www.w3.org/2000/svg';
             if (item.status === 'verified') {
-                var badge = el('span', 'audit-verified-repo__badge');
+                // Resolve proof path from id or URL lookup
+                var proofSrc = item.id ? resolvePath('assets/Citation images/' + item.id + '.png') : (proofLookup[item.url] || null);
+
+                var badge = el('span', 'audit-verified-repo__badge' + (proofSrc ? ' audit-verified-repo__badge--clickable' : ''));
                 var checkSvg = document.createElementNS(svgNS, 'svg');
                 checkSvg.setAttribute('viewBox', '0 0 24 24');
                 checkSvg.setAttribute('fill', 'none');
@@ -15661,6 +15939,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 badge.appendChild(checkSvg);
                 badge.appendChild(document.createTextNode('Verified'));
                 statusCell.appendChild(badge);
+
+                // Proof panel (accordion beneath the row)
+                if (proofSrc) {
+                    row.appendChild(statusCell);
+                    var panel = buildProofPanel(proofSrc, item.anchor + ' — ' + item.url);
+                    wrapper.appendChild(row);
+                    wrapper.appendChild(panel);
+                    badge.addEventListener('click', function(b, p) {
+                        return function() {
+                            var isOpen = p.classList.toggle('audit-proof-panel--open');
+                            b.classList.toggle('audit-verified-repo__badge--active', isOpen);
+                        };
+                    }(badge, panel));
+                    body.appendChild(wrapper);
+                    return;
+                }
             } else {
                 var pending = el('span', 'audit-verified-repo__badge audit-verified-repo__badge--pending');
                 var warnSvg = document.createElementNS(svgNS, 'svg');
@@ -15682,7 +15976,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             row.appendChild(statusCell);
 
-            body.appendChild(row);
+            wrapper.appendChild(row);
+            body.appendChild(wrapper);
         });
         container.appendChild(body);
 

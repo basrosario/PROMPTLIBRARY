@@ -441,17 +441,6 @@ body.menu-open .ethics-ticker {
 }
 
 /* Audit-complete banner counter — live citation tracker ---- */
-.maintenance-banner__counter {
-    color: #fff;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.03em;
-}
-
-.maintenance-banner--scrolled .maintenance-banner__counter {
-    color: #000;
-}
-
 /* Audit-complete banner link — shining green ---- */
 .maintenance-banner__link {
     color: #4ade80;
@@ -2838,6 +2827,16 @@ body.menu-open .header .search-trigger {
     }
 }
 
+.section-tip__stop-text {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
 .section-tip__icon svg {
     width: 32px;
     height: 32px;
@@ -2878,6 +2877,10 @@ body.menu-open .header .search-trigger {
     .section-tip__icon svg {
         width: 27px;
         height: 27px;
+    }
+
+    .section-tip__stop-text {
+        font-size: 12px;
     }
 }
 /* /SECTION TIP ---- */
@@ -30605,6 +30608,59 @@ h3 + .nav-cards--compact {
     margin-top: 0.25rem;
 }
 
+/* Blue verified badge for INFO items ---- */
+.audit-issue__info-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #60a5fa;
+    border: 1px solid #60a5fa;
+    border-radius: 4px;
+    padding: 0.125rem 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.audit-issue__info-badge--clickable {
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audit-issue__info-badge--clickable:hover {
+    background: rgba(96, 165, 250, 0.12);
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.2);
+}
+
+.audit-issue__info-badge--clickable::after {
+    content: '\25BE';
+    margin-left: 0.35rem;
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.audit-issue__info-badge--active::after {
+    transform: rotate(180deg);
+}
+
+.audit-proof-panel--blue.audit-proof-panel--open {
+    border-top-color: rgba(96, 165, 250, 0.2);
+    background: rgba(15, 29, 46, 0.6);
+}
+
+.audit-proof-panel--blue .audit-proof-thumb {
+    border-color: rgba(96, 165, 250, 0.15);
+}
+
+.audit-proof-panel--blue .audit-proof-thumb:hover {
+    border-color: rgba(96, 165, 250, 0.35);
+}
+
+.audit-proof-panel--blue .audit-proof-label {
+    color: #60a5fa;
+}
+
 .audit-issue__file {
     font-size: 0.75rem;
     font-family: 'Courier New', monospace;
@@ -30840,17 +30896,20 @@ h3 + .nav-cards--compact {
     color: #34d399;
 }
 
+.audit-verified-repo__row-wrap {
+    border-bottom: 1px solid #1f2937;
+}
+
+.audit-verified-repo__row-wrap:last-child {
+    border-bottom: none;
+}
+
 .audit-verified-repo__row {
     display: grid;
     grid-template-columns: 1fr 2fr 140px;
     gap: 1rem;
     padding: 0.75rem 1.25rem;
-    border-bottom: 1px solid #1f2937;
     transition: background 0.2s;
-}
-
-.audit-verified-repo__row:last-child {
-    border-bottom: none;
 }
 
 .audit-verified-repo__row:hover {
@@ -30959,6 +31018,145 @@ h3 + .nav-cards--compact {
     }
 }
 
+/* Proof Screenshot Panel ---- */
+.audit-proof-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    background: rgba(17, 24, 39, 0.6);
+    border-top: 1px solid transparent;
+}
+
+.audit-proof-panel--open {
+    max-height: 320px;
+    padding: 0.75rem;
+    border-top-color: rgba(52, 211, 153, 0.15);
+}
+
+.audit-proof-thumb {
+    max-width: 100%;
+    max-height: 240px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: zoom-in;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: block;
+}
+
+.audit-proof-thumb:hover {
+    opacity: 0.85;
+    transform: scale(1.01);
+}
+
+.audit-proof-label {
+    font-size: 0.65rem;
+    color: #6b7280;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Make verified badges clickable triggers */
+.audit-issue__verified-badge--clickable,
+.audit-verified-repo__badge--clickable {
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audit-issue__verified-badge--clickable:hover,
+.audit-verified-repo__badge--clickable:hover {
+    background: rgba(52, 211, 153, 0.12);
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.2);
+}
+
+.audit-issue__verified-badge--clickable::after,
+.audit-verified-repo__badge--clickable::after {
+    content: '\25BE';
+    margin-left: 0.35rem;
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.audit-issue__verified-badge--active::after,
+.audit-verified-repo__badge--active::after {
+    transform: rotate(180deg);
+}
+
+/* Fullscreen Lightbox ---- */
+.audit-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    cursor: zoom-out;
+}
+
+.audit-lightbox--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.audit-lightbox__img {
+    max-width: 92vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+    cursor: default;
+}
+
+.audit-lightbox--open .audit-lightbox__img {
+    transform: scale(1);
+}
+
+.audit-lightbox__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f3f4f6;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.audit-lightbox__close:hover {
+    background: rgba(220, 53, 69, 0.3);
+    border-color: rgba(220, 53, 69, 0.5);
+}
+
+.audit-lightbox__caption {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #9ca3af;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    max-width: 90vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* Report Metadata Grid ---- */
 .audit-metadata-grid {
     display: grid;
@@ -31030,6 +31228,96 @@ h3 + .nav-cards--compact {
 .audit-chart-wrap canvas {
     width: 100%;
     display: block;
+}
+
+/* Chart Tooltip ---- */
+.audit-chart-tooltip {
+    position: absolute;
+    z-index: 20;
+    max-width: 320px;
+    padding: 0.875rem 1rem;
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow:
+        0 0 20px var(--chart-tip-glow, rgba(220, 53, 69, 0.15)),
+        0 8px 24px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.audit-chart-tooltip--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.audit-chart-tooltip__name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--chart-tip-color, #f3f4f6);
+}
+
+.audit-chart-tooltip__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+}
+
+.audit-chart-tooltip__status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.audit-chart-tooltip__count {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.audit-chart-tooltip__count strong {
+    color: #e5e7eb;
+    font-weight: 700;
+}
+
+.audit-chart-tooltip__desc {
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+}
+
+.audit-chart-tooltip__checks-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.audit-chart-tooltip__checks-list {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+    .audit-chart-tooltip {
+        max-width: 260px;
+        padding: 0.75rem;
+        font-size: 0.7rem;
+    }
 }
 
 /* Run Audit Button ---- */

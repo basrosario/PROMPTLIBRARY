@@ -1,9 +1,10 @@
 {
   "_meta": {
-    "description": "Human-verified citation registry. Each entry uses a 10-character ID (SSPP-CIT##) linking to screenshot proof.",
+    "description": "Human-verified citation registry. Each entry uses a 10-character ID (SSPP-CIT##) linking to screenshot evidence.",
     "last_updated": "2026-02-15",
     "screenshot_dir": "assets/Citation images/",
-    "instructions": "Items are added here ONLY when the site owner verifies them with screenshot proof. Proof file must exist or the link triggers ERROR.",
+    "info_screenshot_dir": "assets/information images/",
+    "instructions": "Items are added here ONLY when the site owner verifies them with screenshot evidence. Evidence file must exist or the link triggers ERROR.",
     "convention": {
       "format": "SSPP-CIT##",
       "description": "SS=Section (2 chars), PP=Page (2 chars), CIT=literal, ##=citation number on that page",
@@ -64,7 +65,7 @@
       "url": "https://doi.org/10.1093/mind/LIX.236.433",
       "page": "foundations/index.html",
       "line": 1551,
-      "proof": "assets/Citation images/FNIX-CIT01.png",
+      "evidence": "assets/Citation images/FNIX-CIT01.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://doi.org/10.1093/mind/LIX.236.433",
       "verified_by": "human",
       "verified_date": "2026-02-13"
@@ -75,7 +76,7 @@
       "url": "https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth",
       "page": "foundations/index.html",
       "line": 1558,
-      "proof": "assets/Citation images/FNIX-CIT02.png",
+      "evidence": "assets/Citation images/FNIX-CIT02.png",
       "sig": "Source Verification|VERIFIED (200): \"Artificial Intelligence (AI) Coined at Dartmouth\" -> https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth",
       "verified_by": "human",
       "verified_date": "2026-02-13"
@@ -86,7 +87,7 @@
       "url": "https://dl.acm.org/doi/10.1145/365153.365168",
       "page": "foundations/index.html",
       "line": 1565,
-      "proof": "assets/Citation images/FNIX-CIT03.png",
+      "evidence": "assets/Citation images/FNIX-CIT03.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://dl.acm.org/doi/10.1145/365153.365168",
       "verified_by": "human",
       "verified_date": "2026-02-13"
@@ -97,7 +98,7 @@
       "url": "https://arxiv.org/abs/1706.03762",
       "page": "foundations/index.html",
       "line": 1572,
-      "proof": "assets/Citation images/FNIX-CIT04.png",
+      "evidence": "assets/Citation images/FNIX-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -107,7 +108,7 @@
       "url": "https://arxiv.org/abs/2005.14165",
       "page": "foundations/index.html",
       "line": 1579,
-      "proof": "assets/Citation images/FNIX-CIT05.png",
+      "evidence": "assets/Citation images/FNIX-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -117,7 +118,7 @@
       "url": "https://arxiv.org/abs/2201.11903",
       "page": "foundations/index.html",
       "line": 1586,
-      "proof": "assets/Citation images/FNIX-CIT06.png",
+      "evidence": "assets/Citation images/FNIX-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -127,7 +128,7 @@
       "url": "https://arxiv.org/abs/2203.11171",
       "page": "foundations/index.html",
       "line": 1593,
-      "proof": "assets/Citation images/FNIX-CIT07.png",
+      "evidence": "assets/Citation images/FNIX-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -137,7 +138,7 @@
       "url": "https://arxiv.org/abs/2205.11916",
       "page": "foundations/index.html",
       "line": 1600,
-      "proof": "assets/Citation images/FNIX-CIT08.png",
+      "evidence": "assets/Citation images/FNIX-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -147,7 +148,7 @@
       "url": "https://arxiv.org/abs/2210.03629",
       "page": "foundations/index.html",
       "line": 1607,
-      "proof": "assets/Citation images/FNIX-CIT09.png",
+      "evidence": "assets/Citation images/FNIX-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -157,7 +158,7 @@
       "url": "https://digitalcollections.library.cmu.edu/node/31390",
       "page": "foundations/index.html",
       "line": 1635,
-      "proof": "assets/Citation images/FNIX-CIT13.png",
+      "evidence": "assets/Citation images/FNIX-CIT13.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://digitalcollections.library.cmu.edu/node/31390",
       "verified_by": "human",
       "verified_date": "2026-02-13"
@@ -168,7 +169,7 @@
       "url": "https://arxiv.org/abs/2405.08965",
       "page": "foundations/index.html",
       "line": 1719,
-      "proof": "assets/Citation images/FNIX-CIT26.png",
+      "evidence": "assets/Citation images/FNIX-CIT26.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -178,7 +179,7 @@
       "url": "https://accessibility.sdsu.edu/news/how-ai-is-transforming-accessibility",
       "page": "neurodivergence/tools.html",
       "line": 333,
-      "proof": "assets/Citation images/NDTL-CIT15.png",
+      "evidence": "assets/Citation images/NDTL-CIT15.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -188,7 +189,7 @@
       "url": "https://www.unesco.org/ethics-ai/en/articles/ai-literacy-and-new-digital-divide-global-call-action",
       "page": "pages/ai-for-everybody.html",
       "line": 665,
-      "proof": "assets/Citation images/PGAE-CIT07.png",
+      "evidence": "assets/Citation images/PGAE-CIT07.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://www.unesco.org/ethics-ai/en/articles/ai-literacy-and-new-digital-divide-global-call-action",
       "verified_by": "human",
       "verified_date": "2026-02-13"
@@ -199,7 +200,7 @@
       "url": "https://qwenlm.github.io/blog/qwen2.5-llm/",
       "page": "benchmarks/alibaba.html",
       "line": 187,
-      "proof": "assets/Citation images/BMAL-CIT01.png",
+      "evidence": "assets/Citation images/BMAL-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -209,7 +210,7 @@
       "url": "https://qwenlm.github.io/blog/qwen2.5-llm/",
       "page": "benchmarks/alibaba.html",
       "line": 202,
-      "proof": "assets/Citation images/BMAL-CIT02.png",
+      "evidence": "assets/Citation images/BMAL-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -219,7 +220,7 @@
       "url": "https://www.anthropic.com/news/claude-4",
       "page": "benchmarks/anthropic.html",
       "line": 235,
-      "proof": "assets/Citation images/BMAN-CIT01.png",
+      "evidence": "assets/Citation images/BMAN-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -229,7 +230,7 @@
       "url": "https://www.anthropic.com/news/claude-opus-4-6",
       "page": "benchmarks/anthropic.html",
       "line": 241,
-      "proof": "assets/Citation images/BMAN-CIT02.png",
+      "evidence": "assets/Citation images/BMAN-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -239,7 +240,7 @@
       "url": "https://www.anthropic.com/news/claude-4",
       "page": "benchmarks/anthropic.html",
       "line": 281,
-      "proof": "assets/Citation images/BMAN-CIT03.png",
+      "evidence": "assets/Citation images/BMAN-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -249,7 +250,7 @@
       "url": "https://www.anthropic.com/news/claude-4",
       "page": "benchmarks/anthropic.html",
       "line": 294,
-      "proof": "assets/Citation images/BMAN-CIT04.png",
+      "evidence": "assets/Citation images/BMAN-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -259,7 +260,7 @@
       "url": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
       "page": "benchmarks/anthropic.html",
       "line": 315,
-      "proof": "assets/Citation images/BMAN-CIT05.png",
+      "evidence": "assets/Citation images/BMAN-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -269,7 +270,7 @@
       "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf",
       "page": "benchmarks/anthropic.html",
       "line": 323,
-      "proof": "assets/Citation images/BMAN-CIT06.png",
+      "evidence": "assets/Citation images/BMAN-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -279,7 +280,7 @@
       "url": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf",
       "page": "benchmarks/anthropic.html",
       "line": 335,
-      "proof": "assets/Citation images/BMAN-CIT07.png",
+      "evidence": "assets/Citation images/BMAN-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -289,7 +290,7 @@
       "url": "https://cohere.com/research/papers/command-a-technical-report.pdf",
       "page": "benchmarks/cohere.html",
       "line": 187,
-      "proof": "assets/Citation images/BMCO-CIT01.png",
+      "evidence": "assets/Citation images/BMCO-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -299,7 +300,7 @@
       "url": "https://cohere.com/research/papers/command-a-technical-report.pdf",
       "page": "benchmarks/cohere.html",
       "line": 193,
-      "proof": "assets/Citation images/BMCO-CIT02.png",
+      "evidence": "assets/Citation images/BMCO-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -309,7 +310,7 @@
       "url": "https://arxiv.org/html/2501.12948v1",
       "page": "benchmarks/deepseek.html",
       "line": 185,
-      "proof": "assets/Citation images/BMDE-CIT01.png",
+      "evidence": "assets/Citation images/BMDE-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -319,7 +320,7 @@
       "url": "https://arxiv.org/html/2412.19437v1",
       "page": "benchmarks/deepseek.html",
       "line": 185,
-      "proof": "assets/Citation images/BMDE-CIT02.png",
+      "evidence": "assets/Citation images/BMDE-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -329,7 +330,7 @@
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
       "page": "benchmarks/google.html",
       "line": 215,
-      "proof": "assets/Citation images/BMGO-CIT01.png",
+      "evidence": "assets/Citation images/BMGO-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -339,7 +340,7 @@
       "url": "https://www.llama.com/models/llama-4/",
       "page": "benchmarks/meta.html",
       "line": 191,
-      "proof": "assets/Citation images/BMME-CIT01.png",
+      "evidence": "assets/Citation images/BMME-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -349,7 +350,7 @@
       "url": "https://mistral.ai/news/mistral-large-2407",
       "page": "benchmarks/mistral.html",
       "line": 187,
-      "proof": "assets/Citation images/BMMI-CIT01.png",
+      "evidence": "assets/Citation images/BMMI-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -359,7 +360,7 @@
       "url": "https://mistral.ai/news/mistral-large-2407",
       "page": "benchmarks/mistral.html",
       "line": 203,
-      "proof": "assets/Citation images/BMMI-CIT02.png",
+      "evidence": "assets/Citation images/BMMI-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -369,7 +370,7 @@
       "url": "https://openai.com/index/introducing-o3-and-o4-mini/",
       "page": "benchmarks/openai.html",
       "line": 249,
-      "proof": "assets/Citation images/BMOA-CIT01.png",
+      "evidence": "assets/Citation images/BMOA-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -379,7 +380,7 @@
       "url": "https://openai.com/index/introducing-o3-and-o4-mini/",
       "page": "benchmarks/openai.html",
       "line": 259,
-      "proof": "assets/Citation images/BMOA-CIT02.png",
+      "evidence": "assets/Citation images/BMOA-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -389,7 +390,7 @@
       "url": "https://openai.com/index/gpt-4-1/",
       "page": "benchmarks/openai.html",
       "line": 269,
-      "proof": "assets/Citation images/BMOA-CIT03.png",
+      "evidence": "assets/Citation images/BMOA-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -399,7 +400,7 @@
       "url": "https://openai.com/index/openai-o3-mini/",
       "page": "benchmarks/openai.html",
       "line": 287,
-      "proof": "assets/Citation images/BMOA-CIT04.png",
+      "evidence": "assets/Citation images/BMOA-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -409,7 +410,7 @@
       "url": "https://openai.com/index/learning-to-reason-with-llms/",
       "page": "benchmarks/openai.html",
       "line": 295,
-      "proof": "assets/Citation images/BMOA-CIT05.png",
+      "evidence": "assets/Citation images/BMOA-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -419,7 +420,7 @@
       "url": "https://openai.com/index/learning-to-reason-with-llms/",
       "page": "benchmarks/openai.html",
       "line": 306,
-      "proof": "assets/Citation images/BMOA-CIT06.png",
+      "evidence": "assets/Citation images/BMOA-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -429,7 +430,7 @@
       "url": "https://arxiv.org/html/2501.12948v1",
       "page": "benchmarks/openai.html",
       "line": 316,
-      "proof": "assets/Citation images/BMOA-CIT07.png",
+      "evidence": "assets/Citation images/BMOA-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -439,7 +440,7 @@
       "url": "https://x.ai/news/grok-3",
       "page": "benchmarks/xai.html",
       "line": 185,
-      "proof": "assets/Citation images/BMXA-CIT01.png",
+      "evidence": "assets/Citation images/BMXA-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -449,7 +450,7 @@
       "url": "https://openai.com/index/chatgpt/",
       "page": "foundations/index.html",
       "line": 1614,
-      "proof": "assets/Citation images/FNIX-CIT10.png",
+      "evidence": "assets/Citation images/FNIX-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -459,7 +460,7 @@
       "url": "https://arxiv.org/abs/2406.06608",
       "page": "foundations/index.html",
       "line": 1621,
-      "proof": "assets/Citation images/FNIX-CIT11.png",
+      "evidence": "assets/Citation images/FNIX-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -469,7 +470,7 @@
       "url": "https://ieeexplore.ieee.org/document/1056797",
       "page": "foundations/index.html",
       "line": 1628,
-      "proof": "assets/Citation images/FNIX-CIT12.png",
+      "evidence": "assets/Citation images/FNIX-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -479,7 +480,7 @@
       "url": "https://digitalcollections.library.cmu.edu/node/31390",
       "page": "foundations/index.html",
       "line": 1635,
-      "proof": "assets/Citation images/FNIX-CIT14.png",
+      "evidence": "assets/Citation images/FNIX-CIT14.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -489,7 +490,7 @@
       "url": "https://ieeexplore.ieee.org/document/5392560",
       "page": "foundations/index.html",
       "line": 1642,
-      "proof": "assets/Citation images/FNIX-CIT15.png",
+      "evidence": "assets/Citation images/FNIX-CIT15.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -499,7 +500,7 @@
       "url": "https://nap.nationalacademies.org/catalog/9547/language-and-machines-computers-in-translation-and-linguistics",
       "page": "foundations/index.html",
       "line": 1649,
-      "proof": "assets/Citation images/FNIX-CIT16.png",
+      "evidence": "assets/Citation images/FNIX-CIT16.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -509,7 +510,7 @@
       "url": "https://mitpress.mit.edu/9780262630221/perceptrons/",
       "page": "foundations/index.html",
       "line": 1656,
-      "proof": "assets/Citation images/FNIX-CIT17.png",
+      "evidence": "assets/Citation images/FNIX-CIT17.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -519,7 +520,7 @@
       "url": "https://www.aiai.ed.ac.uk/events/lighthill1973/lighthill.pdf",
       "page": "foundations/index.html",
       "line": 1663,
-      "proof": "assets/Citation images/FNIX-CIT18.png",
+      "evidence": "assets/Citation images/FNIX-CIT18.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -529,7 +530,7 @@
       "url": "https://ai100.stanford.edu/about/history",
       "page": "foundations/index.html",
       "line": 1670,
-      "proof": "assets/Citation images/FNIX-CIT19.png",
+      "evidence": "assets/Citation images/FNIX-CIT19.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -539,7 +540,7 @@
       "url": "https://doi.org/10.1038/323533a0",
       "page": "foundations/index.html",
       "line": 1677,
-      "proof": "assets/Citation images/FNIX-CIT20.png",
+      "evidence": "assets/Citation images/FNIX-CIT20.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -549,7 +550,7 @@
       "url": "https://archive.org/details/aitumultuoushist00crev",
       "page": "foundations/index.html",
       "line": 1684,
-      "proof": "assets/Citation images/FNIX-CIT21.png",
+      "evidence": "assets/Citation images/FNIX-CIT21.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -559,7 +560,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "foundations/index.html",
       "line": 1691,
-      "proof": "assets/Citation images/FNIX-CIT22.png",
+      "evidence": "assets/Citation images/FNIX-CIT22.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -569,7 +570,7 @@
       "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks",
       "page": "foundations/index.html",
       "line": 1698,
-      "proof": "assets/Citation images/FNIX-CIT23.png",
+      "evidence": "assets/Citation images/FNIX-CIT23.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -579,7 +580,7 @@
       "url": "https://arxiv.org/abs/2203.02155",
       "page": "foundations/index.html",
       "line": 1705,
-      "proof": "assets/Citation images/FNIX-CIT24.png",
+      "evidence": "assets/Citation images/FNIX-CIT24.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -589,7 +590,7 @@
       "url": "https://mitsloan.mit.edu/ideas-made-to-matter/4-new-studies-about-agentic-ai-mit-initiative-digital-economy",
       "page": "foundations/index.html",
       "line": 1712,
-      "proof": "assets/Citation images/FNIX-CIT25.png",
+      "evidence": "assets/Citation images/FNIX-CIT25.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -599,7 +600,7 @@
       "url": "https://agentflow.stanford.edu/",
       "page": "foundations/index.html",
       "line": 1726,
-      "proof": "assets/Citation images/FNIX-CIT27.png",
+      "evidence": "assets/Citation images/FNIX-CIT27.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -609,7 +610,7 @@
       "url": "https://real.stanford.edu/",
       "page": "foundations/index.html",
       "line": 1733,
-      "proof": "assets/Citation images/FNIX-CIT28.png",
+      "evidence": "assets/Citation images/FNIX-CIT28.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -619,7 +620,7 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
       "page": "foundations/index.html",
       "line": 1740,
-      "proof": "assets/Citation images/FNIX-CIT29.png",
+      "evidence": "assets/Citation images/FNIX-CIT29.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -629,7 +630,7 @@
       "url": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
       "page": "foundations/index.html",
       "line": 1747,
-      "proof": "assets/Citation images/FNIX-CIT30.png",
+      "evidence": "assets/Citation images/FNIX-CIT30.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -639,7 +640,7 @@
       "url": "https://www.stlouisfed.org/on-the-economy/2025/nov/state-generative-ai-adoption-2025",
       "page": "foundations/index.html",
       "line": 1754,
-      "proof": "assets/Citation images/FNIX-CIT31.png",
+      "evidence": "assets/Citation images/FNIX-CIT31.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -649,7 +650,7 @@
       "url": "https://dls.virginia.gov/commissions/jcots/materials/snapshot_%20ai_chatbot_june2025.pdf",
       "page": "foundations/index.html",
       "line": 1761,
-      "proof": "assets/Citation images/FNIX-CIT32.png",
+      "evidence": "assets/Citation images/FNIX-CIT32.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -659,7 +660,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/responsible-ai.html",
       "line": 202,
-      "proof": "assets/Citation images/PGRA-CIT01.png",
+      "evidence": "assets/Citation images/PGRA-CIT01.png",
       "sig": "Source Verification|VERIFIED (200): \"Community GitHub\" -> https://github.com/PowerOfPraxis/PraxisLibrary",
       "verified_by": "human",
       "verified_date": "2026-02-14"
@@ -670,7 +671,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary/issues",
       "page": "pages/responsible-ai.html",
       "line": 695,
-      "proof": "assets/Citation images/PGRA-CIT05.png",
+      "evidence": "assets/Citation images/PGRA-CIT05.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://github.com/PowerOfPraxis/PraxisLibrary/issues",
       "verified_by": "human",
       "verified_date": "2026-02-14"
@@ -681,7 +682,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary/pulls",
       "page": "pages/responsible-ai.html",
       "line": 701,
-      "proof": "assets/Citation images/PGRA-CIT07.png",
+      "evidence": "assets/Citation images/PGRA-CIT07.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://github.com/PowerOfPraxis/PraxisLibrary/pulls",
       "verified_by": "human",
       "verified_date": "2026-02-14"
@@ -692,7 +693,7 @@
       "url": "https://www.linkedin.com/in/basiliso-rosario/",
       "page": "pages/about.html",
       "line": 395,
-      "proof": "assets/Citation images/PGAT-CIT02.png",
+      "evidence": "assets/Citation images/PGAT-CIT02.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://www.linkedin.com/in/basiliso-rosario/",
       "verified_by": "human",
       "verified_date": "2026-02-14"
@@ -703,7 +704,7 @@
       "url": "https://www.nist.gov/cybersecurity",
       "page": "pages/security.html",
       "line": 650,
-      "proof": "assets/Citation images/PGSE-CIT04.png",
+      "evidence": "assets/Citation images/PGSE-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -713,7 +714,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12058481/",
       "page": "neurodivergence/adhd.html",
       "line": 243,
-      "proof": "assets/Citation images/NDAD-CIT01.png",
+      "evidence": "assets/Citation images/NDAD-CIT01.png",
       "sig": "Link Integrity|Human Verified (bot-blocked domain): https://pmc.ncbi.nlm.nih.gov/articles/PMC12058481/",
       "verified_by": "human",
       "verified_date": "2026-02-14"
@@ -724,7 +725,7 @@
       "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
       "page": "learn/facts-fictions.html",
       "line": 1381,
-      "proof": "assets/Citation images/LNFF-CIT01.png",
+      "evidence": "assets/Citation images/LNFF-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -734,7 +735,7 @@
       "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-prompt-engineering-is-complicated-and-contingent/",
       "page": "learn/facts-fictions.html",
       "line": 1384,
-      "proof": "assets/Citation images/LNFF-CIT02.png",
+      "evidence": "assets/Citation images/LNFF-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -744,7 +745,7 @@
       "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/",
       "page": "learn/facts-fictions.html",
       "line": 1387,
-      "proof": "assets/Citation images/LNFF-CIT03.png",
+      "evidence": "assets/Citation images/LNFF-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -754,7 +755,7 @@
       "url": "https://cmr.berkeley.edu/2025/10/seven-myths-about-ai-and-productivity-what-the-evidence-really-says/",
       "page": "learn/facts-fictions.html",
       "line": 1390,
-      "proof": "assets/Citation images/LNFF-CIT04.png",
+      "evidence": "assets/Citation images/LNFF-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -764,7 +765,7 @@
       "url": "https://libguides.uccs.edu/c.php?g=1357807&p=10026003",
       "page": "learn/facts-fictions.html",
       "line": 1393,
-      "proof": "assets/Citation images/LNFF-CIT05.png",
+      "evidence": "assets/Citation images/LNFF-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -774,7 +775,7 @@
       "url": "https://carlsonschool.umn.edu/graduate/resources/debunking-5-artificial-intelligence-myths",
       "page": "learn/facts-fictions.html",
       "line": 1396,
-      "proof": "assets/Citation images/LNFF-CIT06.png",
+      "evidence": "assets/Citation images/LNFF-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -784,7 +785,7 @@
       "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
       "page": "learn/facts-fictions.html",
       "line": 1399,
-      "proof": "assets/Citation images/LNFF-CIT07.png",
+      "evidence": "assets/Citation images/LNFF-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -794,7 +795,7 @@
       "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
       "page": "learn/facts-fictions.html",
       "line": 1402,
-      "proof": "assets/Citation images/LNFF-CIT08.png",
+      "evidence": "assets/Citation images/LNFF-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -804,7 +805,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "learn/facts-fictions.html",
       "line": 1405,
-      "proof": "assets/Citation images/LNFF-CIT09.png",
+      "evidence": "assets/Citation images/LNFF-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -814,7 +815,7 @@
       "url": "https://news.mit.edu/2025/unpacking-large-language-model-bias-0617",
       "page": "learn/facts-fictions.html",
       "line": 1408,
-      "proof": "assets/Citation images/LNFF-CIT10.png",
+      "evidence": "assets/Citation images/LNFF-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-14"
     },
@@ -824,7 +825,7 @@
       "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html",
       "page": "neurodivergence/tools.html",
       "line": 185,
-      "proof": "assets/Citation images/NDTL-CIT01.png",
+      "evidence": "assets/Citation images/NDTL-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -834,7 +835,7 @@
       "url": "https://engineering.stanford.edu/news/future-adhd",
       "page": "neurodivergence/tools.html",
       "line": 193,
-      "proof": "assets/Citation images/NDTL-CIT02.png",
+      "evidence": "assets/Citation images/NDTL-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -844,7 +845,7 @@
       "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/",
       "page": "neurodivergence/tools.html",
       "line": 201,
-      "proof": "assets/Citation images/NDTL-CIT03.png",
+      "evidence": "assets/Citation images/NDTL-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -854,7 +855,7 @@
       "url": "https://med.stanford.edu/ai-4-mental-health-lab.html",
       "page": "neurodivergence/tools.html",
       "line": 209,
-      "proof": "assets/Citation images/NDTL-CIT04.png",
+      "evidence": "assets/Citation images/NDTL-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -864,7 +865,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/tools.html",
       "line": 229,
-      "proof": "assets/Citation images/NDTL-CIT05.png",
+      "evidence": "assets/Citation images/NDTL-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -874,7 +875,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12501279/",
       "page": "neurodivergence/tools.html",
       "line": 237,
-      "proof": "assets/Citation images/NDTL-CIT06.png",
+      "evidence": "assets/Citation images/NDTL-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -884,7 +885,7 @@
       "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
       "page": "neurodivergence/tools.html",
       "line": 245,
-      "proof": "assets/Citation images/NDTL-CIT07.png",
+      "evidence": "assets/Citation images/NDTL-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -894,7 +895,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12384708/",
       "page": "neurodivergence/tools.html",
       "line": 253,
-      "proof": "assets/Citation images/NDTL-CIT08.png",
+      "evidence": "assets/Citation images/NDTL-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -904,7 +905,7 @@
       "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
       "page": "neurodivergence/tools.html",
       "line": 261,
-      "proof": "assets/Citation images/NDTL-CIT09.png",
+      "evidence": "assets/Citation images/NDTL-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -914,7 +915,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/tools.html",
       "line": 281,
-      "proof": "assets/Citation images/NDTL-CIT10.png",
+      "evidence": "assets/Citation images/NDTL-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -924,7 +925,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html",
       "page": "neurodivergence/tools.html",
       "line": 289,
-      "proof": "assets/Citation images/NDTL-CIT11.png",
+      "evidence": "assets/Citation images/NDTL-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -934,7 +935,7 @@
       "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/",
       "page": "neurodivergence/tools.html",
       "line": 297,
-      "proof": "assets/Citation images/NDTL-CIT12.png",
+      "evidence": "assets/Citation images/NDTL-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -944,7 +945,7 @@
       "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/",
       "page": "neurodivergence/tools.html",
       "line": 317,
-      "proof": "assets/Citation images/NDTL-CIT13.png",
+      "evidence": "assets/Citation images/NDTL-CIT13.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -954,7 +955,7 @@
       "url": "https://news.northeastern.edu/2025/11/05/autonomous-wheelchair-robot-arm-research/",
       "page": "neurodivergence/tools.html",
       "line": 325,
-      "proof": "assets/Citation images/NDTL-CIT14.png",
+      "evidence": "assets/Citation images/NDTL-CIT14.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -964,7 +965,7 @@
       "url": "https://www.pittwire.pitt.edu/features-articles/2025/02/17/research-report-assistive-technologies",
       "page": "neurodivergence/tools.html",
       "line": 341,
-      "proof": "assets/Citation images/NDTL-CIT16.png",
+      "evidence": "assets/Citation images/NDTL-CIT16.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -974,7 +975,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/tools.html",
       "line": 361,
-      "proof": "assets/Citation images/NDTL-CIT17.png",
+      "evidence": "assets/Citation images/NDTL-CIT17.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -984,7 +985,7 @@
       "url": "https://med.stanford.edu/neurodiversity/SNS2025.html",
       "page": "neurodivergence/tools.html",
       "line": 369,
-      "proof": "assets/Citation images/NDTL-CIT18.png",
+      "evidence": "assets/Citation images/NDTL-CIT18.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -994,7 +995,7 @@
       "url": "https://tech.cornell.edu/news/disability-access-tech-ai-summit-cornell-tech/",
       "page": "neurodivergence/tools.html",
       "line": 377,
-      "proof": "assets/Citation images/NDTL-CIT19.png",
+      "evidence": "assets/Citation images/NDTL-CIT19.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1004,7 +1005,7 @@
       "url": "https://guides.library.ttu.edu/c.php?g=1398509",
       "page": "neurodivergence/tools.html",
       "line": 385,
-      "proof": "assets/Citation images/NDTL-CIT20.png",
+      "evidence": "assets/Citation images/NDTL-CIT20.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1014,7 +1015,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11898476/",
       "page": "neurodivergence/tools.html",
       "line": 393,
-      "proof": "assets/Citation images/NDTL-CIT21.png",
+      "evidence": "assets/Citation images/NDTL-CIT21.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1024,7 +1025,7 @@
       "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html",
       "page": "neurodivergence/tools.html",
       "line": 461,
-      "proof": "assets/Citation images/NDTL-CIT22.png",
+      "evidence": "assets/Citation images/NDTL-CIT22.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1034,7 +1035,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/tools.html",
       "line": 464,
-      "proof": "assets/Citation images/NDTL-CIT23.png",
+      "evidence": "assets/Citation images/NDTL-CIT23.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1044,7 +1045,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/tools.html",
       "line": 467,
-      "proof": "assets/Citation images/NDTL-CIT24.png",
+      "evidence": "assets/Citation images/NDTL-CIT24.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1054,7 +1055,7 @@
       "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/",
       "page": "neurodivergence/tools.html",
       "line": 470,
-      "proof": "assets/Citation images/NDTL-CIT25.png",
+      "evidence": "assets/Citation images/NDTL-CIT25.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1064,7 +1065,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/tools.html",
       "line": 473,
-      "proof": "assets/Citation images/NDTL-CIT26.png",
+      "evidence": "assets/Citation images/NDTL-CIT26.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1074,7 +1075,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11898476/",
       "page": "neurodivergence/tools.html",
       "line": 476,
-      "proof": "assets/Citation images/NDTL-CIT27.png",
+      "evidence": "assets/Citation images/NDTL-CIT27.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1084,7 +1085,7 @@
       "url": "https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/",
       "page": "pages/ai-assisted-building.html",
       "line": 637,
-      "proof": "assets/Citation images/PGAB-CIT01.png",
+      "evidence": "assets/Citation images/PGAB-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1094,7 +1095,7 @@
       "url": "https://insights.sei.cmu.edu/ai-augmented-software-engineering/",
       "page": "pages/ai-assisted-building.html",
       "line": 640,
-      "proof": "assets/Citation images/PGAB-CIT02.png",
+      "evidence": "assets/Citation images/PGAB-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1104,7 +1105,7 @@
       "url": "https://www.sei.cmu.edu/blog/perspectives-on-generative-ai-in-software-engineering-and-acquisition/",
       "page": "pages/ai-assisted-building.html",
       "line": 637,
-      "proof": "assets/Citation images/PGAB-CIT03.png",
+      "evidence": "assets/Citation images/PGAB-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1114,7 +1115,7 @@
       "url": "https://insights.sei.cmu.edu/ai-augmented-software-engineering/",
       "page": "pages/ai-assisted-building.html",
       "line": 640,
-      "proof": "assets/Citation images/PGAB-CIT04.png",
+      "evidence": "assets/Citation images/PGAB-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1124,7 +1125,7 @@
       "url": "https://www.stlouisfed.org/on-the-economy/2025/nov/state-generative-ai-adoption-2025",
       "page": "pages/ai-for-everybody.html",
       "line": 647,
-      "proof": "assets/Citation images/PGAE-CIT01.png",
+      "evidence": "assets/Citation images/PGAE-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1134,7 +1135,7 @@
       "url": "https://www.pewresearch.org/science/2025/09/17/ai-in-americans-lives-awareness-experiences-and-attitudes/",
       "page": "pages/ai-for-everybody.html",
       "line": 650,
-      "proof": "assets/Citation images/PGAE-CIT02.png",
+      "evidence": "assets/Citation images/PGAE-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1144,7 +1145,7 @@
       "url": "https://www.pewresearch.org/short-reads/2025/10/06/about-1-in-5-us-workers-now-use-ai-in-their-job-up-since-last-year/",
       "page": "pages/ai-for-everybody.html",
       "line": 653,
-      "proof": "assets/Citation images/PGAE-CIT03.png",
+      "evidence": "assets/Citation images/PGAE-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1154,7 +1155,7 @@
       "url": "https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/",
       "page": "pages/ai-for-everybody.html",
       "line": 656,
-      "proof": "assets/Citation images/PGAE-CIT04.png",
+      "evidence": "assets/Citation images/PGAE-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1164,7 +1165,7 @@
       "url": "https://newbrunswick.rutgers.edu/news/survey-highlights-emerging-divide-over-artificial-intelligence-us",
       "page": "pages/ai-for-everybody.html",
       "line": 659,
-      "proof": "assets/Citation images/PGAE-CIT05.png",
+      "evidence": "assets/Citation images/PGAE-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1174,7 +1175,7 @@
       "url": "https://www.census.gov/library/stories/2025/09/technology-impact.html",
       "page": "pages/ai-for-everybody.html",
       "line": 662,
-      "proof": "assets/Citation images/PGAE-CIT06.png",
+      "evidence": "assets/Citation images/PGAE-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1184,7 +1185,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "pages/ai-for-everybody.html",
       "line": 668,
-      "proof": "assets/Citation images/PGAE-CIT08.png",
+      "evidence": "assets/Citation images/PGAE-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1194,7 +1195,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "pages/ai-safety.html",
       "line": 553,
-      "proof": "assets/Citation images/PGAS-CIT01.png",
+      "evidence": "assets/Citation images/PGAS-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1204,7 +1205,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "pages/ai-safety.html",
       "line": 556,
-      "proof": "assets/Citation images/PGAS-CIT02.png",
+      "evidence": "assets/Citation images/PGAS-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1214,7 +1215,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "pages/ai-safety.html",
       "line": 556,
-      "proof": "assets/Citation images/PGAS-CIT03.png",
+      "evidence": "assets/Citation images/PGAS-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1224,7 +1225,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/about.html",
       "line": 199,
-      "proof": "assets/Citation images/PGAT-CIT01.png",
+      "evidence": "assets/Citation images/PGAT-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1234,7 +1235,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/about.html",
       "line": 396,
-      "proof": "assets/Citation images/PGAT-CIT03.png",
+      "evidence": "assets/Citation images/PGAT-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1244,7 +1245,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "pages/chatgpt-guide.html",
       "line": 697,
-      "proof": "assets/Citation images/PGCG-CIT01.png",
+      "evidence": "assets/Citation images/PGCG-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1254,7 +1255,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "pages/chatgpt-guide.html",
       "line": 700,
-      "proof": "assets/Citation images/PGCG-CIT02.png",
+      "evidence": "assets/Citation images/PGCG-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1264,7 +1265,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "pages/chatgpt-guide.html",
       "line": 700,
-      "proof": "assets/Citation images/PGCG-CIT03.png",
+      "evidence": "assets/Citation images/PGCG-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1274,7 +1275,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "pages/faq.html",
       "line": 808,
-      "proof": "assets/Citation images/PGFA-CIT01.png",
+      "evidence": "assets/Citation images/PGFA-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1284,7 +1285,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "pages/faq.html",
       "line": 811,
-      "proof": "assets/Citation images/PGFA-CIT02.png",
+      "evidence": "assets/Citation images/PGFA-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1294,7 +1295,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "pages/faq.html",
       "line": 811,
-      "proof": "assets/Citation images/PGFA-CIT03.png",
+      "evidence": "assets/Citation images/PGFA-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1304,7 +1305,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/glossary.html",
       "line": 210,
-      "proof": "assets/Citation images/PGGL-CIT01.png",
+      "evidence": "assets/Citation images/PGGL-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1314,7 +1315,7 @@
       "url": "https://standards.digital.gov/standards/",
       "page": "pages/performance.html",
       "line": 720,
-      "proof": "assets/Citation images/PGPF-CIT01.png",
+      "evidence": "assets/Citation images/PGPF-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1324,7 +1325,7 @@
       "url": "https://digital.gov/2024/12/20/fy-24-governmentwide-section-508-assessment/",
       "page": "pages/performance.html",
       "line": 723,
-      "proof": "assets/Citation images/PGPF-CIT02.png",
+      "evidence": "assets/Citation images/PGPF-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1334,7 +1335,7 @@
       "url": "https://digital.gov/2024/12/20/fy-24-governmentwide-section-508-assessment/",
       "page": "pages/performance.html",
       "line": 723,
-      "proof": "assets/Citation images/PGPF-CIT03.png",
+      "evidence": "assets/Citation images/PGPF-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1344,7 +1345,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "pages/responsible-ai.html",
       "line": 791,
-      "proof": "assets/Citation images/PGRA-CIT02.png",
+      "evidence": "assets/Citation images/PGRA-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1354,7 +1355,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/responsible-ai.html",
       "line": 318,
-      "proof": "assets/Citation images/PGRA-CIT03.png",
+      "evidence": "assets/Citation images/PGRA-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1364,7 +1365,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/responsible-ai.html",
       "line": 502,
-      "proof": "assets/Citation images/PGRA-CIT04.png",
+      "evidence": "assets/Citation images/PGRA-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1374,7 +1375,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/responsible-ai.html",
       "line": 701,
-      "proof": "assets/Citation images/PGRA-CIT06.png",
+      "evidence": "assets/Citation images/PGRA-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1384,7 +1385,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "pages/responsible-ai.html",
       "line": 788,
-      "proof": "assets/Citation images/PGRA-CIT08.png",
+      "evidence": "assets/Citation images/PGRA-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1394,7 +1395,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "pages/responsible-ai.html",
       "line": 791,
-      "proof": "assets/Citation images/PGRA-CIT09.png",
+      "evidence": "assets/Citation images/PGRA-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1404,7 +1405,7 @@
       "url": "https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/",
       "page": "pages/resources.html",
       "line": 458,
-      "proof": "assets/Citation images/PGRS-CIT01.png",
+      "evidence": "assets/Citation images/PGRS-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1414,7 +1415,7 @@
       "url": "https://www.nsf.gov/funding/opportunities/dcl-advancing-education-future-ai-workforce-educateai/nsf24-025",
       "page": "pages/resources.html",
       "line": 470,
-      "proof": "assets/Citation images/PGRS-CIT02.png",
+      "evidence": "assets/Citation images/PGRS-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1424,7 +1425,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "pages/resources.html",
       "line": 482,
-      "proof": "assets/Citation images/PGRS-CIT03.png",
+      "evidence": "assets/Citation images/PGRS-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1434,7 +1435,7 @@
       "url": "https://cset.georgetown.edu/article/promises-and-progress/",
       "page": "pages/resources.html",
       "line": 493,
-      "proof": "assets/Citation images/PGRS-CIT04.png",
+      "evidence": "assets/Citation images/PGRS-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1444,7 +1445,7 @@
       "url": "https://www.cisa.gov/topics/cybersecurity-best-practices",
       "page": "pages/security.html",
       "line": 635,
-      "proof": "assets/Citation images/PGSE-CIT01.png",
+      "evidence": "assets/Citation images/PGSE-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1454,7 +1455,7 @@
       "url": "https://www.nist.gov/cyberframework",
       "page": "pages/security.html",
       "line": 638,
-      "proof": "assets/Citation images/PGSE-CIT02.png",
+      "evidence": "assets/Citation images/PGSE-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1464,7 +1465,7 @@
       "url": "https://www.cisa.gov/cybersecurity",
       "page": "pages/security.html",
       "line": 656,
-      "proof": "assets/Citation images/PGSE-CIT05.png",
+      "evidence": "assets/Citation images/PGSE-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1474,7 +1475,7 @@
       "url": "https://www.sei.cmu.edu/about/divisions/cert/",
       "page": "pages/security.html",
       "line": 662,
-      "proof": "assets/Citation images/PGSE-CIT06.png",
+      "evidence": "assets/Citation images/PGSE-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1484,7 +1485,7 @@
       "url": "https://nvd.nist.gov/",
       "page": "pages/security.html",
       "line": 668,
-      "proof": "assets/Citation images/PGSE-CIT07.png",
+      "evidence": "assets/Citation images/PGSE-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1494,7 +1495,7 @@
       "url": "https://nvd.nist.gov/",
       "page": "pages/security.html",
       "line": 668,
-      "proof": "assets/Citation images/PGSE-CIT08.png",
+      "evidence": "assets/Citation images/PGSE-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1504,7 +1505,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "pages/security.html",
       "line": 683,
-      "proof": "assets/Citation images/PGSE-CIT09.png",
+      "evidence": "assets/Citation images/PGSE-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1514,7 +1515,7 @@
       "url": "https://www.section508.gov/manage/laws-and-policies/",
       "page": "pages/universal-design.html",
       "line": 708,
-      "proof": "assets/Citation images/PGUD-CIT01.png",
+      "evidence": "assets/Citation images/PGUD-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1524,7 +1525,7 @@
       "url": "https://ictbaseline.access-board.gov/",
       "page": "pages/universal-design.html",
       "line": 711,
-      "proof": "assets/Citation images/PGUD-CIT02.png",
+      "evidence": "assets/Citation images/PGUD-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1534,7 +1535,7 @@
       "url": "https://standards.digital.gov/standards/",
       "page": "pages/universal-design.html",
       "line": 714,
-      "proof": "assets/Citation images/PGUD-CIT03.png",
+      "evidence": "assets/Citation images/PGUD-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1544,7 +1545,7 @@
       "url": "https://tlos.vt.edu/services/udl.html",
       "page": "pages/universal-design.html",
       "line": 717,
-      "proof": "assets/Citation images/PGUD-CIT04.png",
+      "evidence": "assets/Citation images/PGUD-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1554,7 +1555,7 @@
       "url": "https://tlos.vt.edu/services/udl.html",
       "page": "pages/universal-design.html",
       "line": 717,
-      "proof": "assets/Citation images/PGUD-CIT05.png",
+      "evidence": "assets/Citation images/PGUD-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1564,7 +1565,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "patterns/index.html",
       "line": 604,
-      "proof": "assets/Citation images/PTIX-CIT01.png",
+      "evidence": "assets/Citation images/PTIX-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1574,7 +1575,7 @@
       "url": "https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/",
       "page": "patterns/index.html",
       "line": 607,
-      "proof": "assets/Citation images/PTIX-CIT02.png",
+      "evidence": "assets/Citation images/PTIX-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1584,7 +1585,7 @@
       "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
       "page": "patterns/index.html",
       "line": 610,
-      "proof": "assets/Citation images/PTIX-CIT03.png",
+      "evidence": "assets/Citation images/PTIX-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1594,7 +1595,7 @@
       "url": "https://news.mit.edu/2025/can-large-language-models-figure-out-real-world-0825",
       "page": "patterns/index.html",
       "line": 610,
-      "proof": "assets/Citation images/PTIX-CIT04.png",
+      "evidence": "assets/Citation images/PTIX-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1604,7 +1605,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "quiz/index.html",
       "line": 199,
-      "proof": "assets/Citation images/QZIX-CIT01.png",
+      "evidence": "assets/Citation images/QZIX-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1614,7 +1615,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "tools/analyzer.html",
       "line": 204,
-      "proof": "assets/Citation images/TLAZ-CIT01.png",
+      "evidence": "assets/Citation images/TLAZ-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1624,7 +1625,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "tools/checklist.html",
       "line": 449,
-      "proof": "assets/Citation images/TLCK-CIT01.png",
+      "evidence": "assets/Citation images/TLCK-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1634,7 +1635,7 @@
       "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
       "page": "tools/checklist.html",
       "line": 449,
-      "proof": "assets/Citation images/TLCK-CIT02.png",
+      "evidence": "assets/Citation images/TLCK-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1644,7 +1645,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "tools/hallucination.html",
       "line": 456,
-      "proof": "assets/Citation images/TLHL-CIT01.png",
+      "evidence": "assets/Citation images/TLHL-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1654,7 +1655,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "tools/hallucination.html",
       "line": 459,
-      "proof": "assets/Citation images/TLHL-CIT02.png",
+      "evidence": "assets/Citation images/TLHL-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1664,7 +1665,7 @@
       "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
       "page": "tools/hallucination.html",
       "line": 459,
-      "proof": "assets/Citation images/TLHL-CIT03.png",
+      "evidence": "assets/Citation images/TLHL-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1674,7 +1675,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "tools/matcher.html",
       "line": 204,
-      "proof": "assets/Citation images/TLMT-CIT01.png",
+      "evidence": "assets/Citation images/TLMT-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1684,7 +1685,7 @@
       "url": "https://github.com/PowerOfPraxis/PraxisLibrary",
       "page": "tools/persona.html",
       "line": 204,
-      "proof": "assets/Citation images/TLPA-CIT01.png",
+      "evidence": "assets/Citation images/TLPA-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1694,7 +1695,7 @@
       "url": "https://engineering.stanford.edu/news/future-adhd",
       "page": "neurodivergence/adhd.html",
       "line": 251,
-      "proof": "assets/Citation images/NDAD-CIT02.png",
+      "evidence": "assets/Citation images/NDAD-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1704,7 +1705,7 @@
       "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/",
       "page": "neurodivergence/adhd.html",
       "line": 259,
-      "proof": "assets/Citation images/NDAD-CIT03.png",
+      "evidence": "assets/Citation images/NDAD-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1714,7 +1715,7 @@
       "url": "https://med.stanford.edu/ai-4-mental-health-lab.html",
       "page": "neurodivergence/adhd.html",
       "line": 267,
-      "proof": "assets/Citation images/NDAD-CIT04.png",
+      "evidence": "assets/Citation images/NDAD-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1724,7 +1725,7 @@
       "url": "https://guides.library.ttu.edu/c.php?g=1398509",
       "page": "neurodivergence/adhd.html",
       "line": 292,
-      "proof": "assets/Citation images/NDAD-CIT05.png",
+      "evidence": "assets/Citation images/NDAD-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1734,7 +1735,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/adhd.html",
       "line": 300,
-      "proof": "assets/Citation images/NDAD-CIT06.png",
+      "evidence": "assets/Citation images/NDAD-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1744,7 +1745,7 @@
       "url": "https://med.stanford.edu/neurodiversity/SNS2025.html",
       "page": "neurodivergence/adhd.html",
       "line": 308,
-      "proof": "assets/Citation images/NDAD-CIT07.png",
+      "evidence": "assets/Citation images/NDAD-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1754,7 +1755,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11302246/",
       "page": "neurodivergence/adhd.html",
       "line": 316,
-      "proof": "assets/Citation images/NDAD-CIT08.png",
+      "evidence": "assets/Citation images/NDAD-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1764,7 +1765,7 @@
       "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html",
       "page": "neurodivergence/adhd.html",
       "line": 384,
-      "proof": "assets/Citation images/NDAD-CIT09.png",
+      "evidence": "assets/Citation images/NDAD-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1774,7 +1775,7 @@
       "url": "https://engineering.stanford.edu/news/future-adhd",
       "page": "neurodivergence/adhd.html",
       "line": 387,
-      "proof": "assets/Citation images/NDAD-CIT10.png",
+      "evidence": "assets/Citation images/NDAD-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1784,7 +1785,7 @@
       "url": "https://coe.northeastern.edu/news/innovative-ai-technology-used-to-detect-neurodevelopmental-disorders/",
       "page": "neurodivergence/adhd.html",
       "line": 390,
-      "proof": "assets/Citation images/NDAD-CIT11.png",
+      "evidence": "assets/Citation images/NDAD-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1794,7 +1795,7 @@
       "url": "https://med.stanford.edu/ai-4-mental-health-lab.html",
       "page": "neurodivergence/adhd.html",
       "line": 393,
-      "proof": "assets/Citation images/NDAD-CIT12.png",
+      "evidence": "assets/Citation images/NDAD-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1804,7 +1805,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11302246/",
       "page": "neurodivergence/adhd.html",
       "line": 396,
-      "proof": "assets/Citation images/NDAD-CIT13.png",
+      "evidence": "assets/Citation images/NDAD-CIT13.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1814,7 +1815,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/autism.html",
       "line": 248,
-      "proof": "assets/Citation images/NDAU-CIT01.png",
+      "evidence": "assets/Citation images/NDAU-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1824,7 +1825,7 @@
       "url": "https://www.sciencedirect.com/science/article/pii/S002074892500046X",
       "page": "neurodivergence/autism.html",
       "line": 256,
-      "proof": "assets/Citation images/NDAU-CIT02.png",
+      "evidence": "assets/Citation images/NDAU-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1834,7 +1835,7 @@
       "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
       "page": "neurodivergence/autism.html",
       "line": 264,
-      "proof": "assets/Citation images/NDAU-CIT03.png",
+      "evidence": "assets/Citation images/NDAU-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1844,7 +1845,7 @@
       "url": "https://neuro.jmir.org/2025/1/e70589",
       "page": "neurodivergence/autism.html",
       "line": 272,
-      "proof": "assets/Citation images/NDAU-CIT04.png",
+      "evidence": "assets/Citation images/NDAU-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1854,7 +1855,7 @@
       "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
       "page": "neurodivergence/autism.html",
       "line": 280,
-      "proof": "assets/Citation images/NDAU-CIT05.png",
+      "evidence": "assets/Citation images/NDAU-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1864,7 +1865,7 @@
       "url": "https://tech.cornell.edu/news/disability-access-tech-ai-summit-cornell-tech/",
       "page": "neurodivergence/autism.html",
       "line": 305,
-      "proof": "assets/Citation images/NDAU-CIT06.png",
+      "evidence": "assets/Citation images/NDAU-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1874,7 +1875,7 @@
       "url": "https://med.stanford.edu/neurodiversity/SNS2025.html",
       "page": "neurodivergence/autism.html",
       "line": 313,
-      "proof": "assets/Citation images/NDAU-CIT07.png",
+      "evidence": "assets/Citation images/NDAU-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1884,7 +1885,7 @@
       "url": "https://guides.library.ttu.edu/c.php?g=1398509",
       "page": "neurodivergence/autism.html",
       "line": 321,
-      "proof": "assets/Citation images/NDAU-CIT08.png",
+      "evidence": "assets/Citation images/NDAU-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1894,7 +1895,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/autism.html",
       "line": 329,
-      "proof": "assets/Citation images/NDAU-CIT09.png",
+      "evidence": "assets/Citation images/NDAU-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1904,7 +1905,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/autism.html",
       "line": 397,
-      "proof": "assets/Citation images/NDAU-CIT10.png",
+      "evidence": "assets/Citation images/NDAU-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1914,7 +1915,7 @@
       "url": "https://www.sciencedirect.com/science/article/pii/S002074892500046X",
       "page": "neurodivergence/autism.html",
       "line": 400,
-      "proof": "assets/Citation images/NDAU-CIT11.png",
+      "evidence": "assets/Citation images/NDAU-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1924,7 +1925,7 @@
       "url": "https://news.vt.edu/articles/2025/11/eng-ise-smarter-robots.html",
       "page": "neurodivergence/autism.html",
       "line": 403,
-      "proof": "assets/Citation images/NDAU-CIT12.png",
+      "evidence": "assets/Citation images/NDAU-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1934,7 +1935,7 @@
       "url": "https://neuro.jmir.org/2025/1/e70589",
       "page": "neurodivergence/autism.html",
       "line": 406,
-      "proof": "assets/Citation images/NDAU-CIT13.png",
+      "evidence": "assets/Citation images/NDAU-CIT13.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1944,7 +1945,7 @@
       "url": "https://news.weill.cornell.edu/news/2025/10/nih-grant-will-fund-autism-research-replication-validation-and-reproducibility-center",
       "page": "neurodivergence/autism.html",
       "line": 409,
-      "proof": "assets/Citation images/NDAU-CIT14.png",
+      "evidence": "assets/Citation images/NDAU-CIT14.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1954,7 +1955,7 @@
       "url": "https://academic.oup.com/iwc/advance-article/doi/10.1093/iwc/iwaf037/8276143",
       "page": "neurodivergence/autism.html",
       "line": 412,
-      "proof": "assets/Citation images/NDAU-CIT15.png",
+      "evidence": "assets/Citation images/NDAU-CIT15.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1964,7 +1965,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/dyslexia.html",
       "line": 244,
-      "proof": "assets/Citation images/NDDY-CIT01.png",
+      "evidence": "assets/Citation images/NDDY-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1974,7 +1975,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html",
       "page": "neurodivergence/dyslexia.html",
       "line": 252,
-      "proof": "assets/Citation images/NDDY-CIT02.png",
+      "evidence": "assets/Citation images/NDDY-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1984,7 +1985,7 @@
       "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/",
       "page": "neurodivergence/dyslexia.html",
       "line": 277,
-      "proof": "assets/Citation images/NDDY-CIT03.png",
+      "evidence": "assets/Citation images/NDDY-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -1994,7 +1995,7 @@
       "url": "https://guides.library.ttu.edu/c.php?g=1398509",
       "page": "neurodivergence/dyslexia.html",
       "line": 285,
-      "proof": "assets/Citation images/NDDY-CIT04.png",
+      "evidence": "assets/Citation images/NDDY-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2004,7 +2005,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/dyslexia.html",
       "line": 293,
-      "proof": "assets/Citation images/NDDY-CIT05.png",
+      "evidence": "assets/Citation images/NDDY-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2014,7 +2015,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/",
       "page": "neurodivergence/dyslexia.html",
       "line": 301,
-      "proof": "assets/Citation images/NDDY-CIT06.png",
+      "evidence": "assets/Citation images/NDDY-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2024,7 +2025,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/dyslexia.html",
       "line": 369,
-      "proof": "assets/Citation images/NDDY-CIT07.png",
+      "evidence": "assets/Citation images/NDDY-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2034,7 +2035,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/05/detect-dyslexia-with-AI-powered-handwriting-analysis.html",
       "page": "neurodivergence/dyslexia.html",
       "line": 372,
-      "proof": "assets/Citation images/NDDY-CIT08.png",
+      "evidence": "assets/Citation images/NDDY-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2044,7 +2045,7 @@
       "url": "https://dyslexiahelp.umich.edu/latest/how-ai-will-help-students-with-dyslexia/",
       "page": "neurodivergence/dyslexia.html",
       "line": 375,
-      "proof": "assets/Citation images/NDDY-CIT09.png",
+      "evidence": "assets/Citation images/NDDY-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2054,7 +2055,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/",
       "page": "neurodivergence/dyslexia.html",
       "line": 378,
-      "proof": "assets/Citation images/NDDY-CIT10.png",
+      "evidence": "assets/Citation images/NDDY-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2064,7 +2065,7 @@
       "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html",
       "page": "neurodivergence/index.html",
       "line": 429,
-      "proof": "assets/Citation images/NDIX-CIT01.png",
+      "evidence": "assets/Citation images/NDIX-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2074,7 +2075,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/index.html",
       "line": 437,
-      "proof": "assets/Citation images/NDIX-CIT02.png",
+      "evidence": "assets/Citation images/NDIX-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2084,7 +2085,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/index.html",
       "line": 445,
-      "proof": "assets/Citation images/NDIX-CIT03.png",
+      "evidence": "assets/Citation images/NDIX-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2094,7 +2095,7 @@
       "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/",
       "page": "neurodivergence/index.html",
       "line": 453,
-      "proof": "assets/Citation images/NDIX-CIT04.png",
+      "evidence": "assets/Citation images/NDIX-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2104,7 +2105,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/index.html",
       "line": 461,
-      "proof": "assets/Citation images/NDIX-CIT05.png",
+      "evidence": "assets/Citation images/NDIX-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2114,7 +2115,7 @@
       "url": "https://www.tandfonline.com/doi/full/10.1080/17483107.2025.2579822",
       "page": "neurodivergence/index.html",
       "line": 469,
-      "proof": "assets/Citation images/NDIX-CIT06.png",
+      "evidence": "assets/Citation images/NDIX-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2124,7 +2125,7 @@
       "url": "https://med.stanford.edu/news/all-news/2024/12/ai-pediatric-adhd.html",
       "page": "neurodivergence/index.html",
       "line": 498,
-      "proof": "assets/Citation images/NDIX-CIT07.png",
+      "evidence": "assets/Citation images/NDIX-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2134,7 +2135,7 @@
       "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(25)00375-5/fulltext",
       "page": "neurodivergence/index.html",
       "line": 501,
-      "proof": "assets/Citation images/NDIX-CIT08.png",
+      "evidence": "assets/Citation images/NDIX-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2144,7 +2145,7 @@
       "url": "https://www.buffalo.edu/news/releases/2025/04/AI-screens-language-speech-disorders-children.html",
       "page": "neurodivergence/index.html",
       "line": 504,
-      "proof": "assets/Citation images/NDIX-CIT09.png",
+      "evidence": "assets/Citation images/NDIX-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2154,7 +2155,7 @@
       "url": "https://create.uw.edu/access-boards-preliminary-findings-on-ai-and-people-with-disabilities/",
       "page": "neurodivergence/index.html",
       "line": 507,
-      "proof": "assets/Citation images/NDIX-CIT10.png",
+      "evidence": "assets/Citation images/NDIX-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2164,7 +2165,7 @@
       "url": "https://www.cmu.edu/computing/news/2025/ai-future-accessibility.html",
       "page": "neurodivergence/index.html",
       "line": 510,
-      "proof": "assets/Citation images/NDIX-CIT11.png",
+      "evidence": "assets/Citation images/NDIX-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2174,7 +2175,7 @@
       "url": "https://www.tandfonline.com/doi/full/10.1080/17483107.2025.2579822",
       "page": "neurodivergence/index.html",
       "line": 513,
-      "proof": "assets/Citation images/NDIX-CIT12.png",
+      "evidence": "assets/Citation images/NDIX-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2184,7 +2185,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12436382/",
       "page": "neurodivergence/resources.html",
       "line": 235,
-      "proof": "assets/Citation images/NDRS-CIT01.png",
+      "evidence": "assets/Citation images/NDRS-CIT01.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2194,7 +2195,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12620671/",
       "page": "neurodivergence/resources.html",
       "line": 243,
-      "proof": "assets/Citation images/NDRS-CIT02.png",
+      "evidence": "assets/Citation images/NDRS-CIT02.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2204,7 +2205,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12731361/",
       "page": "neurodivergence/resources.html",
       "line": 251,
-      "proof": "assets/Citation images/NDRS-CIT03.png",
+      "evidence": "assets/Citation images/NDRS-CIT03.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2214,7 +2215,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12214148/",
       "page": "neurodivergence/resources.html",
       "line": 259,
-      "proof": "assets/Citation images/NDRS-CIT04.png",
+      "evidence": "assets/Citation images/NDRS-CIT04.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2224,7 +2225,7 @@
       "url": "https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
       "page": "neurodivergence/resources.html",
       "line": 271,
-      "proof": "assets/Citation images/NDRS-CIT05.png",
+      "evidence": "assets/Citation images/NDRS-CIT05.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2234,7 +2235,7 @@
       "url": "https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
       "page": "neurodivergence/resources.html",
       "line": 279,
-      "proof": "assets/Citation images/NDRS-CIT06.png",
+      "evidence": "assets/Citation images/NDRS-CIT06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2244,7 +2245,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "neurodivergence/resources.html",
       "line": 304,
-      "proof": "assets/Citation images/NDRS-CIT07.png",
+      "evidence": "assets/Citation images/NDRS-CIT07.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2254,7 +2255,7 @@
       "url": "https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities",
       "page": "neurodivergence/resources.html",
       "line": 312,
-      "proof": "assets/Citation images/NDRS-CIT08.png",
+      "evidence": "assets/Citation images/NDRS-CIT08.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2264,7 +2265,7 @@
       "url": "https://www.buffalo.edu/ai4exceptionaled.html",
       "page": "neurodivergence/resources.html",
       "line": 320,
-      "proof": "assets/Citation images/NDRS-CIT09.png",
+      "evidence": "assets/Citation images/NDRS-CIT09.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2274,7 +2275,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12346636/",
       "page": "neurodivergence/resources.html",
       "line": 328,
-      "proof": "assets/Citation images/NDRS-CIT10.png",
+      "evidence": "assets/Citation images/NDRS-CIT10.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2284,7 +2285,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11659516/",
       "page": "neurodivergence/resources.html",
       "line": 336,
-      "proof": "assets/Citation images/NDRS-CIT11.png",
+      "evidence": "assets/Citation images/NDRS-CIT11.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2294,7 +2295,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12233132/",
       "page": "neurodivergence/resources.html",
       "line": 361,
-      "proof": "assets/Citation images/NDRS-CIT12.png",
+      "evidence": "assets/Citation images/NDRS-CIT12.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2304,7 +2305,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12000049/",
       "page": "neurodivergence/resources.html",
       "line": 369,
-      "proof": "assets/Citation images/NDRS-CIT13.png",
+      "evidence": "assets/Citation images/NDRS-CIT13.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2314,7 +2315,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12016436/",
       "page": "neurodivergence/resources.html",
       "line": 389,
-      "proof": "assets/Citation images/NDRS-CIT14.png",
+      "evidence": "assets/Citation images/NDRS-CIT14.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2324,7 +2325,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/",
       "page": "neurodivergence/resources.html",
       "line": 397,
-      "proof": "assets/Citation images/NDRS-CIT15.png",
+      "evidence": "assets/Citation images/NDRS-CIT15.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2334,7 +2335,7 @@
       "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2025.1611101/abstract",
       "page": "neurodivergence/resources.html",
       "line": 405,
-      "proof": "assets/Citation images/NDRS-CIT16.png",
+      "evidence": "assets/Citation images/NDRS-CIT16.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2344,7 +2345,7 @@
       "url": "https://www.w3.org/WAI/cognitive/",
       "page": "neurodivergence/resources.html",
       "line": 425,
-      "proof": "assets/Citation images/NDRS-CIT17.png",
+      "evidence": "assets/Citation images/NDRS-CIT17.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2354,7 +2355,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12310036/",
       "page": "neurodivergence/resources.html",
       "line": 433,
-      "proof": "assets/Citation images/NDRS-CIT18.png",
+      "evidence": "assets/Citation images/NDRS-CIT18.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2364,7 +2365,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "neurodivergence/resources.html",
       "line": 441,
-      "proof": "assets/Citation images/NDRS-CIT19.png",
+      "evidence": "assets/Citation images/NDRS-CIT19.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2374,7 +2375,7 @@
       "url": "https://www.section508.gov/",
       "page": "neurodivergence/resources.html",
       "line": 449,
-      "proof": "assets/Citation images/NDRS-CIT20.png",
+      "evidence": "assets/Citation images/NDRS-CIT20.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2384,7 +2385,7 @@
       "url": "https://www.ada.gov/resources/ai-guidance/",
       "page": "neurodivergence/resources.html",
       "line": 557,
-      "proof": "assets/Citation images/NDRS-CIT21.png",
+      "evidence": "assets/Citation images/NDRS-CIT21.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2394,7 +2395,7 @@
       "url": "https://www.eeoc.gov/eeoc-disability-related-resources/artificial-intelligence-and-ada",
       "page": "neurodivergence/resources.html",
       "line": 557,
-      "proof": "assets/Citation images/NDRS-CIT22.png",
+      "evidence": "assets/Citation images/NDRS-CIT22.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2404,7 +2405,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12436382/",
       "page": "neurodivergence/resources.html",
       "line": 673,
-      "proof": "assets/Citation images/NDRS-CIT23.png",
+      "evidence": "assets/Citation images/NDRS-CIT23.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2414,7 +2415,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12620671/",
       "page": "neurodivergence/resources.html",
       "line": 676,
-      "proof": "assets/Citation images/NDRS-CIT24.png",
+      "evidence": "assets/Citation images/NDRS-CIT24.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2424,7 +2425,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12731361/",
       "page": "neurodivergence/resources.html",
       "line": 679,
-      "proof": "assets/Citation images/NDRS-CIT25.png",
+      "evidence": "assets/Citation images/NDRS-CIT25.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2434,7 +2435,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12214148/",
       "page": "neurodivergence/resources.html",
       "line": 682,
-      "proof": "assets/Citation images/NDRS-CIT26.png",
+      "evidence": "assets/Citation images/NDRS-CIT26.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2444,7 +2445,7 @@
       "url": "https://blogs.bcm.edu/2025/03/11/from-the-labs-ai-accelerates-the-discovery-of-genes-associated-with-neurodevelopmental-disorders/",
       "page": "neurodivergence/resources.html",
       "line": 685,
-      "proof": "assets/Citation images/NDRS-CIT27.png",
+      "evidence": "assets/Citation images/NDRS-CIT27.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2454,7 +2455,7 @@
       "url": "https://teaching.cornell.edu/generative-artificial-intelligence/ai-accessibility",
       "page": "neurodivergence/resources.html",
       "line": 688,
-      "proof": "assets/Citation images/NDRS-CIT28.png",
+      "evidence": "assets/Citation images/NDRS-CIT28.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2464,7 +2465,7 @@
       "url": "https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance",
       "page": "neurodivergence/resources.html",
       "line": 691,
-      "proof": "assets/Citation images/NDRS-CIT29.png",
+      "evidence": "assets/Citation images/NDRS-CIT29.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2474,7 +2475,7 @@
       "url": "https://ies.ed.gov/funding/research/programs/ai-augmented-learning-for-individuals-with-disabilities",
       "page": "neurodivergence/resources.html",
       "line": 694,
-      "proof": "assets/Citation images/NDRS-CIT30.png",
+      "evidence": "assets/Citation images/NDRS-CIT30.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2484,7 +2485,7 @@
       "url": "https://www.buffalo.edu/ai4exceptionaled.html",
       "page": "neurodivergence/resources.html",
       "line": 697,
-      "proof": "assets/Citation images/NDRS-CIT31.png",
+      "evidence": "assets/Citation images/NDRS-CIT31.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2494,7 +2495,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12346636/",
       "page": "neurodivergence/resources.html",
       "line": 700,
-      "proof": "assets/Citation images/NDRS-CIT32.png",
+      "evidence": "assets/Citation images/NDRS-CIT32.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2504,7 +2505,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11659516/",
       "page": "neurodivergence/resources.html",
       "line": 703,
-      "proof": "assets/Citation images/NDRS-CIT33.png",
+      "evidence": "assets/Citation images/NDRS-CIT33.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2514,7 +2515,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12233132/",
       "page": "neurodivergence/resources.html",
       "line": 706,
-      "proof": "assets/Citation images/NDRS-CIT34.png",
+      "evidence": "assets/Citation images/NDRS-CIT34.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2524,7 +2525,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12000049/",
       "page": "neurodivergence/resources.html",
       "line": 709,
-      "proof": "assets/Citation images/NDRS-CIT35.png",
+      "evidence": "assets/Citation images/NDRS-CIT35.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2534,7 +2535,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12016436/",
       "page": "neurodivergence/resources.html",
       "line": 712,
-      "proof": "assets/Citation images/NDRS-CIT36.png",
+      "evidence": "assets/Citation images/NDRS-CIT36.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2544,7 +2545,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12385150/",
       "page": "neurodivergence/resources.html",
       "line": 715,
-      "proof": "assets/Citation images/NDRS-CIT37.png",
+      "evidence": "assets/Citation images/NDRS-CIT37.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2554,7 +2555,7 @@
       "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2025.1611101/abstract",
       "page": "neurodivergence/resources.html",
       "line": 718,
-      "proof": "assets/Citation images/NDRS-CIT38.png",
+      "evidence": "assets/Citation images/NDRS-CIT38.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2564,7 +2565,7 @@
       "url": "https://www.w3.org/WAI/cognitive/",
       "page": "neurodivergence/resources.html",
       "line": 721,
-      "proof": "assets/Citation images/NDRS-CIT39.png",
+      "evidence": "assets/Citation images/NDRS-CIT39.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2574,7 +2575,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12310036/",
       "page": "neurodivergence/resources.html",
       "line": 724,
-      "proof": "assets/Citation images/NDRS-CIT40.png",
+      "evidence": "assets/Citation images/NDRS-CIT40.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2584,7 +2585,7 @@
       "url": "https://www.nist.gov/itl/ai-risk-management-framework",
       "page": "neurodivergence/resources.html",
       "line": 727,
-      "proof": "assets/Citation images/NDRS-CIT41.png",
+      "evidence": "assets/Citation images/NDRS-CIT41.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2594,7 +2595,7 @@
       "url": "https://www.section508.gov/",
       "page": "neurodivergence/resources.html",
       "line": 730,
-      "proof": "assets/Citation images/NDRS-CIT42.png",
+      "evidence": "assets/Citation images/NDRS-CIT42.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     },
@@ -2604,7 +2605,53 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
       "page": "pages/security.html",
       "line": 641,
-      "proof": "assets/Citation images/PGSE-CIT03.png",
+      "evidence": "assets/Citation images/PGSE-CIT03.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-15"
+    }
+  ],
+  "info_verified": [
+    {
+      "id": "INFO-01",
+      "finding": "Potentially outdated date: 2023",
+      "file_path": "learn/dpo.html",
+      "line_number": 664,
+      "category": "Content Readiness",
+      "reason": "Historical factual date — DPO technique was introduced in 2023, this is a factual reference not outdated content",
+      "evidence": "assets/information images/INFO-01.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-15"
+    },
+    {
+      "id": "INFO-03",
+      "finding": "Potential bias (gendered): Use 'humankind' or 'humanity'",
+      "file_path": "learn/chain-of-verification.html",
+      "line_number": 505,
+      "category": "Bias/Inclusivity",
+      "reason": "Neil Armstrong historical quote — 'one giant leap for mankind' is a direct quotation that must be preserved verbatim",
+      "evidence": "assets/information images/INFO-03a.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-15"
+    },
+    {
+      "id": "INFO-04",
+      "finding": "Potential bias (gendered): Use 'humankind' or 'humanity'",
+      "file_path": "learn/chain-of-verification.html",
+      "line_number": 507,
+      "category": "Bias/Inclusivity",
+      "reason": "Neil Armstrong historical quote verification example — 'one giant leap for mankind' preserved as direct quotation",
+      "evidence": "assets/information images/INFO-03b.png",
+      "verified_by": "human",
+      "verified_date": "2026-02-15"
+    },
+    {
+      "id": "INFO-06",
+      "finding": "No session references found in document",
+      "file_path": ".claude/sourcingstandards.md",
+      "line_number": 0,
+      "category": "Documentation",
+      "reason": "Permanent reference document — session references are not applicable to sourcing standards specification",
+      "evidence": "assets/information images/INFO-06.png",
       "verified_by": "human",
       "verified_date": "2026-02-15"
     }
