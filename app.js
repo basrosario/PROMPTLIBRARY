@@ -15428,15 +15428,21 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Build INFO evidence lookup from info_verified registry (sourced from verified-items.json)
+            // Keyed by exact file:line AND by file:finding for resilience to line-number drift
             var infoRegistry = verifiedJson.info_verified || [];
             var infoLookup = {};
             infoRegistry.forEach(function(entry) {
                 if (entry.id && entry.evidence) {
-                    var key = (entry.file_path || '') + ':' + (entry.line_number || 0);
-                    infoLookup[key] = {
+                    var data = {
                         evidence: resolvePath(entry.evidence),
                         reason: entry.reason || ''
                     };
+                    var exactKey = (entry.file_path || '') + ':' + (entry.line_number || 0);
+                    infoLookup[exactKey] = data;
+                    // Fallback key: file_path + finding message (survives line shifts)
+                    if (entry.finding) {
+                        infoLookup[(entry.file_path || '') + '::' + entry.finding] = data;
+                    }
                 }
             });
 
@@ -15538,21 +15544,26 @@ document.addEventListener('DOMContentLoaded', function() {
             header.appendChild(badge);
             card.appendChild(header);
 
-            // Counts — always show all four badges
+            // Counts — always show all four badges, non-zero are clickable
             var counts = el('div', 'audit-category-card__counts');
             var verCount = cat.verified_count || 0;
-            var errSpan = el('span', 'audit-category-card__count audit-category-card__count--' + (cat.error_count > 0 ? 'error' : 'clean'));
-            errSpan.textContent = cat.error_count + 'E';
-            counts.appendChild(errSpan);
-            var warnSpan = el('span', 'audit-category-card__count audit-category-card__count--' + (cat.warning_count > 0 ? 'warning' : 'clean'));
-            warnSpan.textContent = cat.warning_count + 'W';
-            counts.appendChild(warnSpan);
-            var infoSpan = el('span', 'audit-category-card__count audit-category-card__count--' + (cat.info_count > 0 ? 'info' : 'clean'));
-            infoSpan.textContent = cat.info_count + 'I';
-            counts.appendChild(infoSpan);
-            var verSpan = el('span', 'audit-category-card__count audit-category-card__count--' + (verCount > 0 ? 'verified' : 'clean'));
-            verSpan.textContent = verCount + 'V';
-            counts.appendChild(verSpan);
+            var catSlug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+            var countDefs = [
+                { val: cat.error_count, suffix: 'E', sev: 'error' },
+                { val: cat.warning_count, suffix: 'W', sev: 'warning' },
+                { val: cat.info_count, suffix: 'I', sev: 'info' },
+                { val: verCount, suffix: 'V', sev: 'verified' }
+            ];
+            countDefs.forEach(function(def) {
+                var active = def.val > 0;
+                var span = el('span', 'audit-category-card__count audit-category-card__count--' + (active ? def.sev : 'clean'));
+                span.textContent = def.val + def.suffix;
+                if (active) {
+                    span.setAttribute('data-target', 'audit-finding-' + catSlug + '-' + def.sev);
+                    span.classList.add('audit-category-card__count--clickable');
+                }
+                counts.appendChild(span);
+            });
             card.appendChild(counts);
 
             // Meta
@@ -15560,25 +15571,30 @@ document.addEventListener('DOMContentLoaded', function() {
             meta.textContent = fmtNum(cat.files_scanned) + ' files scanned \u00B7 ' + fmtNum(cat.checks_run) + ' checks';
             card.appendChild(meta);
 
-            // Click handler — scroll to accordion, open it, jump to first finding
-            card.addEventListener('click', function() {
-                var target = document.querySelector('.audit-issue-item[data-category="' + cat.name + '"]');
-                if (!target) return;
+            // Click handler — open accordion and scroll to findings
+            card.addEventListener('click', function(e) {
+                var accordionItem = document.querySelector('.audit-issue-item[data-category="' + cat.name + '"]');
+                if (!accordionItem) return;
 
                 // Open the accordion if not already expanded
-                if (!target.classList.contains('is-expanded')) {
-                    target.classList.add('is-expanded');
-                    var hdr = target.querySelector('.audit-issue-item__header');
+                if (!accordionItem.classList.contains('is-expanded')) {
+                    accordionItem.classList.add('is-expanded');
+                    var hdr = accordionItem.querySelector('.audit-issue-item__header');
                     if (hdr) hdr.setAttribute('aria-expanded', 'true');
                 }
 
-                // Scroll to accordion item centered in visible area
-                scrollToVisible(target);
+                // Determine scroll target: specific severity subhead or accordion header
+                var clickedBadge = e.target.closest('[data-target]');
+                var scrollTarget = accordionItem;
+                if (clickedBadge) {
+                    var subhead = document.getElementById(clickedBadge.getAttribute('data-target'));
+                    if (subhead) scrollTarget = subhead;
+                }
 
-                // Re-scroll after expand animation settles
+                // Scroll after expand animation fully settles (0.4s transition)
                 setTimeout(function() {
-                    scrollToVisible(target);
-                }, 400);
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500);
             });
             card.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -15847,10 +15863,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var tipW = tip.offsetWidth || 300;
             var tipH = tip.offsetHeight || 150;
 
-            // Try right of cursor, fall back to left
-            var tipLeft = mouseX + 16;
+            // Try right of cursor, fall back to left (32px gap from cursor)
+            var tipLeft = mouseX + 32;
             if (tipLeft + tipW > wrapRect.width - 8) {
-                tipLeft = mouseX - tipW - 16;
+                tipLeft = mouseX - tipW - 32;
             }
             if (tipLeft < 8) tipLeft = 8;
 
@@ -16043,8 +16059,10 @@ document.addEventListener('DOMContentLoaded', function() {
         categories.forEach(function(cat) {
             var verifiedCount = cat.verified_count || 0;
             var totalIssues = cat.error_count + cat.warning_count + cat.info_count + verifiedCount;
+            var catSlug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
             var item = el('div', 'audit-issue-item');
             item.setAttribute('data-category', cat.name);
+            item.id = 'audit-detail-' + catSlug;
 
             // Header (clickable)
             var hdr = el('div', 'audit-issue-item__header');
@@ -16146,6 +16164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     labelAdded = true;
                     var errSubhead = el('div', 'audit-findings-subhead', 'Errors (' + cat.errors.length + ')');
                     errSubhead.setAttribute('data-severity', 'error');
+                    errSubhead.id = 'audit-finding-' + catSlug + '-error';
                     findingsBlock.appendChild(errSubhead);
                     var errScroll = el('div', 'audit-findings-scroll');
                     cat.errors.forEach(function(issue) {
@@ -16162,6 +16181,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     var warnSubhead = el('div', 'audit-findings-subhead', 'Warnings (' + cat.warnings.length + ')');
                     warnSubhead.setAttribute('data-severity', 'warning');
+                    warnSubhead.id = 'audit-finding-' + catSlug + '-warning';
                     findingsBlock.appendChild(warnSubhead);
                     var warnScroll = el('div', 'audit-findings-scroll');
                     cat.warnings.forEach(function(issue) {
@@ -16183,6 +16203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     var infoSubhead = el('div', 'audit-findings-subhead audit-findings-subhead--info', 'Info (' + cat.infos.length + ')');
                     infoSubhead.setAttribute('data-severity', 'info');
+                    infoSubhead.id = 'audit-finding-' + catSlug + '-info';
                     findingsBlock.appendChild(infoSubhead);
                     var infoScroll = el('div', 'audit-findings-scroll');
                     cat.infos.forEach(function(issue) {
@@ -16199,6 +16220,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     var verSubhead = el('div', 'audit-findings-subhead audit-findings-subhead--verified', 'Verified Repository (' + cat.verified.length + ')');
                     verSubhead.setAttribute('data-severity', 'verified');
+                    verSubhead.id = 'audit-finding-' + catSlug + '-verified';
                     findingsBlock.appendChild(verSubhead);
                     var verScroll = el('div', 'audit-findings-scroll');
                     cat.verified.forEach(function(issue) {
@@ -16269,7 +16291,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Blue badge for verified INFO items
         if (severity === 'info' && infoLookup) {
             var infoKey = (issue.file_path || '') + ':' + (issue.line_number || 0);
-            var infoEntry = infoLookup[infoKey];
+            var infoEntry = infoLookup[infoKey]
+                || infoLookup[(issue.file_path || '') + '::' + (issue.message || '')];
             if (infoEntry) {
                 var infoBadge = el('span', 'audit-issue__info-badge audit-issue__info-badge--clickable', 'Human Verified');
                 row.appendChild(infoBadge);
