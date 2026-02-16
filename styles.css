@@ -115,7 +115,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 13.6px; /* mobile: 15% reduction from 16px for tighter content */
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     overflow-x: clip;
@@ -226,7 +226,7 @@ p {
     width: 100%;
     max-width: 430px; /* iPhone 15 Pro Max */
     margin: 0 auto;
-    padding: 0 var(--space-lg); /* 24px on mobile, scales up via breakpoints */
+    padding: 0 27px; /* 13% wider than 24px to prevent side-scroll */
 }
 
 .section {
@@ -3007,6 +3007,8 @@ body.menu-open .header .search-trigger {
    RESPONSIVE - TABLET & UP
    ============================================ */
 @media (min-width: 768px) {
+    html { font-size: 16px; }
+
     .container {
         max-width: 720px;
         padding: 0 var(--content-edge);
