@@ -196,20 +196,19 @@
         <nav class="discover-bar" id="discover-bar" aria-label="Filter and navigate techniques">
             <div class="container">
                 <div class="discover-bar__inner">
-                    <div class="discover-bar__controls">
-                        <label class="discover-bar__label" for="discover-mode">I am working with</label>
-                        <select class="discover-bar__select" id="discover-mode">
-                            <option value="usecase" selected>Use Case</option>
-                            <option value="complexity">Complexity</option>
-                            <option value="category">Category</option>
-                        </select>
-                        <label class="discover-bar__multi-toggle" id="discover-multi-toggle" title="Enable multi-select filtering">
-                            <input type="checkbox" id="discover-multi-check">
-                            <span class="discover-bar__toggle-track"></span>
-                            <span class="discover-bar__toggle-text">Multi</span>
-                        </label>
+                    <label class="discover-bar__multi-toggle" title="Enable selecting multiple filters at once">
+                        <input type="checkbox" id="discover-multi-check">
+                        <span class="discover-bar__toggle-track"></span>
+                        <span class="discover-bar__toggle-text">Select Multiple</span>
+                    </label>
+                    <div class="discover-bar__row">
+                        <span class="discover-bar__row-label">Use Case</span>
+                        <div class="discover-bar__chips" id="discover-chips-usecase" role="group" aria-label="Use case filters"></div>
                     </div>
-                    <div class="discover-bar__chips" id="discover-chips" role="group" aria-label="Filter options"></div>
+                    <div class="discover-bar__row">
+                        <span class="discover-bar__row-label">Level</span>
+                        <div class="discover-bar__chips discover-bar__chips--complexity" id="discover-chips-complexity" role="group" aria-label="Complexity filters"></div>
+                    </div>
                     <div class="discover-bar__meta">
                         <span class="discover-bar__status" id="discover-status" aria-live="polite" aria-atomic="true"></span>
                         <button class="discover-bar__clear discover-bar__clear--hidden" id="discover-clear-all" aria-label="Clear all filters">Clear All</button>

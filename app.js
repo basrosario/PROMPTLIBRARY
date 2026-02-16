@@ -8715,209 +8715,127 @@ document.addEventListener('DOMContentLoaded', () => {
         'modality/3d/point-cloud': [['structured-output', 'research'], 'advanced', 'technique']
     };
 
-    // --- Discover Filter Bar: Mode Definitions ---
-    const DISCOVER_MODES = {
-        usecase: {
-            chips: [
-                { id: 'math', label: 'Math & Logic' },
-                { id: 'coding', label: 'Coding' },
-                { id: 'problem-solving', label: 'Problem Solving' },
-                { id: 'writing', label: 'Writing' },
-                { id: 'structured-output', label: 'Structured Output' },
-                { id: 'research', label: 'Research' },
-                { id: 'planning', label: 'Planning' },
-                { id: 'creative', label: 'Creative' }
-            ],
-            dataAttr: 'data-usecase',
-            multiSelect: true,
-            chipClass: ''
-        },
-        complexity: {
-            chips: [
-                { id: 'beginner', label: 'Beginner' },
-                { id: 'intermediate', label: 'Intermediate' },
-                { id: 'advanced', label: 'Advanced' }
-            ],
-            dataAttr: 'data-complexity',
-            multiSelect: false,
-            chipClass: 'discover-bar__chip--complexity'
-        },
-        category: {
-            chips: [
-                { id: 'cat-structured', label: 'Structured' },
-                { id: 'cat-reasoning', label: 'Reasoning & CoT' },
-                { id: 'cat-decomposition', label: 'Decomposition' },
-                { id: 'cat-self-correction', label: 'Self-Correction' },
-                { id: 'cat-icl', label: 'In-Context Learning' },
-                { id: 'cat-ensemble', label: 'Ensemble' },
-                { id: 'cat-strategies', label: 'Strategies' },
-                { id: 'cat-code', label: 'Code' },
-                { id: 'cat-safety', label: 'Safety' },
-                { id: 'cat-community', label: 'Community' },
-                { id: 'cat-image', label: 'Image' },
-                { id: 'cat-audio', label: 'Audio' },
-                { id: 'cat-video', label: 'Video' },
-                { id: 'cat-3d', label: '3D / Spatial' }
-            ],
-            dataAttr: 'data-category',
-            multiSelect: false,
-            chipClass: ''
-        }
-    };
+    // --- Discover Filter Bar: Chip Definitions ---
+    var USECASE_CHIPS = [
+        { id: 'math', label: 'Math & Logic' },
+        { id: 'coding', label: 'Coding' },
+        { id: 'problem-solving', label: 'Problem Solving' },
+        { id: 'writing', label: 'Writing' },
+        { id: 'structured-output', label: 'Structured Output' },
+        { id: 'research', label: 'Research' },
+        { id: 'planning', label: 'Planning' },
+        { id: 'creative', label: 'Creative' }
+    ];
 
-    // --- Discover Filter State (persists across mode switches) ---
-    const discoverFilterState = {
+    var COMPLEXITY_CHIPS = [
+        { id: 'beginner', label: 'Beginner' },
+        { id: 'intermediate', label: 'Intermediate' },
+        { id: 'advanced', label: 'Advanced' }
+    ];
+
+    // --- Discover Filter State ---
+    var discoverFilterState = {
         useCases: new Set(),
-        complexity: null,
-        categories: new Set(),
-        activeMode: 'usecase',
+        complexities: new Set(),
         totalCount: 0
     };
 
-    // --- Discover Filter Engine (unified bar with mode switching) ---
+    // --- Discover Filter Engine (flat two-row layout) ---
     function initDiscoverFilters() {
-        const bar = document.getElementById('discover-bar');
+        var bar = document.getElementById('discover-bar');
         if (!bar) return;
 
-        const modeSelect = document.getElementById('discover-mode');
-        const chipsContainer = document.getElementById('discover-chips');
-        const statusEl = document.getElementById('discover-status');
-        const clearBtn = document.getElementById('discover-clear-all');
-        const multiCheck = document.getElementById('discover-multi-check');
-        const multiToggle = document.getElementById('discover-multi-toggle');
-        const allCards = document.querySelectorAll('.discover-card');
-        const categorySections = document.querySelectorAll('[id^="cat-"]');
+        var usecaseContainer = document.getElementById('discover-chips-usecase');
+        var complexityContainer = document.getElementById('discover-chips-complexity');
+        var multiCheck = document.getElementById('discover-multi-check');
+        var statusEl = document.getElementById('discover-status');
+        var clearBtn = document.getElementById('discover-clear-all');
+        var allCards = document.querySelectorAll('.discover-card');
+        var categorySections = document.querySelectorAll('[id^="cat-"]');
 
         discoverFilterState.totalCount = allCards.length;
 
-        /** Check if multi-select toggle is ON */
-        function isMultiSelect() {
-            return multiCheck && multiCheck.checked;
-        }
-
-        /** Render chips for the active mode */
-        function renderChips(mode) {
-            const modeDef = DISCOVER_MODES[mode];
-            chipsContainer.innerHTML = '';
-            chipsContainer.setAttribute('aria-label', mode === 'usecase' ? 'Use case filters'
-                : mode === 'complexity' ? 'Complexity filters' : 'Category navigation');
-
-            modeDef.chips.forEach(function(chip) {
+        /** Build chips into their containers (runs once on init) */
+        function initChips() {
+            USECASE_CHIPS.forEach(function(chip) {
                 var btn = document.createElement('button');
-                btn.className = 'discover-bar__chip' + (modeDef.chipClass ? ' ' + modeDef.chipClass : '');
-                btn.setAttribute(modeDef.dataAttr, chip.id);
+                btn.className = 'discover-bar__chip';
+                btn.setAttribute('data-usecase', chip.id);
+                btn.setAttribute('aria-pressed', 'false');
                 btn.textContent = chip.label;
+                btn.addEventListener('click', function() { handleUsecaseClick(btn, chip.id); });
+                usecaseContainer.appendChild(btn);
+            });
 
-                // Restore pressed state from persisted filter state
-                var isActive = false;
-                if (mode === 'usecase') isActive = discoverFilterState.useCases.has(chip.id);
-                else if (mode === 'complexity') isActive = discoverFilterState.complexity === chip.id;
-                else if (mode === 'category') isActive = discoverFilterState.categories.has(chip.id);
-                btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-
-                btn.addEventListener('click', function() { handleChipClick(mode, btn, chip.id); });
-                chipsContainer.appendChild(btn);
+            COMPLEXITY_CHIPS.forEach(function(chip) {
+                var btn = document.createElement('button');
+                btn.className = 'discover-bar__chip discover-bar__chip--complexity';
+                btn.setAttribute('data-complexity', chip.id);
+                btn.setAttribute('aria-pressed', 'false');
+                btn.textContent = chip.label;
+                btn.addEventListener('click', function() { handleComplexityClick(btn, chip.id); });
+                complexityContainer.appendChild(btn);
             });
         }
 
-        /** Scroll to show element below sticky headers */
-        function scrollToSection(el) {
-            if (!el) return;
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        /** Reset all aria-pressed in current chip container for a given data attribute */
-        function resetChips(dataAttr) {
-            chipsContainer.querySelectorAll('[' + dataAttr + ']').forEach(function(c) {
-                c.setAttribute('aria-pressed', 'false');
-            });
-        }
-
-        /** Handle chip click based on mode */
-        function handleChipClick(mode, btn, chipId) {
-            var multi = isMultiSelect();
-
-            if (mode === 'category') {
-                if (!multi) {
-                    // Single mode: scroll to section
-                    var section = document.getElementById(chipId);
-                    scrollToSection(section);
-                    return;
-                }
-                // Multi mode: toggle category filter
-                if (discoverFilterState.categories.has(chipId)) {
-                    discoverFilterState.categories.delete(chipId);
+        /** Use case chip click — single-select by default, multi when Combine is on */
+        function handleUsecaseClick(btn, chipId) {
+            if (multiCheck && multiCheck.checked) {
+                // Multi-select: toggle in set
+                if (discoverFilterState.useCases.has(chipId)) {
+                    discoverFilterState.useCases.delete(chipId);
                     btn.setAttribute('aria-pressed', 'false');
                 } else {
-                    discoverFilterState.categories.add(chipId);
+                    discoverFilterState.useCases.add(chipId);
                     btn.setAttribute('aria-pressed', 'true');
                 }
-                applyDiscoverFilters();
-                return;
-            }
-
-            if (mode === 'usecase') {
-                if (multi) {
-                    // Multi-select: toggle in set
-                    if (discoverFilterState.useCases.has(chipId)) {
-                        discoverFilterState.useCases.delete(chipId);
-                        btn.setAttribute('aria-pressed', 'false');
-                    } else {
-                        discoverFilterState.useCases.add(chipId);
-                        btn.setAttribute('aria-pressed', 'true');
-                    }
-                } else {
-                    // Single-select: toggle off or switch
-                    if (discoverFilterState.useCases.has(chipId)) {
-                        discoverFilterState.useCases.clear();
-                        btn.setAttribute('aria-pressed', 'false');
-                    } else {
-                        discoverFilterState.useCases.clear();
-                        resetChips('data-usecase');
-                        discoverFilterState.useCases.add(chipId);
-                        btn.setAttribute('aria-pressed', 'true');
-                    }
-                }
-            } else if (mode === 'complexity') {
-                if (multi) {
-                    // Multi-select: use Set for complexity too
-                    if (!discoverFilterState.complexities) discoverFilterState.complexities = new Set();
-                    if (discoverFilterState.complexities.has(chipId)) {
-                        discoverFilterState.complexities.delete(chipId);
-                        btn.setAttribute('aria-pressed', 'false');
-                    } else {
-                        discoverFilterState.complexities.add(chipId);
-                        btn.setAttribute('aria-pressed', 'true');
-                    }
-                    // Sync single-select field for cardMatches
-                    discoverFilterState.complexity = discoverFilterState.complexities.size === 1
-                        ? Array.from(discoverFilterState.complexities)[0] : null;
-                } else {
-                    // Single-select: toggle off or switch
-                    resetChips('data-complexity');
-                    if (discoverFilterState.complexity === chipId) {
-                        discoverFilterState.complexity = null;
-                        btn.setAttribute('aria-pressed', 'false');
-                    } else {
-                        discoverFilterState.complexity = chipId;
-                        btn.setAttribute('aria-pressed', 'true');
-                    }
-                    if (discoverFilterState.complexities) discoverFilterState.complexities.clear();
+            } else {
+                // Single-select: toggle off or switch
+                var wasActive = discoverFilterState.useCases.has(chipId);
+                discoverFilterState.useCases.clear();
+                usecaseContainer.querySelectorAll('[data-usecase]').forEach(function(c) {
+                    c.setAttribute('aria-pressed', 'false');
+                });
+                if (!wasActive) {
+                    discoverFilterState.useCases.add(chipId);
+                    btn.setAttribute('aria-pressed', 'true');
                 }
             }
-
             applyDiscoverFilters();
         }
 
-        /** Check if any filter dimension is active */
-        function hasActiveFilters() {
-            return discoverFilterState.useCases.size > 0
-                || discoverFilterState.complexity !== null
-                || (discoverFilterState.complexities && discoverFilterState.complexities.size > 0)
-                || discoverFilterState.categories.size > 0;
+        /** Complexity chip click — single-select by default, multi when Select Multiple is on */
+        function handleComplexityClick(btn, chipId) {
+            if (multiCheck && multiCheck.checked) {
+                // Multi-select: toggle in set
+                if (discoverFilterState.complexities.has(chipId)) {
+                    discoverFilterState.complexities.delete(chipId);
+                    btn.setAttribute('aria-pressed', 'false');
+                } else {
+                    discoverFilterState.complexities.add(chipId);
+                    btn.setAttribute('aria-pressed', 'true');
+                }
+            } else {
+                // Single-select: toggle off or switch
+                var wasActive = discoverFilterState.complexities.has(chipId);
+                discoverFilterState.complexities.clear();
+                complexityContainer.querySelectorAll('[data-complexity]').forEach(function(c) {
+                    c.setAttribute('aria-pressed', 'false');
+                });
+                if (!wasActive) {
+                    discoverFilterState.complexities.add(chipId);
+                    btn.setAttribute('aria-pressed', 'true');
+                }
+            }
+            applyDiscoverFilters();
         }
 
-        /** Check if a card matches current filters (AND across dimensions, OR within) */
+        /** Check if any filter is active */
+        function hasActiveFilters() {
+            return discoverFilterState.useCases.size > 0 || discoverFilterState.complexities.size > 0;
+        }
+
+        /** Check if a card matches current filters (AND across dimensions, OR within each) */
         function cardMatches(card) {
             var href = card.getAttribute('href') || '';
             var slug = href.replace(/\.html$/, '');
@@ -8925,28 +8843,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!entry) return !hasActiveFilters();
             var useCases = entry[0];
             var complexity = entry[1];
-            var st = discoverFilterState;
 
-            // Use case filter (OR within)
-            if (st.useCases.size > 0 && !useCases.some(function(u) { return st.useCases.has(u); })) return false;
-
-            // Complexity filter (multi or single)
-            if (st.complexities && st.complexities.size > 0) {
-                if (!st.complexities.has(complexity)) return false;
-            } else if (st.complexity && complexity !== st.complexity) {
-                return false;
-            }
-
-            // Category filter: card must be inside a selected section
-            if (st.categories.size > 0) {
-                var section = card.closest('[id^="cat-"]');
-                if (!section || !st.categories.has(section.id)) return false;
-            }
+            if (discoverFilterState.useCases.size > 0 && !useCases.some(function(u) { return discoverFilterState.useCases.has(u); })) return false;
+            if (discoverFilterState.complexities.size > 0 && !discoverFilterState.complexities.has(complexity)) return false;
 
             return true;
         }
 
-        /** Apply filters: show/hide cards within sections, hide empty sections */
+        /** Apply filters: show/hide cards, hide empty sections, update status */
         function applyDiscoverFilters() {
             if (!hasActiveFilters()) {
                 allCards.forEach(function(c) { c.classList.remove('discover-card--hidden'); });
@@ -8973,65 +8877,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 section.classList.toggle('discover-section--hidden', visible.length === 0);
             });
 
-            // Build summary of active filters across all modes
+            // Build status summary
             var parts = [];
             if (discoverFilterState.useCases.size > 0) {
                 var ucLabels = [];
                 discoverFilterState.useCases.forEach(function(id) {
-                    var found = DISCOVER_MODES.usecase.chips.find(function(c) { return c.id === id; });
+                    var found = USECASE_CHIPS.find(function(c) { return c.id === id; });
                     if (found) ucLabels.push(found.label);
                 });
                 parts.push(ucLabels.join(', '));
             }
-            if (discoverFilterState.complexities && discoverFilterState.complexities.size > 0) {
+            if (discoverFilterState.complexities.size > 0) {
                 var cLabels = [];
                 discoverFilterState.complexities.forEach(function(id) {
-                    var found = DISCOVER_MODES.complexity.chips.find(function(c) { return c.id === id; });
+                    var found = COMPLEXITY_CHIPS.find(function(c) { return c.id === id; });
                     if (found) cLabels.push(found.label);
                 });
                 parts.push(cLabels.join(', '));
-            } else if (discoverFilterState.complexity) {
-                var cFound = DISCOVER_MODES.complexity.chips.find(function(c) { return c.id === discoverFilterState.complexity; });
-                if (cFound) parts.push(cFound.label);
-            }
-            if (discoverFilterState.categories.size > 0) {
-                var catLabels = [];
-                discoverFilterState.categories.forEach(function(id) {
-                    var found = DISCOVER_MODES.category.chips.find(function(c) { return c.id === id; });
-                    if (found) catLabels.push(found.label);
-                });
-                parts.push(catLabels.join(', '));
             }
             var summary = parts.length > 0 ? ' (' + parts.join(' + ') + ')' : '';
             statusEl.textContent = 'Showing ' + matchCount + ' of ' + discoverFilterState.totalCount + summary;
         }
 
-        /** Clear all filters across all modes */
+        /** Clear all filters */
         function clearAll() {
             discoverFilterState.useCases.clear();
-            discoverFilterState.complexity = null;
-            discoverFilterState.categories.clear();
-            if (discoverFilterState.complexities) discoverFilterState.complexities.clear();
-            // Re-render chips to reset aria-pressed
-            renderChips(discoverFilterState.activeMode);
+            discoverFilterState.complexities.clear();
+            usecaseContainer.querySelectorAll('[data-usecase]').forEach(function(c) {
+                c.setAttribute('aria-pressed', 'false');
+            });
+            complexityContainer.querySelectorAll('[data-complexity]').forEach(function(c) {
+                c.setAttribute('aria-pressed', 'false');
+            });
             applyDiscoverFilters();
         }
-
-        // --- Event: Mode Selector Change ---
-        modeSelect.addEventListener('change', function() {
-            discoverFilterState.activeMode = modeSelect.value;
-            renderChips(modeSelect.value);
-        });
 
         // --- Event: Clear All Button ---
         if (clearBtn) clearBtn.addEventListener('click', clearAll);
 
-        // --- Event: Multi-Select Toggle ---
+        // --- Event: Select Multiple Toggle ---
         if (multiCheck) {
             multiCheck.addEventListener('change', function() {
-                // When toggled OFF, clear all filters and reset
                 if (!multiCheck.checked) {
-                    clearAll();
+                    var changed = false;
+                    // Collapse use cases to first selected
+                    if (discoverFilterState.useCases.size > 1) {
+                        var firstUC = discoverFilterState.useCases.values().next().value;
+                        discoverFilterState.useCases.clear();
+                        discoverFilterState.useCases.add(firstUC);
+                        usecaseContainer.querySelectorAll('[data-usecase]').forEach(function(c) {
+                            c.setAttribute('aria-pressed', c.getAttribute('data-usecase') === firstUC ? 'true' : 'false');
+                        });
+                        changed = true;
+                    }
+                    // Collapse complexities to first selected
+                    if (discoverFilterState.complexities.size > 1) {
+                        var firstC = discoverFilterState.complexities.values().next().value;
+                        discoverFilterState.complexities.clear();
+                        discoverFilterState.complexities.add(firstC);
+                        complexityContainer.querySelectorAll('[data-complexity]').forEach(function(c) {
+                            c.setAttribute('aria-pressed', c.getAttribute('data-complexity') === firstC ? 'true' : 'false');
+                        });
+                        changed = true;
+                    }
+                    if (changed) applyDiscoverFilters();
                 }
             });
         }
@@ -9058,7 +8967,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Initialize ---
         sortCardsByComplexity();
-        renderChips('usecase');
+        initChips();
+
+        // Default selection: Math & Logic + Beginner
+        var defaultUC = usecaseContainer.querySelector('[data-usecase="math"]');
+        var defaultCL = complexityContainer.querySelector('[data-complexity="beginner"]');
+        if (defaultUC) handleUsecaseClick(defaultUC, 'math');
+        if (defaultCL) handleComplexityClick(defaultCL, 'beginner');
     }
 
     initDiscoverFilters();

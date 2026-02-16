@@ -643,10 +643,7 @@ body.menu-open .header .search-trigger {
     background: var(--bg-primary);
     z-index: 99;
     padding: 80px var(--space-md) var(--space-md);
-    transform: translateX(100%);
-    opacity: 0;
-    transition: transform var(--transition-normal),
-                opacity var(--transition-normal);
+    display: none;
 }
 
 [data-theme="dark"] .nav-mobile {
@@ -654,8 +651,7 @@ body.menu-open .header .search-trigger {
 }
 
 .nav-mobile.active {
-    transform: translateX(0);
-    opacity: 1;
+    display: block;
 }
 
 .nav-mobile a {
@@ -6866,8 +6862,10 @@ textarea:focus-visible {
     align-items: center;
     border-radius: var(--radius-md);
     color: var(--text-primary);
-    /* No transitions or hover effects - clean tap experience */
+    /* No transitions, hover effects, or tap highlights - clean tap experience */
     transition: none;
+    -webkit-tap-highlight-color: transparent;
+    transform: none;
 }
 
 /* Kill all hover/touch/active effects on mobile nav links */
@@ -6877,6 +6875,9 @@ textarea:focus-visible {
     color: var(--text-primary);
     background: transparent;
     transition: none;
+    transform: none;
+    padding: var(--space-md) var(--space-sm);
+    outline: none;
 }
 
 /* Prevent body scroll when menu is open */
@@ -7440,7 +7441,9 @@ body.menu-open {
 
     /* Override desktop hover/active transform on mobile */
     .nav-item.has-dropdown:hover .mega-menu,
-    .nav-item.has-dropdown.is-active .mega-menu {
+    .nav-item.has-dropdown.is-active .mega-menu,
+    .nav-item.has-dropdown:hover .mega-menu.mega-menu--categories,
+    .nav-item.has-dropdown.is-active .mega-menu.mega-menu--categories {
         transform: none;
         opacity: 1;
         visibility: visible;
@@ -25953,156 +25956,7 @@ h3 + .nav-cards--compact {
     align-items: center;
 }
 
-/* === PROMPT INFOGRAPHIC ===
-   Visual template showing a complete framework prompt
-   Used on framework pages to show professional prompt examples */
-.prompt-infographic {
-    background: #FFFFFF;
-    border-radius: var(--radius-md);
-    padding: 14px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    position: relative;
-    margin-bottom: var(--space-sm);
-}
-
-.prompt-infographic::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-}
-
-/* Infographic Header ---- */
-.prompt-infographic__header {
-    text-align: center;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.prompt-infographic__letters {
-    display: inline-flex;
-    gap: 4px;
-    margin-bottom: 4px;
-}
-
-.prompt-infographic__letters span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    font-weight: 800;
-    font-size: 0.7rem;
-    border-radius: var(--radius-sm);
-    color: #fff;
-    font-family: var(--font-mono);
-}
-
-.prompt-infographic__letters span:nth-child(4n+1) { background: var(--primary); }
-.prompt-infographic__letters span:nth-child(4n+2) { background: var(--text-primary); }
-.prompt-infographic__letters span:nth-child(4n+3) { background: var(--text-muted); }
-.prompt-infographic__letters span:nth-child(4n) { background: var(--primary-dark); }
-
-.prompt-infographic__title {
-    color: var(--text-muted);
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-}
-
-/* Infographic Rows ---- */
-.prompt-infographic__rows {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.prompt-infographic__row {
-    display: flex;
-    gap: 6px;
-    align-items: stretch;
-}
-
-.prompt-infographic__letter {
-    flex: 0 0 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 0.8rem;
-    border-radius: var(--radius-sm);
-    color: #fff;
-    font-family: var(--font-mono);
-}
-
-.prompt-infographic__row:nth-child(4n+1) .prompt-infographic__letter { background: var(--primary); }
-.prompt-infographic__row:nth-child(4n+2) .prompt-infographic__letter { background: var(--text-primary); }
-.prompt-infographic__row:nth-child(4n+3) .prompt-infographic__letter { background: var(--text-muted); }
-.prompt-infographic__row:nth-child(4n) .prompt-infographic__letter { background: var(--primary-dark); }
-
-.prompt-infographic__field {
-    flex: 1;
-    background: var(--bg-secondary);
-    border-radius: var(--radius-sm);
-    padding: 5px 10px;
-    border-left: 3px solid;
-    transition: background var(--transition-fast);
-}
-
-.prompt-infographic__field:hover {
-    background: #E9EBEE;
-}
-
-.prompt-infographic__row:nth-child(4n+1) .prompt-infographic__field { border-left-color: var(--primary); }
-.prompt-infographic__row:nth-child(4n+2) .prompt-infographic__field { border-left-color: var(--text-primary); }
-.prompt-infographic__row:nth-child(4n+3) .prompt-infographic__field { border-left-color: var(--text-muted); }
-.prompt-infographic__row:nth-child(4n) .prompt-infographic__field { border-left-color: var(--primary-dark); }
-
-.prompt-infographic__label {
-    display: block;
-    font-weight: 700;
-    color: var(--text-primary);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 1px;
-}
-
-.prompt-infographic__text {
-    color: var(--text-secondary);
-    font-size: 0.74rem;
-    line-height: 1.45;
-    margin: 0;
-}
-
-/* Infographic Footer ---- */
-.prompt-infographic__footer {
-    text-align: center;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border-light);
-}
-
-.prompt-infographic__footer-text {
-    color: #6B7280;
-    font-size: 0.65rem;
-    font-style: italic;
-}
-
-.prompt-infographic__footer-text strong {
-    color: var(--primary);
-    font-style: normal;
-}
-
-/* Prompt Mini Legend ---- */
+/* Split Section Stretch ---- */
 .split-section--stretch .highlight-box {
     height: 100%;
     margin: 0;
@@ -26115,80 +25969,6 @@ h3 + .nav-cards--compact {
     height: 100%;
 }
 
-.prompt-mini {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 6px;
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    justify-content: center;
-}
-
-.prompt-mini__item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid transparent;
-    transition: background var(--transition-fast);
-}
-
-.prompt-mini__item:hover {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.prompt-mini__badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: 800;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.prompt-mini__item:nth-child(5n+1) .prompt-mini__badge { background: var(--primary); }
-.prompt-mini__item:nth-child(5n+2) .prompt-mini__badge { background: var(--text-primary); }
-.prompt-mini__item:nth-child(5n+3) .prompt-mini__badge { background: var(--text-muted); }
-.prompt-mini__item:nth-child(5n+4) .prompt-mini__badge { background: var(--primary-dark); }
-.prompt-mini__item:nth-child(5n)   .prompt-mini__badge { background: var(--primary); }
-
-.prompt-mini__item:nth-child(5n+1) { border-left-color: var(--primary); }
-.prompt-mini__item:nth-child(5n+2) { border-left-color: var(--text-primary); }
-.prompt-mini__item:nth-child(5n+3) { border-left-color: var(--text-muted); }
-.prompt-mini__item:nth-child(5n+4) { border-left-color: var(--primary-dark); }
-.prompt-mini__item:nth-child(5n)   { border-left-color: var(--primary); }
-
-.prompt-mini__text {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 0;
-}
-
-.prompt-mini__label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 0.3px;
-    line-height: 1.2;
-}
-
-.prompt-mini__desc {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    line-height: 1.3;
-}
 
 /* ============================================
    MOBILE PERFORMANCE OPTIMIZATIONS
@@ -29390,47 +29170,27 @@ h3 + .nav-cards--compact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
 }
 
-.discover-bar__controls {
+/* Filter Row (label + chips) ---- */
+.discover-bar__row {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    width: 100%;
     justify-content: center;
 }
 
-/* Label + Select ---- */
-.discover-bar__label {
-    font-size: 0.8rem;
+.discover-bar__row-label {
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     white-space: nowrap;
-}
-
-.discover-bar__select {
-    padding: 6px 28px 6px 10px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7280'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    transition: border-color var(--transition-fast);
-}
-
-.discover-bar__select:hover {
-    border-color: var(--primary);
-}
-
-.discover-bar__select:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
+    flex-shrink: 0;
+    min-width: 56px;
 }
 
 /* Chips Container ---- */
@@ -29475,14 +29235,14 @@ h3 + .nav-cards--compact {
     box-shadow: 0 2px 8px rgba(220, 53, 69, 0.25);
 }
 
-/* Complexity chips: neutral dark active state */
+/* Complexity chips: neutral dark active state ---- */
 .discover-bar__chip--complexity[aria-pressed="true"] {
     background: var(--text-primary);
     border-color: var(--text-primary);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Multi-Select Toggle ---- */
+/* Combine Toggle Switch ---- */
 .discover-bar__multi-toggle {
     display: inline-flex;
     align-items: center;
@@ -29610,36 +29370,28 @@ h3 + .nav-cards--compact {
 /* Discover Filter Bar Responsive ---- */
 @media (max-width: 768px) {
     .discover-bar {
-        top: calc(60px + var(--ticker-offset, 0px));
+        top: calc(77px + var(--ticker-offset, 0px));
         padding: 6px 0;
     }
 
     .discover-bar__inner {
-        gap: 6px;
-        overflow: hidden;
+        gap: 4px;
     }
 
-    .discover-bar__label {
-        font-size: 0.72rem;
-        flex-shrink: 0;
-    }
-
-    .discover-bar__select {
-        padding: 4px 22px 4px 8px;
-        font-size: 0.78rem;
-        flex-shrink: 0;
+    .discover-bar__row-label {
+        display: none;
     }
 
     .discover-bar__chips {
-        flex: 1 1 0;
         flex-wrap: nowrap;
+        justify-content: flex-start;
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 5px;
-        padding: 2px 0;
-        mask-image: linear-gradient(to right, transparent 0%, black 2%, black 92%, transparent 100%);
+        padding: 2px 4px;
+        mask-image: linear-gradient(to right, black 0%, black 96%, transparent 100%);
     }
 
     .discover-bar__chips::-webkit-scrollbar {
@@ -29657,7 +29409,7 @@ h3 + .nav-cards--compact {
     }
 
     [id^="cat-"] {
-        scroll-margin-top: calc(150px + var(--ticker-offset, 0px));
+        scroll-margin-top: calc(180px + var(--ticker-offset, 0px));
     }
 }
 
