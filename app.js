@@ -432,14 +432,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.setProperty('--ticker-offset', '0px');
 
     /**
-     * Scroll engine — slide in from right → hold 5.55s → fade out →
-     * 3.33s pause → next message. Eternal loop.
+     * Scroll engine — slide in from label → hold 10s → fade out →
+     * 5s pause → next message. Eternal loop.
      */
     function tickerScrollLoop() {
         if (!ethicsTickerTextEl || !ethicsTickerRunning) return;
 
         var msgWrap = ethicsTickerTextEl.parentNode;
         var fullText = ethicsTickerMessages[ethicsTickerIndex];
+
+        // Align text right edge with search trigger right edge
+        var searchTrigger = document.getElementById('search-trigger');
+        var tickerInner = msgWrap.parentNode;
+        if (searchTrigger && tickerInner) {
+            var triggerRight = searchTrigger.getBoundingClientRect().right;
+            var innerRight = tickerInner.getBoundingClientRect().right;
+            var innerPad = parseFloat(getComputedStyle(tickerInner).paddingRight) || 0;
+            var padRight = (innerRight - innerPad) - triggerRight;
+            msgWrap.style.paddingRight = padRight > 0 ? padRight + 'px' : '0';
+        }
 
         // Reset state
         msgWrap.classList.remove('ethics-ticker__msg--visible', 'ethics-ticker__msg--fading');
@@ -449,19 +460,19 @@ document.addEventListener('DOMContentLoaded', () => {
         void msgWrap.offsetWidth;
         msgWrap.classList.add('ethics-ticker__msg--visible');
 
-        // Hold 5.55s after slide-in completes (800ms transition)
+        // Hold 10s after slide-in completes (800ms transition)
         setTimeout(function() {
             if (!ethicsTickerRunning) return;
             msgWrap.classList.add('ethics-ticker__msg--fading');
 
-            // After fade-out completes (500ms) + 3.33s pause → next
+            // After fade-out completes (500ms) + 5s pause → next
             setTimeout(function() {
                 msgWrap.classList.remove('ethics-ticker__msg--visible', 'ethics-ticker__msg--fading');
                 ethicsTickerTextEl.textContent = '';
                 ethicsTickerIndex = (ethicsTickerIndex + 1) % ethicsTickerMessages.length;
-                setTimeout(tickerScrollLoop, 3330);
+                setTimeout(tickerScrollLoop, 5000);
             }, 500);
-        }, 800 + 5550);
+        }, 800 + 10000);
     }
 
     /** Start the scroll loop */

@@ -337,14 +337,14 @@ p {
 
 .ethics-ticker__msg {
     flex: 1;
-    text-align: center;
+    text-align: right;
     padding: 0;
     overflow: hidden;
 }
 
 .ethics-ticker__msg span {
     display: inline-block;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     opacity: 1;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 opacity 0.5s ease;
@@ -17932,6 +17932,8 @@ h3 + .nav-cards--compact {
 .counter-box {
     text-align: center;
     padding: var(--space-xl);
+    text-decoration: none;
+    color: inherit;
 }
 
 .counter-box__icon {
@@ -18015,6 +18017,7 @@ h3 + .nav-cards--compact {
     margin-top: var(--space-sm);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .counter-description {
